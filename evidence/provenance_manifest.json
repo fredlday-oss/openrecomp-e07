@@ -1,0 +1,29 @@
+{
+  "compile_flags": {
+    "input": "--target=riscv32-unknown-elf -march=rv32i -mabi=ilp32 -O0 -ffreestanding -fno-builtin -fno-stack-protector -fno-pic -nostdlib -Wl,--build-id=none",
+    "native": "-O2 -std=c11 -Wl,--build-id=none",
+    "wasm": "--target=wasm32 -O2 -nostdlib -Wl,--no-entry -Wl,--export=run_fixture"
+  },
+  "generated_at_utc": "2026-08-30T12:37:51.245162+00:00",
+  "generated_c_sha256": "55c546e6128108ac06f987ee7f0abd6883843bf0d78596b9a6d2e2d67ed22e1b",
+  "host_contract_version": "0.1.1",
+  "input_sha256": "1f6456b7b1a3885f71f6536f196826eeab2c2a64322e30780324da7e142f3ff2",
+  "ir_schema_version": "0.1.1",
+  "ir_sha256": "72c5dd516603f5e79e6352c756febfa582a21e5ae341b8746a8c23d039fb92da",
+  "manifest_version": "0.1.0",
+  "native_binary_sha256": "7cd3b36f78230ad1faed4dd1be47f643b1d90a5a156e215334b72281323c6ed2",
+  "outputs": {
+    "audio.wav": "e98759566224c189bc4c53a3542c45c31120f74b172c13f819cf84cc3ff8940f",
+    "frame.ppm": "f69526b32e0b5fc4e772bc16886b793e746ae599c55cf6743ed72e515da9fe48",
+    "state.json": "0a0aea020d7fe5a0258e2047d50101c710dd8d531ff265f9f1a303525032dd9f"
+  },
+  "rights_statement": "Synthetic original source only; no proprietary game assets, keys, firmware, SDK material, or console-derived binary formats.",
+  "toolchain": {
+    "clang": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+    "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "node": "v22.16.0",
+    "python": "3.13.5"
+  },
+  "translator_version": "0.1.1",
+  "wasm_sha256": "c324c028a665cd2de091a2599a844497b5d87adaa230a640c053398ea88dada5"
+}

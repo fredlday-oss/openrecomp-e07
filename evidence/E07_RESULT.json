@@ -12,24 +12,70 @@
     {
       "instructions": 46,
       "name": "corpus_global_state.ir",
-      "ops": ["add","addi","jal","jalr","lui","lw","sw","xor"]
+      "ops": [
+        "add",
+        "addi",
+        "jal",
+        "jalr",
+        "lui",
+        "lw",
+        "sw",
+        "xor"
+      ]
     },
     {
       "instructions": 35,
       "name": "corpus_loop.ir",
-      "ops": ["add","addi","bltu","jal","jalr","lui","lw","slli","sw"]
+      "ops": [
+        "add",
+        "addi",
+        "bltu",
+        "jal",
+        "jalr",
+        "lui",
+        "lw",
+        "slli",
+        "sw"
+      ]
     },
     {
       "instructions": 20,
       "name": "corpus_trivial.ir",
-      "ops": ["addi","jal","jalr","lui","lw","sw"]
+      "ops": [
+        "addi",
+        "jal",
+        "jalr",
+        "lui",
+        "lw",
+        "sw"
+      ]
     }
   ],
   "direct_call_edges": 13,
   "fixture_instruction_count": 257,
   "host_interface_count": 4,
-  "host_interfaces_exercised": ["host_audio","host_graphics","host_input","host_system"],
-  "proven_instruction_subset": ["add","addi","andi","bgeu","bltu","jal","jalr","lhu","lui","lw","slli","srli","sw","xor"],
+  "host_interfaces_exercised": [
+    "host_audio",
+    "host_graphics",
+    "host_input",
+    "host_system"
+  ],
+  "proven_instruction_subset": [
+    "add",
+    "addi",
+    "andi",
+    "bgeu",
+    "bltu",
+    "jal",
+    "jalr",
+    "lhu",
+    "lui",
+    "lw",
+    "slli",
+    "srli",
+    "sw",
+    "xor"
+  ],
   "status": "PASS",
   "unresolved_indirect_calls": 22
 }
