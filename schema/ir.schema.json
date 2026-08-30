@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpenRecomp E07 IR",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ir_version",
+    "architecture",
+    "architecture_adapter",
+    "input_sha256",
+    "entry_point",
+    "fixture_entry",
+    "functions",
+    "basic_block_count",
+    "direct_call_graph",
+    "unresolved_indirect_calls",
+    "host_markers",
+    "instructions",
+    "alloc_sections",
+    "symbols"
+  ],
+  "properties": {
+    "ir_version": {
+      "const": "0.1.1"
+    },
+    "architecture": {
+      "type": "string",
+      "minLength": 1
+    },
+    "architecture_adapter": {
+      "type": "object"
+    },
+    "input_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "entry_point": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "fixture_entry": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "functions": {
+      "type": "array"
+    },
+    "basic_block_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "direct_call_graph": {
+      "type": "array"
+    },
+    "unresolved_indirect_calls": {
+      "type": "array"
+    },
+    "host_markers": {
+      "type": "array"
+    },
+    "instructions": {
+      "type": "array",
+      "minItems": 1
+    },
+    "alloc_sections": {
+      "type": "array"
+    },
+    "symbols": {
+      "type": "array"
+    }
+  }
+}
