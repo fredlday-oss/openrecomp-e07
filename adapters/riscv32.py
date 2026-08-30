@@ -17,11 +17,13 @@ def decode(address, w):
         elif f3==5 and f7==0: d.update(op="srli",imm=(w>>20)&31)
         else: raise ValueError(f"unsupported OP-IMM 0x{w:08x} at 0x{address:x}")
     elif op==0x33:
-        names={(0,0):"add",(4,0):"xor"}; k=(f3,f7)
+        names={(0,0):"add",(4,0):"xor"}
+        k=(f3,f7)
         if k not in names: raise ValueError(f"unsupported OP 0x{w:08x} at 0x{address:x}")
         d["op"]=names[k]
     elif op==0x03:
-        imm=sext(w>>20,12); names={2:"lw",5:"lhu"}
+        imm=sext(w>>20,12)
+        names={2:"lw",5:"lhu"}
         if f3 not in names: raise ValueError(f"unsupported LOAD 0x{w:08x} at 0x{address:x}")
         d.update(op=names[f3],imm=imm)
     elif op==0x23:
@@ -32,7 +34,8 @@ def decode(address, w):
         d.update(op="lui",imm=w&0xfffff000)
     elif op==0x63:
         imm=((w>>31)&1)<<12 | ((w>>7)&1)<<11 | ((w>>25)&0x3f)<<5 | ((w>>8)&0xf)<<1
-        imm=sext(imm,13); names={6:"bltu",7:"bgeu",0:"beq",1:"bne"}
+        imm=sext(imm,13)
+        names={6:"bltu",7:"bgeu",0:"beq",1:"bne"}
         if f3 not in names: raise ValueError(f"unsupported BRANCH 0x{w:08x} at 0x{address:x}")
         d.update(op=names[f3],imm=imm,target=(address+imm)&0xffffffff)
     elif op==0x6f:
