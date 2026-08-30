@@ -1,0 +1,31 @@
+{
+  "contract_version": "0.1.1",
+  "graphics": {
+    "width": 4,
+    "height": 4,
+    "channels": 3,
+    "output": "frame.ppm",
+    "xor_g": 85,
+    "xor_b": 170
+  },
+  "audio": {
+    "sample_count": 16,
+    "sample_rate_hz": 8000,
+    "channels": 1,
+    "bits_per_sample": 16,
+    "sample_step": 257,
+    "output": "audio.wav"
+  },
+  "input": {"values": [4,7,1,9,2,6,3,8]},
+  "system": {
+    "tick_start": 0,
+    "deterministic_bias": 7,
+    "wall_clock": false,
+    "randomness": false,
+    "allocator": "fixed linear arena"
+  },
+  "memory": {
+    "size_bytes": 262144,
+    "oob_policy": "deterministic fault"
+  }
+}
