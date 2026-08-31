@@ -8,7 +8,7 @@ OpenRecomp separates immutable proof inputs from generated evidence and mutable 
 
 General project documentation is intentionally not part of this immutable E07 proof-input manifest. Documentation can evolve without invalidating that executable proof.
 
-Newer IR V1/Core API/MIPS32/AOT/Native-ABI/Windows-portability regression gates are independently enforced by GitHub Actions and their own deterministic comparisons rather than silently changing the historical E07 source manifest.
+Newer IR V1/Core API/MIPS32/AOT/Native-ABI/Windows-portability/Unreal-host regression gates are independently enforced by GitHub Actions and their own deterministic comparisons rather than silently changing the historical E07 source manifest.
 
 `.gitattributes` pins proof/source text files to LF so exact byte hashes remain stable across Linux and Windows checkouts. This was added after the first Windows portability run correctly rejected a CRLF-converted host contract by SHA-256; hash validation was not weakened.
 
@@ -167,6 +167,30 @@ OPENRECOMP_AOT_WINDOWS_PORTABILITY_V1=PASS
 
 Generated DLLs are not committed. The workflow retains public-safe JSON/layout/export evidence as an Actions artifact.
 
+## Unreal Native AOT host reproducibility
+
+`OPENRECOMP_UNREAL_NATIVE_AOT_HOST_V1` extends the Windows ABI proof into an actual UE5.8 host without changing Native AOT ABI V1.
+
+CI first builds the validated E07 RV32I IR/Module/Core reference artifacts, regenerates portable C and the ABI adapter on Windows, and builds the synthetic AOT DLL with MSVC and clang-cl. The engine-independent host core is also built with both compilers. All four host/module combinations must reject a missing required host, validate exact normalized metadata, exercise the deterministic E07 callbacks, and reproduce:
+
+```text
+UNREAL_NATIVE_AOT_SOURCE_ARCH=riscv32-rv32i
+UNREAL_NATIVE_AOT_OBSERVED_STATE=48
+UNREAL_NATIVE_AOT_CHECKSUM=122010428
+UNREAL_NATIVE_AOT_OPERATIONS=3866
+OPENRECOMP_UNREAL_NATIVE_AOT_HOST_CORE_V1=PASS
+```
+
+The CI workflow packages the MSVC synthetic DLL plus the exact frozen ABI header and six Unreal Native AOT host source files as the runtime handoff. The local UE5.8 installer hashes every installed artifact. The returned runtime manifest was independently compared against the CI handoff and all eight tested artifacts matched byte-for-byte by SHA-256.
+
+The UE5.8 Editor build passed and PIE then produced the public-safe authoritative marker:
+
+```text
+OPENRECOMP_UNREAL_NATIVE_AOT_HOST_V1 PASS module=e07.rv32i.fixture-full.ir-v1 arch=riscv32-rv32i observed_state=48 checksum=122010428 operations=3866
+```
+
+The result bundle also confirmed that the existing Gate B source and frozen ABI header were unchanged and that no raw Unreal log was copied. The repository retains only the allow-listed marker at `evidence/UNREAL_NATIVE_AOT_HOST_V1_PUBLIC_SAFE.txt`.
+
 ## Golden validation
 
 The committed E07 golden framebuffer, audio and state outputs remain regression references for the original RV32I fixture. The MIPS32 vertical slice uses explicit expected state/memory/checksum metadata plus independent cross-path agreement rather than reusing the E07 host-output goldens.
@@ -175,7 +199,7 @@ The committed E07 golden framebuffer, audio and state outputs remain regression 
 
 The E07 translated workload is executed through native and WebAssembly host paths and their checksums must agree. The host-free MIPS32 slice validates guest semantics by comparing an independent machine-code reference against the common IR/Module/Core path.
 
-The portable C AOT path adds another independent execution form: native code produced from normalized IR rather than interpreted by `ReferenceExecutor`. Native AOT ABI V1 keeps host semantics outside generated guest code and makes the host-call bridge explicit and versioned. Windows x64 now executes that same boundary under two additional compiler toolchains and is checked against the Linux/Core oracle.
+The portable C AOT path adds another independent execution form: native code produced from normalized IR rather than interpreted by `ReferenceExecutor`. Native AOT ABI V1 keeps host semantics outside generated guest code and makes the host-call bridge explicit and versioned. Windows x64 executes that same boundary under two additional compiler toolchains and is checked against the Linux/Core oracle. UE5.8 now consumes the same frozen query/table boundary and reproduces the established RV32I AOT result through a real engine host.
 
 ## Classification
 
@@ -194,6 +218,8 @@ Reproducibility does not automatically promote a feature's status:
 - Native AOT ABI V1 Linux GCC/Clang: **PASS — bounded dual-architecture execution**
 - Native AOT ABI V1 Windows x64 MSVC/clang-cl: **PASS — bounded dual-architecture execution and Linux/Core parity**
 - Cross-platform proof-text byte stability: **PASS — Linux/Windows LF-stable hashed inputs**
+- Unreal Native AOT host core: **PASS — MSVC/clang-cl four-way host/module matrix**
+- Unreal Native AOT host V1 UE5.8 runtime: **PROVEN-RUNTIME — bounded E07 RV32I AOT module**
 - General MIPS32 ISA/frontend coverage: **CANDIDATE**
 - macOS / Windows ARM64 / Windows x86 Native AOT ABI parity: **CANDIDATE**
-- Release-quality production AOT compiler pipeline: **CANDIDATE**
+- Release-quality production AOT compiler/plugin pipeline: **CANDIDATE**

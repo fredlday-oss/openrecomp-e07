@@ -31,7 +31,7 @@ The RV32I bridge lowers that proven fixture into normalized IR V1 and reproduces
 
 The normalized layer uses portable operations, explicit state, explicit memory semantics, named host calls and bounded control-flow targets. Guest-specific rules such as delay slots, link-register conventions and zero-register behavior are frontend responsibilities and must be lowered before common execution/translation consumes V1.
 
-The contract itself was not extended to add MIPS32, harden the AOT backend, introduce the native ABI or pass Windows portability. Those later frontiers validate consumers of the frozen normalized boundary rather than moving guest-, compiler- or platform-specific semantics into IR V1.
+The contract itself was not extended to add MIPS32, harden the AOT backend, introduce the native ABI, pass Windows portability or integrate Unreal. Those later frontiers validate consumers of the frozen normalized boundary rather than moving guest-, compiler-, platform- or engine-specific semantics into IR V1.
 
 ## Module Image V1 and Core API
 
@@ -112,7 +112,7 @@ The query requires the exact `0x00010000` ABI version and exact V1 structure siz
 
 The RV32I proof exercises the V1 host callback bridge with real normalized host calls. The current MIPS32 fixture is host-call-free and exercises the same ABI without a host binding.
 
-Native AOT ABI V1 remains **FROZEN-FOR-PORTABILITY-TESTING**. Linux GCC/Clang and Windows x64 MSVC/clang-cl now both cross that unchanged contract for the current bounded RV32I and MIPS32 workloads.
+Native AOT ABI V1 remains **FROZEN-FOR-PORTABILITY-TESTING**. Linux GCC/Clang and Windows x64 MSVC/clang-cl both cross that unchanged contract for the current bounded RV32I and MIPS32 workloads.
 
 ## Windows x64 native portability
 
@@ -148,28 +148,36 @@ Compatibility remains fail-closed: unsupported IR, invalid module metadata, inte
 
 ## Unreal Engine interoperability
 
-The Unreal Engine 5.8 proof demonstrates a host integration outside the native/WebAssembly fixture. The authoritative Gate B runtime validation is separate from the timer-driven visual replay used for presentation.
+OpenRecomp has two separate UE5.8 proof paths.
 
-Expected final state:
-
-```text
-x=15
-y=6
-frame=8
-rgba=ff3aa7ff
-```
-
-Authoritative runtime proof:
+The historical Gate B proof remains an independent synthetic runtime validation with a separate timer-driven visual replay:
 
 ```text
 OPENRECOMP_GATE_B PASS x=15 y=6 rgba=ff3aa7ff frame=8
-```
-
-Presentation replay:
-
-```text
 OPENRECOMP_DEMO PASS x=15 y=6 rgba=ff3aa7ff frame=8
 ```
+
+`OPENRECOMP_UNREAL_NATIVE_AOT_HOST_V1` additionally proves that the actual normalized/AOT architecture can cross into UE5.8 on Windows x64:
+
+```text
+RV32I IR V1
+ -> Module Image V1
+ -> hardened portable C AOT
+ -> Windows x64 DLL
+ -> openrecomp_native_aot_query
+ -> Native AOT ABI V1
+ -> FPlatformProcess loader
+ -> Unreal deterministic host callbacks
+ -> validated runtime result
+```
+
+The engine-independent host core is cross-compiled and cross-linked in a four-way MSVC/clang-cl host/module matrix before the actual UE runtime gate. UE5.8 then builds the host integration and PIE produces:
+
+```text
+OPENRECOMP_UNREAL_NATIVE_AOT_HOST_V1 PASS module=e07.rv32i.fixture-full.ir-v1 arch=riscv32-rv32i observed_state=48 checksum=122010428 operations=3866
+```
+
+The runtime installation manifest matches the CI handoff for all eight tested source/header/DLL artifacts by SHA-256. The frozen ABI header and original Gate B source remain unchanged. This establishes **PROVEN-RUNTIME — bounded UE5.8 Windows x64 Native AOT host validation** for the current E07 RV32I synthetic module.
 
 ## Generalization status
 
@@ -188,9 +196,11 @@ OPENRECOMP_DEMO PASS x=15 y=6 rgba=ff3aa7ff frame=8
 - Native AOT ABI V1 Linux GCC/Clang: **PASS — bounded RV32I + MIPS32 execution**
 - Native AOT ABI V1 Windows x64 MSVC/clang-cl: **PASS — bounded RV32I + MIPS32 execution and Linux/Core parity**
 - Native AOT ABI V1 single-symbol public surface: **PASS — Linux + Windows x64 proof modules**
+- Unreal Native AOT host core: **PASS — four-way MSVC/clang-cl host/module matrix**
+- Unreal Native AOT host V1 UE5.8 runtime: **PROVEN-RUNTIME — bounded E07 RV32I module**
 - General MIPS32 ISA/frontend coverage: **CANDIDATE**
 - macOS / Windows ARM64 / Windows x86 Native AOT ABI parity: **CANDIDATE**
-- Release-quality production AOT compiler pipeline: **CANDIDATE**
-- Unreal Gate B: **PROVEN-RUNTIME**
+- Release-quality production AOT compiler/plugin pipeline: **CANDIDATE**
+- Original Unreal Gate B: **PROVEN-RUNTIME**
 
-The second guest architecture, hardened common AOT backend and versioned native ABI have crossed the common interfaces for bounded clean synthetic workloads on Linux and Windows x64. Broader architecture and compiler-platform support remains evidence-gated rather than inferred from these vertical slices.
+The second guest architecture, hardened common AOT backend, versioned native ABI and first real-engine Native AOT host have crossed the common interfaces for bounded clean synthetic workloads. Broader architecture, platform, deployment and release-quality support remains evidence-gated rather than inferred from these vertical slices.
