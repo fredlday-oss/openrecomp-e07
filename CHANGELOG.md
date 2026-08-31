@@ -5,6 +5,9 @@ Significant project changes will be recorded here.
 ## Unreleased
 
 ### Added
+- `OPENRECOMP_AOT_WINDOWS_PORTABILITY_V1` cross-OS gate for the frozen Native AOT ABI V1 on Windows x64 under MSVC and clang-cl.
+- Windows x64 ABI layout probe pinning the V1 host structure at 24 bytes, API table at 168 bytes and every public field offset.
+- Windows DLL export, ABI-negotiation and Linux/Core reference-parity checks for the current RV32I and bounded MIPS32 workloads.
 - `OPENRECOMP_NATIVE_AOT_ABI_V1` public fixed-width C contract with a single versioned `openrecomp_native_aot_query` discovery entry point.
 - Deterministic Module Image-backed Native AOT ABI adapter generation with module/IR/host-contract/source-provenance metadata and explicit capability flags.
 - Native AOT ABI V1 fail-closed version/structure-size negotiation and versioned host callback structure with opaque user data.
@@ -37,8 +40,10 @@ Significant project changes will be recorded here.
 - Contributor, security, build and reproducibility guidance.
 
 ### Changed
-- Native AOT ABI V1 is now **FROZEN-FOR-PORTABILITY-TESTING**; incompatible layout/signature changes must use a new ABI version rather than silently changing V1.
-- Finished Linux ABI proof modules use hidden default symbol visibility so the generated legacy execution functions remain private and the V1 query is the stable OpenRecomp entry point.
+- Native AOT ABI V1 Windows x64 portability is now **PASS** for the bounded RV32I and MIPS32 workloads under both MSVC and clang-cl; macOS, Windows ARM64 and Windows x86 remain separate candidate gates.
+- Added `.gitattributes` LF rules for proof/source text after Windows CRLF checkout conversion correctly caused Module Image host-contract SHA-256 validation to fail; the byte-integrity check itself remains unchanged and fail-closed.
+- Native AOT ABI V1 remains **FROZEN-FOR-PORTABILITY-TESTING**; incompatible layout/signature changes must use a new ABI version rather than silently changing V1.
+- Finished ABI proof modules keep private execution functions outside the stable module surface; Linux uses hidden default visibility and Windows DLL export validation requires `openrecomp_native_aot_query` as the only OpenRecomp-named export.
 - The Python native AOT loader negotiates Native AOT ABI V1 when present while retaining temporary legacy fallback for internal hardening fixtures that are intentionally linked without the public ABI adapter.
 - Portable C AOT output is warning-clean for the established dual-architecture workloads and hardening corpus; GCC and Clang compile gates use `-Wall -Wextra -Werror`.
 - Generator warning fixes are structural rather than suppressions: unused call results/arguments are emitted deliberately, unsigned comparison lowering is warning-stable, and helpers are only emitted when needed while valid minimal/trap modules retain required shared helpers.
