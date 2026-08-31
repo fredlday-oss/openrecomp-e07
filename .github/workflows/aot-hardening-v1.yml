@@ -26,6 +26,7 @@ jobs:
 
       - name: Run warning-clean and fault-equivalence corpus
         run: |
+          mkdir -p build/aot-hardening
           python tools/test_aot_hardening_v1.py \
             --compiler gcc \
             --compiler clang \
