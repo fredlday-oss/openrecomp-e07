@@ -157,6 +157,7 @@ jobs:
           Copy-Item integrations/unreal/INSTALL_UNREAL_PLUGIN_V1.ps1 $out -Force
           Copy-Item integrations/unreal/COLLECT_UNREAL_PLUGIN_V1_EVIDENCE.ps1 $out -Force
           Copy-Item integrations/unreal/RUN_UNREAL_PLUGIN_V1_PACKAGED_PROOF.ps1 $out -Force
+          Copy-Item integrations/unreal/RUN_UNREAL_PLUGIN_V1_HANDOFF.ps1 $out -Force
           Copy-Item include/openrecomp/native_aot_abi_v1.h "$out/native_aot_abi_v1.root.h" -Force
           $files = Get-ChildItem $out -File -Recurse | Sort-Object FullName
           $prefix = (Resolve-Path $out).Path.TrimEnd('\') + '\'
