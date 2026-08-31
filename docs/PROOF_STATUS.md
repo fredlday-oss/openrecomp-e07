@@ -20,9 +20,12 @@
 | AOT ASan/UBSan smoke | **PASS** | Little- and big-endian positive hardening fixtures execute cleanly under GCC and Clang ASan+UBSan on Linux CI |
 | Native AOT ABI V1 contract | **FROZEN-FOR-PORTABILITY-TESTING** | Public fixed-width C header, exact V1 query/size negotiation, capability flags, module metadata and host callback table |
 | Native AOT ABI V1 Linux validation | **PASS** | RV32I + bounded MIPS32 modules pass query/rejection/metadata/host/private-surface/loader gates under both GCC and Clang |
-| Native AOT ABI V1 single-symbol public surface | **PASS** | Finished Linux proof modules hide legacy execution symbols and expose `openrecomp_native_aot_query` as the stable OpenRecomp entry point |
+| Native AOT ABI V1 Windows x64 validation | **PASS** | Frozen V1 layout passes MSVC + clang-cl `/W4 /WX`, exact DLL export, negotiation and dual-architecture execution gates |
+| Native AOT ABI V1 single-symbol public surface | **PASS** | Finished Linux and Windows proof modules expose `openrecomp_native_aot_query` while private execution symbols remain outside the stable surface |
+| Linux/Windows native AOT observable parity | **PASS** | Windows MSVC/clang-cl RV32I + MIPS32 results equal Linux-produced Core API reference JSON exactly |
+| Cross-platform proof-text byte stability | **PASS** | `.gitattributes` pins proof/source text to LF after Windows CRLF conversion was correctly rejected by Module Image hash validation |
 | General MIPS32 frontend/ISA coverage | **CANDIDATE** | Current implementation is a bounded little-endian subset, not arbitrary MIPS32 |
-| Windows/macOS Native AOT ABI parity | **CANDIDATE** | V1 layout is frozen for portability testing but has not yet crossed Windows/macOS execution gates |
+| macOS / Windows ARM64 / Windows x86 Native AOT ABI parity | **CANDIDATE** | Not covered by the current x64 Windows/Linux evidence |
 | Release-quality production AOT compiler pipeline | **CANDIDATE** | Portable C backend is execution-backed and hardened for current fixtures, but broader platform/optimization/release evidence remains outstanding |
 | Unreal Engine 5.8 build | **PASS** | Validated locally |
 | Unreal Gate B PIE runtime | **PROVEN-RUNTIME** | Public-safe runtime evidence |
@@ -46,10 +49,12 @@ The RV32I results remain bounded to the E07 synthetic fixture/proven RV32I subse
 
 The cross-architecture IR/Module/Core PASS means the same normalized IR V1, Module Image V1 and Core API V1 boundaries have been validated with two materially different synthetic guest architectures.
 
-`OPENRECOMP_IR_V1_AOT_TRANSLATOR_V1` adds a separate bounded PASS: the same architecture-neutral portable C backend consumes both normalized workloads, emits byte-identical C on repeated translation, and after GCC/Clang compilation reproduces the existing Core API result exactly.
+`OPENRECOMP_IR_V1_AOT_TRANSLATOR_V1` adds a separate bounded PASS: the same architecture-neutral portable C backend consumes both normalized workloads, emits byte-identical C on repeated translation, and after native compilation reproduces the existing Core API result exactly.
 
 `OPENRECOMP_AOT_HARDENING_V1` strengthens that backend evidence without expanding the guest-support claim. It requires warning-clean `-Werror` compilation, exact positive-result parity for a broader normalized-operation corpus in little- and big-endian configurations, deterministic Core API/AOT agreement across nine runtime-fault categories, and ASan/UBSan-clean standalone execution under GCC and Clang.
 
-`OPENRECOMP_NATIVE_AOT_ABI_V1` then freezes the first public native-module boundary. The current Linux proof deterministically generates a module-specific ABI adapter, hides the older implementation symbols, validates exact version/size rejection behavior and module metadata, validates malformed/valid host binding, and executes both current guest workloads through the V1 loader under GCC and Clang. The RV32I fixture additionally exercises actual host calls through the new callback bridge.
+`OPENRECOMP_NATIVE_AOT_ABI_V1` freezes the first public native-module boundary. The Linux proof deterministically generates a module-specific ABI adapter, hides the older implementation symbols, validates exact version/size rejection behavior and module metadata, validates malformed/valid host binding, and executes both current guest workloads through the V1 loader under GCC and Clang. The RV32I fixture additionally exercises actual host calls through the callback bridge.
 
-These results do **not** promote arbitrary RV32I/MIPS32 executables, full MIPS32 ISA/ABI coverage, Windows/macOS ABI parity, arbitrary optimization correctness, WebAssembly AOT compilation or a release-quality production compiler pipeline to PROVEN.
+`OPENRECOMP_AOT_WINDOWS_PORTABILITY_V1` validates that unchanged V1 contract on Windows x64. MSVC and clang-cl agree on the frozen `24`-byte host structure and `168`-byte API table, build both bounded workloads with warnings as errors, expose only the V1 query entry point, pass the same negotiation tests and exactly reproduce the Linux/Core reference results. The initial CRLF-induced host-contract hash mismatch was treated as a real cross-platform integrity failure; LF checkout policy was fixed without weakening Module Image hash validation.
+
+These results do **not** promote arbitrary RV32I/MIPS32 executables, full MIPS32 ISA/ABI coverage, macOS/Windows ARM64/Windows x86 ABI parity, arbitrary optimization correctness, WebAssembly AOT compilation or a release-quality production compiler pipeline to PROVEN.
