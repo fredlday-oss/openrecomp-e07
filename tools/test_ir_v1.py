@@ -74,7 +74,23 @@ def main() -> None:
     bad["functions"][0]["blocks"][0]["instructions"][2]["kind"] = "riscv_addi"
     expect_reject("guest-isa-opcode-leak", bad)
 
-    print("OPENRECOMP_IR_V1_SPEC=PASS tests=11")
+    bad = copy.deepcopy(base)
+    bad["state_slots"] = []
+    expect_reject("undeclared-state-slot", bad)
+
+    bad = copy.deepcopy(base)
+    bad["state_slots"][0]["type"] = "i16"
+    expect_reject("state-slot-type-mismatch", bad)
+
+    bad = copy.deepcopy(base)
+    bad["functions"][0]["blocks"][0]["instructions"][1]["result_type"] = "i16"
+    expect_reject("binop-type-mismatch", bad)
+
+    bad = copy.deepcopy(base)
+    bad["functions"][0]["return_type"] = "i16"
+    expect_reject("return-type-mismatch", bad)
+
+    print("OPENRECOMP_IR_V1_SPEC=PASS tests=15")
 
 
 if __name__ == "__main__":
