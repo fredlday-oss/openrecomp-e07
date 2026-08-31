@@ -1,0 +1,87 @@
+{
+  "ir_version": "1.0.0",
+  "module_id": "synthetic.rv32i.ir-v1-example",
+  "source": {
+    "architecture": "riscv32-rv32i",
+    "adapter": "openrecomp.riscv32",
+    "address_bits": 32,
+    "endianness": "little",
+    "input_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "required_features": [
+    "core-v1",
+    "host-call"
+  ],
+  "host_contract_version": "0.1.1",
+  "required_host_symbols": [
+    "host_system"
+  ],
+  "state_slots": [
+    {
+      "id": "gpr:a0",
+      "type": "i32"
+    }
+  ],
+  "entry_function": "fixture_main",
+  "functions": [
+    {
+      "id": "fixture_main",
+      "guest_address": 4096,
+      "params": [],
+      "return_type": "i32",
+      "blocks": [
+        {
+          "id": "entry",
+          "guest_address": 4096,
+          "instructions": [
+            {
+              "op": "const",
+              "result": "%x",
+              "result_type": "i32",
+              "value": 10,
+              "source_address": 4096
+            },
+            {
+              "op": "const",
+              "result": "%y",
+              "result_type": "i32",
+              "value": 5,
+              "source_address": 4100
+            },
+            {
+              "op": "binop",
+              "result": "%sum",
+              "result_type": "i32",
+              "kind": "add",
+              "lhs": {"value": "%x"},
+              "rhs": {"value": "%y"},
+              "source_address": 4104
+            },
+            {
+              "op": "host_call",
+              "symbol": "host_system",
+              "args": [
+                {"value": "%sum"},
+                {"const": 7, "type": "i32"}
+              ],
+              "result": "%hostret",
+              "result_type": "i32",
+              "source_address": 4108
+            },
+            {
+              "op": "write_state",
+              "slot": "gpr:a0",
+              "value": {"value": "%hostret"},
+              "source_address": 4112
+            }
+          ],
+          "terminator": {
+            "op": "return",
+            "value": {"value": "%hostret"},
+            "source_address": 4116
+          }
+        }
+      ]
+    }
+  ]
+}
