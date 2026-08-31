@@ -105,6 +105,11 @@ def main() -> int:
                 "GetDllHandle",
                 "GetDllExport",
                 "set_host(nullptr)",
+                "GetStateValue",
+                "ReadMemory",
+                "GetMemorySize",
+                "OPENRECOMP_NATIVE_AOT_CAP_STATE_INSPECTION",
+                "OPENRECOMP_NATIVE_AOT_CAP_MEMORY_READ",
             ),
             "persistent native module",
         )
@@ -114,6 +119,9 @@ def main() -> int:
                 "UGameInstanceSubsystem",
                 "LoadNativeAotModule",
                 "ExecuteLoadedModule",
+                "GetStateValue",
+                "ReadGuestMemory",
+                "GetGuestMemorySize",
                 "RegisterHostService",
                 "ClearHostService",
                 "IOpenRecompHostService::Execute_HandleOpenRecompHostCall",
@@ -183,6 +191,7 @@ def main() -> int:
 
     print("OPENRECOMP_UNREAL_PLUGIN_V1_ABI_HEADER_FROZEN=PASS")
     print("OPENRECOMP_UNREAL_PLUGIN_V1_QUERY_ONLY=PASS")
+    print("OPENRECOMP_UNREAL_PLUGIN_V1_INSPECTION_SURFACE=PASS")
     print("OPENRECOMP_UNREAL_PLUGIN_V1_GATE_B_PRESERVED=PASS")
     print("OPENRECOMP_UNREAL_PLUGIN_V1_NO_TRACKED_BINARIES=PASS")
     print("OPENRECOMP_UNREAL_PLUGIN_V1_SOURCE=PASS")
