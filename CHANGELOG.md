@@ -5,6 +5,9 @@ Significant project changes will be recorded here.
 ## Unreleased
 
 ### Added
+- `OPENRECOMP_AOT_HARDENING_V1` compiler-quality gate with a broader architecture-independent normalized IR operation corpus in little- and big-endian configurations.
+- Nine deterministic Core API/AOT runtime-fault equivalence cases covering memory OOB, misalignment, operation limit, shift count, trap, indirect target, call depth, host failure and void host return.
+- GCC and Clang AddressSanitizer + UndefinedBehaviorSanitizer standalone smoke execution for the AOT hardening positive fixtures.
 - Deterministic normalized IR V1 -> portable C ahead-of-time backend shared by RV32I and MIPS32 workloads.
 - Native AOT module interface with external host-call callback binding, state/memory inspection and deterministic execution-limit enforcement.
 - Dual-architecture AOT equivalence gate requiring exact Core API result parity for RV32I checksum `122010428` and MIPS32 checksum `1950232098`.
@@ -30,9 +33,11 @@ Significant project changes will be recorded here.
 - Contributor, security, build and reproducibility guidance.
 
 ### Changed
-- Common AOT code generation is now execution-backed for both current clean synthetic guest architectures while the broader release-quality production compiler remains `CANDIDATE`.
+- Portable C AOT output is now warning-clean for the established dual-architecture workloads and hardening corpus; GCC and Clang compile gates use `-Wall -Wextra -Werror`.
+- Generator warning fixes are structural rather than suppressions: unused call results/arguments are emitted deliberately, unsigned comparison lowering is warning-stable, and helpers are only emitted when needed while valid minimal/trap modules retain required shared helpers.
+- Common AOT code generation is execution-backed and compiler-hardened for current clean synthetic workloads while the broader release-quality production compiler remains `CANDIDATE`.
 - The shared IR V1, Module Image V1 and Core API V1 boundary is now boundedly validated with both RV32I and MIPS32 synthetic guest workloads; broader MIPS32 coverage remains `CANDIDATE`.
 - E07 proof CI now requires deterministic Module Image V1 packaging and exact Core API V1 equivalence in addition to the RV32I-to-IR-V1 bridge proof.
-- Architecture documentation now separates normalized IR semantics, executable module packaging, reference execution and portable C AOT translation.
+- Architecture documentation now separates normalized IR semantics, executable module packaging, reference execution and hardened portable C AOT translation.
 - E07 proof CI requires deterministic RV32I-to-IR-V1 normalization and exact bridge equivalence with checksum `122010428`.
 - Source-integrity policy keeps proof-critical inputs separate from mutable project documentation.

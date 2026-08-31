@@ -17,16 +17,19 @@ The project separates binary analysis, a versioned intermediate representation (
 | Core API V1 reference module/runtime | **PASS** — E07 equivalence |
 | MIPS32 synthetic vertical slice | **PASS** — IR V1/Core API equivalence |
 | Cross-architecture IR/Module/Core boundary | **PASS** — bounded RV32I + MIPS32 synthetic validation |
-| Portable C AOT backend V1 | **PASS** — bounded RV32I + MIPS32 equivalence |
-| GCC/Clang AOT behavioral parity | **PASS** — current dual-architecture fixtures |
+| Portable C AOT backend V1 | **PASS** — bounded hardened RV32I + MIPS32 equivalence |
+| GCC/Clang AOT `-Werror` gate | **PASS** — current dual-architecture fixtures + hardening corpus |
+| Core API/AOT deterministic fault equivalence | **PASS** — 9 bounded fault classes |
+| GCC/Clang ASan + UBSan AOT smoke | **PASS** — Linux little/big-endian hardening fixtures |
 | General MIPS32 coverage | **CANDIDATE** — bounded subset only |
+| Stable external native-module ABI | **CANDIDATE** |
 | Release-quality production AOT compiler pipeline | **CANDIDATE** |
 | Unreal Engine 5.8 Gate B runtime | **PROVEN-RUNTIME** |
 | Unreal visual replay | **PASS** |
 
 The hardened E07 V1.1 fixture remains the first proven architecture path and validation harness. It is a proof component of the broader OpenRecomp project, not the total intended scope.
 
-The normalized IR V1, Module Image V1 and Core API V1 boundaries have now been exercised by two materially different clean synthetic guest workloads. A single portable C AOT backend also consumes both normalized workloads and reproduces their Core API results after native compilation with GCC and Clang. RV32I remains the deeper proven architecture path; broader MIPS32 coverage and a release-quality production compiler pipeline remain separately gated.
+The normalized IR V1, Module Image V1 and Core API V1 boundaries have now been exercised by two materially different clean synthetic guest workloads. A single portable C AOT backend also consumes both normalized workloads and reproduces their Core API results after native compilation with GCC and Clang. The backend is now warning-clean under the project `-Werror` gates for those workloads plus a dedicated hardening corpus, and its deterministic failure behavior is cross-checked against the reference executor. RV32I remains the deeper proven architecture path; broader MIPS32 coverage, external ABI stability and a release-quality production compiler pipeline remain separately gated.
 
 ## Architecture
 
@@ -109,7 +112,7 @@ This is a **bounded vertical-slice PASS**, not a claim that arbitrary MIPS32 exe
 
 ## Portable C AOT backend V1
 
-[`docs/AOT_TRANSLATOR_V1.md`](docs/AOT_TRANSLATOR_V1.md) documents the first common ahead-of-time backend for normalized IR V1.
+[`docs/AOT_TRANSLATOR_V1.md`](docs/AOT_TRANSLATOR_V1.md) documents the first common ahead-of-time backend for normalized IR V1. [`docs/AOT_HARDENING_V1.md`](docs/AOT_HARDENING_V1.md) documents its first dedicated compiler-quality hardening gate.
 
 The backend consumes validated IR V1 + Module Image V1 and deterministically emits portable C. The same generated source is compiled independently by GCC and Clang and loaded as native code. For both current guest workloads, the native AOT result must equal the Core API reference result exactly.
 
@@ -127,7 +130,19 @@ OPENRECOMP_IR_V1_AOT_MIPS32=PASS
 OPENRECOMP_IR_V1_AOT_DUAL_ARCH=PASS
 ```
 
-This establishes a **bounded dual-architecture AOT PASS** for the current synthetic workloads. It does not yet claim arbitrary guest binaries, production optimization correctness, full platform/compiler portability or a release-quality compiler pipeline.
+The hardening gate additionally requires warning-clean `-Werror` compilation, deterministic Core API/AOT failure-category agreement for nine runtime fault cases, and ASan/UBSan-clean execution of little- and big-endian positive hardening fixtures under both GCC and Clang:
+
+```text
+AOT_HARDENING_POSITIVE=2147483672
+AOT_HARDENING_FAULT_CASES=9
+OPENRECOMP_AOT_HARDENING_WARNING_CLEAN=PASS
+OPENRECOMP_AOT_HARDENING_FAULT_EQUIVALENCE=PASS
+OPENRECOMP_AOT_HARDENING_GCC_SANITIZERS=PASS
+OPENRECOMP_AOT_HARDENING_CLANG_SANITIZERS=PASS
+OPENRECOMP_AOT_HARDENING_V1=PASS
+```
+
+This establishes a **bounded hardened dual-architecture AOT PASS** for the current synthetic workloads and hardening corpus. It does not claim arbitrary guest binaries, full platform/compiler portability, a frozen third-party ABI or a release-quality optimizing compiler pipeline.
 
 ## Hardened E07 proof
 
@@ -175,6 +190,7 @@ See [`integrations/unreal/README.md`](integrations/unreal/README.md) and [`evide
 - [`docs/CORE_API_V1.md`](docs/CORE_API_V1.md)
 - [`docs/MIPS32_VERTICAL_SLICE_V1.md`](docs/MIPS32_VERTICAL_SLICE_V1.md)
 - [`docs/AOT_TRANSLATOR_V1.md`](docs/AOT_TRANSLATOR_V1.md)
+- [`docs/AOT_HARDENING_V1.md`](docs/AOT_HARDENING_V1.md)
 - [`docs/PROOF_STATUS.md`](docs/PROOF_STATUS.md)
 - [`docs/ROADMAP.md`](docs/ROADMAP.md)
 - [`docs/BUILDING.md`](docs/BUILDING.md)

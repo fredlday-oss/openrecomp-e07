@@ -66,6 +66,36 @@ def op_type(operand: dict[str, Any], types: dict[str, str]) -> str:
         raise AOTError(f"undefined value type {operand.get('value')}") from exc
 
 
+def scan_usage(ir: dict[str, Any]) -> dict[str, bool]:
+    usage = {
+        "load": False,
+        "store": False,
+        "signed": False,
+        "unsigned_compare": False,
+    }
+    for function in ir["functions"]:
+        for block in function["blocks"]:
+            for insn in block["instructions"]:
+                op = insn["op"]
+                if op == "load":
+                    usage["load"] = True
+                    # or_load contains the sign-extension path even when a
+                    # particular call is unsigned, so the helper must exist.
+                    usage["signed"] = True
+                elif op == "store":
+                    usage["store"] = True
+                elif op == "binop" and insn["kind"] == "ashr":
+                    usage["signed"] = True
+                elif op == "compare":
+                    if insn["predicate"] in {"slt", "sle", "sgt", "sge"}:
+                        usage["signed"] = True
+                    else:
+                        usage["unsigned_compare"] = True
+                elif op == "cast" and insn["kind"] == "sext":
+                    usage["signed"] = True
+    return usage
+
+
 def emit_insn(
     insn: dict[str, Any],
     slots: dict[str, int],
@@ -109,9 +139,9 @@ def emit_insn(
         a = op_expr(insn["lhs"], slots)
         b = op_expr(insn["rhs"], slots)
         pred = insn["predicate"]
-        unsigned_ops = {"eq": "==", "ne": "!=", "ult": "<", "ule": "<=", "ugt": ">", "uge": ">="}
-        if pred in unsigned_ops:
-            expr = f"(({a}) {unsigned_ops[pred]} ({b}))"
+        unsigned_codes = {"eq": 0, "ne": 1, "ult": 2, "ule": 3, "ugt": 4, "uge": 5}
+        if pred in unsigned_codes:
+            expr = f"or_compare_unsigned(({a}), ({b}), {unsigned_codes[pred]}u)"
         elif pred in {"slt", "sle", "sgt", "sge"}:
             bits = TYPE_BITS[op_type(insn["lhs"], types)]
             cmpop = {"slt": "<", "sle": "<=", "sgt": ">", "sge": ">="}[pred]
@@ -159,10 +189,14 @@ def emit_insn(
             lines.append(f"    uint64_t {name}[{len(args)}] = {{{', '.join(args)}}};")
             ptr = name
         lines.append(f"    int call_has_{serial} = 0;")
-        lines.append(
-            f"    uint64_t call_ret_{serial} = or_fn_{fn_index[insn['callee']]}({ptr}, {len(args)}u, "
-            f"&call_has_{serial}, depth + 1u);"
+        call = (
+            f"or_fn_{fn_index[insn['callee']]}({ptr}, {len(args)}u, "
+            f"&call_has_{serial}, depth + 1u)"
         )
+        if dst is None:
+            lines.append(f"    (void){call};")
+        else:
+            lines.append(f"    uint64_t call_ret_{serial} = {call};")
         lines.append("    if (g_failed) return 0;")
         if dst is not None:
             lines.append(f"    if (!call_has_{serial}) {{ or_fail(\"call returned void\"); return 0; }}")
@@ -207,10 +241,13 @@ def emit_function(
     lines = [
         f"static uint64_t or_fn_{number}(const uint64_t *args, size_t argc, int *has_return, uint32_t depth) {{",
         f"    uint64_t v[{max(1, len(slots))}] = {{0}};",
+        "    (void)v;",
         f"    if (depth > {max_depth}u) {{ or_fail(\"call-depth limit exceeded\"); return 0; }}",
         f"    if (argc != {len(function['params'])}u) {{ or_fail(\"argument count mismatch\"); return 0; }}",
         "    *has_return = 0;",
     ]
+    if not function["params"]:
+        lines.append("    (void)args;")
     for i, param in enumerate(function["params"]):
         lines.append(f"    v[{slots[param['id']]}] = args[{i}] & or_mask({TYPE_BITS[param['type']]}u);")
     lines.append(f"    goto or_f{number}_b0;")
@@ -261,6 +298,7 @@ def emit_function(
 
 def generate(module: ModuleImage) -> str:
     ir = module.ir
+    usage = scan_usage(ir)
     states = ir["state_slots"]
     state_index = {slot["id"]: i for i, slot in enumerate(states)}
     functions = ir["functions"]
@@ -270,6 +308,7 @@ def generate(module: ModuleImage) -> str:
 
     entry = fn_index[module.entry_function]
     observed = state_index[module.observe_state_slot]
+    observed_bits = TYPE_BITS[states[observed]["type"]]
     big = 1 if ir["source"]["endianness"] == "big" else 0
     lines = [
         "/* Deterministic OpenRecomp normalized IR V1 -> portable C output. */",
@@ -288,39 +327,70 @@ def generate(module: ModuleImage) -> str:
         "static uint64_t g_entry_return;",
         "static int g_entry_has_return;",
         f"static const uint64_t g_max_operations = {u64(module.limits.max_operations)};",
-        f"static const int g_big_endian = {big};",
+    ]
+    if usage["load"] or usage["store"]:
+        lines.append(f"static const int g_big_endian = {big};")
+    lines.extend([
         "",
         "static uint64_t or_mask(unsigned bits) { return bits >= 64u ? UINT64_MAX : ((UINT64_C(1) << bits) - UINT64_C(1)); }",
-        "static int64_t or_signed(uint64_t value, unsigned bits) {",
-        "    uint64_t mask = or_mask(bits); value &= mask;",
-        "    if (bits >= 64u) return (int64_t)value;",
-        "    uint64_t sign = UINT64_C(1) << (bits - 1u);",
-        "    if (value & sign) value |= ~mask;",
-        "    return (int64_t)value;",
-        "}",
+    ])
+    if usage["signed"]:
+        lines.extend([
+            "static int64_t or_signed(uint64_t value, unsigned bits) {",
+            "    uint64_t mask = or_mask(bits); value &= mask;",
+            "    if (bits >= 64u) return (int64_t)value;",
+            "    uint64_t sign = UINT64_C(1) << (bits - 1u);",
+            "    if (value & sign) value |= ~mask;",
+            "    return (int64_t)value;",
+            "}",
+        ])
+    if usage["unsigned_compare"]:
+        lines.extend([
+            "static int or_compare_unsigned(uint64_t a, uint64_t b, unsigned predicate) {",
+            "    switch (predicate) {",
+            "      case 0u: return a == b;",
+            "      case 1u: return a != b;",
+            "      case 2u: return a < b;",
+            "      case 3u: return a <= b;",
+            "      case 4u: return a > b;",
+            "      case 5u: return a >= b;",
+            "      default: return 0;",
+            "    }",
+            "}",
+        ])
+    lines.extend([
         "static void or_fail(const char *message) { if (!g_failed) g_error = message; g_failed = 1; }",
         "static int or_step(void) {",
         "    g_operations += UINT64_C(1);",
         "    if (g_operations > g_max_operations) { or_fail(\"operation limit exceeded\"); return 0; }",
         "    return 1;",
         "}",
-        f"static int or_bounds(uint64_t a, size_t n) {{ const uint64_t total = {u64(module.memory_size_bytes)}; if (a > total || (uint64_t)n > total - a) {{ or_fail(\"deterministic memory fault\"); return 0; }} return 1; }}",
-        "static uint64_t or_load(uint64_t a, unsigned width, unsigned result_bits, int is_signed, unsigned alignment, int fault_misaligned) {",
-        "    size_t n = width / 8u;",
-        "    if (fault_misaligned && alignment > 1u && (a % alignment)) { or_fail(\"deterministic misalignment fault\"); return 0; }",
-        "    if (!or_bounds(a, n)) return 0;",
-        "    uint64_t value = 0;",
-        "    for (size_t i = 0; i < n; ++i) { size_t p = g_big_endian ? i : (n - 1u - i); value = (value << 8u) | g_memory[a + p]; }",
-        "    if (is_signed && width < result_bits) value = (uint64_t)or_signed(value, width);",
-        "    return value & or_mask(result_bits);",
-        "}",
-        "static void or_store(uint64_t a, uint64_t value, unsigned width, unsigned alignment, int fault_misaligned) {",
-        "    size_t n = width / 8u;",
-        "    if (fault_misaligned && alignment > 1u && (a % alignment)) { or_fail(\"deterministic misalignment fault\"); return; }",
-        "    if (!or_bounds(a, n)) return;",
-        "    for (size_t i = 0; i < n; ++i) { size_t s = g_big_endian ? (n - 1u - i) : i; g_memory[a + i] = (uint8_t)((value >> (s * 8u)) & UINT64_C(0xff)); }",
-        "}",
-    ]
+    ])
+    if usage["load"] or usage["store"]:
+        lines.append(
+            f"static int or_bounds(uint64_t a, size_t n) {{ const uint64_t total = {u64(module.memory_size_bytes)}; if (a > total || (uint64_t)n > total - a) {{ or_fail(\"deterministic memory fault\"); return 0; }} return 1; }}"
+        )
+    if usage["load"]:
+        lines.extend([
+            "static uint64_t or_load(uint64_t a, unsigned width, unsigned result_bits, int is_signed, unsigned alignment, int fault_misaligned) {",
+            "    size_t n = width / 8u;",
+            "    if (fault_misaligned && alignment > 1u && (a % alignment)) { or_fail(\"deterministic misalignment fault\"); return 0; }",
+            "    if (!or_bounds(a, n)) return 0;",
+            "    uint64_t value = 0;",
+            "    for (size_t i = 0; i < n; ++i) { size_t p = g_big_endian ? i : (n - 1u - i); value = (value << 8u) | g_memory[a + p]; }",
+            "    if (is_signed && width < result_bits) value = (uint64_t)or_signed(value, width);",
+            "    return value & or_mask(result_bits);",
+            "}",
+        ])
+    if usage["store"]:
+        lines.extend([
+            "static void or_store(uint64_t a, uint64_t value, unsigned width, unsigned alignment, int fault_misaligned) {",
+            "    size_t n = width / 8u;",
+            "    if (fault_misaligned && alignment > 1u && (a % alignment)) { or_fail(\"deterministic misalignment fault\"); return; }",
+            "    if (!or_bounds(a, n)) return;",
+            "    for (size_t i = 0; i < n; ++i) { size_t s = g_big_endian ? (n - 1u - i) : i; g_memory[a + i] = (uint8_t)((value >> (s * 8u)) & UINT64_C(0xff)); }",
+            "}",
+        ])
 
     masks = [mask_literal(TYPE_BITS[s["type"]]) for s in states] or ["UINT64_MAX"]
     names = [cstr(s["id"]) for s in states] or [cstr("")]
@@ -328,8 +398,9 @@ def generate(module: ModuleImage) -> str:
     lines.append(f"static const char *g_state_names[{max(1, len(states))}] = {{{', '.join(names)}}};")
 
     for i, segment in enumerate(module.memory_segments):
-        data = ", ".join(f"0x{b:02x}" for b in segment.data)
-        lines.append(f"static const uint8_t g_segment_{i}[{max(1, len(segment.data))}] = {{{data or '0'}}};")
+        if segment.data:
+            data = ", ".join(f"0x{b:02x}" for b in segment.data)
+            lines.append(f"static const uint8_t g_segment_{i}[{len(segment.data)}] = {{{data}}};")
 
     for i in range(len(functions)):
         lines.append(f"static uint64_t or_fn_{i}(const uint64_t *, size_t, int *, uint32_t);")
@@ -355,7 +426,7 @@ def generate(module: ModuleImage) -> str:
         f"    g_entry_return = or_fn_{entry}(NULL, 0u, &g_entry_has_return, 0u);",
         "    return g_failed ? 0 : 1;",
         "}",
-        f"uint64_t openrecomp_observed_state(void) {{ return g_state[{observed}]; }}",
+        f"uint64_t openrecomp_observed_state(void) {{ return g_state[{observed}] & or_mask({observed_bits}u); }}",
         "uint64_t openrecomp_function_return(void) { return g_entry_return; }",
         "int openrecomp_function_has_return(void) { return g_entry_has_return; }",
         "uint64_t openrecomp_operations(void) { return g_operations; }",

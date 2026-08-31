@@ -1,0 +1,68 @@
+name: AOT hardening V1
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  aot-hardening:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc clang
+          python -m pip install jsonschema
+
+      - name: Run warning-clean and fault-equivalence corpus
+        run: |
+          mkdir -p build/aot-hardening
+          python tools/test_aot_hardening_v1.py \
+            --compiler gcc \
+            --compiler clang \
+            --out-dir build/aot-hardening | tee build/aot-hardening.log
+          grep -F "OPENRECOMP_AOT_HARDENING_WARNING_CLEAN=PASS" build/aot-hardening.log
+          grep -F "OPENRECOMP_AOT_HARDENING_FAULT_EQUIVALENCE=PASS" build/aot-hardening.log
+          grep -F "OPENRECOMP_AOT_HARDENING_V1=PASS" build/aot-hardening.log
+
+      - name: GCC ASan and UBSan smoke tests
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
+          UBSAN_OPTIONS: halt_on_error=1:print_stacktrace=1
+        run: |
+          for endian in little big; do
+            gcc -std=c11 -O1 -g -Wall -Wextra -Werror \
+              -fsanitize=address,undefined -fno-omit-frame-pointer \
+              -DOPENRECOMP_EXPECTED_STATE=2147483672 \
+              build/aot-hardening/positive-${endian}.c \
+              tools/aot_sanitizer_driver_v1.c \
+              -o build/aot-hardening/positive-${endian}-gcc-sanitized
+            build/aot-hardening/positive-${endian}-gcc-sanitized
+          done
+          echo "OPENRECOMP_AOT_HARDENING_GCC_SANITIZERS=PASS"
+
+      - name: Clang ASan and UBSan smoke tests
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
+          UBSAN_OPTIONS: halt_on_error=1:print_stacktrace=1
+        run: |
+          for endian in little big; do
+            clang -std=c11 -O1 -g -Wall -Wextra -Werror \
+              -fsanitize=address,undefined -fno-omit-frame-pointer \
+              -DOPENRECOMP_EXPECTED_STATE=2147483672 \
+              build/aot-hardening/positive-${endian}.c \
+              tools/aot_sanitizer_driver_v1.c \
+              -o build/aot-hardening/positive-${endian}-clang-sanitized
+            build/aot-hardening/positive-${endian}-clang-sanitized
+          done
+          echo "OPENRECOMP_AOT_HARDENING_CLANG_SANITIZERS=PASS"

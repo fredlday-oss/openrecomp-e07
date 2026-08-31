@@ -79,6 +79,8 @@ Host calls use one callback boundary instead of embedding E07, Unreal, RV32I or 
 
 The test runners bind the already-existing deterministic E07 host behavior for the RV32I proof. The MIPS32 vertical slice requires no host calls.
 
+This exported surface is currently an internal validated interface, not yet a frozen third-party ABI.
+
 ## Portable operation lowering
 
 The backend lowers the normalized V1 operation families used by the current fixtures:
@@ -150,17 +152,37 @@ OPENRECOMP_IR_V1_AOT_MIPS32=PASS
 OPENRECOMP_IR_V1_AOT_DUAL_ARCH=PASS
 ```
 
-This is the first execution-backed evidence that a single common AOT backend can consume normalized code originating from two materially different guest architectures.
+This is execution-backed evidence that a single common AOT backend can consume normalized code originating from two materially different guest architectures.
+
+## AOT hardening V1
+
+The follow-on [`AOT_HARDENING_V1.md`](AOT_HARDENING_V1.md) gate strengthens the compiler-quality evidence without changing IR V1 or expanding the supported guest claim.
+
+The existing RV32I and MIPS32 generated sources now compile under GCC and Clang with `-Wall -Wextra -Werror`. A separate synthetic normalized-IR corpus exercises all current integer binops, all current comparisons and casts, select, state operations, memory operations, direct calls, structured control flow, bounded indirect control flow, little-endian execution and big-endian execution.
+
+Nine deterministic runtime-fault programs additionally require Core API/AOT category agreement for memory OOB, misalignment, operation limits, invalid shift counts, traps, invalid bounded-indirect targets, call-depth limits, host failures and void host returns. The positive little/big-endian modules also run under GCC and Clang ASan+UBSan.
+
+The hardening gate reports:
+
+```text
+AOT_HARDENING_POSITIVE=2147483672
+AOT_HARDENING_FAULT_CASES=9
+OPENRECOMP_AOT_HARDENING_WARNING_CLEAN=PASS
+OPENRECOMP_AOT_HARDENING_FAULT_EQUIVALENCE=PASS
+OPENRECOMP_AOT_HARDENING_GCC_SANITIZERS=PASS
+OPENRECOMP_AOT_HARDENING_CLANG_SANITIZERS=PASS
+OPENRECOMP_AOT_HARDENING_V1=PASS
+```
 
 ## Claim boundary
 
-This PASS is deliberately bounded. It establishes the portable C AOT backend for the current clean synthetic RV32I and MIPS32 workloads and their exercised IR V1 operation subset.
+The translator and hardening PASSes are deliberately bounded. They establish the portable C AOT backend for the current clean synthetic RV32I and MIPS32 workloads plus the dedicated hardening corpus.
 
-It does **not** yet establish:
+They do **not** yet establish:
 
 - arbitrary RV32I or MIPS32 binaries;
 - full MIPS32 ISA/ABI coverage;
-- production optimization correctness;
+- production optimization correctness across arbitrary programs;
 - a stable external C ABI for third-party hosts;
 - Windows/macOS compiler parity;
 - WebAssembly compilation of the new AOT backend;
