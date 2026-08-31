@@ -2,19 +2,21 @@
 
 This is a development roadmap and does not imply that external grant funding has been awarded.
 
+A bounded clean MIPS32 synthetic vertical slice now passes through the same normalized IR V1, Module Image V1 and Core API V1 boundaries as the RV32I validation path. The roadmap therefore treats the second-architecture baseline as established while keeping broader MIPS32 ISA/ABI support evidence-gated.
+
 ## Months 1–2 — Core and IR stabilization
 
-- stabilize and document the versioned IR contract;
+- continue hardening and documenting the versioned IR and Module Image contracts;
 - harden translation/runtime boundaries;
 - expand deterministic validation fixtures;
-- establish repeatable CI baselines.
+- maintain repeatable CI baselines across the proven/bounded guest paths.
 
-## Months 3–4 — Second guest architecture
+## Months 3–4 — Expand second guest architecture
 
-- implement a second guest-architecture frontend;
-- validate architecture-neutral IR/runtime boundaries;
-- add cross-architecture regression coverage;
-- keep status **CANDIDATE** until equivalent proof gates pass.
+- extend MIPS32 beyond the current bounded little-endian synthetic subset;
+- add additional ISA, control-flow, ABI and memory-semantics fixtures;
+- grow adversarial and cross-architecture regression coverage;
+- keep general MIPS32 support **CANDIDATE** until broader equivalent proof gates pass.
 
 ## Months 5–6 — Unreal interoperability layer
 
