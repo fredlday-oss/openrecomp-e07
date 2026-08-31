@@ -8,7 +8,7 @@ OpenRecomp separates immutable proof inputs from generated evidence and mutable 
 
 General project documentation is intentionally not part of this immutable E07 proof-input manifest. Documentation can evolve without invalidating that executable proof.
 
-Newer IR V1/Core API/MIPS32/AOT regression gates are independently enforced by GitHub Actions and their own deterministic comparisons rather than silently changing the historical E07 source manifest.
+Newer IR V1/Core API/MIPS32/AOT/Native-ABI regression gates are independently enforced by GitHub Actions and their own deterministic comparisons rather than silently changing the historical E07 source manifest.
 
 ## E07 generated evidence
 
@@ -44,7 +44,7 @@ For each architecture it:
 1. translates the same normalized module to portable C twice;
 2. requires the generated C files to be byte-identical;
 3. compiles the same generated C independently with GCC and Clang using `-Wall -Wextra -Werror`;
-4. executes both native modules through the same exported AOT module interface;
+4. executes both native modules through Native AOT ABI V1;
 5. requires GCC and Clang behavioral result JSON to be byte-identical;
 6. compares the AOT result with the existing Core API reference result exactly.
 
@@ -55,7 +55,7 @@ RV32I checksum=122010428, a0=48, operations=3866
 MIPS32 checksum=1950232098, v0=31, operations=100
 ```
 
-Generated compiler binaries are not required to be byte-identical because compiler/toolchain metadata and code-generation choices may legitimately differ. The reproducibility requirement is deterministic OpenRecomp-generated C plus exact observable behavioral parity.
+Generated compiler binaries are not required to be byte-identical because compiler/toolchain metadata and code-generation choices may legitimately differ. The reproducibility requirement is deterministic OpenRecomp-generated source/adapters plus exact observable behavioral parity.
 
 ## AOT hardening reproducibility
 
@@ -94,6 +94,50 @@ OPENRECOMP_AOT_HARDENING_CLANG_SANITIZERS=PASS
 OPENRECOMP_AOT_HARDENING_V1=PASS
 ```
 
+## Native AOT ABI V1 reproducibility
+
+Native AOT ABI V1 adds a deterministic module-specific adapter around the portable-C implementation surface. The adapter is generated from the validated Module Image V1, normalized IR V1 and host contract, so its public metadata is bound to the same validated execution inputs.
+
+For both RV32I and MIPS32, CI:
+
+1. generates the ABI adapter twice and requires byte-identical output;
+2. builds the backend + adapter independently with GCC and Clang using hidden default symbol visibility;
+3. queries the exact V1 ABI and validates the returned structure size/version;
+4. requires unsupported ABI versions and zero/short/oversized V1 structure requests to fail closed;
+5. compares module, IR, host-contract, source-architecture, source-hash, address-width and endian metadata against the validated Module Image/IR;
+6. validates capability flags, including host-call capability only for modules that require host symbols;
+7. rejects malformed host structures, accepts a valid V1 host and accepts explicit host unbind;
+8. verifies representative private implementation symbols cannot be dynamically resolved from the finished proof module;
+9. loads the module through the V1-aware host loader and executes the existing AOT proof unchanged.
+
+The deterministic generation markers are:
+
+```text
+OPENRECOMP_NATIVE_AOT_ABI_RV32I_DETERMINISTIC=PASS
+OPENRECOMP_NATIVE_AOT_ABI_MIPS32_DETERMINISTIC=PASS
+```
+
+Each GCC/Clang module also requires:
+
+```text
+OPENRECOMP_NATIVE_AOT_ABI_V1_QUERY=PASS
+OPENRECOMP_NATIVE_AOT_ABI_V1_VERSION_REJECTION=PASS
+OPENRECOMP_NATIVE_AOT_ABI_V1_SIZE_REJECTION=PASS
+OPENRECOMP_NATIVE_AOT_ABI_V1_METADATA=PASS
+OPENRECOMP_NATIVE_AOT_ABI_V1_HOST_NEGOTIATION=PASS
+OPENRECOMP_NATIVE_AOT_ABI_V1_PRIVATE_SURFACE=PASS
+OPENRECOMP_NATIVE_AOT_ABI_V1_LOADER=PASS
+OPENRECOMP_NATIVE_AOT_ABI_V1=PASS
+```
+
+The combined gate ends with:
+
+```text
+OPENRECOMP_NATIVE_AOT_ABI_V1_DUAL_ARCH=PASS
+```
+
+The contract is **FROZEN-FOR-PORTABILITY-TESTING**. Reproducibility on Linux does not imply Windows/macOS binary-layout parity; those remain separate execution gates.
+
 ## Golden validation
 
 The committed E07 golden framebuffer, audio and state outputs remain regression references for the original RV32I fixture. The MIPS32 vertical slice uses explicit expected state/memory/checksum metadata plus independent cross-path agreement rather than reusing the E07 host-output goldens.
@@ -102,7 +146,7 @@ The committed E07 golden framebuffer, audio and state outputs remain regression 
 
 The E07 translated workload is executed through native and WebAssembly host paths and their checksums must agree. The host-free MIPS32 slice validates guest semantics by comparing an independent machine-code reference against the common IR/Module/Core path.
 
-The portable C AOT path adds another independent execution form: native code produced from the normalized IR rather than interpreted by `ReferenceExecutor`. For E07, host semantics remain outside generated guest code behind the AOT host-callback boundary.
+The portable C AOT path adds another independent execution form: native code produced from the normalized IR rather than interpreted by `ReferenceExecutor`. Native AOT ABI V1 keeps host semantics outside generated guest code and makes the host-call bridge explicit and versioned. The RV32I proof exercises host calls through that V1 bridge; the current MIPS32 fixture is host-call-free.
 
 ## Classification
 
@@ -117,6 +161,8 @@ Reproducibility does not automatically promote a feature's status:
 - GCC/Clang `-Werror` and behavioral parity: **PASS — current dual-architecture fixtures + hardening corpus**
 - Core API/AOT fault equivalence: **PASS — 9 bounded fault classes**
 - GCC/Clang ASan+UBSan: **PASS — Linux little/big-endian hardening fixtures**
+- Native AOT ABI V1 contract: **FROZEN-FOR-PORTABILITY-TESTING**
+- Native AOT ABI V1 Linux GCC/Clang: **PASS — bounded dual-architecture execution**
 - General MIPS32 ISA/frontend coverage: **CANDIDATE**
-- Stable external native-module ABI: **CANDIDATE**
+- Windows/macOS Native AOT ABI parity: **CANDIDATE**
 - Release-quality production AOT compiler pipeline: **CANDIDATE**
