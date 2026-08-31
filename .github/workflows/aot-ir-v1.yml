@@ -66,9 +66,9 @@ jobs:
 
       - name: Compile and execute RV32I AOT module with GCC and Clang
         run: |
-          gcc -std=c11 -O2 -Wall -Wextra -fPIC -shared \
+          gcc -std=c11 -O2 -Wall -Wextra -Werror -fPIC -shared \
             build/aot-v1/rv32i.a.c -o build/aot-v1/rv32i.gcc.so
-          clang -std=c11 -O2 -Wall -Wextra -fPIC -shared \
+          clang -std=c11 -O2 -Wall -Wextra -Werror -fPIC -shared \
             build/aot-v1/rv32i.a.c -o build/aot-v1/rv32i.clang.so
           python tools/run_aot_e07_v1.py \
             build/aot-v1/rv32i.gcc.so \
@@ -119,9 +119,9 @@ jobs:
 
       - name: Compile and execute MIPS32 AOT module with GCC and Clang
         run: |
-          gcc -std=c11 -O2 -Wall -Wextra -fPIC -shared \
+          gcc -std=c11 -O2 -Wall -Wextra -Werror -fPIC -shared \
             build/aot-v1/mips32.a.c -o build/aot-v1/mips32.gcc.so
-          clang -std=c11 -O2 -Wall -Wextra -fPIC -shared \
+          clang -std=c11 -O2 -Wall -Wextra -Werror -fPIC -shared \
             build/aot-v1/mips32.a.c -o build/aot-v1/mips32.clang.so
           python tools/run_aot_mips32_v1.py \
             build/aot-v1/mips32.gcc.so \
