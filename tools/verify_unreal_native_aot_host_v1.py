@@ -65,6 +65,7 @@ def main() -> int:
     actor_required = (
         "OPENRECOMP_UNREAL_NATIVE_AOT_HOST_V1 PASS",
         "e07.rv32i.fixture-full.ir-v1",
+        "riscv32-rv32i",
         "122010428",
         "3866",
         "host_graphics",
