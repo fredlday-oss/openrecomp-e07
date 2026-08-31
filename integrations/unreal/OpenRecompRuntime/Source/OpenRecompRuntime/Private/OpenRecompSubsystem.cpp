@@ -158,6 +158,58 @@ FOpenRecompModuleInfo UOpenRecompSubsystem::GetLoadedModuleInfo() const
         : FOpenRecompModuleInfo();
 }
 
+bool UOpenRecompSubsystem::GetStateValue(
+    const FString& StateName,
+    int64& OutValue,
+    FString& OutError) const
+{
+    OutValue = 0;
+    OutError.Reset();
+
+    if (bExecuting)
+    {
+        OutError = TEXT("State inspection is unavailable during module execution");
+        return false;
+    }
+    if (!LoadedModule)
+    {
+        OutError = TEXT("No Native AOT ABI V1 module is loaded");
+        return false;
+    }
+    return LoadedModule->GetStateValue(StateName, OutValue, OutError);
+}
+
+bool UOpenRecompSubsystem::ReadGuestMemory(
+    int64 Address,
+    int32 Size,
+    TArray<uint8>& OutBytes,
+    FString& OutError) const
+{
+    OutBytes.Reset();
+    OutError.Reset();
+
+    if (bExecuting)
+    {
+        OutError = TEXT("Guest memory inspection is unavailable during module execution");
+        return false;
+    }
+    if (!LoadedModule)
+    {
+        OutError = TEXT("No Native AOT ABI V1 module is loaded");
+        return false;
+    }
+    return LoadedModule->ReadMemory(Address, Size, OutBytes, OutError);
+}
+
+int64 UOpenRecompSubsystem::GetGuestMemorySize() const
+{
+    if (bExecuting || !LoadedModule)
+    {
+        return 0;
+    }
+    return LoadedModule->GetMemorySize();
+}
+
 bool UOpenRecompSubsystem::RegisterHostService(
     UObject* Service,
     FString& OutError)
@@ -234,7 +286,7 @@ int32 UOpenRecompSubsystem::NativeHostCall(
     int64 ReflectedValue = 0;
     bool bHasValue = false;
     const bool bHandled = IOpenRecompHostService::Execute_HandleOpenRecompHostCall(
-        Subsystem->HostService,
+        Subsystem->HostService.Get(),
         FString(UTF8_TO_TCHAR(Symbol)),
         Arguments,
         ReflectedValue,
