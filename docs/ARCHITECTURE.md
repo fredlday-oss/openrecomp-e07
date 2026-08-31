@@ -9,7 +9,7 @@ guest executable / clean machine-code fixture
  -> Module Image V1
  -> common execution boundary
       |-> Core API V1 ReferenceExecutor
-      `-> portable C AOT backend V1 -> native compiled module
+      `-> hardened portable C AOT backend V1 -> native compiled module
  -> host runtime contract
  -> native / WebAssembly / Unreal Engine host
 ```
@@ -28,7 +28,7 @@ The RV32I bridge lowers that proven fixture into normalized IR V1 and reproduces
 
 The normalized layer uses portable operations, explicit state, explicit memory semantics, named host calls and bounded control-flow targets. Guest-specific rules such as delay slots, link-register conventions and zero-register behavior are frontend responsibilities and must be lowered before common execution/translation consumes V1.
 
-The contract itself was not extended to add MIPS32. The bounded MIPS32 frontend lowers guest-specific delay-slot/link-register behavior into the same existing portable operations.
+The contract itself was not extended to add MIPS32 or to harden the AOT backend. Both later frontiers validate consumers of the frozen normalized boundary rather than moving guest-specific or compiler-specific semantics into IR V1.
 
 ## Module Image V1 and Core API
 
@@ -79,7 +79,7 @@ The generated C exposes a compact architecture-neutral native-module interface. 
 For each current guest workload:
 
 1. the backend generates C twice and requires byte-identical output;
-2. the same generated C is compiled independently with GCC and Clang;
+2. the same generated C is compiled independently with GCC and Clang using `-Wall -Wextra -Werror`;
 3. both native compiler paths must produce identical behavioral result JSON;
 4. the native AOT result must equal the existing Core API reference result exactly.
 
@@ -90,13 +90,23 @@ RV32I AOT checksum=122010428, return a0=48, operations=3866
 MIPS32 AOT checksum=1950232098, return v0=31, operations=100
 ```
 
-This establishes **PASS — bounded dual-architecture AOT equivalence** for the current synthetic workloads. It does not yet establish a release-quality optimizing compiler pipeline or arbitrary guest-binary support.
+## AOT hardening boundary
+
+[`AOT_HARDENING_V1.md`](AOT_HARDENING_V1.md) adds compiler-quality evidence around the same common backend rather than creating another architecture path.
+
+The hardening corpus is architecture-independent normalized IR. In little- and big-endian configurations it broadens coverage across the current arithmetic, comparison, cast, select, state, memory, call and control-flow operation families. Core API and GCC/Clang AOT execution must agree exactly on the successful result.
+
+A separate nine-case valid-module corpus intentionally exercises deterministic runtime failures. Core API and AOT must agree on normalized fault categories for memory OOB, misalignment, operation limits, invalid shifts, traps, invalid bounded-indirect targets, call-depth limits, host failures and void host returns.
+
+The same positive generated programs are also linked into standalone sanitizer executables and run under GCC and Clang AddressSanitizer + UndefinedBehaviorSanitizer. This establishes **PASS — bounded compiler-quality hardening**, while Windows/macOS parity and a stable external ABI remain separate gates.
 
 ## Host runtime boundary
 
 `HostBinding` keeps normalized guest behavior separate from concrete host services. The common reference executor requires only a contract version, available symbols and a call boundary; it does not contain RV32I, MIPS32, Unreal Engine or E07 host semantics.
 
 The AOT native module uses the same architectural separation through `openrecomp_set_host_callback`: generated guest code invokes a generic callback by normalized host symbol name, while the proof runner supplies deterministic host behavior externally.
+
+The current exported AOT surface is exercised and tested, but it is not yet frozen as a stable third-party ABI. That compatibility contract is intentionally a later frontier.
 
 Compatibility is fail-closed: unsupported IR, invalid module metadata, missing host bindings, integrity mismatches, memory faults and execution-limit violations are rejected rather than interpreted heuristically.
 
@@ -134,10 +144,13 @@ OPENRECOMP_DEMO PASS x=15 y=6 rgba=ff3aa7ff frame=8
 - Core API V1 reference module/runtime: **PASS — E07 equivalence**
 - MIPS32 synthetic vertical slice: **PASS — bounded IR/Module/Core equivalence**
 - Shared IR V1 / Module Image V1 / Core API across RV32I + MIPS32: **PASS — bounded two-guest validation**
-- Portable C AOT backend across RV32I + MIPS32: **PASS — bounded dual-architecture native equivalence**
-- GCC/Clang behavior for current generated AOT modules: **PASS**
+- Portable C AOT backend across RV32I + MIPS32: **PASS — bounded hardened dual-architecture native equivalence**
+- GCC/Clang `-Werror` and current generated AOT behavior: **PASS**
+- Core API/AOT deterministic fault equivalence: **PASS — 9 bounded fault classes**
+- GCC/Clang ASan+UBSan hardening smoke: **PASS — Linux little/big-endian fixtures**
 - General MIPS32 ISA/frontend coverage: **CANDIDATE**
+- Stable external native-module ABI: **CANDIDATE**
 - Release-quality production AOT compiler pipeline: **CANDIDATE**
 - Unreal Gate B: **PROVEN-RUNTIME**
 
-The second guest architecture and first common AOT backend have now crossed the common interfaces for bounded clean synthetic workloads. Broader architecture/compiler support remains evidence-gated rather than inferred from these vertical slices.
+The second guest architecture and hardened common AOT backend have crossed the common interfaces for bounded clean synthetic workloads. Broader architecture, ABI and compiler-platform support remains evidence-gated rather than inferred from these vertical slices.
