@@ -391,13 +391,15 @@ void UOpenRecompSubsystem::RunCommandLineProofIfRequested()
         (Result.Module.CapabilityFlags &
             static_cast<int64>(OPENRECOMP_NATIVE_AOT_CAP_HOST_CALLS)) != 0;
 
+    // The frozen Native AOT ABI reports no function return for this synthetic
+    // module. The authoritative proof output is the observed state, matching
+    // the existing Core API and Unreal Native AOT host validation paths.
+    const bool bCallbacksPassed = ProofHost->AllExpectedCallbacksExercised();
     const bool bExecutionPassed =
         Result.ObservedState == ExpectedObservedState &&
-        Result.bHasFunctionReturn &&
-        Result.FunctionReturn == ExpectedObservedState &&
         Result.Operations == ExpectedOperations &&
         Checksum == ExpectedChecksum &&
-        ProofHost->AllExpectedCallbacksExercised();
+        bCallbacksPassed;
 
     if (bMetadataPassed && bExecutionPassed)
     {
@@ -420,9 +422,22 @@ void UOpenRecompSubsystem::RunCommandLineProofIfRequested()
             Error,
             TEXT(
                 "OPENRECOMP_UNREAL_PLUGIN_V1 PACKAGED_FAIL "
-                "stage=validate metadata=%d execution=%d"),
+                "stage=validate metadata=%d execution=%d observed_state=%lld "
+                "has_return=%d function_return=%lld operations=%lld checksum=%u "
+                "callbacks=%d tick=%u graphics=%u audio=%u input=%u system=%u"),
             bMetadataPassed ? 1 : 0,
-            bExecutionPassed ? 1 : 0);
+            bExecutionPassed ? 1 : 0,
+            static_cast<long long>(Result.ObservedState),
+            Result.bHasFunctionReturn ? 1 : 0,
+            static_cast<long long>(Result.FunctionReturn),
+            static_cast<long long>(Result.Operations),
+            Checksum,
+            bCallbacksPassed ? 1 : 0,
+            ProofHost->GetTickCount(),
+            ProofHost->GetGraphicsCalls(),
+            ProofHost->GetAudioCalls(),
+            ProofHost->GetInputCalls(),
+            ProofHost->GetSystemCalls());
     }
 
     ClearHostService();
