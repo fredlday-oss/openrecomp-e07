@@ -28,6 +28,12 @@ public:
     uint32 ComputeProofChecksum(int64 ObservedState) const;
     bool AllExpectedCallbacksExercised() const;
 
+    uint32 GetTickCount() const { return TickCount; }
+    uint32 GetGraphicsCalls() const { return GraphicsCalls; }
+    uint32 GetAudioCalls() const { return AudioCalls; }
+    uint32 GetInputCalls() const { return InputCalls; }
+    uint32 GetSystemCalls() const { return SystemCalls; }
+
 private:
     uint32 TickCount = 0;
     uint32 GraphicsCalls = 0;
