@@ -1,0 +1,59 @@
+name: E07 hardened proof
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang lld gcc
+          python -m pip install --upgrade pip
+          python -m pip install jsonschema
+
+      - name: Verify source integrity
+        run: sha256sum -c SOURCE_SHA256SUMS.txt
+
+      - name: Run hardened proof
+        run: |
+          chmod +x RUN.sh
+          ./RUN.sh | tee /tmp/openrecomp-e07.log
+          grep -F "PASS: E07 V1.1 HARDENED END-TO-END" /tmp/openrecomp-e07.log
+
+      - name: Verify proof classifications
+        run: |
+          python - <<'PY'
+          import json
+          result = json.load(open("evidence/E07_RESULT.json", encoding="utf-8"))
+          classification = result["classification"]
+          assert classification["riscv32_fixture_path"] == "PROVEN", classification
+          assert classification["mips32_second_adapter"] == "CANDIDATE", classification
+          print("OPENRECOMP_E07_CLASSIFICATION=PASS")
+          PY
+
+      - name: Verify host parity evidence
+        run: |
+          test -s evidence/native_run.txt
+          test -s evidence/wasm_run.txt
+          grep -F "PASS: two host targets execute identically" evidence/portable_hosts.txt

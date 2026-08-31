@@ -1,0 +1,51 @@
+name: Architecture proposal
+description: Propose an IR, adapter, runtime, host, or validation change
+title: "[architecture] "
+labels: []
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What limitation are you trying to address?
+    validations:
+      required: true
+  - type: dropdown
+    id: boundary
+    attributes:
+      label: Primary boundary affected
+      options:
+        - Guest architecture adapter
+        - Versioned IR / schema
+        - Translator
+        - Guest memory
+        - Host runtime contract
+        - Native host
+        - WebAssembly host
+        - Unreal integration
+        - Validation / evidence
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility impact
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Deterministic validation plan
+    validations:
+      required: true
+  - type: textarea
+    id: status
+    attributes:
+      label: PROVEN / CANDIDATE implications

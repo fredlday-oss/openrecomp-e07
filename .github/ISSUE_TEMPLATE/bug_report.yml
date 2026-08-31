@@ -1,0 +1,53 @@
+name: Bug report
+description: Report a reproducible OpenRecomp problem
+title: "[bug] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use only redistributable inputs. Do not attach credentials, proprietary binaries, firmware, keys, or private logs.
+  - type: input
+    id: commit
+    attributes:
+      label: Commit SHA
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: OS and toolchain
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Exact command
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal redistributable reproduction
+  - type: dropdown
+    id: e07
+    attributes:
+      label: Does ./RUN.sh pass?
+      options:
+        - "Yes"
+        - "No"
+        - "Not tested"
+    validations:
+      required: true

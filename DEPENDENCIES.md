@@ -23,12 +23,12 @@ This inventory covers the current public E07 synthetic fixture and its `RUN.sh` 
 
 ## Repository-owned material
 
-The OpenRecomp E07 source, schema, contracts, synthetic corpus, linker script, test harnesses and reviewed golden fixtures are project-owned/original material. The project intends to distribute these under Apache License 2.0 once the repository `LICENSE` file is added.
+The OpenRecomp E07 source, schema, contracts, synthetic corpus, linker script, test harnesses and reviewed golden fixtures are project-owned/original material and are distributed under the Apache License 2.0. See `LICENSE`.
 
 ## Rights firewall
 
 The repository contains no commercial game binaries or assets, console keys, firmware, proprietary SDK material, or console-specific executable format samples.
 
-## NLnet relevance
+## Funding/review relevance
 
-This inventory is intended to make the dependency and licensing boundary explicit for the NLnet Restack application. Any new dependency introduced during grant-funded work should be added here before release and checked for compatibility with the project's intended Apache-2.0 distribution terms.
+This inventory makes the dependency and licensing boundary explicit for external review and grant applications. Any new dependency introduced during funded or independent development should be added here before release and checked for compatibility with the project's Apache-2.0 distribution terms.
