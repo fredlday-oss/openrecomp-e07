@@ -50,7 +50,9 @@ jobs:
             contracts/host_contract.json \
             build/unreal-plugin-v1/rv32i.module.json
           python tools/validate_module_v1.py \
-            build/unreal-plugin-v1/rv32i.module.json
+            build/unreal-plugin-v1/rv32i.module.json \
+            build/unreal-plugin-v1/rv32i.ir.json \
+            contracts/host_contract.json
           echo "OPENRECOMP_UNREAL_PLUGIN_V1_REFERENCE_INPUT=PASS"
       - uses: actions/upload-artifact@v4
         with:
