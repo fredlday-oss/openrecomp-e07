@@ -1,0 +1,170 @@
+name: Unreal plugin V1
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  source-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify plugin source contract
+        run: python tools/verify_unreal_plugin_v1.py
+
+  prepare-rv32i-module:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install proof dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang lld gcc
+          python -m pip install jsonschema
+      - name: Build validated RV32I Module Image input
+        run: |
+          chmod +x RUN.sh
+          ./RUN.sh
+          mkdir -p build/unreal-plugin-v1
+          python tools/bridge_rv32i_ir_v1.py \
+            build/fixture_full.ir.json \
+            contracts/host_contract.json \
+            build/unreal-plugin-v1/rv32i.ir.json \
+            build/unreal-plugin-v1/rv32i.sidecar.json
+          python tools/package_ir_v1_module.py \
+            build/unreal-plugin-v1/rv32i.ir.json \
+            build/unreal-plugin-v1/rv32i.sidecar.json \
+            contracts/host_contract.json \
+            build/unreal-plugin-v1/rv32i.module.json
+          python tools/validate_module_v1.py \
+            build/unreal-plugin-v1/rv32i.module.json
+          echo "OPENRECOMP_UNREAL_PLUGIN_V1_REFERENCE_INPUT=PASS"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: openrecomp-unreal-plugin-v1-inputs
+          path: build/unreal-plugin-v1
+          if-no-files-found: error
+
+  windows-plugin-contract:
+    needs: [source-contract, prepare-rv32i-module]
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Python dependencies
+        shell: pwsh
+        run: python -m pip install jsonschema
+      - uses: actions/download-artifact@v4
+        with:
+          name: openrecomp-unreal-plugin-v1-inputs
+          path: build/unreal-plugin-v1
+
+      - name: Generate AOT source and ABI adapter deterministically
+        shell: pwsh
+        run: |
+          python tools/aot_c_backend_v1.py build/unreal-plugin-v1/rv32i.module.json build/unreal-plugin-v1/rv32i.ir.json contracts/host_contract.json build/unreal-plugin-v1/rv32i.a.c
+          python tools/aot_c_backend_v1.py build/unreal-plugin-v1/rv32i.module.json build/unreal-plugin-v1/rv32i.ir.json contracts/host_contract.json build/unreal-plugin-v1/rv32i.b.c
+          python tools/native_aot_abi_v1.py build/unreal-plugin-v1/rv32i.module.json build/unreal-plugin-v1/rv32i.ir.json contracts/host_contract.json build/unreal-plugin-v1/rv32i.abi.a.c
+          python tools/native_aot_abi_v1.py build/unreal-plugin-v1/rv32i.module.json build/unreal-plugin-v1/rv32i.ir.json contracts/host_contract.json build/unreal-plugin-v1/rv32i.abi.b.c
+          if ((Get-FileHash build/unreal-plugin-v1/rv32i.a.c -Algorithm SHA256).Hash -ne (Get-FileHash build/unreal-plugin-v1/rv32i.b.c -Algorithm SHA256).Hash) { throw "portable C generation differs" }
+          if ((Get-FileHash build/unreal-plugin-v1/rv32i.abi.a.c -Algorithm SHA256).Hash -ne (Get-FileHash build/unreal-plugin-v1/rv32i.abi.b.c -Algorithm SHA256).Hash) { throw "ABI adapter generation differs" }
+          Write-Output "OPENRECOMP_UNREAL_PLUGIN_V1_CODEGEN=PASS"
+
+      - name: Compile proof DLLs against the plugin ABI header
+        shell: cmd
+        run: |
+          @for /f "usebackq delims=" %%i in (`"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath`) do @set "VSINSTALL=%%i"
+          @if not defined VSINSTALL (echo Visual Studio C++ toolchain not found & exit /b 2)
+          @call "%VSINSTALL%\VC\Auxiliary\Build\vcvars64.bat"
+          @where cl
+          @where clang-cl
+          @set "PLUGIN_INCLUDE=integrations\unreal\OpenRecompRuntime\Source\OpenRecompRuntime\Public"
+          cl /nologo /std:c11 /O2 /W4 /WX /LD /I"%PLUGIN_INCLUDE%" build\unreal-plugin-v1\rv32i.a.c build\unreal-plugin-v1\rv32i.abi.a.c /link /OUT:build\unreal-plugin-v1\openrecomp-e07-rv32i-msvc.dll
+          clang-cl /nologo /std:c11 /O2 /W4 /WX /LD /I"%PLUGIN_INCLUDE%" build\unreal-plugin-v1\rv32i.a.c build\unreal-plugin-v1\rv32i.abi.a.c /link /OUT:build\unreal-plugin-v1\openrecomp-e07-rv32i-clangcl.dll
+          cl /nologo /std:c11 /O2 /W4 /WX /I"%PLUGIN_INCLUDE%" tools\native_aot_abi_layout_v1.c /Fe:build\unreal-plugin-v1\abi-layout-msvc.exe
+          clang-cl /nologo /std:c11 /O2 /W4 /WX /I"%PLUGIN_INCLUDE%" tools\native_aot_abi_layout_v1.c /Fe:build\unreal-plugin-v1\abi-layout-clangcl.exe
+          build\unreal-plugin-v1\abi-layout-msvc.exe
+          build\unreal-plugin-v1\abi-layout-clangcl.exe
+
+      - name: Execute both proof DLLs before Unreal handoff
+        shell: pwsh
+        run: |
+          python tools/run_aot_e07_v1.py build/unreal-plugin-v1/openrecomp-e07-rv32i-msvc.dll contracts/host_contract.json build/unreal-plugin-v1/msvc-result.json
+          python tools/run_aot_e07_v1.py build/unreal-plugin-v1/openrecomp-e07-rv32i-clangcl.dll contracts/host_contract.json build/unreal-plugin-v1/clangcl-result.json
+          $msvc = Get-Content build/unreal-plugin-v1/msvc-result.json -Raw | ConvertFrom-Json
+          $clang = Get-Content build/unreal-plugin-v1/clangcl-result.json -Raw | ConvertFrom-Json
+          foreach ($result in @($msvc, $clang)) {
+            if ($result.checksum -ne 122010428) { throw "E07 checksum mismatch" }
+            if ($result.return_a0 -ne 48) { throw "E07 return mismatch" }
+            if ($result.operations -ne 3866) { throw "E07 operation-count mismatch" }
+          }
+          Write-Output "OPENRECOMP_UNREAL_PLUGIN_V1_NATIVE_PRECHECK=PASS"
+
+      - name: Exercise installer against a mock UE project
+        shell: pwsh
+        run: |
+          $mock = Join-Path $PWD "build/mock-project"
+          New-Item -ItemType Directory -Path $mock -Force | Out-Null
+          @'
+          {
+            "FileVersion": 3,
+            "EngineAssociation": "5.8",
+            "Category": "",
+            "Description": "",
+            "Modules": [
+              {"Name": "OpenRecompHost", "Type": "Runtime", "LoadingPhase": "Default"}
+            ]
+          }
+          '@ | Set-Content (Join-Path $mock "OpenRecompHost.uproject") -Encoding UTF8
+          powershell -ExecutionPolicy Bypass -File integrations/unreal/INSTALL_UNREAL_PLUGIN_V1.ps1 -UnrealProjectRoot $mock -NativeModuleDll build/unreal-plugin-v1/openrecomp-e07-rv32i-msvc.dll
+          $installed = Join-Path $mock "Plugins/OpenRecompRuntime"
+          if (-not (Test-Path (Join-Path $installed "OpenRecompRuntime.uplugin"))) { throw "plugin descriptor not installed" }
+          $installedDll = Join-Path $installed "Binaries/Win64/openrecomp-e07-rv32i.dll"
+          if (-not (Test-Path $installedDll)) { throw "proof DLL not installed" }
+          if ((Get-FileHash $installedDll -Algorithm SHA256).Hash -ne (Get-FileHash build/unreal-plugin-v1/openrecomp-e07-rv32i-msvc.dll -Algorithm SHA256).Hash) { throw "installed proof DLL hash mismatch" }
+          $project = Get-Content (Join-Path $mock "OpenRecompHost.uproject") -Raw | ConvertFrom-Json
+          $enabled = @($project.Plugins | Where-Object { $_.Name -eq "OpenRecompRuntime" -and $_.Enabled -eq $true })
+          if ($enabled.Count -ne 1) { throw "plugin was not enabled exactly once" }
+          if (-not (Test-Path (Join-Path $mock "OPENRECOMP_UNREAL_PLUGIN_V1_INSTALL_MANIFEST.txt"))) { throw "install manifest missing" }
+          Write-Output "OPENRECOMP_UNREAL_PLUGIN_V1_INSTALLER_CONTRACT=PASS"
+
+      - name: Create UE5 runtime handoff artifact
+        shell: pwsh
+        run: |
+          $out = "build/unreal-plugin-v1-handoff"
+          New-Item -ItemType Directory -Path $out -Force | Out-Null
+          Copy-Item build/unreal-plugin-v1/openrecomp-e07-rv32i-msvc.dll "$out/openrecomp-e07-rv32i.dll" -Force
+          Copy-Item integrations/unreal/OpenRecompRuntime "$out/OpenRecompRuntime" -Recurse -Force
+          Copy-Item integrations/unreal/INSTALL_UNREAL_PLUGIN_V1.ps1 $out -Force
+          Copy-Item integrations/unreal/COLLECT_UNREAL_PLUGIN_V1_EVIDENCE.ps1 $out -Force
+          Copy-Item integrations/unreal/RUN_UNREAL_PLUGIN_V1_PACKAGED_PROOF.ps1 $out -Force
+          Copy-Item include/openrecomp/native_aot_abi_v1.h "$out/native_aot_abi_v1.root.h" -Force
+          $files = Get-ChildItem $out -File -Recurse | Sort-Object FullName
+          $prefix = (Resolve-Path $out).Path.TrimEnd('\') + '\'
+          $lines = foreach ($file in $files) {
+            $relative = $file.FullName.Substring($prefix.Length)
+            $hash = (Get-FileHash $file.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
+            "$hash  $relative"
+          }
+          $lines | Set-Content "$out/HANDOFF_SHA256SUMS.txt" -Encoding ASCII
+          "OPENRECOMP_UNREAL_PLUGIN_V1_HANDOFF=READY" | Set-Content "$out/RESULT.txt" -Encoding ASCII
+      - uses: actions/upload-artifact@v4
+        with:
+          name: openrecomp-unreal-plugin-v1-handoff
+          path: build/unreal-plugin-v1-handoff
+          if-no-files-found: error
