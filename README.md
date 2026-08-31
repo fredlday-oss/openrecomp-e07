@@ -1,15 +1,91 @@
-# OPENRECOMP_E07_SYNTHETIC_FIXTURE_V1_1
+# OpenRecomp
 
-Hardened E07 synthetic proof. V1.1 closes the independent-review findings: `.text` NOBITS rejection, clean decode rejection, machine-enforced IR schema, translator-consumed host contract, bounds-checked guest memory, verified immutable-source checksums, fresh per-run manifest, and precise direct-vs-unresolved call-graph evidence.
+OpenRecomp is an open-source, architecture-neutral static recompilation framework with deterministic validation and modern host integration, including native, WebAssembly and Unreal Engine.
 
-Run `./RUN.sh`. Success ends with `PASS: E07 V1.1 HARDENED END-TO-END`.
+The project separates binary analysis, a versioned intermediate representation (IR), ahead-of-time translation, explicit host runtime services and host integration so the same core infrastructure can be reused across architectures and projects rather than tied to a single game or executable.
 
-Rights firewall: original synthetic source and standard ELF/toolchain outputs only; no commercial game binaries/assets, console keys, firmware, proprietary SDK material or console-specific executable formats.
+## Current status
 
-## Licence
+| Area | Status |
+| --- | --- |
+| E07 RV32I synthetic fixture | **PROVEN** |
+| Deterministic reference/translated equivalence | **PASS** |
+| Native host execution | **PASS** |
+| WebAssembly host execution | **PASS** |
+| Unreal Engine 5.8 Gate B runtime | **PROVEN-RUNTIME** |
+| Unreal visual replay | **PASS** |
+| MIPS32 second-adapter seam | **CANDIDATE** — interface only |
 
-OpenRecomp E07 is distributed under the Apache License, Version 2.0. See `LICENSE`.
+The hardened E07 V1.1 fixture is the first proven architecture path and validation harness. It is a proof component of the broader OpenRecomp project, not the total intended scope.
 
-## Dependencies
+## Architecture
 
-The E07 fixture vendors no third-party source. Build/runtime dependencies and their licensing boundary are documented in `DEPENDENCIES.md`.
+```text
+Guest binary
+    ↓
+Binary analysis
+    ↓
+Versioned OpenRecomp IR
+    ↓
+Ahead-of-time translation
+    ↓
+Explicit host runtime services
+    ↓
+Native / WebAssembly / Unreal Engine host
+```
+
+OpenRecomp's long-term objective is reusable infrastructure for preservation, interoperability, research, tooling and legally clean static recompilation projects.
+
+## Hardened E07 proof
+
+The E07 V1.1 proof includes machine-enforced IR/schema checks, translator-consumed host contracts, checked guest memory, deterministic translation, native/WebAssembly parity, golden validation and adversarial rejection coverage.
+
+Run:
+
+```bash
+./RUN.sh
+```
+
+A successful E07 V1.1 run ends with:
+
+```text
+PASS: E07 V1.1 HARDENED END-TO-END
+```
+
+See the existing [`evidence/`](evidence/) directory for detailed proof artifacts.
+
+## Unreal Engine interoperability
+
+OpenRecomp also has a validated Unreal Engine 5.8 interoperability proof using a legally redistributable synthetic workload.
+
+The authoritative runtime proof reaches:
+
+```text
+OPENRECOMP_GATE_B PASS x=15 y=6 rgba=ff3aa7ff frame=8
+```
+
+A separate visual replay reaches:
+
+```text
+OPENRECOMP_DEMO PASS x=15 y=6 rgba=ff3aa7ff frame=8
+```
+
+The presentation replay does not replace the authoritative runtime validation.
+
+See [`integrations/unreal/README.md`](integrations/unreal/README.md) and [`evidence/UNREAL_GATE_B_PUBLIC_SAFE.txt`](evidence/UNREAL_GATE_B_PUBLIC_SAFE.txt).
+
+## Documentation
+
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
+- [`docs/PROOF_STATUS.md`](docs/PROOF_STATUS.md)
+- [`docs/ROADMAP.md`](docs/ROADMAP.md)
+- [`integrations/unreal/README.md`](integrations/unreal/README.md)
+- [`DEPENDENCIES.md`](DEPENDENCIES.md)
+
+## Rights firewall
+
+The public repository uses original synthetic source and standard toolchain outputs only. It does **not** contain commercial game binaries/assets, console BIOS/firmware or keys, proprietary SDK material or proprietary console executable content.
+
+## License
+
+OpenRecomp E07 is distributed under the Apache License, Version 2.0. See [`LICENSE`](LICENSE). Third-party build/runtime dependency boundaries are documented in [`DEPENDENCIES.md`](DEPENDENCIES.md).
