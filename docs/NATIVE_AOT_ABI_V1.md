@@ -2,7 +2,7 @@
 
 **Frontier:** `OPENRECOMP_NATIVE_AOT_ABI_V1`  
 **Contract state:** **FROZEN-FOR-PORTABILITY-TESTING**  
-**Execution status:** **PASS — bounded Linux GCC/Clang dual-architecture validation**
+**Execution status:** **PASS — bounded Linux GCC/Clang + Windows x64 MSVC/clang-cl dual-architecture validation**
 
 Native AOT ABI V1 defines the first public binary boundary between an OpenRecomp native AOT module and a host process.
 
@@ -34,7 +34,7 @@ openrecomp_native_aot_query(uint32_t requested_abi,
                             uint32_t minimum_api_size);
 ```
 
-The current Linux proof links the underlying generated execution functions with hidden visibility. CI verifies that legacy execution symbols such as `openrecomp_run`, `openrecomp_set_host_callback`, `openrecomp_state_value` and `openrecomp_memory_read` are not dynamically visible from the finished module.
+The Linux proof links the underlying generated execution functions with hidden visibility. The Windows proof independently inspects DLL exports with `dumpbin`. Both require the stable OpenRecomp surface to expose the V1 query while keeping the generated execution surface private.
 
 The query succeeds only when the caller requests the exact V1 version and the exact V1 structure size. Unsupported versions, zero/short sizes and oversized layouts fail closed with a null result.
 
@@ -100,24 +100,13 @@ normalized IR V1
 host contract
 ```
 
-It emits a deterministic module-specific C adapter containing the immutable metadata and V1 dispatch table. CI generates each adapter twice and requires byte-identical output:
+It emits a deterministic module-specific C adapter containing immutable metadata and the V1 dispatch table. Linux and Windows gates regenerate adapters from validated inputs and require repeated output to be byte-identical.
 
-```text
-OPENRECOMP_NATIVE_AOT_ABI_RV32I_DETERMINISTIC=PASS
-OPENRECOMP_NATIVE_AOT_ABI_MIPS32_DETERMINISTIC=PASS
-```
+## Linux execution evidence
 
-## Dual-architecture execution evidence
+The finished RV32I and MIPS32 Linux shared modules are built from portable-C AOT output plus the Native AOT ABI V1 adapter. Both are compiled independently with GCC and Clang using warning-as-error builds and hidden default symbol visibility.
 
-The finished RV32I and MIPS32 shared modules are built from:
-
-```text
-portable-C AOT output
-+
-Native AOT ABI V1 adapter
-```
-
-Both are compiled independently with GCC and Clang using warning-as-error builds and hidden default symbol visibility. For every compiler/architecture combination, CI requires:
+For every compiler/architecture combination, CI requires:
 
 ```text
 OPENRECOMP_NATIVE_AOT_ABI_V1_QUERY=PASS
@@ -130,7 +119,7 @@ OPENRECOMP_NATIVE_AOT_ABI_V1_LOADER=PASS
 OPENRECOMP_NATIVE_AOT_ABI_V1=PASS
 ```
 
-The existing architecture-neutral AOT result gate remains unchanged:
+The architecture-neutral results remain:
 
 ```text
 RV32I checksum=122010428, return a0=48, operations=3866
@@ -139,17 +128,42 @@ OPENRECOMP_IR_V1_AOT_DUAL_ARCH=PASS
 OPENRECOMP_NATIVE_AOT_ABI_V1_DUAL_ARCH=PASS
 ```
 
-The RV32I path also exercises real host calls through the new V1 callback bridge. The MIPS32 fixture is host-call-free, so together the current fixtures test both host-bound and host-free module configurations.
+The RV32I path exercises real host calls through the V1 callback bridge. The MIPS32 fixture is host-call-free, so together the current fixtures test both host-bound and host-free module configurations.
+
+## Windows x64 execution evidence
+
+[`AOT_WINDOWS_PORTABILITY_V1.md`](AOT_WINDOWS_PORTABILITY_V1.md) validates this **unchanged header** on Windows x64.
+
+MSVC and clang-cl independently compile a static layout probe that requires:
+
+```text
+sizeof(openrecomp_native_aot_host_v1) = 24
+sizeof(openrecomp_native_aot_api_v1)  = 168
+```
+
+Every public V1 field offset is also statically pinned. Both compilers then build RV32I and MIPS32 DLLs under `/W4 /WX`, `dumpbin /exports` confirms `openrecomp_native_aot_query` is the only OpenRecomp-named DLL export, and all four DLLs pass the same V1 negotiation/metadata/host/loader tests.
+
+Both Windows toolchains reproduce the established Core/Linux results exactly:
+
+```text
+RV32I checksum=122010428, return a0=48, operations=3866
+MIPS32 checksum=1950232098, return v0=31, operations=100
+OPENRECOMP_AOT_WINDOWS_MSVC_CLANGCL_PARITY=PASS
+OPENRECOMP_AOT_WINDOWS_LINUX_REFERENCE_PARITY=PASS
+OPENRECOMP_AOT_WINDOWS_PORTABILITY_V1=PASS
+```
+
+The first Windows run also proved that the byte-integrity contract fails closed: CRLF checkout conversion changed the hashed host-contract bytes and Module Image validation rejected the input. Repository LF policy was fixed with `.gitattributes`; the ABI and hash-validation semantics were not relaxed.
 
 ## Compatibility policy
 
-Native AOT ABI V1 is now frozen as the interface to use for the next portability work. Changes that alter structure layout, function signatures, field meaning or version negotiation must not silently mutate `0x00010000`; an incompatible contract requires a new ABI version.
+Native AOT ABI V1 is frozen as the interface for current portability and host-integration work. Changes that alter structure layout, function signatures, field meaning or version negotiation must not silently mutate `0x00010000`; an incompatible contract requires a new ABI version.
 
-This freeze is a development compatibility contract, not evidence that every operating system/compiler ABI has already been validated.
+This freeze is a development compatibility contract. Linux x64 and Windows x64 now have execution evidence for the current bounded workloads, but that does not automatically establish other operating systems or host architectures.
 
 ## Claim boundary
 
-This frontier establishes:
+This contract plus current execution evidence establishes:
 
 - a versioned public C header;
 - a single query/discovery symbol;
@@ -158,19 +172,21 @@ This frontier establishes:
 - explicit capability flags;
 - explicit host callback binding with user data;
 - state, memory, execution and error dispatch through a function table;
-- hidden legacy execution symbols in the Linux proof modules;
 - deterministic adapter generation;
-- GCC/Clang execution through the ABI for the existing RV32I and bounded MIPS32 workloads.
+- GCC/Clang execution through the ABI for the existing RV32I and bounded MIPS32 workloads on Linux;
+- MSVC/clang-cl execution through the unchanged ABI for those same workloads on Windows x64;
+- frozen Windows x64 structure layout and query-only DLL export behavior;
+- exact Linux/Core ↔ Windows observable parity for the bounded fixtures.
 
-It does **not** yet establish:
+It does **not** establish:
 
-- Windows DLL ABI compatibility;
 - macOS dylib ABI compatibility;
-- 32-bit host-process compatibility;
+- Windows ARM64 compatibility;
+- Windows x86/32-bit compatibility;
 - binary compatibility with future incompatible ABI revisions;
 - arbitrary RV32I or MIPS32 binaries;
 - full MIPS32 ISA/ABI coverage;
 - a release-quality optimizing compiler pipeline;
 - proprietary console executable support.
 
-Windows portability is the next intended evidence gate, using this V1 header without changing its layout.
+The next intended Windows host-integration gate is to load and drive a native AOT module through this V1 interface from the reusable Unreal Engine host layer. macOS and other Windows architectures remain separate portability frontiers.
