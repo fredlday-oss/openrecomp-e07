@@ -13,13 +13,14 @@ The project separates binary analysis, a versioned intermediate representation (
 | Native host execution | **PASS** |
 | WebAssembly host execution | **PASS** |
 | Normalized OpenRecomp IR V1 specification | **FROZEN-FOR-IMPLEMENTATION** |
+| RV32I -> normalized IR V1 bridge | **PASS** — E07 equivalence |
 | Unreal Engine 5.8 Gate B runtime | **PROVEN-RUNTIME** |
 | Unreal visual replay | **PASS** |
 | MIPS32 second-adapter seam | **CANDIDATE** — interface only |
 
 The hardened E07 V1.1 fixture is the first proven architecture path and validation harness. It is a proof component of the broader OpenRecomp project, not the total intended scope.
 
-The normalized IR V1 contract is specified and mechanically validated, but it is intentionally **not** described as a proven runtime path until the current RV32I frontend/translator and a second guest architecture execute through that common representation.
+The normalized IR V1 contract is frozen for implementation. The current E07 RV32I workload now has a deterministic bridge into V1 that reproduces the proven native/golden result, while the future common production translator and second guest architecture remain separately gated.
 
 ## Architecture
 
@@ -50,7 +51,17 @@ python3 tools/validate_ir_v1.py examples/ir-v1/minimal.json
 python3 tools/test_ir_v1.py
 ```
 
-IR V1 is additive to the existing E07 `0.1.1` proof format. Migration of RV32I into normalized V1 is a later implementation gate so the already-PROVEN E07 path is not rewritten merely to publish the specification.
+IR V1 is additive to the existing E07 `0.1.1` proof format. The RV32I bridge now normalizes the current proven E07 workload into V1, validates it, executes it through a deterministic bridge interpreter, and compares the result with the E07 native/golden baseline.
+
+The bridge proof currently reaches:
+
+```text
+IR_V1_BRIDGE_CHECKSUM=122010428
+IR_V1_BRIDGE_RETURN_A0=48
+OPENRECOMP_RV32I_IR_V1_EQUIVALENCE=PASS checksum=122010428
+```
+
+See [`docs/RV32I_IR_V1_BRIDGE.md`](docs/RV32I_IR_V1_BRIDGE.md). This is a bounded equivalence proof for the E07 RV32I fixture and proven instruction subset; it does not yet make the future common production V1 translator or MIPS32 path proven.
 
 ## Hardened E07 proof
 
@@ -94,6 +105,7 @@ See [`integrations/unreal/README.md`](integrations/unreal/README.md) and [`evide
 
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 - [`docs/IR_SPEC_V1.md`](docs/IR_SPEC_V1.md)
+- [`docs/RV32I_IR_V1_BRIDGE.md`](docs/RV32I_IR_V1_BRIDGE.md)
 - [`docs/PROOF_STATUS.md`](docs/PROOF_STATUS.md)
 - [`docs/ROADMAP.md`](docs/ROADMAP.md)
 - [`docs/BUILDING.md`](docs/BUILDING.md)

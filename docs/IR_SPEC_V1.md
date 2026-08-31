@@ -2,7 +2,8 @@
 
 **Wire version:** `1.0.0`  
 **Specification status:** **FROZEN-FOR-IMPLEMENTATION**  
-**Current implementation status:** **CANDIDATE** until a frontend/translator path executes this format end to end.
+**RV32I bridge status:** **PASS — E07 equivalence**  
+**Common production translator/runtime status:** **CANDIDATE**
 
 This document defines the first architecture-neutral OpenRecomp intermediate representation contract. It is introduced alongside the existing E07 `0.1.1` IR rather than replacing the already-PROVEN E07 path in place.
 
@@ -25,11 +26,13 @@ Core rules:
 
 ## 2. Relationship to E07
 
-The hardened E07 proof currently emits `ir_version: 0.1.1` and the existing translator consumes RV32I-shaped decoded instruction records directly.
+The hardened E07 proof emits `ir_version: 0.1.1` and the existing translator consumes RV32I-shaped decoded instruction records directly.
 
 That path remains unchanged and **PROVEN**.
 
-IR V1 is the normalized contract future frontend work should target. Migrating the current RV32I frontend and implementing the MIPS32 vertical slice are separate implementation frontiers. Until an execution path consumes V1, this specification must not be described as a proven runtime path.
+`OPENRECOMP_RV32I_IR_V1_BRIDGE_V1` now deterministically normalizes the current E07 RV32I fixture into this V1 contract and executes the normalized representation through a bridge interpreter. Its observable result matches the existing native and golden E07 state, including checksum `122010428` and return `a0 = 48`.
+
+That bridge result is a bounded **PASS** for the current E07 fixture and proven instruction subset. It is not a claim that the final reusable V1 translator/runtime API is complete or that arbitrary RV32I inputs are proven. MIPS32 remains a separate implementation/generalization gate.
 
 ## 3. Module envelope
 
@@ -172,6 +175,8 @@ For the same normalized module and host contract, translation should be determin
 
 IR V1 forbids hidden dependencies on wall clock, random state or machine-local process state. Such behavior belongs behind an explicit host contract and must be represented as a required host capability.
 
+The current RV32I bridge additionally requires two independent normalization runs of the same E07 legacy IR to produce byte-identical V1 documents and execution sidecars.
+
 ## 12. Validation layers
 
 V1 has two validation layers:
@@ -214,14 +219,16 @@ OPENRECOMP_IR_V1_VALID=PASS
 OPENRECOMP_IR_V1_SPEC=PASS tests=15
 ```
 
+The implementation bridge is documented separately in [`RV32I_IR_V1_BRIDGE.md`](RV32I_IR_V1_BRIDGE.md).
+
 ## 14. Proof status
 
-The V1 **specification and validation contract** can be mechanically tested now. That does not make the runtime implementation PROVEN.
-
-Intended progression:
+Current progression:
 
 1. V1 schema/spec/validator — **FROZEN-FOR-IMPLEMENTATION**;
-2. RV32I frontend lowering into V1 — future implementation gate;
-3. common V1 translator/runtime path — future implementation gate;
-4. MIPS32 frontend lowering into the same V1 contract — second-architecture generalization gate;
-5. deterministic cross-architecture evidence — required before claiming architecture-neutral implementation as PROVEN.
+2. E07 RV32I legacy -> normalized V1 bridge — **PASS** for the current fixture/proven subset;
+3. common reusable V1 translator/runtime API — **CANDIDATE**;
+4. MIPS32 frontend lowering into the same V1 contract — **CANDIDATE**;
+5. deterministic dual-architecture evidence — required before claiming the common architecture-neutral implementation as PROVEN.
+
+The bridge PASS is evidence that the normalized contract can represent and execute the current proven RV32I workload without changing its observable result. It is deliberately narrower than a general RV32I or architecture-neutral proof.
