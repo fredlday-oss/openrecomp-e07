@@ -37,6 +37,22 @@ public:
     FOpenRecompModuleInfo GetLoadedModuleInfo() const;
 
     UFUNCTION(BlueprintCallable, Category = "OpenRecomp")
+    bool GetStateValue(
+        const FString& StateName,
+        int64& OutValue,
+        FString& OutError) const;
+
+    UFUNCTION(BlueprintCallable, Category = "OpenRecomp")
+    bool ReadGuestMemory(
+        int64 Address,
+        int32 Size,
+        TArray<uint8>& OutBytes,
+        FString& OutError) const;
+
+    UFUNCTION(BlueprintPure, Category = "OpenRecomp")
+    int64 GetGuestMemorySize() const;
+
+    UFUNCTION(BlueprintCallable, Category = "OpenRecomp")
     bool RegisterHostService(UObject* Service, FString& OutError);
 
     UFUNCTION(BlueprintCallable, Category = "OpenRecomp")
