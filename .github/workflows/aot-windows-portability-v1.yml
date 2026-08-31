@@ -153,9 +153,13 @@ jobs:
           }
 
           foreach ($exports in Get-ChildItem build/windows-portability-v1/*.exports.txt) {
-            $matches = [regex]::Matches((Get-Content $exports.FullName -Raw), '\bopenrecomp_[A-Za-z0-9_]+\b') | ForEach-Object { $_.Value } | Sort-Object -Unique
-            if ($matches.Count -ne 1 -or $matches[0] -ne "openrecomp_native_aot_query") {
-              throw "Unexpected OpenRecomp DLL export surface in $($exports.Name): $($matches -join ', ')"
+            $exportNames = @(
+              [regex]::Matches((Get-Content $exports.FullName -Raw), '\bopenrecomp_[A-Za-z0-9_]+\b') |
+                ForEach-Object { $_.Value } |
+                Sort-Object -Unique
+            )
+            if ($exportNames.Count -ne 1 -or $exportNames[0] -ne "openrecomp_native_aot_query") {
+              throw "Unexpected OpenRecomp DLL export surface in $($exports.Name): $($exportNames -join ', ')"
             }
           }
           Write-Output "OPENRECOMP_NATIVE_AOT_ABI_V1_WINDOWS_EXPORT_SURFACE=PASS"
