@@ -1,0 +1,129 @@
+name: IR V1 portable C AOT proof
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  aot-dual-arch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang lld gcc
+          python -m pip install jsonschema
+
+      - name: Rebuild proven E07 inputs
+        run: |
+          chmod +x RUN.sh
+          ./RUN.sh
+          mkdir -p build/aot-v1
+          python tools/bridge_rv32i_ir_v1.py \
+            build/fixture_full.ir.json \
+            contracts/host_contract.json \
+            build/aot-v1/rv32i.ir.json \
+            build/aot-v1/rv32i.sidecar.json
+          python tools/package_ir_v1_module.py \
+            build/aot-v1/rv32i.ir.json \
+            build/aot-v1/rv32i.sidecar.json \
+            contracts/host_contract.json \
+            build/aot-v1/rv32i.module.json
+          python tools/run_core_api_v1.py \
+            build/aot-v1/rv32i.module.json \
+            build/aot-v1/rv32i.ir.json \
+            contracts/host_contract.json \
+            build/aot-v1/rv32i.core.json
+
+      - name: Translate RV32I normalized IR to portable C twice
+        run: |
+          python tools/aot_c_backend_v1.py \
+            build/aot-v1/rv32i.module.json \
+            build/aot-v1/rv32i.ir.json \
+            contracts/host_contract.json \
+            build/aot-v1/rv32i.a.c
+          python tools/aot_c_backend_v1.py \
+            build/aot-v1/rv32i.module.json \
+            build/aot-v1/rv32i.ir.json \
+            contracts/host_contract.json \
+            build/aot-v1/rv32i.b.c
+          cmp build/aot-v1/rv32i.a.c build/aot-v1/rv32i.b.c
+          echo "OPENRECOMP_AOT_RV32I_C_DETERMINISTIC=PASS"
+
+      - name: Compile and execute RV32I AOT module
+        run: |
+          gcc -std=c11 -O2 -Wall -Wextra -fPIC -shared \
+            build/aot-v1/rv32i.a.c -o build/aot-v1/rv32i.so
+          python tools/run_aot_e07_v1.py \
+            build/aot-v1/rv32i.so \
+            contracts/host_contract.json \
+            build/aot-v1/rv32i.aot.json
+
+      - name: Build MIPS32 normalized inputs
+        run: |
+          python tools/mips32_frontend_v1.py \
+            examples/mips32-v1/fixture.hex \
+            examples/mips32-v1/fixture.json \
+            contracts/host_contract.json \
+            build/aot-v1/mips32.ir.json \
+            build/aot-v1/mips32.sidecar.json \
+            build/aot-v1/mips32.frontend.json
+          python tools/package_ir_v1_module.py \
+            build/aot-v1/mips32.ir.json \
+            build/aot-v1/mips32.sidecar.json \
+            contracts/host_contract.json \
+            build/aot-v1/mips32.module.json
+          python tools/run_mips32_core_v1.py \
+            build/aot-v1/mips32.module.json \
+            build/aot-v1/mips32.ir.json \
+            contracts/host_contract.json \
+            examples/mips32-v1/fixture.json \
+            build/aot-v1/mips32.core.json
+
+      - name: Translate MIPS32 normalized IR to portable C twice
+        run: |
+          python tools/aot_c_backend_v1.py \
+            build/aot-v1/mips32.module.json \
+            build/aot-v1/mips32.ir.json \
+            contracts/host_contract.json \
+            build/aot-v1/mips32.a.c
+          python tools/aot_c_backend_v1.py \
+            build/aot-v1/mips32.module.json \
+            build/aot-v1/mips32.ir.json \
+            contracts/host_contract.json \
+            build/aot-v1/mips32.b.c
+          cmp build/aot-v1/mips32.a.c build/aot-v1/mips32.b.c
+          echo "OPENRECOMP_AOT_MIPS32_C_DETERMINISTIC=PASS"
+
+      - name: Compile and execute MIPS32 AOT module
+        run: |
+          gcc -std=c11 -O2 -Wall -Wextra -fPIC -shared \
+            build/aot-v1/mips32.a.c -o build/aot-v1/mips32.so
+          python tools/run_aot_mips32_v1.py \
+            build/aot-v1/mips32.so \
+            build/aot-v1/mips32.ir.json \
+            examples/mips32-v1/fixture.json \
+            build/aot-v1/mips32.aot.json
+
+      - name: Require exact dual-architecture AOT equivalence
+        run: |
+          python tools/check_aot_ir_v1.py \
+            build/aot-v1/rv32i.core.json \
+            build/aot-v1/rv32i.aot.json \
+            build/aot-v1/mips32.core.json \
+            build/aot-v1/mips32.aot.json | tee build/aot-v1/equivalence.txt
+          grep -F "OPENRECOMP_IR_V1_AOT_DUAL_ARCH=PASS" build/aot-v1/equivalence.txt
