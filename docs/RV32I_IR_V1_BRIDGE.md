@@ -1,6 +1,11 @@
 # RV32I to OpenRecomp IR V1 bridge
 
-`OPENRECOMP_RV32I_IR_V1_BRIDGE_V1` is the first implementation bridge from the existing E07 `0.1.1` RV32I representation to the normalized OpenRecomp IR `1.0.0` contract.
+**Frontier:** `OPENRECOMP_RV32I_IR_V1_BRIDGE_V1`  
+**Status:** **PASS — E07 equivalence**  
+**Validated checksum:** `122010428`  
+**Validated return state:** `a0 = 48`
+
+This is the first implementation bridge from the existing E07 `0.1.1` RV32I representation to the normalized OpenRecomp IR `1.0.0` contract.
 
 The bridge is deliberately additive. It does not replace or rewrite the already-PROVEN E07 path.
 
@@ -10,7 +15,7 @@ The bridge answers a narrower question before MIPS32 work begins:
 
 > Can the current proven RV32I fixture be normalized into IR V1 and still produce the same deterministic observable result?
 
-This is an implementation/equivalence gate for the new normalized IR contract, not a claim that the final production translator API is complete.
+The answer for the current E07 fixture and proven RV32I subset is **yes**. This remains an implementation/equivalence gate for the normalized IR contract, not a claim that the final production translator API is complete.
 
 ## Pipeline
 
@@ -88,11 +93,31 @@ The CI proof first runs the complete existing E07 hardened proof. It then:
 5. independently compares the V1 checksum with the native E07 checksum produced in the same CI run;
 6. rejects any legacy guest opcode name appearing as a normalized V1 `op`.
 
-The committed E07 golden state currently records checksum `122010428` and return `a0 = 48`.
+The validated CI run produced:
+
+```text
+OPENRECOMP_RV32I_IR_V1_NORMALIZATION_DETERMINISTIC=PASS
+OPENRECOMP_IR_V1_VALID=PASS
+IR_V1_BRIDGE_CHECKSUM=122010428
+IR_V1_BRIDGE_RETURN_A0=48
+OPENRECOMP_IR_V1_BRIDGE_RUNTIME=PASS
+IR_V1_BRIDGE_FUNCTIONS=7
+IR_V1_BRIDGE_OPERATIONS=3866
+OPENRECOMP_RV32I_IR_V1_EQUIVALENCE=PASS checksum=122010428
+```
+
+The portable operation set observed by the bridge was:
+
+```text
+binop, branch, call, compare, const, host_call, jump,
+load, read_state, return, store, write_state
+```
+
+No legacy RV32I opcode name is accepted as a normalized V1 operation.
 
 ## Proof boundary
 
-A successful bridge gate proves equivalence for the current synthetic E07 RV32I fixture and proven instruction subset.
+This PASS proves equivalence for the current synthetic E07 RV32I fixture and proven instruction subset.
 
 It does **not** prove:
 
