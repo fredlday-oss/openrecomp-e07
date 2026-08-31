@@ -14,7 +14,7 @@ guest executable / clean machine-code fixture
               -> Native AOT ABI V1 adapter
               -> versioned native module
  -> host runtime contract
- -> native / WebAssembly / Unreal Engine host
+ -> Linux / Windows x64 / WebAssembly / Unreal Engine host paths
 ```
 
 ## RV32I proven path
@@ -31,7 +31,7 @@ The RV32I bridge lowers that proven fixture into normalized IR V1 and reproduces
 
 The normalized layer uses portable operations, explicit state, explicit memory semantics, named host calls and bounded control-flow targets. Guest-specific rules such as delay slots, link-register conventions and zero-register behavior are frontend responsibilities and must be lowered before common execution/translation consumes V1.
 
-The contract itself was not extended to add MIPS32, harden the AOT backend or introduce the native ABI. Those later frontiers validate consumers of the frozen normalized boundary rather than moving guest-, compiler- or platform-specific semantics into IR V1.
+The contract itself was not extended to add MIPS32, harden the AOT backend, introduce the native ABI or pass Windows portability. Those later frontiers validate consumers of the frozen normalized boundary rather than moving guest-, compiler- or platform-specific semantics into IR V1.
 
 ## Module Image V1 and Core API
 
@@ -77,14 +77,9 @@ This establishes **PASS — bounded synthetic vertical slice** for MIPS32 and **
 
 The AOT backend consumes only validated normalized IR V1 and Module Image V1. It does not decode RV32I or MIPS32 instructions and contains no guest delay-slot/link-register semantics. Instead it lowers the already-normalized operations, state accesses, memory operations, structured control flow and host-call boundary into deterministic portable C.
 
-For each current guest workload:
+For each current guest workload, Linux CI generates C twice, requires byte-identical output, compiles it independently with GCC and Clang under warning-as-error gates, and requires exact Core API behavioral parity. The Windows portability gate independently regenerates the same source form on Windows and compiles it with MSVC and clang-cl.
 
-1. the backend generates C twice and requires byte-identical output;
-2. the same generated C is compiled independently with GCC and Clang using `-Wall -Wextra -Werror`;
-3. both native compiler paths must produce identical behavioral result JSON;
-4. the native AOT result must equal the existing Core API reference result exactly.
-
-The current results are:
+The current bounded results remain:
 
 ```text
 RV32I AOT checksum=122010428, return a0=48, operations=3866
@@ -105,7 +100,7 @@ The same positive generated programs are also linked into standalone sanitizer e
 
 [`NATIVE_AOT_ABI_V1.md`](NATIVE_AOT_ABI_V1.md) defines the first versioned host-facing binary boundary for compiled AOT modules. Its public C header is `include/openrecomp/native_aot_abi_v1.h`.
 
-The portable C backend's older execution functions now form a **private link-time interface** for the finished V1 proof modules. `tools/native_aot_abi_v1.py` consumes the validated `ModuleImage` and deterministically emits a small module-specific adapter that binds those private functions to the V1 public table.
+The portable C backend's older execution functions form a **private link-time interface** for finished V1 proof modules. `tools/native_aot_abi_v1.py` consumes the validated `ModuleImage` and deterministically emits a small module-specific adapter that binds those private functions to the V1 public table.
 
 The public module surface is discovered through one symbol:
 
@@ -113,20 +108,35 @@ The public module surface is discovered through one symbol:
 openrecomp_native_aot_query
 ```
 
-The query requires the exact `0x00010000` ABI version and exact V1 structure size. It returns an immutable function table containing:
+The query requires the exact `0x00010000` ABI version and exact V1 structure size. It returns an immutable function table containing capability flags; module, IR, host-contract and source-provenance metadata; explicit host binding with opaque user data; execution/result/error functions; state inspection; and guest-memory inspection.
 
-- capability flags;
-- module, IR, host-contract and source-provenance metadata;
-- explicit host binding with opaque user data;
-- run/result/error functions;
-- state enumeration/value access;
-- guest-memory size/read access.
+The RV32I proof exercises the V1 host callback bridge with real normalized host calls. The current MIPS32 fixture is host-call-free and exercises the same ABI without a host binding.
 
-The Linux proof compiles the module with hidden default visibility, leaving the query as the stable OpenRecomp export. CI verifies that representative legacy execution symbols cannot be resolved dynamically.
+Native AOT ABI V1 remains **FROZEN-FOR-PORTABILITY-TESTING**. Linux GCC/Clang and Windows x64 MSVC/clang-cl now both cross that unchanged contract for the current bounded RV32I and MIPS32 workloads.
 
-The RV32I proof exercises the V1 host callback bridge with real normalized host calls. The current MIPS32 fixture is host-call-free and exercises the same ABI without a host binding. Both architectures pass under GCC and Clang while retaining their established AOT results.
+## Windows x64 native portability
 
-Native AOT ABI V1 is therefore **FROZEN-FOR-PORTABILITY-TESTING** and has a **PASS — bounded Linux GCC/Clang dual-architecture validation**. Windows/macOS ABI parity remains a separate evidence gate.
+[`AOT_WINDOWS_PORTABILITY_V1.md`](AOT_WINDOWS_PORTABILITY_V1.md) validates the frozen native boundary on a materially different OS/toolchain family.
+
+The Windows gate does not rebuild a new architecture-specific interface. Linux first produces the validated IR V1, Module Image V1 and Core API reference records. Windows x64 then regenerates portable C and the ABI adapter from those exact inputs and builds both workloads independently with MSVC and clang-cl.
+
+The unchanged public V1 header is layout-checked by both Windows compilers:
+
+```text
+sizeof(openrecomp_native_aot_host_v1) = 24
+sizeof(openrecomp_native_aot_api_v1)  = 168
+```
+
+Every V1 public field offset is pinned by static assertions. `dumpbin /exports` additionally requires the complete OpenRecomp-named DLL export set to contain exactly `openrecomp_native_aot_query`.
+
+Both compilers pass the same query/version/size/metadata/host-binding/private-surface/loader tests and reproduce the Linux/Core reference outputs exactly:
+
+```text
+RV32I  checksum=122010428, return a0=48, operations=3866
+MIPS32 checksum=1950232098, return v0=31, operations=100
+```
+
+The first Windows run also exposed a cross-platform byte-integrity issue: CRLF conversion changed the checked-out host-contract bytes and Module Image hash validation correctly rejected them. `.gitattributes` now pins proof/source text to LF. The hash model was not weakened or bypassed.
 
 ## Host runtime boundary
 
@@ -176,10 +186,11 @@ OPENRECOMP_DEMO PASS x=15 y=6 rgba=ff3aa7ff frame=8
 - GCC/Clang ASan+UBSan hardening smoke: **PASS — Linux little/big-endian fixtures**
 - Native AOT ABI V1 contract: **FROZEN-FOR-PORTABILITY-TESTING**
 - Native AOT ABI V1 Linux GCC/Clang: **PASS — bounded RV32I + MIPS32 execution**
-- Native AOT ABI V1 single-symbol public surface: **PASS — Linux proof modules**
+- Native AOT ABI V1 Windows x64 MSVC/clang-cl: **PASS — bounded RV32I + MIPS32 execution and Linux/Core parity**
+- Native AOT ABI V1 single-symbol public surface: **PASS — Linux + Windows x64 proof modules**
 - General MIPS32 ISA/frontend coverage: **CANDIDATE**
-- Windows/macOS Native AOT ABI parity: **CANDIDATE**
+- macOS / Windows ARM64 / Windows x86 Native AOT ABI parity: **CANDIDATE**
 - Release-quality production AOT compiler pipeline: **CANDIDATE**
 - Unreal Gate B: **PROVEN-RUNTIME**
 
-The second guest architecture, hardened common AOT backend and first versioned native ABI have crossed the common interfaces for bounded clean synthetic workloads. Broader architecture and compiler-platform support remains evidence-gated rather than inferred from these vertical slices.
+The second guest architecture, hardened common AOT backend and versioned native ABI have crossed the common interfaces for bounded clean synthetic workloads on Linux and Windows x64. Broader architecture and compiler-platform support remains evidence-gated rather than inferred from these vertical slices.
