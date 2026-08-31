@@ -308,6 +308,7 @@ def generate(module: ModuleImage) -> str:
 
     entry = fn_index[module.entry_function]
     observed = state_index[module.observe_state_slot]
+    observed_bits = TYPE_BITS[states[observed]["type"]]
     big = 1 if ir["source"]["endianness"] == "big" else 0
     lines = [
         "/* Deterministic OpenRecomp normalized IR V1 -> portable C output. */",
@@ -425,7 +426,7 @@ def generate(module: ModuleImage) -> str:
         f"    g_entry_return = or_fn_{entry}(NULL, 0u, &g_entry_has_return, 0u);",
         "    return g_failed ? 0 : 1;",
         "}",
-        f"uint64_t openrecomp_observed_state(void) {{ return g_state[{observed}]; }}",
+        f"uint64_t openrecomp_observed_state(void) {{ return g_state[{observed}] & or_mask({observed_bits}u); }}",
         "uint64_t openrecomp_function_return(void) { return g_entry_return; }",
         "int openrecomp_function_has_return(void) { return g_entry_has_return; }",
         "uint64_t openrecomp_operations(void) { return g_operations; }",
