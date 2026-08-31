@@ -5,7 +5,7 @@ OpenRecomp separates guest-specific analysis from common translation and runtime
 ```text
 guest executable
  -> architecture adapter / analysis
- -> versioned IR
+ -> normalized versioned IR
  -> validation + ahead-of-time translation
  -> host runtime contract
  -> native / WebAssembly / Unreal Engine host
@@ -15,9 +15,21 @@ guest executable
 
 The hardened E07 V1.1 fixture proves the RV32I synthetic path. Existing E07 evidence also validates deterministic translation, native execution, WebAssembly execution and golden regression behavior.
 
+The current E07 runner uses its existing `0.1.1` proof IR, whose instruction records are still RV32I-shaped. That format remains intact so the proven evidence is not rewritten merely to introduce a new contract.
+
+## Normalized IR V1 boundary
+
+[`IR_SPEC_V1.md`](IR_SPEC_V1.md) defines the architecture-neutral normalized IR contract with wire version `1.0.0`.
+
+The normalized layer uses portable operations, explicit state, explicit memory semantics, named host calls and bounded control-flow targets. Guest-specific rules such as delay slots, link-register conventions and zero-register behavior are frontend responsibilities and must be lowered before the common translator consumes V1.
+
+IR V1 is currently **FROZEN-FOR-IMPLEMENTATION**, not a proven execution path. The next implementation work is to lower the existing RV32I path into V1 and then exercise the same contract with a second guest architecture.
+
 ## Versioned IR and runtime boundary
 
 The versioned IR is the boundary between guest-specific analysis and downstream translation. The host runtime contract keeps translated guest behavior separate from host services and allows the same translated model to target different environments.
+
+Compatibility is fail-closed: unsupported IR major versions, required features or invalid semantic references must be rejected rather than interpreted heuristically.
 
 ## Unreal Engine interoperability
 
@@ -48,6 +60,7 @@ OPENRECOMP_DEMO PASS x=15 y=6 rgba=ff3aa7ff frame=8
 
 - RV32I E07 path: **PROVEN**
 - Native/WebAssembly parity: **PASS**
+- Normalized IR V1 specification: **FROZEN-FOR-IMPLEMENTATION**
 - Unreal Gate B: **PROVEN-RUNTIME**
 - MIPS32 adapter seam: **CANDIDATE** / interface only
 
