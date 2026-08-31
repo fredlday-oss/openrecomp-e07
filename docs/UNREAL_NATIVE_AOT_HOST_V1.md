@@ -62,17 +62,19 @@ The authoritative Native AOT result is:
 
 ```text
 module=e07.rv32i.fixture-full.ir-v1
-architecture=rv32i
+architecture=riscv32-rv32i
 host_contract=0.1.1
 observed_state=48
 operations=3866
 checksum=122010428
 ```
 
+The architecture identifier above is the exact normalized IR metadata emitted by the frozen RV32I bridge; `rv32i` is only a human shorthand.
+
 Expected Unreal runtime marker:
 
 ```text
-OPENRECOMP_UNREAL_NATIVE_AOT_HOST_V1 PASS module=e07.rv32i.fixture-full.ir-v1 arch=rv32i observed_state=48 checksum=122010428 operations=3866
+OPENRECOMP_UNREAL_NATIVE_AOT_HOST_V1 PASS module=e07.rv32i.fixture-full.ir-v1 arch=riscv32-rv32i observed_state=48 checksum=122010428 operations=3866
 ```
 
 ## Host-core CI gate
@@ -88,9 +90,10 @@ clang-cl host -> MSVC module
 clang-cl host -> clang-cl module
 ```
 
-Every case must reject a missing required host, exercise the E07 callback bridge, validate module metadata, and reproduce:
+Every case must reject a missing required host, exercise the E07 callback bridge, validate exact normalized module metadata, and reproduce:
 
 ```text
+UNREAL_NATIVE_AOT_SOURCE_ARCH=riscv32-rv32i
 UNREAL_NATIVE_AOT_OBSERVED_STATE=48
 UNREAL_NATIVE_AOT_CHECKSUM=122010428
 UNREAL_NATIVE_AOT_OPERATIONS=3866
@@ -128,7 +131,7 @@ The runtime proof requires all of the following:
 3. PIE loads the synthetic Windows x64 AOT DLL through `FPlatformProcess`;
 4. only Native AOT ABI V1 query/table dispatch is used;
 5. all deterministic E07 host callbacks execute successfully;
-6. Unreal observes state `48`, operation count `3866` and checksum `122010428`;
+6. Unreal observes normalized architecture `riscv32-rv32i`, state `48`, operation count `3866` and checksum `122010428`;
 7. the expected `OPENRECOMP_UNREAL_NATIVE_AOT_HOST_V1 PASS ...` marker appears;
 8. the existing Gate B source and proof remain separate and unchanged.
 
