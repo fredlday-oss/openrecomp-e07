@@ -3,7 +3,7 @@
 OpenRecomp separates guest-specific analysis from common translation and runtime infrastructure so new architectures and hosts can reuse the same core pipeline.
 
 ```text
-guest executable
+guest executable / clean machine-code fixture
  -> architecture adapter / analysis
  -> normalized versioned IR
  -> Module Image V1
@@ -12,11 +12,13 @@ guest executable
  -> native / WebAssembly / Unreal Engine host
 ```
 
-## Current proven path
+## RV32I proven path
 
 The hardened E07 V1.1 fixture proves the RV32I synthetic path. Existing E07 evidence also validates deterministic translation, native execution, WebAssembly execution and golden regression behavior.
 
 The current E07 runner uses its existing `0.1.1` proof IR, whose instruction records are still RV32I-shaped. That format remains intact so the proven evidence is not rewritten merely to introduce newer common interfaces.
+
+The RV32I bridge lowers that proven fixture into normalized IR V1 and reproduces the native/golden result. That bridge is a bounded PASS for the current fixture/proven instruction subset, not a claim about arbitrary RV32I binaries.
 
 ## Normalized IR V1 boundary
 
@@ -24,7 +26,7 @@ The current E07 runner uses its existing `0.1.1` proof IR, whose instruction rec
 
 The normalized layer uses portable operations, explicit state, explicit memory semantics, named host calls and bounded control-flow targets. Guest-specific rules such as delay slots, link-register conventions and zero-register behavior are frontend responsibilities and must be lowered before common execution/translation consumes V1.
 
-The E07 RV32I bridge now lowers the current proven fixture into normalized IR V1 and reproduces the native/golden result. That bridge is a bounded PASS for the current fixture/proven instruction subset, not a claim about arbitrary RV32I binaries.
+The contract itself was not extended to add MIPS32. The bounded MIPS32 frontend lowers guest-specific delay-slot/link-register behavior into the same existing portable operations.
 
 ## Module Image V1 and Core API
 
@@ -41,9 +43,28 @@ IR V1 describes normalized code and typed guest-state semantics. Module Image V1
 
 The `openrecomp` reference package exposes `ModuleImage`, `GuestMemory`, `GuestState`, `HostBinding` and `ReferenceExecutor`.
 
-The E07 Core API gate packages the same normalized RV32I workload twice, requires byte-identical Module Image V1 output, then executes it through the generic reference API and requires exact agreement with the independent bridge, native checksum and golden state.
+The E07 Core API gate packages the normalized RV32I workload twice, requires byte-identical Module Image V1 output, then executes it through the generic reference API and requires exact agreement with the independent bridge, native checksum and golden state.
 
-The Core API V1 reference path is therefore **PASS — E07 equivalence**. A production ahead-of-time translator consuming this API remains **CANDIDATE**.
+The MIPS32 vertical-slice gate independently packages a second guest workload with the same Module Image V1 machinery and executes it through the same `ReferenceExecutor` implementation.
+
+## MIPS32 second-guest vertical slice
+
+[`MIPS32_VERTICAL_SLICE_V1.md`](MIPS32_VERTICAL_SLICE_V1.md) documents the first implemented second-guest path.
+
+Its clean little-endian machine-word fixture covers a bounded MIPS32 subset including arithmetic, signed/unsigned comparison, conditional branches, aligned memory access, direct call/return, direct jump and architectural delay slots.
+
+Delay slots remain a frontend responsibility. For example, branch conditions are captured before the delay instruction, while the delay instruction is normalized into ordinary portable operations before the V1 branch terminator. `jal` writes the guest link register before its delay instruction and only then issues the structured V1 call.
+
+The independent MIPS32 machine-code reference and common Core API path agree on complete normalized register state, observable memory and checksum:
+
+```text
+v0=31
+memory_word=19
+checksum=1950232098
+delay_slots=7
+```
+
+This establishes **PASS — bounded synthetic vertical slice** for MIPS32 and **PASS — bounded two-guest generalization** for the shared IR/Module/Core boundaries. It is not a claim of full MIPS32 support.
 
 ## Host runtime boundary
 
@@ -83,8 +104,10 @@ OPENRECOMP_DEMO PASS x=15 y=6 rgba=ff3aa7ff frame=8
 - Normalized IR V1 specification: **FROZEN-FOR-IMPLEMENTATION**
 - RV32I -> normalized IR V1 bridge: **PASS — E07 equivalence**
 - Core API V1 reference module/runtime: **PASS — E07 equivalence**
+- MIPS32 synthetic vertical slice: **PASS — bounded IR/Module/Core equivalence**
+- Shared IR V1 / Module Image V1 / Core API across RV32I + MIPS32: **PASS — bounded two-guest validation**
+- General MIPS32 ISA/frontend coverage: **CANDIDATE**
 - Production AOT V1 translator: **CANDIDATE**
 - Unreal Gate B: **PROVEN-RUNTIME**
-- MIPS32 adapter seam: **CANDIDATE** / interface only
 
-A broader architecture-neutral implementation is not PROVEN until at least a second guest architecture crosses equivalent deterministic gates through the same common interfaces.
+The second guest architecture has now crossed the common interfaces for a bounded clean synthetic workload. Broader architecture support remains evidence-gated rather than inferred from this vertical slice.
