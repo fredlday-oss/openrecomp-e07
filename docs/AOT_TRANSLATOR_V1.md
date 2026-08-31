@@ -33,10 +33,13 @@ MIPS32 frontend -----------+
                 +---------+---------+
                           |
                           v
-                   native module
+              private execution surface
                           |
                           v
-              deterministic result
+                 Native AOT ABI V1
+                          |
+                          v
+                   native host
                           |
                           v
                  Core API comparison
@@ -56,9 +59,9 @@ host contract
 
 It loads those through the existing fail-closed `ModuleImage` validation path before generating code. This binds translation to the exact IR hash, source provenance, host-contract version/hash, initialized memory, typed initial state, entry point and deterministic limits.
 
-## Generated native-module interface
+## Generated implementation surface
 
-The generated C exports a small architecture-neutral runtime surface:
+The generated portable C contains a compact architecture-neutral execution surface:
 
 ```text
 openrecomp_set_host_callback
@@ -75,11 +78,11 @@ openrecomp_memory_read
 openrecomp_error
 ```
 
-Host calls use one callback boundary instead of embedding E07, Unreal, RV32I or MIPS32 host semantics into the translator.
+These functions are now treated as a **private link-time implementation surface** for finished Native AOT ABI V1 modules. They are not the public compatibility contract.
 
-The test runners bind the already-existing deterministic E07 host behavior for the RV32I proof. The MIPS32 vertical slice requires no host calls.
+[`NATIVE_AOT_ABI_V1.md`](NATIVE_AOT_ABI_V1.md) defines the versioned host-facing binary boundary. The current Linux proof links the generated C with a deterministic ABI adapter under hidden default symbol visibility and exposes `openrecomp_native_aot_query` as the stable OpenRecomp entry point.
 
-This exported surface is currently an internal validated interface, not yet a frozen third-party ABI.
+Host calls remain external to guest translation. The RV32I proof binds the existing deterministic E07 host behavior through the Native AOT ABI V1 callback bridge; the bounded MIPS32 vertical slice requires no host calls.
 
 ## Portable operation lowering
 
@@ -158,7 +161,7 @@ This is execution-backed evidence that a single common AOT backend can consume n
 
 The follow-on [`AOT_HARDENING_V1.md`](AOT_HARDENING_V1.md) gate strengthens the compiler-quality evidence without changing IR V1 or expanding the supported guest claim.
 
-The existing RV32I and MIPS32 generated sources now compile under GCC and Clang with `-Wall -Wextra -Werror`. A separate synthetic normalized-IR corpus exercises all current integer binops, all current comparisons and casts, select, state operations, memory operations, direct calls, structured control flow, bounded indirect control flow, little-endian execution and big-endian execution.
+The existing RV32I and MIPS32 generated sources compile under GCC and Clang with `-Wall -Wextra -Werror`. A separate synthetic normalized-IR corpus exercises all current integer binops, all current comparisons and casts, select, state operations, memory operations, direct calls, structured control flow, bounded indirect control flow, little-endian execution and big-endian execution.
 
 Nine deterministic runtime-fault programs additionally require Core API/AOT category agreement for memory OOB, misalignment, operation limits, invalid shift counts, traps, invalid bounded-indirect targets, call-depth limits, host failures and void host returns. The positive little/big-endian modules also run under GCC and Clang ASan+UBSan.
 
@@ -174,17 +177,23 @@ OPENRECOMP_AOT_HARDENING_CLANG_SANITIZERS=PASS
 OPENRECOMP_AOT_HARDENING_V1=PASS
 ```
 
+## Native AOT ABI V1 follow-on
+
+`OPENRECOMP_NATIVE_AOT_ABI_V1` adds the first frozen-for-portability-testing public binary boundary around the already validated backend. Its adapter is generated twice per module and required to be byte-identical. RV32I and MIPS32 modules then execute through the V1 query/function table under both GCC and Clang while retaining the established AOT results.
+
+The ABI gate additionally checks exact version/structure-size rejection, metadata/provenance exposure, host negotiation, loader behavior and hidden legacy implementation symbols.
+
 ## Claim boundary
 
-The translator and hardening PASSes are deliberately bounded. They establish the portable C AOT backend for the current clean synthetic RV32I and MIPS32 workloads plus the dedicated hardening corpus.
+The translator and hardening PASSes establish the portable C AOT backend for the current clean synthetic RV32I and MIPS32 workloads plus the dedicated hardening corpus. Native AOT ABI V1 separately freezes the first host-facing contract for portability testing.
 
-They do **not** yet establish:
+These results do **not** yet establish:
 
 - arbitrary RV32I or MIPS32 binaries;
 - full MIPS32 ISA/ABI coverage;
 - production optimization correctness across arbitrary programs;
-- a stable external C ABI for third-party hosts;
-- Windows/macOS compiler parity;
+- Windows/macOS Native AOT ABI parity;
+- 32-bit host ABI compatibility;
 - WebAssembly compilation of the new AOT backend;
 - a release-quality production compiler pipeline;
 - proprietary console executable support.

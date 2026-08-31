@@ -64,12 +64,31 @@ jobs:
           cmp build/aot-v1/rv32i.a.c build/aot-v1/rv32i.b.c
           echo "OPENRECOMP_AOT_RV32I_C_DETERMINISTIC=PASS"
 
+      - name: Generate RV32I Native AOT ABI V1 adapter twice
+        run: |
+          python tools/native_aot_abi_v1.py \
+            build/aot-v1/rv32i.module.json \
+            build/aot-v1/rv32i.ir.json \
+            contracts/host_contract.json \
+            build/aot-v1/rv32i.abi.a.c
+          python tools/native_aot_abi_v1.py \
+            build/aot-v1/rv32i.module.json \
+            build/aot-v1/rv32i.ir.json \
+            contracts/host_contract.json \
+            build/aot-v1/rv32i.abi.b.c
+          cmp build/aot-v1/rv32i.abi.a.c build/aot-v1/rv32i.abi.b.c
+          echo "OPENRECOMP_NATIVE_AOT_ABI_RV32I_DETERMINISTIC=PASS"
+
       - name: Compile and execute RV32I AOT module with GCC and Clang
         run: |
-          gcc -std=c11 -O2 -Wall -Wextra -Werror -fPIC -shared \
-            build/aot-v1/rv32i.a.c -o build/aot-v1/rv32i.gcc.so
-          clang -std=c11 -O2 -Wall -Wextra -Werror -fPIC -shared \
-            build/aot-v1/rv32i.a.c -o build/aot-v1/rv32i.clang.so
+          gcc -std=c11 -O2 -Wall -Wextra -Werror -fPIC -fvisibility=hidden -shared -Iinclude \
+            build/aot-v1/rv32i.a.c build/aot-v1/rv32i.abi.a.c -o build/aot-v1/rv32i.gcc.so
+          clang -std=c11 -O2 -Wall -Wextra -Werror -fPIC -fvisibility=hidden -shared -Iinclude \
+            build/aot-v1/rv32i.a.c build/aot-v1/rv32i.abi.a.c -o build/aot-v1/rv32i.clang.so
+          python tools/test_native_aot_abi_v1.py \
+            build/aot-v1/rv32i.gcc.so build/aot-v1/rv32i.module.json build/aot-v1/rv32i.ir.json contracts/host_contract.json
+          python tools/test_native_aot_abi_v1.py \
+            build/aot-v1/rv32i.clang.so build/aot-v1/rv32i.module.json build/aot-v1/rv32i.ir.json contracts/host_contract.json
           python tools/run_aot_e07_v1.py \
             build/aot-v1/rv32i.gcc.so \
             contracts/host_contract.json \
@@ -117,12 +136,31 @@ jobs:
           cmp build/aot-v1/mips32.a.c build/aot-v1/mips32.b.c
           echo "OPENRECOMP_AOT_MIPS32_C_DETERMINISTIC=PASS"
 
+      - name: Generate MIPS32 Native AOT ABI V1 adapter twice
+        run: |
+          python tools/native_aot_abi_v1.py \
+            build/aot-v1/mips32.module.json \
+            build/aot-v1/mips32.ir.json \
+            contracts/host_contract.json \
+            build/aot-v1/mips32.abi.a.c
+          python tools/native_aot_abi_v1.py \
+            build/aot-v1/mips32.module.json \
+            build/aot-v1/mips32.ir.json \
+            contracts/host_contract.json \
+            build/aot-v1/mips32.abi.b.c
+          cmp build/aot-v1/mips32.abi.a.c build/aot-v1/mips32.abi.b.c
+          echo "OPENRECOMP_NATIVE_AOT_ABI_MIPS32_DETERMINISTIC=PASS"
+
       - name: Compile and execute MIPS32 AOT module with GCC and Clang
         run: |
-          gcc -std=c11 -O2 -Wall -Wextra -Werror -fPIC -shared \
-            build/aot-v1/mips32.a.c -o build/aot-v1/mips32.gcc.so
-          clang -std=c11 -O2 -Wall -Wextra -Werror -fPIC -shared \
-            build/aot-v1/mips32.a.c -o build/aot-v1/mips32.clang.so
+          gcc -std=c11 -O2 -Wall -Wextra -Werror -fPIC -fvisibility=hidden -shared -Iinclude \
+            build/aot-v1/mips32.a.c build/aot-v1/mips32.abi.a.c -o build/aot-v1/mips32.gcc.so
+          clang -std=c11 -O2 -Wall -Wextra -Werror -fPIC -fvisibility=hidden -shared -Iinclude \
+            build/aot-v1/mips32.a.c build/aot-v1/mips32.abi.a.c -o build/aot-v1/mips32.clang.so
+          python tools/test_native_aot_abi_v1.py \
+            build/aot-v1/mips32.gcc.so build/aot-v1/mips32.module.json build/aot-v1/mips32.ir.json contracts/host_contract.json
+          python tools/test_native_aot_abi_v1.py \
+            build/aot-v1/mips32.clang.so build/aot-v1/mips32.module.json build/aot-v1/mips32.ir.json contracts/host_contract.json
           python tools/run_aot_mips32_v1.py \
             build/aot-v1/mips32.gcc.so \
             build/aot-v1/mips32.ir.json \
@@ -144,3 +182,4 @@ jobs:
             build/aot-v1/mips32.core.json \
             build/aot-v1/mips32.aot.gcc.json | tee build/aot-v1/equivalence.txt
           grep -F "OPENRECOMP_IR_V1_AOT_DUAL_ARCH=PASS" build/aot-v1/equivalence.txt
+          echo "OPENRECOMP_NATIVE_AOT_ABI_V1_DUAL_ARCH=PASS"
