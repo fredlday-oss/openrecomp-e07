@@ -177,7 +177,7 @@ int main(int argc, char **argv)
     const uint32_t checksum = ProofChecksum(host_state, result.observed_state);
     const bool metadata_ok =
         strcmp(result.module_id, "e07.rv32i.fixture-full.ir-v1") == 0 &&
-        strcmp(result.source_architecture, "rv32i") == 0 &&
+        strcmp(result.source_architecture, "riscv32-rv32i") == 0 &&
         strcmp(result.host_contract_version, "0.1.1") == 0 &&
         result.source_address_bits == 32u &&
         result.source_endianness == OPENRECOMP_NATIVE_AOT_ENDIAN_LITTLE &&
@@ -203,6 +203,7 @@ int main(int argc, char **argv)
         return Fail("expected E07 host callbacks were not exercised");
     }
 
+    printf("UNREAL_NATIVE_AOT_SOURCE_ARCH=%s\n", result.source_architecture);
     printf("UNREAL_NATIVE_AOT_OBSERVED_STATE=%llu\n", static_cast<unsigned long long>(result.observed_state));
     printf("UNREAL_NATIVE_AOT_CHECKSUM=%u\n", checksum);
     printf("UNREAL_NATIVE_AOT_OPERATIONS=%llu\n", static_cast<unsigned long long>(result.operations));
