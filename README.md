@@ -17,14 +17,16 @@ The project separates binary analysis, a versioned intermediate representation (
 | Core API V1 reference module/runtime | **PASS** — E07 equivalence |
 | MIPS32 synthetic vertical slice | **PASS** — IR V1/Core API equivalence |
 | Cross-architecture IR/Module/Core boundary | **PASS** — bounded RV32I + MIPS32 synthetic validation |
+| Portable C AOT backend V1 | **PASS** — bounded RV32I + MIPS32 equivalence |
+| GCC/Clang AOT behavioral parity | **PASS** — current dual-architecture fixtures |
 | General MIPS32 coverage | **CANDIDATE** — bounded subset only |
-| Production AOT IR V1 translator | **CANDIDATE** |
+| Release-quality production AOT compiler pipeline | **CANDIDATE** |
 | Unreal Engine 5.8 Gate B runtime | **PROVEN-RUNTIME** |
 | Unreal visual replay | **PASS** |
 
 The hardened E07 V1.1 fixture remains the first proven architecture path and validation harness. It is a proof component of the broader OpenRecomp project, not the total intended scope.
 
-The normalized IR V1, Module Image V1 and Core API V1 boundaries have now been exercised by two materially different clean synthetic guest workloads. RV32I remains the deeper proven path; the MIPS32 result is deliberately bounded to its implemented vertical slice. Broader MIPS32 coverage and production ahead-of-time V1 code generation remain separately gated.
+The normalized IR V1, Module Image V1 and Core API V1 boundaries have now been exercised by two materially different clean synthetic guest workloads. A single portable C AOT backend also consumes both normalized workloads and reproduces their Core API results after native compilation with GCC and Clang. RV32I remains the deeper proven architecture path; broader MIPS32 coverage and a release-quality production compiler pipeline remain separately gated.
 
 ## Architecture
 
@@ -37,7 +39,8 @@ Normalized versioned OpenRecomp IR
     ↓
 Module Image V1
     ↓
-Core runtime / AOT translation boundary
+    ├── Core API V1 reference executor
+    └── Portable C AOT backend V1 → native compiled module
     ↓
 Explicit host runtime services
     ↓
@@ -82,8 +85,6 @@ CORE_API_V1_OPERATIONS=3866
 OPENRECOMP_CORE_API_V1_EQUIVALENCE=PASS checksum=122010428
 ```
 
-This PASS is bounded to the current normalized E07 workload and does not claim that the production ahead-of-time V1 translator is proven.
-
 ## MIPS32 vertical slice
 
 The first implemented second-guest path is documented in [`docs/MIPS32_VERTICAL_SLICE_V1.md`](docs/MIPS32_VERTICAL_SLICE_V1.md).
@@ -105,6 +106,28 @@ OPENRECOMP_MIPS32_VERTICAL_SLICE_V1=PASS checksum=1950232098
 ```
 
 This is a **bounded vertical-slice PASS**, not a claim that arbitrary MIPS32 executables or the full ISA/ABI are supported.
+
+## Portable C AOT backend V1
+
+[`docs/AOT_TRANSLATOR_V1.md`](docs/AOT_TRANSLATOR_V1.md) documents the first common ahead-of-time backend for normalized IR V1.
+
+The backend consumes validated IR V1 + Module Image V1 and deterministically emits portable C. The same generated source is compiled independently by GCC and Clang and loaded as native code. For both current guest workloads, the native AOT result must equal the Core API reference result exactly.
+
+```text
+AOT_E07_CHECKSUM=122010428
+AOT_E07_RETURN_A0=48
+AOT_E07_OPERATIONS=3866
+
+AOT_MIPS32_V0=31
+AOT_MIPS32_CHECKSUM=1950232098
+AOT_MIPS32_OPERATIONS=100
+
+OPENRECOMP_IR_V1_AOT_RV32I=PASS
+OPENRECOMP_IR_V1_AOT_MIPS32=PASS
+OPENRECOMP_IR_V1_AOT_DUAL_ARCH=PASS
+```
+
+This establishes a **bounded dual-architecture AOT PASS** for the current synthetic workloads. It does not yet claim arbitrary guest binaries, production optimization correctness, full platform/compiler portability or a release-quality compiler pipeline.
 
 ## Hardened E07 proof
 
@@ -151,6 +174,7 @@ See [`integrations/unreal/README.md`](integrations/unreal/README.md) and [`evide
 - [`docs/RV32I_IR_V1_BRIDGE.md`](docs/RV32I_IR_V1_BRIDGE.md)
 - [`docs/CORE_API_V1.md`](docs/CORE_API_V1.md)
 - [`docs/MIPS32_VERTICAL_SLICE_V1.md`](docs/MIPS32_VERTICAL_SLICE_V1.md)
+- [`docs/AOT_TRANSLATOR_V1.md`](docs/AOT_TRANSLATOR_V1.md)
 - [`docs/PROOF_STATUS.md`](docs/PROOF_STATUS.md)
 - [`docs/ROADMAP.md`](docs/ROADMAP.md)
 - [`docs/BUILDING.md`](docs/BUILDING.md)

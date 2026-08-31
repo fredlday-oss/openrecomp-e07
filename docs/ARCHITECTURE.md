@@ -7,7 +7,9 @@ guest executable / clean machine-code fixture
  -> architecture adapter / analysis
  -> normalized versioned IR
  -> Module Image V1
- -> common runtime / ahead-of-time translation boundary
+ -> common execution boundary
+      |-> Core API V1 ReferenceExecutor
+      `-> portable C AOT backend V1 -> native compiled module
  -> host runtime contract
  -> native / WebAssembly / Unreal Engine host
 ```
@@ -66,9 +68,35 @@ delay_slots=7
 
 This establishes **PASS — bounded synthetic vertical slice** for MIPS32 and **PASS — bounded two-guest generalization** for the shared IR/Module/Core boundaries. It is not a claim of full MIPS32 support.
 
+## Portable C AOT backend V1
+
+[`AOT_TRANSLATOR_V1.md`](AOT_TRANSLATOR_V1.md) defines the first common ahead-of-time code-generation path after normalization.
+
+The AOT backend consumes only validated normalized IR V1 and Module Image V1. It does not decode RV32I or MIPS32 instructions and contains no guest delay-slot/link-register semantics. Instead it lowers the already-normalized operations, state accesses, memory operations, structured control flow and host-call boundary into deterministic portable C.
+
+The generated C exposes a compact architecture-neutral native-module interface. Host behavior is supplied through a callback boundary rather than compiled into the guest translator.
+
+For each current guest workload:
+
+1. the backend generates C twice and requires byte-identical output;
+2. the same generated C is compiled independently with GCC and Clang;
+3. both native compiler paths must produce identical behavioral result JSON;
+4. the native AOT result must equal the existing Core API reference result exactly.
+
+The current results are:
+
+```text
+RV32I AOT checksum=122010428, return a0=48, operations=3866
+MIPS32 AOT checksum=1950232098, return v0=31, operations=100
+```
+
+This establishes **PASS — bounded dual-architecture AOT equivalence** for the current synthetic workloads. It does not yet establish a release-quality optimizing compiler pipeline or arbitrary guest-binary support.
+
 ## Host runtime boundary
 
-`HostBinding` keeps normalized guest behavior separate from concrete host services. The common executor requires only a contract version, available symbols and a call boundary; it does not contain RV32I, MIPS32, Unreal Engine or E07 host semantics.
+`HostBinding` keeps normalized guest behavior separate from concrete host services. The common reference executor requires only a contract version, available symbols and a call boundary; it does not contain RV32I, MIPS32, Unreal Engine or E07 host semantics.
+
+The AOT native module uses the same architectural separation through `openrecomp_set_host_callback`: generated guest code invokes a generic callback by normalized host symbol name, while the proof runner supplies deterministic host behavior externally.
 
 Compatibility is fail-closed: unsupported IR, invalid module metadata, missing host bindings, integrity mismatches, memory faults and execution-limit violations are rejected rather than interpreted heuristically.
 
@@ -106,8 +134,10 @@ OPENRECOMP_DEMO PASS x=15 y=6 rgba=ff3aa7ff frame=8
 - Core API V1 reference module/runtime: **PASS — E07 equivalence**
 - MIPS32 synthetic vertical slice: **PASS — bounded IR/Module/Core equivalence**
 - Shared IR V1 / Module Image V1 / Core API across RV32I + MIPS32: **PASS — bounded two-guest validation**
+- Portable C AOT backend across RV32I + MIPS32: **PASS — bounded dual-architecture native equivalence**
+- GCC/Clang behavior for current generated AOT modules: **PASS**
 - General MIPS32 ISA/frontend coverage: **CANDIDATE**
-- Production AOT V1 translator: **CANDIDATE**
+- Release-quality production AOT compiler pipeline: **CANDIDATE**
 - Unreal Gate B: **PROVEN-RUNTIME**
 
-The second guest architecture has now crossed the common interfaces for a bounded clean synthetic workload. Broader architecture support remains evidence-gated rather than inferred from this vertical slice.
+The second guest architecture and first common AOT backend have now crossed the common interfaces for bounded clean synthetic workloads. Broader architecture/compiler support remains evidence-gated rather than inferred from these vertical slices.
