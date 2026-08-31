@@ -43,7 +43,7 @@ For each architecture it:
 
 1. translates the same normalized module to portable C twice;
 2. requires the generated C files to be byte-identical;
-3. compiles the same generated C independently with GCC and Clang;
+3. compiles the same generated C independently with GCC and Clang using `-Wall -Wextra -Werror`;
 4. executes both native modules through the same exported AOT module interface;
 5. requires GCC and Clang behavioral result JSON to be byte-identical;
 6. compares the AOT result with the existing Core API reference result exactly.
@@ -56,6 +56,43 @@ MIPS32 checksum=1950232098, v0=31, operations=100
 ```
 
 Generated compiler binaries are not required to be byte-identical because compiler/toolchain metadata and code-generation choices may legitimately differ. The reproducibility requirement is deterministic OpenRecomp-generated C plus exact observable behavioral parity.
+
+## AOT hardening reproducibility
+
+`OPENRECOMP_AOT_HARDENING_V1` adds an architecture-independent normalized-IR corpus around the same backend. The positive program is generated and executed in both little- and big-endian configurations and covers the current integer binops, comparison predicates, cast forms, select, state operations, memory operations, direct calls, structured control flow, bounded indirect control flow, returns and trap representation.
+
+For each positive configuration the Core API reference and GCC/Clang native AOT results must agree on observed state, function return, operation count, state snapshot and observable memory. The established result is:
+
+```text
+AOT_HARDENING_POSITIVE=2147483672
+```
+
+The hardening gate also constructs nine valid modules that intentionally fail during execution. Core API and AOT are required to agree on a normalized deterministic fault class under both compilers:
+
+```text
+memory-oob       -> memory-fault
+misalignment     -> misalignment
+operation-limit  -> operation-limit
+shift-count      -> shift-count
+trap             -> trap
+indirect-target  -> indirect-target
+call-depth       -> call-depth
+host-failure     -> host-failure
+host-void        -> host-void
+```
+
+Finally, the little- and big-endian positive generated sources are compiled as standalone executables under GCC and Clang with AddressSanitizer and UndefinedBehaviorSanitizer. CI enables leak detection and halt-on-error semantics and requires clean execution.
+
+The current hardening markers are:
+
+```text
+AOT_HARDENING_FAULT_CASES=9
+OPENRECOMP_AOT_HARDENING_WARNING_CLEAN=PASS
+OPENRECOMP_AOT_HARDENING_FAULT_EQUIVALENCE=PASS
+OPENRECOMP_AOT_HARDENING_GCC_SANITIZERS=PASS
+OPENRECOMP_AOT_HARDENING_CLANG_SANITIZERS=PASS
+OPENRECOMP_AOT_HARDENING_V1=PASS
+```
 
 ## Golden validation
 
@@ -76,7 +113,10 @@ Reproducibility does not automatically promote a feature's status:
 - Core API V1 reference path: **PASS — E07 equivalence**
 - MIPS32 synthetic vertical slice: **PASS — bounded equivalence**
 - Shared IR/Module/Core boundary across RV32I + MIPS32: **PASS — bounded two-guest validation**
-- Portable C AOT backend V1: **PASS — bounded dual-architecture equivalence**
-- GCC/Clang AOT behavioral parity: **PASS — current dual-architecture fixtures**
+- Portable C AOT backend V1: **PASS — bounded hardened dual-architecture equivalence**
+- GCC/Clang `-Werror` and behavioral parity: **PASS — current dual-architecture fixtures + hardening corpus**
+- Core API/AOT fault equivalence: **PASS — 9 bounded fault classes**
+- GCC/Clang ASan+UBSan: **PASS — Linux little/big-endian hardening fixtures**
 - General MIPS32 ISA/frontend coverage: **CANDIDATE**
+- Stable external native-module ABI: **CANDIDATE**
 - Release-quality production AOT compiler pipeline: **CANDIDATE**
