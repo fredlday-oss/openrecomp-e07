@@ -1,0 +1,42 @@
+{
+  "fixture_version": "1.0.0",
+  "architecture": "mips32-le",
+  "entry_address": 4096,
+  "functions": [
+    {"id": "mips_main", "address": 4096},
+    {"id": "mips_func", "address": 4224}
+  ],
+  "memory_size_bytes": 262144,
+  "initial_state": {
+    "gpr:r29": 196608,
+    "gpr:r31": 0
+  },
+  "observe_state_slot": "gpr:r2",
+  "observable_memory": {
+    "address": 8192,
+    "size_bytes": 4
+  },
+  "max_operations": 10000,
+  "max_reference_steps": 1000,
+  "expected": {
+    "return_v0": 31,
+    "memory_word": 19,
+    "memory_bytes_hex": "13000000",
+    "checksum": 2891517465,
+    "delay_slots_executed": 7,
+    "registers": {
+      "gpr:r2": 31,
+      "gpr:r8": 5,
+      "gpr:r9": 3,
+      "gpr:r10": 19,
+      "gpr:r11": 1,
+      "gpr:r12": 8192,
+      "gpr:r13": 1,
+      "gpr:r14": 4294967295,
+      "gpr:r15": 1,
+      "gpr:r16": 0,
+      "gpr:r17": 0,
+      "gpr:r31": 0
+    }
+  }
+}
