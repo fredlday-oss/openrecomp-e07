@@ -57,3 +57,23 @@ jobs:
           test -s evidence/native_run.txt
           test -s evidence/wasm_run.txt
           grep -F "PASS: two host targets execute identically" evidence/portable_hosts.txt
+
+      - name: Normalize RV32I legacy IR to normalized IR V1 twice
+        run: |
+          python tools/bridge_rv32i_ir_v1.py build/fixture_full.ir.json contracts/host_contract.json build/fixture_full.v1.a.json build/fixture_full.v1.sidecar.a.json
+          python tools/bridge_rv32i_ir_v1.py build/fixture_full.ir.json contracts/host_contract.json build/fixture_full.v1.b.json build/fixture_full.v1.sidecar.b.json
+          cmp build/fixture_full.v1.a.json build/fixture_full.v1.b.json
+          cmp build/fixture_full.v1.sidecar.a.json build/fixture_full.v1.sidecar.b.json
+          echo "OPENRECOMP_RV32I_IR_V1_NORMALIZATION_DETERMINISTIC=PASS"
+
+      - name: Validate normalized IR V1
+        run: python tools/validate_ir_v1.py build/fixture_full.v1.a.json
+
+      - name: Execute normalized IR V1 bridge
+        run: |
+          python tools/run_ir_v1_bridge.py build/fixture_full.v1.a.json build/fixture_full.v1.sidecar.a.json contracts/host_contract.json build/fixture_full.v1.result.json | tee evidence/rv32i_ir_v1_bridge_runtime.txt
+
+      - name: Compare normalized path with proven E07 baseline
+        run: |
+          python tools/check_rv32i_ir_v1_bridge.py build/fixture_full.ir.json build/fixture_full.v1.a.json build/fixture_full.v1.result.json golden/state.json evidence/native_run.txt | tee evidence/rv32i_ir_v1_bridge_equivalence.txt
+          grep -F "OPENRECOMP_RV32I_IR_V1_EQUIVALENCE=PASS" evidence/rv32i_ir_v1_bridge_equivalence.txt
