@@ -56,6 +56,13 @@ if (Test-Path $ResultRoot) {
 }
 New-Item -ItemType Directory -Path $ResultRoot -Force | Out-Null
 
+function Write-ResultZip {
+    if (Test-Path $ResultZip) {
+        Remove-Item -LiteralPath $ResultZip -Force
+    }
+    Compress-Archive -Path (Join-Path $ResultRoot "*") -DestinationPath $ResultZip -CompressionLevel Optimal
+}
+
 Write-Output "===== UE5 EDITOR BUILD ====="
 & $BuildBat $EditorTarget "Win64" "Development" "-Project=$ProjectFile" "-WaitMutex" "-NoHotReloadFromIDE"
 if ($LASTEXITCODE -ne 0) {
@@ -89,11 +96,21 @@ if ($LASTEXITCODE -ne 0) {
     throw "UE5 BuildCookRun failed with exit code $LASTEXITCODE"
 }
 
+# UE may emit both a root bootstrap executable and the actual staged runtime
+# executable under Binaries/Win64. Prefer the latter so command-line proof
+# arguments and absolute logging are applied directly to the game process.
 $Executables = @(Get-ChildItem -LiteralPath $ArchiveRoot -Filter "${ProjectName}.exe" -File -Recurse)
-if ($Executables.Count -ne 1) {
-    throw "Expected exactly one packaged ${ProjectName}.exe; found $($Executables.Count)"
+$RuntimeExecutables = @($Executables | Where-Object {
+    $_.FullName -match '[\\/]Binaries[\\/]Win64[\\/]'
+})
+if ($RuntimeExecutables.Count -eq 1) {
+    $PackagedExe = $RuntimeExecutables[0]
+} elseif ($Executables.Count -eq 1) {
+    $PackagedExe = $Executables[0]
+} else {
+    $Candidates = ($Executables | ForEach-Object { $_.FullName }) -join '; '
+    throw "Could not identify one packaged runtime ${ProjectName}.exe; total=$($Executables.Count) runtime=$($RuntimeExecutables.Count) candidates=$Candidates"
 }
-$PackagedExe = $Executables[0]
 
 $PackagedDlls = @(Get-ChildItem -LiteralPath $ArchiveRoot -Filter "openrecomp-e07-rv32i.dll" -File -Recurse)
 if ($PackagedDlls.Count -ne 1) {
@@ -108,11 +125,13 @@ if ($InstalledDllHash -ne $PackagedDllHash) {
 
 @(
     "OPENRECOMP_UNREAL_PLUGIN_V1_PACKAGE=PASS",
-    "PACKAGED_EXE=$($PackagedExe.Name)",
+    "PACKAGED_EXE=$($PackagedExe.FullName)",
+    "PACKAGED_EXE_CANDIDATES=$($Executables.Count)",
     "NATIVE_MODULE_SHA256=$PackagedDllHash"
 ) | Set-Content -LiteralPath (Join-Path $ResultRoot "PACKAGE_RESULT.txt") -Encoding ASCII
 
 $RawLog = Join-Path ([System.IO.Path]::GetTempPath()) ("openrecomp-plugin-v1-" + [guid]::NewGuid().ToString("N") + ".log")
+$RuntimeMarker = $null
 try {
     Write-Output "===== PACKAGED RUNTIME PROOF ====="
     $StartInfo = New-Object System.Diagnostics.ProcessStartInfo
@@ -136,13 +155,25 @@ try {
 
     $SafeEvidence = Join-Path $ResultRoot "OPENRECOMP_UNREAL_PLUGIN_V1_PUBLIC_SAFE.txt"
     & (Join-Path $PSScriptRoot "COLLECT_UNREAL_PLUGIN_V1_EVIDENCE.ps1") -UnrealLog $RawLog -OutputPath $SafeEvidence
-    if ($LASTEXITCODE -ne 0) {
-        throw "Public-safe evidence collector failed"
-    }
+    $RuntimeMarker = (Get-Content -LiteralPath $SafeEvidence -Raw).Trim()
 } finally {
     if (Test-Path $RawLog) {
         Remove-Item -LiteralPath $RawLog -Force
     }
+}
+
+if ($RuntimeMarker -notmatch '^OPENRECOMP_UNREAL_PLUGIN_V1 PACKAGED_PASS ') {
+    @(
+        "OPENRECOMP_UNREAL_PLUGIN_V1_EDITOR_BUILD=PASS",
+        "OPENRECOMP_UNREAL_PLUGIN_V1_PACKAGE=PASS",
+        "OPENRECOMP_UNREAL_PLUGIN_V1_PACKAGED_RUNTIME=FAIL",
+        "NATIVE_MODULE_SHA256=$PackagedDllHash",
+        "SAFE_MARKER=$RuntimeMarker"
+    ) | Set-Content -LiteralPath (Join-Path $ResultRoot "RESULT.txt") -Encoding ASCII
+    Write-ResultZip
+    Write-Output "OPENRECOMP_UNREAL_PLUGIN_V1_RUNTIME_DIAGNOSTIC=READY"
+    Write-Output "RESULT_ZIP=$ResultZip"
+    throw "Packaged OpenRecomp plugin proof did not reach the bounded PASS marker"
 }
 
 $InstallManifest = Join-Path $ProjectRoot "OPENRECOMP_UNREAL_PLUGIN_V1_INSTALL_MANIFEST.txt"
@@ -157,10 +188,7 @@ if (Test-Path $InstallManifest -PathType Leaf) {
     "NATIVE_MODULE_SHA256=$PackagedDllHash"
 ) | Set-Content -LiteralPath (Join-Path $ResultRoot "RESULT.txt") -Encoding ASCII
 
-if (Test-Path $ResultZip) {
-    Remove-Item -LiteralPath $ResultZip -Force
-}
-Compress-Archive -Path (Join-Path $ResultRoot "*") -DestinationPath $ResultZip -CompressionLevel Optimal
+Write-ResultZip
 
 Write-Output "OPENRECOMP_UNREAL_PLUGIN_V1_RUNTIME_RESULT=READY"
 Write-Output "RESULT_ZIP=$ResultZip"
