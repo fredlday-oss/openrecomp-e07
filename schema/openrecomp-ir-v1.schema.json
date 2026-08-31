@@ -1,0 +1,329 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openrecomp.dev/schema/openrecomp-ir-v1.schema.json",
+  "title": "OpenRecomp Normalized IR V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ir_version",
+    "module_id",
+    "source",
+    "required_features",
+    "host_contract_version",
+    "required_host_symbols",
+    "entry_function",
+    "functions"
+  ],
+  "properties": {
+    "ir_version": {"const": "1.0.0"},
+    "module_id": {"$ref": "#/$defs/id"},
+    "source": {"$ref": "#/$defs/source"},
+    "required_features": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/id"},
+      "uniqueItems": true
+    },
+    "host_contract_version": {"type": "string", "minLength": 1},
+    "required_host_symbols": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/id"},
+      "uniqueItems": true
+    },
+    "entry_function": {"$ref": "#/$defs/id"},
+    "functions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/function"}
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z_%.][A-Za-z0-9_%.:-]*$"
+    },
+    "int_type": {
+      "enum": ["i1", "i8", "i16", "i32", "i64"]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["architecture", "adapter", "address_bits", "endianness", "input_sha256"],
+      "properties": {
+        "architecture": {"type": "string", "minLength": 1},
+        "adapter": {"type": "string", "minLength": 1},
+        "address_bits": {"enum": [32, 64]},
+        "endianness": {"enum": ["little", "big"]},
+        "input_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "operand": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value"],
+          "properties": {"value": {"$ref": "#/$defs/id"}}
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["const", "type"],
+          "properties": {
+            "const": {"type": "integer", "minimum": 0},
+            "type": {"$ref": "#/$defs/int_type"}
+          }
+        }
+      ]
+    },
+    "source_address": {"type": "integer", "minimum": 0},
+    "instruction": {
+      "oneOf": [
+        {"$ref": "#/$defs/const_inst"},
+        {"$ref": "#/$defs/read_state_inst"},
+        {"$ref": "#/$defs/write_state_inst"},
+        {"$ref": "#/$defs/binop_inst"},
+        {"$ref": "#/$defs/compare_inst"},
+        {"$ref": "#/$defs/cast_inst"},
+        {"$ref": "#/$defs/select_inst"},
+        {"$ref": "#/$defs/load_inst"},
+        {"$ref": "#/$defs/store_inst"},
+        {"$ref": "#/$defs/call_inst"},
+        {"$ref": "#/$defs/host_call_inst"}
+      ]
+    },
+    "const_inst": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "result", "result_type", "value"],
+      "properties": {
+        "op": {"const": "const"},
+        "result": {"$ref": "#/$defs/id"},
+        "result_type": {"$ref": "#/$defs/int_type"},
+        "value": {"type": "integer", "minimum": 0},
+        "source_address": {"$ref": "#/$defs/source_address"}
+      }
+    },
+    "read_state_inst": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "result", "result_type", "slot"],
+      "properties": {
+        "op": {"const": "read_state"},
+        "result": {"$ref": "#/$defs/id"},
+        "result_type": {"$ref": "#/$defs/int_type"},
+        "slot": {"$ref": "#/$defs/id"},
+        "source_address": {"$ref": "#/$defs/source_address"}
+      }
+    },
+    "write_state_inst": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "slot", "value"],
+      "properties": {
+        "op": {"const": "write_state"},
+        "slot": {"$ref": "#/$defs/id"},
+        "value": {"$ref": "#/$defs/operand"},
+        "source_address": {"$ref": "#/$defs/source_address"}
+      }
+    },
+    "binop_inst": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "result", "result_type", "kind", "lhs", "rhs"],
+      "properties": {
+        "op": {"const": "binop"},
+        "result": {"$ref": "#/$defs/id"},
+        "result_type": {"$ref": "#/$defs/int_type"},
+        "kind": {"enum": ["add", "sub", "mul", "and", "or", "xor", "shl", "lshr", "ashr"]},
+        "lhs": {"$ref": "#/$defs/operand"},
+        "rhs": {"$ref": "#/$defs/operand"},
+        "source_address": {"$ref": "#/$defs/source_address"}
+      }
+    },
+    "compare_inst": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "result", "result_type", "predicate", "lhs", "rhs"],
+      "properties": {
+        "op": {"const": "compare"},
+        "result": {"$ref": "#/$defs/id"},
+        "result_type": {"const": "i1"},
+        "predicate": {"enum": ["eq", "ne", "ult", "ule", "ugt", "uge", "slt", "sle", "sgt", "sge"]},
+        "lhs": {"$ref": "#/$defs/operand"},
+        "rhs": {"$ref": "#/$defs/operand"},
+        "source_address": {"$ref": "#/$defs/source_address"}
+      }
+    },
+    "cast_inst": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "result", "result_type", "kind", "value"],
+      "properties": {
+        "op": {"const": "cast"},
+        "result": {"$ref": "#/$defs/id"},
+        "result_type": {"$ref": "#/$defs/int_type"},
+        "kind": {"enum": ["zext", "sext", "trunc", "bitcast"]},
+        "value": {"$ref": "#/$defs/operand"},
+        "source_address": {"$ref": "#/$defs/source_address"}
+      }
+    },
+    "select_inst": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "result", "result_type", "condition", "if_true", "if_false"],
+      "properties": {
+        "op": {"const": "select"},
+        "result": {"$ref": "#/$defs/id"},
+        "result_type": {"$ref": "#/$defs/int_type"},
+        "condition": {"$ref": "#/$defs/operand"},
+        "if_true": {"$ref": "#/$defs/operand"},
+        "if_false": {"$ref": "#/$defs/operand"},
+        "source_address": {"$ref": "#/$defs/source_address"}
+      }
+    },
+    "load_inst": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "result", "result_type", "width_bits", "signed", "address", "alignment", "misaligned_policy"],
+      "properties": {
+        "op": {"const": "load"},
+        "result": {"$ref": "#/$defs/id"},
+        "result_type": {"$ref": "#/$defs/int_type"},
+        "width_bits": {"enum": [8, 16, 32, 64]},
+        "signed": {"type": "boolean"},
+        "address": {"$ref": "#/$defs/operand"},
+        "alignment": {"enum": [1, 2, 4, 8]},
+        "misaligned_policy": {"enum": ["allow", "fault"]},
+        "source_address": {"$ref": "#/$defs/source_address"}
+      }
+    },
+    "store_inst": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "width_bits", "address", "value", "alignment", "misaligned_policy"],
+      "properties": {
+        "op": {"const": "store"},
+        "width_bits": {"enum": [8, 16, 32, 64]},
+        "address": {"$ref": "#/$defs/operand"},
+        "value": {"$ref": "#/$defs/operand"},
+        "alignment": {"enum": [1, 2, 4, 8]},
+        "misaligned_policy": {"enum": ["allow", "fault"]},
+        "source_address": {"$ref": "#/$defs/source_address"}
+      }
+    },
+    "call_inst": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "callee", "args"],
+      "properties": {
+        "op": {"const": "call"},
+        "callee": {"$ref": "#/$defs/id"},
+        "args": {"type": "array", "items": {"$ref": "#/$defs/operand"}},
+        "result": {"$ref": "#/$defs/id"},
+        "result_type": {"$ref": "#/$defs/int_type"},
+        "source_address": {"$ref": "#/$defs/source_address"}
+      }
+    },
+    "host_call_inst": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "symbol", "args"],
+      "properties": {
+        "op": {"const": "host_call"},
+        "symbol": {"$ref": "#/$defs/id"},
+        "args": {"type": "array", "items": {"$ref": "#/$defs/operand"}},
+        "result": {"$ref": "#/$defs/id"},
+        "result_type": {"$ref": "#/$defs/int_type"},
+        "source_address": {"$ref": "#/$defs/source_address"}
+      }
+    },
+    "terminator": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["op", "target"],
+          "properties": {
+            "op": {"const": "jump"},
+            "target": {"$ref": "#/$defs/id"},
+            "source_address": {"$ref": "#/$defs/source_address"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["op", "condition", "target_true", "target_false"],
+          "properties": {
+            "op": {"const": "branch"},
+            "condition": {"$ref": "#/$defs/operand"},
+            "target_true": {"$ref": "#/$defs/id"},
+            "target_false": {"$ref": "#/$defs/id"},
+            "source_address": {"$ref": "#/$defs/source_address"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["op"],
+          "properties": {
+            "op": {"const": "return"},
+            "value": {"$ref": "#/$defs/operand"},
+            "source_address": {"$ref": "#/$defs/source_address"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["op", "target", "candidate_blocks"],
+          "properties": {
+            "op": {"const": "indirect_jump"},
+            "target": {"$ref": "#/$defs/operand"},
+            "candidate_blocks": {
+              "type": "array",
+              "minItems": 1,
+              "items": {"$ref": "#/$defs/id"},
+              "uniqueItems": true
+            },
+            "source_address": {"$ref": "#/$defs/source_address"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["op", "reason"],
+          "properties": {
+            "op": {"const": "trap"},
+            "reason": {"type": "string", "minLength": 1},
+            "source_address": {"$ref": "#/$defs/source_address"}
+          }
+        }
+      ]
+    },
+    "block": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "guest_address", "instructions", "terminator"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "guest_address": {"type": "integer", "minimum": 0},
+        "instructions": {"type": "array", "items": {"$ref": "#/$defs/instruction"}},
+        "terminator": {"$ref": "#/$defs/terminator"}
+      }
+    },
+    "function": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "guest_address", "blocks"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "guest_address": {"type": "integer", "minimum": 0},
+        "blocks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/block"}
+        }
+      }
+    }
+  }
+}
