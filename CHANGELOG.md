@@ -5,11 +5,15 @@ Significant project changes will be recorded here.
 ## Unreleased
 
 ### Added
+- `OPENRECOMP_NATIVE_AOT_ABI_V1` public fixed-width C contract with a single versioned `openrecomp_native_aot_query` discovery entry point.
+- Deterministic Module Image-backed Native AOT ABI adapter generation with module/IR/host-contract/source-provenance metadata and explicit capability flags.
+- Native AOT ABI V1 fail-closed version/structure-size negotiation and versioned host callback structure with opaque user data.
+- Dual-architecture Native AOT ABI validation for current RV32I and bounded MIPS32 modules under both GCC and Clang, including hidden legacy execution symbols and V1-aware loader checks.
 - `OPENRECOMP_AOT_HARDENING_V1` compiler-quality gate with a broader architecture-independent normalized IR operation corpus in little- and big-endian configurations.
 - Nine deterministic Core API/AOT runtime-fault equivalence cases covering memory OOB, misalignment, operation limit, shift count, trap, indirect target, call depth, host failure and void host return.
 - GCC and Clang AddressSanitizer + UndefinedBehaviorSanitizer standalone smoke execution for the AOT hardening positive fixtures.
 - Deterministic normalized IR V1 -> portable C ahead-of-time backend shared by RV32I and MIPS32 workloads.
-- Native AOT module interface with external host-call callback binding, state/memory inspection and deterministic execution-limit enforcement.
+- Native AOT module execution surface with external host-call callback binding, state/memory inspection and deterministic execution-limit enforcement.
 - Dual-architecture AOT equivalence gate requiring exact Core API result parity for RV32I checksum `122010428` and MIPS32 checksum `1950232098`.
 - GCC/Clang behavioral parity checks for the current generated native AOT modules.
 - Clean synthetic little-endian MIPS32 machine-word fixture for second-guest validation.
@@ -33,11 +37,14 @@ Significant project changes will be recorded here.
 - Contributor, security, build and reproducibility guidance.
 
 ### Changed
-- Portable C AOT output is now warning-clean for the established dual-architecture workloads and hardening corpus; GCC and Clang compile gates use `-Wall -Wextra -Werror`.
+- Native AOT ABI V1 is now **FROZEN-FOR-PORTABILITY-TESTING**; incompatible layout/signature changes must use a new ABI version rather than silently changing V1.
+- Finished Linux ABI proof modules use hidden default symbol visibility so the generated legacy execution functions remain private and the V1 query is the stable OpenRecomp entry point.
+- The Python native AOT loader negotiates Native AOT ABI V1 when present while retaining temporary legacy fallback for internal hardening fixtures that are intentionally linked without the public ABI adapter.
+- Portable C AOT output is warning-clean for the established dual-architecture workloads and hardening corpus; GCC and Clang compile gates use `-Wall -Wextra -Werror`.
 - Generator warning fixes are structural rather than suppressions: unused call results/arguments are emitted deliberately, unsigned comparison lowering is warning-stable, and helpers are only emitted when needed while valid minimal/trap modules retain required shared helpers.
 - Common AOT code generation is execution-backed and compiler-hardened for current clean synthetic workloads while the broader release-quality production compiler remains `CANDIDATE`.
 - The shared IR V1, Module Image V1 and Core API V1 boundary is now boundedly validated with both RV32I and MIPS32 synthetic guest workloads; broader MIPS32 coverage remains `CANDIDATE`.
 - E07 proof CI now requires deterministic Module Image V1 packaging and exact Core API V1 equivalence in addition to the RV32I-to-IR-V1 bridge proof.
-- Architecture documentation now separates normalized IR semantics, executable module packaging, reference execution and hardened portable C AOT translation.
+- Architecture documentation now separates normalized IR semantics, executable module packaging, reference execution, hardened portable C AOT translation and the versioned native-module ABI.
 - E07 proof CI requires deterministic RV32I-to-IR-V1 normalization and exact bridge equivalence with checksum `122010428`.
 - Source-integrity policy keeps proof-critical inputs separate from mutable project documentation.
