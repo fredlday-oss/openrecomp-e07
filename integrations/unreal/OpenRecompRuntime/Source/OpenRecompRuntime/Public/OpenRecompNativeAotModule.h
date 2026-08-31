@@ -30,6 +30,19 @@ public:
         FOpenRecompExecutionResult& OutResult,
         FString& OutError);
 
+    bool GetStateValue(
+        const FString& StateName,
+        int64& OutValue,
+        FString& OutError) const;
+
+    bool ReadMemory(
+        int64 Address,
+        int32 Size,
+        TArray<uint8>& OutBytes,
+        FString& OutError) const;
+
+    int64 GetMemorySize() const;
+
 private:
     struct FImpl;
     TUniquePtr<FImpl> Impl;
