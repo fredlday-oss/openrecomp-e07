@@ -5,6 +5,9 @@ Significant project changes will be recorded here.
 ## Unreleased
 
 ### Added
+- `OPENRECOMP_UNREAL_NATIVE_AOT_HOST_V1` reusable host core, Unreal DLL/query wrapper, proof actor, Windows cross-toolchain host/module CI matrix, installer and public-safe evidence collector.
+- UE5.8 Windows x64 runtime proof consuming the frozen Native AOT ABI V1 through `openrecomp_native_aot_query`, with observed state `48`, checksum `122010428` and `3866` operations.
+- Public-safe Unreal Native AOT runtime evidence and installation-provenance verification showing the tested ABI header, six host source files and synthetic RV32I DLL matched the CI handoff 8/8 by SHA-256.
 - `OPENRECOMP_AOT_WINDOWS_PORTABILITY_V1` cross-OS gate for the frozen Native AOT ABI V1 on Windows x64 under MSVC and clang-cl.
 - Windows x64 ABI layout probe pinning the V1 host structure at 24 bytes, API table at 168 bytes and every public field offset.
 - Windows DLL export, ABI-negotiation and Linux/Core reference-parity checks for the current RV32I and bounded MIPS32 workloads.
@@ -40,7 +43,8 @@ Significant project changes will be recorded here.
 - Contributor, security, build and reproducibility guidance.
 
 ### Changed
-- Native AOT ABI V1 Windows x64 portability is now **PASS** for the bounded RV32I and MIPS32 workloads under both MSVC and clang-cl; macOS, Windows ARM64 and Windows x86 remain separate candidate gates.
+- Unreal Native AOT host V1 is now **PROVEN-RUNTIME** for the bounded UE5.8 Windows x64 E07 RV32I module; the original Gate B proof remains independently preserved.
+- Native AOT ABI V1 Windows x64 portability is **PASS** for the bounded RV32I and MIPS32 workloads under both MSVC and clang-cl; macOS, Windows ARM64 and Windows x86 remain separate candidate gates.
 - Added `.gitattributes` LF rules for proof/source text after Windows CRLF checkout conversion correctly caused Module Image host-contract SHA-256 validation to fail; the byte-integrity check itself remains unchanged and fail-closed.
 - Native AOT ABI V1 remains **FROZEN-FOR-PORTABILITY-TESTING**; incompatible layout/signature changes must use a new ABI version rather than silently changing V1.
 - Finished ABI proof modules keep private execution functions outside the stable module surface; Linux uses hidden default visibility and Windows DLL export validation requires `openrecomp_native_aot_query` as the only OpenRecomp-named export.
@@ -48,8 +52,8 @@ Significant project changes will be recorded here.
 - Portable C AOT output is warning-clean for the established dual-architecture workloads and hardening corpus; GCC and Clang compile gates use `-Wall -Wextra -Werror`.
 - Generator warning fixes are structural rather than suppressions: unused call results/arguments are emitted deliberately, unsigned comparison lowering is warning-stable, and helpers are only emitted when needed while valid minimal/trap modules retain required shared helpers.
 - Common AOT code generation is execution-backed and compiler-hardened for current clean synthetic workloads while the broader release-quality production compiler remains `CANDIDATE`.
-- The shared IR V1, Module Image V1 and Core API V1 boundary is now boundedly validated with both RV32I and MIPS32 synthetic guest workloads; broader MIPS32 coverage remains `CANDIDATE`.
-- E07 proof CI now requires deterministic Module Image V1 packaging and exact Core API V1 equivalence in addition to the RV32I-to-IR-V1 bridge proof.
-- Architecture documentation now separates normalized IR semantics, executable module packaging, reference execution, hardened portable C AOT translation and the versioned native-module ABI.
+- The shared IR V1, Module Image V1 and Core API V1 boundary is boundedly validated with both RV32I and MIPS32 synthetic guest workloads; broader MIPS32 coverage remains `CANDIDATE`.
+- E07 proof CI requires deterministic Module Image V1 packaging and exact Core API V1 equivalence in addition to the RV32I-to-IR-V1 bridge proof.
+- Architecture documentation separates normalized IR semantics, executable module packaging, reference execution, hardened portable C AOT translation, the versioned native-module ABI and host integration.
 - E07 proof CI requires deterministic RV32I-to-IR-V1 normalization and exact bridge equivalence with checksum `122010428`.
 - Source-integrity policy keeps proof-critical inputs separate from mutable project documentation.
