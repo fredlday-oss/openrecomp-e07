@@ -1,0 +1,29 @@
+name: IR V1 specification
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  ir-v1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install validator dependency
+        run: python -m pip install jsonschema
+
+      - name: Validate minimal V1 module
+        run: python tools/validate_ir_v1.py examples/ir-v1/minimal.json
+
+      - name: Run V1 acceptance/rejection tests
+        run: python tools/test_ir_v1.py
