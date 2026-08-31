@@ -15,19 +15,21 @@ The project separates binary analysis, a versioned intermediate representation (
 | Normalized OpenRecomp IR V1 specification | **FROZEN-FOR-IMPLEMENTATION** |
 | RV32I -> normalized IR V1 bridge | **PASS** — E07 equivalence |
 | Core API V1 reference module/runtime | **PASS** — E07 equivalence |
+| MIPS32 synthetic vertical slice | **PASS** — IR V1/Core API equivalence |
+| Cross-architecture IR/Module/Core boundary | **PASS** — bounded RV32I + MIPS32 synthetic validation |
+| General MIPS32 coverage | **CANDIDATE** — bounded subset only |
 | Production AOT IR V1 translator | **CANDIDATE** |
 | Unreal Engine 5.8 Gate B runtime | **PROVEN-RUNTIME** |
 | Unreal visual replay | **PASS** |
-| MIPS32 second-adapter seam | **CANDIDATE** — interface only |
 
-The hardened E07 V1.1 fixture is the first proven architecture path and validation harness. It is a proof component of the broader OpenRecomp project, not the total intended scope.
+The hardened E07 V1.1 fixture remains the first proven architecture path and validation harness. It is a proof component of the broader OpenRecomp project, not the total intended scope.
 
-The normalized IR V1 contract is frozen for implementation. The E07 RV32I workload now has both a deterministic bridge into V1 and a reusable Core API V1 reference module/runtime path that reproduce the proven native/golden result. The production ahead-of-time V1 translator and second guest architecture remain separately gated.
+The normalized IR V1, Module Image V1 and Core API V1 boundaries have now been exercised by two materially different clean synthetic guest workloads. RV32I remains the deeper proven path; the MIPS32 result is deliberately bounded to its implemented vertical slice. Broader MIPS32 coverage and production ahead-of-time V1 code generation remain separately gated.
 
 ## Architecture
 
 ```text
-Guest binary
+Guest binary / clean machine-code fixture
     ↓
 Binary analysis / architecture frontend
     ↓
@@ -80,7 +82,29 @@ CORE_API_V1_OPERATIONS=3866
 OPENRECOMP_CORE_API_V1_EQUIVALENCE=PASS checksum=122010428
 ```
 
-This PASS is bounded to the current normalized E07 workload. It does not yet claim that the production ahead-of-time V1 translator or MIPS32 path is proven.
+This PASS is bounded to the current normalized E07 workload and does not claim that the production ahead-of-time V1 translator is proven.
+
+## MIPS32 vertical slice
+
+The first implemented second-guest path is documented in [`docs/MIPS32_VERTICAL_SLICE_V1.md`](docs/MIPS32_VERTICAL_SLICE_V1.md).
+
+A clean synthetic little-endian MIPS32 machine-word fixture exercises arithmetic, signed/unsigned comparison, branches, aligned loads/stores, direct call/return, direct jumps and seven architectural delay slots. A bounded MIPS32 frontend lowers those guest semantics into the existing IR V1 contract; the result is packaged with the existing Module Image V1 and executed by the same architecture-neutral Core API V1 reference executor.
+
+An independent machine-code reference path and the Core API path agree on the complete normalized register state, observable memory and deterministic checksum:
+
+```text
+MIPS32_REFERENCE_V0=31
+MIPS32_REFERENCE_CHECKSUM=1950232098
+MIPS32_REFERENCE_DELAY_SLOTS=7
+
+MIPS32_CORE_API_V0=31
+MIPS32_CORE_API_CHECKSUM=1950232098
+MIPS32_CORE_API_OPERATIONS=100
+
+OPENRECOMP_MIPS32_VERTICAL_SLICE_V1=PASS checksum=1950232098
+```
+
+This is a **bounded vertical-slice PASS**, not a claim that arbitrary MIPS32 executables or the full ISA/ABI are supported.
 
 ## Hardened E07 proof
 
@@ -126,6 +150,7 @@ See [`integrations/unreal/README.md`](integrations/unreal/README.md) and [`evide
 - [`docs/IR_SPEC_V1.md`](docs/IR_SPEC_V1.md)
 - [`docs/RV32I_IR_V1_BRIDGE.md`](docs/RV32I_IR_V1_BRIDGE.md)
 - [`docs/CORE_API_V1.md`](docs/CORE_API_V1.md)
+- [`docs/MIPS32_VERTICAL_SLICE_V1.md`](docs/MIPS32_VERTICAL_SLICE_V1.md)
 - [`docs/PROOF_STATUS.md`](docs/PROOF_STATUS.md)
 - [`docs/ROADMAP.md`](docs/ROADMAP.md)
 - [`docs/BUILDING.md`](docs/BUILDING.md)
