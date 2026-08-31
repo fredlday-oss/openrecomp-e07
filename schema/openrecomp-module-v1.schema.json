@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openrecomp.dev/schema/openrecomp-module-v1.schema.json",
+  "title": "OpenRecomp Module Image V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "module_format_version",
+    "module_id",
+    "ir",
+    "host_contract",
+    "memory",
+    "initial_state",
+    "entry",
+    "limits",
+    "provenance"
+  ],
+  "properties": {
+    "module_format_version": {"const": "1.0.0"},
+    "module_id": {"type": "string", "minLength": 1},
+    "ir": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "sha256", "source_input_sha256"],
+      "properties": {
+        "version": {"const": "1.0.0"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "source_input_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "host_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "sha256"],
+      "properties": {
+        "version": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "memory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["size_bytes", "segments"],
+      "properties": {
+        "size_bytes": {"type": "integer", "minimum": 1},
+        "segments": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/memory_segment"}
+        }
+      }
+    },
+    "initial_state": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/state_value"}
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["function", "observe_state_slot"],
+      "properties": {
+        "function": {"type": "string", "minLength": 1},
+        "observe_state_slot": {"type": "string", "minLength": 1}
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["max_operations", "max_call_depth"],
+      "properties": {
+        "max_operations": {"type": "integer", "minimum": 1},
+        "max_call_depth": {"type": "integer", "minimum": 1, "maximum": 65536}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["producer", "source_input_sha256"],
+      "properties": {
+        "producer": {"type": "string", "minLength": 1},
+        "source_input_sha256": {"$ref": "#/$defs/sha256"},
+        "source_ir_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "memory_segment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "guest_address", "data_hex", "data_sha256"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "guest_address": {"type": "integer", "minimum": 0},
+        "data_hex": {"type": "string", "pattern": "^(?:[0-9a-f]{2})*$"},
+        "data_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "state_value": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slot", "value"],
+      "properties": {
+        "slot": {"type": "string", "minLength": 1},
+        "value": {"type": "integer", "minimum": 0}
+      }
+    }
+  }
+}
