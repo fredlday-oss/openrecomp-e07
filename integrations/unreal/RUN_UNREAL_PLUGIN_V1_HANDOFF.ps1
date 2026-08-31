@@ -26,9 +26,9 @@ if (-not (Test-Path $NativeModuleDll -PathType Leaf)) {
     throw "OpenRecomp synthetic Native AOT DLL is missing: $NativeModuleDll"
 }
 
-# These are PowerShell scripts, not native executables. Do not inspect
-# $LASTEXITCODE: under StrictMode it may be undefined when no native process
-# has run. Both scripts use terminating errors and therefore fail closed.
+# These are PowerShell scripts, not native executables. Both scripts use
+# terminating errors and therefore fail closed under StrictMode without
+# consulting a native-process exit-code variable.
 & $Installer `
     -UnrealProjectRoot $UnrealProjectRoot `
     -NativeModuleDll $NativeModuleDll
