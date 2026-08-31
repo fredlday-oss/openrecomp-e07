@@ -77,3 +77,22 @@ jobs:
         run: |
           python tools/check_rv32i_ir_v1_bridge.py build/fixture_full.ir.json build/fixture_full.v1.a.json build/fixture_full.v1.result.json golden/state.json evidence/native_run.txt | tee evidence/rv32i_ir_v1_bridge_equivalence.txt
           grep -F "OPENRECOMP_RV32I_IR_V1_EQUIVALENCE=PASS" evidence/rv32i_ir_v1_bridge_equivalence.txt
+
+      - name: Package normalized IR as Core API module twice
+        run: |
+          python tools/package_ir_v1_module.py build/fixture_full.v1.a.json build/fixture_full.v1.sidecar.a.json contracts/host_contract.json build/fixture_full.module.a.json
+          python tools/package_ir_v1_module.py build/fixture_full.v1.b.json build/fixture_full.v1.sidecar.b.json contracts/host_contract.json build/fixture_full.module.b.json
+          cmp build/fixture_full.module.a.json build/fixture_full.module.b.json
+          echo "OPENRECOMP_MODULE_V1_PACKAGING_DETERMINISTIC=PASS"
+
+      - name: Validate Module Image V1
+        run: python tools/validate_module_v1.py build/fixture_full.module.a.json build/fixture_full.v1.a.json contracts/host_contract.json
+
+      - name: Execute through Core API V1
+        run: |
+          python tools/run_core_api_v1.py build/fixture_full.module.a.json build/fixture_full.v1.a.json contracts/host_contract.json build/fixture_full.core-api-v1.result.json | tee evidence/core_api_v1_runtime.txt
+
+      - name: Compare Core API with bridge and proven E07 baseline
+        run: |
+          python tools/check_core_api_v1.py build/fixture_full.module.a.json build/fixture_full.core-api-v1.result.json build/fixture_full.v1.result.json golden/state.json evidence/native_run.txt | tee evidence/core_api_v1_equivalence.txt
+          grep -F "OPENRECOMP_CORE_API_V1_EQUIVALENCE=PASS" evidence/core_api_v1_equivalence.txt

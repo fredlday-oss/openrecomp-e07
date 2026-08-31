@@ -5,6 +5,10 @@ Significant project changes will be recorded here.
 ## Unreleased
 
 ### Added
+- OpenRecomp Core API V1 reference package with `ModuleImage`, `GuestState`, `GuestMemory`, `HostBinding` and `ReferenceExecutor`.
+- Module Image V1 schema binding normalized IR, host contract, memory image, initial state, provenance and deterministic execution limits.
+- Deterministic Module Image V1 packaging, explicit validation and E07 Core API equivalence CI.
+- Core API fail-closed tests for host binding, guest memory, state declaration and integrity mismatches.
 - Deterministic RV32I E07 `0.1.1` -> normalized IR V1 `1.0.0` bridge.
 - IR V1 bridge interpreter and equivalence gate against E07 native/golden state.
 - Normalized OpenRecomp IR V1 (`1.0.0`) specification and JSON Schema.
@@ -18,6 +22,7 @@ Significant project changes will be recorded here.
 - Contributor, security, build and reproducibility guidance.
 
 ### Changed
-- E07 proof CI now also requires deterministic RV32I-to-IR-V1 normalization and exact bridge equivalence with checksum `122010428`.
-- Architecture documentation distinguishes the proven E07 `0.1.1` proof IR, the normalized V1 contract, and later common-translator/generalization gates.
-- Source-integrity policy clarified so proof-critical inputs are separated from mutable project documentation.
+- E07 proof CI now requires deterministic Module Image V1 packaging and exact Core API V1 equivalence in addition to the RV32I-to-IR-V1 bridge proof.
+- Architecture documentation now separates normalized IR semantics, executable module packaging, reference execution and future production AOT translation.
+- E07 proof CI requires deterministic RV32I-to-IR-V1 normalization and exact bridge equivalence with checksum `122010428`.
+- Source-integrity policy keeps proof-critical inputs separate from mutable project documentation.

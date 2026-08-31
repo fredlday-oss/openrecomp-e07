@@ -6,7 +6,8 @@ OpenRecomp separates guest-specific analysis from common translation and runtime
 guest executable
  -> architecture adapter / analysis
  -> normalized versioned IR
- -> validation + ahead-of-time translation
+ -> Module Image V1
+ -> common runtime / ahead-of-time translation boundary
  -> host runtime contract
  -> native / WebAssembly / Unreal Engine host
 ```
@@ -15,21 +16,40 @@ guest executable
 
 The hardened E07 V1.1 fixture proves the RV32I synthetic path. Existing E07 evidence also validates deterministic translation, native execution, WebAssembly execution and golden regression behavior.
 
-The current E07 runner uses its existing `0.1.1` proof IR, whose instruction records are still RV32I-shaped. That format remains intact so the proven evidence is not rewritten merely to introduce a new contract.
+The current E07 runner uses its existing `0.1.1` proof IR, whose instruction records are still RV32I-shaped. That format remains intact so the proven evidence is not rewritten merely to introduce newer common interfaces.
 
 ## Normalized IR V1 boundary
 
 [`IR_SPEC_V1.md`](IR_SPEC_V1.md) defines the architecture-neutral normalized IR contract with wire version `1.0.0`.
 
-The normalized layer uses portable operations, explicit state, explicit memory semantics, named host calls and bounded control-flow targets. Guest-specific rules such as delay slots, link-register conventions and zero-register behavior are frontend responsibilities and must be lowered before the common translator consumes V1.
+The normalized layer uses portable operations, explicit state, explicit memory semantics, named host calls and bounded control-flow targets. Guest-specific rules such as delay slots, link-register conventions and zero-register behavior are frontend responsibilities and must be lowered before common execution/translation consumes V1.
 
-IR V1 is currently **FROZEN-FOR-IMPLEMENTATION**, not a proven execution path. The next implementation work is to lower the existing RV32I path into V1 and then exercise the same contract with a second guest architecture.
+The E07 RV32I bridge now lowers the current proven fixture into normalized IR V1 and reproduces the native/golden result. That bridge is a bounded PASS for the current fixture/proven instruction subset, not a claim about arbitrary RV32I binaries.
 
-## Versioned IR and runtime boundary
+## Module Image V1 and Core API
 
-The versioned IR is the boundary between guest-specific analysis and downstream translation. The host runtime contract keeps translated guest behavior separate from host services and allows the same translated model to target different environments.
+[`CORE_API_V1.md`](CORE_API_V1.md) defines the reusable reference module/runtime boundary around normalized IR V1.
 
-Compatibility is fail-closed: unsupported IR major versions, required features or invalid semantic references must be rejected rather than interpreted heuristically.
+IR V1 describes normalized code and typed guest-state semantics. Module Image V1 packages the execution context separately:
+
+- exact IR and host-contract hashes;
+- initialized guest-memory segments;
+- initial typed state;
+- entry/observation contract;
+- deterministic execution limits;
+- provenance.
+
+The `openrecomp` reference package exposes `ModuleImage`, `GuestMemory`, `GuestState`, `HostBinding` and `ReferenceExecutor`.
+
+The E07 Core API gate packages the same normalized RV32I workload twice, requires byte-identical Module Image V1 output, then executes it through the generic reference API and requires exact agreement with the independent bridge, native checksum and golden state.
+
+The Core API V1 reference path is therefore **PASS — E07 equivalence**. A production ahead-of-time translator consuming this API remains **CANDIDATE**.
+
+## Host runtime boundary
+
+`HostBinding` keeps normalized guest behavior separate from concrete host services. The common executor requires only a contract version, available symbols and a call boundary; it does not contain RV32I, MIPS32, Unreal Engine or E07 host semantics.
+
+Compatibility is fail-closed: unsupported IR, invalid module metadata, missing host bindings, integrity mismatches, memory faults and execution-limit violations are rejected rather than interpreted heuristically.
 
 ## Unreal Engine interoperability
 
@@ -61,7 +81,10 @@ OPENRECOMP_DEMO PASS x=15 y=6 rgba=ff3aa7ff frame=8
 - RV32I E07 path: **PROVEN**
 - Native/WebAssembly parity: **PASS**
 - Normalized IR V1 specification: **FROZEN-FOR-IMPLEMENTATION**
+- RV32I -> normalized IR V1 bridge: **PASS — E07 equivalence**
+- Core API V1 reference module/runtime: **PASS — E07 equivalence**
+- Production AOT V1 translator: **CANDIDATE**
 - Unreal Gate B: **PROVEN-RUNTIME**
 - MIPS32 adapter seam: **CANDIDATE** / interface only
 
-Future guest architectures remain unproven until they pass equivalent validation gates.
+A broader architecture-neutral implementation is not PROVEN until at least a second guest architecture crosses equivalent deterministic gates through the same common interfaces.
