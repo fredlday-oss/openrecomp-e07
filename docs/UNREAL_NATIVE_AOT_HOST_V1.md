@@ -1,7 +1,7 @@
 # OpenRecomp Unreal Native AOT Host V1
 
 **Frontier:** `OPENRECOMP_UNREAL_NATIVE_AOT_HOST_V1`  
-**Implementation status:** **CANDIDATE — Windows host-core CI and UE5.8 runtime gate required**
+**Status:** **PROVEN-RUNTIME — bounded UE5.8 Windows x64 Native AOT host validation**
 
 This frontier connects the frozen Native AOT ABI V1 to the Unreal Engine host path without changing the ABI or replacing the existing Unreal Gate B proof.
 
@@ -28,11 +28,11 @@ RV32I IR V1
   -> UE-visible validation result
 ```
 
-The two proof paths must not be conflated. A visual Unreal presentation does not substitute for Native AOT execution, and Native AOT execution does not rewrite the historical Gate B workload.
+The two proof paths are intentionally independent. A visual Unreal presentation does not substitute for Native AOT execution, and Native AOT execution does not rewrite the historical Gate B workload.
 
-## Source layout
+## Reusable host implementation
 
-The reusable host implementation consists of:
+The integration consists of:
 
 ```text
 integrations/unreal/OpenRecompNativeAotHostCoreV1.h
@@ -49,7 +49,7 @@ integrations/unreal/OpenRecompNativeAotHostActor.cpp
 
 `AOpenRecompNativeAotHostActor` is the proof consumer. It binds the deterministic E07 host services and validates the known E07 result.
 
-## Deterministic E07 host callback bridge
+## Deterministic host callback bridge
 
 The proof actor implements the same bounded host semantics used by the Core API/AOT reference gate:
 
@@ -58,7 +58,7 @@ The proof actor implements the same bounded host semantics used by the Core API/
 - `host_input`: fixed script `{4,7,1,9,2,6,3,8}`;
 - `host_system`: deterministic bias `7`, no wall clock and no randomness.
 
-The authoritative Native AOT result is:
+The expected result is:
 
 ```text
 module=e07.rv32i.fixture-full.ir-v1
@@ -69,19 +69,13 @@ operations=3866
 checksum=122010428
 ```
 
-The architecture identifier above is the exact normalized IR metadata emitted by the frozen RV32I bridge; `rv32i` is only a human shorthand.
+The architecture identifier is the exact normalized IR metadata emitted by the frozen RV32I bridge; `rv32i` is only a human shorthand.
 
-Expected Unreal runtime marker:
+## Windows host-core CI proof
 
-```text
-OPENRECOMP_UNREAL_NATIVE_AOT_HOST_V1 PASS module=e07.rv32i.fixture-full.ir-v1 arch=riscv32-rv32i observed_state=48 checksum=122010428 operations=3866
-```
+The dedicated workflow builds a fresh validated RV32I Module Image, regenerates its portable C and Native AOT ABI adapter on Windows, builds the AOT DLL with MSVC and clang-cl, and builds the engine-independent host core with both compilers.
 
-## Host-core CI gate
-
-`.github/workflows/unreal-native-aot-host-v1.yml` builds a fresh validated RV32I Module Image on Linux, regenerates its portable C and Native AOT ABI adapter on Windows, and builds AOT DLLs with both MSVC and clang-cl.
-
-The same workflow builds the engine-independent host core/harness with both MSVC and clang-cl and executes the four host/module compiler combinations:
+All four cross-toolchain combinations pass:
 
 ```text
 MSVC host     -> MSVC module
@@ -90,7 +84,7 @@ clang-cl host -> MSVC module
 clang-cl host -> clang-cl module
 ```
 
-Every case must reject a missing required host, exercise the E07 callback bridge, validate exact normalized module metadata, and reproduce:
+Each case rejects a missing required host, validates exact normalized metadata, exercises all deterministic E07 callback classes, and reproduces:
 
 ```text
 UNREAL_NATIVE_AOT_SOURCE_ARCH=riscv32-rv32i
@@ -100,19 +94,35 @@ UNREAL_NATIVE_AOT_OPERATIONS=3866
 OPENRECOMP_UNREAL_NATIVE_AOT_HOST_CORE_V1=PASS
 ```
 
-Passing this CI gate proves the exact host core against real Windows Native AOT DLLs. It does **not** by itself prove Unreal Engine compilation or PIE execution.
+## UE5.8 runtime proof
 
-## Local UE5.8 installation
+The host source and the CI-built synthetic module were installed into the UE5.8 project and built successfully. PIE then loaded the Windows x64 AOT DLL through Unreal's platform abstraction, negotiated Native AOT ABI V1, exercised the deterministic host callback bridge and produced the expected result:
 
-From a clone of this repository, install the source into an existing `OpenRecompHost` Unreal project module with:
+```text
+OPENRECOMP_UNREAL_NATIVE_AOT_HOST_V1 PASS module=e07.rv32i.fixture-full.ir-v1 arch=riscv32-rv32i observed_state=48 checksum=122010428 operations=3866
+```
+
+Status: **PROVEN-RUNTIME**.
+
+The runtime handoff manifest was independently compared with the CI handoff: all eight installed proof artifacts matched byte-for-byte by SHA-256, including the frozen ABI header, six Native AOT Unreal host source files and the synthetic RV32I DLL. The existing Gate B source and frozen ABI header were reported unchanged.
+
+Public-safe runtime evidence is committed at:
+
+```text
+evidence/UNREAL_NATIVE_AOT_HOST_V1_PUBLIC_SAFE.txt
+```
+
+No raw Unreal startup/launcher log is committed or required for the public proof.
+
+## Local installation
+
+Install the source into an existing `OpenRecompHost` project module with:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\integrations\unreal\INSTALL_NATIVE_AOT_HOST_V1.ps1 `
   -UnrealProjectRoot "D:\path\to\OpenRecompHost" `
   -NativeModuleDll "D:\path\to\openrecomp-e07-rv32i.dll"
 ```
-
-The installer copies the frozen ABI header plus the host-core, Unreal wrapper and proof actor source. It does not modify `OpenRecompProofActor`.
 
 The default runtime module location is:
 
@@ -122,22 +132,7 @@ The default runtime module location is:
 
 `NativeModulePath` on the proof actor may override that location.
 
-## UE5.8 runtime gate
-
-The runtime proof requires all of the following:
-
-1. `OpenRecompHostEditor Win64 Development` builds successfully with Unreal Engine 5.8;
-2. `AOpenRecompNativeAotHostActor` is present in the test level;
-3. PIE loads the synthetic Windows x64 AOT DLL through `FPlatformProcess`;
-4. only Native AOT ABI V1 query/table dispatch is used;
-5. all deterministic E07 host callbacks execute successfully;
-6. Unreal observes normalized architecture `riscv32-rv32i`, state `48`, operation count `3866` and checksum `122010428`;
-7. the expected `OPENRECOMP_UNREAL_NATIVE_AOT_HOST_V1 PASS ...` marker appears;
-8. the existing Gate B source and proof remain separate and unchanged.
-
-Until that runtime gate is captured, the Unreal integration remains **CANDIDATE**, even if the Windows host-core CI is green.
-
-## Public-safe evidence
+## Public-safe evidence collection
 
 Never publish a raw Unreal startup/launcher log. Extract only allow-listed OpenRecomp proof lines:
 
@@ -146,17 +141,18 @@ powershell -ExecutionPolicy Bypass -File .\integrations\unreal\COLLECT_NATIVE_AO
   -UnrealLog "D:\path\to\OpenRecompHost.log"
 ```
 
-The collector writes only the new Native AOT marker and, when present, the existing Gate B/demo markers. It fails if the Native AOT PASS marker is absent or if an authentication/account marker survives extraction.
+The collector writes only the Native AOT marker and, when present, the existing Gate B/demo markers. It fails if the Native AOT PASS marker is absent or if an authentication/account marker survives extraction.
 
 ## Claim boundary
 
-A completed V1 runtime proof will establish a bounded host integration for:
+This runtime proof establishes a bounded host integration for:
 
 - Unreal Engine 5.8 on Windows x64;
 - the frozen Native AOT ABI V1;
 - the current synthetic E07 RV32I AOT module;
 - deterministic host callback binding;
 - dynamic DLL loading through Unreal's platform abstraction;
-- authoritative observable-result parity with the established Core/AOT proof.
+- authoritative observable-result parity with the established Core/AOT proof;
+- byte-identical installation provenance for the tested source/header/DLL set.
 
-It will not establish arbitrary RV32I binaries, general MIPS32 Unreal hosting, packaged-game deployment, macOS Unreal hosting, Windows ARM64, or a release-quality plugin/API surface.
+It does **not** establish arbitrary RV32I binaries, general MIPS32 Unreal hosting, packaged-game deployment, macOS Unreal hosting, Windows ARM64, or a release-quality plugin/API surface.
