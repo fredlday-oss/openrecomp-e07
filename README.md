@@ -23,16 +23,17 @@ The project separates binary analysis, a versioned intermediate representation (
 | GCC/Clang ASan + UBSan AOT smoke | **PASS** — Linux little/big-endian hardening fixtures |
 | Native AOT ABI V1 contract | **FROZEN-FOR-PORTABILITY-TESTING** |
 | Native AOT ABI V1 Linux GCC/Clang | **PASS** — RV32I + bounded MIPS32 |
+| Native AOT ABI V1 Windows x64 MSVC/clang-cl | **PASS** — exact Core/Linux parity |
 | Native AOT ABI V1 public symbol surface | **PASS** — single versioned query entry point |
 | General MIPS32 coverage | **CANDIDATE** — bounded subset only |
-| Windows/macOS Native AOT ABI parity | **CANDIDATE** |
+| macOS / Windows ARM64 / Windows x86 ABI parity | **CANDIDATE** |
 | Release-quality production AOT compiler pipeline | **CANDIDATE** |
 | Unreal Engine 5.8 Gate B runtime | **PROVEN-RUNTIME** |
 | Unreal visual replay | **PASS** |
 
 The hardened E07 V1.1 fixture remains the first proven architecture path and validation harness. It is a proof component of the broader OpenRecomp project, not the total intended scope.
 
-The normalized IR V1, Module Image V1 and Core API V1 boundaries have now been exercised by two materially different clean synthetic guest workloads. A single portable C AOT backend consumes both normalized workloads and reproduces their Core API results after native compilation with GCC and Clang. The backend is warning-clean under the project `-Werror` gates for those workloads plus a dedicated hardening corpus, and its deterministic failure behavior is cross-checked against the reference executor. Native AOT ABI V1 now provides the first versioned host-facing binary boundary for those native modules while broader MIPS32 coverage, Windows/macOS ABI parity and a release-quality compiler pipeline remain separately gated.
+The normalized IR V1, Module Image V1 and Core API V1 boundaries have now been exercised by two materially different clean synthetic guest workloads. A single portable C AOT backend consumes both normalized workloads and reproduces their Core API results after native compilation. The backend is warning-clean under the project compiler gates, its deterministic failure behavior is cross-checked against the reference executor, and Native AOT ABI V1 now crosses both Linux GCC/Clang and Windows x64 MSVC/clang-cl for the same bounded workloads. Broader MIPS32 coverage, additional host architectures/platforms and a release-quality compiler pipeline remain separately gated.
 
 ## Architecture
 
@@ -54,7 +55,7 @@ Module Image V1
              ↓
 Explicit host runtime services
     ↓
-Native / WebAssembly / Unreal Engine host
+Linux / Windows x64 / WebAssembly / Unreal Engine host paths
 ```
 
 OpenRecomp's long-term objective is reusable infrastructure for preservation, interoperability, research, tooling and legally clean static recompilation projects.
@@ -121,7 +122,7 @@ This is a **bounded vertical-slice PASS**, not a claim that arbitrary MIPS32 exe
 
 [`docs/AOT_TRANSLATOR_V1.md`](docs/AOT_TRANSLATOR_V1.md) documents the first common ahead-of-time backend for normalized IR V1. [`docs/AOT_HARDENING_V1.md`](docs/AOT_HARDENING_V1.md) documents its first dedicated compiler-quality hardening gate.
 
-The backend consumes validated IR V1 + Module Image V1 and deterministically emits portable C. The same generated source is compiled independently by GCC and Clang and loaded as native code. For both current guest workloads, the native AOT result must equal the Core API reference result exactly.
+The backend consumes validated IR V1 + Module Image V1 and deterministically emits portable C. The same normalized workloads are compiled into independent native execution forms and required to equal the Core API reference result exactly.
 
 ```text
 AOT_E07_CHECKSUM=122010428
@@ -137,7 +138,7 @@ OPENRECOMP_IR_V1_AOT_MIPS32=PASS
 OPENRECOMP_IR_V1_AOT_DUAL_ARCH=PASS
 ```
 
-The hardening gate additionally requires warning-clean `-Werror` compilation, deterministic Core API/AOT failure-category agreement for nine runtime fault cases, and ASan/UBSan-clean execution of little- and big-endian positive hardening fixtures under both GCC and Clang:
+The hardening gate additionally requires warning-clean compilation, deterministic Core API/AOT failure-category agreement for nine runtime fault cases, and ASan/UBSan-clean execution of little- and big-endian positive hardening fixtures under GCC and Clang:
 
 ```text
 AOT_HARDENING_POSITIVE=2147483672
@@ -163,7 +164,7 @@ openrecomp_native_aot_query
 
 The query returns a fixed-width function table containing version/size information, capability flags, module/provenance metadata, host binding, execution, state/memory inspection and deterministic error access. Unsupported versions and incorrect structure sizes fail closed.
 
-The Linux proof builds RV32I and MIPS32 modules with legacy execution symbols hidden and validates the public V1 surface under both GCC and Clang:
+Linux GCC/Clang and Windows x64 MSVC/clang-cl now validate the same frozen public V1 surface for the current RV32I and bounded MIPS32 workloads. The V1 header layout was not changed for Windows.
 
 ```text
 OPENRECOMP_NATIVE_AOT_ABI_V1_QUERY=PASS
@@ -177,7 +178,26 @@ OPENRECOMP_NATIVE_AOT_ABI_V1=PASS
 OPENRECOMP_NATIVE_AOT_ABI_V1_DUAL_ARCH=PASS
 ```
 
-The V1 layout is now **frozen for portability testing**. Windows and macOS ABI parity remain separate evidence gates rather than being inferred from Linux success.
+The V1 layout remains **frozen for portability testing**. Incompatible layout/signature changes require a new ABI version rather than silently mutating V1.
+
+## Windows x64 AOT portability
+
+[`docs/AOT_WINDOWS_PORTABILITY_V1.md`](docs/AOT_WINDOWS_PORTABILITY_V1.md) records the first cross-OS native AOT proof.
+
+Windows x64 regenerates the portable C and ABI adapters, compiles both guest workloads under MSVC and clang-cl with warnings as errors, verifies the fixed x64 ABI layout (`host=24` bytes, `api=168` bytes), requires the DLL OpenRecomp export set to contain only `openrecomp_native_aot_query`, and compares both Windows results exactly with the Linux-produced Core API references.
+
+```text
+OPENRECOMP_AOT_WINDOWS_CODEGEN_DETERMINISTIC=PASS
+OPENRECOMP_NATIVE_AOT_ABI_V1_WINDOWS_EXPORT_SURFACE=PASS
+OPENRECOMP_NATIVE_AOT_ABI_V1_WINDOWS_NEGOTIATION=PASS
+OPENRECOMP_AOT_WINDOWS_RV32I=PASS
+OPENRECOMP_AOT_WINDOWS_MIPS32=PASS
+OPENRECOMP_AOT_WINDOWS_MSVC_CLANGCL_PARITY=PASS
+OPENRECOMP_AOT_WINDOWS_LINUX_REFERENCE_PARITY=PASS
+OPENRECOMP_AOT_WINDOWS_PORTABILITY_V1=PASS
+```
+
+The first Windows run also exposed a real byte-integrity problem caused by CRLF checkout conversion of the hashed host contract. `.gitattributes` now pins proof/source text to LF; the hash check itself remains unchanged and fail-closed.
 
 ## Hardened E07 proof
 
@@ -227,6 +247,7 @@ See [`integrations/unreal/README.md`](integrations/unreal/README.md) and [`evide
 - [`docs/AOT_TRANSLATOR_V1.md`](docs/AOT_TRANSLATOR_V1.md)
 - [`docs/AOT_HARDENING_V1.md`](docs/AOT_HARDENING_V1.md)
 - [`docs/NATIVE_AOT_ABI_V1.md`](docs/NATIVE_AOT_ABI_V1.md)
+- [`docs/AOT_WINDOWS_PORTABILITY_V1.md`](docs/AOT_WINDOWS_PORTABILITY_V1.md)
 - [`docs/PROOF_STATUS.md`](docs/PROOF_STATUS.md)
 - [`docs/ROADMAP.md`](docs/ROADMAP.md)
 - [`docs/BUILDING.md`](docs/BUILDING.md)

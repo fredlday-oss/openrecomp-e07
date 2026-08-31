@@ -1,0 +1,210 @@
+name: AOT Windows portability V1
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  prepare-portability-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install proof dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang lld gcc
+          python -m pip install jsonschema
+
+      - name: Build Linux reference inputs
+        run: |
+          chmod +x RUN.sh
+          ./RUN.sh
+          mkdir -p build/windows-portability-v1
+
+          python tools/bridge_rv32i_ir_v1.py \
+            build/fixture_full.ir.json \
+            contracts/host_contract.json \
+            build/windows-portability-v1/rv32i.ir.json \
+            build/windows-portability-v1/rv32i.sidecar.json
+          python tools/package_ir_v1_module.py \
+            build/windows-portability-v1/rv32i.ir.json \
+            build/windows-portability-v1/rv32i.sidecar.json \
+            contracts/host_contract.json \
+            build/windows-portability-v1/rv32i.module.json
+          python tools/run_core_api_v1.py \
+            build/windows-portability-v1/rv32i.module.json \
+            build/windows-portability-v1/rv32i.ir.json \
+            contracts/host_contract.json \
+            build/windows-portability-v1/rv32i.core.json
+
+          python tools/mips32_frontend_v1.py \
+            examples/mips32-v1/fixture.hex \
+            examples/mips32-v1/fixture.json \
+            contracts/host_contract.json \
+            build/windows-portability-v1/mips32.ir.json \
+            build/windows-portability-v1/mips32.sidecar.json \
+            build/windows-portability-v1/mips32.frontend.json
+          python tools/package_ir_v1_module.py \
+            build/windows-portability-v1/mips32.ir.json \
+            build/windows-portability-v1/mips32.sidecar.json \
+            contracts/host_contract.json \
+            build/windows-portability-v1/mips32.module.json
+          python tools/run_mips32_core_v1.py \
+            build/windows-portability-v1/mips32.module.json \
+            build/windows-portability-v1/mips32.ir.json \
+            contracts/host_contract.json \
+            examples/mips32-v1/fixture.json \
+            build/windows-portability-v1/mips32.core.json
+
+          echo "OPENRECOMP_AOT_WINDOWS_LINUX_REFERENCE_INPUTS=PASS"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: openrecomp-windows-portability-v1-inputs
+          path: build/windows-portability-v1
+          if-no-files-found: error
+
+  windows-x64:
+    needs: prepare-portability-inputs
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        shell: pwsh
+        run: python -m pip install jsonschema
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: openrecomp-windows-portability-v1-inputs
+          path: build/windows-portability-v1
+
+      - name: Generate portable C and ABI adapters deterministically on Windows
+        shell: pwsh
+        run: |
+          python tools/aot_c_backend_v1.py build/windows-portability-v1/rv32i.module.json build/windows-portability-v1/rv32i.ir.json contracts/host_contract.json build/windows-portability-v1/rv32i.a.c
+          python tools/aot_c_backend_v1.py build/windows-portability-v1/rv32i.module.json build/windows-portability-v1/rv32i.ir.json contracts/host_contract.json build/windows-portability-v1/rv32i.b.c
+          python tools/native_aot_abi_v1.py build/windows-portability-v1/rv32i.module.json build/windows-portability-v1/rv32i.ir.json contracts/host_contract.json build/windows-portability-v1/rv32i.abi.a.c
+          python tools/native_aot_abi_v1.py build/windows-portability-v1/rv32i.module.json build/windows-portability-v1/rv32i.ir.json contracts/host_contract.json build/windows-portability-v1/rv32i.abi.b.c
+
+          python tools/aot_c_backend_v1.py build/windows-portability-v1/mips32.module.json build/windows-portability-v1/mips32.ir.json contracts/host_contract.json build/windows-portability-v1/mips32.a.c
+          python tools/aot_c_backend_v1.py build/windows-portability-v1/mips32.module.json build/windows-portability-v1/mips32.ir.json contracts/host_contract.json build/windows-portability-v1/mips32.b.c
+          python tools/native_aot_abi_v1.py build/windows-portability-v1/mips32.module.json build/windows-portability-v1/mips32.ir.json contracts/host_contract.json build/windows-portability-v1/mips32.abi.a.c
+          python tools/native_aot_abi_v1.py build/windows-portability-v1/mips32.module.json build/windows-portability-v1/mips32.ir.json contracts/host_contract.json build/windows-portability-v1/mips32.abi.b.c
+
+          if ((Get-FileHash build/windows-portability-v1/rv32i.a.c -Algorithm SHA256).Hash -ne (Get-FileHash build/windows-portability-v1/rv32i.b.c -Algorithm SHA256).Hash) { throw "RV32I portable C generation differs on Windows" }
+          if ((Get-FileHash build/windows-portability-v1/rv32i.abi.a.c -Algorithm SHA256).Hash -ne (Get-FileHash build/windows-portability-v1/rv32i.abi.b.c -Algorithm SHA256).Hash) { throw "RV32I ABI adapter generation differs on Windows" }
+          if ((Get-FileHash build/windows-portability-v1/mips32.a.c -Algorithm SHA256).Hash -ne (Get-FileHash build/windows-portability-v1/mips32.b.c -Algorithm SHA256).Hash) { throw "MIPS32 portable C generation differs on Windows" }
+          if ((Get-FileHash build/windows-portability-v1/mips32.abi.a.c -Algorithm SHA256).Hash -ne (Get-FileHash build/windows-portability-v1/mips32.abi.b.c -Algorithm SHA256).Hash) { throw "MIPS32 ABI adapter generation differs on Windows" }
+          Write-Output "OPENRECOMP_AOT_WINDOWS_CODEGEN_DETERMINISTIC=PASS"
+
+      - name: Compile ABI layout probes and native DLLs with MSVC and clang-cl
+        shell: cmd
+        run: |
+          @for /f "usebackq delims=" %%i in (`"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath`) do @set "VSINSTALL=%%i"
+          @if not defined VSINSTALL (echo Visual Studio C++ toolchain not found & exit /b 2)
+          @call "%VSINSTALL%\VC\Auxiliary\Build\vcvars64.bat"
+          @where cl
+          @where clang-cl
+
+          cl /nologo /std:c11 /O2 /W4 /WX /Iinclude tools\native_aot_abi_layout_v1.c /Fe:build\windows-portability-v1\abi-layout-msvc.exe
+          build\windows-portability-v1\abi-layout-msvc.exe > build\windows-portability-v1\abi-layout-msvc.txt
+
+          clang-cl /nologo /std:c11 /O2 /W4 /WX /Iinclude tools\native_aot_abi_layout_v1.c /Fe:build\windows-portability-v1\abi-layout-clangcl.exe
+          build\windows-portability-v1\abi-layout-clangcl.exe > build\windows-portability-v1\abi-layout-clangcl.txt
+
+          cl /nologo /std:c11 /O2 /W4 /WX /LD /Iinclude build\windows-portability-v1\rv32i.a.c build\windows-portability-v1\rv32i.abi.a.c /link /OUT:build\windows-portability-v1\rv32i.msvc.dll
+          dumpbin /nologo /exports build\windows-portability-v1\rv32i.msvc.dll > build\windows-portability-v1\rv32i.msvc.exports.txt
+
+          clang-cl /nologo /std:c11 /O2 /W4 /WX /LD /Iinclude build\windows-portability-v1\rv32i.a.c build\windows-portability-v1\rv32i.abi.a.c /link /OUT:build\windows-portability-v1\rv32i.clangcl.dll
+          dumpbin /nologo /exports build\windows-portability-v1\rv32i.clangcl.dll > build\windows-portability-v1\rv32i.clangcl.exports.txt
+
+          cl /nologo /std:c11 /O2 /W4 /WX /LD /Iinclude build\windows-portability-v1\mips32.a.c build\windows-portability-v1\mips32.abi.a.c /link /OUT:build\windows-portability-v1\mips32.msvc.dll
+          dumpbin /nologo /exports build\windows-portability-v1\mips32.msvc.dll > build\windows-portability-v1\mips32.msvc.exports.txt
+
+          clang-cl /nologo /std:c11 /O2 /W4 /WX /LD /Iinclude build\windows-portability-v1\mips32.a.c build\windows-portability-v1\mips32.abi.a.c /link /OUT:build\windows-portability-v1\mips32.clangcl.dll
+          dumpbin /nologo /exports build\windows-portability-v1\mips32.clangcl.dll > build\windows-portability-v1\mips32.clangcl.exports.txt
+
+      - name: Require frozen x64 ABI layout and single DLL entry point
+        shell: pwsh
+        run: |
+          foreach ($layout in @("build/windows-portability-v1/abi-layout-msvc.txt", "build/windows-portability-v1/abi-layout-clangcl.txt")) {
+            $text = Get-Content $layout -Raw
+            if ($text -notmatch "NATIVE_AOT_ABI_V1_HOST_SIZE=24") { throw "Native AOT host V1 size mismatch: $layout" }
+            if ($text -notmatch "NATIVE_AOT_ABI_V1_API_SIZE=168") { throw "Native AOT API V1 size mismatch: $layout" }
+            if ($text -notmatch "OPENRECOMP_NATIVE_AOT_ABI_V1_WINDOWS_X64_LAYOUT=PASS") { throw "Native AOT ABI layout probe failed: $layout" }
+          }
+
+          foreach ($exports in Get-ChildItem build/windows-portability-v1/*.exports.txt) {
+            $exportNames = @(
+              [regex]::Matches((Get-Content $exports.FullName -Raw), '\bopenrecomp_[A-Za-z0-9_]+\b') |
+                ForEach-Object { $_.Value } |
+                Sort-Object -Unique
+            )
+            if ($exportNames.Count -ne 1 -or $exportNames[0] -ne "openrecomp_native_aot_query") {
+              throw "Unexpected OpenRecomp DLL export surface in $($exports.Name): $($exportNames -join ', ')"
+            }
+          }
+          Write-Output "OPENRECOMP_NATIVE_AOT_ABI_V1_WINDOWS_EXPORT_SURFACE=PASS"
+
+      - name: Validate ABI negotiation under MSVC and clang-cl
+        shell: pwsh
+        run: |
+          foreach ($dll in @(
+            "build/windows-portability-v1/rv32i.msvc.dll",
+            "build/windows-portability-v1/rv32i.clangcl.dll",
+            "build/windows-portability-v1/mips32.msvc.dll",
+            "build/windows-portability-v1/mips32.clangcl.dll"
+          )) {
+            if ($dll -match "rv32i") {
+              python tools/test_native_aot_abi_v1.py $dll build/windows-portability-v1/rv32i.module.json build/windows-portability-v1/rv32i.ir.json contracts/host_contract.json
+            } else {
+              python tools/test_native_aot_abi_v1.py $dll build/windows-portability-v1/mips32.module.json build/windows-portability-v1/mips32.ir.json contracts/host_contract.json
+            }
+          }
+          Write-Output "OPENRECOMP_NATIVE_AOT_ABI_V1_WINDOWS_NEGOTIATION=PASS"
+
+      - name: Execute RV32I and MIPS32 through both Windows toolchains
+        shell: pwsh
+        run: |
+          python tools/run_aot_e07_v1.py build/windows-portability-v1/rv32i.msvc.dll contracts/host_contract.json build/windows-portability-v1/rv32i.aot.msvc.json
+          python tools/run_aot_e07_v1.py build/windows-portability-v1/rv32i.clangcl.dll contracts/host_contract.json build/windows-portability-v1/rv32i.aot.clangcl.json
+          python tools/run_aot_mips32_v1.py build/windows-portability-v1/mips32.msvc.dll build/windows-portability-v1/mips32.ir.json examples/mips32-v1/fixture.json build/windows-portability-v1/mips32.aot.msvc.json
+          python tools/run_aot_mips32_v1.py build/windows-portability-v1/mips32.clangcl.dll build/windows-portability-v1/mips32.ir.json examples/mips32-v1/fixture.json build/windows-portability-v1/mips32.aot.clangcl.json
+
+          python tools/check_aot_ir_v1.py build/windows-portability-v1/rv32i.core.json build/windows-portability-v1/rv32i.aot.msvc.json build/windows-portability-v1/mips32.core.json build/windows-portability-v1/mips32.aot.msvc.json
+          python tools/check_aot_ir_v1.py build/windows-portability-v1/rv32i.core.json build/windows-portability-v1/rv32i.aot.clangcl.json build/windows-portability-v1/mips32.core.json build/windows-portability-v1/mips32.aot.clangcl.json
+
+          if ((Get-Content build/windows-portability-v1/rv32i.aot.msvc.json -Raw) -ne (Get-Content build/windows-portability-v1/rv32i.aot.clangcl.json -Raw)) { throw "RV32I MSVC/clang-cl result mismatch" }
+          if ((Get-Content build/windows-portability-v1/mips32.aot.msvc.json -Raw) -ne (Get-Content build/windows-portability-v1/mips32.aot.clangcl.json -Raw)) { throw "MIPS32 MSVC/clang-cl result mismatch" }
+
+          Write-Output "OPENRECOMP_AOT_WINDOWS_RV32I=PASS"
+          Write-Output "OPENRECOMP_AOT_WINDOWS_MIPS32=PASS"
+          Write-Output "OPENRECOMP_AOT_WINDOWS_MSVC_CLANGCL_PARITY=PASS"
+          Write-Output "OPENRECOMP_AOT_WINDOWS_LINUX_REFERENCE_PARITY=PASS"
+          Write-Output "OPENRECOMP_AOT_WINDOWS_PORTABILITY_V1=PASS"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: openrecomp-windows-portability-v1-evidence
+          path: |
+            build/windows-portability-v1/*.json
+            build/windows-portability-v1/*.txt
+          if-no-files-found: error
