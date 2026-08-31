@@ -21,15 +21,18 @@ The project separates binary analysis, a versioned intermediate representation (
 | GCC/Clang AOT `-Werror` gate | **PASS** — current dual-architecture fixtures + hardening corpus |
 | Core API/AOT deterministic fault equivalence | **PASS** — 9 bounded fault classes |
 | GCC/Clang ASan + UBSan AOT smoke | **PASS** — Linux little/big-endian hardening fixtures |
+| Native AOT ABI V1 contract | **FROZEN-FOR-PORTABILITY-TESTING** |
+| Native AOT ABI V1 Linux GCC/Clang | **PASS** — RV32I + bounded MIPS32 |
+| Native AOT ABI V1 public symbol surface | **PASS** — single versioned query entry point |
 | General MIPS32 coverage | **CANDIDATE** — bounded subset only |
-| Stable external native-module ABI | **CANDIDATE** |
+| Windows/macOS Native AOT ABI parity | **CANDIDATE** |
 | Release-quality production AOT compiler pipeline | **CANDIDATE** |
 | Unreal Engine 5.8 Gate B runtime | **PROVEN-RUNTIME** |
 | Unreal visual replay | **PASS** |
 
 The hardened E07 V1.1 fixture remains the first proven architecture path and validation harness. It is a proof component of the broader OpenRecomp project, not the total intended scope.
 
-The normalized IR V1, Module Image V1 and Core API V1 boundaries have now been exercised by two materially different clean synthetic guest workloads. A single portable C AOT backend also consumes both normalized workloads and reproduces their Core API results after native compilation with GCC and Clang. The backend is now warning-clean under the project `-Werror` gates for those workloads plus a dedicated hardening corpus, and its deterministic failure behavior is cross-checked against the reference executor. RV32I remains the deeper proven architecture path; broader MIPS32 coverage, external ABI stability and a release-quality production compiler pipeline remain separately gated.
+The normalized IR V1, Module Image V1 and Core API V1 boundaries have now been exercised by two materially different clean synthetic guest workloads. A single portable C AOT backend consumes both normalized workloads and reproduces their Core API results after native compilation with GCC and Clang. The backend is warning-clean under the project `-Werror` gates for those workloads plus a dedicated hardening corpus, and its deterministic failure behavior is cross-checked against the reference executor. Native AOT ABI V1 now provides the first versioned host-facing binary boundary for those native modules while broader MIPS32 coverage, Windows/macOS ABI parity and a release-quality compiler pipeline remain separately gated.
 
 ## Architecture
 
@@ -43,8 +46,12 @@ Normalized versioned OpenRecomp IR
 Module Image V1
     ↓
     ├── Core API V1 reference executor
-    └── Portable C AOT backend V1 → native compiled module
-    ↓
+    └── Portable C AOT backend V1
+             ↓
+       native AOT module
+             ↓
+       Native AOT ABI V1
+             ↓
 Explicit host runtime services
     ↓
 Native / WebAssembly / Unreal Engine host
@@ -142,7 +149,35 @@ OPENRECOMP_AOT_HARDENING_CLANG_SANITIZERS=PASS
 OPENRECOMP_AOT_HARDENING_V1=PASS
 ```
 
-This establishes a **bounded hardened dual-architecture AOT PASS** for the current synthetic workloads and hardening corpus. It does not claim arbitrary guest binaries, full platform/compiler portability, a frozen third-party ABI or a release-quality optimizing compiler pipeline.
+This establishes a **bounded hardened dual-architecture AOT PASS** for the current synthetic workloads and hardening corpus. It does not claim arbitrary guest binaries, full platform/compiler portability or a release-quality optimizing compiler pipeline.
+
+## Native AOT ABI V1
+
+[`docs/NATIVE_AOT_ABI_V1.md`](docs/NATIVE_AOT_ABI_V1.md) defines the first versioned host-facing binary interface for compiled OpenRecomp modules. The public C contract is [`include/openrecomp/native_aot_abi_v1.h`](include/openrecomp/native_aot_abi_v1.h).
+
+A finished V1 proof module exposes one stable OpenRecomp symbol:
+
+```text
+openrecomp_native_aot_query
+```
+
+The query returns a fixed-width function table containing version/size information, capability flags, module/provenance metadata, host binding, execution, state/memory inspection and deterministic error access. Unsupported versions and incorrect structure sizes fail closed.
+
+The Linux proof builds RV32I and MIPS32 modules with legacy execution symbols hidden and validates the public V1 surface under both GCC and Clang:
+
+```text
+OPENRECOMP_NATIVE_AOT_ABI_V1_QUERY=PASS
+OPENRECOMP_NATIVE_AOT_ABI_V1_VERSION_REJECTION=PASS
+OPENRECOMP_NATIVE_AOT_ABI_V1_SIZE_REJECTION=PASS
+OPENRECOMP_NATIVE_AOT_ABI_V1_METADATA=PASS
+OPENRECOMP_NATIVE_AOT_ABI_V1_HOST_NEGOTIATION=PASS
+OPENRECOMP_NATIVE_AOT_ABI_V1_PRIVATE_SURFACE=PASS
+OPENRECOMP_NATIVE_AOT_ABI_V1_LOADER=PASS
+OPENRECOMP_NATIVE_AOT_ABI_V1=PASS
+OPENRECOMP_NATIVE_AOT_ABI_V1_DUAL_ARCH=PASS
+```
+
+The V1 layout is now **frozen for portability testing**. Windows and macOS ABI parity remain separate evidence gates rather than being inferred from Linux success.
 
 ## Hardened E07 proof
 
@@ -191,6 +226,7 @@ See [`integrations/unreal/README.md`](integrations/unreal/README.md) and [`evide
 - [`docs/MIPS32_VERTICAL_SLICE_V1.md`](docs/MIPS32_VERTICAL_SLICE_V1.md)
 - [`docs/AOT_TRANSLATOR_V1.md`](docs/AOT_TRANSLATOR_V1.md)
 - [`docs/AOT_HARDENING_V1.md`](docs/AOT_HARDENING_V1.md)
+- [`docs/NATIVE_AOT_ABI_V1.md`](docs/NATIVE_AOT_ABI_V1.md)
 - [`docs/PROOF_STATUS.md`](docs/PROOF_STATUS.md)
 - [`docs/ROADMAP.md`](docs/ROADMAP.md)
 - [`docs/BUILDING.md`](docs/BUILDING.md)
