@@ -17,7 +17,6 @@ constexpr uint32 ProofSystemBias = 7;
 constexpr uint32 ExpectedChecksum = 122010428u;
 constexpr uint64 ExpectedObservedState = 48u;
 constexpr uint64 ExpectedOperations = 3866u;
-
 const uint32 ProofInputs[] = {4u, 7u, 1u, 9u, 2u, 6u, 3u, 8u};
 
 }  // namespace
@@ -49,7 +48,6 @@ void AOpenRecompNativeAotHostActor::ResetDeterministicHost()
     AudioCalls = 0;
     InputCalls = 0;
     SystemCalls = 0;
-
     Framebuffer.Init(0, ProofWidth * ProofHeight * ProofChannels);
     AudioBuffer.Init(0, ProofAudioSamples);
 }
@@ -101,7 +99,6 @@ int32 AOpenRecompNativeAotHostActor::HandleHostCall(
         const uint64 X = Args[0];
         const uint64 Y = Args[1];
         const uint8 Byte = static_cast<uint8>(Args[2] & 0xffu);
-
         if (X < ProofWidth && Y < ProofHeight)
         {
             const int32 Index = static_cast<int32>((Y * ProofWidth + X) * ProofChannels);
@@ -137,8 +134,8 @@ int32 AOpenRecompNativeAotHostActor::HandleHostCall(
         }
 
         ++InputCalls;
-        const uint64 Index = Args[0] % UE_ARRAY_COUNT(ProofInputs);
-        *OutValue = ProofInputs[Index];
+        const uint64 Index = Args[0] % static_cast<uint64>(UE_ARRAY_COUNT(ProofInputs));
+        *OutValue = ProofInputs[static_cast<int32>(Index)];
         *OutHasValue = 1;
         return 1;
     }
@@ -177,12 +174,10 @@ uint32 AOpenRecompNativeAotHostActor::ComputeProofChecksum(uint64 Observed) cons
     {
         Hash = (Hash * 16777619u) ^ Byte;
     }
-
     for (const uint16 Sample : AudioBuffer)
     {
         Hash = (Hash * 16777619u) ^ static_cast<uint32>(Sample);
     }
-
     return Hash;
 }
 
@@ -238,7 +233,6 @@ void AOpenRecompNativeAotHostActor::RunNativeAotProof()
     }
 
     const uint32 Checksum = ComputeProofChecksum(Result.ObservedState);
-
     ObservedState = static_cast<int64>(Result.ObservedState);
     Operations = static_cast<int64>(Result.Operations);
     ProofChecksum = static_cast<int64>(Checksum);
@@ -246,7 +240,7 @@ void AOpenRecompNativeAotHostActor::RunNativeAotProof()
 
     const bool bMetadataPassed =
         Result.ModuleId == TEXT("e07.rv32i.fixture-full.ir-v1") &&
-        Result.SourceArchitecture == TEXT("rv32i") &&
+        Result.SourceArchitecture == TEXT("riscv32-rv32i") &&
         Result.HostContractVersion == TEXT("0.1.1") &&
         Result.SourceAddressBits == 32u &&
         Result.SourceEndianness == OPENRECOMP_NATIVE_AOT_ENDIAN_LITTLE &&
@@ -258,7 +252,6 @@ void AOpenRecompNativeAotHostActor::RunNativeAotProof()
         Checksum == ExpectedChecksum;
 
     bNativeAotPassed = bMetadataPassed && bExecutionPassed;
-
     if (bNativeAotPassed)
     {
         SetStatusText(
@@ -268,7 +261,6 @@ void AOpenRecompNativeAotHostActor::RunNativeAotProof()
                 Checksum,
                 static_cast<unsigned long long>(Result.Operations)),
             FColor::Green);
-
         UE_LOG(
             LogTemp,
             Display,
@@ -290,7 +282,6 @@ void AOpenRecompNativeAotHostActor::RunNativeAotProof()
             Checksum,
             static_cast<unsigned long long>(Result.Operations)),
         FColor::Red);
-
     UE_LOG(
         LogTemp,
         Error,
