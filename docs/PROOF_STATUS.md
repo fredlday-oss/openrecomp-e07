@@ -7,7 +7,9 @@
 | Native execution | **PASS** | Existing E07 evidence |
 | WebAssembly execution | **PASS** | Existing E07 evidence |
 | Golden regression | **PASS** | Existing E07 evidence |
-| Normalized IR V1 specification | **FROZEN-FOR-IMPLEMENTATION** | Schema, semantic validator and acceptance/rejection tests; runtime migration not yet claimed |
+| Normalized IR V1 specification | **FROZEN-FOR-IMPLEMENTATION** | Schema, semantic validator and acceptance/rejection tests |
+| RV32I -> normalized IR V1 bridge | **PASS** | Deterministic normalization and execution match E07 native/golden checksum `122010428`, return `a0=48`, and host counters |
+| Common production IR V1 translator/runtime | **CANDIDATE** | Bridge interpreter exists; reusable production API/translator is a later frontier |
 | MIPS32 second-adapter seam | **CANDIDATE** | Interface only; not an implemented/proven architecture |
 | Unreal Engine 5.8 build | **PASS** | Validated locally |
 | Unreal Gate B PIE runtime | **PROVEN-RUNTIME** | Public-safe runtime evidence |
@@ -24,3 +26,5 @@
 **CANDIDATE** means an interface or future direction exists but the implementation has not crossed the required proof gate.
 
 **FROZEN-FOR-IMPLEMENTATION** is a specification state, not a proof state. It means the contract is sufficiently defined and mechanically validated to implement against, while runtime/generalization claims remain gated on execution evidence.
+
+The RV32I IR V1 bridge PASS is intentionally bounded to the current E07 synthetic fixture and proven RV32I instruction subset. It does not promote MIPS32 or the future common production V1 translator/runtime to PROVEN.
