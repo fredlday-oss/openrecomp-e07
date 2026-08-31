@@ -15,21 +15,21 @@ TEXT_SUFFIXES = {
 }
 
 MARKERS = [
-    re.compile(r"AUTH_PASSWORD\\s*=", re.I),
-    re.compile(r"AUTH_LOGIN\\s*=", re.I),
-    re.compile(r"AUTH_TYPE\\s*=\\s*exchangecode", re.I),
-    re.compile(r"epicusername\\s*=", re.I),
-    re.compile(r"epicuserid\\s*=", re.I),
-    re.compile(r"loginid\\s*=", re.I),
-    re.compile(r"access_token\\s*[:=]", re.I),
-    re.compile(r"refresh_token\\s*[:=]", re.I),
+    re.compile(r"AUTH_PASSWORD[ \t]*=", re.I),
+    re.compile(r"AUTH_LOGIN[ \t]*=", re.I),
+    re.compile(r"AUTH_TYPE[ \t]*=[ \t]*exchangecode", re.I),
+    re.compile(r"epicusername[ \t]*=", re.I),
+    re.compile(r"epicuserid[ \t]*=", re.I),
+    re.compile(r"loginid[ \t]*=", re.I),
+    re.compile(r"access_token[ \t]*[:=]", re.I),
+    re.compile(r"refresh_token[ \t]*[:=]", re.I),
     re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
 ]
 
 
 def tracked_files() -> list[Path]:
     raw = subprocess.check_output(["git", "-C", str(ROOT), "ls-files", "-z"])
-    return [ROOT / item.decode("utf-8") for item in raw.split(b"\\0") if item]
+    return [ROOT / item.decode("utf-8") for item in raw.split(bytes([0])) if item]
 
 
 def fail(message: str) -> None:
