@@ -176,6 +176,41 @@ def main() -> int:
             "historical Unreal proof actor",
         )
 
+        wrapper = read(ROOT / "integrations/unreal/RUN_UNREAL_PLUGIN_V1_HANDOFF.ps1")
+        packaged_runner = read(ROOT / "integrations/unreal/RUN_UNREAL_PLUGIN_V1_PACKAGED_PROOF.ps1")
+        collector = read(ROOT / "integrations/unreal/COLLECT_UNREAL_PLUGIN_V1_EVIDENCE.ps1")
+
+        if "$LASTEXITCODE" in wrapper:
+            return fail("handoff wrapper must not read LASTEXITCODE after PowerShell-script invocation")
+        require_tokens(
+            wrapper,
+            (
+                "INSTALL_UNREAL_PLUGIN_V1.ps1",
+                "RUN_UNREAL_PLUGIN_V1_PACKAGED_PROOF.ps1",
+                "OPENRECOMP_UNREAL_PLUGIN_V1_HANDOFF_RUN=COMPLETE",
+            ),
+            "strict-mode-safe handoff wrapper",
+        )
+        require_tokens(
+            packaged_runner,
+            (
+                "RuntimeExecutables",
+                "Binaries[\\/]Win64",
+                "PACKAGED_EXE_CANDIDATES",
+                "OPENRECOMP_UNREAL_PLUGIN_V1_RUNTIME_DIAGNOSTIC=READY",
+            ),
+            "packaged runtime runner",
+        )
+        require_tokens(
+            collector,
+            (
+                "DiagnosticPattern",
+                "PACKAGED_FAIL stage=validate",
+                "OPENRECOMP_UNREAL_PLUGIN_V1_PUBLIC_SAFE=DIAGNOSTIC",
+            ),
+            "public-safe evidence collector",
+        )
+
         tracked = subprocess.check_output(
             ["git", "ls-files", "-z", "integrations/unreal/OpenRecompRuntime"],
             cwd=ROOT,
@@ -192,6 +227,7 @@ def main() -> int:
     print("OPENRECOMP_UNREAL_PLUGIN_V1_ABI_HEADER_FROZEN=PASS")
     print("OPENRECOMP_UNREAL_PLUGIN_V1_QUERY_ONLY=PASS")
     print("OPENRECOMP_UNREAL_PLUGIN_V1_INSPECTION_SURFACE=PASS")
+    print("OPENRECOMP_UNREAL_PLUGIN_V1_HANDOFF_SCRIPTS=PASS")
     print("OPENRECOMP_UNREAL_PLUGIN_V1_GATE_B_PRESERVED=PASS")
     print("OPENRECOMP_UNREAL_PLUGIN_V1_NO_TRACKED_BINARIES=PASS")
     print("OPENRECOMP_UNREAL_PLUGIN_V1_SOURCE=PASS")
