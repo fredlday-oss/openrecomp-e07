@@ -11,6 +11,7 @@
     "required_features",
     "host_contract_version",
     "required_host_symbols",
+    "state_slots",
     "entry_function",
     "functions"
   ],
@@ -29,6 +30,10 @@
       "items": {"$ref": "#/$defs/id"},
       "uniqueItems": true
     },
+    "state_slots": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/typed_name"}
+    },
     "entry_function": {"$ref": "#/$defs/id"},
     "functions": {
       "type": "array",
@@ -44,6 +49,21 @@
     },
     "int_type": {
       "enum": ["i1", "i8", "i16", "i32", "i64"]
+    },
+    "typed_name": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "type": {"$ref": "#/$defs/int_type"}
+      }
+    },
+    "nullable_int_type": {
+      "oneOf": [
+        {"$ref": "#/$defs/int_type"},
+        {"type": "null"}
+      ]
     },
     "source": {
       "type": "object",
@@ -314,10 +334,15 @@
     "function": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "guest_address", "blocks"],
+      "required": ["id", "guest_address", "params", "return_type", "blocks"],
       "properties": {
         "id": {"$ref": "#/$defs/id"},
         "guest_address": {"type": "integer", "minimum": 0},
+        "params": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/typed_name"}
+        },
+        "return_type": {"$ref": "#/$defs/nullable_int_type"},
         "blocks": {
           "type": "array",
           "minItems": 1,
