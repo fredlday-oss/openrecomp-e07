@@ -195,7 +195,8 @@ def main() -> int:
             packaged_runner,
             (
                 "RuntimeExecutables",
-                "Binaries[\\/]Win64",
+                "Binaries",
+                "Win64",
                 "PACKAGED_EXE_CANDIDATES",
                 "OPENRECOMP_UNREAL_PLUGIN_V1_RUNTIME_DIAGNOSTIC=READY",
             ),
