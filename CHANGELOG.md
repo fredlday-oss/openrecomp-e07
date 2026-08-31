@@ -5,6 +5,10 @@ Significant project changes will be recorded here.
 ## Unreleased
 
 ### Added
+- Clean synthetic little-endian MIPS32 machine-word fixture for second-guest validation.
+- Bounded MIPS32 decoder/frontend with deterministic lowering of arithmetic, signed/unsigned comparison, branches, aligned memory access, direct call/return, direct jump and architectural delay slots into normalized IR V1.
+- Independent MIPS32 machine-code reference executor and exact register/memory/checksum equivalence gate against the shared Core API V1 path.
+- Deterministic MIPS32 IR V1 and Module Image V1 packaging plus dedicated rejection tests and GitHub Actions CI.
 - OpenRecomp Core API V1 reference package with `ModuleImage`, `GuestState`, `GuestMemory`, `HostBinding` and `ReferenceExecutor`.
 - Module Image V1 schema binding normalized IR, host contract, memory image, initial state, provenance and deterministic execution limits.
 - Deterministic Module Image V1 packaging, explicit validation and E07 Core API equivalence CI.
@@ -22,6 +26,7 @@ Significant project changes will be recorded here.
 - Contributor, security, build and reproducibility guidance.
 
 ### Changed
+- The shared IR V1, Module Image V1 and Core API V1 boundary is now boundedly validated with both RV32I and MIPS32 synthetic guest workloads; broader MIPS32 coverage remains `CANDIDATE`.
 - E07 proof CI now requires deterministic Module Image V1 packaging and exact Core API V1 equivalence in addition to the RV32I-to-IR-V1 bridge proof.
 - Architecture documentation now separates normalized IR semantics, executable module packaging, reference execution and future production AOT translation.
 - E07 proof CI requires deterministic RV32I-to-IR-V1 normalization and exact bridge equivalence with checksum `122010428`.
