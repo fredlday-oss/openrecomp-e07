@@ -79,8 +79,14 @@ See [`integrations/unreal/README.md`](integrations/unreal/README.md) and [`evide
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 - [`docs/PROOF_STATUS.md`](docs/PROOF_STATUS.md)
 - [`docs/ROADMAP.md`](docs/ROADMAP.md)
+- [`docs/BUILDING.md`](docs/BUILDING.md)
+- [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md)
 - [`integrations/unreal/README.md`](integrations/unreal/README.md)
 - [`DEPENDENCIES.md`](DEPENDENCIES.md)
+
+## Contributing and security
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) before proposing code or architecture changes. Security-sensitive reports should follow [`SECURITY.md`](SECURITY.md). Significant project changes are tracked in [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Rights firewall
 
