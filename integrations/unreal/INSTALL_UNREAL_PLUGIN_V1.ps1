@@ -41,16 +41,24 @@ Copy-Item -LiteralPath $ModuleDll -Destination $TargetDll -Force
 
 $ProjectJson = Get-Content -LiteralPath $ProjectFile -Raw | ConvertFrom-Json
 $Plugins = @()
-if ($null -ne $ProjectJson.Plugins) {
-    $Plugins = @($ProjectJson.Plugins)
+$PluginsProperty = $ProjectJson.PSObject.Properties["Plugins"]
+if ($null -ne $PluginsProperty -and $null -ne $PluginsProperty.Value) {
+    $Plugins = @($PluginsProperty.Value)
 }
 
-$Existing = @($Plugins | Where-Object { $_.Name -eq "OpenRecompRuntime" })
+$Existing = @($Plugins | Where-Object {
+    $NameProperty = $_.PSObject.Properties["Name"]
+    $null -ne $NameProperty -and $NameProperty.Value -eq "OpenRecompRuntime"
+})
 if ($Existing.Count -gt 1) {
     throw "Project contains duplicate OpenRecompRuntime plugin entries"
 }
 if ($Existing.Count -eq 1) {
-    $Existing[0].Enabled = $true
+    if ($null -eq $Existing[0].PSObject.Properties["Enabled"]) {
+        $Existing[0] | Add-Member -NotePropertyName "Enabled" -NotePropertyValue $true
+    } else {
+        $Existing[0].Enabled = $true
+    }
 } else {
     $Plugins += [pscustomobject]@{
         Name = "OpenRecompRuntime"
@@ -61,8 +69,17 @@ $ProjectJson | Add-Member -NotePropertyName "Plugins" -NotePropertyValue $Plugin
 $ProjectJson | ConvertTo-Json -Depth 100 | Set-Content -LiteralPath $ProjectFile -Encoding UTF8
 
 $RoundTrip = Get-Content -LiteralPath $ProjectFile -Raw | ConvertFrom-Json
-$EnabledEntries = @($RoundTrip.Plugins | Where-Object {
-    $_.Name -eq "OpenRecompRuntime" -and $_.Enabled -eq $true
+$RoundTripPluginsProperty = $RoundTrip.PSObject.Properties["Plugins"]
+if ($null -eq $RoundTripPluginsProperty) {
+    throw "Failed to add Plugins array to project descriptor"
+}
+$EnabledEntries = @($RoundTripPluginsProperty.Value | Where-Object {
+    $NameProperty = $_.PSObject.Properties["Name"]
+    $EnabledProperty = $_.PSObject.Properties["Enabled"]
+    $null -ne $NameProperty -and
+        $NameProperty.Value -eq "OpenRecompRuntime" -and
+        $null -ne $EnabledProperty -and
+        $EnabledProperty.Value -eq $true
 })
 if ($EnabledEntries.Count -ne 1) {
     throw "Failed to enable OpenRecompRuntime in project descriptor"
