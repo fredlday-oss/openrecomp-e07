@@ -332,3 +332,103 @@ bool FOpenRecompNativeAotModule::Execute(
 
     return true;
 }
+
+bool FOpenRecompNativeAotModule::GetStateValue(
+    const FString& StateName,
+    int64& OutValue,
+    FString& OutError) const
+{
+    OutValue = 0;
+    OutError.Reset();
+
+    if (!IsLoaded())
+    {
+        OutError = TEXT("No Native AOT ABI V1 module is loaded");
+        return false;
+    }
+    if (StateName.IsEmpty())
+    {
+        OutError = TEXT("State name is empty");
+        return false;
+    }
+    if ((Impl->Api->capability_flags & OPENRECOMP_NATIVE_AOT_CAP_STATE_INSPECTION) == 0)
+    {
+        OutError = TEXT("Module does not expose Native AOT ABI V1 state inspection");
+        return false;
+    }
+
+    const uint64 Count = Impl->Api->state_count();
+    for (uint64 Index = 0; Index < Count; ++Index)
+    {
+        const char* RawName = Impl->Api->state_name(Index);
+        if (RawName == nullptr)
+        {
+            OutError = TEXT("Module returned null state metadata");
+            return false;
+        }
+        if (StateName == Utf8Field(RawName))
+        {
+            OutValue = RawU64ToInt64(Impl->Api->state_value(Index));
+            return true;
+        }
+    }
+
+    OutError = FString::Printf(TEXT("State slot not found: %s"), *StateName);
+    return false;
+}
+
+bool FOpenRecompNativeAotModule::ReadMemory(
+    int64 Address,
+    int32 Size,
+    TArray<uint8>& OutBytes,
+    FString& OutError) const
+{
+    OutBytes.Reset();
+    OutError.Reset();
+
+    if (!IsLoaded())
+    {
+        OutError = TEXT("No Native AOT ABI V1 module is loaded");
+        return false;
+    }
+    if ((Impl->Api->capability_flags & OPENRECOMP_NATIVE_AOT_CAP_MEMORY_READ) == 0)
+    {
+        OutError = TEXT("Module does not expose Native AOT ABI V1 memory read");
+        return false;
+    }
+    if (Address < 0 || Size < 0)
+    {
+        OutError = TEXT("Guest memory address/size must be non-negative");
+        return false;
+    }
+    if (Size == 0)
+    {
+        return true;
+    }
+
+    OutBytes.SetNumUninitialized(Size);
+    if (!Impl->Api->memory_read(
+            static_cast<uint64>(Address),
+            static_cast<uint64>(Size),
+            OutBytes.GetData()))
+    {
+        OutBytes.Reset();
+        const char* RawError = Impl->Api->error();
+        OutError = RawError != nullptr
+            ? Utf8Field(RawError)
+            : TEXT("Native AOT ABI V1 memory read failed");
+        return false;
+    }
+
+    return true;
+}
+
+int64 FOpenRecompNativeAotModule::GetMemorySize() const
+{
+    if (!IsLoaded() ||
+        (Impl->Api->capability_flags & OPENRECOMP_NATIVE_AOT_CAP_MEMORY_READ) == 0)
+    {
+        return 0;
+    }
+    return RawU64ToInt64(Impl->Api->memory_size());
+}
