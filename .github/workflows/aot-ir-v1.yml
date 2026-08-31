@@ -64,14 +64,22 @@ jobs:
           cmp build/aot-v1/rv32i.a.c build/aot-v1/rv32i.b.c
           echo "OPENRECOMP_AOT_RV32I_C_DETERMINISTIC=PASS"
 
-      - name: Compile and execute RV32I AOT module
+      - name: Compile and execute RV32I AOT module with GCC and Clang
         run: |
           gcc -std=c11 -O2 -Wall -Wextra -fPIC -shared \
-            build/aot-v1/rv32i.a.c -o build/aot-v1/rv32i.so
+            build/aot-v1/rv32i.a.c -o build/aot-v1/rv32i.gcc.so
+          clang -std=c11 -O2 -Wall -Wextra -fPIC -shared \
+            build/aot-v1/rv32i.a.c -o build/aot-v1/rv32i.clang.so
           python tools/run_aot_e07_v1.py \
-            build/aot-v1/rv32i.so \
+            build/aot-v1/rv32i.gcc.so \
             contracts/host_contract.json \
-            build/aot-v1/rv32i.aot.json
+            build/aot-v1/rv32i.aot.gcc.json
+          python tools/run_aot_e07_v1.py \
+            build/aot-v1/rv32i.clang.so \
+            contracts/host_contract.json \
+            build/aot-v1/rv32i.aot.clang.json
+          cmp build/aot-v1/rv32i.aot.gcc.json build/aot-v1/rv32i.aot.clang.json
+          echo "OPENRECOMP_AOT_RV32I_COMPILER_PARITY=PASS"
 
       - name: Build MIPS32 normalized inputs
         run: |
@@ -109,21 +117,30 @@ jobs:
           cmp build/aot-v1/mips32.a.c build/aot-v1/mips32.b.c
           echo "OPENRECOMP_AOT_MIPS32_C_DETERMINISTIC=PASS"
 
-      - name: Compile and execute MIPS32 AOT module
+      - name: Compile and execute MIPS32 AOT module with GCC and Clang
         run: |
           gcc -std=c11 -O2 -Wall -Wextra -fPIC -shared \
-            build/aot-v1/mips32.a.c -o build/aot-v1/mips32.so
+            build/aot-v1/mips32.a.c -o build/aot-v1/mips32.gcc.so
+          clang -std=c11 -O2 -Wall -Wextra -fPIC -shared \
+            build/aot-v1/mips32.a.c -o build/aot-v1/mips32.clang.so
           python tools/run_aot_mips32_v1.py \
-            build/aot-v1/mips32.so \
+            build/aot-v1/mips32.gcc.so \
             build/aot-v1/mips32.ir.json \
             examples/mips32-v1/fixture.json \
-            build/aot-v1/mips32.aot.json
+            build/aot-v1/mips32.aot.gcc.json
+          python tools/run_aot_mips32_v1.py \
+            build/aot-v1/mips32.clang.so \
+            build/aot-v1/mips32.ir.json \
+            examples/mips32-v1/fixture.json \
+            build/aot-v1/mips32.aot.clang.json
+          cmp build/aot-v1/mips32.aot.gcc.json build/aot-v1/mips32.aot.clang.json
+          echo "OPENRECOMP_AOT_MIPS32_COMPILER_PARITY=PASS"
 
       - name: Require exact dual-architecture AOT equivalence
         run: |
           python tools/check_aot_ir_v1.py \
             build/aot-v1/rv32i.core.json \
-            build/aot-v1/rv32i.aot.json \
+            build/aot-v1/rv32i.aot.gcc.json \
             build/aot-v1/mips32.core.json \
-            build/aot-v1/mips32.aot.json | tee build/aot-v1/equivalence.txt
+            build/aot-v1/mips32.aot.gcc.json | tee build/aot-v1/equivalence.txt
           grep -F "OPENRECOMP_IR_V1_AOT_DUAL_ARCH=PASS" build/aot-v1/equivalence.txt
