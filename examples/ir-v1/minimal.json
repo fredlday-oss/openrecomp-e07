@@ -16,11 +16,19 @@
   "required_host_symbols": [
     "host_system"
   ],
+  "state_slots": [
+    {
+      "id": "gpr:a0",
+      "type": "i32"
+    }
+  ],
   "entry_function": "fixture_main",
   "functions": [
     {
       "id": "fixture_main",
       "guest_address": 4096,
+      "params": [],
+      "return_type": "i32",
       "blocks": [
         {
           "id": "entry",
