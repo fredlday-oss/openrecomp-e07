@@ -25,15 +25,17 @@ The project separates binary analysis, a versioned intermediate representation (
 | Native AOT ABI V1 Linux GCC/Clang | **PASS** — RV32I + bounded MIPS32 |
 | Native AOT ABI V1 Windows x64 MSVC/clang-cl | **PASS** — exact Core/Linux parity |
 | Native AOT ABI V1 public symbol surface | **PASS** — single versioned query entry point |
+| Unreal Native AOT host core | **PASS** — four-way MSVC/clang-cl host/module matrix |
+| Unreal Native AOT host V1 UE5.8 runtime | **PROVEN-RUNTIME** — RV32I AOT module through frozen ABI V1 |
 | General MIPS32 coverage | **CANDIDATE** — bounded subset only |
 | macOS / Windows ARM64 / Windows x86 ABI parity | **CANDIDATE** |
-| Release-quality production AOT compiler pipeline | **CANDIDATE** |
+| Release-quality production AOT compiler/plugin pipeline | **CANDIDATE** |
 | Unreal Engine 5.8 Gate B runtime | **PROVEN-RUNTIME** |
 | Unreal visual replay | **PASS** |
 
 The hardened E07 V1.1 fixture remains the first proven architecture path and validation harness. It is a proof component of the broader OpenRecomp project, not the total intended scope.
 
-The normalized IR V1, Module Image V1 and Core API V1 boundaries have now been exercised by two materially different clean synthetic guest workloads. A single portable C AOT backend consumes both normalized workloads and reproduces their Core API results after native compilation. The backend is warning-clean under the project compiler gates, its deterministic failure behavior is cross-checked against the reference executor, and Native AOT ABI V1 now crosses both Linux GCC/Clang and Windows x64 MSVC/clang-cl for the same bounded workloads. Broader MIPS32 coverage, additional host architectures/platforms and a release-quality compiler pipeline remain separately gated.
+The normalized IR V1, Module Image V1 and Core API V1 boundaries have now been exercised by two materially different clean synthetic guest workloads. A single portable C AOT backend consumes both normalized workloads and reproduces their Core API results after native compilation. The backend is warning-clean under the project compiler gates, its deterministic failure behavior is cross-checked against the reference executor, and Native AOT ABI V1 crosses both Linux GCC/Clang and Windows x64 MSVC/clang-cl for the same bounded workloads. UE5.8 now also consumes that frozen Windows x64 ABI in a separate execution-backed Native AOT runtime proof for the E07 RV32I module. Broader MIPS32 coverage, additional platforms/deployment modes and a release-quality compiler/plugin pipeline remain separately gated.
 
 ## Architecture
 
@@ -164,7 +166,7 @@ openrecomp_native_aot_query
 
 The query returns a fixed-width function table containing version/size information, capability flags, module/provenance metadata, host binding, execution, state/memory inspection and deterministic error access. Unsupported versions and incorrect structure sizes fail closed.
 
-Linux GCC/Clang and Windows x64 MSVC/clang-cl now validate the same frozen public V1 surface for the current RV32I and bounded MIPS32 workloads. The V1 header layout was not changed for Windows.
+Linux GCC/Clang and Windows x64 MSVC/clang-cl validate the same frozen public V1 surface for the current RV32I and bounded MIPS32 workloads. The V1 header layout was not changed for Windows.
 
 ```text
 OPENRECOMP_NATIVE_AOT_ABI_V1_QUERY=PASS
@@ -197,7 +199,37 @@ OPENRECOMP_AOT_WINDOWS_LINUX_REFERENCE_PARITY=PASS
 OPENRECOMP_AOT_WINDOWS_PORTABILITY_V1=PASS
 ```
 
-The first Windows run also exposed a real byte-integrity problem caused by CRLF checkout conversion of the hashed host contract. `.gitattributes` now pins proof/source text to LF; the hash check itself remains unchanged and fail-closed.
+The first Windows run also exposed a real byte-integrity problem caused by CRLF checkout conversion of the hashed host contract. `.gitattributes` pins proof/source text to LF; the hash check itself remains unchanged and fail-closed.
+
+## Unreal Engine interoperability
+
+OpenRecomp has two distinct UE5.8 runtime proof paths.
+
+The original authoritative Gate B proof reaches:
+
+```text
+OPENRECOMP_GATE_B PASS x=15 y=6 rgba=ff3aa7ff frame=8
+```
+
+A separate visual replay reaches:
+
+```text
+OPENRECOMP_DEMO PASS x=15 y=6 rgba=ff3aa7ff frame=8
+```
+
+The presentation replay does not replace the authoritative runtime validation.
+
+The newer [`docs/UNREAL_NATIVE_AOT_HOST_V1.md`](docs/UNREAL_NATIVE_AOT_HOST_V1.md) path connects the actual normalized/AOT architecture to UE5.8. The engine loads the CI-built synthetic RV32I DLL through `FPlatformProcess`, resolves only `openrecomp_native_aot_query`, negotiates the frozen Native AOT ABI V1, binds deterministic host callbacks and reproduces the established AOT result:
+
+```text
+OPENRECOMP_UNREAL_NATIVE_AOT_HOST_V1 PASS module=e07.rv32i.fixture-full.ir-v1 arch=riscv32-rv32i observed_state=48 checksum=122010428 operations=3866
+```
+
+Status: **PROVEN-RUNTIME — bounded UE5.8 Windows x64 Native AOT host validation**.
+
+The installed ABI header, six Native AOT host source files and synthetic RV32I DLL were verified byte-for-byte against the CI handoff by SHA-256 before promotion. The original Gate B source and frozen ABI header remain unchanged.
+
+See [`integrations/unreal/README.md`](integrations/unreal/README.md), [`evidence/UNREAL_GATE_B_PUBLIC_SAFE.txt`](evidence/UNREAL_GATE_B_PUBLIC_SAFE.txt) and [`evidence/UNREAL_NATIVE_AOT_HOST_V1_PUBLIC_SAFE.txt`](evidence/UNREAL_NATIVE_AOT_HOST_V1_PUBLIC_SAFE.txt).
 
 ## Hardened E07 proof
 
@@ -217,26 +249,6 @@ PASS: E07 V1.1 HARDENED END-TO-END
 
 See the existing [`evidence/`](evidence/) directory for detailed proof artifacts.
 
-## Unreal Engine interoperability
-
-OpenRecomp also has a validated Unreal Engine 5.8 interoperability proof using a legally redistributable synthetic workload.
-
-The authoritative runtime proof reaches:
-
-```text
-OPENRECOMP_GATE_B PASS x=15 y=6 rgba=ff3aa7ff frame=8
-```
-
-A separate visual replay reaches:
-
-```text
-OPENRECOMP_DEMO PASS x=15 y=6 rgba=ff3aa7ff frame=8
-```
-
-The presentation replay does not replace the authoritative runtime validation.
-
-See [`integrations/unreal/README.md`](integrations/unreal/README.md) and [`evidence/UNREAL_GATE_B_PUBLIC_SAFE.txt`](evidence/UNREAL_GATE_B_PUBLIC_SAFE.txt).
-
 ## Documentation
 
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
@@ -248,6 +260,7 @@ See [`integrations/unreal/README.md`](integrations/unreal/README.md) and [`evide
 - [`docs/AOT_HARDENING_V1.md`](docs/AOT_HARDENING_V1.md)
 - [`docs/NATIVE_AOT_ABI_V1.md`](docs/NATIVE_AOT_ABI_V1.md)
 - [`docs/AOT_WINDOWS_PORTABILITY_V1.md`](docs/AOT_WINDOWS_PORTABILITY_V1.md)
+- [`docs/UNREAL_NATIVE_AOT_HOST_V1.md`](docs/UNREAL_NATIVE_AOT_HOST_V1.md)
 - [`docs/PROOF_STATUS.md`](docs/PROOF_STATUS.md)
 - [`docs/ROADMAP.md`](docs/ROADMAP.md)
 - [`docs/BUILDING.md`](docs/BUILDING.md)
