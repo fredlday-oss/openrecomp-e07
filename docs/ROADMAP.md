@@ -1,47 +1,64 @@
 # OpenRecomp roadmap
 
-This is a development roadmap and does not imply that external grant funding has been awarded.
+This is a forward-looking development roadmap. It is **not** a historical schedule and does not imply that external grant funding has been awarded.
 
-A bounded clean MIPS32 synthetic vertical slice passes through the same normalized IR V1, Module Image V1 and Core API V1 boundaries as the RV32I validation path. A single portable C AOT backend consumes both normalized workloads and reproduces the Core API result after native compilation. The AOT hardening gate requires `-Werror`, a broader normalized-operation corpus, nine deterministic Core API/AOT fault-equivalence cases and GCC/Clang ASan+UBSan smoke execution. Native AOT ABI V1 freezes the first versioned host-facing binary contract and passes bounded Linux GCC/Clang plus Windows x64 MSVC/clang-cl validation for the current RV32I and MIPS32 workloads. Unreal Engine 5.8 now also consumes the frozen Windows x64 ABI in an execution-backed Native AOT host proof for the E07 RV32I workload. The roadmap therefore treats second-architecture validation, common code generation, compiler hardening, native-ABI design, Windows x64 portability and the first real-engine Native AOT host integration as established while keeping broader ISA/platform, packaging and release-quality compiler/plugin claims evidence-gated.
+Some host-integration work was prototyped earlier than the original phase ordering. The current baseline already includes bounded RV32I and MIPS32 validation through IR V1/Core API V1, a hardened common portable-C AOT backend, Native AOT ABI V1, Linux/Windows x64 portability, a reproducible Windows Native AOT host-core matrix, and local UE5.8 runtime evidence for the synthetic RV32I module.
 
-## Months 1–2 — Core, IR, AOT and ABI portability
+The roadmap below therefore describes **remaining hardening, generalization, reproducibility and packaging work**, not a claim that every listed area is still unimplemented. The reusable open core and optional host-integration track are separated further in [`FUNDING_SCOPE.md`](FUNDING_SCOPE.md).
 
-- continue hardening and documenting the versioned IR and Module Image contracts;
-- preserve Native AOT ABI V1 layout/semantics while using it as the stable host boundary for follow-on integration;
-- maintain Linux/Windows x64 compiler and runtime parity for the current synthetic proof modules;
-- treat macOS, Windows ARM64 and Windows x86 as separate future portability evidence gates rather than inferring them from Windows x64;
-- expand deterministic and adversarial validation fixtures around the existing warning-clean, sanitizer, runtime-fault, ABI-negotiation and cross-OS integrity gates;
-- maintain repeatable CI baselines across Core API and AOT execution paths.
+## Phase 1 — Core contracts and reproducibility
 
-## Months 3–4 — Expand second guest architecture
+- continue hardening and documenting normalized IR V1, Module Image V1 and Core API V1;
+- preserve Native AOT ABI V1 layout/semantics while it remains the stable host boundary;
+- maintain deterministic native/WebAssembly/Core/AOT equivalence for the existing clean fixtures;
+- expand negative/adversarial validation around parsing, memory, runtime faults, ABI negotiation and cross-OS byte integrity;
+- keep the public-safety gate fail-closed and regression-tested;
+- improve reproducibility instructions so external reviewers can rerun the open-core proof from a fresh clone.
+
+## Phase 2 — Expand second-guest evidence
 
 - extend MIPS32 beyond the current bounded little-endian synthetic subset;
 - add additional ISA, control-flow, ABI and memory-semantics fixtures;
-- run the expanded fixtures through both Core API reference execution and the common hardened AOT backend;
+- run expanded fixtures through both the Core API reference executor and common hardened AOT backend;
 - require expanded native modules to continue crossing Native AOT ABI V1 rather than adding architecture-specific host interfaces;
-- grow adversarial and cross-architecture regression coverage;
-- keep general MIPS32 support **CANDIDATE** until broader equivalent proof gates pass.
+- retain explicit CANDIDATE/PASS boundaries until each broader claim has equivalent execution evidence.
 
-## Months 5–6 — Unreal interoperability layer
+## Phase 3 — AOT/compiler portability and release quality
 
-- evolve the proven `OPENRECOMP_UNREAL_NATIVE_AOT_HOST_V1` path into reusable Unreal host components/plugin structure;
-- preserve `openrecomp_native_aot_query` and Native AOT ABI V1 as the module boundary rather than introducing Unreal-specific guest interfaces;
-- expand Unreal-side host service bindings beyond the current deterministic proof host where justified by clean fixtures;
-- add packaged-build/deployment validation separately from the current Editor/PIE runtime proof;
-- preserve independent authoritative runtime validation alongside visual presentation;
-- publish a documented sample integration and improve diagnostics/integration ergonomics.
+- broaden compiler/platform coverage beyond current Linux x64 and Windows x64 evidence;
+- treat macOS, Windows ARM64 and Windows x86 as separate evidence gates;
+- extend hardening beyond the current warning/fault/sanitizer corpus;
+- document a stable release process for generated modules and host compatibility;
+- promote a release-quality compiler claim only after the intended portability/optimization/deployment matrix passes.
 
-## Month 7 — Documentation and clean examples
+## Phase 4 — Optional host integration
 
-- publish architecture and integration documentation;
+Unreal Engine remains an optional consumer of OpenRecomp through Native AOT ABI V1, not part of the required open-core architecture.
+
+Remaining Unreal/engine-host work includes:
+
+- evolve the current host proof into cleaner reusable host components/plugin structure;
+- preserve `openrecomp_native_aot_query` and Native AOT ABI V1 as the module boundary;
+- make the UE runtime evidence more reproducible, ideally with a project-controlled self-hosted CI runner or equivalent scripted environment;
+- expand host-service bindings only when justified by clean fixtures;
+- validate packaged-build/deployment separately from Editor/PIE;
+- preserve independent authoritative runtime validation alongside presentation;
+- improve diagnostics and integration documentation.
+
+The current UE5.8 PIE evidence is intentionally described as **local runtime PASS**, while the engine-independent Windows host core is reproducible in hosted CI.
+
+## Phase 5 — Documentation and clean examples
+
+- publish architecture and integration walkthroughs;
 - package redistributable synthetic/homebrew examples;
-- add tutorials and reproducible integration walkthroughs;
-- document the reference-vs-AOT, Native-ABI, cross-OS and Unreal-host validation workflow for third-party contributors.
+- document the reference-vs-AOT, Native-ABI and cross-OS validation workflow for third-party contributors;
+- maintain explicit development-process and evidence-provenance documentation;
+- keep funding/milestone descriptions clear about completed work versus proposed work.
 
-## Month 8 — Release hardening
+## Phase 6 — Public milestone release
 
-- close remaining validation gaps;
+- close remaining validation gaps selected for the milestone;
 - improve CI and reproducibility;
-- promote a release-level compiler/module/plugin compatibility claim only after the frozen V1 ABI has passed the intended platform, deployment and host-integration matrix;
 - produce a tagged public milestone release;
-- publish an updated technical demonstration.
+- publish an updated technical demonstration and evidence summary;
+- avoid broadening PROVEN/PASS claims beyond the actual evidence matrix.
