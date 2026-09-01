@@ -36,10 +36,7 @@ operations=3866
 
 ## MIPS32 vertical slice
 
-The bounded MIPS32 gate begins from a clean synthetic machine-word fixture and compares two independent execution paths:
-
-- machine-code reference execution with architectural delay slots;
-- normalized IR V1 -> Module Image V1 -> Core API V1.
+The original bounded MIPS32 gate begins from a clean synthetic little-endian machine-word fixture and compares independent machine-code reference execution with normalized IR V1 -> Module Image V1 -> Core API V1 execution.
 
 The paths agree on complete normalized register state, observable memory and checksum:
 
@@ -50,22 +47,59 @@ delay_slots=7
 checksum=1950232098
 ```
 
+That historical fixture remains intact and independently exercised after the post-v0.2.0 expansion work.
+
+## MIPS32 expansion V1
+
+Expansion V1 adds five separate synthetic workloads rather than replacing the original vertical slice. Each fixture is normalized twice and requires byte-identical IR/sidecar/frontend reports, is packaged twice into byte-identical Module Image V1 JSON, and is validated through three semantic paths:
+
+1. an independent MIPS32 machine-word reference with architectural delay slots;
+2. normalized IR V1 -> Module Image V1 -> Core API V1;
+3. deterministic portable-C AOT -> Native AOT ABI V1.
+
+The Linux AOT path compiles every fixture independently with GCC and Clang under warning-as-error gates. Windows x64 then regenerates the portable C and ABI adapter deterministically, compiles every fixture under MSVC and clang-cl, and requires exact observable parity with the Linux reference/Core evidence.
+
+Established fixture results:
+
+```text
+logic-shift        arch=mips32-le checksum=435263539   operations=72 delay_slots=1
+memory-width       arch=mips32-le checksum=4257846410  operations=60 delay_slots=1
+branches-calls     arch=mips32-le checksum=2065440492  operations=75 delay_slots=9
+mult-hilo          arch=mips32-le checksum=768371589   operations=44 delay_slots=1
+big-endian-memory  arch=mips32-be checksum=938211822   operations=24 delay_slots=1
+```
+
+The comparison includes complete normalized state and observable memory. The multiply fixture explicitly compares `special:hi` and `special:lo`. The big-endian fixture validates byte/halfword/word behavior through the same architecture-neutral memory layer rather than a MIPS-specific backend path.
+
+Expansion V1 also has fail-closed tests for unsupported division under frozen IR V1, malformed shift and REGIMM encodings, misaligned source records, branch targets leaving a declared function, misaligned halfword access and reference execution-limit exhaustion.
+
+Expected aggregate markers include:
+
+```text
+OPENRECOMP_MIPS32_EXPANSION_DECODER=PASS
+OPENRECOMP_MIPS32_EXPANSION_NEGATIVE_TESTS=PASS tests=7
+OPENRECOMP_MIPS32_EXPANSION_REFERENCE=PASS
+OPENRECOMP_MIPS32_EXPANSION_CORE_API=PASS
+OPENRECOMP_MIPS32_EXPANSION_AOT=PASS
+OPENRECOMP_MIPS32_EXPANSION_LINUX_COMPILERS=PASS
+OPENRECOMP_MIPS32_EXPANSION_WINDOWS_COMPILERS=PASS
+OPENRECOMP_MIPS32_EXPANSION_V1=PASS
+```
+
+`div/divu` remain intentionally outside this expansion because IR V1 has no division/remainder semantic operation. The reproducibility gate therefore fails closed rather than altering the frozen IR contract solely for guest-opcode coverage.
+
 ## Portable C AOT
 
-For both current guest workloads the AOT gate:
+The AOT gate translates validated normalized modules deterministically, compiles them independently and requires native results to reproduce the Core API oracle.
 
-1. translates the validated normalized module twice and requires byte-identical C;
-2. compiles independently with GCC and Clang;
-3. executes through Native AOT ABI V1;
-4. requires compiler behavioral parity;
-5. compares the native result with the Core API oracle.
-
-Current bounded results:
+For the original dual-guest baseline:
 
 ```text
 RV32I  checksum=122010428, a0=48, operations=3866
-MIPS32 checksum=1950232098, v0=31, operations=100
+MIPS32 vertical slice checksum=1950232098, v0=31, operations=100
 ```
+
+Expansion V1 additionally proves the five MIPS32 results above through the same backend under GCC/Clang and Windows x64 MSVC/clang-cl.
 
 Generated compiler binaries are not required to be byte-identical; reproducibility is defined as deterministic OpenRecomp-generated source/adapters plus exact observable behavioral parity.
 
@@ -96,7 +130,7 @@ host-void        -> host-void
 
 Native AOT ABI V1 adds a deterministic module-specific adapter around the generated implementation surface. The adapter is produced from validated Module Image V1/IR/host-contract inputs.
 
-Linux GCC/Clang tests require deterministic adapter generation, exact query/version/size/metadata/host-binding behavior, private implementation symbols outside the stable public surface, and exact execution parity for the current RV32I and bounded MIPS32 workloads.
+Linux GCC/Clang tests require deterministic adapter generation, exact query/version/size/metadata/host-binding behavior, private implementation symbols outside the stable public surface, and exact execution parity for the current RV32I and bounded MIPS32 workloads. Expansion V1 reuses the same unchanged V1 query/table contract for all five added MIPS32 modules.
 
 The contract remains **FROZEN-FOR-PORTABILITY-TESTING**.
 
@@ -105,21 +139,20 @@ The contract remains **FROZEN-FOR-PORTABILITY-TESTING**.
 The Windows gate uses Linux/Core execution records as an independent oracle, then on Windows x64:
 
 1. regenerates portable C and ABI adapters deterministically;
-2. verifies the frozen V1 x64 structure layout under MSVC and clang-cl;
-3. builds current RV32I/MIPS32 DLLs under `/W4 /WX`;
-4. checks the public DLL OpenRecomp export set;
-5. exercises query/version/size/metadata/host negotiation;
-6. executes both workloads through both compilers;
-7. requires exact Linux/Core and MSVC/clang-cl behavioral parity.
+2. verifies the frozen V1 x64 structure layout where applicable;
+3. builds native modules under `/W4 /WX` with MSVC and clang-cl;
+4. exercises query/version/size/metadata/host negotiation;
+5. executes the bounded workloads through both compilers;
+6. requires exact Linux/Core and MSVC/clang-cl behavioral parity.
 
-Established results remain:
+The original portability baseline remains:
 
 ```text
 RV32I  checksum=122010428, a0=48, operations=3866
-MIPS32 checksum=1950232098, v0=31, operations=100
+MIPS32 vertical slice checksum=1950232098, v0=31, operations=100
 ```
 
-This is reproducible in hosted GitHub Actions.
+Expansion V1 extends the MIPS32 Windows execution evidence to all five added fixtures, including the bounded `mips32-be` memory workload. This is reproducible in hosted GitHub Actions.
 
 ## Unreal Native AOT evidence layers
 
@@ -165,8 +198,11 @@ The scanner also has a regression test for the case where `git ls-files` referen
 - RV32I -> IR V1 bridge: **PASS**
 - Core API V1 reference path: **PASS**
 - MIPS32 synthetic vertical slice: **PASS — bounded**
+- MIPS32 expansion V1: **PASS — bounded multi-fixture little/big-endian validation**
 - Shared IR/Module/Core boundary: **PASS — bounded two-guest validation**
 - Portable C AOT backend: **PASS — bounded dual-guest**
+- Expanded MIPS32 Linux GCC/Clang AOT: **PASS — bounded**
+- Expanded MIPS32 Windows x64 MSVC/clang-cl AOT: **PASS — bounded**
 - AOT warning/fault/sanitizer hardening: **PASS — bounded**
 - Native AOT ABI V1: **FROZEN-FOR-PORTABILITY-TESTING**
 - Linux + Windows x64 Native AOT ABI: **PASS — bounded**
