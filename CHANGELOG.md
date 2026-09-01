@@ -4,6 +4,10 @@ Significant project changes will be recorded here.
 
 ## Unreleased
 
+No changes yet.
+
+## [0.2.0] - 2026-09-01
+
 ### Added
 
 - Reviewer-response hardening for evidence provenance, development-process transparency and funding-scope separation.
@@ -22,15 +26,16 @@ Significant project changes will be recorded here.
 - Deterministic RV32I E07 `0.1.1` -> normalized IR V1 `1.0.0` bridge and equivalence gate.
 - Normalized OpenRecomp IR V1 (`1.0.0`) specification, schema, semantic validator and acceptance/rejection tests.
 - Repository production hardening, hardened E07 CI, public-safety scanning, documentation-link validation and contributor/security/build/reproducibility guidance.
+- Public release metadata, release notes and publication checklist for v0.2.0.
 
 ### Changed
 
-- Unreal runtime status is now reported as **PASS — local runtime evidence** rather than an unqualified `PROVEN-RUNTIME` claim when the UE5.8 environment is not reproducible in hosted project CI. The engine-independent Windows host-core matrix remains a reproducible CI PASS.
+- Unreal runtime status is reported as **PASS — local runtime evidence** rather than an unqualified `PROVEN-RUNTIME` claim when the UE5.8 environment is not reproducible in hosted project CI. The engine-independent Windows host-core matrix remains a reproducible CI PASS.
 - The original Unreal Gate B PIE result is likewise reported as **PASS — local runtime evidence**; its visual replay remains presentation evidence only.
-- README and architecture documentation now present the reusable open core first and Unreal as an optional consumer of Native AOT ABI V1 rather than a core dependency.
-- `docs/ROADMAP.md` now distinguishes the current implemented baseline from remaining forward-looking hardening/generalization work; earlier-than-planned host prototypes are not represented as still-unimplemented future milestones.
-- Funding/milestone guidance now requires already-completed work and proposed work to be separated and discourages overlapping funding claims across core and host-specific tracks.
-- `tools/public_safety_scan.py` now fails closed with a controlled diagnostic if `git ls-files` fails, a tracked file is missing, or a tracked text file cannot be read; missing files no longer produce a raw Python traceback.
+- README and architecture documentation present the reusable open core first and Unreal as an optional consumer of Native AOT ABI V1 rather than a core dependency.
+- `docs/ROADMAP.md` distinguishes the current implemented baseline from remaining forward-looking hardening/generalization work; earlier-than-planned host prototypes are not represented as still-unimplemented future milestones.
+- Funding/milestone guidance requires already-completed work and proposed work to be separated and discourages overlapping funding claims across core and host-specific tracks.
+- `tools/public_safety_scan.py` fails closed with a controlled diagnostic if `git ls-files` fails, a tracked file is missing, or a tracked text file cannot be read; missing files no longer produce a raw Python traceback.
 - Native AOT ABI V1 remains **FROZEN-FOR-PORTABILITY-TESTING**; incompatible layout/signature changes require a new ABI version.
 - Windows checkout byte stability is enforced with `.gitattributes` after CRLF conversion of a hashed host contract was correctly rejected by Module Image integrity validation.
 - Portable C AOT output remains warning-clean for the established dual-architecture workloads and hardening corpus; Linux compiler gates use `-Wall -Wextra -Werror`.

@@ -6,6 +6,12 @@ The project separates binary analysis, a versioned intermediate representation (
 
 Unreal Engine is an optional consumer of the versioned native-module interface, not a dependency of the OpenRecomp core.
 
+## Current public milestone
+
+**OpenRecomp v0.2.0** is the first formal public research/developer milestone. It freezes the current evidence-backed open-core architecture and reviewer-facing validation state; it is not a claim of general guest-binary compatibility or a production-quality optimizing compiler.
+
+See [`docs/RELEASE_V0_2_0.md`](docs/RELEASE_V0_2_0.md) for the bounded release notes and [`docs/RELEASE_CHECKLIST_V0_2_0.md`](docs/RELEASE_CHECKLIST_V0_2_0.md) for the publication/reproducibility gate.
+
 ## Current evidence status
 
 | Area | Status |
@@ -71,6 +77,18 @@ PASS: E07 V1.1 HARDENED END-TO-END
 The hardened proof includes malformed/adversarial ELF rejection, schema and host-contract checks, checked guest memory, native/WebAssembly parity, golden regression and reproducibility checks.
 
 Additional CI gates cover IR V1, Core API V1, MIPS32, AOT translation/hardening, Native AOT ABI portability, public safety and documentation.
+
+For the v0.2.0 release metadata gate, run:
+
+```bash
+python3 tools/verify_release_v0_2_0.py
+```
+
+Expected marker:
+
+```text
+OPENRECOMP_V0_2_RELEASE_METADATA=PASS
+```
 
 ## Key bounded results
 
@@ -148,6 +166,8 @@ The public-safety gate scans tracked material and is designed to fail closed, in
 
 ## Documentation
 
+- [`docs/RELEASE_V0_2_0.md`](docs/RELEASE_V0_2_0.md)
+- [`docs/RELEASE_CHECKLIST_V0_2_0.md`](docs/RELEASE_CHECKLIST_V0_2_0.md)
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 - [`docs/IR_SPEC_V1.md`](docs/IR_SPEC_V1.md)
 - [`docs/RV32I_IR_V1_BRIDGE.md`](docs/RV32I_IR_V1_BRIDGE.md)
