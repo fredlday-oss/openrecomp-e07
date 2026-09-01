@@ -1,20 +1,29 @@
 # OpenRecomp Unreal Native AOT Host V1
 
 **Frontier:** `OPENRECOMP_UNREAL_NATIVE_AOT_HOST_V1`  
-**Status:** **PROVEN-RUNTIME — bounded UE5.8 Windows x64 Native AOT host validation**
+**Status:** **PASS — local UE5.8 Windows x64 runtime evidence; host core reproducible in Windows CI**
 
 This frontier connects the frozen Native AOT ABI V1 to the Unreal Engine host path without changing the ABI or replacing the existing Unreal Gate B proof.
 
+## Evidence provenance
+
+The integration has two distinct evidence layers:
+
+1. **Windows host-core CI — reproducible PASS.** GitHub Actions builds the synthetic RV32I AOT DLL and the engine-independent host core under MSVC and clang-cl, then executes all four host/module compiler combinations.
+2. **UE5.8 PIE — local runtime PASS.** A Windows machine with Unreal Engine 5.8 installed built the host integration and executed the same synthetic AOT module in PIE. The installed ABI header, host source and DLL were matched to the CI handoff by SHA-256 before the runtime result was recorded.
+
+Hosted GitHub Actions does not contain Unreal Engine, so the UE5.8 PIE result is intentionally not presented as hosted-CI-reproducible evidence.
+
 ## Separation from the existing Unreal proof
 
-`OpenRecompProofActor` remains the authoritative proof for the original Unreal synthetic workload:
+`OpenRecompProofActor` remains the independent original Unreal synthetic workload:
 
 ```text
 OPENRECOMP_GATE_B PASS x=15 y=6 rgba=ff3aa7ff frame=8
 OPENRECOMP_DEMO PASS x=15 y=6 rgba=ff3aa7ff frame=8
 ```
 
-The Native AOT host is a separate proof path using the already-validated E07 RV32I AOT module:
+The Native AOT host is a separate path using the already-validated E07 RV32I AOT module:
 
 ```text
 RV32I IR V1
@@ -28,7 +37,7 @@ RV32I IR V1
   -> UE-visible validation result
 ```
 
-The two proof paths are intentionally independent. A visual Unreal presentation does not substitute for Native AOT execution, and Native AOT execution does not rewrite the historical Gate B workload.
+A visual Unreal presentation does not substitute for Native AOT execution, and Native AOT execution does not rewrite the historical Gate B workload.
 
 ## Reusable host implementation
 
@@ -94,17 +103,19 @@ UNREAL_NATIVE_AOT_OPERATIONS=3866
 OPENRECOMP_UNREAL_NATIVE_AOT_HOST_CORE_V1=PASS
 ```
 
-## UE5.8 runtime proof
+This layer is the externally reproducible proof for the Native AOT host core.
 
-The host source and the CI-built synthetic module were installed into the UE5.8 project and built successfully. PIE then loaded the Windows x64 AOT DLL through Unreal's platform abstraction, negotiated Native AOT ABI V1, exercised the deterministic host callback bridge and produced the expected result:
+## UE5.8 local runtime validation
+
+The host source and CI-built synthetic module were installed into a UE5.8 project and built successfully on Windows x64. PIE then loaded the AOT DLL through Unreal's platform abstraction, negotiated Native AOT ABI V1, exercised the deterministic host callback bridge and produced:
 
 ```text
 OPENRECOMP_UNREAL_NATIVE_AOT_HOST_V1 PASS module=e07.rv32i.fixture-full.ir-v1 arch=riscv32-rv32i observed_state=48 checksum=122010428 operations=3866
 ```
 
-Status: **PROVEN-RUNTIME**.
+Status: **PASS — local runtime evidence**.
 
-The runtime handoff manifest was independently compared with the CI handoff: all eight installed proof artifacts matched byte-for-byte by SHA-256, including the frozen ABI header, six Native AOT Unreal host source files and the synthetic RV32I DLL. The existing Gate B source and frozen ABI header were reported unchanged.
+The runtime handoff manifest was compared with the CI handoff: all eight installed proof artifacts matched byte-for-byte by SHA-256, including the frozen ABI header, six Native AOT Unreal host source files and the synthetic RV32I DLL. The existing Gate B source and frozen ABI header were reported unchanged.
 
 Public-safe runtime evidence is committed at:
 
@@ -112,7 +123,9 @@ Public-safe runtime evidence is committed at:
 evidence/UNREAL_NATIVE_AOT_HOST_V1_PUBLIC_SAFE.txt
 ```
 
-No raw Unreal startup/launcher log is committed or required for the public proof.
+No raw Unreal startup/launcher log is committed or required for the public evidence record.
+
+A future project-controlled self-hosted UE runner, or an equivalent independently reproducible UE environment, would strengthen this from local runtime evidence to a reproducible runtime claim.
 
 ## Local installation
 
@@ -145,14 +158,14 @@ The collector writes only the Native AOT marker and, when present, the existing 
 
 ## Claim boundary
 
-This runtime proof establishes a bounded host integration for:
+The current evidence establishes:
 
-- Unreal Engine 5.8 on Windows x64;
-- the frozen Native AOT ABI V1;
+- reproducible Windows x64 Native AOT host-core behavior under MSVC/clang-cl;
+- a locally executed UE5.8 Windows x64 integration using the frozen Native AOT ABI V1;
 - the current synthetic E07 RV32I AOT module;
 - deterministic host callback binding;
 - dynamic DLL loading through Unreal's platform abstraction;
-- authoritative observable-result parity with the established Core/AOT proof;
+- observable-result parity with the established Core/AOT proof;
 - byte-identical installation provenance for the tested source/header/DLL set.
 
-It does **not** establish arbitrary RV32I binaries, general MIPS32 Unreal hosting, packaged-game deployment, macOS Unreal hosting, Windows ARM64, or a release-quality plugin/API surface.
+It does **not** establish hosted-CI UE5.8 reproducibility, arbitrary RV32I binaries, general MIPS32 Unreal hosting, packaged-game deployment, macOS Unreal hosting, Windows ARM64, or a release-quality plugin/API surface.
