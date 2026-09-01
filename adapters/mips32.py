@@ -3,12 +3,14 @@ from __future__ import annotations
 from .interface import ArchitectureInfo
 
 
+# `info.endianness` is the legacy vertical-slice default. Expansion V1 source
+# profiles carry mips32-le/mips32-be endianness explicitly per fixture.
 info = ArchitectureInfo(
-    "mips32-le-slice",
+    "mips32-bounded-v1",
     32,
     "little",
     tuple([f"r{i}" for i in range(32)]),
-    "bounded o32-style synthetic slice; delay slots lowered by frontend",
+    "bounded synthetic subset; Expansion V1 endianness is fixture-defined",
 )
 
 
@@ -40,24 +42,106 @@ def decode(address: int, word: int) -> dict:
     imm_s = _sign16(imm_u)
 
     if opcode == 0:
-        if shamt != 0 and funct in {0x08, 0x21, 0x2A, 0x2B}:
-            raise DecodeError(f"0x{address:x}: unexpected shamt for SPECIAL instruction")
-        if funct == 0x21:
-            return {"address": address, "word": word, "op": "addu", "rs": rs, "rt": rt, "rd": rd}
-        if funct == 0x2A:
-            return {"address": address, "word": word, "op": "slt", "rs": rs, "rt": rt, "rd": rd}
-        if funct == 0x2B:
-            return {"address": address, "word": word, "op": "sltu", "rs": rs, "rt": rt, "rd": rd}
+        if funct in {0x00, 0x02, 0x03}:
+            if rs != 0:
+                raise DecodeError(f"0x{address:x}: malformed fixed-shift encoding")
+            return {
+                "address": address,
+                "word": word,
+                "op": {0x00: "sll", 0x02: "srl", 0x03: "sra"}[funct],
+                "rt": rt,
+                "rd": rd,
+                "shamt": shamt,
+            }
+        if funct in {0x04, 0x06, 0x07}:
+            if shamt != 0:
+                raise DecodeError(f"0x{address:x}: malformed variable-shift encoding")
+            return {
+                "address": address,
+                "word": word,
+                "op": {0x04: "sllv", 0x06: "srlv", 0x07: "srav"}[funct],
+                "rs": rs,
+                "rt": rt,
+                "rd": rd,
+            }
         if funct == 0x08:
             if rt != 0 or rd != 0 or shamt != 0:
                 raise DecodeError(f"0x{address:x}: malformed jr encoding")
             return {"address": address, "word": word, "op": "jr", "rs": rs}
+        if funct in {0x10, 0x12}:
+            if rs != 0 or rt != 0 or shamt != 0:
+                raise DecodeError(f"0x{address:x}: malformed mfhi/mflo encoding")
+            return {
+                "address": address,
+                "word": word,
+                "op": "mfhi" if funct == 0x10 else "mflo",
+                "rd": rd,
+            }
+        if funct in {0x18, 0x19}:
+            if rd != 0 or shamt != 0:
+                raise DecodeError(f"0x{address:x}: malformed mult/multu encoding")
+            return {
+                "address": address,
+                "word": word,
+                "op": "mult" if funct == 0x18 else "multu",
+                "rs": rs,
+                "rt": rt,
+            }
+        if funct in {0x1A, 0x1B}:
+            raise DecodeError(f"0x{address:x}: div/divu require a future normalized IR contract")
+        if funct in {0x21, 0x23, 0x24, 0x25, 0x26, 0x27, 0x2A, 0x2B}:
+            if shamt != 0:
+                raise DecodeError(f"0x{address:x}: unexpected shamt for SPECIAL instruction")
+            return {
+                "address": address,
+                "word": word,
+                "op": {
+                    0x21: "addu",
+                    0x23: "subu",
+                    0x24: "and",
+                    0x25: "or",
+                    0x26: "xor",
+                    0x27: "nor",
+                    0x2A: "slt",
+                    0x2B: "sltu",
+                }[funct],
+                "rs": rs,
+                "rt": rt,
+                "rd": rd,
+            }
         raise DecodeError(f"0x{address:x}: unsupported SPECIAL funct 0x{funct:02x}")
 
+    if opcode == 0x01:
+        if rt not in {0, 1}:
+            raise DecodeError(f"0x{address:x}: unsupported REGIMM rt 0x{rt:02x}")
+        target = (address + 4 + (imm_s << 2)) & 0xFFFFFFFF
+        return {
+            "address": address,
+            "word": word,
+            "op": "bltz" if rt == 0 else "bgez",
+            "rs": rs,
+            "target": target,
+        }
     if opcode == 0x09:
         return {"address": address, "word": word, "op": "addiu", "rs": rs, "rt": rt, "imm": imm_s}
-    if opcode == 0x0D:
-        return {"address": address, "word": word, "op": "ori", "rs": rs, "rt": rt, "imm": imm_u}
+    if opcode in {0x0A, 0x0B}:
+        return {
+            "address": address,
+            "word": word,
+            "op": "slti" if opcode == 0x0A else "sltiu",
+            "rs": rs,
+            "rt": rt,
+            "imm": imm_s,
+        }
+    if opcode in {0x0C, 0x0D, 0x0E}:
+        return {
+            "address": address,
+            "word": word,
+            "op": {0x0C: "andi", 0x0D: "ori", 0x0E: "xori"}[opcode],
+            "rs": rs,
+            "rt": rt,
+            "imm": imm_u,
+        }
     if opcode == 0x0F:
         if rs != 0:
             raise DecodeError(f"0x{address:x}: malformed lui encoding")
@@ -72,10 +156,35 @@ def decode(address: int, word: int) -> dict:
             "rt": rt,
             "target": target,
         }
-    if opcode == 0x23:
-        return {"address": address, "word": word, "op": "lw", "rs": rs, "rt": rt, "imm": imm_s}
-    if opcode == 0x2B:
-        return {"address": address, "word": word, "op": "sw", "rs": rs, "rt": rt, "imm": imm_s}
+    if opcode in {0x06, 0x07}:
+        if rt != 0:
+            raise DecodeError(f"0x{address:x}: malformed blez/bgtz encoding")
+        target = (address + 4 + (imm_s << 2)) & 0xFFFFFFFF
+        return {
+            "address": address,
+            "word": word,
+            "op": "blez" if opcode == 0x06 else "bgtz",
+            "rs": rs,
+            "target": target,
+        }
+    if opcode in {0x20, 0x21, 0x23, 0x24, 0x25}:
+        return {
+            "address": address,
+            "word": word,
+            "op": {0x20: "lb", 0x21: "lh", 0x23: "lw", 0x24: "lbu", 0x25: "lhu"}[opcode],
+            "rs": rs,
+            "rt": rt,
+            "imm": imm_s,
+        }
+    if opcode in {0x28, 0x29, 0x2B}:
+        return {
+            "address": address,
+            "word": word,
+            "op": {0x28: "sb", 0x29: "sh", 0x2B: "sw"}[opcode],
+            "rs": rs,
+            "rt": rt,
+            "imm": imm_s,
+        }
     if opcode in {0x02, 0x03}:
         target = ((address + 4) & 0xF0000000) | ((word & 0x03FFFFFF) << 2)
         return {"address": address, "word": word, "op": "j" if opcode == 0x02 else "jal", "target": target}
@@ -84,10 +193,10 @@ def decode(address: int, word: int) -> dict:
 
 
 def branch_targets(insn: dict) -> list[int]:
-    if insn.get("op") in {"beq", "bne", "j", "jal"}:
+    if insn.get("op") in {"beq", "bne", "blez", "bgtz", "bltz", "bgez", "j", "jal"}:
         return [insn["target"]]
     return []
 
 
 def is_control_flow(insn: dict) -> bool:
-    return insn.get("op") in {"beq", "bne", "j", "jal", "jr"}
+    return insn.get("op") in {"beq", "bne", "blez", "bgtz", "bltz", "bgez", "j", "jal", "jr"}

@@ -1,0 +1,188 @@
+name: MIPS32 expansion V1
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  linux-reference-core-aot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc clang
+          python -m pip install jsonschema
+
+      - name: Run expanded decoder and negative tests
+        run: python tools/test_mips32_expansion_v1.py
+
+      - name: Run five-fixture reference/Core/AOT matrix
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/mips32-expansion-v1
+          fixtures=(logic-shift memory-width branches-calls mult-hilo big-endian-memory)
+
+          for name in "${fixtures[@]}"; do
+            root="build/mips32-expansion-v1/${name}"
+            hex="examples/mips32-expansion-v1/${name}.hex"
+            meta="examples/mips32-expansion-v1/${name}.json"
+
+            python tools/mips32_expansion_frontend_v1.py "$hex" "$meta" contracts/host_contract.json \
+              "${root}.a.ir.json" "${root}.a.sidecar.json" "${root}.a.frontend.json"
+            python tools/mips32_expansion_frontend_v1.py "$hex" "$meta" contracts/host_contract.json \
+              "${root}.b.ir.json" "${root}.b.sidecar.json" "${root}.b.frontend.json"
+            cmp "${root}.a.ir.json" "${root}.b.ir.json"
+            cmp "${root}.a.sidecar.json" "${root}.b.sidecar.json"
+            cmp "${root}.a.frontend.json" "${root}.b.frontend.json"
+            python tools/validate_ir_v1.py "${root}.a.ir.json"
+
+            python tools/run_mips32_expansion_reference.py "$hex" "$meta" "${root}.reference.json"
+
+            python tools/package_ir_v1_module.py \
+              "${root}.a.ir.json" "${root}.a.sidecar.json" contracts/host_contract.json "${root}.a.module.json"
+            python tools/package_ir_v1_module.py \
+              "${root}.b.ir.json" "${root}.b.sidecar.json" contracts/host_contract.json "${root}.b.module.json"
+            cmp "${root}.a.module.json" "${root}.b.module.json"
+            python tools/validate_module_v1.py "${root}.a.module.json" "${root}.a.ir.json" contracts/host_contract.json
+
+            python tools/run_mips32_expansion_core_v1.py \
+              "${root}.a.module.json" "${root}.a.ir.json" contracts/host_contract.json "$meta" "${root}.core.json"
+
+            python tools/aot_c_backend_v1.py \
+              "${root}.a.module.json" "${root}.a.ir.json" contracts/host_contract.json "${root}.a.c"
+            python tools/aot_c_backend_v1.py \
+              "${root}.a.module.json" "${root}.a.ir.json" contracts/host_contract.json "${root}.b.c"
+            cmp "${root}.a.c" "${root}.b.c"
+
+            python tools/native_aot_abi_v1.py \
+              "${root}.a.module.json" "${root}.a.ir.json" contracts/host_contract.json "${root}.abi.a.c"
+            python tools/native_aot_abi_v1.py \
+              "${root}.a.module.json" "${root}.a.ir.json" contracts/host_contract.json "${root}.abi.b.c"
+            cmp "${root}.abi.a.c" "${root}.abi.b.c"
+
+            gcc -std=c11 -O2 -Wall -Wextra -Werror -fPIC -fvisibility=hidden -Iinclude -shared \
+              "${root}.a.c" "${root}.abi.a.c" -o "${root}.gcc.so"
+            clang -std=c11 -O2 -Wall -Wextra -Werror -fPIC -fvisibility=hidden -Iinclude -shared \
+              "${root}.a.c" "${root}.abi.a.c" -o "${root}.clang.so"
+
+            python tools/test_native_aot_abi_v1.py \
+              "${root}.gcc.so" "${root}.a.module.json" "${root}.a.ir.json" contracts/host_contract.json
+            python tools/test_native_aot_abi_v1.py \
+              "${root}.clang.so" "${root}.a.module.json" "${root}.a.ir.json" contracts/host_contract.json
+
+            python tools/run_aot_mips32_expansion_v1.py \
+              "${root}.gcc.so" "${root}.a.ir.json" "$meta" "${root}.aot.gcc.json"
+            python tools/run_aot_mips32_expansion_v1.py \
+              "${root}.clang.so" "${root}.a.ir.json" "$meta" "${root}.aot.clang.json"
+
+            python tools/check_mips32_expansion_v1.py \
+              "$meta" "${root}.a.frontend.json" "${root}.a.ir.json" "${root}.a.module.json" \
+              "${root}.reference.json" "${root}.core.json" "${root}.aot.gcc.json" "${root}.aot.clang.json"
+          done
+
+          echo "OPENRECOMP_MIPS32_EXPANSION_REFERENCE=PASS"
+          echo "OPENRECOMP_MIPS32_EXPANSION_CORE_API=PASS"
+          echo "OPENRECOMP_MIPS32_EXPANSION_AOT=PASS"
+          echo "OPENRECOMP_MIPS32_EXPANSION_LINUX_COMPILERS=PASS"
+          echo "OPENRECOMP_MIPS32_EXPANSION_V1_LINUX=PASS"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: openrecomp-mips32-expansion-v1-linux
+          path: build/mips32-expansion-v1
+          if-no-files-found: error
+
+  windows-native-aot:
+    needs: linux-reference-core-aot
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependency
+        shell: pwsh
+        run: python -m pip install jsonschema
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: openrecomp-mips32-expansion-v1-linux
+          path: build/mips32-expansion-v1
+
+      - name: Regenerate portable C and ABI adapters on Windows
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          $fixtures = @("logic-shift", "memory-width", "branches-calls", "mult-hilo", "big-endian-memory")
+          foreach ($name in $fixtures) {
+            $root = "build/mips32-expansion-v1/$name"
+            python tools/aot_c_backend_v1.py "$root.a.module.json" "$root.a.ir.json" contracts/host_contract.json "$root.windows.a.c"
+            python tools/aot_c_backend_v1.py "$root.a.module.json" "$root.a.ir.json" contracts/host_contract.json "$root.windows.b.c"
+            python tools/native_aot_abi_v1.py "$root.a.module.json" "$root.a.ir.json" contracts/host_contract.json "$root.windows.abi.a.c"
+            python tools/native_aot_abi_v1.py "$root.a.module.json" "$root.a.ir.json" contracts/host_contract.json "$root.windows.abi.b.c"
+            if ((Get-FileHash "$root.windows.a.c" -Algorithm SHA256).Hash -ne (Get-FileHash "$root.windows.b.c" -Algorithm SHA256).Hash) { throw "$name portable C generation is nondeterministic" }
+            if ((Get-FileHash "$root.windows.abi.a.c" -Algorithm SHA256).Hash -ne (Get-FileHash "$root.windows.abi.b.c" -Algorithm SHA256).Hash) { throw "$name ABI adapter generation is nondeterministic" }
+          }
+          Write-Output "OPENRECOMP_MIPS32_EXPANSION_WINDOWS_CODEGEN=PASS"
+
+      - name: Compile expanded modules with MSVC and clang-cl
+        shell: cmd
+        run: |
+          @for /f "usebackq delims=" %%i in (`"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath`) do @set "VSINSTALL=%%i"
+          @if not defined VSINSTALL (echo Visual Studio C++ toolchain not found & exit /b 2)
+          @call "%VSINSTALL%\VC\Auxiliary\Build\vcvars64.bat"
+          @where cl
+          @where clang-cl
+
+          cl /nologo /std:c11 /O2 /W4 /WX /LD /Iinclude build\mips32-expansion-v1\logic-shift.windows.a.c build\mips32-expansion-v1\logic-shift.windows.abi.a.c /link /OUT:build\mips32-expansion-v1\logic-shift.msvc.dll
+          clang-cl /nologo /std:c11 /O2 /W4 /WX /LD /Iinclude build\mips32-expansion-v1\logic-shift.windows.a.c build\mips32-expansion-v1\logic-shift.windows.abi.a.c /link /OUT:build\mips32-expansion-v1\logic-shift.clangcl.dll
+          cl /nologo /std:c11 /O2 /W4 /WX /LD /Iinclude build\mips32-expansion-v1\memory-width.windows.a.c build\mips32-expansion-v1\memory-width.windows.abi.a.c /link /OUT:build\mips32-expansion-v1\memory-width.msvc.dll
+          clang-cl /nologo /std:c11 /O2 /W4 /WX /LD /Iinclude build\mips32-expansion-v1\memory-width.windows.a.c build\mips32-expansion-v1\memory-width.windows.abi.a.c /link /OUT:build\mips32-expansion-v1\memory-width.clangcl.dll
+          cl /nologo /std:c11 /O2 /W4 /WX /LD /Iinclude build\mips32-expansion-v1\branches-calls.windows.a.c build\mips32-expansion-v1\branches-calls.windows.abi.a.c /link /OUT:build\mips32-expansion-v1\branches-calls.msvc.dll
+          clang-cl /nologo /std:c11 /O2 /W4 /WX /LD /Iinclude build\mips32-expansion-v1\branches-calls.windows.a.c build\mips32-expansion-v1\branches-calls.windows.abi.a.c /link /OUT:build\mips32-expansion-v1\branches-calls.clangcl.dll
+          cl /nologo /std:c11 /O2 /W4 /WX /LD /Iinclude build\mips32-expansion-v1\mult-hilo.windows.a.c build\mips32-expansion-v1\mult-hilo.windows.abi.a.c /link /OUT:build\mips32-expansion-v1\mult-hilo.msvc.dll
+          clang-cl /nologo /std:c11 /O2 /W4 /WX /LD /Iinclude build\mips32-expansion-v1\mult-hilo.windows.a.c build\mips32-expansion-v1\mult-hilo.windows.abi.a.c /link /OUT:build\mips32-expansion-v1\mult-hilo.clangcl.dll
+          cl /nologo /std:c11 /O2 /W4 /WX /LD /Iinclude build\mips32-expansion-v1\big-endian-memory.windows.a.c build\mips32-expansion-v1\big-endian-memory.windows.abi.a.c /link /OUT:build\mips32-expansion-v1\big-endian-memory.msvc.dll
+          clang-cl /nologo /std:c11 /O2 /W4 /WX /LD /Iinclude build\mips32-expansion-v1\big-endian-memory.windows.a.c build\mips32-expansion-v1\big-endian-memory.windows.abi.a.c /link /OUT:build\mips32-expansion-v1\big-endian-memory.clangcl.dll
+
+      - name: Validate frozen ABI and execute Windows compiler matrix
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          $fixtures = @("logic-shift", "memory-width", "branches-calls", "mult-hilo", "big-endian-memory")
+          foreach ($name in $fixtures) {
+            $root = "build/mips32-expansion-v1/$name"
+            $meta = "examples/mips32-expansion-v1/$name.json"
+            foreach ($compiler in @("msvc", "clangcl")) {
+              $dll = "$root.$compiler.dll"
+              python tools/test_native_aot_abi_v1.py $dll "$root.a.module.json" "$root.a.ir.json" contracts/host_contract.json
+              python tools/run_aot_mips32_expansion_v1.py $dll "$root.a.ir.json" $meta "$root.aot.$compiler.json"
+            }
+            python tools/check_mips32_expansion_v1.py $meta "$root.a.frontend.json" "$root.a.ir.json" "$root.a.module.json" "$root.reference.json" "$root.core.json" "$root.aot.msvc.json" "$root.aot.clangcl.json"
+          }
+          Write-Output "OPENRECOMP_MIPS32_EXPANSION_WINDOWS_COMPILERS=PASS"
+          Write-Output "OPENRECOMP_MIPS32_EXPANSION_V1=PASS"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: openrecomp-mips32-expansion-v1-windows
+          path: |
+            build/mips32-expansion-v1/*.json
+            build/mips32-expansion-v1/*.txt
+          if-no-files-found: error

@@ -1,0 +1,52 @@
+{
+  "fixture_version": "1.0.0",
+  "profile": "expansion-v1",
+  "fixture_id": "logic-shift",
+  "architecture": "mips32-le",
+  "entry_address": 4096,
+  "functions": [
+    {"id": "logic_shift_main", "address": 4096}
+  ],
+  "memory_size_bytes": 262144,
+  "initial_state": {
+    "gpr:r29": 196608,
+    "gpr:r31": 0
+  },
+  "observe_state_slot": "gpr:r2",
+  "observable_memory": {"address": 8192, "size_bytes": 4},
+  "max_operations": 20000,
+  "max_reference_steps": 2000,
+  "expected": {
+    "return_v0": 4468,
+    "memory_word": 0,
+    "memory_bytes_hex": "00000000",
+    "checksum": 435263539,
+    "delay_slots_executed": 1,
+    "state": {
+      "gpr:r2": 4468,
+      "gpr:r8": 4660,
+      "gpr:r9": 240,
+      "gpr:r10": 48,
+      "gpr:r11": 4852,
+      "gpr:r12": 4804,
+      "gpr:r13": 4294962443,
+      "gpr:r14": 3840,
+      "gpr:r15": 291,
+      "gpr:r16": 4294967280,
+      "gpr:r17": 4294967292,
+      "gpr:r18": 3,
+      "gpr:r19": 1920,
+      "gpr:r20": 582,
+      "gpr:r21": 4294967294,
+      "gpr:r22": 4420,
+      "gpr:r23": 52,
+      "gpr:r24": 15,
+      "gpr:r25": 1,
+      "gpr:r26": 1,
+      "gpr:r29": 196608,
+      "gpr:r31": 0,
+      "special:hi": 0,
+      "special:lo": 0
+    }
+  }
+}

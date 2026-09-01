@@ -4,7 +4,16 @@ Significant project changes will be recorded here.
 
 ## Unreleased
 
-No changes yet.
+### Added
+
+- `OPENRECOMP_MIPS32_EXPANSION_V1`: five clean synthetic MIPS32 fixtures covering expanded logical/shift operations, byte/halfword memory semantics, signed branch forms, nested call/stack behavior, HI/LO multiply and bounded big-endian memory execution.
+- Independent reference, Core API and Native AOT equivalence gates for the expanded MIPS32 fixtures under Linux GCC/Clang and Windows x64 MSVC/clang-cl.
+- Seven fail-closed expansion tests covering unsupported division under frozen IR V1, malformed encodings/targets, misaligned source or halfword access and execution-limit exhaustion.
+
+### Changed
+
+- The bounded MIPS32 evidence now includes a multi-fixture little/big-endian expansion while general MIPS32 frontend/ISA coverage remains `CANDIDATE`.
+- `div/divu` remain explicitly outside the expansion because normalized IR V1 has no division/remainder semantic operation; IR V1 and Native AOT ABI V1 remain unchanged.
 
 ## [0.2.0] - 2026-09-01
 

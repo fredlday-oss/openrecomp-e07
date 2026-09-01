@@ -1,0 +1,39 @@
+{
+  "fixture_version": "1.0.0",
+  "profile": "expansion-v1",
+  "fixture_id": "branches-calls",
+  "architecture": "mips32-le",
+  "entry_address": 4096,
+  "functions": [
+    {"id": "branches_calls_main", "address": 4096},
+    {"id": "branches_calls_func1", "address": 4180},
+    {"id": "branches_calls_func2", "address": 4220}
+  ],
+  "memory_size_bytes": 262144,
+  "initial_state": {
+    "gpr:r29": 196608,
+    "gpr:r31": 0
+  },
+  "observe_state_slot": "gpr:r2",
+  "observable_memory": {"address": 8192, "size_bytes": 4},
+  "max_operations": 30000,
+  "max_reference_steps": 3000,
+  "expected": {
+    "return_v0": 36,
+    "memory_word": 0,
+    "memory_bytes_hex": "00000000",
+    "checksum": 2065440492,
+    "delay_slots_executed": 9,
+    "state": {
+      "gpr:r2": 36,
+      "gpr:r4": 20,
+      "gpr:r5": 15,
+      "gpr:r8": 4294967295,
+      "gpr:r9": 1,
+      "gpr:r29": 196608,
+      "gpr:r31": 0,
+      "special:hi": 0,
+      "special:lo": 0
+    }
+  }
+}

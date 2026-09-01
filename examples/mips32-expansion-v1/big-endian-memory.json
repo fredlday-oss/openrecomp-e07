@@ -1,0 +1,37 @@
+{
+  "fixture_version": "1.0.0",
+  "profile": "expansion-v1",
+  "fixture_id": "big-endian-memory",
+  "architecture": "mips32-be",
+  "entry_address": 4096,
+  "functions": [
+    {"id": "big_endian_memory_main", "address": 4096}
+  ],
+  "memory_size_bytes": 262144,
+  "initial_state": {
+    "gpr:r29": 196608,
+    "gpr:r31": 0
+  },
+  "observe_state_slot": "gpr:r2",
+  "observable_memory": {"address": 8192, "size_bytes": 4},
+  "max_operations": 20000,
+  "max_reference_steps": 2000,
+  "expected": {
+    "return_v0": 287454020,
+    "memory_word": 287454020,
+    "memory_bytes_hex": "11223344",
+    "checksum": 938211822,
+    "delay_slots_executed": 1,
+    "state": {
+      "gpr:r2": 287454020,
+      "gpr:r8": 287454020,
+      "gpr:r9": 8192,
+      "gpr:r10": 17,
+      "gpr:r11": 4386,
+      "gpr:r29": 196608,
+      "gpr:r31": 0,
+      "special:hi": 0,
+      "special:lo": 0
+    }
+  }
+}

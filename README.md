@@ -10,7 +10,9 @@ Unreal Engine is an optional consumer of the versioned native-module interface, 
 
 **OpenRecomp v0.2.0** is the first formal public research/developer milestone. It freezes the current evidence-backed open-core architecture and reviewer-facing validation state; it is not a claim of general guest-binary compatibility or a production-quality optimizing compiler.
 
-See [`docs/RELEASE_V0_2_0.md`](docs/RELEASE_V0_2_0.md) for the bounded release notes and [`docs/RELEASE_CHECKLIST_V0_2_0.md`](docs/RELEASE_CHECKLIST_V0_2_0.md) for the publication/reproducibility gate.
+Post-v0.2.0 development is tracked separately from the immutable release notes. The current development branch adds bounded multi-fixture MIPS32 expansion evidence without changing IR V1 or Native AOT ABI V1.
+
+See [`docs/RELEASE_V0_2_0.md`](docs/RELEASE_V0_2_0.md) for the bounded v0.2.0 release notes and [`docs/RELEASE_CHECKLIST_V0_2_0.md`](docs/RELEASE_CHECKLIST_V0_2_0.md) for its publication/reproducibility gate.
 
 ## Current evidence status
 
@@ -22,6 +24,7 @@ See [`docs/RELEASE_V0_2_0.md`](docs/RELEASE_V0_2_0.md) for the bounded release n
 | RV32I -> IR V1 bridge | **PASS** — checksum `122010428` |
 | Module Image / Core API V1 | **PASS** — checksum `122010428`, `a0=48`, 3,866 operations |
 | MIPS32 synthetic vertical slice | **PASS** — checksum `1950232098`, bounded subset |
+| MIPS32 expanded synthetic suite | **PASS** — five bounded little/big-endian fixtures across reference/Core/AOT/Linux/Windows |
 | Portable C AOT backend | **PASS** — RV32I + bounded MIPS32 |
 | AOT warning/fault/sanitizer hardening | **PASS** — GCC/Clang bounded corpus |
 | Native AOT ABI V1 | **FROZEN-FOR-PORTABILITY-TESTING** |
@@ -58,7 +61,7 @@ Explicit host services
 Native / WebAssembly / optional engine integration
 ```
 
-The strongest current generalization result is bounded but concrete: two materially different clean synthetic guest paths, RV32I and MIPS32, cross the same normalized IR, Module Image and Core API boundaries. The same portable C backend then reproduces their reference results after native compilation.
+The strongest current generalization result is bounded but concrete: two materially different clean synthetic guest paths, RV32I and MIPS32, cross the same normalized IR, Module Image and Core API boundaries. The MIPS32 evidence now spans several independent little-endian semantic fixtures plus a bounded big-endian memory fixture. The same portable C backend reproduces their reference results after native compilation.
 
 ## Reproducible proof entry point
 
@@ -76,7 +79,7 @@ PASS: E07 V1.1 HARDENED END-TO-END
 
 The hardened proof includes malformed/adversarial ELF rejection, schema and host-contract checks, checked guest memory, native/WebAssembly parity, golden regression and reproducibility checks.
 
-Additional CI gates cover IR V1, Core API V1, MIPS32, AOT translation/hardening, Native AOT ABI portability, public safety and documentation.
+Additional CI gates cover IR V1, Core API V1, the original and expanded MIPS32 evidence, AOT translation/hardening, Native AOT ABI portability, public safety and documentation.
 
 For the v0.2.0 release metadata gate, run:
 
@@ -109,7 +112,19 @@ operations = 100
 delay slots lowered = 7
 ```
 
-These are validation fixtures, not claims of arbitrary RV32I or MIPS32 executable support.
+MIPS32 expansion V1:
+
+```text
+logic-shift        checksum=435263539   operations=72  delay_slots=1
+memory-width       checksum=4257846410  operations=60  delay_slots=1
+branches-calls     checksum=2065440492  operations=75  delay_slots=9
+mult-hilo          checksum=768371589   operations=44  delay_slots=1
+big-endian-memory  checksum=938211822   operations=24  delay_slots=1
+```
+
+Each expansion fixture agrees across an independent MIPS32 machine-code reference, Core API V1, Linux GCC/Clang AOT, and Windows x64 MSVC/clang-cl AOT through Native AOT ABI V1.
+
+These are validation fixtures, not claims of arbitrary RV32I or MIPS32 executable support. `div/divu` remain outside expansion V1 because frozen IR V1 has no division/remainder operation.
 
 ## Native AOT ABI V1
 
@@ -173,6 +188,7 @@ The public-safety gate scans tracked material and is designed to fail closed, in
 - [`docs/RV32I_IR_V1_BRIDGE.md`](docs/RV32I_IR_V1_BRIDGE.md)
 - [`docs/CORE_API_V1.md`](docs/CORE_API_V1.md)
 - [`docs/MIPS32_VERTICAL_SLICE_V1.md`](docs/MIPS32_VERTICAL_SLICE_V1.md)
+- [`docs/MIPS32_EXPANSION_V1.md`](docs/MIPS32_EXPANSION_V1.md)
 - [`docs/AOT_TRANSLATOR_V1.md`](docs/AOT_TRANSLATOR_V1.md)
 - [`docs/AOT_HARDENING_V1.md`](docs/AOT_HARDENING_V1.md)
 - [`docs/NATIVE_AOT_ABI_V1.md`](docs/NATIVE_AOT_ABI_V1.md)

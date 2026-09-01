@@ -1,0 +1,41 @@
+{
+  "fixture_version": "1.0.0",
+  "profile": "expansion-v1",
+  "fixture_id": "mult-hilo",
+  "architecture": "mips32-le",
+  "entry_address": 4096,
+  "functions": [
+    {"id": "mult_hilo_main", "address": 4096}
+  ],
+  "memory_size_bytes": 262144,
+  "initial_state": {
+    "gpr:r29": 196608,
+    "gpr:r31": 0
+  },
+  "observe_state_slot": "gpr:r2",
+  "observable_memory": {"address": 8192, "size_bytes": 4},
+  "max_operations": 20000,
+  "max_reference_steps": 2000,
+  "expected": {
+    "return_v0": 4294967295,
+    "memory_word": 0,
+    "memory_bytes_hex": "00000000",
+    "checksum": 768371589,
+    "delay_slots_executed": 1,
+    "state": {
+      "gpr:r2": 4294967295,
+      "gpr:r8": 4294967289,
+      "gpr:r9": 6,
+      "gpr:r10": 4294967254,
+      "gpr:r11": 4294967295,
+      "gpr:r12": 4294967295,
+      "gpr:r13": 2,
+      "gpr:r14": 4294967294,
+      "gpr:r15": 1,
+      "gpr:r29": 196608,
+      "gpr:r31": 0,
+      "special:hi": 1,
+      "special:lo": 4294967294
+    }
+  }
+}

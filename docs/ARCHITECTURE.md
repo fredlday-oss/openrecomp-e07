@@ -39,7 +39,7 @@ That bridge is a bounded PASS for the current clean fixture/proven instruction s
 
 The normalized layer contains portable operations, explicit typed state, explicit memory semantics, named host calls and bounded control flow. Guest-specific rules such as MIPS delay slots, link-register conventions and zero-register behavior are frontend responsibilities and must be lowered before common execution or translation consumes V1.
 
-The IR schema was not expanded to add Windows, Unreal, compiler-specific behavior or MIPS-specific operations. Those are downstream consumers/tests of the common boundary.
+The IR schema was not expanded to add Windows, Unreal, compiler-specific behavior or MIPS-specific operations. MIPS32 Expansion V1 also leaves this contract unchanged; guest instructions are accepted only when their semantics can be expressed through the existing normalized operations.
 
 ## Module Image V1
 
@@ -58,17 +58,15 @@ This keeps executable packaging and environment binding out of the normalized in
 
 [`CORE_API_V1.md`](CORE_API_V1.md) defines the reusable reference runtime around Module Image V1. The public reference surface includes `ModuleImage`, `GuestMemory`, `GuestState`, `HostBinding` and `ReferenceExecutor`.
 
-The E07 Core API path reproduces the bridge/native/golden result exactly. The bounded MIPS32 vertical slice packages a second guest workload through the same Module Image machinery and executes it through the same `ReferenceExecutor` implementation.
+The E07 Core API path reproduces the bridge/native/golden result exactly. The original bounded MIPS32 vertical slice and all five Expansion V1 fixtures package second-guest workloads through the same Module Image machinery and execute through the same `ReferenceExecutor` implementation.
 
-## MIPS32 second-guest vertical slice
+## MIPS32 second-guest evidence
 
-[`MIPS32_VERTICAL_SLICE_V1.md`](MIPS32_VERTICAL_SLICE_V1.md) documents the first implemented second-guest path.
-
-Its clean little-endian machine-word fixture covers a bounded subset including arithmetic, signed/unsigned comparison, conditional branches, aligned memory access, direct call/return, direct jump and architectural delay slots.
+[`MIPS32_VERTICAL_SLICE_V1.md`](MIPS32_VERTICAL_SLICE_V1.md) documents the first implemented second-guest path. Its clean little-endian machine-word fixture covers a bounded subset including arithmetic, signed/unsigned comparison, conditional branches, aligned memory access, direct call/return, direct jump and architectural delay slots.
 
 Delay slots remain frontend behavior. The frontend captures branch/link semantics and emits ordinary normalized IR before the common layers see the program.
 
-The independent machine-code reference and Core API path agree on:
+The original independent machine-code reference and Core API path agree on:
 
 ```text
 v0=31
@@ -77,7 +75,23 @@ checksum=1950232098
 delay_slots=7
 ```
 
-This establishes a bounded MIPS32 PASS and a bounded two-guest generalization PASS for the shared IR/Module/Core boundaries. General MIPS32 support remains CANDIDATE.
+[`MIPS32_EXPANSION_V1.md`](MIPS32_EXPANSION_V1.md) adds a separate post-v0.2.0 frontend profile and five independent synthetic fixtures. Those workloads cover additional logic and fixed/variable shifts, byte/halfword/word memory semantics, signed branch forms, bounded nested calls and stack interaction, signed/unsigned multiply with explicit HI/LO state, and one bounded big-endian memory workload.
+
+The expansion results are:
+
+```text
+logic-shift        checksum=435263539   operations=72 delay_slots=1
+memory-width       checksum=4257846410  operations=60 delay_slots=1
+branches-calls     checksum=2065440492  operations=75 delay_slots=9
+mult-hilo          checksum=768371589   operations=44 delay_slots=1
+big-endian-memory  checksum=938211822   operations=24 delay_slots=1
+```
+
+Every expansion fixture agrees across an independent MIPS32 reference, Core API V1, Linux GCC/Clang AOT and Windows x64 MSVC/clang-cl AOT through unchanged Native AOT ABI V1.
+
+`div/divu` remain rejected because normalized IR V1 has no division/remainder operation. The architecture therefore continues to fail closed rather than introducing a MIPS-specific common-layer operation or silently changing frozen IR V1.
+
+This establishes a bounded multi-fixture MIPS32 PASS and strengthens the bounded two-guest generalization evidence for the shared IR/Module/Core/AOT/ABI boundaries. General MIPS32 support and complete o32 ABI support remain CANDIDATE.
 
 ## Portable C AOT backend
 
@@ -85,12 +99,14 @@ This establishes a bounded MIPS32 PASS and a bounded two-guest generalization PA
 
 The backend consumes validated IR V1 + Module Image V1. It does not decode RV32I or MIPS32 and contains no guest delay-slot/link-register logic. It emits deterministic portable C from already-normalized operations.
 
-For the current clean fixtures, generated C is compiled independently and required to reproduce Core API results exactly:
+The original dual-guest baseline remains:
 
 ```text
 RV32I  checksum=122010428, return a0=48, operations=3866
-MIPS32 checksum=1950232098, return v0=31, operations=100
+MIPS32 vertical slice checksum=1950232098, return v0=31, operations=100
 ```
+
+Expansion V1 then exercises the same backend with five additional MIPS32 modules, including one `mips32-be` memory fixture, without adding architecture-specific AOT behavior.
 
 ## AOT hardening
 
@@ -116,13 +132,13 @@ openrecomp_native_aot_query
 
 The returned V1 table includes capability flags, module/IR/host/source metadata, explicit host binding, execution/result/error functions, state inspection and memory inspection. Unsupported ABI versions and incorrect structure sizes reject fail-closed.
 
-Native AOT ABI V1 remains **FROZEN-FOR-PORTABILITY-TESTING**. Linux GCC/Clang and Windows x64 MSVC/clang-cl cross the same unchanged contract for the current bounded RV32I and MIPS32 workloads.
+Native AOT ABI V1 remains **FROZEN-FOR-PORTABILITY-TESTING**. Linux GCC/Clang and Windows x64 MSVC/clang-cl cross the same unchanged contract for the current bounded RV32I and MIPS32 workloads, including all five Expansion V1 native modules.
 
 ## Windows x64 portability
 
 [`AOT_WINDOWS_PORTABILITY_V1.md`](AOT_WINDOWS_PORTABILITY_V1.md) validates the native boundary on Windows x64.
 
-Windows regenerates portable C and ABI adapters from the validated inputs and builds both workloads under MSVC and clang-cl. The public V1 layout is pinned, DLL exports are checked, ABI negotiation is exercised, and observable results are compared with Linux/Core references.
+Windows regenerates portable C and ABI adapters from validated inputs and builds bounded workloads under MSVC and clang-cl. The public V1 layout is pinned by the base portability proof, DLL exports are checked there, ABI negotiation is exercised, and observable results are compared with Linux/Core references. MIPS32 Expansion V1 reuses the unchanged contract and requires all five added modules to match Linux/Core evidence under both Windows compilers.
 
 The first Windows run exposed a real CRLF byte-integrity failure in a hashed host contract. `.gitattributes` now pins proof/source text to LF; the Module Image hash validation was not weakened.
 
@@ -172,8 +188,10 @@ The UE runtime result is therefore recorded as **PASS — local runtime evidence
 - RV32I -> IR V1 bridge: **PASS**
 - Core API V1: **PASS**
 - MIPS32 vertical slice: **PASS — bounded**
+- MIPS32 Expansion V1: **PASS — bounded multi-fixture little/big-endian validation**
 - Shared IR/Module/Core across RV32I + MIPS32: **PASS — bounded**
 - Portable C AOT backend: **PASS — bounded dual-guest**
+- Expanded MIPS32 Linux/Windows native AOT: **PASS — bounded**
 - AOT compiler/fault/sanitizer hardening: **PASS — bounded**
 - Native AOT ABI V1: **FROZEN-FOR-PORTABILITY-TESTING**
 - Linux/Windows x64 Native AOT ABI execution: **PASS — bounded**
@@ -184,4 +202,4 @@ The UE runtime result is therefore recorded as **PASS — local runtime evidence
 - macOS / Windows ARM64 / Windows x86 parity: **CANDIDATE**
 - Release-quality compiler/plugin pipeline: **CANDIDATE**
 
-Broader architecture, platform, deployment and release-quality support remains evidence-gated rather than inferred from the current vertical slices.
+Broader architecture, platform, deployment and release-quality support remains evidence-gated rather than inferred from the current synthetic fixture matrix.
