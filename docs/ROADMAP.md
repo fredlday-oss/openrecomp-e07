@@ -2,7 +2,7 @@
 
 This is a forward-looking development roadmap. It is **not** a historical schedule and does not imply that external grant funding has been awarded.
 
-Some host-integration work was prototyped earlier than the original phase ordering. The current baseline already includes bounded RV32I and MIPS32 validation through IR V1/Core API V1, a hardened common portable-C AOT backend, Native AOT ABI V1, Linux/Windows x64 portability, a reproducible Windows Native AOT host-core matrix, and local UE5.8 runtime evidence for the synthetic RV32I module.
+Some work was completed earlier than the original phase ordering. The current baseline already includes bounded RV32I validation, the original MIPS32 vertical slice, post-v0.2.0 MIPS32 Expansion V1 with five little/big-endian synthetic fixtures, IR V1/Core API V1, a hardened common portable-C AOT backend, Native AOT ABI V1, Linux/Windows x64 portability, a reproducible Windows Native AOT host-core matrix, and local UE5.8 runtime evidence for the synthetic RV32I module.
 
 The roadmap below therefore describes **remaining hardening, generalization, reproducibility and packaging work**, not a claim that every listed area is still unimplemented. The reusable open core and optional host-integration track are separated further in [`FUNDING_SCOPE.md`](FUNDING_SCOPE.md).
 
@@ -15,11 +15,18 @@ The roadmap below therefore describes **remaining hardening, generalization, rep
 - keep the public-safety gate fail-closed and regression-tested;
 - improve reproducibility instructions so external reviewers can rerun the open-core proof from a fresh clone.
 
-## Phase 2 — Expand second-guest evidence
+## Phase 2 — Continue second-guest generalization
 
-- extend MIPS32 beyond the current bounded little-endian synthetic subset;
-- add additional ISA, control-flow, ABI and memory-semantics fixtures;
-- run expanded fixtures through both the Core API reference executor and common hardened AOT backend;
+MIPS32 Expansion V1 now provides a bounded multi-fixture PASS beyond the original little-endian vertical slice. It covers additional logic/shifts, byte/halfword memory semantics, signed branch forms and delay slots, bounded nested call/stack behavior, HI/LO multiply, and one big-endian memory fixture across independent reference/Core/AOT and Linux/Windows compiler paths.
+
+Remaining second-guest work includes:
+
+- add further MIPS32 ISA families only with independent fixture-backed semantics;
+- deepen bounded o32 ABI evidence beyond the current `$a0/$a1`, `$v0`, `$sp` and `$ra` call/stack fixture;
+- decide division/remainder at the architecture-neutral IR layer before supporting `div/divu`; frozen IR V1 currently has no such operation;
+- consider unaligned load/store families, additional control flow and memory behavior as separate evidence gates;
+- keep exceptions, coprocessors, floating point and privileged behavior outside supported claims until deliberately implemented and validated;
+- run every added fixture through the independent machine-code reference, Core API and common hardened AOT backend;
 - require expanded native modules to continue crossing Native AOT ABI V1 rather than adding architecture-specific host interfaces;
 - retain explicit CANDIDATE/PASS boundaries until each broader claim has equivalent execution evidence.
 
@@ -55,10 +62,10 @@ The current UE5.8 PIE evidence is intentionally described as **local runtime PAS
 - maintain explicit development-process and evidence-provenance documentation;
 - keep funding/milestone descriptions clear about completed work versus proposed work.
 
-## Phase 6 — Public milestone release
+## Phase 6 — Next public milestone
 
-- close remaining validation gaps selected for the milestone;
+- close selected validation gaps after v0.2.0 without rewriting the published tag or release evidence;
 - improve CI and reproducibility;
-- produce a tagged public milestone release;
-- publish an updated technical demonstration and evidence summary;
+- produce a later tagged public milestone only when its bounded evidence scope is stable;
+- publish an updated technical demonstration/evidence summary when useful;
 - avoid broadening PROVEN/PASS claims beyond the actual evidence matrix.
