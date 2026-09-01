@@ -16,4 +16,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python tools/public_safety_scan.py
+      - name: Test fail-closed missing-file behavior
+        run: python tools/test_public_safety_scan.py
+      - name: Scan tracked public files
+        run: python tools/public_safety_scan.py
