@@ -27,39 +27,56 @@ MARKERS = [
 ]
 
 
-def tracked_files() -> list[Path]:
-    raw = subprocess.check_output(["git", "-C", str(ROOT), "ls-files", "-z"])
-    return [ROOT / item.decode("utf-8") for item in raw.split(bytes([0])) if item]
-
-
 def fail(message: str) -> None:
     print(f"FAIL: {message}")
     print("OPENRECOMP_PUBLIC_SAFETY=FAIL")
     raise SystemExit(1)
 
 
-for path in tracked_files():
-    rel = path.relative_to(ROOT)
-
-    if any(part in BANNED_DIR_PARTS for part in rel.parts):
-        fail(f"generated Unreal directory tracked: {rel}")
-
-    if path.suffix.lower() == ".log":
-        fail(f"raw log tracked: {rel}")
-
-    if path.resolve() == SELF:
-        continue
-
-    if path.suffix.lower() not in TEXT_SUFFIXES:
-        continue
-
+def tracked_files() -> list[Path]:
     try:
-        text = path.read_text(encoding="utf-8")
-    except UnicodeDecodeError:
-        fail(f"expected UTF-8 text file is not UTF-8: {rel}")
+        raw = subprocess.check_output(
+            ["git", "-C", str(ROOT), "ls-files", "-z"],
+            stderr=subprocess.STDOUT,
+        )
+    except (OSError, subprocess.CalledProcessError) as exc:
+        fail(f"unable to enumerate tracked files with git ls-files: {exc}")
+    return [ROOT / item.decode("utf-8") for item in raw.split(bytes([0])) if item]
 
-    for marker in MARKERS:
-        if marker.search(text):
-            fail(f"sensitive marker matched in {rel}: {marker.pattern}")
 
-print("OPENRECOMP_PUBLIC_SAFETY=PASS")
+def main() -> int:
+    for path in tracked_files():
+        rel = path.relative_to(ROOT)
+
+        if any(part in BANNED_DIR_PARTS for part in rel.parts):
+            fail(f"generated Unreal directory tracked: {rel}")
+
+        if path.suffix.lower() == ".log":
+            fail(f"raw log tracked: {rel}")
+
+        if path.resolve() == SELF:
+            continue
+
+        if not path.exists():
+            fail(f"tracked file missing from working tree: {rel}")
+
+        if path.suffix.lower() not in TEXT_SUFFIXES:
+            continue
+
+        try:
+            text = path.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            fail(f"expected UTF-8 text file is not UTF-8: {rel}")
+        except OSError as exc:
+            fail(f"unable to read tracked text file {rel}: {exc}")
+
+        for marker in MARKERS:
+            if marker.search(text):
+                fail(f"sensitive marker matched in {rel}: {marker.pattern}")
+
+    print("OPENRECOMP_PUBLIC_SAFETY=PASS")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
