@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   aot-hardening:
+    name: AOT hardening V1
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

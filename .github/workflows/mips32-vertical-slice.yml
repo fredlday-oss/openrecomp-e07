@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   mips32-vertical-slice:
+    name: MIPS32 vertical slice V1
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

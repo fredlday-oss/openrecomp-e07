@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   public-safety:
+    name: Public safety gate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

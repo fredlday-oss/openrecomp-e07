@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   aot-dual-arch:
+    name: IR V1 portable C AOT proof
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

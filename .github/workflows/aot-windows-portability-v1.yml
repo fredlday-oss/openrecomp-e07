@@ -78,6 +78,7 @@ jobs:
           if-no-files-found: error
 
   windows-x64:
+    name: AOT Windows portability V1
     needs: prepare-portability-inputs
     runs-on: windows-latest
     steps:
