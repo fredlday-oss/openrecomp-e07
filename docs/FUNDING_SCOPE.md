@@ -9,7 +9,7 @@ The open-core track contains the reusable infrastructure that is intended to sta
 - clean RV32I reference/validation path;
 - normalized versioned IR and Module Image contracts;
 - Core API reference runtime and deterministic validation;
-- bounded second-guest MIPS32 frontend work and subsequent architecture expansion;
+- bounded second-guest MIPS32 frontend work, including the completed multi-fixture Expansion V1 evidence, with broader ISA/ABI generalization remaining future work;
 - common portable AOT translation and compiler hardening;
 - reproducibility, adversarial testing, CI, documentation and clean redistributable examples.
 
@@ -25,8 +25,10 @@ Unreal Engine is therefore a consumer of OpenRecomp through the versioned Native
 
 Applications should identify which milestones are already implemented and which work remains. A completed proof can support feasibility, but it should not be budgeted again as an uncompleted deliverable.
 
+For MIPS32 specifically, applications written after Expansion V1 should not describe “add several logic/memory/branch/multiply fixtures” as wholly future work. The completed expansion is feasibility evidence; proposed second-guest work should instead identify the additional ISA/ABI/generalization gaps that remain CANDIDATE.
+
 If separate funders support different tracks, the scopes should remain non-overlapping and explicit. For example, core architecture/generalization work and host-specific interoperability work can be described separately rather than implying that the same deliverable is funded twice.
 
 ## Roadmap interpretation
 
-`docs/ROADMAP.md` describes intended next-phase work, not a historical schedule. Some host-integration work was prototyped earlier than its originally anticipated roadmap phase. The remaining roadmap should therefore be read as hardening, generalization, reproducibility and packaging work around the current evidence baseline rather than as a claim that every listed feature is still unimplemented.
+`docs/ROADMAP.md` describes intended next-phase work, not a historical schedule. Some host-integration and second-guest expansion work was completed earlier than its originally anticipated roadmap phase. The remaining roadmap should therefore be read as hardening, generalization, reproducibility and packaging work around the current evidence baseline rather than as a claim that every listed feature is still unimplemented.
