@@ -71,6 +71,7 @@ jobs:
           if-no-files-found: error
 
   windows-host-core:
+    name: Unreal Native AOT host V1
     needs: [source-contract, prepare-rv32i-module]
     runs-on: windows-latest
     steps:
