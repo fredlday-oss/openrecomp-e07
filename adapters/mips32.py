@@ -3,12 +3,14 @@ from __future__ import annotations
 from .interface import ArchitectureInfo
 
 
+# `info.endianness` is the legacy vertical-slice default. Expansion V1 source
+# profiles carry mips32-le/mips32-be endianness explicitly per fixture.
 info = ArchitectureInfo(
     "mips32-bounded-v1",
     32,
     "little",
     tuple([f"r{i}" for i in range(32)]),
-    "bounded synthetic subset; little/big-endian fixtures and delay-slot lowering",
+    "bounded synthetic subset; Expansion V1 endianness is fixture-defined",
 )
 
 
