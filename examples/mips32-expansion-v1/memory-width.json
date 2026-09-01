@@ -1,0 +1,44 @@
+{
+  "fixture_version": "1.0.0",
+  "profile": "expansion-v1",
+  "fixture_id": "memory-width",
+  "architecture": "mips32-le",
+  "entry_address": 4096,
+  "functions": [
+    {"id": "memory_width_main", "address": 4096}
+  ],
+  "memory_size_bytes": 262144,
+  "initial_state": {
+    "gpr:r29": 196608,
+    "gpr:r31": 0
+  },
+  "observe_state_slot": "gpr:r2",
+  "observable_memory": {"address": 8192, "size_bytes": 8},
+  "max_operations": 20000,
+  "max_reference_steps": 2000,
+  "expected": {
+    "return_v0": 287454020,
+    "memory_word": 3694078689854763844,
+    "memory_bytes_hex": "44332211ff004433",
+    "checksum": 4257846410,
+    "delay_slots_executed": 1,
+    "state": {
+      "gpr:r2": 287454020,
+      "gpr:r8": 287454020,
+      "gpr:r9": 8192,
+      "gpr:r10": 68,
+      "gpr:r11": 17,
+      "gpr:r12": 13124,
+      "gpr:r13": 4386,
+      "gpr:r14": 4294967295,
+      "gpr:r15": 4294967295,
+      "gpr:r16": 255,
+      "gpr:r17": 13124,
+      "gpr:r18": 13124,
+      "gpr:r29": 196608,
+      "gpr:r31": 0,
+      "special:hi": 0,
+      "special:lo": 0
+    }
+  }
+}
