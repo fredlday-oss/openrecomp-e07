@@ -18,12 +18,22 @@ The hardened E07 proof must continue to pass unless the pull request explicitly 
 
 OpenRecomp uses status words deliberately:
 
-- **PROVEN** — directly established by the current evidence set.
+- **PROVEN** — directly established by the current reproducible evidence set.
 - **PASS** — a bounded validation/test completed successfully.
-- **PROVEN-RUNTIME** — expected behavior was validated during actual runtime execution.
+- **PROVEN-RUNTIME** — expected behavior was validated during runtime execution with an evidence path that is reproducible at the stated scope.
 - **CANDIDATE** — an interface or direction exists but has not crossed the required proof gate.
 
+Machine-local runtime observations that cannot currently be reproduced in project-controlled CI should be reported as **PASS — local runtime evidence** with the environment/provenance stated explicitly, rather than as an unqualified `PROVEN-RUNTIME` claim.
+
 Do not promote a component from CANDIDATE to PROVEN without reproducible evidence.
+
+## Automated and AI-assisted development
+
+OpenRecomp uses a human-led process that may include automated and AI-assisted tools for drafting, refactoring, tests, documentation, analysis and review support. See [`DEVELOPMENT_PROCESS.md`](DEVELOPMENT_PROCESS.md).
+
+If automated or AI assistance materially shaped a pull request, disclose that in the pull-request description or accompanying development notes. You do not need to enumerate every autocomplete event; disclose substantial machine-assisted authorship or review so contributors and reviewers do not have to infer it from commit history.
+
+Automated output is never evidence by itself. The maintainer/contributor remains responsible for the change, its licensing/provenance, and the tests or runtime evidence used to justify status claims.
 
 ## Clean-input policy
 
@@ -37,4 +47,4 @@ Changes to adapters, IR/schema, runtime contracts, memory behavior or host inter
 
 ## Pull requests
 
-Keep changes focused. Explain what changed, why it is safe, what proof status is affected, and how you validated it.
+Keep changes focused. Explain what changed, why it is safe, what proof status is affected, how you validated it, and whether any material automated/AI assistance was used.
