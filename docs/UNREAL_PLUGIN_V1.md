@@ -71,7 +71,7 @@ checksum=122010428
 operations=3866
 ```
 
-Successful runtime evidence must contain the exact marker:
+Successful runtime evidence contains the exact marker:
 
 ```text
 OPENRECOMP_UNREAL_PLUGIN_V1 PASS module=e07.rv32i.fixture-full.ir-v1 arch=riscv32-rv32i observed_state=48 checksum=122010428 operations=3866
@@ -94,18 +94,20 @@ Use `integrations/unreal/COLLECT_PLUGIN_V1_EVIDENCE.ps1` to extract that marker 
 
 This hosted gate does **not** prove Unreal Header Tool/Unreal Build Tool compilation or UE runtime execution.
 
-## Local UE5.8 gate
+## Local UE5.8 gate — PASS
 
-Before this frontier may be described as an Unreal runtime PASS, a real UE5.8 environment must:
+A real UE5.8 Windows x64 environment consumed the CI-produced handoff without modifying the plugin source. The returned runtime-result package verified:
 
-1. install the plugin into a clean test project;
-2. build the project/plugin without source edits;
-3. place/use the CI-produced synthetic DLL under the plugin `Binaries/Win64` directory;
-4. place `AOpenRecompPluginExampleActor` in a test level;
-5. run PIE;
-6. capture the exact public-safe PASS marker above.
+```text
+OPENRECOMP_UNREAL_PLUGIN_V1_UE58_BUILD=PASS
+OPENRECOMP_UNREAL_PLUGIN_V1 PASS module=e07.rv32i.fixture-full.ir-v1 arch=riscv32-rv32i observed_state=48 checksum=122010428 operations=3866
+```
 
-Until that gate is returned and verified, the correct status is **HOSTED-CI PASS / UE5.8 RUNTIME PENDING**.
+The returned plugin SHA-256 manifest exactly matched the CI handoff manifest, and the CI plugin files independently verified against that manifest. The result is therefore classified as **PASS — local runtime evidence**: the plugin built under UE5.8 and executed the validated synthetic RV32I Native AOT module in PIE through the frozen ABI V1 boundary.
+
+The public-safe evidence record is [`../integrations/unreal/evidence/OPENRECOMP_UNREAL_PLUGIN_V1_RUNTIME_PUBLIC_SAFE.txt`](../integrations/unreal/evidence/OPENRECOMP_UNREAL_PLUGIN_V1_RUNTIME_PUBLIC_SAFE.txt). It records only the build/result/provenance markers; raw Unreal startup/authentication logs are not tracked.
+
+Because Unreal Engine itself is not available in hosted project CI, this does not promote the plugin to an unqualified hosted-CI runtime proof. A project-controlled self-hosted UE runner remains a future reproducibility improvement.
 
 ## Explicit non-claims
 
