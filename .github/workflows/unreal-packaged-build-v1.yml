@@ -78,6 +78,20 @@ jobs:
       - name: Install Python dependency
         shell: pwsh
         run: python -m pip install jsonschema
+      - name: Validate handoff scripts with Windows PowerShell 5.1
+        shell: powershell
+        run: |
+          $Scripts = @(Get-ChildItem integrations/unreal/packaged-build-v1 -Filter "*.ps1" -File)
+          if ($Scripts.Count -lt 1) { throw "No packaged-build PowerShell scripts found" }
+          foreach ($Script in $Scripts) {
+            $Text = Get-Content $Script.FullName -Raw
+            $NonAscii = $Text.ToCharArray() | Where-Object { [int][char]$_ -gt 127 } | Select-Object -First 1
+            if ($null -ne $NonAscii) {
+              throw "Packaged-build script is not ASCII-safe for Windows PowerShell 5.1: $($Script.Name)"
+            }
+            [void][scriptblock]::Create($Text)
+          }
+          Write-Output "OPENRECOMP_UNREAL_PACKAGED_BUILD_V1_PS51_PARSE=PASS"
       - uses: actions/download-artifact@v4
         with:
           name: openrecomp-unreal-packaged-build-v1-inputs
