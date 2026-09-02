@@ -30,6 +30,9 @@ jobs:
       - name: Verify generic release metadata
         run: python tools/verify_release_metadata.py
 
+      - name: Exercise candidate and published lifecycle
+        run: python tools/test_release_metadata.py
+
       - name: Public safety
         run: python tools/public_safety_scan.py
 
