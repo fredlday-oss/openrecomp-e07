@@ -186,6 +186,29 @@ The public repository retains only allow-listed proof lines, not the raw Unreal 
 
 Because the actual UE5.8 environment is not available in hosted project CI, this is classified as **PASS — local runtime evidence**, not as an unqualified reproducible runtime proof. A project-controlled self-hosted Unreal runner would strengthen this evidence layer.
 
+## Unreal Plugin V1 evidence layers
+
+Plugin V1 reuses the same frozen Native AOT ABI and separates its hosted and UE-specific evidence.
+
+### Plugin source/module gate — reproducible CI PASS
+
+Hosted GitHub Actions verifies the plugin descriptor/source layout, byte identity of the embedded public ABI header with the canonical header, rejection of legacy private AOT symbols, deterministic source packaging, validated RV32I module generation, MSVC DLL build, engine-independent host-core execution and deterministic UE handoff generation.
+
+The validated handoff is tied to PR #18 source head `8bd9928f4eb01f471c7a33117634c729585a832e`, workflow run `33564491900` and CI artifact SHA-256 `7fd6433c2e0d5d05fb11602cce314f76d9d8e185a8264c85c6bd288985e8e191`.
+
+### Plugin UE5.8 build + PIE — local runtime PASS
+
+The CI handoff was installed on Windows x64 with UE5.8. The returned result reports:
+
+```text
+OPENRECOMP_UNREAL_PLUGIN_V1_UE58_BUILD=PASS
+OPENRECOMP_UNREAL_PLUGIN_V1 PASS module=e07.rv32i.fixture-full.ir-v1 arch=riscv32-rv32i observed_state=48 checksum=122010428 operations=3866
+```
+
+The returned plugin SHA-256 manifest exactly matches the CI handoff manifest, and every plugin file in the CI handoff verifies against that manifest. The returned result ZIP has SHA-256 `1cace48a5ab5384cbbfeb47bee8ec8a0e263561c4dce57c881f0f8a68017650d`.
+
+Only the allow-listed build/runtime/provenance record is tracked in the repository. The raw Unreal log is not public evidence. Because UE5.8 itself is not available in hosted CI, this remains **PASS — local runtime evidence**. It does not establish packaged-game deployment or arbitrary Unreal-project compatibility.
+
 ## Public-safety reproducibility
 
 The tracked-file public-safety scan is part of CI. It rejects generated Unreal output directories, tracked raw logs and selected credential/private-key markers.
@@ -208,7 +231,10 @@ The scanner also has a regression test for the case where `git ls-files` referen
 - Linux + Windows x64 Native AOT ABI: **PASS — bounded**
 - Unreal Native AOT host core: **PASS — reproducible Windows CI**
 - Unreal Native AOT UE5.8 PIE: **PASS — local runtime evidence**
+- OpenRecompRuntime Plugin V1 hosted gate: **PASS — reproducible Windows CI/source contract**
+- OpenRecompRuntime Plugin V1 UE5.8 build + PIE: **PASS — local runtime evidence**
 - Original UE5.8 Gate B PIE: **PASS — local runtime evidence**
 - General MIPS32 support: **CANDIDATE**
 - macOS / Windows ARM64 / Windows x86 parity: **CANDIDATE**
+- Packaged Unreal deployment: **CANDIDATE**
 - Release-quality compiler/plugin pipeline: **CANDIDATE**
