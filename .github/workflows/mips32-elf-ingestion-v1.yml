@@ -1,0 +1,126 @@
+name: MIPS32 ELF ingestion V1
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  mips32-elf-ingestion-v1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install toolchains and Python dependency
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y binutils-mipsel-linux-gnu gcc clang
+          python -m pip install jsonschema
+
+      - name: Run bounded ELF parser adversarial tests
+        run: python tools/test_mips32_elf_frontend_v1.py
+
+      - name: Assemble and link real little-endian MIPS32 ELF
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/mips32-elf-v1
+          mipsel-linux-gnu-as -32 examples/mips32-elf-v1/logic-shift.S -o build/mips32-elf-v1/logic-shift.o
+          mipsel-linux-gnu-ld -m elf32ltsmip -Ttext 0x1000 -e logic_shift_main --build-id=none \
+            build/mips32-elf-v1/logic-shift.o -o build/mips32-elf-v1/logic-shift.elf
+          mipsel-linux-gnu-readelf -h -S -s build/mips32-elf-v1/logic-shift.elf | tee build/mips32-elf-v1/readelf.txt
+          test "$(mipsel-linux-gnu-readelf -h build/mips32-elf-v1/logic-shift.elf | awk -F: '/Machine:/{gsub(/^[ \t]+/,"",$2); print $2}')" = "MIPS R3000"
+
+      - name: Independently verify linked .text bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mipsel-linux-gnu-objcopy -O binary --only-section=.text \
+            build/mips32-elf-v1/logic-shift.elf build/mips32-elf-v1/logic-shift.text.bin
+          python - <<'PY'
+          from pathlib import Path
+          records = []
+          for raw in Path('examples/mips32-expansion-v1/logic-shift.hex').read_text().splitlines():
+              line = raw.split('#', 1)[0].strip()
+              if not line:
+                  continue
+              address, word = line.split()
+              records.append((int(address, 16), int(word, 16)))
+          addresses = [address for address, _ in records]
+          assert addresses == list(range(0x1000, 0x1000 + 4 * len(records), 4))
+          expected = b''.join(word.to_bytes(4, 'little') for _, word in records)
+          actual = Path('build/mips32-elf-v1/logic-shift.text.bin').read_bytes()
+          assert actual == expected, (len(actual), len(expected), actual.hex(), expected.hex())
+          print(f'MIPS32_ELF_TEXT_BYTES={len(actual)}')
+          print('OPENRECOMP_MIPS32_ELF_TEXT_INDEPENDENT=PASS')
+          PY
+
+      - name: Run real ELF frontend, reference, Core and native AOT matrix
+        shell: bash
+        run: |
+          set -euo pipefail
+          root=build/mips32-elf-v1/logic-shift
+          elf="$root.elf"
+          runtime=examples/mips32-expansion-v1/logic-shift.json
+          contract=contracts/host_contract.json
+
+          python tools/mips32_elf_frontend_v1.py "$elf" "$runtime" "$contract" \
+            "$root.a.ir.json" "$root.a.sidecar.json" "$root.a.frontend.json" "$root.a.elf.json"
+          python tools/mips32_elf_frontend_v1.py "$elf" "$runtime" "$contract" \
+            "$root.b.ir.json" "$root.b.sidecar.json" "$root.b.frontend.json" "$root.b.elf.json"
+          cmp "$root.a.ir.json" "$root.b.ir.json"
+          cmp "$root.a.sidecar.json" "$root.b.sidecar.json"
+          cmp "$root.a.frontend.json" "$root.b.frontend.json"
+          cmp "$root.a.elf.json" "$root.b.elf.json"
+          python tools/validate_ir_v1.py "$root.a.ir.json"
+
+          python tools/run_mips32_elf_reference_v1.py "$elf" "$runtime" "$root.reference.json"
+
+          python tools/package_ir_v1_module.py "$root.a.ir.json" "$root.a.sidecar.json" "$contract" "$root.a.module.json"
+          python tools/package_ir_v1_module.py "$root.a.ir.json" "$root.a.sidecar.json" "$contract" "$root.b.module.json"
+          cmp "$root.a.module.json" "$root.b.module.json"
+          python tools/validate_module_v1.py "$root.a.module.json" "$root.a.ir.json" "$contract"
+
+          python tools/run_mips32_expansion_core_v1.py \
+            "$root.a.module.json" "$root.a.ir.json" "$contract" "$runtime" "$root.core.json"
+
+          python tools/aot_c_backend_v1.py "$root.a.module.json" "$root.a.ir.json" "$contract" "$root.a.c"
+          python tools/aot_c_backend_v1.py "$root.a.module.json" "$root.a.ir.json" "$contract" "$root.b.c"
+          cmp "$root.a.c" "$root.b.c"
+
+          python tools/native_aot_abi_v1.py "$root.a.module.json" "$root.a.ir.json" "$contract" "$root.abi.a.c"
+          python tools/native_aot_abi_v1.py "$root.a.module.json" "$root.a.ir.json" "$contract" "$root.abi.b.c"
+          cmp "$root.abi.a.c" "$root.abi.b.c"
+
+          gcc -std=c11 -O2 -Wall -Wextra -Werror -fPIC -fvisibility=hidden -Iinclude -shared \
+            "$root.a.c" "$root.abi.a.c" -o "$root.gcc.so"
+          clang -std=c11 -O2 -Wall -Wextra -Werror -fPIC -fvisibility=hidden -Iinclude -shared \
+            "$root.a.c" "$root.abi.a.c" -o "$root.clang.so"
+
+          python tools/test_native_aot_abi_v1.py "$root.gcc.so" "$root.a.module.json" "$root.a.ir.json" "$contract"
+          python tools/test_native_aot_abi_v1.py "$root.clang.so" "$root.a.module.json" "$root.a.ir.json" "$contract"
+          python tools/run_aot_mips32_expansion_v1.py "$root.gcc.so" "$root.a.ir.json" "$runtime" "$root.aot.gcc.json"
+          python tools/run_aot_mips32_expansion_v1.py "$root.clang.so" "$root.a.ir.json" "$runtime" "$root.aot.clang.json"
+
+          python tools/check_mips32_elf_ingestion_v1.py \
+            "$runtime" "$root.a.frontend.json" "$root.a.elf.json" "$root.a.ir.json" "$root.a.module.json" \
+            "$root.reference.json" "$root.core.json" "$root.aot.gcc.json" "$root.aot.clang.json"
+
+          echo "OPENRECOMP_MIPS32_ELF_INGESTION_V1=PASS"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: openrecomp-mips32-elf-ingestion-v1
+          path: |
+            build/mips32-elf-v1/*.json
+            build/mips32-elf-v1/*.txt
+            build/mips32-elf-v1/*.elf
+            build/mips32-elf-v1/*.bin
+          if-no-files-found: error
