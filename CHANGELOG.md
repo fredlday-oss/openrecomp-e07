@@ -9,11 +9,15 @@ Significant project changes will be recorded here.
 - `OPENRECOMP_MIPS32_EXPANSION_V1`: five clean synthetic MIPS32 fixtures covering expanded logical/shift operations, byte/halfword memory semantics, signed branch forms, nested call/stack behavior, HI/LO multiply and bounded big-endian memory execution.
 - Independent reference, Core API and Native AOT equivalence gates for the expanded MIPS32 fixtures under Linux GCC/Clang and Windows x64 MSVC/clang-cl.
 - Seven fail-closed expansion tests covering unsupported division under frozen IR V1, malformed encodings/targets, misaligned source or halfword access and execution-limit exhaustion.
+- `OPENRECOMP_UNREAL_PLUGIN_V1`: reusable code-only `OpenRecompRuntime` Unreal Engine plugin with persistent Native AOT module wrapper, `UGameInstanceSubsystem`, bounded state/memory inspection, host-call bridge and synthetic example actor.
+- Hosted Unreal-plugin gate for ABI-header identity, source layering, deterministic source/handoff packaging, validated Windows Native AOT module build and engine-independent execution.
+- Local UE5.8 Windows x64 plugin runtime evidence: Editor/plugin build PASS and PIE result `observed_state=48`, checksum `122010428`, operations `3866`, with the returned plugin manifest matching the CI handoff exactly.
 
 ### Changed
 
 - The bounded MIPS32 evidence now includes a multi-fixture little/big-endian expansion while general MIPS32 frontend/ISA coverage remains `CANDIDATE`.
 - `div/divu` remain explicitly outside the expansion because normalized IR V1 has no division/remainder semantic operation; IR V1 and Native AOT ABI V1 remain unchanged.
+- Unreal integration now has a reusable plugin layer over frozen Native AOT ABI V1; its hosted source/module gates are reproducible in CI while UE5.8 build/PIE remains explicitly classified as local runtime evidence.
 
 ## [0.2.0] - 2026-09-01
 

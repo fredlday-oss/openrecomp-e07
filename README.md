@@ -10,7 +10,7 @@ Unreal Engine is an optional consumer of the versioned native-module interface, 
 
 **OpenRecomp v0.2.0** is the first formal public research/developer milestone. It freezes the current evidence-backed open-core architecture and reviewer-facing validation state; it is not a claim of general guest-binary compatibility or a production-quality optimizing compiler.
 
-Post-v0.2.0 development is tracked separately from the immutable release notes. The current development branch adds bounded multi-fixture MIPS32 expansion evidence without changing IR V1 or Native AOT ABI V1.
+Post-v0.2.0 development is tracked separately from the immutable release notes. Current development adds bounded multi-fixture MIPS32 expansion evidence and a reusable `OpenRecompRuntime` Unreal plugin without changing IR V1 or Native AOT ABI V1.
 
 See [`docs/RELEASE_V0_2_0.md`](docs/RELEASE_V0_2_0.md) for the bounded v0.2.0 release notes and [`docs/RELEASE_CHECKLIST_V0_2_0.md`](docs/RELEASE_CHECKLIST_V0_2_0.md) for its publication/reproducibility gate.
 
@@ -31,12 +31,14 @@ See [`docs/RELEASE_V0_2_0.md`](docs/RELEASE_V0_2_0.md) for the bounded v0.2.0 re
 | Native AOT ABI Linux + Windows x64 | **PASS** — GCC/Clang/MSVC/clang-cl bounded fixtures |
 | Unreal Native AOT host core | **PASS** — reproducible Windows four-way compiler/module CI matrix |
 | UE5.8 Native AOT PIE runtime | **PASS — local runtime evidence** — synthetic RV32I module |
+| OpenRecompRuntime plugin V1 hosted gate | **PASS** — source/ABI contract, deterministic handoff, validated Windows module/host-core execution |
+| OpenRecompRuntime plugin V1 UE5.8 build + PIE | **PASS — local runtime evidence** — state `48`, checksum `122010428`, operations `3866` |
 | Original UE5.8 Gate B PIE runtime | **PASS — local runtime evidence** |
 | General MIPS32 support | **CANDIDATE** |
 | macOS / Windows ARM64 / Windows x86 ABI parity | **CANDIDATE** |
 | Release-quality compiler/plugin pipeline | **CANDIDATE** |
 
-The detailed evidence boundaries and terminology are maintained in [`docs/PROOF_STATUS.md`](docs/PROOF_STATUS.md). Locally executed Unreal results are intentionally identified as local evidence because hosted CI does not contain Unreal Engine; the engine-independent Windows host core remains independently reproducible in GitHub Actions.
+The detailed evidence boundaries and terminology are maintained in [`docs/PROOF_STATUS.md`](docs/PROOF_STATUS.md). Locally executed Unreal results are intentionally identified as local evidence because hosted CI does not contain Unreal Engine; the engine-independent Windows host core and Plugin V1 source/module gates remain independently reproducible in GitHub Actions.
 
 ## Architecture
 
@@ -79,7 +81,7 @@ PASS: E07 V1.1 HARDENED END-TO-END
 
 The hardened proof includes malformed/adversarial ELF rejection, schema and host-contract checks, checked guest memory, native/WebAssembly parity, golden regression and reproducibility checks.
 
-Additional CI gates cover IR V1, Core API V1, the original and expanded MIPS32 evidence, AOT translation/hardening, Native AOT ABI portability, public safety and documentation.
+Additional CI gates cover IR V1, Core API V1, the original and expanded MIPS32 evidence, AOT translation/hardening, Native AOT ABI portability, Unreal plugin source/module validation, public safety and documentation.
 
 For the v0.2.0 release metadata gate, run:
 
@@ -159,9 +161,15 @@ checksum       = 122010428
 operations     = 3866
 ```
 
-That result is retained as **local runtime evidence**, not as a claim that an external reviewer can reproduce UE5.8 in hosted CI. Public evidence contains only allow-listed OpenRecomp markers; raw Unreal launcher/startup logs are excluded.
+Post-v0.2.0, `OpenRecompRuntime` packages the same boundary as a reusable code-only plugin with a persistent Native AOT module wrapper, `UOpenRecompSubsystem` and a clean synthetic example actor. Hosted CI verifies the plugin source/ABI contract, deterministic handoff and validated Windows module/host-core path. A separate UE5.8 Windows x64 run built the plugin without source edits and produced:
 
-See [`docs/UNREAL_NATIVE_AOT_HOST_V1.md`](docs/UNREAL_NATIVE_AOT_HOST_V1.md) and [`integrations/unreal/README.md`](integrations/unreal/README.md).
+```text
+OPENRECOMP_UNREAL_PLUGIN_V1 PASS module=e07.rv32i.fixture-full.ir-v1 arch=riscv32-rv32i observed_state=48 checksum=122010428 operations=3866
+```
+
+Both UE results are retained as **local runtime evidence**, not as claims that an external reviewer can reproduce UE5.8 in hosted CI. Public evidence contains only allow-listed OpenRecomp markers; raw Unreal launcher/startup logs are excluded. Packaged-game deployment remains a separate future gate.
+
+See [`docs/UNREAL_NATIVE_AOT_HOST_V1.md`](docs/UNREAL_NATIVE_AOT_HOST_V1.md), [`docs/UNREAL_PLUGIN_V1.md`](docs/UNREAL_PLUGIN_V1.md) and [`integrations/unreal/README.md`](integrations/unreal/README.md).
 
 ## Project scope and funding boundaries
 
@@ -194,6 +202,7 @@ The public-safety gate scans tracked material and is designed to fail closed, in
 - [`docs/NATIVE_AOT_ABI_V1.md`](docs/NATIVE_AOT_ABI_V1.md)
 - [`docs/AOT_WINDOWS_PORTABILITY_V1.md`](docs/AOT_WINDOWS_PORTABILITY_V1.md)
 - [`docs/UNREAL_NATIVE_AOT_HOST_V1.md`](docs/UNREAL_NATIVE_AOT_HOST_V1.md)
+- [`docs/UNREAL_PLUGIN_V1.md`](docs/UNREAL_PLUGIN_V1.md)
 - [`docs/PROOF_STATUS.md`](docs/PROOF_STATUS.md)
 - [`docs/ROADMAP.md`](docs/ROADMAP.md)
 - [`docs/FUNDING_SCOPE.md`](docs/FUNDING_SCOPE.md)

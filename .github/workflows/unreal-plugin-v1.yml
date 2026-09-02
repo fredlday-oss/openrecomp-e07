@@ -1,0 +1,133 @@
+name: Unreal plugin V1
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify plugin source contract
+        run: python tools/verify_unreal_plugin_v1.py
+      - name: Verify deterministic source-only package
+        run: |
+          mkdir -p build/unreal-plugin-v1
+          python tools/package_unreal_plugin_v1.py \
+            --plugin integrations/unreal/Plugins/OpenRecompRuntime \
+            --out build/unreal-plugin-v1/source-a.zip
+          python tools/package_unreal_plugin_v1.py \
+            --plugin integrations/unreal/Plugins/OpenRecompRuntime \
+            --out build/unreal-plugin-v1/source-b.zip
+          cmp build/unreal-plugin-v1/source-a.zip build/unreal-plugin-v1/source-b.zip
+          echo "OPENRECOMP_UNREAL_PLUGIN_V1_SOURCE_PACKAGE_DETERMINISTIC=PASS"
+
+  prepare-rv32i-module:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install proof dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang lld gcc
+          python -m pip install jsonschema
+      - name: Build validated RV32I Module Image input
+        run: |
+          chmod +x RUN.sh
+          ./RUN.sh
+          mkdir -p build/unreal-plugin-v1
+          python tools/bridge_rv32i_ir_v1.py \
+            build/fixture_full.ir.json \
+            contracts/host_contract.json \
+            build/unreal-plugin-v1/rv32i.ir.json \
+            build/unreal-plugin-v1/rv32i.sidecar.json
+          python tools/package_ir_v1_module.py \
+            build/unreal-plugin-v1/rv32i.ir.json \
+            build/unreal-plugin-v1/rv32i.sidecar.json \
+            contracts/host_contract.json \
+            build/unreal-plugin-v1/rv32i.module.json
+          python tools/run_core_api_v1.py \
+            build/unreal-plugin-v1/rv32i.module.json \
+            build/unreal-plugin-v1/rv32i.ir.json \
+            contracts/host_contract.json \
+            build/unreal-plugin-v1/rv32i.core.json
+          echo "OPENRECOMP_UNREAL_PLUGIN_V1_REFERENCE_INPUT=PASS"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: openrecomp-unreal-plugin-v1-inputs
+          path: build/unreal-plugin-v1
+          if-no-files-found: error
+
+  windows-handoff:
+    name: Unreal plugin V1
+    needs: [source-contract, prepare-rv32i-module]
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Python dependency
+        shell: pwsh
+        run: python -m pip install jsonschema
+      - uses: actions/download-artifact@v4
+        with:
+          name: openrecomp-unreal-plugin-v1-inputs
+          path: build/unreal-plugin-v1
+      - name: Generate portable C and ABI adapter
+        shell: pwsh
+        run: |
+          python tools/aot_c_backend_v1.py build/unreal-plugin-v1/rv32i.module.json build/unreal-plugin-v1/rv32i.ir.json contracts/host_contract.json build/unreal-plugin-v1/rv32i.c
+          python tools/native_aot_abi_v1.py build/unreal-plugin-v1/rv32i.module.json build/unreal-plugin-v1/rv32i.ir.json contracts/host_contract.json build/unreal-plugin-v1/rv32i.abi.c
+      - name: Build validated synthetic DLL and engine-independent host harness
+        shell: cmd
+        run: |
+          @for /f "usebackq delims=" %%i in (`"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath`) do @set "VSINSTALL=%%i"
+          @if not defined VSINSTALL (echo Visual Studio C++ toolchain not found & exit /b 2)
+          @call "%VSINSTALL%\VC\Auxiliary\Build\vcvars64.bat"
+          @where cl
+          cl /nologo /std:c11 /O2 /W4 /WX /LD /Iinclude build\unreal-plugin-v1\rv32i.c build\unreal-plugin-v1\rv32i.abi.c /link /OUT:build\unreal-plugin-v1\openrecomp-e07-rv32i.dll
+          cl /nologo /std:c++17 /EHsc /O2 /W4 /WX /Iinclude /Iintegrations\unreal integrations\unreal\OpenRecompNativeAotHostCoreV1.cpp tools\unreal_native_aot_host_v1_harness.cpp /Fe:build\unreal-plugin-v1\host-core.exe
+      - name: Execute validated module through established host core
+        shell: pwsh
+        run: |
+          & build/unreal-plugin-v1/host-core.exe build/unreal-plugin-v1/openrecomp-e07-rv32i.dll | Tee-Object -FilePath build/unreal-plugin-v1/host-core.txt
+          if ($LASTEXITCODE -ne 0) { throw "host-core execution failed" }
+          $Text = Get-Content build/unreal-plugin-v1/host-core.txt -Raw
+          if ($Text -notmatch "OPENRECOMP_UNREAL_NATIVE_AOT_HOST_CORE_V1=PASS") { throw "host-core PASS marker missing" }
+          if ($Text -notmatch "UNREAL_NATIVE_AOT_OBSERVED_STATE=48") { throw "observed state mismatch" }
+          if ($Text -notmatch "UNREAL_NATIVE_AOT_CHECKSUM=122010428") { throw "checksum mismatch" }
+          if ($Text -notmatch "UNREAL_NATIVE_AOT_OPERATIONS=3866") { throw "operation count mismatch" }
+          Write-Output "OPENRECOMP_UNREAL_PLUGIN_V1_HOST_CORE=PASS"
+      - name: Build deterministic UE handoff package twice
+        shell: pwsh
+        run: |
+          python tools/package_unreal_plugin_v1.py --plugin integrations/unreal/Plugins/OpenRecompRuntime --dll build/unreal-plugin-v1/openrecomp-e07-rv32i.dll --out build/unreal-plugin-v1/OPENRECOMP_UNREAL_PLUGIN_V1_HANDOFF_A.zip
+          python tools/package_unreal_plugin_v1.py --plugin integrations/unreal/Plugins/OpenRecompRuntime --dll build/unreal-plugin-v1/openrecomp-e07-rv32i.dll --out build/unreal-plugin-v1/OPENRECOMP_UNREAL_PLUGIN_V1_HANDOFF_B.zip
+          if ((Get-FileHash build/unreal-plugin-v1/OPENRECOMP_UNREAL_PLUGIN_V1_HANDOFF_A.zip -Algorithm SHA256).Hash -ne (Get-FileHash build/unreal-plugin-v1/OPENRECOMP_UNREAL_PLUGIN_V1_HANDOFF_B.zip -Algorithm SHA256).Hash) { throw "plugin handoff package is not deterministic" }
+          Copy-Item build/unreal-plugin-v1/OPENRECOMP_UNREAL_PLUGIN_V1_HANDOFF_A.zip build/unreal-plugin-v1/OPENRECOMP_UNREAL_PLUGIN_V1_HANDOFF.zip
+          Write-Output "OPENRECOMP_UNREAL_PLUGIN_V1_HANDOFF_DETERMINISTIC=PASS"
+          Write-Output "OPENRECOMP_UNREAL_PLUGIN_V1_HOSTED_CI=PASS"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: openrecomp-unreal-plugin-v1-handoff
+          path: |
+            build/unreal-plugin-v1/OPENRECOMP_UNREAL_PLUGIN_V1_HANDOFF.zip
+            build/unreal-plugin-v1/host-core.txt
+            build/unreal-plugin-v1/rv32i.core.json
+          if-no-files-found: error
