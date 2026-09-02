@@ -73,8 +73,21 @@ if (-not $Passed) {
 }
 
 $PublicEvidence = Join-Path $PSScriptRoot "OPENRECOMP_UNREAL_PACKAGED_BUILD_V1_RUNTIME_PUBLIC_SAFE.txt"
-& (Join-Path $PSScriptRoot "COLLECT_PACKAGED_BUILD_V1_EVIDENCE.ps1") -InputFile $StdOut -OutputFile $PublicEvidence
-if ($LASTEXITCODE -ne 0) { throw "Public-safe evidence collection failed" }
+$Collector = Join-Path $PSScriptRoot "COLLECT_PACKAGED_BUILD_V1_EVIDENCE.ps1"
+try {
+    & $Collector -InputFile $StdOut -OutputFile $PublicEvidence
+}
+catch {
+    throw "Public-safe evidence collection failed: $($_.Exception.Message)"
+}
+
+if (-not (Test-Path $PublicEvidence)) {
+    throw "Public-safe evidence collection failed: output file was not created"
+}
+$EvidenceText = Get-Content $PublicEvidence -Raw
+if ($EvidenceText -notmatch [regex]::Escape($Expected)) {
+    throw "Public-safe evidence collection failed: exact PASS marker missing from extracted evidence"
+}
 
 Write-Output $Expected
 Write-Output "OPENRECOMP_UNREAL_PACKAGED_BUILD_V1_RUNTIME=PASS"
