@@ -12,12 +12,16 @@ Significant project changes will be recorded here.
 - `OPENRECOMP_UNREAL_PLUGIN_V1`: reusable code-only `OpenRecompRuntime` Unreal Engine plugin with persistent Native AOT module wrapper, `UGameInstanceSubsystem`, bounded state/memory inspection, host-call bridge and synthetic example actor.
 - Hosted Unreal-plugin gate for ABI-header identity, source layering, deterministic source/handoff packaging, validated Windows Native AOT module build and engine-independent execution.
 - Local UE5.8 Windows x64 plugin runtime evidence: Editor/plugin build PASS and PIE result `observed_state=48`, checksum `122010428`, operations `3866`, with the returned plugin manifest matching the CI handoff exactly.
+- `OPENRECOMP_UNREAL_PACKAGED_BUILD_V1`: opt-in packaged-runtime proof path through the existing `UOpenRecompSubsystem`, explicit Win64 `NonUFS` staging of the validated Native AOT DLL, scripted UE5.8 Development BuildCookRun packaging, packaged-executable launch and public-safe evidence extraction.
+- Hosted packaged-build gate for source/staging contract validation, Windows PowerShell 5.1 parser/collector execution, validated module/host-core execution and deterministic runtime-handoff generation.
+- Local UE5.8 Windows x64 Development packaged-runtime evidence: package PASS, exact CI DLL SHA-256 staging and packaged executable result `observed_state=48`, checksum `122010428`, operations `3866` outside Editor/PIE.
 
 ### Changed
 
 - The bounded MIPS32 evidence now includes a multi-fixture little/big-endian expansion while general MIPS32 frontend/ISA coverage remains `CANDIDATE`.
 - `div/divu` remain explicitly outside the expansion because normalized IR V1 has no division/remainder semantic operation; IR V1 and Native AOT ABI V1 remain unchanged.
 - Unreal integration now has a reusable plugin layer over frozen Native AOT ABI V1; its hosted source/module gates are reproducible in CI while UE5.8 build/PIE remains explicitly classified as local runtime evidence.
+- Packaged Unreal deployment is now validated for the bounded UE5.8 Windows x64 **Development** configuration and synthetic RV32I workload; Shipping parity, other Unreal versions/platforms and arbitrary projects remain outside the proven scope.
 
 ## [0.2.0] - 2026-09-01
 

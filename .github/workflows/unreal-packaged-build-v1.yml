@@ -1,0 +1,165 @@
+name: Unreal packaged build V1
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify existing Unreal plugin V1 contract
+        run: python tools/verify_unreal_plugin_v1.py
+      - name: Verify packaged-build V1 source contract
+        run: python tools/verify_unreal_packaged_build_v1.py
+
+  prepare-rv32i-module:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install proof dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang lld gcc
+          python -m pip install jsonschema
+      - name: Build validated RV32I reference/module input
+        run: |
+          chmod +x RUN.sh
+          ./RUN.sh
+          mkdir -p build/unreal-packaged-build-v1
+          python tools/bridge_rv32i_ir_v1.py \
+            build/fixture_full.ir.json \
+            contracts/host_contract.json \
+            build/unreal-packaged-build-v1/rv32i.ir.json \
+            build/unreal-packaged-build-v1/rv32i.sidecar.json
+          python tools/package_ir_v1_module.py \
+            build/unreal-packaged-build-v1/rv32i.ir.json \
+            build/unreal-packaged-build-v1/rv32i.sidecar.json \
+            contracts/host_contract.json \
+            build/unreal-packaged-build-v1/rv32i.module.json
+          python tools/run_core_api_v1.py \
+            build/unreal-packaged-build-v1/rv32i.module.json \
+            build/unreal-packaged-build-v1/rv32i.ir.json \
+            contracts/host_contract.json \
+            build/unreal-packaged-build-v1/rv32i.core.json
+          echo "OPENRECOMP_UNREAL_PACKAGED_BUILD_V1_REFERENCE_INPUT=PASS"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: openrecomp-unreal-packaged-build-v1-inputs
+          path: build/unreal-packaged-build-v1
+          if-no-files-found: error
+
+  windows-handoff:
+    name: Unreal packaged build V1
+    needs: [source-contract, prepare-rv32i-module]
+    runs-on: windows-latest
+    env:
+      SOURCE_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Python dependency
+        shell: pwsh
+        run: python -m pip install jsonschema
+      - name: Validate handoff scripts with Windows PowerShell 5.1
+        shell: powershell
+        run: |
+          $Scripts = @(Get-ChildItem integrations/unreal/packaged-build-v1 -Filter "*.ps1" -File)
+          if ($Scripts.Count -lt 1) { throw "No packaged-build PowerShell scripts found" }
+          foreach ($Script in $Scripts) {
+            $Text = Get-Content $Script.FullName -Raw
+            $NonAscii = $Text.ToCharArray() | Where-Object { [int][char]$_ -gt 127 } | Select-Object -First 1
+            if ($null -ne $NonAscii) {
+              throw "Packaged-build script is not ASCII-safe for Windows PowerShell 5.1: $($Script.Name)"
+            }
+            [void][scriptblock]::Create($Text)
+          }
+          Write-Output "OPENRECOMP_UNREAL_PACKAGED_BUILD_V1_PS51_PARSE=PASS"
+      - name: Smoke-test public-safe collector invocation with Windows PowerShell 5.1
+        shell: powershell
+        run: |
+          $Scratch = Join-Path $env:RUNNER_TEMP "openrecomp-packaged-build-v1-collector-smoke"
+          New-Item -ItemType Directory -Force -Path $Scratch | Out-Null
+          $InputFile = Join-Path $Scratch "runtime.txt"
+          $OutputFile = Join-Path $Scratch "evidence.txt"
+          $Expected = "OPENRECOMP_UNREAL_PACKAGED_BUILD_V1 PASS module=e07.rv32i.fixture-full.ir-v1 arch=riscv32-rv32i observed_state=48 checksum=122010428 operations=3866"
+          @("prefix", $Expected, "suffix") | Set-Content -Encoding ascii $InputFile
+          try {
+            & integrations/unreal/packaged-build-v1/COLLECT_PACKAGED_BUILD_V1_EVIDENCE.ps1 -InputFile $InputFile -OutputFile $OutputFile
+          }
+          catch {
+            throw "PowerShell 5.1 collector invocation failed: $($_.Exception.Message)"
+          }
+          if (-not (Test-Path $OutputFile)) { throw "collector smoke output missing" }
+          $Evidence = Get-Content $OutputFile -Raw
+          if ($Evidence -notmatch [regex]::Escape($Expected)) { throw "collector smoke PASS marker missing" }
+          $Runner = Get-Content integrations/unreal/packaged-build-v1/RUN_PACKAGED_PROOF.ps1 -Raw
+          if ($Runner -match '\$LASTEXITCODE\s*-ne\s*0\)\s*\{\s*throw\s*"Public-safe evidence collection failed') {
+            throw "RUN_PACKAGED_PROOF.ps1 still uses LASTEXITCODE for PowerShell collector status"
+          }
+          Write-Output "OPENRECOMP_UNREAL_PACKAGED_BUILD_V1_PS51_COLLECTOR_SMOKE=PASS"
+      - uses: actions/download-artifact@v4
+        with:
+          name: openrecomp-unreal-packaged-build-v1-inputs
+          path: build/unreal-packaged-build-v1
+      - name: Generate portable C and Native AOT ABI adapter
+        shell: pwsh
+        run: |
+          python tools/aot_c_backend_v1.py build/unreal-packaged-build-v1/rv32i.module.json build/unreal-packaged-build-v1/rv32i.ir.json contracts/host_contract.json build/unreal-packaged-build-v1/rv32i.c
+          python tools/native_aot_abi_v1.py build/unreal-packaged-build-v1/rv32i.module.json build/unreal-packaged-build-v1/rv32i.ir.json contracts/host_contract.json build/unreal-packaged-build-v1/rv32i.abi.c
+      - name: Build validated synthetic DLL and host harness
+        shell: cmd
+        run: |
+          @for /f "usebackq delims=" %%i in (`"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath`) do @set "VSINSTALL=%%i"
+          @if not defined VSINSTALL (echo Visual Studio C++ toolchain not found & exit /b 2)
+          @call "%VSINSTALL%\VC\Auxiliary\Build\vcvars64.bat"
+          @where cl
+          cl /nologo /std:c11 /O2 /W4 /WX /LD /Iinclude build\unreal-packaged-build-v1\rv32i.c build\unreal-packaged-build-v1\rv32i.abi.c /link /OUT:build\unreal-packaged-build-v1\openrecomp-e07-rv32i.dll
+          cl /nologo /std:c++17 /EHsc /O2 /W4 /WX /Iinclude /Iintegrations\unreal integrations\unreal\OpenRecompNativeAotHostCoreV1.cpp tools\unreal_native_aot_host_v1_harness.cpp /Fe:build\unreal-packaged-build-v1\host-core.exe
+      - name: Execute validated module through established host core
+        shell: pwsh
+        run: |
+          & build/unreal-packaged-build-v1/host-core.exe build/unreal-packaged-build-v1/openrecomp-e07-rv32i.dll | Tee-Object -FilePath build/unreal-packaged-build-v1/host-core.txt
+          if ($LASTEXITCODE -ne 0) { throw "host-core execution failed" }
+          $Text = Get-Content build/unreal-packaged-build-v1/host-core.txt -Raw
+          if ($Text -notmatch "OPENRECOMP_UNREAL_NATIVE_AOT_HOST_CORE_V1=PASS") { throw "host-core PASS marker missing" }
+          if ($Text -notmatch "UNREAL_NATIVE_AOT_OBSERVED_STATE=48") { throw "observed state mismatch" }
+          if ($Text -notmatch "UNREAL_NATIVE_AOT_CHECKSUM=122010428") { throw "checksum mismatch" }
+          if ($Text -notmatch "UNREAL_NATIVE_AOT_OPERATIONS=3866") { throw "operation count mismatch" }
+          Write-Output "OPENRECOMP_UNREAL_PACKAGED_BUILD_V1_HOST_CORE=PASS"
+      - name: Build deterministic packaged-build handoff twice
+        shell: pwsh
+        run: |
+          python tools/package_unreal_packaged_build_v1.py --plugin integrations/unreal/Plugins/OpenRecompRuntime --support integrations/unreal/packaged-build-v1 --dll build/unreal-packaged-build-v1/openrecomp-e07-rv32i.dll --source-head $env:SOURCE_HEAD --out build/unreal-packaged-build-v1/HANDOFF_A.zip
+          python tools/package_unreal_packaged_build_v1.py --plugin integrations/unreal/Plugins/OpenRecompRuntime --support integrations/unreal/packaged-build-v1 --dll build/unreal-packaged-build-v1/openrecomp-e07-rv32i.dll --source-head $env:SOURCE_HEAD --out build/unreal-packaged-build-v1/HANDOFF_B.zip
+          $A = (Get-FileHash build/unreal-packaged-build-v1/HANDOFF_A.zip -Algorithm SHA256).Hash
+          $B = (Get-FileHash build/unreal-packaged-build-v1/HANDOFF_B.zip -Algorithm SHA256).Hash
+          if ($A -ne $B) { throw "packaged-build handoff is not deterministic" }
+          Copy-Item build/unreal-packaged-build-v1/HANDOFF_A.zip build/unreal-packaged-build-v1/OPENRECOMP_UNREAL_PACKAGED_BUILD_V1_HANDOFF.zip
+          Write-Output "OPENRECOMP_UNREAL_PACKAGED_BUILD_V1_HANDOFF_DETERMINISTIC=PASS"
+          Write-Output "OPENRECOMP_UNREAL_PACKAGED_BUILD_V1_HOSTED_CI=PASS"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: openrecomp-unreal-packaged-build-v1-handoff
+          path: |
+            build/unreal-packaged-build-v1/OPENRECOMP_UNREAL_PACKAGED_BUILD_V1_HANDOFF.zip
+            build/unreal-packaged-build-v1/host-core.txt
+            build/unreal-packaged-build-v1/rv32i.core.json
+          if-no-files-found: error

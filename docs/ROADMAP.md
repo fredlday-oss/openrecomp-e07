@@ -2,7 +2,7 @@
 
 This is a forward-looking development roadmap. It is **not** a historical schedule and does not imply that external grant funding has been awarded.
 
-Some work was completed earlier than the original phase ordering. The current baseline already includes bounded RV32I validation, the original MIPS32 vertical slice, post-v0.2.0 MIPS32 Expansion V1 with five little/big-endian synthetic fixtures, IR V1/Core API V1, a hardened common portable-C AOT backend, Native AOT ABI V1, Linux/Windows x64 portability, a reproducible Windows Native AOT host-core matrix, a reusable code-only `OpenRecompRuntime` Unreal plugin, and local UE5.8 runtime evidence for both the Native AOT host proof and Plugin V1 synthetic consumer.
+Some work was completed earlier than the original phase ordering. The current baseline already includes bounded RV32I validation, the original MIPS32 vertical slice, post-v0.2.0 MIPS32 Expansion V1 with five little/big-endian synthetic fixtures, IR V1/Core API V1, a hardened common portable-C AOT backend, Native AOT ABI V1, Linux/Windows x64 portability, a reproducible Windows Native AOT host-core matrix, a reusable code-only `OpenRecompRuntime` Unreal plugin, local UE5.8 runtime evidence for both the Native AOT host proof and Plugin V1 synthetic consumer, and a bounded UE5.8 Windows x64 Development packaged-build/runtime PASS outside Editor/PIE.
 
 The roadmap below therefore describes **remaining hardening, generalization, reproducibility and packaging work**, not a claim that every listed area is still unimplemented. The reusable open core and optional host-integration track are separated further in [`FUNDING_SCOPE.md`](FUNDING_SCOPE.md).
 
@@ -42,18 +42,20 @@ Remaining second-guest work includes:
 
 Unreal Engine remains an optional consumer of OpenRecomp through Native AOT ABI V1, not part of the required open-core architecture.
 
-`OPENRECOMP_UNREAL_PLUGIN_V1` now provides a reusable code-only runtime plugin with a persistent Native AOT module wrapper, game-instance subsystem and synthetic example consumer. Hosted CI verifies its source/ABI contract and handoff generation; a separate UE5.8 Windows x64 run built the plugin and executed the synthetic RV32I module in PIE with state `48`, checksum `122010428` and `3866` operations. That UE execution remains local runtime evidence.
+`OPENRECOMP_UNREAL_PLUGIN_V1` provides a reusable code-only runtime plugin with a persistent Native AOT module wrapper, game-instance subsystem and synthetic example consumer. Hosted CI verifies its source/ABI contract and handoff generation; a separate UE5.8 Windows x64 run built the plugin and executed the synthetic RV32I module in PIE with state `48`, checksum `122010428` and `3866` operations. That UE execution remains local runtime evidence.
+
+`OPENRECOMP_UNREAL_PACKAGED_BUILD_V1` extends the same plugin/ABI path through a real UE5.8 Windows x64 **Development** BuildCookRun package. The exact CI Native AOT DLL was staged in the packaged archive, and the packaged executable launched outside Editor/PIE with the same state `48`, checksum `122010428` and `3866` operations. Hosted CI verifies the source/staging contract, PowerShell 5.1 collector path, validated host-core execution and deterministic runtime handoff; the actual UE package/run remains local packaged runtime evidence.
 
 Remaining Unreal/engine-host work includes:
 
 - make the UE runtime evidence more reproducible, ideally with a project-controlled self-hosted CI runner or equivalent scripted environment;
 - expand host-service bindings only when justified by clean fixtures;
-- validate packaged-build/deployment separately from Editor/PIE;
+- validate Shipping configuration separately from the current Development package;
 - preserve independent authoritative runtime validation alongside presentation;
 - improve diagnostics, plugin lifecycle coverage and integration documentation;
-- treat broader project/engine/platform compatibility as separate evidence gates rather than inferring it from the current synthetic Windows UE5.8 result.
+- treat broader Unreal versions, projects and host platforms as separate evidence gates rather than inferring them from the current synthetic Windows UE5.8 result.
 
-The current UE5.8 PIE evidence is intentionally described as **local runtime PASS**, while the engine-independent Windows host core and Plugin V1 source/module gates are reproducible in hosted CI.
+The current UE5.8 PIE and Development packaged-build evidence is intentionally described as **local runtime PASS**, while the engine-independent Windows host core and Plugin/Packaged-Build source/module gates are reproducible in hosted CI.
 
 ## Phase 5 — Documentation and clean examples
 

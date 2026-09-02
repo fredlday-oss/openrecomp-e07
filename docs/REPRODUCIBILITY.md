@@ -209,6 +209,58 @@ The returned plugin SHA-256 manifest exactly matches the CI handoff manifest, an
 
 Only the allow-listed build/runtime/provenance record is tracked in the repository. The raw Unreal log is not public evidence. Because UE5.8 itself is not available in hosted CI, this remains **PASS — local runtime evidence**. It does not establish packaged-game deployment or arbitrary Unreal-project compatibility.
 
+## Unreal Packaged Build V1 evidence layers
+
+Packaged Build V1 reuses Plugin V1 and the frozen Native AOT ABI without introducing a new execution interface.
+
+### Packaged-build source/module/handoff gate — reproducible CI PASS
+
+Hosted GitHub Actions verifies the Plugin V1 contract, the Win64 `NonUFS` runtime-dependency staging contract, deterministic RV32I module generation, MSVC Native AOT DLL build, engine-independent host-core execution, Windows PowerShell 5.1 parsing/execution of the public-safe collector path and deterministic packaged-build handoff generation.
+
+The final handoff used for the local packaged-runtime gate is tied to PR #19 source head:
+
+```text
+334a4ba603618b243c896c8122fd4cd730730e56
+```
+
+Its hosted workflow artifact SHA-256 is:
+
+```text
+63f50d8dc25065ba51de06e43010a10dda12147ef311c196ba4f34e2fb5a0574
+```
+
+The deterministic inner handoff SHA-256 is:
+
+```text
+626d906a348122b4f7ab3d8f886a38a5060befca8a6a31ee3a6af9b7551e5fe9
+```
+
+The validated DLL in that handoff has SHA-256:
+
+```text
+f6a8679cbd763529b6dd5f33c2ffeac8e269d8f4e2d859e8b1c48dec8cc6b2b6
+```
+
+### UE5.8 Development package + packaged executable — local packaged runtime PASS
+
+The exact CI handoff was installed into the UE5.8 Windows x64 project. `BuildCookRun` completed a Development Win64 package and the packaged archive contained the validated DLL with the exact CI SHA-256 above.
+
+The packaged executable was then launched outside Editor/PIE with `-OpenRecompPackagedProof` and reproduced:
+
+```text
+OPENRECOMP_UNREAL_PACKAGED_BUILD_V1 PASS module=e07.rv32i.fixture-full.ir-v1 arch=riscv32-rv32i observed_state=48 checksum=122010428 operations=3866
+```
+
+The returned public-safe result ZIP has SHA-256:
+
+```text
+2ca45d54c6d23bb0e14f896f324140679e20264812d63c975c4e8ca3fbcb7f21
+```
+
+The returned package record reports `CONFIGURATION=Development`, `PLATFORM=Win64` and the same staged DLL SHA-256. The result archive contains only provenance, manifest and public-safe result records; raw Unreal logs and packaged binaries are not project evidence.
+
+Because UE5.8 is not available in hosted project CI, the package/run is classified as **PASS — local packaged runtime evidence**. This result does not establish Shipping configuration parity, arbitrary Unreal-project compatibility, other Unreal versions or other host platforms.
+
 ## Public-safety reproducibility
 
 The tracked-file public-safety scan is part of CI. It rejects generated Unreal output directories, tracked raw logs and selected credential/private-key markers.
@@ -233,8 +285,10 @@ The scanner also has a regression test for the case where `git ls-files` referen
 - Unreal Native AOT UE5.8 PIE: **PASS — local runtime evidence**
 - OpenRecompRuntime Plugin V1 hosted gate: **PASS — reproducible Windows CI/source contract**
 - OpenRecompRuntime Plugin V1 UE5.8 build + PIE: **PASS — local runtime evidence**
+- Unreal Packaged Build V1 hosted gate: **PASS — reproducible Windows CI/source/staging/handoff contract**
+- UE5.8 Windows x64 Development packaged runtime: **PASS — local packaged runtime evidence**
 - Original UE5.8 Gate B PIE: **PASS — local runtime evidence**
 - General MIPS32 support: **CANDIDATE**
 - macOS / Windows ARM64 / Windows x86 parity: **CANDIDATE**
-- Packaged Unreal deployment: **CANDIDATE**
+- Shipping Unreal packaged parity / arbitrary Unreal deployment: **CANDIDATE**
 - Release-quality compiler/plugin pipeline: **CANDIDATE**
