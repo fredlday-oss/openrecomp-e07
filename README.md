@@ -10,7 +10,7 @@ Unreal Engine is an optional consumer of the versioned native-module interface, 
 
 **OpenRecomp v0.2.0** is the first formal public research/developer milestone. It freezes the current evidence-backed open-core architecture and reviewer-facing validation state; it is not a claim of general guest-binary compatibility or a production-quality optimizing compiler.
 
-Post-v0.2.0 development is tracked separately from the immutable release notes. Current development adds bounded multi-fixture MIPS32 expansion evidence, a reusable `OpenRecompRuntime` Unreal plugin and a bounded UE5.8 Windows x64 Development packaged-build validation without changing IR V1 or Native AOT ABI V1.
+Post-v0.2.0 development is tracked separately from the immutable release notes. Current development adds bounded multi-fixture MIPS32 expansion evidence, a reusable `OpenRecompRuntime` Unreal plugin, a bounded UE5.8 Windows x64 Development packaged-build validation, and a one-command Linux external-reviewer reproducibility gate without changing IR V1 or Native AOT ABI V1.
 
 See [`docs/RELEASE_V0_2_0.md`](docs/RELEASE_V0_2_0.md) for the bounded v0.2.0 release notes and [`docs/RELEASE_CHECKLIST_V0_2_0.md`](docs/RELEASE_CHECKLIST_V0_2_0.md) for its publication/reproducibility gate.
 
@@ -29,6 +29,7 @@ See [`docs/RELEASE_V0_2_0.md`](docs/RELEASE_V0_2_0.md) for the bounded v0.2.0 re
 | AOT warning/fault/sanitizer hardening | **PASS** — GCC/Clang bounded corpus |
 | Native AOT ABI V1 | **FROZEN-FOR-PORTABILITY-TESTING** |
 | Native AOT ABI Linux + Windows x64 | **PASS** — GCC/Clang/MSVC/clang-cl bounded fixtures |
+| External Reproducibility V1 | **PASS** — clean Linux reviewer path; deterministic bounded semantic evidence |
 | Unreal Native AOT host core | **PASS** — reproducible Windows four-way compiler/module CI matrix |
 | UE5.8 Native AOT PIE runtime | **PASS — local runtime evidence** — synthetic RV32I module |
 | OpenRecompRuntime plugin V1 hosted gate | **PASS** — source/ABI contract, deterministic handoff, validated Windows module/host-core execution |
@@ -67,9 +68,9 @@ Native / WebAssembly / optional engine integration
 
 The strongest current generalization result is bounded but concrete: two materially different clean synthetic guest paths, RV32I and MIPS32, cross the same normalized IR, Module Image and Core API boundaries. The MIPS32 evidence now spans several independent little-endian semantic fixtures plus a bounded big-endian memory fixture. The same portable C backend reproduces their reference results after native compilation.
 
-## Reproducible proof entry point
+## Reproducible proof entry points
 
-From a fresh clone, run:
+For the focused hardened E07 proof, run:
 
 ```bash
 ./RUN.sh
@@ -82,6 +83,22 @@ PASS: E07 V1.1 HARDENED END-TO-END
 ```
 
 The hardened proof includes malformed/adversarial ELF rejection, schema and host-contract checks, checked guest memory, native/WebAssembly parity, golden regression and reproducibility checks.
+
+For the broader bounded open-core reviewer path on Linux x86-64, start from a clean checkout and run one command:
+
+```bash
+bash EXTERNAL_REPRO_V1.sh
+```
+
+A successful run ends with:
+
+```text
+OPENRECOMP_EXTERNAL_REPRO_V1=PASS
+```
+
+and emits a deterministic semantic record at `evidence/external-repro-v1/RESULT.json` plus its SHA-256 record. Hosted CI runs the reviewer command twice and requires byte-identical semantic evidence. This gate covers the established RV32I path, bounded MIPS32 vertical/expansion paths, GCC/Clang Native AOT loading, public-safety validation and tracked-tree immutability; it does not claim Unreal execution, Windows parity, other hosts, arbitrary guest binaries or production compiler status.
+
+See [`docs/EXTERNAL_REPRO_V1.md`](docs/EXTERNAL_REPRO_V1.md).
 
 Additional CI gates cover IR V1, Core API V1, the original and expanded MIPS32 evidence, AOT translation/hardening, Native AOT ABI portability, Unreal plugin/packaged-build source and handoff validation, public safety and documentation.
 
@@ -209,6 +226,7 @@ The public-safety gate scans tracked material and is designed to fail closed, in
 - [`docs/AOT_HARDENING_V1.md`](docs/AOT_HARDENING_V1.md)
 - [`docs/NATIVE_AOT_ABI_V1.md`](docs/NATIVE_AOT_ABI_V1.md)
 - [`docs/AOT_WINDOWS_PORTABILITY_V1.md`](docs/AOT_WINDOWS_PORTABILITY_V1.md)
+- [`docs/EXTERNAL_REPRO_V1.md`](docs/EXTERNAL_REPRO_V1.md)
 - [`docs/UNREAL_NATIVE_AOT_HOST_V1.md`](docs/UNREAL_NATIVE_AOT_HOST_V1.md)
 - [`docs/UNREAL_PLUGIN_V1.md`](docs/UNREAL_PLUGIN_V1.md)
 - [`docs/UNREAL_PACKAGED_BUILD_V1.md`](docs/UNREAL_PACKAGED_BUILD_V1.md)
@@ -218,10 +236,3 @@ The public-safety gate scans tracked material and is designed to fail closed, in
 - [`docs/BUILDING.md`](docs/BUILDING.md)
 - [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md)
 - [`DEVELOPMENT_PROCESS.md`](DEVELOPMENT_PROCESS.md)
-- [`CONTRIBUTING.md`](CONTRIBUTING.md)
-- [`SECURITY.md`](SECURITY.md)
-- [`DEPENDENCIES.md`](DEPENDENCIES.md)
-
-## License
-
-OpenRecomp is distributed under the Apache License, Version 2.0. See [`LICENSE`](LICENSE).
