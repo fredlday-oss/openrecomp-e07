@@ -6,6 +6,8 @@ Significant project changes will be recorded here.
 
 ### Added
 
+- `OPENRECOMP_EXTERNAL_REPRO_V1`: one-command clean-checkout Linux x86-64 reviewer path (`bash EXTERNAL_REPRO_V1.sh`) covering the hardened E07 RV32I proof, normalized IR/Module/Core execution, GCC/Clang Native AOT equivalence, the bounded MIPS32 vertical slice, the five-fixture MIPS32 Expansion V1 matrix and the tracked-file public-safety gate.
+- Deterministic machine-readable External Repro V1 evidence (`RESULT.json` plus SHA-256) with hosted CI requiring a second complete invocation to reproduce the same semantic evidence byte-for-byte while leaving the tracked tree unchanged.
 - `OPENRECOMP_MIPS32_EXPANSION_V1`: five clean synthetic MIPS32 fixtures covering expanded logical/shift operations, byte/halfword memory semantics, signed branch forms, nested call/stack behavior, HI/LO multiply and bounded big-endian memory execution.
 - Independent reference, Core API and Native AOT equivalence gates for the expanded MIPS32 fixtures under Linux GCC/Clang and Windows x64 MSVC/clang-cl.
 - Seven fail-closed expansion tests covering unsupported division under frozen IR V1, malformed encodings/targets, misaligned source or halfword access and execution-limit exhaustion.
@@ -18,6 +20,7 @@ Significant project changes will be recorded here.
 
 ### Changed
 
+- External reviewer reproducibility is now an explicit bounded Linux open-core gate rather than an instruction assembled from separate CI workflows; Unreal execution, Windows parity, other host platforms, Shipping packaging, arbitrary guest binaries and production-compiler claims remain outside that gate.
 - The bounded MIPS32 evidence now includes a multi-fixture little/big-endian expansion while general MIPS32 frontend/ISA coverage remains `CANDIDATE`.
 - `div/divu` remain explicitly outside the expansion because normalized IR V1 has no division/remainder semantic operation; IR V1 and Native AOT ABI V1 remain unchanged.
 - Unreal integration now has a reusable plugin layer over frozen Native AOT ABI V1; its hosted source/module gates are reproducible in CI while UE5.8 build/PIE remains explicitly classified as local runtime evidence.
