@@ -43,8 +43,7 @@ echo "===== OPENRECOMP_EXTERNAL_REPRO_V1 ====="
 echo "SOURCE_HEAD=$SOURCE_HEAD"
 
 echo "[1/6] Hardened E07 fresh-run proof"
-chmod +x RUN.sh
-./RUN.sh | tee /tmp/openrecomp-external-repro-e07.log
+bash RUN.sh | tee /tmp/openrecomp-external-repro-e07.log
 grep -F "PASS: E07 V1.1 HARDENED END-TO-END" /tmp/openrecomp-external-repro-e07.log >/dev/null
 mkdir -p build/external-repro-v1 evidence/external-repro-v1
 cp evidence/E07_RESULT.json build/external-repro-v1/e07.result.json
@@ -231,6 +230,8 @@ git restore --source=HEAD --worktree -- evidence
 python3 tools/public_safety_scan.py | tee evidence/external-repro-v1/public-safety.txt
 grep -F "OPENRECOMP_PUBLIC_SAFETY=PASS" evidence/external-repro-v1/public-safety.txt >/dev/null
 if ! git diff --quiet -- || ! git diff --cached --quiet --; then
+  git diff --summary >&2 || true
+  git diff --name-status >&2 || true
   fail "reviewer gate modified tracked repository content"
 fi
 
