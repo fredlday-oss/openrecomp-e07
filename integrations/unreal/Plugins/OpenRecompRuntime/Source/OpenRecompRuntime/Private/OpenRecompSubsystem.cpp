@@ -1,5 +1,20 @@
 #include "OpenRecompSubsystem.h"
 
+#include "OpenRecompPackagedProofV1.h"
+
+#include "Misc/CommandLine.h"
+#include "Misc/Parse.h"
+
+void UOpenRecompSubsystem::Initialize(FSubsystemCollectionBase& Collection)
+{
+    Super::Initialize(Collection);
+
+    if (FParse::Param(FCommandLine::Get(), TEXT("OpenRecompPackagedProof")))
+    {
+        RunOpenRecompPackagedProofV1(*this);
+    }
+}
+
 void UOpenRecompSubsystem::Deinitialize()
 {
     NativeModule.ClearHostCallHandler();
