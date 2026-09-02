@@ -186,3 +186,18 @@ jobs:
             build/mips32-expansion-v1/*.json
             build/mips32-expansion-v1/*.txt
           if-no-files-found: error
+
+  required-context:
+    name: MIPS32 expansion V1
+    if: ${{ always() }}
+    needs:
+      - linux-reference-core-aot
+      - windows-native-aot
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require Linux and Windows expansion jobs
+        shell: bash
+        run: |
+          test "${{ needs.linux-reference-core-aot.result }}" = "success"
+          test "${{ needs.windows-native-aot.result }}" = "success"
+          echo "OPENRECOMP_MIPS32_EXPANSION_REQUIRED_CONTEXT=PASS"
