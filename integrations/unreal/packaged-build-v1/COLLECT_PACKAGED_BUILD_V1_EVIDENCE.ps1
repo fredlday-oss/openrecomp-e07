@@ -15,7 +15,7 @@ if (-not $Match.Success) {
 
 $Output = @(
     "OPENRECOMP_UNREAL_PACKAGED_BUILD_V1_RUNTIME_EVIDENCE",
-    "Evidence classification: PASS — local packaged runtime evidence",
+    "Evidence classification: PASS - local packaged runtime evidence",
     "Environment: Unreal Engine 5.8, Windows x64, Development packaged build",
     $Match.Value
 ) -join "`r`n"
@@ -35,5 +35,5 @@ foreach ($Token in $Forbidden) {
     }
 }
 
-$Output | Set-Content -Encoding utf8 $OutputFile
+$Output | Set-Content -Encoding ascii $OutputFile
 Write-Output "OPENRECOMP_UNREAL_PACKAGED_BUILD_V1_PUBLIC_SAFE_EVIDENCE=PASS"
