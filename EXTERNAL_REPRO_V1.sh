@@ -47,6 +47,7 @@ chmod +x RUN.sh
 ./RUN.sh | tee /tmp/openrecomp-external-repro-e07.log
 grep -F "PASS: E07 V1.1 HARDENED END-TO-END" /tmp/openrecomp-external-repro-e07.log >/dev/null
 mkdir -p build/external-repro-v1 evidence/external-repro-v1
+cp evidence/E07_RESULT.json build/external-repro-v1/e07.result.json
 
 # RUN.sh recreates evidence/, so record environment after it completes.
 {
@@ -223,14 +224,17 @@ for name in "${fixtures[@]}"; do
     | tee "evidence/external-repro-v1/${name}.txt"
 done
 
-echo "[5/6] Public-safety and tracked-tree integrity"
+echo "[5/6] Restore tracked evidence and run public safety"
+# RUN.sh intentionally recreates evidence/. Restore only tracked evidence from the reviewed commit;
+# untracked external-repro-v1 evidence remains in place for verification and upload.
+git restore --source=HEAD --worktree -- evidence
 python3 tools/public_safety_scan.py | tee evidence/external-repro-v1/public-safety.txt
 grep -F "OPENRECOMP_PUBLIC_SAFETY=PASS" evidence/external-repro-v1/public-safety.txt >/dev/null
 if ! git diff --quiet -- || ! git diff --cached --quiet --; then
   fail "reviewer gate modified tracked repository content"
 fi
 
-echo "[6/6] Deterministic machine-readable result"
+echo "[6/6] Write and verify deterministic machine-readable result"
 python3 tools/write_external_repro_v1_result.py
 python3 tools/verify_external_repro_v1.py
 
