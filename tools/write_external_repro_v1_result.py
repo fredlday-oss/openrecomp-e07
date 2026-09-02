@@ -39,7 +39,7 @@ def main() -> int:
     source_head = os.environ.get("OPENRECOMP_SOURCE_HEAD", "").strip()
     require(len(source_head) == 40 and all(c in "0123456789abcdef" for c in source_head), "OPENRECOMP_SOURCE_HEAD must be a lowercase 40-character commit SHA")
 
-    e07 = load(ROOT / "evidence" / "E07_RESULT.json")
+    e07 = load(BUILD / "e07.result.json")
     rv_core = load(BUILD / "rv32i.core.json")
     rv_gcc = load(BUILD / "rv32i.aot.gcc.json")
     rv_clang = load(BUILD / "rv32i.aot.clang.json")
