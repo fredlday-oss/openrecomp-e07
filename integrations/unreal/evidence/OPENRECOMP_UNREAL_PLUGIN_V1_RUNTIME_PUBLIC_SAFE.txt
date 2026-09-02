@@ -1,0 +1,20 @@
+OPENRECOMP_UNREAL_PLUGIN_V1_RUNTIME_EVIDENCE
+
+Evidence classification: PASS — local runtime evidence
+Environment: Unreal Engine 5.8, Windows x64
+PR: https://github.com/fredlday-oss/openrecomp-e07/pull/18
+Source head: 8bd9928f4eb01f471c7a33117634c729585a832e
+CI workflow run: 33564491900
+CI artifact ID: 9822584887
+CI outer artifact SHA-256: 7fd6433c2e0d5d05fb11602cce314f76d9d8e185a8264c85c6bd288985e8e191
+CI inner plugin handoff SHA-256: 24207a3dc84da29dff420f0ab1bfbed2d1205464f2c66631754957e1cce8e88e
+Returned runtime-result ZIP SHA-256: 1cace48a5ab5384cbbfeb47bee8ec8a0e263561c4dce57c881f0f8a68017650d
+
+OPENRECOMP_UNREAL_PLUGIN_V1_UE58_BUILD=PASS
+OPENRECOMP_UNREAL_PLUGIN_V1 PASS module=e07.rv32i.fixture-full.ir-v1 arch=riscv32-rv32i observed_state=48 checksum=122010428 operations=3866
+
+Verification notes:
+- returned plugin SHA-256 manifest exactly matched the CI runtime handoff manifest;
+- every file in the CI plugin handoff verified against that manifest;
+- public evidence contains only allow-listed OpenRecomp/build/provenance text and no raw Unreal startup/authentication log;
+- hosted GitHub Actions does not contain Unreal Engine, so the UE5.8 build/PIE result remains local runtime evidence rather than hosted-CI proof.
