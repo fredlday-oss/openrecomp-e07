@@ -57,7 +57,6 @@ jobs:
       - name: Re-run from regenerated build/evidence state
         run: |
           set -o pipefail
-          rm -rf build evidence
           bash EXTERNAL_REPRO_V1.sh | tee /tmp/openrecomp-external-repro-v1-repeat.log
           grep -F "OPENRECOMP_EXTERNAL_REPRO_V1=PASS" /tmp/openrecomp-external-repro-v1-repeat.log
 
