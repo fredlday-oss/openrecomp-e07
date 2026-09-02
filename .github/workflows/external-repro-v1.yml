@@ -37,7 +37,9 @@ jobs:
           python -m pip install jsonschema==4.26.0
 
       - name: Run one-command external reviewer gate
-        run: bash EXTERNAL_REPRO_V1.sh | tee /tmp/openrecomp-external-repro-v1.log
+        run: |
+          set -o pipefail
+          bash EXTERNAL_REPRO_V1.sh | tee /tmp/openrecomp-external-repro-v1.log
 
       - name: Require final PASS and clean tracked tree
         run: |
@@ -53,6 +55,7 @@ jobs:
 
       - name: Re-run from regenerated build/evidence state
         run: |
+          set -o pipefail
           rm -rf build evidence
           bash EXTERNAL_REPRO_V1.sh | tee /tmp/openrecomp-external-repro-v1-repeat.log
           grep -F "OPENRECOMP_EXTERNAL_REPRO_V1=PASS" /tmp/openrecomp-external-repro-v1-repeat.log
