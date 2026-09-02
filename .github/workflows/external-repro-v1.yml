@@ -1,0 +1,85 @@
+name: External reproducibility V1
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reviewer-path:
+    name: External reproducibility V1
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout clean source tree
+        uses: actions/checkout@v4
+        with:
+          clean: true
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install bounded reviewer dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang lld gcc
+          python -m pip install --upgrade pip
+          python -m pip install jsonschema==4.26.0
+
+      - name: Run one-command external reviewer gate
+        run: |
+          set -o pipefail
+          bash EXTERNAL_REPRO_V1.sh | tee /tmp/openrecomp-external-repro-v1.log
+
+      - name: Require final PASS and clean tracked tree
+        run: |
+          grep -F "OPENRECOMP_EXTERNAL_REPRO_V1=PASS" /tmp/openrecomp-external-repro-v1.log
+          python tools/verify_external_repro_v1.py
+          git diff --exit-code
+          git diff --cached --exit-code
+
+      - name: Save first deterministic result
+        run: |
+          cp evidence/external-repro-v1/RESULT.json /tmp/OPENRECOMP_EXTERNAL_REPRO_V1_RESULT_A.json
+          cp evidence/external-repro-v1/RESULT.sha256 /tmp/OPENRECOMP_EXTERNAL_REPRO_V1_RESULT_A.sha256
+
+      - name: Re-run from regenerated build/evidence state
+        run: |
+          set -o pipefail
+          bash EXTERNAL_REPRO_V1.sh | tee /tmp/openrecomp-external-repro-v1-repeat.log
+          grep -F "OPENRECOMP_EXTERNAL_REPRO_V1=PASS" /tmp/openrecomp-external-repro-v1-repeat.log
+
+      - name: Require deterministic semantic evidence
+        run: |
+          cmp /tmp/OPENRECOMP_EXTERNAL_REPRO_V1_RESULT_A.json evidence/external-repro-v1/RESULT.json
+          cmp /tmp/OPENRECOMP_EXTERNAL_REPRO_V1_RESULT_A.sha256 evidence/external-repro-v1/RESULT.sha256
+          python tools/verify_external_repro_v1.py
+          git diff --exit-code
+          git diff --cached --exit-code
+          echo "OPENRECOMP_EXTERNAL_REPRO_V1_DETERMINISTIC=PASS"
+          echo "OPENRECOMP_EXTERNAL_REPRO_V1_HOSTED_CI=PASS"
+
+      - name: Upload bounded reviewer evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: openrecomp-external-repro-v1
+          path: |
+            evidence/external-repro-v1/RESULT.json
+            evidence/external-repro-v1/RESULT.sha256
+            evidence/external-repro-v1/RESULT.md
+            evidence/external-repro-v1/ENVIRONMENT.txt
+            evidence/external-repro-v1/dual-arch-aot.txt
+            evidence/external-repro-v1/public-safety.txt
+            evidence/external-repro-v1/*.txt
+          if-no-files-found: error

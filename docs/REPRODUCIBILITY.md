@@ -154,6 +154,28 @@ MIPS32 vertical slice checksum=1950232098, v0=31, operations=100
 
 Expansion V1 extends the MIPS32 Windows execution evidence to all five added fixtures, including the bounded `mips32-be` memory workload. This is reproducible in hosted GitHub Actions.
 
+## External Reproducibility V1 — reproducible Linux reviewer PASS
+
+`OPENRECOMP_EXTERNAL_REPRO_V1` provides a single external-reviewer command over the established open-core evidence:
+
+```bash
+bash EXTERNAL_REPRO_V1.sh
+```
+
+The gate requires a clean tracked checkout, records the exact source commit, executes the hardened E07 proof, regenerates RV32I normalized IR/Module/Core and GCC/Clang Native AOT evidence, executes the bounded MIPS32 vertical slice and all five Expansion V1 fixtures through the independent reference/Core/AOT matrix, validates Native AOT ABI V1 loading, restores the reviewed tracked evidence tree after the legacy E07 runner recreates `evidence/`, runs the unchanged fail-closed public-safety scanner, and requires no tracked-tree mutation at completion.
+
+A successful run writes:
+
+```text
+evidence/external-repro-v1/RESULT.json
+evidence/external-repro-v1/RESULT.sha256
+evidence/external-repro-v1/RESULT.md
+```
+
+Hosted CI checks out the exact PR/source head, runs the complete reviewer command twice, and requires the two semantic `RESULT.json` records and their SHA-256 files to be byte-identical. Environment/compiler patch versions are recorded separately and are not treated as semantic evidence.
+
+This is classified as **PASS — reproducible Linux reviewer path**. It does not establish Windows execution, Unreal runtime behavior, macOS/non-x64 host parity, Shipping packaged parity, arbitrary guest-binary compatibility or production optimizing-compiler status. See [`EXTERNAL_REPRO_V1.md`](EXTERNAL_REPRO_V1.md).
+
 ## Unreal Native AOT evidence layers
 
 The Unreal integration deliberately separates what hosted CI can reproduce from what currently requires a local UE installation.
@@ -281,6 +303,7 @@ The scanner also has a regression test for the case where `git ls-files` referen
 - AOT warning/fault/sanitizer hardening: **PASS — bounded**
 - Native AOT ABI V1: **FROZEN-FOR-PORTABILITY-TESTING**
 - Linux + Windows x64 Native AOT ABI: **PASS — bounded**
+- External Reproducibility V1: **PASS — reproducible Linux reviewer path**
 - Unreal Native AOT host core: **PASS — reproducible Windows CI**
 - Unreal Native AOT UE5.8 PIE: **PASS — local runtime evidence**
 - OpenRecompRuntime Plugin V1 hosted gate: **PASS — reproducible Windows CI/source contract**

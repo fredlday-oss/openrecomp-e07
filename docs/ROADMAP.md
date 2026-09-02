@@ -2,7 +2,7 @@
 
 This is a forward-looking development roadmap. It is **not** a historical schedule and does not imply that external grant funding has been awarded.
 
-Some work was completed earlier than the original phase ordering. The current baseline already includes bounded RV32I validation, the original MIPS32 vertical slice, post-v0.2.0 MIPS32 Expansion V1 with five little/big-endian synthetic fixtures, IR V1/Core API V1, a hardened common portable-C AOT backend, Native AOT ABI V1, Linux/Windows x64 portability, a reproducible Windows Native AOT host-core matrix, a reusable code-only `OpenRecompRuntime` Unreal plugin, local UE5.8 runtime evidence for both the Native AOT host proof and Plugin V1 synthetic consumer, and a bounded UE5.8 Windows x64 Development packaged-build/runtime PASS outside Editor/PIE.
+Some work was completed earlier than the original phase ordering. The current baseline already includes bounded RV32I validation, the original MIPS32 vertical slice, post-v0.2.0 MIPS32 Expansion V1 with five little/big-endian synthetic fixtures, IR V1/Core API V1, a hardened common portable-C AOT backend, Native AOT ABI V1, Linux/Windows x64 portability, a one-command reproducible Linux external-reviewer path for the bounded open-core evidence, a reproducible Windows Native AOT host-core matrix, a reusable code-only `OpenRecompRuntime` Unreal plugin, local UE5.8 runtime evidence for both the Native AOT host proof and Plugin V1 synthetic consumer, and a bounded UE5.8 Windows x64 Development packaged-build/runtime PASS outside Editor/PIE.
 
 The roadmap below therefore describes **remaining hardening, generalization, reproducibility and packaging work**, not a claim that every listed area is still unimplemented. The reusable open core and optional host-integration track are separated further in [`FUNDING_SCOPE.md`](FUNDING_SCOPE.md).
 
@@ -13,7 +13,8 @@ The roadmap below therefore describes **remaining hardening, generalization, rep
 - maintain deterministic native/WebAssembly/Core/AOT equivalence for the existing clean fixtures;
 - expand negative/adversarial validation around parsing, memory, runtime faults, ABI negotiation and cross-OS byte integrity;
 - keep the public-safety gate fail-closed and regression-tested;
-- improve reproducibility instructions so external reviewers can rerun the open-core proof from a fresh clone.
+- maintain `OPENRECOMP_EXTERNAL_REPRO_V1` as the clean Linux one-command reviewer path, with deterministic semantic evidence and no tracked-tree mutation;
+- extend external-reviewer reproducibility to additional host platforms only through separate evidence gates rather than inferring parity from Linux.
 
 ## Phase 2 — Continue second-guest generalization
 
@@ -61,14 +62,14 @@ The current UE5.8 PIE and Development packaged-build evidence is intentionally d
 
 - publish architecture and integration walkthroughs;
 - package redistributable synthetic/homebrew examples;
-- document the reference-vs-AOT, Native-ABI and cross-OS validation workflow for third-party contributors;
+- maintain the one-command external-reviewer path and document the reference-vs-AOT, Native-ABI and cross-OS validation workflow for third-party contributors;
 - maintain explicit development-process and evidence-provenance documentation;
 - keep funding/milestone descriptions clear about completed work versus proposed work.
 
 ## Phase 6 — Next public milestone
 
 - close selected validation gaps after v0.2.0 without rewriting the published tag or release evidence;
-- improve CI and reproducibility;
+- improve CI and reproducibility beyond the current Linux external-reviewer baseline;
 - produce a later tagged public milestone only when its bounded evidence scope is stable;
 - publish an updated technical demonstration/evidence summary when useful;
 - avoid broadening PROVEN/PASS claims beyond the actual evidence matrix.
