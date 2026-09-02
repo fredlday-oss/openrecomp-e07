@@ -65,6 +65,10 @@ Migration must not delete the legacy check before branch protection has switched
 
 This ordering prevents a required-check deadlock and never creates a protection gap.
 
+### Phase 1 validation checkpoint
+
+On 2026-09-02, the protected-main ruleset entered the dual-check migration state with both `Release metadata` and `Release v0.2 metadata` required. This documentation-only checkpoint exists solely to exercise the protected PR path and prove both contexts before Phase 2 removes the legacy required context.
+
 ## Scope
 
 Release Automation V1 changes release metadata validation and CI orchestration only. It does not alter IR V1, Module Image V1, Core API semantics, guest frontends, Native AOT ABI V1, Unreal runtime behavior, or the published `v0.2.0` tag/release contents.
