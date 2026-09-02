@@ -57,8 +57,13 @@ jobs:
           assert addresses == list(range(0x1000, 0x1000 + 4 * len(records), 4))
           expected = b''.join(word.to_bytes(4, 'little') for _, word in records)
           actual = Path('build/mips32-elf-v1/logic-shift.text.bin').read_bytes()
-          assert actual == expected, (len(actual), len(expected), actual.hex(), expected.hex())
+          assert actual[:len(expected)] == expected, (actual[:len(expected)].hex(), expected.hex())
+          padding = actual[len(expected):]
+          assert len(padding) < 16, f'unexpected .text alignment padding length: {len(padding)}'
+          assert not any(padding), f'non-zero bytes outside declared semantic instruction image: {padding.hex()}'
           print(f'MIPS32_ELF_TEXT_BYTES={len(actual)}')
+          print(f'MIPS32_ELF_TEXT_SEMANTIC_BYTES={len(expected)}')
+          print(f'MIPS32_ELF_TEXT_ZERO_PADDING_BYTES={len(padding)}')
           print('OPENRECOMP_MIPS32_ELF_TEXT_INDEPENDENT=PASS')
           PY
 
