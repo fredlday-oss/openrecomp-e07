@@ -6,6 +6,8 @@ Significant project changes will be recorded here.
 
 ### Added
 
+- `OPENRECOMP_RELEASE_AUTOMATION_V1`: stable manifest-driven `Release metadata` CI context that validates `VERSION`, release tag/state/commit binding, changelog/release-note/checklist consistency, tracked release files and unresolved-placeholder policy without version-specific required-status names.
+- `docs/RELEASE_AUTOMATION_V1.md` documents candidate-to-published release sequencing and the no-gap migration from the legacy `Release v0.2 metadata` required check.
 - `OPENRECOMP_EXTERNAL_REPRO_V1`: one-command clean-checkout Linux x86-64 reviewer path (`bash EXTERNAL_REPRO_V1.sh`) covering the hardened E07 RV32I proof, normalized IR/Module/Core execution, GCC/Clang Native AOT equivalence, the bounded MIPS32 vertical slice, the five-fixture MIPS32 Expansion V1 matrix and the tracked-file public-safety gate.
 - Deterministic machine-readable External Repro V1 evidence (`RESULT.json` plus SHA-256) with hosted CI requiring a second complete invocation to reproduce the same semantic evidence byte-for-byte while leaving the tracked tree unchanged.
 - `OPENRECOMP_MIPS32_EXPANSION_V1`: five clean synthetic MIPS32 fixtures covering expanded logical/shift operations, byte/halfword memory semantics, signed branch forms, nested call/stack behavior, HI/LO multiply and bounded big-endian memory execution.
@@ -20,6 +22,7 @@ Significant project changes will be recorded here.
 
 ### Changed
 
+- Release validation now has a stable version-independent status context; the legacy `Release v0.2 metadata` gate remains temporarily in place until the protected-main ruleset is migrated and verified.
 - External reviewer reproducibility is now an explicit bounded Linux open-core gate rather than an instruction assembled from separate CI workflows; Unreal execution, Windows parity, other host platforms, Shipping packaging, arbitrary guest binaries and production-compiler claims remain outside that gate.
 - The bounded MIPS32 evidence now includes a multi-fixture little/big-endian expansion while general MIPS32 frontend/ISA coverage remains `CANDIDATE`.
 - `div/divu` remain explicitly outside the expansion because normalized IR V1 has no division/remainder semantic operation; IR V1 and Native AOT ABI V1 remain unchanged.

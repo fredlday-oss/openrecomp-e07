@@ -1,0 +1,40 @@
+name: Release metadata
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  release-metadata:
+    name: Release metadata
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout full release history
+        uses: actions/checkout@v4
+        with:
+          clean: true
+          fetch-depth: 0
+          fetch-tags: true
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify generic release metadata
+        run: python tools/verify_release_metadata.py
+
+      - name: Exercise candidate and published lifecycle
+        run: python tools/test_release_metadata.py
+
+      - name: Public safety
+        run: python tools/public_safety_scan.py
+
+      - name: Documentation links
+        run: python tools/check_markdown_links.py
