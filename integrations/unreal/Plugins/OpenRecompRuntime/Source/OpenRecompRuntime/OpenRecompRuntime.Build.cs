@@ -28,7 +28,7 @@ public class OpenRecompRuntime : ModuleRules
                 "openrecomp-e07-rv32i.dll");
             if (File.Exists(SyntheticModule))
             {
-                RuntimeDependencies.Add(SyntheticModule);
+                RuntimeDependencies.Add(SyntheticModule, StagedFileType.NonUFS);
             }
         }
     }
