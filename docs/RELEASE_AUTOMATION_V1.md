@@ -10,7 +10,7 @@ The permanent GitHub Actions job name is:
 Release metadata
 ```
 
-Future release versions update release data, not the required-status context. The legacy `Release v0.2 metadata` workflow remains present during migration so branch protection is never weakened or left waiting for a deleted check.
+Future release versions update release data, not the required-status context. The legacy `Release v0.2 metadata` workflow was retained throughout the no-gap migration so branch protection was never weakened or left waiting for a deleted check; it is removed only after the stable `Release metadata` context is verified as required on protected `main`.
 
 ## Release metadata contract
 
