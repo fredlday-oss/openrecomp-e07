@@ -1,0 +1,37 @@
+{
+  "architecture": "mips32-le",
+  "divrem_domain": "defined-mips32-operands-only",
+  "entry_address": 4096,
+  "expected": {
+    "checksum": 2168317302,
+    "delay_slots_executed": 1,
+    "memory_bytes_hex": "00000000",
+    "memory_word": 0,
+    "return_v0": 715827871,
+    "state": {
+      "gpr:r10": 4294967289,
+      "gpr:r11": 4294967294,
+      "gpr:r12": 4294967280,
+      "gpr:r13": 6,
+      "gpr:r14": 715827880,
+      "gpr:r15": 0,
+      "gpr:r2": 715827871,
+      "gpr:r29": 196608,
+      "gpr:r31": 0,
+      "gpr:r8": 4294967259,
+      "gpr:r9": 5,
+      "special:hi": 0,
+      "special:lo": 715827880
+    }
+  },
+  "fixture_id": "signed-unsigned-defined",
+  "fixture_version": "1.0.0",
+  "functions": [{"address": 4096, "id": "divrem_main"}],
+  "initial_state": {"gpr:r29": 196608, "gpr:r31": 0},
+  "max_operations": 20000,
+  "max_reference_steps": 2000,
+  "memory_size_bytes": 262144,
+  "observable_memory": {"address": 8192, "size_bytes": 4},
+  "observe_state_slot": "gpr:r2",
+  "profile": "divrem-v1"
+}
