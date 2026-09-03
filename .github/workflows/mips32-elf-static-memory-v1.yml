@@ -1,0 +1,132 @@
+name: MIPS32 ELF static memory V1
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  mips32-elf-static-memory-v1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install toolchains and Python dependency
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y binutils-mipsel-linux-gnu gcc clang
+          python -m pip install jsonschema
+
+      - name: Run legacy and static-memory ELF parser tests
+        run: |
+          python tools/test_mips32_elf_frontend_v1.py
+          python tools/test_mips32_elf_static_memory_frontend_v1.py
+
+      - name: Assemble and link real static-memory MIPS32 ELF
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/mips32-elf-static-memory-v1
+          root=build/mips32-elf-static-memory-v1/static-memory
+          mipsel-linux-gnu-as -32 -G0 examples/mips32-elf-static-memory-v1/static-memory.S -o "$root.o"
+          mipsel-linux-gnu-ld -m elf32ltsmip --build-id=none \
+            -T examples/mips32-elf-static-memory-v1/static-memory.ld "$root.o" -o "$root.elf"
+          mipsel-linux-gnu-readelf -h -S -s -r "$root.elf" | tee "$root.readelf.txt"
+          test "$(mipsel-linux-gnu-readelf -h "$root.elf" | awk -F: '/Machine:/{gsub(/^[ \t]+/,"",$2); print $2}')" = "MIPS R3000"
+          if mipsel-linux-gnu-readelf -S "$root.elf" | grep -Eq '\.(rel|rela)([^A-Za-z0-9_]|$)'; then
+            echo "unexpected relocation section" >&2
+            exit 2
+          fi
+
+      - name: Independently verify linked static bytes and section types
+        shell: bash
+        run: |
+          set -euo pipefail
+          root=build/mips32-elf-static-memory-v1/static-memory
+          mipsel-linux-gnu-objcopy -O binary --only-section=.rodata "$root.elf" "$root.rodata.bin"
+          mipsel-linux-gnu-objcopy -O binary --only-section=.data "$root.elf" "$root.data.bin"
+          python - <<'PY'
+          from pathlib import Path
+          ro = Path('build/mips32-elf-static-memory-v1/static-memory.rodata.bin').read_bytes()
+          data = Path('build/mips32-elf-static-memory-v1/static-memory.data.bin').read_bytes()
+          assert ro == bytes.fromhex('44332211'), ro.hex()
+          assert data == bytes.fromhex('04030201000000000000000000000000'), data.hex()
+          text = Path('build/mips32-elf-static-memory-v1/static-memory.readelf.txt').read_text()
+          assert '.bss' in text and 'NOBITS' in text
+          assert '00003010' in text
+          print('MIPS32_ELF_STATIC_RODATA=44332211')
+          print('MIPS32_ELF_STATIC_DATA=04030201000000000000000000000000')
+          print('MIPS32_ELF_STATIC_BSS_ADDRESS=0x3010')
+          print('MIPS32_ELF_STATIC_BSS=NOBITS')
+          print('OPENRECOMP_MIPS32_ELF_STATIC_MEMORY_INDEPENDENT=PASS')
+          PY
+
+      - name: Run static-memory frontend, reference, Core and native AOT matrix
+        shell: bash
+        run: |
+          set -euo pipefail
+          root=build/mips32-elf-static-memory-v1/static-memory
+          elf="$root.elf"
+          runtime=examples/mips32-elf-static-memory-v1/static-memory.json
+          contract=contracts/host_contract.json
+
+          python tools/mips32_elf_static_memory_frontend_v1.py "$elf" "$runtime" "$contract" \
+            "$root.a.ir.json" "$root.a.sidecar.json" "$root.a.frontend.json" "$root.a.elf.json"
+          python tools/mips32_elf_static_memory_frontend_v1.py "$elf" "$runtime" "$contract" \
+            "$root.b.ir.json" "$root.b.sidecar.json" "$root.b.frontend.json" "$root.b.elf.json"
+          cmp "$root.a.ir.json" "$root.b.ir.json"
+          cmp "$root.a.sidecar.json" "$root.b.sidecar.json"
+          cmp "$root.a.frontend.json" "$root.b.frontend.json"
+          cmp "$root.a.elf.json" "$root.b.elf.json"
+          python tools/validate_ir_v1.py "$root.a.ir.json"
+
+          python tools/run_mips32_elf_static_memory_reference_v1.py "$elf" "$runtime" "$root.reference.json"
+
+          python tools/package_ir_v1_module.py "$root.a.ir.json" "$root.a.sidecar.json" "$contract" "$root.a.module.json"
+          python tools/package_ir_v1_module.py "$root.a.ir.json" "$root.a.sidecar.json" "$contract" "$root.b.module.json"
+          cmp "$root.a.module.json" "$root.b.module.json"
+          python tools/validate_module_v1.py "$root.a.module.json" "$root.a.ir.json" "$contract"
+
+          python tools/run_mips32_expansion_core_v1.py \
+            "$root.a.module.json" "$root.a.ir.json" "$contract" "$runtime" "$root.core.json"
+
+          python tools/aot_c_backend_v1.py "$root.a.module.json" "$root.a.ir.json" "$contract" "$root.a.c"
+          python tools/aot_c_backend_v1.py "$root.a.module.json" "$root.a.ir.json" "$contract" "$root.b.c"
+          cmp "$root.a.c" "$root.b.c"
+
+          python tools/native_aot_abi_v1.py "$root.a.module.json" "$root.a.ir.json" "$contract" "$root.abi.a.c"
+          python tools/native_aot_abi_v1.py "$root.a.module.json" "$root.a.ir.json" "$contract" "$root.abi.b.c"
+          cmp "$root.abi.a.c" "$root.abi.b.c"
+
+          gcc -std=c11 -O2 -Wall -Wextra -Werror -fPIC -fvisibility=hidden -Iinclude -shared \
+            "$root.a.c" "$root.abi.a.c" -o "$root.gcc.so"
+          clang -std=c11 -O2 -Wall -Wextra -Werror -fPIC -fvisibility=hidden -Iinclude -shared \
+            "$root.a.c" "$root.abi.a.c" -o "$root.clang.so"
+
+          python tools/test_native_aot_abi_v1.py "$root.gcc.so" "$root.a.module.json" "$root.a.ir.json" "$contract"
+          python tools/test_native_aot_abi_v1.py "$root.clang.so" "$root.a.module.json" "$root.a.ir.json" "$contract"
+          python tools/run_aot_mips32_expansion_v1.py "$root.gcc.so" "$root.a.ir.json" "$runtime" "$root.aot.gcc.json"
+          python tools/run_aot_mips32_expansion_v1.py "$root.clang.so" "$root.a.ir.json" "$runtime" "$root.aot.clang.json"
+
+          python tools/check_mips32_elf_static_memory_v1.py \
+            "$runtime" "$root.a.frontend.json" "$root.a.elf.json" "$root.a.ir.json" "$root.a.module.json" \
+            "$root.reference.json" "$root.core.json" "$root.aot.gcc.json" "$root.aot.clang.json"
+
+          echo "OPENRECOMP_MIPS32_ELF_STATIC_MEMORY_V1=PASS"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: openrecomp-mips32-elf-static-memory-v1
+          path: |
+            build/mips32-elf-static-memory-v1/*.json
+            build/mips32-elf-static-memory-v1/*.txt
+            build/mips32-elf-static-memory-v1/*.elf
+            build/mips32-elf-static-memory-v1/*.bin
+          if-no-files-found: error

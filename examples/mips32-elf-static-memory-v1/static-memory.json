@@ -1,0 +1,66 @@
+{
+  "fixture_version": "1.0.0",
+  "profile": "expansion-v1",
+  "fixture_id": "elf-static-memory",
+  "architecture": "mips32-le",
+  "entry_address": 4096,
+  "functions": [
+    {"id": "static_memory_main", "address": 4096}
+  ],
+  "memory_size_bytes": 262144,
+  "initial_state": {
+    "gpr:r29": 196608,
+    "gpr:r31": 0
+  },
+  "observe_state_slot": "gpr:r2",
+  "observable_memory": {"address": 12288, "size_bytes": 20},
+  "static_memory_expected": {
+    ".rodata": {
+      "address": 8192,
+      "size_bytes": 4,
+      "initial_bytes_hex": "44332211",
+      "initial_sha256": "c832fbe8a69c8694f85d3f3d6bdace5b99c4c4153c4f5ca5e3d21e22eb218ce3",
+      "writable": false,
+      "zero_fill": false
+    },
+    ".data": {
+      "address": 12288,
+      "size_bytes": 16,
+      "initial_bytes_hex": "04030201000000000000000000000000",
+      "initial_sha256": "5b5c9a4d9b1bd5066f5d8fc49ca41b9cee360a3bfe4a4a511ec2ffddadc5e7ea",
+      "writable": true,
+      "zero_fill": false
+    },
+    ".bss": {
+      "address": 12304,
+      "size_bytes": 4,
+      "initial_bytes_hex": "00000000",
+      "initial_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+      "writable": true,
+      "zero_fill": true
+    }
+  },
+  "max_operations": 20000,
+  "max_reference_steps": 2000,
+  "expected": {
+    "return_v0": 304363080,
+    "memory_word": 103569389265746947230180162711723862685143807560,
+    "memory_bytes_hex": "4836241200000000000000000000000048362412",
+    "checksum": 1995233230,
+    "delay_slots_executed": 1,
+    "state": {
+      "gpr:r2": 304363080,
+      "gpr:r8": 8192,
+      "gpr:r9": 287454020,
+      "gpr:r10": 12288,
+      "gpr:r11": 16909060,
+      "gpr:r12": 304363080,
+      "gpr:r13": 12304,
+      "gpr:r14": 0,
+      "gpr:r29": 196608,
+      "gpr:r31": 0,
+      "special:hi": 0,
+      "special:lo": 0
+    }
+  }
+}
