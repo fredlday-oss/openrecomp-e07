@@ -2,13 +2,14 @@
 
 This is a forward-looking development roadmap. It is **not** a historical schedule and does not imply that external grant funding has been awarded.
 
-Some work was completed earlier than the original phase ordering. The current baseline already includes bounded RV32I validation, the original MIPS32 vertical slice, post-v0.2.0 MIPS32 Expansion V1 with five little/big-endian synthetic fixtures, IR V1/Core API V1, a hardened common portable-C AOT backend, Native AOT ABI V1, Linux/Windows x64 portability, a one-command reproducible Linux external-reviewer path for the bounded open-core evidence, a reproducible Windows Native AOT host-core matrix, a reusable code-only `OpenRecompRuntime` Unreal plugin, local UE5.8 runtime evidence for both the Native AOT host proof and Plugin V1 synthetic consumer, and a bounded UE5.8 Windows x64 Development packaged-build/runtime PASS outside Editor/PIE.
+Some work was completed earlier than the original phase ordering. The current baseline already includes bounded RV32I validation, the original MIPS32 vertical slice, post-v0.2.0 MIPS32 Expansion V1 with five little/big-endian synthetic fixtures, IR V1/Core API V1, the additive IR V1.1 `integer-divrem-v1` feature contract, a hardened common portable-C AOT backend, Native AOT ABI V1, Linux/Windows x64 portability, a one-command reproducible Linux external-reviewer path for the bounded open-core evidence, a reproducible Windows Native AOT host-core matrix, a reusable code-only `OpenRecompRuntime` Unreal plugin, local UE5.8 runtime evidence for both the Native AOT host proof and Plugin V1 synthetic consumer, and a bounded UE5.8 Windows x64 Development packaged-build/runtime PASS outside Editor/PIE.
 
 The roadmap below therefore describes **remaining hardening, generalization, reproducibility and packaging work**, not a claim that every listed area is still unimplemented. The reusable open core and optional host-integration track are separated further in [`FUNDING_SCOPE.md`](FUNDING_SCOPE.md).
 
 ## Phase 1 — Core contracts and reproducibility
 
-- continue hardening and documenting normalized IR V1, Module Image V1 and Core API V1;
+- continue hardening and documenting normalized IR V1, additive feature-gated IR revisions, Module Image V1 and Core API V1;
+- preserve frozen IR V1.0 behavior while extending later wire versions only through explicit `required_features` gates;
 - preserve Native AOT ABI V1 layout/semantics while it remains the stable host boundary;
 - maintain deterministic native/WebAssembly/Core/AOT equivalence for the existing clean fixtures;
 - expand negative/adversarial validation around parsing, memory, runtime faults, ABI negotiation and cross-OS byte integrity;
@@ -20,13 +21,19 @@ The roadmap below therefore describes **remaining hardening, generalization, rep
 
 MIPS32 Expansion V1 now provides a bounded multi-fixture PASS beyond the original little-endian vertical slice. It covers additional logic/shifts, byte/halfword memory semantics, signed branch forms and delay slots, bounded nested call/stack behavior, HI/LO multiply, and one big-endian memory fixture across independent reference/Core/AOT and Linux/Windows compiler paths.
 
+IR V1.1 now provides the supported additive `integer-divrem-v1` contract with deterministic architecture-neutral `udiv`, `urem`, `sdiv` and `srem` semantics. A separate bounded MIPS32 proof validates defined-domain `div/divu` lowering while deliberately excluding MIPS32 divide-by-zero and signed-overflow edge behavior from the guest claim.
+
 Remaining second-guest work includes:
 
+- expand MIPS32 `div/divu` coverage through the supported IR V1.1 feature using separately evidence-gated fixtures/frontends rather than mutating frozen Expansion V1;
 - add further MIPS32 ISA families only with independent fixture-backed semantics;
 - deepen bounded o32 ABI evidence beyond the current `$a0/$a1`, `$v0`, `$sp` and `$ra` call/stack fixture;
-- decide division/remainder at the architecture-neutral IR layer before supporting `div/divu`; frozen IR V1 currently has no such operation;
-- consider unaligned load/store families, additional control flow and memory behavior as separate evidence gates;
-- keep exceptions, coprocessors, floating point and privileged behavior outside supported claims until deliberately implemented and validated;
+- complete bounded real-ELF static-memory validation for `.rodata`, initialized `.data`, zero-filled `.bss` and guest loads/stores before broad compiler-produced ELF claims;
+- feed an unmodified, freely licensed compiler-produced MIPS32 ELF through the bounded loader/IR/Core/AOT path to expose real frontend gaps rather than designing only from synthetic fixtures;
+- treat indirect control-flow target recovery as an explicit workstream: statically prove bounded jump/call candidate sets or stop with evidence that the target set is unresolved; do not guess or silently widen the runtime contract;
+- define a first-class bounded indirect-call IR representation before claiming function-pointer, callback or vtable dispatch support; the existing bounded `indirect_jump` contract covers jump targets but direct-only `call` does not represent those calls today;
+- consider unaligned load/store families and additional memory behavior as separate evidence gates;
+- keep exceptions, coprocessors, floating point, atomics and privileged behavior outside supported claims until deliberately implemented and validated;
 - run every added fixture through the independent machine-code reference, Core API and common hardened AOT backend;
 - require expanded native modules to continue crossing Native AOT ABI V1 rather than adding architecture-specific host interfaces;
 - retain explicit CANDIDATE/PASS boundaries until each broader claim has equivalent execution evidence.
