@@ -24,8 +24,8 @@ def _sign16(value: int) -> int:
 
 
 def decode(address: int, word: int) -> dict:
-    if address < 0 or address & 3:
-        raise DecodeError(f"misaligned MIPS32 instruction address 0x{address:x}")
+    if address < 0 or address > 0xFFFFFFFF or address & 3:
+        raise DecodeError(f"misaligned or out-of-bounds MIPS32 instruction address 0x{address:x}")
     if word < 0 or word > 0xFFFFFFFF:
         raise DecodeError("MIPS32 word is outside 32-bit range")
 

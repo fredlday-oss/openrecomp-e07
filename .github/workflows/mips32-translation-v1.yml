@@ -1,0 +1,27 @@
+name: MIPS32 Translation V1 Gate
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Verify source integrity
+        run: python update_sums.py && git diff --exit-code SOURCE_SHA256SUMS.txt
+      
+      - name: Semantic Microtests
+        run: python tools/test_mips32_microtests_v1.py
+      
+      - name: MIPS32 Ingestion
+        run: python tools/test_mips32_frontend_v1.py
+        
+      - name: IR/Core Regressions
+        run: |
+          python tools/test_ir_v1.py
+          python tools/test_core_api_v1.py
+          
+      - name: RV32I Regressions
+        run: bash RUN.sh

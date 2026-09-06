@@ -117,37 +117,6 @@ def _lower_simple(out: list[dict], insn: dict) -> None:
         _write_reg(out, address, insn["rt"], {"value": result})
         return
 
-    if op == "ori":
-        lhs = _read_reg(out, address, insn["rs"], "rs")
-        result = _tmp(address, "ori")
-        out.append(
-            {
-                "op": "binop",
-                "result": result,
-                "result_type": "i32",
-                "kind": "or",
-                "lhs": lhs,
-                "rhs": {"const": insn["imm"], "type": "i32"},
-                "source_address": address,
-            }
-        )
-        _write_reg(out, address, insn["rt"], {"value": result})
-        return
-
-    if op == "lui":
-        result = _tmp(address, "lui")
-        out.append(
-            {
-                "op": "const",
-                "result": result,
-                "result_type": "i32",
-                "value": _u32(insn["imm"] << 16),
-                "source_address": address,
-            }
-        )
-        _write_reg(out, address, insn["rt"], {"value": result})
-        return
-
     if op == "addu":
         lhs = _read_reg(out, address, insn["rs"], "rs")
         rhs = _read_reg(out, address, insn["rt"], "rt")
@@ -166,81 +135,7 @@ def _lower_simple(out: list[dict], insn: dict) -> None:
         _write_reg(out, address, insn["rd"], {"value": result})
         return
 
-    if op in {"slt", "sltu"}:
-        lhs = _read_reg(out, address, insn["rs"], "rs")
-        rhs = _read_reg(out, address, insn["rt"], "rt")
-        flag = _tmp(address, "cmp")
-        out.append(
-            {
-                "op": "compare",
-                "result": flag,
-                "result_type": "i1",
-                "predicate": "slt" if op == "slt" else "ult",
-                "lhs": lhs,
-                "rhs": rhs,
-                "source_address": address,
-            }
-        )
-        widened = _tmp(address, "cmp_i32")
-        out.append(
-            {
-                "op": "cast",
-                "result": widened,
-                "result_type": "i32",
-                "kind": "zext",
-                "value": {"value": flag},
-                "source_address": address,
-            }
-        )
-        _write_reg(out, address, insn["rd"], {"value": widened})
-        return
-
-    if op in {"lw", "sw"}:
-        base = _read_reg(out, address, insn["rs"], "base")
-        effective = _tmp(address, "addr")
-        out.append(
-            {
-                "op": "binop",
-                "result": effective,
-                "result_type": "i32",
-                "kind": "add",
-                "lhs": base,
-                "rhs": {"const": _u32(insn["imm"]), "type": "i32"},
-                "source_address": address,
-            }
-        )
-        if op == "lw":
-            loaded = _tmp(address, "load")
-            out.append(
-                {
-                    "op": "load",
-                    "result": loaded,
-                    "result_type": "i32",
-                    "width_bits": 32,
-                    "signed": True,
-                    "address": {"value": effective},
-                    "alignment": 4,
-                    "misaligned_policy": "fault",
-                    "source_address": address,
-                }
-            )
-            _write_reg(out, address, insn["rt"], {"value": loaded})
-        else:
-            value = _read_reg(out, address, insn["rt"], "store_value")
-            out.append(
-                {
-                    "op": "store",
-                    "width_bits": 32,
-                    "address": {"value": effective},
-                    "value": value,
-                    "alignment": 4,
-                    "misaligned_policy": "fault",
-                    "source_address": address,
-                }
-            )
-        return
-
-    raise FrontendError(f"0x{address:x}: {op} cannot be lowered as a simple instruction")
+    raise FrontendError(f"0x{address:x}: {op} is not in the explicit V1 allowlist")
 
 
 def _function_ranges(meta: dict, words: dict[int, int]) -> list[tuple[dict, int]]:
@@ -294,7 +189,7 @@ def _collect_leaders(
             raise FrontendError(f"0x{address:x}: control transfer in delay slot is outside V1 slice")
         delay_slots.add(delay)
 
-        if insn["op"] in {"beq", "bne"}:
+        if insn["op"] == "beq":
             target = insn["target"]
             continuation = address + 8
             if not (start <= target < end) or target not in words:
@@ -302,18 +197,6 @@ def _collect_leaders(
             if not (start <= continuation < end) or continuation not in words:
                 raise FrontendError(f"0x{address:x}: branch continuation leaves function")
             leaders.update({target, continuation})
-        elif insn["op"] == "j":
-            target = insn["target"]
-            if not (start <= target < end) or target not in words:
-                raise FrontendError(f"0x{address:x}: jump target leaves function")
-            leaders.add(target)
-        elif insn["op"] == "jal":
-            if insn["target"] not in function_by_address:
-                raise FrontendError(f"0x{address:x}: jal target is not a declared function")
-            continuation = address + 8
-            if not (start <= continuation < end) or continuation not in words:
-                raise FrontendError(f"0x{address:x}: call continuation leaves function")
-            leaders.add(continuation)
         elif insn["op"] == "jr":
             if insn["rs"] != 31:
                 raise FrontendError(f"0x{address:x}: only jr $ra is supported in the V1 slice")
@@ -364,7 +247,7 @@ def _convert_function(
                 raise FrontendError(f"0x{address:x}: nested control transfer in delay slot")
             delay_count += 1
 
-            if insn["op"] in {"beq", "bne"}:
+            if insn["op"] == "beq":
                 lhs = _read_reg(instructions, address, insn["rs"], "branch_lhs")
                 rhs = _read_reg(instructions, address, insn["rt"], "branch_rhs")
                 condition = _tmp(address, "branch_cond")
@@ -373,7 +256,7 @@ def _convert_function(
                         "op": "compare",
                         "result": condition,
                         "result_type": "i1",
-                        "predicate": "eq" if insn["op"] == "beq" else "ne",
+                        "predicate": "eq",
                         "lhs": lhs,
                         "rhs": rhs,
                         "source_address": address,
@@ -385,37 +268,6 @@ def _convert_function(
                     "condition": {"value": condition},
                     "target_true": _block_id(insn["target"]),
                     "target_false": _block_id(address + 8),
-                    "source_address": address,
-                }
-
-            elif insn["op"] == "jal":
-                callee = function_by_address[insn["target"]]
-                _write_reg(
-                    instructions,
-                    address,
-                    31,
-                    {"const": _u32(address + 8), "type": "i32"},
-                )
-                _lower_simple(instructions, delay_insn)
-                instructions.append(
-                    {
-                        "op": "call",
-                        "callee": callee["id"],
-                        "args": [],
-                        "source_address": address,
-                    }
-                )
-                terminator = {
-                    "op": "jump",
-                    "target": _block_id(address + 8),
-                    "source_address": address,
-                }
-
-            elif insn["op"] == "j":
-                _lower_simple(instructions, delay_insn)
-                terminator = {
-                    "op": "jump",
-                    "target": _block_id(insn["target"]),
                     "source_address": address,
                 }
 

@@ -17,55 +17,66 @@ def main(argv):
     ir_path = argv[3]
     sidecar_path = argv[4]
 
-    contract = json.loads(Path(contract_path).read_text(encoding="utf-8"))
-    
-    # Ingest ELF
-    elf_meta = load_mips32_elf(elf_path)
-    
-    # Parse words from executable regions
-    words = {}
-    for region in elf_meta["regions"]:
-        region_bytes = bytes.fromhex(region["_bytes"])
-        vaddr = region["virtual_address"]
-        for i in range(0, len(region_bytes), 4):
-            if i + 4 <= len(region_bytes):
+    try:
+        contract = json.loads(Path(contract_path).read_text(encoding="utf-8"))
+        
+        # Ingest ELF
+        elf_meta = load_mips32_elf(elf_path)
+        
+        if elf_meta["entry_point"] & 3:
+            raise ValueError("Entry address is not 4-byte aligned")
+        
+        # Parse words from executable regions
+        words = {}
+        for region in elf_meta["regions"]:
+            region_bytes = bytes.fromhex(region["_bytes"])
+            vaddr = region["virtual_address"]
+            if vaddr & 3:
+                raise ValueError(f"Region virtual address 0x{vaddr:x} is not 4-byte aligned")
+            if len(region_bytes) % 4 != 0:
+                raise ValueError("Executable region has trailing partial instruction bytes")
+                
+            for i in range(0, len(region_bytes), 4):
                 word = struct.unpack_from('<I', region_bytes, i)[0]
                 words[vaddr + i] = word
 
-    # Construct frontend metadata
-    meta = {
-        "fixture_version": "1.0.0",
-        "architecture": "mips32-le",
-        "memory_size_bytes": contract["memory"]["size_bytes"],
-        "entry_address": elf_meta["entry_point"],
-        "initial_state": {},
-        "observe_state_slot": "gpr:r2",
-        "max_operations": 200000,
-        "functions": [{"id": "fixture_main", "address": elf_meta["entry_point"]}]
-    }
+        # Construct frontend metadata
+        meta = {
+            "fixture_version": "1.0.0",
+            "architecture": "mips32-le",
+            "memory_size_bytes": contract["memory"]["size_bytes"],
+            "entry_address": elf_meta["entry_point"],
+            "initial_state": {},
+            "observe_state_slot": "gpr:r2",
+            "max_operations": 200000,
+            "functions": [{"id": "fixture_main", "address": elf_meta["entry_point"]}]
+        }
 
-    # Convert to V1 IR
-    ir, sidecar, report = convert(meta, words, elf_meta["source_sha256"], contract)
+        # Convert to V1 IR
+        ir, sidecar, report = convert(meta, words, elf_meta["source_sha256"], contract)
 
-    Path(ir_path).write_text(json.dumps(ir, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    Path(sidecar_path).write_text(json.dumps(sidecar, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    
-    # Also save the report for TRANSLATION_TRACE
-    report_path = str(Path(sidecar_path).parent / "TRANSLATION_TRACE.md")
-    trace = ["# TRANSLATION TRACE\n"]
-    for func in ir["functions"]:
-        trace.append(f"## Function {func['id']}")
-        for block in func["blocks"]:
-            trace.append(f"\n### Block {block['id']}")
-            for insn in block["instructions"]:
-                trace.append(f"0x{insn.get('source_address', 0):08x}: {insn['op']}")
-            term = block["terminator"]
-            trace.append(f"0x{term.get('source_address', 0):08x}: {term['op']} (terminator)")
-            
-    Path(report_path).write_text("\n".join(trace) + "\n", encoding="utf-8")
+        Path(ir_path).write_text(json.dumps(ir, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        Path(sidecar_path).write_text(json.dumps(sidecar, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        
+        # Also save the report for TRANSLATION_TRACE
+        report_path = str(Path(sidecar_path).parent / "TRANSLATION_TRACE.md")
+        trace = ["# TRANSLATION TRACE\n"]
+        for func in ir["functions"]:
+            trace.append(f"## Function {func['id']}")
+            for block in func["blocks"]:
+                trace.append(f"\n### Block {block['id']}")
+                for insn in block["instructions"]:
+                    trace.append(f"0x{insn.get('source_address', 0):08x}: {insn['op']}")
+                term = block["terminator"]
+                trace.append(f"0x{term.get('source_address', 0):08x}: {term['op']} (terminator)")
+                
+        Path(report_path).write_text("\n".join(trace) + "\n", encoding="utf-8")
 
-    print("MIPS32_ELF_TRANSLATE=PASS")
-    return 0
+        print("MIPS32_ELF_TRANSLATE=PASS")
+        return 0
+    except Exception as e:
+        print(f"MIPS32_ELF_TRANSLATE=FAIL: {e}", file=sys.stderr)
+        return 2
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv))

@@ -1,0 +1,238 @@
+{
+  "entry_function": "fixture_main",
+  "functions": [
+    {
+      "blocks": [
+        {
+          "guest_address": 4096,
+          "id": "b_00001000",
+          "instructions": [
+            {
+              "kind": "add",
+              "lhs": {
+                "const": 0,
+                "type": "i32"
+              },
+              "op": "binop",
+              "result": "%m00001000_addiu",
+              "result_type": "i32",
+              "rhs": {
+                "const": 42,
+                "type": "i32"
+              },
+              "source_address": 4096
+            },
+            {
+              "op": "write_state",
+              "slot": "gpr:r2",
+              "source_address": 4096,
+              "value": {
+                "value": "%m00001000_addiu"
+              }
+            },
+            {
+              "kind": "add",
+              "lhs": {
+                "const": 0,
+                "type": "i32"
+              },
+              "op": "binop",
+              "result": "%m00001004_addiu",
+              "result_type": "i32",
+              "rhs": {
+                "const": 8,
+                "type": "i32"
+              },
+              "source_address": 4100
+            },
+            {
+              "op": "write_state",
+              "slot": "gpr:r3",
+              "source_address": 4100,
+              "value": {
+                "value": "%m00001004_addiu"
+              }
+            },
+            {
+              "op": "read_state",
+              "result": "%m00001008_rs",
+              "result_type": "i32",
+              "slot": "gpr:r2",
+              "source_address": 4104
+            },
+            {
+              "kind": "add",
+              "lhs": {
+                "value": "%m00001008_rs"
+              },
+              "op": "binop",
+              "result": "%m00001008_addiu",
+              "result_type": "i32",
+              "rhs": {
+                "const": 3,
+                "type": "i32"
+              },
+              "source_address": 4104
+            },
+            {
+              "op": "write_state",
+              "slot": "gpr:r2",
+              "source_address": 4104,
+              "value": {
+                "value": "%m00001008_addiu"
+              }
+            }
+          ],
+          "terminator": {
+            "op": "return",
+            "source_address": 4108
+          }
+        }
+      ],
+      "guest_address": 4096,
+      "id": "fixture_main",
+      "params": [],
+      "return_type": null
+    }
+  ],
+  "host_contract_version": "0.1.1",
+  "ir_version": "1.0.0",
+  "module_id": "openrecomp.mips32.synthetic.vertical-slice-v1",
+  "required_features": [
+    "core-v1"
+  ],
+  "required_host_symbols": [],
+  "source": {
+    "adapter": "openrecomp.mips32-v1-slice",
+    "address_bits": 32,
+    "architecture": "mips32-le",
+    "endianness": "little",
+    "input_sha256": "1f891bfaa810892ed36785d83e8b7c7c7313bfd24e4c09f97d6f3f14e4424100"
+  },
+  "state_slots": [
+    {
+      "id": "gpr:r1",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r2",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r3",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r4",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r5",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r6",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r7",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r8",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r9",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r10",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r11",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r12",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r13",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r14",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r15",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r16",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r17",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r18",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r19",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r20",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r21",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r22",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r23",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r24",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r25",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r26",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r27",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r28",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r29",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r30",
+      "type": "i32"
+    },
+    {
+      "id": "gpr:r31",
+      "type": "i32"
+    }
+  ]
+}
