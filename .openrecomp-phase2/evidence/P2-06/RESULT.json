@@ -1,0 +1,94 @@
+{
+  "stage": "P2-06",
+  "title": "OPENRECOMP_P2_06_INDIRECT_CONTROL_FLOW_CLASSIFICATION_V1",
+  "verdict": "PASS",
+  "stage_marker": "OPENRECOMP_P2_06=PASS",
+  "gate_marker": "OPENRECOMP_INDIRECT_CONTROL_FLOW_V1=PASS tests=134",
+  "starting_commit": "ce9cd4fc3aa87cbe9009c39abd52c5de083080e1",
+  "starting_boundary": "ce9cd4f phase2: complete P2-05 translation units",
+  "branch": "phase2/opencode-v1",
+  "phase1_tag": "openrecomp-phase1-pass",
+  "phase1_tag_commit": "46c2f971e1a42cf49bd936bad94697b81bf31002",
+  "p2_06_gate": {
+    "command": "python tools/test_indirect_control_flow_v1.py",
+    "tests": 134,
+    "result": "PASS"
+  },
+  "upstream_regressions": {
+    "P2-05_translation_units": {"marker": "OPENRECOMP_TRANSLATION_UNITS_V1=PASS tests=104", "tests": 104, "result": "PASS"},
+    "P2-04_call_graph": {"marker": "OPENRECOMP_CALL_GRAPH_V1=PASS tests=61", "tests": 61, "result": "PASS"},
+    "P2-03_function_discovery": {"marker": "OPENRECOMP_FUNCTION_DISCOVERY_V1=PASS tests=67", "tests": 67, "result": "PASS"},
+    "P2-02_cfg": {"marker": "OPENRECOMP_CFG_V1=PASS tests=82", "tests": 82, "result": "PASS"},
+    "P2-01_program_model": {"marker": "OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49", "tests": 49, "result": "PASS"}
+  },
+  "phase1_host_gates": {
+    "command": "python tools/phase1_host_gates_v1.py",
+    "pass": 44,
+    "fail": 0,
+    "skipped_toolchain_unavailable": 2,
+    "skipped_gates": ["e07-hardened-end-to-end", "external-repro-v1"],
+    "result": "PASS"
+  },
+  "source_integrity": {
+    "command": "python tools/phase1_host_gates_v1.py --only source-integrity",
+    "result": "PASS",
+    "manifest_entries": 116,
+    "note": "one additive entry: tools/test_indirect_control_flow_v1.py"
+  },
+  "classification_categories": [
+    "RESOLVED",
+    "BOUNDED_CANDIDATES",
+    "EXTERNAL_OR_RUNTIME_MEDIATED",
+    "RETURN_LIKE",
+    "UNRESOLVED_INDIRECT_CALL",
+    "UNRESOLVED_INDIRECT_JUMP",
+    "UNSUPPORTED_OR_MALFORMED"
+  ],
+  "proof_bases": [
+    "EXACT_CONSTANT_TARGET",
+    "EXACT_TARGET_SET",
+    "ADAPTER_EVIDENCE",
+    "BOUNDED_CANDIDATE_EVIDENCE",
+    "EXTERNAL_RUNTIME_EVIDENCE",
+    "STRUCTURAL_RETURN_EVIDENCE",
+    "NONE"
+  ],
+  "safety_properties": {
+    "no_guessed_targets": true,
+    "bounded_candidates_not_resolved": true,
+    "unresolved_sites_explicit": true,
+    "resolved_requires_proven_evidence": true,
+    "no_host_emission": true,
+    "no_ir_lowering": true,
+    "p2_07_not_started": true
+  },
+  "determinism": {
+    "run_count": 2,
+    "stdout_sha256": "866d290a59228e5bd01f5bc026d2a2b1ca5558e28e9165b2dea42e00464d72a2",
+    "byte_identical": true,
+    "roundtrip_byte_identity": true
+  },
+  "artifacts_sha256": {
+    "openrecomp/indirect_control_flow.py": "641f449a897dedf46ef3f98b5b5ccde49fa4c75eb039a1f0e7611e8946a52a21",
+    "tools/test_indirect_control_flow_v1.py": "c0e9a385f1759998dc8bd0c85e82fdbc45cbaedf6b861638f4bd3517cdf49b87",
+    "indirect_control_flow_tests.json": "d0a1b7df0c5b48761d93517173b10dcef93c7be9b361347fe50c0f1007bc14fc",
+    "indirect_control_flow_tests.txt": "6379eedfa36831dbd96cfe9fcb5abc7df54a078edadcc1f797e29a46181f6a32",
+    "host_gates.json": "91c9b9f6ac4c84a0ea9568ba56dc336a366d11e5f9fe9e1dbd96f3cacdee2888",
+    "host_gates.txt": "2c3453bbc1f495180577dc3db325264428482d05a0b118c39e38e785b746e7b5",
+    "source_integrity.txt": "a673224a29aab0c47e2c8d8d9a778e81828beb65cb6c6ae60d98837d78880693"
+  },
+  "changed_files": {
+    "added": [
+      "openrecomp/indirect_control_flow.py",
+      "tools/test_indirect_control_flow_v1.py",
+      ".openrecomp-phase2/evidence/P2-06/"
+    ],
+    "modified": [
+      "SOURCE_SHA256SUMS.txt",
+      ".openrecomp-phase2/STATE.md",
+      ".openrecomp-phase2/HANDOFF.md",
+      ".openrecomp-phase2/STAGE_QUEUE.md"
+    ]
+  },
+  "next_stage": "P2-07"
+}

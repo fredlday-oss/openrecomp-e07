@@ -1,0 +1,136 @@
+PASS: empty-unit-preserved
+PASS: empty-no-classifications
+PASS: empty-status-counts-zero
+PASS: call-one-site
+PASS: call-unresolved-status
+PASS: call-basis-none
+PASS: call-no-targets
+PASS: call-kind
+PASS: call-op
+PASS: call-provenance-structural
+PASS: call-provenance-p2-04
+PASS: call-provenance-p2-02
+PASS: jump-unresolved-status
+PASS: jump-provenance-structural
+PASS: jump-provenance-p2-02
+PASS: both-two-sites
+PASS: both-kinds
+PASS: both-statuses
+PASS: original-unresolved-site-preserved
+PASS: source-function-provenance
+PASS: source-block-provenance
+PASS: source-instruction-provenance
+PASS: entry-address-provenance
+PASS: p2-05-unmutated
+PASS: low-level-equivalent
+PASS: resolved-status
+PASS: resolved-targets
+PASS: resolved-target-function
+PASS: resolved-basis
+PASS: resolved-evidence-proven
+PASS: resolved-detail
+PASS: resolved-provenance-evidence
+PASS: resolved-preserves-unresolved-site
+PASS: exact-set-resolved
+PASS: exact-set-canonical-order
+PASS: exact-set-functions
+PASS: exact-set-evidence-count
+PASS: exact-nonfunction-target-recorded
+PASS: exact-nonfunction-no-fabricated-function
+PASS: bounded-status
+PASS: bounded-not-resolved
+PASS: bounded-canonical-order
+PASS: bounded-functions-subset
+PASS: bounded-basis
+PASS: bounded-candidate-evidence-allowed
+PASS: bounded-candidate-not-promoted
+PASS: external-status
+PASS: external-no-targets
+PASS: external-mechanism
+PASS: external-not-resolved
+PASS: return-like-status
+PASS: return-like-no-targets
+PASS: return-like-basis
+PASS: return-like-not-classified-without-proof
+PASS: metadata-address-not-used
+PASS: metadata-no-fabricated-function
+PASS: nearby-code-not-used
+PASS reject: evidence-resolved-candidate-evidence
+PASS reject: evidence-resolved-without-target
+PASS reject: evidence-constant-two-targets
+PASS reject: evidence-set-one-target
+PASS reject: evidence-resolved-none-basis
+PASS reject: evidence-external-with-targets
+PASS reject: evidence-external-without-mechanism
+PASS reject: evidence-bounded-without-target
+PASS reject: evidence-return-like-with-targets
+PASS reject: evidence-return-like-on-call
+PASS reject: evidence-positive-none-basis
+PASS reject: evidence-unresolved-status-rejected
+PASS reject: evidence-duplicate-targets
+PASS reject: evidence-negative-target
+PASS reject: evidence-bad-address
+PASS: classification-roundtrip
+PASS reject: classification-missing-provenance
+PASS reject: classification-missing-unresolved-site
+PASS reject: classification-unresolved-site-mismatch
+PASS reject: classification-contradictory-targets
+PASS reject: classification-unknown-status
+PASS reject: classification-unknown-basis
+PASS reject: classification-unknown-kind
+PASS reject: classification-document-no-provenance
+PASS reject: classification-document-no-site
+PASS reject: classification-unknown-evidence
+PASS reject: evidence-unknown-site
+PASS reject: evidence-kind-mismatch
+PASS reject: evidence-duplicate
+PASS reject: evidence-conflict
+PASS reject: non-unit-set-input
+PASS reject: empty-units
+PASS reject: non-translation-unit
+PASS reject: non-evidence
+PASS: unit-rejects-wrong-function
+PASS reject: set-duplicate-unit-id
+PASS reject: set-duplicate-function-id
+PASS reject: set-unowned-owned-block
+PASS reject: set-empty
+PASS reject: set-bad-unowned-type
+PASS: deterministic-serialization
+PASS: deterministic-fingerprint
+PASS: roundtrip-bytes
+PASS: roundtrip-fingerprint
+PASS: roundtrip-resolved
+PASS: roundtrip-targets
+PASS: multi-unit-order
+PASS: multi-order-input-independent
+PASS: classification-canonical-order
+PASS: status-counts
+PASS: wide-resolved-target
+PASS: wide-roundtrip
+PASS: wide-value-serialized
+PASS: very-wide-unresolved
+PASS: very-wide-roundtrip
+PASS: very-wide-resolved-target
+PASS: zero-address-unresolved
+PASS: zero-address-resolved
+PASS: zero-address-roundtrip
+PASS: unowned-preserved
+PASS: unowned-classified-units
+PASS: unowned-roundtrip
+PASS: nes-indirect-jump-unresolved
+PASS: nes-adapter-indirect-not-a-target
+PASS: nes-resolved-target
+PASS: no-host-or-ir-import:openrecomp.executor
+PASS: no-host-or-ir-import:openrecomp.runtime
+PASS: no-host-or-ir-import:openrecomp.module
+PASS: no-host-or-ir-import:validate_ir
+PASS: no-host-or-ir-import:make_ir
+PASS: no-host-or-ir-import:openrecomp.ir
+PASS: no-host-or-ir-import:codegen
+PASS: no-host-or-ir-import:emit_host
+PASS: no-lowering-api
+PASS: no-ir-or-host-keys
+PASS: classification-keeps-structural-provenance
+PASS: classification-kind-from-instruction-flow
+OPENRECOMP_INDIRECT_CONTROL_FLOW_V1_JSON=indirect_control_flow_tests.json
+OPENRECOMP_INDIRECT_CONTROL_FLOW_V1=PASS tests=134

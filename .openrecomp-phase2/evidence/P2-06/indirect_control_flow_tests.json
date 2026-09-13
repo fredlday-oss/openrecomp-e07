@@ -1,0 +1,554 @@
+{
+  "marker": "OPENRECOMP_INDIRECT_CONTROL_FLOW_V1=PASS tests=134",
+  "python": "3.11.9",
+  "results": [
+    {
+      "check": "both-kinds",
+      "status": "PASS"
+    },
+    {
+      "check": "both-statuses",
+      "status": "PASS"
+    },
+    {
+      "check": "both-two-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "bounded-basis",
+      "status": "PASS"
+    },
+    {
+      "check": "bounded-candidate-evidence-allowed",
+      "status": "PASS"
+    },
+    {
+      "check": "bounded-candidate-not-promoted",
+      "status": "PASS"
+    },
+    {
+      "check": "bounded-canonical-order",
+      "status": "PASS"
+    },
+    {
+      "check": "bounded-functions-subset",
+      "status": "PASS"
+    },
+    {
+      "check": "bounded-not-resolved",
+      "status": "PASS"
+    },
+    {
+      "check": "bounded-status",
+      "status": "PASS"
+    },
+    {
+      "check": "call-basis-none",
+      "status": "PASS"
+    },
+    {
+      "check": "call-kind",
+      "status": "PASS"
+    },
+    {
+      "check": "call-no-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "call-one-site",
+      "status": "PASS"
+    },
+    {
+      "check": "call-op",
+      "status": "PASS"
+    },
+    {
+      "check": "call-provenance-p2-02",
+      "status": "PASS"
+    },
+    {
+      "check": "call-provenance-p2-04",
+      "status": "PASS"
+    },
+    {
+      "check": "call-provenance-structural",
+      "status": "PASS"
+    },
+    {
+      "check": "call-unresolved-status",
+      "status": "PASS"
+    },
+    {
+      "check": "classification-canonical-order",
+      "status": "PASS"
+    },
+    {
+      "check": "classification-keeps-structural-provenance",
+      "status": "PASS"
+    },
+    {
+      "check": "classification-kind-from-instruction-flow",
+      "status": "PASS"
+    },
+    {
+      "check": "classification-roundtrip",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-serialization",
+      "status": "PASS"
+    },
+    {
+      "check": "empty-no-classifications",
+      "status": "PASS"
+    },
+    {
+      "check": "empty-status-counts-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "empty-unit-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "entry-address-provenance",
+      "status": "PASS"
+    },
+    {
+      "check": "exact-nonfunction-no-fabricated-function",
+      "status": "PASS"
+    },
+    {
+      "check": "exact-nonfunction-target-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "exact-set-canonical-order",
+      "status": "PASS"
+    },
+    {
+      "check": "exact-set-evidence-count",
+      "status": "PASS"
+    },
+    {
+      "check": "exact-set-functions",
+      "status": "PASS"
+    },
+    {
+      "check": "exact-set-resolved",
+      "status": "PASS"
+    },
+    {
+      "check": "external-mechanism",
+      "status": "PASS"
+    },
+    {
+      "check": "external-no-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "external-not-resolved",
+      "status": "PASS"
+    },
+    {
+      "check": "external-status",
+      "status": "PASS"
+    },
+    {
+      "check": "jump-provenance-p2-02",
+      "status": "PASS"
+    },
+    {
+      "check": "jump-provenance-structural",
+      "status": "PASS"
+    },
+    {
+      "check": "jump-unresolved-status",
+      "status": "PASS"
+    },
+    {
+      "check": "low-level-equivalent",
+      "status": "PASS"
+    },
+    {
+      "check": "metadata-address-not-used",
+      "status": "PASS"
+    },
+    {
+      "check": "metadata-no-fabricated-function",
+      "status": "PASS"
+    },
+    {
+      "check": "multi-order-input-independent",
+      "status": "PASS"
+    },
+    {
+      "check": "multi-unit-order",
+      "status": "PASS"
+    },
+    {
+      "check": "nearby-code-not-used",
+      "status": "PASS"
+    },
+    {
+      "check": "nes-adapter-indirect-not-a-target",
+      "status": "PASS"
+    },
+    {
+      "check": "nes-indirect-jump-unresolved",
+      "status": "PASS"
+    },
+    {
+      "check": "nes-resolved-target",
+      "status": "PASS"
+    },
+    {
+      "check": "no-host-or-ir-import:codegen",
+      "status": "PASS"
+    },
+    {
+      "check": "no-host-or-ir-import:emit_host",
+      "status": "PASS"
+    },
+    {
+      "check": "no-host-or-ir-import:make_ir",
+      "status": "PASS"
+    },
+    {
+      "check": "no-host-or-ir-import:openrecomp.executor",
+      "status": "PASS"
+    },
+    {
+      "check": "no-host-or-ir-import:openrecomp.ir",
+      "status": "PASS"
+    },
+    {
+      "check": "no-host-or-ir-import:openrecomp.module",
+      "status": "PASS"
+    },
+    {
+      "check": "no-host-or-ir-import:openrecomp.runtime",
+      "status": "PASS"
+    },
+    {
+      "check": "no-host-or-ir-import:validate_ir",
+      "status": "PASS"
+    },
+    {
+      "check": "no-ir-or-host-keys",
+      "status": "PASS"
+    },
+    {
+      "check": "no-lowering-api",
+      "status": "PASS"
+    },
+    {
+      "check": "original-unresolved-site-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-05-unmutated",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:classification-contradictory-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:classification-document-no-provenance",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:classification-document-no-site",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:classification-missing-provenance",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:classification-missing-unresolved-site",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:classification-unknown-basis",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:classification-unknown-evidence",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:classification-unknown-kind",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:classification-unknown-status",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:classification-unresolved-site-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:empty-units",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-bad-address",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-bounded-without-target",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-conflict",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-constant-two-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-duplicate",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-duplicate-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-external-with-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-external-without-mechanism",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-kind-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-negative-target",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-positive-none-basis",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-resolved-candidate-evidence",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-resolved-none-basis",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-resolved-without-target",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-return-like-on-call",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-return-like-with-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-set-one-target",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-unknown-site",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-unresolved-status-rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:non-evidence",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:non-translation-unit",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:non-unit-set-input",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:set-bad-unowned-type",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:set-duplicate-function-id",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:set-duplicate-unit-id",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:set-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:set-unowned-owned-block",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-basis",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-detail",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-evidence-proven",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-preserves-unresolved-site",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-provenance-evidence",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-status",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-target-function",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "return-like-basis",
+      "status": "PASS"
+    },
+    {
+      "check": "return-like-no-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "return-like-not-classified-without-proof",
+      "status": "PASS"
+    },
+    {
+      "check": "return-like-status",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip-resolved",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "source-block-provenance",
+      "status": "PASS"
+    },
+    {
+      "check": "source-function-provenance",
+      "status": "PASS"
+    },
+    {
+      "check": "source-instruction-provenance",
+      "status": "PASS"
+    },
+    {
+      "check": "status-counts",
+      "status": "PASS"
+    },
+    {
+      "check": "unit-rejects-wrong-function",
+      "status": "PASS"
+    },
+    {
+      "check": "unowned-classified-units",
+      "status": "PASS"
+    },
+    {
+      "check": "unowned-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "unowned-roundtrip",
+      "status": "PASS"
+    },
+    {
+      "check": "very-wide-resolved-target",
+      "status": "PASS"
+    },
+    {
+      "check": "very-wide-roundtrip",
+      "status": "PASS"
+    },
+    {
+      "check": "very-wide-unresolved",
+      "status": "PASS"
+    },
+    {
+      "check": "wide-resolved-target",
+      "status": "PASS"
+    },
+    {
+      "check": "wide-roundtrip",
+      "status": "PASS"
+    },
+    {
+      "check": "wide-value-serialized",
+      "status": "PASS"
+    },
+    {
+      "check": "zero-address-resolved",
+      "status": "PASS"
+    },
+    {
+      "check": "zero-address-roundtrip",
+      "status": "PASS"
+    },
+    {
+      "check": "zero-address-unresolved",
+      "status": "PASS"
+    }
+  ],
+  "sample_fingerprints": {
+    "bounded": "fe567217c41e6112454821b6b8e0f13b9f38c0efde8d82421d0e1a6192528bb0",
+    "call_resolved": "9e018113072bf61395d483fd66dec334d34acd5998bd188a622d0d63208c2245",
+    "call_unresolved": "d5c8f97a19795a5ac4a1630475cc69a0c7c749659b6da546ddc9b2647a9292cf",
+    "external": "e9e56f6f78bad651a8420be957d5142eacfc39324a0217611b11386b9cc97c73",
+    "multi": "fa45bf9ba70ce04970e00c36d6d0aa5c029b3ef5a7f0defd6322375c36e3d72a",
+    "nes6502": "7b84687dde2cf916391ae90e479d108f6d609a87b49af8b62a5f90fc21e81d50",
+    "return_like": "1749dac79519c857642f87dcd47d48696312a26063147064458a73e4316ebcaf",
+    "unowned": "cc03faa41228a071b85fdbc6672198bcb1f35d8d754748663674765337f4d41a"
+  },
+  "stage": "P2-06",
+  "tests": 134
+}

@@ -1,0 +1,58 @@
+P2-06 indirect-control-flow classification determinism evidence
+==============================================================
+
+Environment
+-----------
+python 3.11.9 (win32)
+branch: phase2/opencode-v1
+HEAD at stage start: ce9cd4fc3aa87cbe9009c39abd52c5de083080e1
+text evidence encoding: UTF-8 without BOM
+
+Repeated-run byte identity (P2-06 gate)
+---------------------------------------
+command (run twice, stdout captured verbatim):
+  python tools/test_indirect_control_flow_v1.py
+
+run 1 stdout sha256: 866d290a59228e5bd01f5bc026d2a2b1ca5558e28e9165b2dea42e00464d72a2
+run 2 stdout sha256: 866d290a59228e5bd01f5bc026d2a2b1ca5558e28e9165b2dea42e00464d72a2
+byte-identical: yes
+
+In-process assertions (tools/test_indirect_control_flow_v1.py)
+--------------------------------------------------------------
+deterministic-serialization: PASS
+deterministic-fingerprint: PASS
+multi-order-input-independent: PASS
+classification-canonical-order: PASS
+roundtrip-bytes: PASS
+roundtrip-fingerprint: PASS
+roundtrip-resolved: PASS
+roundtrip-targets: PASS
+wide-roundtrip: PASS
+very-wide-roundtrip: PASS
+zero-address-roundtrip: PASS
+unowned-roundtrip: PASS
+classification-roundtrip: PASS
+
+IndirectControlFlowSet serialization fingerprints (canonical JSON, SHA-256)
+--------------------------------------------------------------------------
+call_unresolved  d5c8f97a19795a5ac4a1630475cc69a0c7c749659b6da546ddc9b2647a9292cf
+call_resolved    9e018113072bf61395d483fd66dec334d34acd5998bd188a622d0d63208c2245
+bounded          fe567217c41e6112454821b6b8e0f13b9f38c0efde8d82421d0e1a6192528bb0
+external         e9e56f6f78bad651a8420be957d5142eacfc39324a0217611b11386b9cc97c73
+return_like      1749dac79519c857642f87dcd47d48696312a26063147064458a73e4316ebcaf
+multi            fa45bf9ba70ce04970e00c36d6d0aa5c029b3ef5a7f0defd6322375c36e3d72a
+nes6502          7b84687dde2cf916391ae90e479d108f6d609a87b49af8b62a5f90fc21e81d50
+unowned          cc03faa41228a071b85fdbc6672198bcb1f35d8d754748663674765337f4d41a
+
+Each fingerprint is stable across runs and identical after
+serialize()/deserialize() round-tripping.
+
+Evidence artifacts (sha256)
+---------------------------
+openrecomp/indirect_control_flow.py        641f449a897dedf46ef3f98b5b5ccde49fa4c75eb039a1f0e7611e8946a52a21
+tools/test_indirect_control_flow_v1.py     c0e9a385f1759998dc8bd0c85e82fdbc45cbaedf6b861638f4bd3517cdf49b87
+indirect_control_flow_tests.json           d0a1b7df0c5b48761d93517173b10dcef93c7be9b361347fe50c0f1007bc14fc
+indirect_control_flow_tests.txt            6379eedfa36831dbd96cfe9fcb5abc7df54a078edadcc1f797e29a46181f6a32
+host_gates.json                            91c9b9f6ac4c84a0ea9568ba56dc336a366d11e5f9fe9e1dbd96f3cacdee2888
+host_gates.txt                             2c3453bbc1f495180577dc3db325264428482d05a0b118c39e38e785b746e7b5
+source_integrity.txt                       a673224a29aab0c47e2c8d8d9a778e81828beb65cb6c6ae60d98837d78880693

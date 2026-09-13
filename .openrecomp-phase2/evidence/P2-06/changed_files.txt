@@ -1,0 +1,44 @@
+P2-06 changed-file inventory
+============================
+
+Stage start HEAD: ce9cd4fc3aa87cbe9009c39abd52c5de083080e1
+Branch:           phase2/opencode-v1
+Phase-1 tag:      openrecomp-phase1-pass -> 46c2f971e1a42cf49bd936bad94697b81bf31002 (unchanged)
+
+Added (untracked)
+-----------------
+openrecomp/indirect_control_flow.py       P2-06 primary implementation.
+tools/test_indirect_control_flow_v1.py    P2-06 deterministic gate (131 checks).
+.openrecomp-phase2/evidence/P2-06/        This evidence bundle.
+
+Modified (tracked)
+------------------
+SOURCE_SHA256SUMS.txt                     +1 entry (115 -> 116). Only the new
+                                          tools/test_indirect_control_flow_v1.py
+                                          line added; no existing hash changed.
+.openrecomp-phase2/STATE.md               P2-06 PASS; CURRENT_STAGE=P2-07.
+.openrecomp-phase2/HANDOFF.md             P2-06 handoff/next-action update.
+.openrecomp-phase2/STAGE_QUEUE.md         Queue status: P2-06 COMPLETE, P2-07 NEXT.
+
+Pre-existing uncommitted control-plane changes
+----------------------------------------------
+At stage start the working tree already carried the P2-05/P2-06 queue
+reconciliation edits to STATE.md, HANDOFF.md and STAGE_QUEUE.md (control-plane
+only; commit ce9cd4f was the P2-05 boundary). Those edits are preserved and were
+extended by this stage's STATE/HANDOFF/STAGE_QUEUE updates.
+
+Not modified
+------------
+No P2-00..P2-05 implementation source was modified (openrecomp/program_model.py,
+openrecomp/cfg.py, openrecomp/functions.py, openrecomp/call_graph.py,
+openrecomp/translation_units.py are byte-identical to their committed state).
+No P2-00..P2-05 evidence file was modified or regenerated.
+No host code is emitted and no IR lowering was introduced.
+No prior test was weakened, skipped or deleted.
+No commit was created.
+
+Untouched pre-existing untracked residue (not deleted, not cleaned)
+-------------------------------------------------------------------
+.openrecomp-phase2/backups/
+artifacts/mips32_translation_v1/
+artifacts/mips32_translation_evidence_closure_v1/
