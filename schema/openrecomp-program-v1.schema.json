@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openrecomp.dev/schema/openrecomp-program-v1.schema.json",
+  "title": "OpenRecomp Shared Program Model V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["program_model_version", "source", "entry", "functions"],
+  "properties": {
+    "program_model_version": {"const": "1.0.0"},
+    "source": {"$ref": "#/$defs/source"},
+    "entry": {"$ref": "#/$defs/entry"},
+    "functions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/function"}
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z_%.][A-Za-z0-9_%.:-]*$"
+    },
+    "address": {"type": "integer", "minimum": 0},
+    "evidence": {"enum": ["PROVEN", "CANDIDATE"]},
+    "flow": {
+      "enum": ["NORMAL", "BRANCH", "JUMP", "CALL", "RETURN", "INDIRECT_JUMP", "INDIRECT_CALL", "TRAP"]
+    },
+    "edge_kind": {
+      "enum": ["FALLTHROUGH", "BRANCH_TAKEN", "BRANCH_NOT_TAKEN", "JUMP", "CALL_RETURN", "RETURN", "INDIRECT", "TRAP"]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["architecture"],
+      "properties": {
+        "architecture": {"type": "string", "minLength": 1},
+        "adapter": {"type": ["string", "null"]},
+        "address_width_bits": {"type": ["integer", "null"], "minimum": 1},
+        "endianness": {"enum": ["little", "big", null]},
+        "input_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["function", "address"],
+      "properties": {
+        "function": {"$ref": "#/$defs/id"},
+        "address": {"$ref": "#/$defs/address"}
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "instruction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["address", "op", "size_bytes", "flow", "direct_target", "unresolved", "evidence", "metadata"],
+      "properties": {
+        "address": {"$ref": "#/$defs/address"},
+        "op": {"type": "string", "minLength": 1},
+        "size_bytes": {"type": ["integer", "null"], "minimum": 1},
+        "flow": {"$ref": "#/$defs/flow"},
+        "direct_target": {"type": ["integer", "null"], "minimum": 0},
+        "unresolved": {"type": "boolean"},
+        "evidence": {"$ref": "#/$defs/evidence"},
+        "metadata": {"$ref": "#/$defs/metadata"}
+      }
+    },
+    "successor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "target_block", "target_address", "resolved", "evidence", "detail"],
+      "properties": {
+        "kind": {"$ref": "#/$defs/edge_kind"},
+        "target_block": {"type": ["string", "null"]},
+        "target_address": {"type": ["integer", "null"], "minimum": 0},
+        "resolved": {"type": "boolean"},
+        "evidence": {"$ref": "#/$defs/evidence"},
+        "detail": {"type": ["string", "null"]}
+      }
+    },
+    "block": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "entry_address", "evidence", "instructions", "successors"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "entry_address": {"$ref": "#/$defs/address"},
+        "evidence": {"$ref": "#/$defs/evidence"},
+        "instructions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/instruction"}
+        },
+        "successors": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/successor"}
+        }
+      }
+    },
+    "unresolved_site": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["block", "address", "op", "reason", "evidence"],
+      "properties": {
+        "block": {"$ref": "#/$defs/id"},
+        "address": {"$ref": "#/$defs/address"},
+        "op": {"type": "string", "minLength": 1},
+        "reason": {"type": "string", "minLength": 1},
+        "evidence": {"$ref": "#/$defs/evidence"}
+      }
+    },
+    "function": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "entry_address", "evidence", "direct_callees", "unresolved_call_sites", "blocks"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "entry_address": {"$ref": "#/$defs/address"},
+        "evidence": {"$ref": "#/$defs/evidence"},
+        "direct_callees": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/id"},
+          "uniqueItems": true
+        },
+        "unresolved_call_sites": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/unresolved_site"}
+        },
+        "blocks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/block"}
+        }
+      }
+    }
+  }
+}

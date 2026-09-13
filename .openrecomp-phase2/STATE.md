@@ -3,8 +3,8 @@
 PHASE=2
 BASELINE_TAG=openrecomp-phase1-pass
 BASELINE_COMMIT=46c2f97
-CURRENT_STAGE=P2-01
-LAST_PASSED_STAGE=P2-00
+CURRENT_STAGE=P2-02
+LAST_PASSED_STAGE=P2-01
 STATUS=READY
 FINAL_VERDICT=NOT_YET_EVALUATED
 
@@ -13,43 +13,56 @@ FINAL_VERDICT=NOT_YET_EVALUATED
 | ID | Stage | Status | Evidence |
 | --- | --- | --- | --- |
 | P2-00 | Baseline + control plane | `PASS` | `.openrecomp-phase2/evidence/P2-00/RESULT.md` |
+| P2-01 | Shared program model V1 | `PASS` | `.openrecomp-phase2/evidence/P2-01/RESULT.md` |
 
-## P2-00 result (PASS)
+## P2-01 result (PASS)
 
-- Phase-1 tag `openrecomp-phase1-pass` (annotated object `8dbbd79…`, commit
-  `46c2f971e1a42cf49bd936bad94697b81bf31002`) verified; `HEAD` equals the freeze
-  and `git merge-base --is-ancestor 46c2f97 HEAD` is satisfied.
-- No Phase-1 semantic source changed. Only `SOURCE_SHA256SUMS.txt` was repaired
-  (5 stale/line-ending-inconsistent hashes regenerated via `update_sums.py`;
-  109 entries before and after). `AGENTS.md` is the installer's Phase-2 control block.
-- Full host gate suite on this fresh Phase-2 worktree: `44 PASS / 0 FAIL / 2
-  SKIPPED` (`OPENRECOMP_PHASE1_HOST_GATES_V1=PASS`), matching the Phase-1 record.
-  Skipped: `e07-hardened-end-to-end`, `external-repro-v1` (missing `clang`/`gcc`/POSIX).
-- Baseline defect found and repaired: the frozen `SOURCE_SHA256SUMS.txt` did not
-  match the committed files (CRLF-origin hashes for 3 files; never-committed working
-  bytes for 2). See `evidence/P2-00/RESULT.md`.
-- Reusable components and P2-01 coupling blockers inventoried in
-  `evidence/P2-00/RESULT.md`.
+- Added `openrecomp/program_model.py`: the architecture-neutral
+  `DecodedInstruction -> BasicBlock -> FunctionUnit -> ProgramModel` structure with
+  `EvidenceClass` (PROVEN/CANDIDATE), direct-vs-unresolved control flow, arbitrary-
+  precision addresses, optional per-instruction width, graph validation and
+  canonical deterministic serialization (`program_model_version = 1.0.0`).
+- Added `schema/openrecomp-program-v1.schema.json`,
+  `tools/validate_program_model_v1.py` (schema + graph validator) and
+  `tools/test_program_model_v1.py` (`OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49`).
+- Evidence: 64-bit synthetic model and real NES 6502 (variable-length) model both
+  build/validate/serialize; 14 graph-consistency rejections + 5 constructor
+  rejections + undocumented-opcode fail-closed; PROVEN survives serialization;
+  two runs byte-identical.
+- `SOURCE_SHA256SUMS.txt` gained the two new tool entries (109 -> 111). No Phase-1
+  file changed; frozen IR V1 / Module Image V1 untouched.
+- Full Phase-1 host suite: `44 PASS / 0 FAIL / 2 SKIPPED`
+  (`OPENRECOMP_PHASE1_HOST_GATES_V1=PASS`).
 
 ## Next exact action
 
-Begin P2-01 — persistent program representation: add a new versioned
-architecture-neutral program/function/block/instruction schema with deterministic
-serialization, keeping frozen IR V1 / Module Image V1 unchanged. Preserve the
-`direct_call_graph` (direct calls only) vs unresolved-indirect separation and
-PROVEN vs CANDIDATE provenance. Do not modify Phase-1 semantic source.
+Begin P2-02 — deterministic basic-block recovery over the shared model: discover
+blocks from decoded instruction streams with explicit direct-control-flow leaders,
+record malformed/ambiguous cases as fail-closed rejections (never guessed), and
+validate the result through `openrecomp/program_model.py`. Do not implement
+function recovery (P2-03) or CFG recovery (P2-04) yet.
 
 ## Carried-forward findings
 
 - `update_sums.py` globs `schemas/*.json` while the directory is `schema/`, so
-  `schema/*.json` is not covered by `SOURCE_SHA256SUMS.txt` (pre-existing; deferred).
+  `schema/*.json` (including the new program schema) is still outside the integrity
+  manifest (pre-existing; deferred).
 - Toolchain-gated gates remain unexecutable on this host.
-- Future integration point: accept later PS2/R5900 evidence through the adapter/frontend
-  descriptor seam without duplicating or anticipating the other PC's unmerged work.
+- No Phase-2 gate harness yet aggregates stage markers; P2-01's gate is the
+  standalone deterministic test.
+- Future integration point: accept later PS2/R5900 evidence through the
+  adapter/frontend descriptor seam without duplicating or anticipating the other
+  PC's unmerged work. The model is parameterized by source/adapter metadata rather
+  than 32-bit-only or MIPS-classic assumptions.
 
 ## Git status (short)
 
-- Modified: `AGENTS.md` (installer), `SOURCE_SHA256SUMS.txt` (P2-00 repair).
-- Untracked: `.openrecomp-phase2/`, plus generated `artifacts/mips32_translation_v1/`
-  and `artifacts/mips32_translation_evidence_closure_v1/` from the MIPS32 gate run.
+- Modified: `SOURCE_SHA256SUMS.txt` (two additive tool entries).
+- Added (untracked): `openrecomp/program_model.py`,
+  `schema/openrecomp-program-v1.schema.json`,
+  `tools/validate_program_model_v1.py`, `tools/test_program_model_v1.py`,
+  `.openrecomp-phase2/evidence/P2-01/`.
+- Untouched untracked residue: `.openrecomp-phase2/backups/`,
+  `artifacts/mips32_translation_v1/`,
+  `artifacts/mips32_translation_evidence_closure_v1/`.
 - No commit created.
