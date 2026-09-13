@@ -1,0 +1,47 @@
+Work autonomously and do not wait for confirmation between evidence-supported steps inside the active stage.
+
+PROJECT
+D:\OpenRecomp\openrecomp-e07
+
+PHASE
+OPENRECOMP_PHASE2_OPENCODE_V1
+
+FROZEN PHASE-1 BOUNDARY
+commit 46c2f97
+tag openrecomp-phase1-pass
+verdict OPENRECOMP_PHASE1_MULTIARCH_PROOF=PASS
+
+READ FIRST
+.openrecomp-phase2/CONTROL_POLICY.md
+.openrecomp-phase2/SCOPE.md
+.openrecomp-phase2/STAGE_QUEUE.md
+.openrecomp-phase2/STATE.md
+.openrecomp-phase2/HANDOFF.md
+.openrecomp-phase2/EVIDENCE_SCHEMA.md
+
+ACTIVE STAGE
+P2-00 — Phase-2 baseline + control plane
+
+OBJECTIVE
+Establish the Phase-2 baseline without changing guest semantics.
+
+REQUIRED WORK
+1. Verify the frozen Phase-1 tag and commit.
+2. Verify the current branch descends from or equals that boundary.
+3. Inventory reusable MIPS32 frontend/translation, architecture-neutral IR, frontend contracts, host build pipeline, runtime/host-call support, deterministic evidence machinery, and NES6502 frontend/platform path.
+4. Identify what can be reused unchanged for P2-01.
+5. Identify architecture/platform coupling that would block a persistent architecture-neutral program representation.
+6. Do not implement P2-01 yet.
+7. Write `.openrecomp-phase2/evidence/P2-00/RESULT.md`.
+8. Update STATE.md and HANDOFF.md.
+9. Advance to P2-01 only if P2-00 passes.
+
+P2-00 PASS REQUIREMENTS
+- Phase-1 tag `openrecomp-phase1-pass` verified.
+- Commit `46c2f97` verified as the Phase-1 freeze.
+- No Phase-1 semantic source changed by P2-00.
+- Reusable components and blockers explicitly inventoried.
+- Evidence deterministic and repository-safe.
+
+SUCCESS MARKER
+OPENRECOMP_P2_00=PASS

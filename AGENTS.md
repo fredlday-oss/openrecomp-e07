@@ -35,3 +35,19 @@ When working on Phase 1, read these files before modifying code:
 12. Continue automatically between evidence-supported stages. Stop only for a real blocker, failed baseline that cannot safely be repaired, missing external evidence/asset, or a potentially destructive/irreversible action.
 13. Do not claim broad emulator/game compatibility from the Phase-1 proof. Use the exact completion definitions in `SCOPE.md`.
 <!-- OPENRECOMP_PHASE1_OPENCODE_END -->
+
+<!-- OPENRECOMP_PHASE2_OPENCODE_BEGIN -->
+## OpenRecomp Phase 2 end-to-end recompilation control
+
+Phase 2 starts from the frozen Phase-1 proof at tag openrecomp-phase1-pass.
+
+Before modifying Phase-2 code, read:
+
+- .openrecomp-phase2/CONTROL_POLICY.md
+- .openrecomp-phase2/SCOPE.md
+- .openrecomp-phase2/STAGE_QUEUE.md
+- .openrecomp-phase2/STATE.md
+- .openrecomp-phase2/HANDOFF.md
+
+Work sequentially, one evidence-bounded stage at a time. Preserve all Phase-1 functionality and fail closed on unsupported semantics. Do not commit proprietary ROM/game/BIOS/firmware/SDK material.
+<!-- OPENRECOMP_PHASE2_OPENCODE_END -->

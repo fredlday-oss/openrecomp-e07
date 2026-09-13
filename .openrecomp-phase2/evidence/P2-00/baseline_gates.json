@@ -1,0 +1,358 @@
+{
+  "counts": {
+    "fail": 1,
+    "pass": 1,
+    "skipped_toolchain_unavailable": 0
+  },
+  "gates": [
+    {
+      "detail": "integrity mismatch: tools/test_mips32_causality_v1.py; integrity mismatch: tools/mips32_frontend_v1.py; integrity mismatch: tools/mips32_oracle_v1.py; integrity mismatch: tools/test_mips32_equivalence_v1.py; integrity mismatch: tools/build_mips32_translation_fixture.py",
+      "gate_id": "source-integrity",
+      "returncode": 1,
+      "status": "FAIL"
+    },
+    {
+      "detail": "sha256=b973c3c52712937d59a15f2e50c405830be9882b5c457c05b1248b12405613ca",
+      "gate_id": "wasm-runner-intact",
+      "returncode": 0,
+      "status": "PASS"
+    }
+  ],
+  "inventory": [
+    {
+      "area": "normalized-ir-v1",
+      "gate_id": "ir-v1-spec",
+      "marker": "OPENRECOMP_IR_V1_SPEC=PASS",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "normalized-ir-v1",
+      "gate_id": "ir-v1-minimal-example",
+      "marker": "OPENRECOMP_IR_V1_VALID=PASS",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "core-api-v1",
+      "gate_id": "core-api-v1",
+      "marker": "OPENRECOMP_CORE_API_V1_TESTS=PASS",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "architecture-seam",
+      "gate_id": "adapter-seam",
+      "marker": "PASS: shared adapter interface is real",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "architecture-seam",
+      "gate_id": "frontend-contract-v1",
+      "marker": "OPENRECOMP_FRONTEND_CONTRACT_V1=PASS",
+      "note": "executable gate for contracts/frontend_contract_v1.json: adapter surface, lowering probes, neutral chain proofs",
+      "requires": []
+    },
+    {
+      "area": "architecture-seam",
+      "gate_id": "frontend-scaffold-v1",
+      "marker": "OPENRECOMP_FRONTEND_SCAFFOLD_V1=PASS",
+      "note": "fail-closed scaffolding (openrecomp/frontends/scaffold.py) plus deterministic synthetic Core API proof",
+      "requires": []
+    },
+    {
+      "area": "architecture-seam",
+      "gate_id": "arch-harness-mips32-v1",
+      "marker": "OPENRECOMP_ARCH_HARNESS_V1=PASS",
+      "note": "shared architecture harness: 35 pinned decode cases, 4 fail-closed rejections, full fixture chain",
+      "requires": []
+    },
+    {
+      "area": "architecture-seam",
+      "gate_id": "arch-harness-riscv32-v1",
+      "marker": "OPENRECOMP_ARCH_HARNESS_V1=PASS",
+      "note": "shared architecture harness: 10 pinned RV32I decode cases, 3 rejections, prebuilt IR V1 module chain",
+      "requires": []
+    },
+    {
+      "area": "sm83",
+      "gate_id": "sm83-state-v1",
+      "marker": "OPENRECOMP_SM83_STATE_V1=PASS",
+      "note": "P1-10: documented SM83 register/flag state model + fail-closed checks + neutral-chain AF composition proof",
+      "requires": []
+    },
+    {
+      "area": "sm83",
+      "gate_id": "sm83-decode-v1",
+      "marker": "OPENRECOMP_SM83_DECODE_V1=PASS",
+      "note": "P1-11: full SM83 base+CB decoder coverage, operand resolution, fail-closed undocumented/truncated handling",
+      "requires": []
+    },
+    {
+      "area": "sm83",
+      "gate_id": "sm83-semantics-v1",
+      "marker": "OPENRECOMP_SM83_SEMANTICS_V1=PASS",
+      "note": "P1-12: independent SM83 reference interpreter; documented flag/register/memory semantics pinned + full coverage",
+      "requires": []
+    },
+    {
+      "area": "sm83",
+      "gate_id": "sm83-lowering-v1",
+      "marker": "OPENRECOMP_SM83_LOWERING_V1=PASS",
+      "note": "P1-13: SM83 control flow + IR V1 lowering; differential proof reference == Core API (state + 64 KiB memory)",
+      "requires": []
+    },
+    {
+      "area": "gameboy",
+      "gate_id": "gb-rom-v1",
+      "marker": "OPENRECOMP_GB_ROM_V1=PASS",
+      "note": "P1-14: synthetic GB ROM header/classification/mapper contract; documented MBC1 rules; fail-closed ingestion",
+      "requires": []
+    },
+    {
+      "area": "gameboy",
+      "gate_id": "gb-headless-v1",
+      "marker": "OPENRECOMP_GB_HEADLESS_V1=PASS",
+      "note": "P1-15: deterministic headless proof ROM->map->reference==Core API; timer/joypad/interrupt/HALT contracts; local-ROM metadata",
+      "requires": []
+    },
+    {
+      "area": "gameboy",
+      "gate_id": "gb-mode-v1",
+      "marker": "OPENRECOMP_GB_MODE_V1=PASS",
+      "note": "P1-16: documented GB vs GBC platform-mode selection; KEY1/VBK/SVBK CGB-only surfaces; speed switch; double-speed timer rates",
+      "requires": []
+    },
+    {
+      "area": "sm83",
+      "gate_id": "sm83-gb-gbc-regression-v1",
+      "marker": "OPENRECOMP_SM83_GB_GBC_REGRESSION_V1=PASS",
+      "note": "P1-17: SM83/GB/GBC regression + differential audit; every chain gate run twice, byte-identical; frozen markers re-pinned",
+      "requires": []
+    },
+    {
+      "area": "z80",
+      "gate_id": "z80-state-v1",
+      "marker": "OPENRECOMP_Z80_STATE_V1=PASS",
+      "note": "P1-20: documented Z80 register/flag state model (shadow set, IX/IY, I/R, IFF/IM) + fail-closed checks",
+      "requires": []
+    },
+    {
+      "area": "z80",
+      "gate_id": "z80-decode-v1",
+      "marker": "OPENRECOMP_Z80_DECODE_V1=PASS",
+      "note": "P1-20: full documented Z80 decode: 256 base + 65 ED + 248 CB + DD/FD index + DDCB/FDCB; undocumented fail closed",
+      "requires": []
+    },
+    {
+      "area": "z80",
+      "gate_id": "z80-semantics-v1",
+      "marker": "OPENRECOMP_Z80_SEMANTICS_V1=PASS",
+      "note": "P1-21: independent Z80 reference interpreter; documented flag/register/memory/port semantics pinned + full coverage",
+      "requires": []
+    },
+    {
+      "area": "z80",
+      "gate_id": "z80-lowering-v1",
+      "marker": "OPENRECOMP_Z80_LOWERING_V1=PASS",
+      "note": "P1-21: Z80 control flow + IR V1 lowering; differential proof reference == Core API (state + 64 KiB memory + ports)",
+      "requires": []
+    },
+    {
+      "area": "master-system",
+      "gate_id": "sms-platform-v1",
+      "marker": "OPENRECOMP_SMS_PLATFORM_V1=PASS",
+      "note": "P1-22: SMS ROM ingestion + Sega mapper + memory map + VDP/PSG/controller port contract; synthetic ROMs, fail closed",
+      "requires": []
+    },
+    {
+      "area": "master-system",
+      "gate_id": "sms-headless-v1",
+      "marker": "OPENRECOMP_SMS_HEADLESS_V1=PASS",
+      "note": "P1-23: SMS deterministic headless proof; synthetic ROM runs reference == Core API (CPU state, RAM, mapper mirrors, flat ports); paging + VDP status pins",
+      "requires": []
+    },
+    {
+      "area": "z80",
+      "gate_id": "z80-sms-regression-v1",
+      "marker": "OPENRECOMP_Z80_SMS_REGRESSION_V1=PASS",
+      "note": "P1-24: Z80/SMS regression + differential audit; every chain gate run twice, byte-identical; frozen markers re-pinned",
+      "requires": []
+    },
+    {
+      "area": "nes6502",
+      "gate_id": "nes6502-state-v1",
+      "marker": "OPENRECOMP_NES6502_STATE_V1=PASS",
+      "note": "P1-30: documented NES 6502 register/flag state model + fail-closed checks + neutral-chain proof",
+      "requires": []
+    },
+    {
+      "area": "nes6502",
+      "gate_id": "nes6502-decode-v1",
+      "marker": "OPENRECOMP_NES6502_DECODE_V1=PASS",
+      "note": "P1-30: full documented NES 6502 opcode map (151 official opcode values; documented addressing modes) with fail-closed undocumented handling",
+      "requires": []
+    },
+    {
+      "area": "nes6502",
+      "gate_id": "nes6502-semantics-v1",
+      "marker": "OPENRECOMP_NES6502_SEMANTICS_V1=PASS",
+      "note": "P1-31: independent NES 6502 reference interpreter; documented flag/address-mode/interrupt/BRK-RTI semantics pinned + full coverage",
+      "requires": []
+    },
+    {
+      "area": "nes6502",
+      "gate_id": "nes6502-lowering-v1",
+      "marker": "OPENRECOMP_NES6502_LOWERING_V1=PASS",
+      "note": "P1-31: NES 6502 control flow + IR V1 lowering; differential proof reference == Core API (state + 64 KiB memory)",
+      "requires": []
+    },
+    {
+      "area": "nes",
+      "gate_id": "nes-rom-v1",
+      "marker": "OPENRECOMP_NES_ROM_V1=PASS",
+      "note": "P1-32: iNES/NES 2.0 header ingestion + NROM (mapper 0) contract; synthetic ROMs, unsupported mappers fail closed",
+      "requires": []
+    },
+    {
+      "area": "nes",
+      "gate_id": "nes-platform-v1",
+      "marker": "OPENRECOMP_NES_PLATFORM_V1=PASS",
+      "note": "P1-33: NES CPU bus + PPU register/memory contract + APU latch + standard controller protocol; fail closed",
+      "requires": []
+    },
+    {
+      "area": "nes",
+      "gate_id": "nes-headless-v1",
+      "marker": "OPENRECOMP_NES_HEADLESS_V1=PASS",
+      "note": "P1-34: NES deterministic headless proof; synthetic NROM reference == Core API (CPU state + 64 KiB); PPU/APU/controller/OAM-DMA protocol pinned",
+      "requires": []
+    },
+    {
+      "area": "nes",
+      "gate_id": "nes-regression-v1",
+      "marker": "OPENRECOMP_NES_REGRESSION_V1=PASS",
+      "note": "P1-35: 6502/NES regression + differential audit; every NES chain gate run twice, byte-identical; frozen markers re-pinned",
+      "requires": []
+    },
+    {
+      "area": "sm83",
+      "gate_id": "arch-harness-sm83-v1",
+      "marker": "OPENRECOMP_ARCH_HARNESS_V1=PASS",
+      "note": "shared architecture harness: 87 pinned SM83 decode cases, 13 fail-closed rejections (decode-only stage)",
+      "requires": []
+    },
+    {
+      "area": "mips32",
+      "gate_id": "mips32-frontend-v1",
+      "marker": "OPENRECOMP_MIPS32_FRONTEND_V1_TESTS=PASS",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "mips32",
+      "gate_id": "mips32-expansion-v1-negative",
+      "marker": "OPENRECOMP_MIPS32_EXPANSION_NEGATIVE_TESTS=PASS",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "mips32",
+      "gate_id": "mips32-microtests-v1",
+      "marker": "0 failed",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "mips32",
+      "gate_id": "mips32-causality-v1",
+      "marker": "CAUSALITY_PASS",
+      "note": "compiles generated C through the local default compiler",
+      "requires": [
+        "c_compiler"
+      ]
+    },
+    {
+      "area": "mips32",
+      "gate_id": "mips32-equivalence-v1",
+      "marker": "EQUIVALENCE_PASS",
+      "note": "compiles generated C through the local default compiler",
+      "requires": [
+        "c_compiler"
+      ]
+    },
+    {
+      "area": "safety",
+      "gate_id": "public-safety-scan",
+      "marker": "OPENRECOMP_PUBLIC_SAFETY=PASS",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "safety",
+      "gate_id": "public-safety-missing-file-test",
+      "marker": "OPENRECOMP_PUBLIC_SAFETY_MISSING_FILE_TEST=PASS",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "documentation",
+      "gate_id": "doc-links",
+      "marker": "OPENRECOMP_DOC_LINKS=PASS",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "release",
+      "gate_id": "release-metadata-tests",
+      "marker": "OPENRECOMP_RELEASE_AUTOMATION_V1_TESTS=PASS",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "release",
+      "gate_id": "release-v0_2_0-metadata",
+      "marker": "OPENRECOMP_V0_2_RELEASE_METADATA=PASS",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "rv32i-e07",
+      "gate_id": "e07-hardened-end-to-end",
+      "marker": "PASS: E07 V1.1 HARDENED END-TO-END",
+      "note": "hardened RV32I proof: ELF rejection, native + WebAssembly parity, golden regression",
+      "requires": [
+        "bash",
+        "clang",
+        "gcc",
+        "node"
+      ]
+    },
+    {
+      "area": "reviewer-gate",
+      "gate_id": "external-repro-v1",
+      "marker": "OPENRECOMP_EXTERNAL_REPRO_V1=PASS",
+      "note": "reference reviewer environment is Ubuntu 24.04; requires a clean tracked tree",
+      "requires": [
+        "bash",
+        "clang",
+        "gcc",
+        "node",
+        "posix"
+      ]
+    }
+  ],
+  "python": "3.14.6",
+  "schema_version": "1.0.0",
+  "toolchain": {
+    "bash": "available",
+    "c_compiler": "available",
+    "clang": null,
+    "cmp": null,
+    "gcc": null,
+    "node": "available",
+    "posix": null,
+    "sha256sum": null
+  }
+}
