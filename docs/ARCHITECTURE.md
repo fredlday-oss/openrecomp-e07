@@ -41,6 +41,8 @@ The normalized layer contains portable operations, explicit typed state, explici
 
 The IR schema was not expanded to add Windows, Unreal, compiler-specific behavior or MIPS-specific operations. MIPS32 Expansion V1 also leaves this contract unchanged; guest instructions are accepted only when their semantics can be expressed through the existing normalized operations.
 
+The executable boundary every guest architecture must satisfy before reaching normalized IR V1 is the frontend contract: [`FRONTEND_CONTRACT_V1.md`](FRONTEND_CONTRACT_V1.md). Its machine-readable form is [`contracts/frontend_contract_v1.json`](../contracts/frontend_contract_v1.json), enforced by `tools/check_frontend_contract_v1.py`.
+
 ## Module Image V1
 
 IR V1 describes normalized code semantics. Module Image V1 packages execution context separately:

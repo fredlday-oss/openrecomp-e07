@@ -1,0 +1,151 @@
+{
+  "adapter": {
+    "address_bits": 32,
+    "error_attribute": null,
+    "module": "adapters.riscv32"
+  },
+  "architecture": "riscv32-rv32i",
+  "chains": [
+    {
+      "host_bindings": {
+        "host_system": {
+          "kind": "sum_args"
+        }
+      },
+      "host_contract": "contracts/host_contract.json",
+      "ir": "examples/ir-v1/minimal.json",
+      "kind": "prebuilt-ir-module",
+      "observe_state_slot": "gpr:a0",
+      "published": {
+        "function_return": 22,
+        "observed_state": 22
+      }
+    }
+  ],
+  "decode_matrix": {
+    "negative": [
+      {
+        "address": 4096,
+        "word": 4294967295
+      },
+      {
+        "address": 4096,
+        "word": 8425651
+      },
+      {
+        "address": 4096,
+        "word": 8466563
+      }
+    ],
+    "positive": [
+      {
+        "address": 4096,
+        "fields": {
+          "imm": 5,
+          "rd": 10,
+          "rs1": 0
+        },
+        "op": "addi",
+        "word": 5244179
+      },
+      {
+        "address": 4096,
+        "fields": {
+          "imm": 305418240,
+          "rd": 5
+        },
+        "op": "lui",
+        "word": 305418935
+      },
+      {
+        "address": 4096,
+        "fields": {
+          "imm": 12,
+          "rd": 1,
+          "target": 4108
+        },
+        "op": "jal",
+        "word": 12583151
+      },
+      {
+        "address": 4096,
+        "fields": {
+          "imm": 4,
+          "rd": 4,
+          "rs1": 2,
+          "rs2": 10
+        },
+        "op": "sw",
+        "word": 10560035
+      },
+      {
+        "address": 0,
+        "fields": {
+          "imm": 4,
+          "rd": 4,
+          "rs1": 1,
+          "rs2": 2,
+          "target": 4
+        },
+        "op": "beq",
+        "word": 2130531
+      },
+      {
+        "address": 4096,
+        "fields": {
+          "imm": 8,
+          "rd": 1,
+          "rs1": 2,
+          "rs2": 8
+        },
+        "op": "lw",
+        "word": 8462467
+      },
+      {
+        "address": 4096,
+        "fields": {
+          "imm": 0,
+          "rd": 0,
+          "rs1": 1,
+          "rs2": 0
+        },
+        "op": "jalr",
+        "word": 32871
+      },
+      {
+        "address": 4096,
+        "fields": {
+          "imm": 8,
+          "rd": 1,
+          "rs1": 2,
+          "rs2": 8
+        },
+        "op": "lhu",
+        "word": 8474755
+      },
+      {
+        "address": 4096,
+        "fields": {
+          "imm": 255,
+          "rd": 10,
+          "rs1": 10
+        },
+        "op": "andi",
+        "word": 267744531
+      },
+      {
+        "address": 0,
+        "fields": {
+          "imm": 4,
+          "rd": 4,
+          "rs1": 1,
+          "rs2": 2,
+          "target": 4
+        },
+        "op": "bgeu",
+        "word": 2159203
+      }
+    ]
+  },
+  "schema_version": "1.0.0"
+}

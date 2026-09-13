@@ -1,0 +1,923 @@
+{
+  "adapter": {
+    "address_bits": 16,
+    "error_attribute": "SM83Error",
+    "module": "adapters.sm83"
+  },
+  "architecture": "sm83-gb",
+  "chains": [],
+  "decode_matrix": {
+    "negative": [
+      {
+        "address": 256,
+        "word": 211
+      },
+      {
+        "address": 256,
+        "word": 219
+      },
+      {
+        "address": 256,
+        "word": 221
+      },
+      {
+        "address": 256,
+        "word": 227
+      },
+      {
+        "address": 256,
+        "word": 228
+      },
+      {
+        "address": 256,
+        "word": 235
+      },
+      {
+        "address": 256,
+        "word": 236
+      },
+      {
+        "address": 256,
+        "word": 237
+      },
+      {
+        "address": 256,
+        "word": 244
+      },
+      {
+        "address": 256,
+        "word": 252
+      },
+      {
+        "address": 256,
+        "word": 253
+      },
+      {
+        "address": 256,
+        "word": 256
+      },
+      {
+        "address": 65536,
+        "word": 0
+      }
+    ],
+    "positive": [
+      {
+        "address": 256,
+        "fields": {
+          "length": 1
+        },
+        "op": "nop",
+        "word": 0
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1
+        },
+        "op": "rlca",
+        "word": 7
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1
+        },
+        "op": "rrca",
+        "word": 15
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1
+        },
+        "op": "rla",
+        "word": 23
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1
+        },
+        "op": "rra",
+        "word": 31
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1
+        },
+        "op": "daa",
+        "word": 39
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1
+        },
+        "op": "cpl",
+        "word": 47
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1
+        },
+        "op": "scf",
+        "word": 55
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1
+        },
+        "op": "ccf",
+        "word": 63
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1
+        },
+        "op": "halt",
+        "word": 118
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 2,
+          "operands": [
+            "padding"
+          ]
+        },
+        "op": "stop",
+        "word": 16
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1
+        },
+        "op": "di",
+        "word": 243
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1
+        },
+        "op": "ei",
+        "word": 251
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1
+        },
+        "op": "jp_hl",
+        "word": 233
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1
+        },
+        "op": "ld_sp_hl",
+        "word": 249
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1
+        },
+        "op": "cb-prefix",
+        "word": 203
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "bc",
+          "length": 3,
+          "operands": [
+            "imm16"
+          ]
+        },
+        "op": "ld",
+        "word": 1
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "de",
+          "length": 3,
+          "operands": [
+            "imm16"
+          ]
+        },
+        "op": "ld",
+        "word": 17
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "hl",
+          "length": 3,
+          "operands": [
+            "imm16"
+          ]
+        },
+        "op": "ld",
+        "word": 33
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "sp",
+          "length": 3,
+          "operands": [
+            "imm16"
+          ]
+        },
+        "op": "ld",
+        "word": 49
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "(a16)",
+          "length": 3,
+          "operands": [
+            "a16"
+          ],
+          "src": "sp"
+        },
+        "op": "ld",
+        "word": 8
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "(a16)",
+          "length": 3,
+          "operands": [
+            "a16"
+          ],
+          "src": "a"
+        },
+        "op": "ld",
+        "word": 234
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "a",
+          "length": 3,
+          "operands": [
+            "a16"
+          ],
+          "src": "(a16)"
+        },
+        "op": "ld",
+        "word": 250
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "(bc)",
+          "length": 1,
+          "src": "a"
+        },
+        "op": "ld",
+        "word": 2
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "a",
+          "length": 1,
+          "src": "(bc)"
+        },
+        "op": "ld",
+        "word": 10
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "(de)",
+          "length": 1,
+          "src": "a"
+        },
+        "op": "ld",
+        "word": 18
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "a",
+          "length": 1,
+          "src": "(de)"
+        },
+        "op": "ld",
+        "word": 26
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "(hl+)",
+          "length": 1,
+          "src": "a"
+        },
+        "op": "ld",
+        "word": 34
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "a",
+          "length": 1,
+          "src": "(hl+)"
+        },
+        "op": "ld",
+        "word": 42
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "(hl-)",
+          "length": 1,
+          "src": "a"
+        },
+        "op": "ld",
+        "word": 50
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "a",
+          "length": 1,
+          "src": "(hl-)"
+        },
+        "op": "ld",
+        "word": 58
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "b",
+          "length": 2,
+          "operands": [
+            "imm8"
+          ]
+        },
+        "op": "ld",
+        "word": 6
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "a",
+          "length": 2,
+          "operands": [
+            "imm8"
+          ]
+        },
+        "op": "ld",
+        "word": 62
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "(hl)",
+          "length": 2,
+          "operands": [
+            "imm8"
+          ]
+        },
+        "op": "ld",
+        "word": 54
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "b",
+          "length": 1,
+          "src": "b"
+        },
+        "op": "ld",
+        "word": 64
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "(hl)",
+          "length": 1,
+          "src": "d"
+        },
+        "op": "ld",
+        "word": 114
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dst": "a",
+          "length": 1,
+          "src": "a"
+        },
+        "op": "ld",
+        "word": 127
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "r": "b"
+        },
+        "op": "add",
+        "word": 128
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "r": "(hl)"
+        },
+        "op": "add",
+        "word": 134
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "r": "a"
+        },
+        "op": "adc",
+        "word": 143
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "r": "a"
+        },
+        "op": "cp",
+        "word": 191
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 2,
+          "operands": [
+            "imm8"
+          ]
+        },
+        "op": "add",
+        "word": 198
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 2,
+          "operands": [
+            "imm8"
+          ]
+        },
+        "op": "cp",
+        "word": 254
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "r": "bc"
+        },
+        "op": "inc",
+        "word": 3
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "r": "bc"
+        },
+        "op": "dec",
+        "word": 11
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "r": "sp"
+        },
+        "op": "inc",
+        "word": 51
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "r": "sp"
+        },
+        "op": "dec",
+        "word": 59
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "r": "b"
+        },
+        "op": "inc",
+        "word": 4
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "r": "c"
+        },
+        "op": "dec",
+        "word": 13
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "r": "(hl)"
+        },
+        "op": "inc",
+        "word": 52
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "r": "a"
+        },
+        "op": "inc",
+        "word": 60
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "pair": "bc"
+        },
+        "op": "add_hl",
+        "word": 9
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "pair": "de"
+        },
+        "op": "add_hl",
+        "word": 25
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "pair": "hl"
+        },
+        "op": "add_hl",
+        "word": 41
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "pair": "sp"
+        },
+        "op": "add_hl",
+        "word": 57
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 2,
+          "operands": [
+            "rel"
+          ]
+        },
+        "op": "jr",
+        "word": 24
+      },
+      {
+        "address": 256,
+        "fields": {
+          "cond": "nz",
+          "length": 2,
+          "operands": [
+            "rel"
+          ]
+        },
+        "op": "jr",
+        "word": 32
+      },
+      {
+        "address": 256,
+        "fields": {
+          "cond": "z",
+          "length": 2,
+          "operands": [
+            "rel"
+          ]
+        },
+        "op": "jr",
+        "word": 40
+      },
+      {
+        "address": 256,
+        "fields": {
+          "cond": "nc",
+          "length": 2,
+          "operands": [
+            "rel"
+          ]
+        },
+        "op": "jr",
+        "word": 48
+      },
+      {
+        "address": 256,
+        "fields": {
+          "cond": "c",
+          "length": 2,
+          "operands": [
+            "rel"
+          ]
+        },
+        "op": "jr",
+        "word": 56
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 3,
+          "operands": [
+            "a16"
+          ]
+        },
+        "op": "jp",
+        "word": 195
+      },
+      {
+        "address": 256,
+        "fields": {
+          "cond": "nz",
+          "length": 3,
+          "operands": [
+            "a16"
+          ]
+        },
+        "op": "jp",
+        "word": 194
+      },
+      {
+        "address": 256,
+        "fields": {
+          "cond": "c",
+          "length": 3,
+          "operands": [
+            "a16"
+          ]
+        },
+        "op": "jp",
+        "word": 218
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 3,
+          "operands": [
+            "a16"
+          ]
+        },
+        "op": "call",
+        "word": 205
+      },
+      {
+        "address": 256,
+        "fields": {
+          "cond": "nc",
+          "length": 3,
+          "operands": [
+            "a16"
+          ]
+        },
+        "op": "call",
+        "word": 212
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1
+        },
+        "op": "ret",
+        "word": 201
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1
+        },
+        "op": "reti",
+        "word": 217
+      },
+      {
+        "address": 256,
+        "fields": {
+          "cond": "nz",
+          "length": 1
+        },
+        "op": "ret",
+        "word": 192
+      },
+      {
+        "address": 256,
+        "fields": {
+          "cond": "c",
+          "length": 1
+        },
+        "op": "ret",
+        "word": 216
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "pair": "bc"
+        },
+        "op": "pop",
+        "word": 193
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "pair": "af"
+        },
+        "op": "pop",
+        "word": 241
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "pair": "bc"
+        },
+        "op": "push",
+        "word": 197
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "pair": "af"
+        },
+        "op": "push",
+        "word": 245
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dir": "store",
+          "length": 2,
+          "operands": [
+            "a8"
+          ]
+        },
+        "op": "ldh",
+        "word": 224
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dir": "load",
+          "length": 2,
+          "operands": [
+            "a8"
+          ]
+        },
+        "op": "ldh",
+        "word": 240
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dir": "store",
+          "length": 1,
+          "via": "c"
+        },
+        "op": "ldh",
+        "word": 226
+      },
+      {
+        "address": 256,
+        "fields": {
+          "dir": "load",
+          "length": 1,
+          "via": "c"
+        },
+        "op": "ldh",
+        "word": 242
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 2,
+          "operands": [
+            "rel"
+          ]
+        },
+        "op": "add_sp",
+        "word": 232
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 2,
+          "operands": [
+            "rel"
+          ]
+        },
+        "op": "ld_hl_sp",
+        "word": 248
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "vector": 0
+        },
+        "op": "rst",
+        "word": 199
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "vector": 8
+        },
+        "op": "rst",
+        "word": 207
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "vector": 16
+        },
+        "op": "rst",
+        "word": 215
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "vector": 24
+        },
+        "op": "rst",
+        "word": 223
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "vector": 32
+        },
+        "op": "rst",
+        "word": 231
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "vector": 40
+        },
+        "op": "rst",
+        "word": 239
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "vector": 48
+        },
+        "op": "rst",
+        "word": 247
+      },
+      {
+        "address": 256,
+        "fields": {
+          "length": 1,
+          "vector": 56
+        },
+        "op": "rst",
+        "word": 255
+      }
+    ]
+  },
+  "schema_version": "1.0.0"
+}

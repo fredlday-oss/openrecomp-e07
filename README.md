@@ -217,6 +217,7 @@ The public-safety gate scans tracked material and is designed to fail closed, in
 - [`docs/RELEASE_V0_2_0.md`](docs/RELEASE_V0_2_0.md)
 - [`docs/RELEASE_CHECKLIST_V0_2_0.md`](docs/RELEASE_CHECKLIST_V0_2_0.md)
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
+- [`docs/FRONTEND_CONTRACT_V1.md`](docs/FRONTEND_CONTRACT_V1.md)
 - [`docs/IR_SPEC_V1.md`](docs/IR_SPEC_V1.md)
 - [`docs/RV32I_IR_V1_BRIDGE.md`](docs/RV32I_IR_V1_BRIDGE.md)
 - [`docs/CORE_API_V1.md`](docs/CORE_API_V1.md)

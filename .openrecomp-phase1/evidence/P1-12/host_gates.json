@@ -1,0 +1,362 @@
+{
+  "counts": {
+    "fail": 0,
+    "pass": 24,
+    "skipped_toolchain_unavailable": 2
+  },
+  "gates": [
+    {
+      "detail": "marker 'PASS: shared adapter interface is real' present",
+      "gate_id": "adapter-seam",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "marker 'OPENRECOMP_ARCH_HARNESS_V1=PASS' present",
+      "gate_id": "arch-harness-mips32-v1",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "marker 'OPENRECOMP_ARCH_HARNESS_V1=PASS' present",
+      "gate_id": "arch-harness-riscv32-v1",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "marker 'OPENRECOMP_ARCH_HARNESS_V1=PASS' present",
+      "gate_id": "arch-harness-sm83-v1",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "marker 'OPENRECOMP_CORE_API_V1_TESTS=PASS' present",
+      "gate_id": "core-api-v1",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "marker 'OPENRECOMP_DOC_LINKS=PASS' present",
+      "gate_id": "doc-links",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "missing required tool(s): clang, gcc",
+      "gate_id": "e07-hardened-end-to-end",
+      "returncode": null,
+      "status": "SKIPPED_TOOLCHAIN_UNAVAILABLE"
+    },
+    {
+      "detail": "missing required tool(s): clang, gcc, posix",
+      "gate_id": "external-repro-v1",
+      "returncode": null,
+      "status": "SKIPPED_TOOLCHAIN_UNAVAILABLE"
+    },
+    {
+      "detail": "marker 'OPENRECOMP_FRONTEND_CONTRACT_V1=PASS' present",
+      "gate_id": "frontend-contract-v1",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "marker 'OPENRECOMP_FRONTEND_SCAFFOLD_V1=PASS' present",
+      "gate_id": "frontend-scaffold-v1",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "marker 'OPENRECOMP_IR_V1_VALID=PASS' present",
+      "gate_id": "ir-v1-minimal-example",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "marker 'OPENRECOMP_IR_V1_SPEC=PASS' present",
+      "gate_id": "ir-v1-spec",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "marker 'CAUSALITY_PASS' present",
+      "gate_id": "mips32-causality-v1",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "marker 'EQUIVALENCE_PASS' present",
+      "gate_id": "mips32-equivalence-v1",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "marker 'OPENRECOMP_MIPS32_EXPANSION_NEGATIVE_TESTS=PASS' present",
+      "gate_id": "mips32-expansion-v1-negative",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "marker 'OPENRECOMP_MIPS32_FRONTEND_V1_TESTS=PASS' present",
+      "gate_id": "mips32-frontend-v1",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "marker '0 failed' present",
+      "gate_id": "mips32-microtests-v1",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "marker 'OPENRECOMP_PUBLIC_SAFETY_MISSING_FILE_TEST=PASS' present",
+      "gate_id": "public-safety-missing-file-test",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "marker 'OPENRECOMP_PUBLIC_SAFETY=PASS' present",
+      "gate_id": "public-safety-scan",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "marker 'OPENRECOMP_RELEASE_AUTOMATION_V1_TESTS=PASS' present",
+      "gate_id": "release-metadata-tests",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "marker 'OPENRECOMP_V0_2_RELEASE_METADATA=PASS' present",
+      "gate_id": "release-v0_2_0-metadata",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "marker 'OPENRECOMP_SM83_DECODE_V1=PASS' present",
+      "gate_id": "sm83-decode-v1",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "marker 'OPENRECOMP_SM83_SEMANTICS_V1=PASS' present",
+      "gate_id": "sm83-semantics-v1",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "marker 'OPENRECOMP_SM83_STATE_V1=PASS' present",
+      "gate_id": "sm83-state-v1",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "verified 75 manifest entries",
+      "gate_id": "source-integrity",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "sha256=b973c3c52712937d59a15f2e50c405830be9882b5c457c05b1248b12405613ca",
+      "gate_id": "wasm-runner-intact",
+      "returncode": 0,
+      "status": "PASS"
+    }
+  ],
+  "inventory": [
+    {
+      "area": "normalized-ir-v1",
+      "gate_id": "ir-v1-spec",
+      "marker": "OPENRECOMP_IR_V1_SPEC=PASS",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "normalized-ir-v1",
+      "gate_id": "ir-v1-minimal-example",
+      "marker": "OPENRECOMP_IR_V1_VALID=PASS",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "core-api-v1",
+      "gate_id": "core-api-v1",
+      "marker": "OPENRECOMP_CORE_API_V1_TESTS=PASS",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "architecture-seam",
+      "gate_id": "adapter-seam",
+      "marker": "PASS: shared adapter interface is real",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "architecture-seam",
+      "gate_id": "frontend-contract-v1",
+      "marker": "OPENRECOMP_FRONTEND_CONTRACT_V1=PASS",
+      "note": "executable gate for contracts/frontend_contract_v1.json: adapter surface, lowering probes, neutral chain proofs",
+      "requires": []
+    },
+    {
+      "area": "architecture-seam",
+      "gate_id": "frontend-scaffold-v1",
+      "marker": "OPENRECOMP_FRONTEND_SCAFFOLD_V1=PASS",
+      "note": "fail-closed scaffolding (openrecomp/frontends/scaffold.py) plus deterministic synthetic Core API proof",
+      "requires": []
+    },
+    {
+      "area": "architecture-seam",
+      "gate_id": "arch-harness-mips32-v1",
+      "marker": "OPENRECOMP_ARCH_HARNESS_V1=PASS",
+      "note": "shared architecture harness: 35 pinned decode cases, 4 fail-closed rejections, full fixture chain",
+      "requires": []
+    },
+    {
+      "area": "architecture-seam",
+      "gate_id": "arch-harness-riscv32-v1",
+      "marker": "OPENRECOMP_ARCH_HARNESS_V1=PASS",
+      "note": "shared architecture harness: 10 pinned RV32I decode cases, 3 rejections, prebuilt IR V1 module chain",
+      "requires": []
+    },
+    {
+      "area": "sm83",
+      "gate_id": "sm83-state-v1",
+      "marker": "OPENRECOMP_SM83_STATE_V1=PASS",
+      "note": "P1-10: documented SM83 register/flag state model + fail-closed checks + neutral-chain AF composition proof",
+      "requires": []
+    },
+    {
+      "area": "sm83",
+      "gate_id": "sm83-decode-v1",
+      "marker": "OPENRECOMP_SM83_DECODE_V1=PASS",
+      "note": "P1-11: full SM83 base+CB decoder coverage, operand resolution, fail-closed undocumented/truncated handling",
+      "requires": []
+    },
+    {
+      "area": "sm83",
+      "gate_id": "sm83-semantics-v1",
+      "marker": "OPENRECOMP_SM83_SEMANTICS_V1=PASS",
+      "note": "P1-12: independent SM83 reference interpreter; documented flag/register/memory semantics pinned + full coverage",
+      "requires": []
+    },
+    {
+      "area": "sm83",
+      "gate_id": "arch-harness-sm83-v1",
+      "marker": "OPENRECOMP_ARCH_HARNESS_V1=PASS",
+      "note": "shared architecture harness: 87 pinned SM83 decode cases, 13 fail-closed rejections (decode-only stage)",
+      "requires": []
+    },
+    {
+      "area": "mips32",
+      "gate_id": "mips32-frontend-v1",
+      "marker": "OPENRECOMP_MIPS32_FRONTEND_V1_TESTS=PASS",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "mips32",
+      "gate_id": "mips32-expansion-v1-negative",
+      "marker": "OPENRECOMP_MIPS32_EXPANSION_NEGATIVE_TESTS=PASS",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "mips32",
+      "gate_id": "mips32-microtests-v1",
+      "marker": "0 failed",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "mips32",
+      "gate_id": "mips32-causality-v1",
+      "marker": "CAUSALITY_PASS",
+      "note": "compiles generated C through the local default compiler",
+      "requires": [
+        "c_compiler"
+      ]
+    },
+    {
+      "area": "mips32",
+      "gate_id": "mips32-equivalence-v1",
+      "marker": "EQUIVALENCE_PASS",
+      "note": "compiles generated C through the local default compiler",
+      "requires": [
+        "c_compiler"
+      ]
+    },
+    {
+      "area": "safety",
+      "gate_id": "public-safety-scan",
+      "marker": "OPENRECOMP_PUBLIC_SAFETY=PASS",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "safety",
+      "gate_id": "public-safety-missing-file-test",
+      "marker": "OPENRECOMP_PUBLIC_SAFETY_MISSING_FILE_TEST=PASS",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "documentation",
+      "gate_id": "doc-links",
+      "marker": "OPENRECOMP_DOC_LINKS=PASS",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "release",
+      "gate_id": "release-metadata-tests",
+      "marker": "OPENRECOMP_RELEASE_AUTOMATION_V1_TESTS=PASS",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "release",
+      "gate_id": "release-v0_2_0-metadata",
+      "marker": "OPENRECOMP_V0_2_RELEASE_METADATA=PASS",
+      "note": "",
+      "requires": []
+    },
+    {
+      "area": "rv32i-e07",
+      "gate_id": "e07-hardened-end-to-end",
+      "marker": "PASS: E07 V1.1 HARDENED END-TO-END",
+      "note": "hardened RV32I proof: ELF rejection, native + WebAssembly parity, golden regression",
+      "requires": [
+        "bash",
+        "clang",
+        "gcc",
+        "node"
+      ]
+    },
+    {
+      "area": "reviewer-gate",
+      "gate_id": "external-repro-v1",
+      "marker": "OPENRECOMP_EXTERNAL_REPRO_V1=PASS",
+      "note": "reference reviewer environment is Ubuntu 24.04; requires a clean tracked tree",
+      "requires": [
+        "bash",
+        "clang",
+        "gcc",
+        "node",
+        "posix"
+      ]
+    }
+  ],
+  "python": "3.14.6",
+  "schema_version": "1.0.0",
+  "toolchain": {
+    "bash": "available",
+    "c_compiler": "available",
+    "clang": null,
+    "cmp": null,
+    "gcc": null,
+    "node": "available",
+    "posix": null,
+    "sha256sum": null
+  }
+}

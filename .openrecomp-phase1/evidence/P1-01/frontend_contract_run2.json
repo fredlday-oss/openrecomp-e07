@@ -1,0 +1,135 @@
+{
+  "checks": [
+    {
+      "detail": "13 declared probes all implemented, no undeclared probe",
+      "id": "probes-declared-and-implemented",
+      "kind": "anti-drift",
+      "status": "PASS"
+    },
+    {
+      "detail": "mips32-le bits=32 endianness=little registers=32 error=DecodeError classification=PASS-bounded; mips32-stub bits=32 endianness=little registers=32 error=ValueError classification=CANDIDATE-interface-only; riscv32-rv32i bits=32 endianness=little registers=32 error=ValueError classification=PROVEN",
+      "id": "adapter-surface",
+      "kind": "structural",
+      "status": "PASS"
+    },
+    {
+      "detail": "memory.oob_policy=='deterministic fault'; system.wall_clock==False; system.randomness==False; host_contract.contract_version==ir.host_contract_version; host_contract.memory.size_bytes==sidecar.memory_size_bytes; sidecar.source_input_sha256==ir.source.input_sha256",
+      "id": "host-contract-preconditions",
+      "kind": "structural",
+      "status": "PASS"
+    },
+    {
+      "detail": "entry_state_slot:str; initial_state:object; max_operations:int; memory_segments:array; memory_size_bytes:int; source_input_sha256:sha256",
+      "id": "execution-sidecar-conformance",
+      "kind": "structural",
+      "status": "PASS"
+    },
+    {
+      "detail": "address_bits_allowed=[32, 64]; narrow_guests_modelled_at=32; representation=zero-extended guest address carried in i32; narrow_registered_architectures=none",
+      "id": "narrow-address-rule",
+      "kind": "structural",
+      "status": "PASS"
+    },
+    {
+      "detail": "architecture=mips32-le adapter=openrecomp.mips32-v1-slice address_bits=32 endianness=little input_sha256=fixture-bytes legacy_id=mips32-bounded-v1",
+      "id": "ir-source-identity-must-match-registration",
+      "kind": "probe",
+      "status": "PASS"
+    },
+    {
+      "detail": "ops=12 kinds=3 predicates=4 guest_mnemonics_leaked=0",
+      "id": "ir-vocabulary-is-closed",
+      "kind": "probe",
+      "status": "PASS"
+    },
+    {
+      "detail": "ir/sidecar/report byte-identical across two conversions",
+      "id": "conversion-is-deterministic",
+      "kind": "probe",
+      "status": "PASS"
+    },
+    {
+      "detail": "oob_policy='allow' rejected by frontend",
+      "id": "host-contract-must-fail-closed",
+      "kind": "probe",
+      "status": "PASS"
+    },
+    {
+      "detail": "wall_clock=true and randomness=true both rejected",
+      "id": "host-contract-must-be-deterministic",
+      "kind": "probe",
+      "status": "PASS"
+    },
+    {
+      "detail": "rejected mips32-le:DecodeError, mips32-stub:NotImplementedError, riscv32-rv32i:ValueError",
+      "id": "unknown-encoding-rejected",
+      "kind": "probe",
+      "status": "PASS"
+    },
+    {
+      "detail": "write_state to an undeclared slot rejected",
+      "id": "undeclared-state-slot-rejected",
+      "kind": "probe",
+      "status": "PASS"
+    },
+    {
+      "detail": "i16 memory address rejected while source.address_bits=32",
+      "id": "memory-address-type-must-match-address-bits",
+      "kind": "probe",
+      "status": "PASS"
+    },
+    {
+      "detail": "i8 shl by 8 faults deterministically instead of being masked",
+      "id": "shift-count-must-be-normalized",
+      "kind": "probe",
+      "status": "PASS"
+    },
+    {
+      "detail": "binop kind 'div' rejected by frozen IR V1 schema",
+      "id": "no-division-in-ir-v1",
+      "kind": "probe",
+      "status": "PASS"
+    },
+    {
+      "detail": "unsupported required_features entry rejected",
+      "id": "unsupported-feature-rejected",
+      "kind": "probe",
+      "status": "PASS"
+    },
+    {
+      "detail": "trap terminator faults deterministically and preserves the reason",
+      "id": "trap-terminator-is-the-fail-closed-exit",
+      "kind": "probe",
+      "status": "PASS"
+    },
+    {
+      "detail": "module with a tampered IR hash rejected",
+      "id": "module-integrity-is-enforced",
+      "kind": "probe",
+      "status": "PASS"
+    },
+    {
+      "detail": "[frontend-fixture-chain] fixture -> frontend -> IR V1 -> Module Image V1 -> Core API V1 result={\"checksum\": 1950232098, \"memory_word\": 19, \"operations\": 100, \"return_v0\": 31}",
+      "id": "mips32-le",
+      "kind": "chain-proof",
+      "status": "PASS"
+    },
+    {
+      "detail": "[prebuilt-ir-module] prebuilt IR V1 -> Module Image V1 -> Core API V1 result={\"function_return\": 22, \"observed_state\": 22}",
+      "id": "riscv32-rv32i",
+      "kind": "chain-proof",
+      "status": "PASS"
+    }
+  ],
+  "contract_id": "openrecomp.frontend-contract-v1",
+  "contract_version": "1.0.0",
+  "normalized_ir_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "status": "PASS",
+  "totals": {
+    "chain_proofs": 2,
+    "fail": 0,
+    "pass": 20,
+    "probes": 13
+  }
+}

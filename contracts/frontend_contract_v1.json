@@ -1,0 +1,312 @@
+{
+  "contract_id": "openrecomp.frontend-contract-v1",
+  "contract_version": "1.0.0",
+  "status": "EXECUTABLE-GATE",
+  "enforced_by": "tools/check_frontend_contract_v1.py",
+  "documentation": "docs/FRONTEND_CONTRACT_V1.md",
+  "normalized_ir_version": "1.0.0",
+  "module_format_version": "1.0.0",
+  "host_contract_version": "0.1.1",
+  "supported_features": [
+    "core-v1",
+    "host-call",
+    "bounded-indirect-jump"
+  ],
+  "allowed_address_bits": [
+    32,
+    64
+  ],
+  "allowed_state_slot_types": [
+    "i1",
+    "i8",
+    "i16",
+    "i32",
+    "i64"
+  ],
+  "ir_source_identity": {
+    "adapter_prefix": "openrecomp.",
+    "architecture_must_equal_registration": true,
+    "endianness_values": [
+      "little",
+      "big"
+    ],
+    "input_sha256_must_equal_fixture_bytes": true,
+    "note": "the adapter module's legacy ArchitectureInfo.architecture_id may name a bounded implementation profile; the authoritative guest identity for the common layers is ir.source.architecture"
+  },
+  "narrow_address_rule": {
+    "applies_below_address_bits": 32,
+    "required_source_address_bits": 32,
+    "required_address_representation": "zero-extended guest address carried in i32",
+    "frontend_obligations": [
+      "wrap guest PC and pointer arithmetic to the architectural address width before emitting it",
+      "size module memory to the mapped guest address space so an out-of-range access faults deterministically",
+      "never widen a guest address inside the IR to imply addressable memory the guest does not have"
+    ]
+  },
+  "adapter_surface": {
+    "location": "adapters/<architecture>.py",
+    "info_attribute": "info",
+    "info_type": "adapters.interface.ArchitectureInfo",
+    "info_fields": {
+      "architecture_id": "str",
+      "bits": "int",
+      "endianness": "str",
+      "registers": "tuple",
+      "calling_convention": "str"
+    },
+    "endianness_values": [
+      "little",
+      "big"
+    ],
+    "required_callables": [
+      "decode",
+      "branch_targets"
+    ],
+    "optional_callables": [
+      "is_control_flow"
+    ],
+    "decode_signature": "decode(address: int, word: int) -> dict",
+    "error_attribute": "DecodeError",
+    "error_base": "ValueError",
+    "error_attribute_may_be_absent": true,
+    "fail_closed_rules": [
+      "an unknown or undocumented encoding raises the adapter decode error",
+      "an instruction address outside the architectural range or with wrong alignment raises the adapter decode error",
+      "an instruction word outside the architectural width raises the adapter decode error",
+      "a decoder never returns a best-guess meaning for an encoding it does not implement"
+    ]
+  },
+  "frontend_surface": {
+    "location": "tools/<architecture>_frontend_v1.py",
+    "required_callables": [
+      "convert"
+    ],
+    "convert_returns": [
+      "ir_v1",
+      "execution_sidecar",
+      "report"
+    ],
+    "error_attribute": "FrontendError",
+    "error_base": "ValueError",
+    "cli_reject_exit_code": 2,
+    "cli_pass_marker_suffix": "=PASS",
+    "obligations": [
+      "reject a host contract that is not deterministic or does not fault closed on out-of-bounds memory",
+      "reject a fixture whose architecture, profile or version the frontend does not implement",
+      "lower every guest-specific behaviour (delay slots, link registers, zero registers, flag registers, prefixes) away before IR V1",
+      "emit only operations that exist in frozen normalized IR V1",
+      "produce byte-identical output for byte-identical input"
+    ]
+  },
+  "execution_sidecar": {
+    "required_keys": {
+      "source_input_sha256": "sha256",
+      "memory_size_bytes": "int",
+      "initial_state": "object",
+      "memory_segments": "array",
+      "entry_state_slot": "str",
+      "max_operations": "int"
+    },
+    "optional_keys": {
+      "source_legacy_ir_sha256": "sha256",
+      "frontend_version": "str",
+      "bridge_version": "str",
+      "source_ir_version": "str",
+      "profile": "str"
+    },
+    "memory_segment_keys": [
+      "name",
+      "guest_address",
+      "data_hex"
+    ]
+  },
+  "host_contract_preconditions": [
+    {
+      "path": "memory.oob_policy",
+      "equals": "deterministic fault"
+    },
+    {
+      "path": "system.wall_clock",
+      "equals": false
+    },
+    {
+      "path": "system.randomness",
+      "equals": false
+    }
+  ],
+  "cross_document_preconditions": [
+    {
+      "left": "host_contract.contract_version",
+      "right": "ir.host_contract_version"
+    },
+    {
+      "left": "host_contract.memory.size_bytes",
+      "right": "sidecar.memory_size_bytes"
+    },
+    {
+      "left": "sidecar.source_input_sha256",
+      "right": "ir.source.input_sha256"
+    }
+  ],
+  "lowering_rules": [
+    {
+      "id": "ir-source-identity-must-match-registration",
+      "statement": "ir.source names the registered guest architecture, an openrecomp.* adapter identity, an allowed address width and endianness, and the exact fixture hash",
+      "probe": "ir_source_identity_must_match_registration"
+    },
+    {
+      "id": "ir-vocabulary-is-closed",
+      "statement": "normalized IR V1 contains no guest mnemonic in any op, kind or predicate field",
+      "probe": "ir_vocabulary_is_closed"
+    },
+    {
+      "id": "conversion-is-deterministic",
+      "statement": "the same fixture bytes always produce byte-identical IR, sidecar and report",
+      "probe": "conversion_is_deterministic"
+    },
+    {
+      "id": "host-contract-must-fail-closed",
+      "statement": "a host contract whose memory oob_policy is not 'deterministic fault' is rejected by the frontend",
+      "probe": "host_contract_oob_policy_must_fault"
+    },
+    {
+      "id": "host-contract-must-be-deterministic",
+      "statement": "a host contract that admits wall clock or randomness is rejected by the frontend",
+      "probe": "host_contract_must_be_deterministic"
+    },
+    {
+      "id": "unknown-encoding-rejected",
+      "statement": "an unimplemented encoding is rejected by the adapter decoder instead of being guessed",
+      "probe": "unknown_encoding_rejected"
+    },
+    {
+      "id": "undeclared-state-slot-rejected",
+      "statement": "IR that reads or writes a state slot the module does not declare is rejected",
+      "probe": "undeclared_state_slot_rejected"
+    },
+    {
+      "id": "memory-address-type-must-match-address-bits",
+      "statement": "every load/store/indirect address operand is typed exactly i<source.address_bits>",
+      "probe": "memory_address_type_must_match_address_bits"
+    },
+    {
+      "id": "shift-count-must-be-normalized",
+      "statement": "IR V1 shift counts are normalized; a count >= result width faults instead of being masked",
+      "probe": "shift_count_must_be_normalized"
+    },
+    {
+      "id": "no-division-in-ir-v1",
+      "statement": "frozen IR V1 has no division or remainder operation, so guest divide instructions must be rejected by the frontend",
+      "probe": "no_division_in_ir_v1"
+    },
+    {
+      "id": "unsupported-feature-rejected",
+      "statement": "required_features outside the supported set is rejected",
+      "probe": "unsupported_feature_rejected"
+    },
+    {
+      "id": "trap-terminator-is-the-fail-closed-exit",
+      "statement": "an unreachable or unsupported control-flow edge lowers to a trap terminator that faults deterministically",
+      "probe": "trap_terminator_is_the_fail_closed_exit"
+    },
+    {
+      "id": "module-integrity-is-enforced",
+      "statement": "a module whose recorded IR or host-contract hash does not match the supplied documents is rejected",
+      "probe": "module_integrity_is_enforced"
+    }
+  ],
+  "prohibited": [
+    "adding a guest-specific operation to frozen normalized IR V1",
+    "adding guest-specific behaviour to the Core API reference executor, the portable C AOT backend or Native AOT ABI V1",
+    "inferring semantics for an undocumented encoding",
+    "weakening a memory bounds check, alignment policy or execution limit to make a fixture pass",
+    "committing proprietary ROM, BIOS, key or console-derived binary material"
+  ],
+  "registered_architectures": [
+    {
+      "architecture": "riscv32-rv32i",
+      "adapter_module": "adapters.riscv32",
+      "adapter_architecture_id": "riscv32-rv32i",
+      "adapter_error_attribute": null,
+      "classification": "PROVEN",
+      "decode_reject_probe": {
+        "address": 0,
+        "word": 4294967295,
+        "expect_error": "ValueError"
+      },
+      "frontend_module": "tools.bridge_rv32i_ir_v1",
+      "chain_proof": {
+        "kind": "prebuilt-ir-module",
+        "ir": "examples/ir-v1/minimal.json",
+        "host_contract": "contracts/host_contract.json",
+        "observe_state_slot": "gpr:a0",
+        "host_bindings": {
+          "host_system": {
+            "kind": "sum_args"
+          }
+        },
+        "published_result": {
+          "observed_state": 22,
+          "function_return": 22
+        }
+      },
+      "full_chain_note": "the complete RV32I ELF -> legacy IR -> IR V1 -> native/WebAssembly chain is covered by the toolchain-gated gate e07-hardened-end-to-end (bash RUN.sh), which needs clang and gcc"
+    },
+    {
+      "architecture": "mips32-le",
+      "adapter_module": "adapters.mips32",
+      "adapter_architecture_id": "mips32-bounded-v1",
+      "adapter_error_attribute": "DecodeError",
+      "classification": "PASS-bounded",
+      "decode_reject_probe": {
+        "address": 0,
+        "word": 4294967295,
+        "expect_error": "DecodeError"
+      },
+      "frontend_module": "tools.mips32_frontend_v1",
+      "chain_proof": {
+        "kind": "frontend-fixture-chain",
+        "frontend": "tools/mips32_frontend_v1.py",
+        "fixture_hex": "examples/mips32-v1/fixture.hex",
+        "fixture_meta": "examples/mips32-v1/fixture.json",
+        "host_contract": "contracts/host_contract.json",
+        "reference": "tools/run_mips32_reference.py",
+        "packager": "tools/package_ir_v1_module.py",
+        "module_validator": "tools/validate_module_v1.py",
+        "core_runner": "tools/run_mips32_core_v1.py",
+        "equivalence_checker": "tools/check_mips32_vertical_slice.py",
+        "published_result": {
+          "return_v0": 31,
+          "memory_word": 19,
+          "checksum": 1950232098,
+          "operations": 100,
+          "delay_slots": 7
+        }
+      }
+    },
+    {
+      "architecture": "mips32-stub",
+      "adapter_module": "adapters.mips32_stub",
+      "adapter_architecture_id": "mips32-stub",
+      "adapter_error_attribute": null,
+      "classification": "CANDIDATE-interface-only",
+      "decode_reject_probe": {
+        "address": 0,
+        "word": 0,
+        "expect_error": "NotImplementedError"
+      }
+    },
+    {
+      "architecture": "sm83-gb",
+      "adapter_module": "adapters.sm83",
+      "adapter_architecture_id": "sm83-gb",
+      "adapter_error_attribute": "SM83Error",
+      "classification": "PASS-bounded-differential",
+      "decode_reject_probe": {
+        "address": 0,
+        "word": 211,
+        "expect_error": "DecodeError"
+      }
+    }
+  ]
+}

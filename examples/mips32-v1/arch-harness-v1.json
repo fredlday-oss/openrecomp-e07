@@ -1,0 +1,389 @@
+{
+  "adapter": {
+    "address_bits": 32,
+    "error_attribute": "DecodeError",
+    "module": "adapters.mips32"
+  },
+  "architecture": "mips32-le",
+  "chains": [
+    {
+      "core_runner": "tools/run_mips32_core_v1.py",
+      "equivalence_checker": "tools/check_mips32_vertical_slice.py",
+      "fixture_hex": "examples/mips32-v1/fixture.hex",
+      "fixture_meta": "examples/mips32-v1/fixture.json",
+      "frontend": "tools/mips32_frontend_v1.py",
+      "host_contract": "contracts/host_contract.json",
+      "kind": "frontend-fixture-chain",
+      "module_validator": "tools/validate_module_v1.py",
+      "packager": "tools/package_ir_v1_module.py",
+      "published": {
+        "checksum": 1950232098,
+        "delay_slots": 7,
+        "memory_word": 19,
+        "operations": 100,
+        "return_v0": 31
+      },
+      "reference": "tools/run_mips32_reference.py"
+    }
+  ],
+  "decode_matrix": {
+    "negative": [
+      {
+        "address": 4096,
+        "word": 4294967295
+      },
+      {
+        "address": 4097,
+        "word": 0
+      },
+      {
+        "address": 4096,
+        "word": 8716314
+      },
+      {
+        "address": 4096,
+        "word": 2138752
+      }
+    ],
+    "positive": [
+      {
+        "address": 4096,
+        "fields": {
+          "rd": 17,
+          "rs": 31,
+          "rt": 0
+        },
+        "op": "addu",
+        "word": 65046561
+      },
+      {
+        "address": 4100,
+        "fields": {
+          "imm": 5,
+          "rs": 0,
+          "rt": 8
+        },
+        "op": "addiu",
+        "word": 604504069
+      },
+      {
+        "address": 4104,
+        "fields": {
+          "imm": 3,
+          "rs": 0,
+          "rt": 9
+        },
+        "op": "addiu",
+        "word": 604569603
+      },
+      {
+        "address": 4108,
+        "fields": {
+          "rd": 10,
+          "rs": 8,
+          "rt": 9
+        },
+        "op": "addu",
+        "word": 17387553
+      },
+      {
+        "address": 4112,
+        "fields": {
+          "rd": 11,
+          "rs": 9,
+          "rt": 8
+        },
+        "op": "sltu",
+        "word": 19421227
+      },
+      {
+        "address": 4116,
+        "fields": {
+          "rs": 11,
+          "rt": 0,
+          "target": 4208
+        },
+        "op": "beq",
+        "word": 291504150
+      },
+      {
+        "address": 4120,
+        "fields": {
+          "imm": 1,
+          "rs": 10,
+          "rt": 10
+        },
+        "op": "addiu",
+        "word": 625606657
+      },
+      {
+        "address": 4124,
+        "fields": {
+          "target": 4224
+        },
+        "op": "jal",
+        "word": 201327648
+      },
+      {
+        "address": 4128,
+        "fields": {
+          "imm": 2,
+          "rs": 10,
+          "rt": 10
+        },
+        "op": "addiu",
+        "word": 625606658
+      },
+      {
+        "address": 4132,
+        "fields": {
+          "imm": 0,
+          "rt": 12
+        },
+        "op": "lui",
+        "word": 1007419392
+      },
+      {
+        "address": 4136,
+        "fields": {
+          "imm": 8192,
+          "rs": 12,
+          "rt": 12
+        },
+        "op": "ori",
+        "word": 898375680
+      },
+      {
+        "address": 4140,
+        "fields": {
+          "imm": 0,
+          "rs": 12,
+          "rt": 10
+        },
+        "op": "sw",
+        "word": 2911502336
+      },
+      {
+        "address": 4144,
+        "fields": {
+          "imm": 0,
+          "rs": 12,
+          "rt": 2
+        },
+        "op": "lw",
+        "word": 2374107136
+      },
+      {
+        "address": 4148,
+        "fields": {
+          "rs": 2,
+          "rt": 10,
+          "target": 4208
+        },
+        "op": "bne",
+        "word": 340393998
+      },
+      {
+        "address": 4152,
+        "fields": {
+          "imm": 4,
+          "rs": 2,
+          "rt": 2
+        },
+        "op": "addiu",
+        "word": 608305156
+      },
+      {
+        "address": 4156,
+        "fields": {
+          "rd": 13,
+          "rs": 9,
+          "rt": 8
+        },
+        "op": "slt",
+        "word": 19425322
+      },
+      {
+        "address": 4160,
+        "fields": {
+          "rd": 2,
+          "rs": 2,
+          "rt": 13
+        },
+        "op": "addu",
+        "word": 5050401
+      },
+      {
+        "address": 4164,
+        "fields": {
+          "rs": 13,
+          "rt": 11,
+          "target": 4176
+        },
+        "op": "beq",
+        "word": 296419330
+      },
+      {
+        "address": 4168,
+        "fields": {
+          "imm": 2,
+          "rs": 2,
+          "rt": 2
+        },
+        "op": "addiu",
+        "word": 608305154
+      },
+      {
+        "address": 4172,
+        "fields": {
+          "imm": 100,
+          "rs": 2,
+          "rt": 2
+        },
+        "op": "addiu",
+        "word": 608305252
+      },
+      {
+        "address": 4176,
+        "fields": {
+          "imm": 1,
+          "rs": 2,
+          "rt": 2
+        },
+        "op": "addiu",
+        "word": 608305153
+      },
+      {
+        "address": 4180,
+        "fields": {
+          "imm": -1,
+          "rs": 0,
+          "rt": 14
+        },
+        "op": "addiu",
+        "word": 604962815
+      },
+      {
+        "address": 4184,
+        "fields": {
+          "rd": 15,
+          "rs": 14,
+          "rt": 0
+        },
+        "op": "slt",
+        "word": 29390890
+      },
+      {
+        "address": 4188,
+        "fields": {
+          "rd": 16,
+          "rs": 14,
+          "rt": 0
+        },
+        "op": "sltu",
+        "word": 29392939
+      },
+      {
+        "address": 4192,
+        "fields": {
+          "rd": 2,
+          "rs": 2,
+          "rt": 15
+        },
+        "op": "addu",
+        "word": 5181473
+      },
+      {
+        "address": 4196,
+        "fields": {
+          "rd": 2,
+          "rs": 2,
+          "rt": 16
+        },
+        "op": "addu",
+        "word": 5247009
+      },
+      {
+        "address": 4200,
+        "fields": {
+          "target": 4212
+        },
+        "op": "j",
+        "word": 134218781
+      },
+      {
+        "address": 4204,
+        "fields": {
+          "imm": 3,
+          "rs": 2,
+          "rt": 2
+        },
+        "op": "addiu",
+        "word": 608305155
+      },
+      {
+        "address": 4208,
+        "fields": {
+          "imm": 57005,
+          "rs": 0,
+          "rt": 2
+        },
+        "op": "ori",
+        "word": 872603309
+      },
+      {
+        "address": 4212,
+        "fields": {
+          "rd": 31,
+          "rs": 17,
+          "rt": 0
+        },
+        "op": "addu",
+        "word": 35715105
+      },
+      {
+        "address": 4216,
+        "fields": {
+          "rs": 31
+        },
+        "op": "jr",
+        "word": 65011720
+      },
+      {
+        "address": 4220,
+        "fields": {},
+        "op": "nop",
+        "word": 0
+      },
+      {
+        "address": 4224,
+        "fields": {
+          "imm": 7,
+          "rs": 10,
+          "rt": 10
+        },
+        "op": "addiu",
+        "word": 625606663
+      },
+      {
+        "address": 4228,
+        "fields": {
+          "rs": 31
+        },
+        "op": "jr",
+        "word": 65011720
+      },
+      {
+        "address": 4232,
+        "fields": {
+          "imm": 1,
+          "rs": 10,
+          "rt": 10
+        },
+        "op": "addiu",
+        "word": 625606657
+      }
+    ]
+  },
+  "schema_version": "1.0.0"
+}

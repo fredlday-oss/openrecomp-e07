@@ -1,0 +1,23 @@
+PASS  anti-drift   probes-declared-and-implemented              13 declared probes all implemented, no undeclared probe
+PASS  structural   adapter-surface                              mips32-le bits=32 endianness=little registers=32 error=DecodeError classification=PASS-bounded; mips32-stub bits=32 endianness=little registers=32 error=ValueError classification=CANDIDATE-interface-only; riscv32-rv32i bits=32 endianness=little registers=32 error=ValueError classification=PROVEN
+PASS  structural   host-contract-preconditions                  memory.oob_policy=='deterministic fault'; system.wall_clock==False; system.randomness==False; host_contract.contract_version==ir.host_contract_version; host_contract.memory.size_bytes==sidecar.memory_size_bytes; sidecar.source_input_sha256==ir.source.input_sha256
+PASS  structural   execution-sidecar-conformance                entry_state_slot:str; initial_state:object; max_operations:int; memory_segments:array; memory_size_bytes:int; source_input_sha256:sha256
+PASS  structural   narrow-address-rule                          address_bits_allowed=[32, 64]; narrow_guests_modelled_at=32; representation=zero-extended guest address carried in i32; narrow_registered_architectures=none
+PASS  probe        ir-source-identity-must-match-registration   architecture=mips32-le adapter=openrecomp.mips32-v1-slice address_bits=32 endianness=little input_sha256=fixture-bytes legacy_id=mips32-bounded-v1
+PASS  probe        ir-vocabulary-is-closed                      ops=12 kinds=3 predicates=4 guest_mnemonics_leaked=0
+PASS  probe        conversion-is-deterministic                  ir/sidecar/report byte-identical across two conversions
+PASS  probe        host-contract-must-fail-closed               oob_policy='allow' rejected by frontend
+PASS  probe        host-contract-must-be-deterministic          wall_clock=true and randomness=true both rejected
+PASS  probe        unknown-encoding-rejected                    rejected mips32-le:DecodeError, mips32-stub:NotImplementedError, riscv32-rv32i:ValueError
+PASS  probe        undeclared-state-slot-rejected               write_state to an undeclared slot rejected
+PASS  probe        memory-address-type-must-match-address-bits  i16 memory address rejected while source.address_bits=32
+PASS  probe        shift-count-must-be-normalized               i8 shl by 8 faults deterministically instead of being masked
+PASS  probe        no-division-in-ir-v1                         binop kind 'div' rejected by frozen IR V1 schema
+PASS  probe        unsupported-feature-rejected                 unsupported required_features entry rejected
+PASS  probe        trap-terminator-is-the-fail-closed-exit      trap terminator faults deterministically and preserves the reason
+PASS  probe        module-integrity-is-enforced                 module with a tampered IR hash rejected
+PASS  chain-proof  mips32-le                                    [frontend-fixture-chain] fixture -> frontend -> IR V1 -> Module Image V1 -> Core API V1 result={"checksum": 1950232098, "memory_word": 19, "operations": 100, "return_v0": 31}
+PASS  chain-proof  riscv32-rv32i                                [prebuilt-ir-module] prebuilt IR V1 -> Module Image V1 -> Core API V1 result={"function_return": 22, "observed_state": 22}
+OPENRECOMP_FRONTEND_CONTRACT_JSON=frontend_contract_run2.json
+OPENRECOMP_FRONTEND_CONTRACT_CHECKS=20 PROBES=13 CHAIN_PROOFS=2 FAIL=0
+OPENRECOMP_FRONTEND_CONTRACT_V1=PASS
