@@ -1,0 +1,258 @@
+{
+  "marker": "OPENRECOMP_CALL_GRAPH_V1=PASS tests=61",
+  "python": "3.14.6",
+  "results": [
+    {
+      "check": "candidate-internal-edge",
+      "status": "PASS"
+    },
+    {
+      "check": "candidate-node",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-edge-order",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-node-order",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-serialization",
+      "status": "PASS"
+    },
+    {
+      "check": "document-derived",
+      "status": "PASS"
+    },
+    {
+      "check": "external-no-node",
+      "status": "PASS"
+    },
+    {
+      "check": "external-one-edge",
+      "status": "PASS"
+    },
+    {
+      "check": "external-target",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-jump-excluded",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-no-callee-node",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-no-target",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-one-edge",
+      "status": "PASS"
+    },
+    {
+      "check": "internal-callee",
+      "status": "PASS"
+    },
+    {
+      "check": "internal-callees-helper",
+      "status": "PASS"
+    },
+    {
+      "check": "internal-edges-to",
+      "status": "PASS"
+    },
+    {
+      "check": "internal-evidence",
+      "status": "PASS"
+    },
+    {
+      "check": "internal-no-node-for-callee-duplicate",
+      "status": "PASS"
+    },
+    {
+      "check": "internal-one-edge",
+      "status": "PASS"
+    },
+    {
+      "check": "multi-site-distinct-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "multi-site-same-callee",
+      "status": "PASS"
+    },
+    {
+      "check": "multi-site-two-edges",
+      "status": "PASS"
+    },
+    {
+      "check": "mutual-component",
+      "status": "PASS"
+    },
+    {
+      "check": "mutual-no-self",
+      "status": "PASS"
+    },
+    {
+      "check": "mutual-two-nodes",
+      "status": "PASS"
+    },
+    {
+      "check": "nes-internal-edge",
+      "status": "PASS"
+    },
+    {
+      "check": "nes-two-nodes",
+      "status": "PASS"
+    },
+    {
+      "check": "program-model-cross-check",
+      "status": "PASS"
+    },
+    {
+      "check": "recursive-functions",
+      "status": "PASS"
+    },
+    {
+      "check": "recursive-not-mutual",
+      "status": "PASS"
+    },
+    {
+      "check": "recursive-self-edge",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:call-site-block-unowned",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:call-target-not-function-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:duplicate-block-ownership",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:duplicate-edge",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:duplicate-node-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:duplicate-node-id",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:edge-caller-not-node",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:empty-nodes",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:entry-function-not-node",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-mismatch-candidate-node",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:external-inventory-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:external-target-matches-node",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:function-units-callee-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:function-units-evidence-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:function-units-key-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:internal-callee-not-node",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:internal-without-callee",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unknown-edges-from",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unknown-edges-to",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unresolved-call-block-unowned",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unresolved-with-callee",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "single-no-edges",
+      "status": "PASS"
+    },
+    {
+      "check": "single-node",
+      "status": "PASS"
+    },
+    {
+      "check": "single-node-evidence",
+      "status": "PASS"
+    },
+    {
+      "check": "valid-direct-construction",
+      "status": "PASS"
+    },
+    {
+      "check": "valid-external-construction",
+      "status": "PASS"
+    },
+    {
+      "check": "wide-internal-target",
+      "status": "PASS"
+    },
+    {
+      "check": "wide-node-entry",
+      "status": "PASS"
+    }
+  ],
+  "sample_fingerprints": {
+    "internal": "7a46071aab7d18ffa46a773c7774e12ecb02340decefa8f2c0fe8e0ce0988b30",
+    "mixed": "8fe4925fbe988ad2c2bf8cda1a1f6ce8234f5740f21a95c1ac5dd7f0b40a2446",
+    "mutual": "586bd1f6ccb06f2f03db7231c31215282699737179568e75f78ab1858e949692",
+    "nes6502": "ab4c2dc12adc549eac85f55d58ede8fc3ed2721ce8e802971dcdfa9f4bc4b777"
+  },
+  "stage": "P2-04",
+  "tests": 61
+}
