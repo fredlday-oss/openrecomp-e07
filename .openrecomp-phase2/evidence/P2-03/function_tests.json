@@ -1,0 +1,278 @@
+{
+  "marker": "OPENRECOMP_FUNCTION_DISCOVERY_V1=PASS tests=67",
+  "python": "3.14.6",
+  "results": [
+    {
+      "check": "callee-entry-source",
+      "status": "PASS"
+    },
+    {
+      "check": "callee-no-caller-continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "callee-proven",
+      "status": "PASS"
+    },
+    {
+      "check": "caller-direct-callee",
+      "status": "PASS"
+    },
+    {
+      "check": "caller-no-callee-block",
+      "status": "PASS"
+    },
+    {
+      "check": "candidate-blocks-not-promoted",
+      "status": "PASS"
+    },
+    {
+      "check": "candidate-callee-not-promoted",
+      "status": "PASS"
+    },
+    {
+      "check": "candidate-inside-proven-reason",
+      "status": "PASS"
+    },
+    {
+      "check": "candidate-inside-proven-suppressed",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-membership",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-order",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-serialization",
+      "status": "PASS"
+    },
+    {
+      "check": "direct-call-creates-callee",
+      "status": "PASS"
+    },
+    {
+      "check": "disconnected-unowned",
+      "status": "PASS"
+    },
+    {
+      "check": "entry-not-lowest-canonical",
+      "status": "PASS"
+    },
+    {
+      "check": "entry-not-lowest-first",
+      "status": "PASS"
+    },
+    {
+      "check": "entry-not-lowest-membership",
+      "status": "PASS"
+    },
+    {
+      "check": "entry-not-lowest-roundtrip",
+      "status": "PASS"
+    },
+    {
+      "check": "entry-sources-omitted-when-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "entry-sources-survive",
+      "status": "PASS"
+    },
+    {
+      "check": "explicit-candidate-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "explicit-proven-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "external-target-no-function",
+      "status": "PASS"
+    },
+    {
+      "check": "external-target-not-callee",
+      "status": "PASS"
+    },
+    {
+      "check": "external-target-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-program-valid",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-call-no-function",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-jump-no-function",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-jump-no-target",
+      "status": "PASS"
+    },
+    {
+      "check": "internal-branch-one-function",
+      "status": "PASS"
+    },
+    {
+      "check": "internal-loop-one-function",
+      "status": "PASS"
+    },
+    {
+      "check": "multiple-calls-one-callee",
+      "status": "PASS"
+    },
+    {
+      "check": "mutual-callees",
+      "status": "PASS"
+    },
+    {
+      "check": "mutual-two-functions",
+      "status": "PASS"
+    },
+    {
+      "check": "nes-block-membership",
+      "status": "PASS"
+    },
+    {
+      "check": "nes-evidence",
+      "status": "PASS"
+    },
+    {
+      "check": "nes-one-function",
+      "status": "PASS"
+    },
+    {
+      "check": "program-entry-one-function",
+      "status": "PASS"
+    },
+    {
+      "check": "program-entry-proven",
+      "status": "PASS"
+    },
+    {
+      "check": "program-entry-source",
+      "status": "PASS"
+    },
+    {
+      "check": "proven-nested-both-functions",
+      "status": "PASS"
+    },
+    {
+      "check": "proven-nested-cross-edge",
+      "status": "PASS"
+    },
+    {
+      "check": "proven-nested-no-cross-ownership",
+      "status": "PASS"
+    },
+    {
+      "check": "recursive-one-function",
+      "status": "PASS"
+    },
+    {
+      "check": "recursive-self-callee",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:duplicate-block-membership-rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:entry-instruction-interior",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:entry-not-block-boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:invalid-candidate-evidence",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:invalid-proven-evidence",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:missing-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:no-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "return-terminated",
+      "status": "PASS"
+    },
+    {
+      "check": "schema-entry-sources",
+      "status": "PASS"
+    },
+    {
+      "check": "shared-tail-loser-keeps-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "shared-tail-owner-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "shared-tail-single-owner",
+      "status": "PASS"
+    },
+    {
+      "check": "shared-tail-two-functions",
+      "status": "PASS"
+    },
+    {
+      "check": "tail-transfer-not-absorbed",
+      "status": "PASS"
+    },
+    {
+      "check": "tail-transfer-separate-functions",
+      "status": "PASS"
+    },
+    {
+      "check": "trap-terminated",
+      "status": "PASS"
+    },
+    {
+      "check": "two-entries-entry-function-lowest",
+      "status": "PASS"
+    },
+    {
+      "check": "two-entries-two-functions",
+      "status": "PASS"
+    },
+    {
+      "check": "wide-block-membership",
+      "status": "PASS"
+    },
+    {
+      "check": "wide-function-entry",
+      "status": "PASS"
+    }
+  ],
+  "sample_fingerprints": {
+    "call": "408f90be68e76fb31192cd44f5a279ce5f729edd6d0c394f7fef88e9ce84beb3",
+    "nes6502": "8e75f0a3e2f6e619c6e6ee15c0ee1e15e85feed15e8de572b7283bb4259be7bb",
+    "shared_tail": "f69f8e32df5d0ddc8c188b4111a05d250be3fd2734477f8373eb88a6c50ca3f1",
+    "wide": "cfbf7bec9ebaffcc109c14f323fa9628e6cee2854c8e4b7744b011e982f0195d"
+  },
+  "stage": "P2-03",
+  "tests": 67
+}

@@ -458,6 +458,7 @@ class FunctionUnit:
     direct_callees: tuple[str, ...] = ()
     unresolved_call_sites: tuple[UnresolvedSite, ...] = ()
     evidence: EvidenceClass = EvidenceClass.CANDIDATE
+    entry_sources: tuple[str, ...] = ()
 
     def __post_init__(self) -> None:
         _require_id(self.id, "function.id")
@@ -480,12 +481,26 @@ class FunctionUnit:
                 raise ProgramModelError(f"function {self.id}: unresolved site membership must be UnresolvedSite")
         if not isinstance(self.evidence, EvidenceClass):
             raise ProgramModelError(f"function {self.id}: evidence must be an EvidenceClass")
+        if not isinstance(self.entry_sources, tuple) or len(set(self.entry_sources)) != len(self.entry_sources):
+            raise ProgramModelError(f"function {self.id}: entry_sources must be a tuple of unique strings")
+        for source in self.entry_sources:
+            if not isinstance(source, str) or not source:
+                raise ProgramModelError(f"function {self.id}: entry_sources must contain non-empty strings")
 
     def ordered_blocks(self) -> tuple[BasicBlock, ...]:
         return tuple(sorted(self.blocks, key=lambda block: (block.entry_address, block.id)))
 
+    def canonical_blocks(self) -> tuple[BasicBlock, ...]:
+        """Deterministic serialization order: entry block first, then sorted rest.
+
+        A function's entry block need not be its lowest-address owned block (a
+        backward branch can reach lower addresses), but the entry block must be
+        first for `blocks[0] == entry_address` to survive round-tripping.
+        """
+        return (self.blocks[0],) + tuple(sorted(self.blocks[1:], key=lambda block: (block.entry_address, block.id)))
+
     def to_document(self) -> dict[str, Any]:
-        return {
+        document: dict[str, Any] = {
             "id": self.id,
             "entry_address": self.entry_address,
             "evidence": self.evidence.value,
@@ -493,8 +508,11 @@ class FunctionUnit:
             "unresolved_call_sites": [
                 site.to_document() for site in sorted(self.unresolved_call_sites, key=lambda item: (item.address, item.block_id))
             ],
-            "blocks": [block.to_document() for block in self.ordered_blocks()],
+            "blocks": [block.to_document() for block in self.canonical_blocks()],
         }
+        if self.entry_sources:
+            document["entry_sources"] = list(self.entry_sources)
+        return document
 
     @classmethod
     def from_document(cls, document: Mapping[str, Any]) -> "FunctionUnit":
@@ -509,6 +527,7 @@ class FunctionUnit:
             direct_callees=tuple(document.get("direct_callees", [])),
             unresolved_call_sites=tuple(UnresolvedSite.from_document(item) for item in document.get("unresolved_call_sites", [])),
             evidence=EvidenceClass(document.get("evidence", EvidenceClass.CANDIDATE.value)),
+            entry_sources=tuple(document.get("entry_sources", [])),
         )
 
 

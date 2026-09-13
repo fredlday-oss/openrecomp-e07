@@ -1,0 +1,67 @@
+PASS: program-entry-one-function
+PASS: program-entry-proven
+PASS: program-entry-source
+PASS: explicit-proven-entry
+PASS: explicit-candidate-entry
+PASS: two-entries-two-functions
+PASS: two-entries-entry-function-lowest
+PASS: direct-call-creates-callee
+PASS: caller-no-callee-block
+PASS: callee-no-caller-continuation
+PASS: caller-direct-callee
+PASS: callee-entry-source
+PASS: callee-proven
+PASS: candidate-callee-not-promoted
+PASS: multiple-calls-one-callee
+PASS: recursive-one-function
+PASS: recursive-self-callee
+PASS: mutual-two-functions
+PASS: mutual-callees
+PASS: internal-branch-one-function
+PASS: internal-loop-one-function
+PASS: return-terminated
+PASS: trap-terminated
+PASS: disconnected-unowned
+PASS: wide-function-entry
+PASS: wide-block-membership
+PASS: indirect-call-no-function
+PASS: indirect-jump-no-function
+PASS: indirect-jump-no-target
+PASS: nes-one-function
+PASS: nes-block-membership
+PASS: nes-evidence
+PASS: candidate-blocks-not-promoted
+PASS: shared-tail-two-functions
+PASS: shared-tail-single-owner
+PASS: shared-tail-owner-deterministic
+PASS: shared-tail-loser-keeps-entry
+PASS: candidate-inside-proven-suppressed
+PASS: candidate-inside-proven-reason
+PASS: proven-nested-both-functions
+PASS: proven-nested-no-cross-ownership
+PASS: proven-nested-cross-edge
+PASS: tail-transfer-separate-functions
+PASS: tail-transfer-not-absorbed
+PASS: entry-not-lowest-first
+PASS: entry-not-lowest-membership
+PASS: entry-not-lowest-canonical
+PASS: entry-not-lowest-roundtrip
+PASS: external-target-recorded
+PASS: external-target-no-function
+PASS: external-target-not-callee
+PASS: deterministic-serialization
+PASS: deterministic-fingerprint
+PASS: deterministic-order
+PASS: deterministic-membership
+PASS: schema-entry-sources
+PASS: entry-sources-survive
+PASS: entry-sources-omitted-when-empty
+PASS: functions-program-valid
+PASS reject: missing-entry
+PASS reject: entry-not-block-boundary
+PASS reject: entry-instruction-interior
+PASS reject: no-entries
+PASS reject: invalid-proven-evidence
+PASS reject: invalid-candidate-evidence
+PASS reject: duplicate-block-membership-rejected
+OPENRECOMP_FUNCTION_DISCOVERY_V1=PASS tests=67
