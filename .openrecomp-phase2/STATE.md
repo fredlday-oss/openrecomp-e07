@@ -3,8 +3,8 @@
 PHASE=2
 BASELINE_TAG=openrecomp-phase1-pass
 BASELINE_COMMIT=46c2f97
-CURRENT_STAGE=P2-07
-LAST_PASSED_STAGE=P2-06
+CURRENT_STAGE=P2-08
+LAST_PASSED_STAGE=P2-07
 STATUS=READY
 FINAL_VERDICT=NOT_YET_EVALUATED
 
@@ -19,7 +19,8 @@ FINAL_VERDICT=NOT_YET_EVALUATED
 | P2-04 | Call-graph recovery V1 | `PASS` | `.openrecomp-phase2/evidence/P2-04/RESULT.md` |
 | P2-05 | Translation units V1 | `PASS` | `.openrecomp-phase2/evidence/P2-05/RESULT.md` |
 | P2-06 | Indirect-control-flow classification V1 | `PASS` | `.openrecomp-phase2/evidence/P2-06/RESULT.md` |
-| P2-07 | Host emitter V1 | `NEXT` | not started |
+| P2-07 | Host emitter V1 | `PASS` | `.openrecomp-phase2/evidence/P2-07/RESULT.md` |
+| P2-08 | Generic runtime ABI V1 | `NEXT` | not started |
 
 ## P2-05 result (PASS)
 
@@ -71,9 +72,36 @@ Branch: `phase2/opencode-v1`. Phase-1 tag `openrecomp-phase1-pass` verified unch
   as residual evidence (`IndirectControlFlowSet.unowned_control_flow`) and not classified.
 - No P2-00..P2-05 implementation or evidence modified.
 
+## P2-07 result (PASS)
+
+Stage: `OPENRECOMP_P2_07_HOST_EMITTER_V1`.
+Starting commit: `f9f2662b90c165a967fa943070e79688ff8198b1` (P2-06 boundary).
+Branch: `phase2/opencode-v1`. Phase-1 tag `openrecomp-phase1-pass` verified unchanged at
+`46c2f971e1a42cf49bd936bad94697b81bf31002`.
+
+- Module `openrecomp/host_emitter.py`: `emit_host_translation(translation_units,
+  classification, *, config)` / `emit_host_translation_from(...)` -> `HostTranslationSet`,
+  generating deterministic portable C (C99; only `<stdint.h>`/`<stddef.h>`).
+- Emits only explicitly proven semantics: a `HostInstructionSemantics` rule must exist for
+  the exact `(architecture, op)` pair; the bounded vocabulary is const/copy/add/sub/mul/
+  and/or/xor/shl/lshr/ashr/signed+unsigned compare with explicit 8/16/32/64-bit masking.
+- Direct fallthrough, conditional branch, jump, internal call, return and P2-06
+  `RETURN_LIKE` are emitted; `RESOLVED` single targets are direct and finite sets use a
+  `switch` with a fail-closed default.
+- Fail closed: unsupported op, external direct call, unresolved/bounded/external
+  indirect sites, unsupported/malformed classification, non-local edges, traps,
+  un-normalized shifts and malformed input. `BOUNDED_CANDIDATES` are never promoted and no
+  indirect target is guessed. Policy `BOUNDARY` (default) or `REJECT`.
+- Deterministic identifiers/ordering/declarations/helpers; no absolute path, timestamp or
+  Python identity; no IR lowering; no runtime ABI (P2-08); no guest execution.
+- `tools/test_host_emitter_v1.py`: 106 deterministic checks (incl. an optional native
+  compile+run of a synthetic 8-bit fixture: observed `44 0` == expected).
+- No P2-00..P2-06 implementation or evidence modified.
+
 ## Gates
 
 ```text
+OPENRECOMP_HOST_EMITTER_V1=PASS tests=106
 OPENRECOMP_INDIRECT_CONTROL_FLOW_V1=PASS tests=134
 OPENRECOMP_TRANSLATION_UNITS_V1=PASS tests=104
 OPENRECOMP_CALL_GRAPH_V1=PASS tests=61
@@ -82,11 +110,11 @@ OPENRECOMP_CFG_V1=PASS tests=82
 OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49
 OPENRECOMP_PHASE1_HOST_GATES_PASS=44 FAIL=0 SKIPPED=2
 OPENRECOMP_PHASE1_HOST_GATES_V1=PASS
-PASS source-integrity  verified 116 manifest entries
+PASS source-integrity  verified 117 manifest entries
 ```
 
-Determinism: two consecutive P2-06 gate runs produced byte-identical stdout
-(`sha256 866d290a59228e5bd01f5bc026d2a2b1ca5558e28e9165b2dea42e00464d72a2`).
+Determinism: two consecutive P2-07 gate runs produced byte-identical stdout
+(`sha256 fb6e6e2c6ba660a5c3df75602a59c0501bf86ca53e0371e4942c0c76108c45d5`).
 
 ## Queue reconciliation note
 
@@ -98,20 +126,20 @@ reconciled to the executed sequence.
 
 The indirect-control-flow classification work was assigned to `P2-06` with the original
 safety requirement — classify resolvable versus unresolved indirect sites **without
-guessing targets** — and is now `PASS` (see the P2-06 result above). `P2-07` is Host
-emitter V1 and is `NEXT`.
+guessing targets** — and is `PASS`. `P2-07` (Host emitter V1) is `PASS` and `P2-08`
+(Generic runtime ABI V1) is `NEXT`.
 
 This reassignment is a control-plane reconciliation caused by actual execution order. It
 does not change the semantics, claims, evidence or PASS status of any frozen prior stage
-(`P2-00`..`P2-06`), and it does not alter commit `ce9cd4f` or any earlier commit.
+(`P2-00`..`P2-07`), and it does not alter `ce9cd4f`, `f9f2662` or any earlier commit.
 
 ## Next exact action
 
-Begin P2-07 — Host emitter V1: deterministic generated host code for a bounded proven
-subset, consuming the classified structural pipeline. P2-07 was **not** started in P2-06.
-Do not lower/authorize unsupported semantics; fail closed on unresolved or unsupported
-indirect sites. Do not modify the frozen Phase-1 behavior or the P2-00..P2-06 layers
-except through an evidence-backed stage.
+Begin P2-08 — Generic runtime ABI V1: architecture-neutral CPU/memory/host-call/input/
+frame/audio/runtime contracts. P2-08 was **not** started in P2-07. Keep architecture-
+neutral contracts separate from platform implementations; do not claim the final Phase-2
+marker. Do not modify the frozen Phase-1 behavior or the P2-00..P2-07 layers except
+through an evidence-backed stage.
 
 ## Carried-forward findings
 
@@ -124,21 +152,25 @@ except through an evidence-backed stage.
   sites remain `UNRESOLVED_INDIRECT_CALL` / `UNRESOLVED_INDIRECT_JUMP` and bounded candidate
   sets remain `BOUNDED_CANDIDATES`.
 - Unowned control flow is preserved as P2-06 residual evidence and is not classified.
+- P2-07 emits only rule-proven semantics; loads/stores/host calls, calling conventions and
+  runtime services await P2-08. Emitted functions are void with no argument/return ABI.
+- The P2-07 native compile+run is a bounded synthetic check, not an equivalence proof.
 - Toolchain-gated gates remain unexecutable on this host.
-- `STAGE_QUEUE.md` is reconciled to the executed sequence; `P2-06` is `COMPLETE` and
-  `P2-07` is `NEXT`.
+- `STAGE_QUEUE.md` is reconciled to the executed sequence; `P2-07` is `COMPLETE` and
+  `P2-08` is `NEXT`.
 
 ## Git status (short)
 
-- P2-05 boundary commit: `ce9cd4f` (`phase2: complete P2-05 translation units`).
-- Current uncommitted changes: P2-06 implementation + evidence and the control-plane
+- P2-06 boundary commit: `f9f2662` (`phase2: complete P2-06 indirect control flow
+  classification`); `HEAD` at P2-07 start.
+- Current uncommitted changes: P2-07 implementation + evidence and the control-plane
   updates to `.openrecomp-phase2/STAGE_QUEUE.md`, `.openrecomp-phase2/STATE.md`,
   `.openrecomp-phase2/HANDOFF.md`, plus `SOURCE_SHA256SUMS.txt` (+1 entry).
 - Untouched untracked residue: `.openrecomp-phase2/backups/`,
   `artifacts/mips32_translation_v1/`,
   `artifacts/mips32_translation_evidence_closure_v1/`.
-- No commit created (P2-06 boundary commit intentionally not created).
+- No commit created (P2-07 boundary commit intentionally not created).
 
-OPENRECOMP_P2_06=PASS
-OPENRECOMP_INDIRECT_CONTROL_FLOW_V1=PASS tests=134
-CURRENT_STAGE=P2-07
+OPENRECOMP_P2_07=PASS
+OPENRECOMP_HOST_EMITTER_V1=PASS tests=106
+CURRENT_STAGE=P2-08

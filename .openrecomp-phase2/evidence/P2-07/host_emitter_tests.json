@@ -1,0 +1,450 @@
+{
+  "marker": "OPENRECOMP_HOST_EMITTER_V1=PASS tests=106",
+  "native_compile_result": {
+    "expected": "44 0",
+    "match": true,
+    "observed": "44 0",
+    "status": "ok"
+  },
+  "native_compiler": "C:\\Program Files\\LLVM\\bin\\clang.EXE",
+  "python": "3.11.9",
+  "results": [
+    {
+      "check": "arithmetic-shift-helper",
+      "status": "PASS"
+    },
+    {
+      "check": "binop-emission",
+      "status": "PASS"
+    },
+    {
+      "check": "bounded-boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "bounded-not-promoted-no-case",
+      "status": "PASS"
+    },
+    {
+      "check": "bounded-not-promoted-no-goto",
+      "status": "PASS"
+    },
+    {
+      "check": "bounded-status",
+      "status": "PASS"
+    },
+    {
+      "check": "branch-emission",
+      "status": "PASS"
+    },
+    {
+      "check": "call-declaration",
+      "status": "PASS"
+    },
+    {
+      "check": "call-emission",
+      "status": "PASS"
+    },
+    {
+      "check": "call-reference",
+      "status": "PASS"
+    },
+    {
+      "check": "canonical-block-label",
+      "status": "PASS"
+    },
+    {
+      "check": "canonical-block-order",
+      "status": "PASS"
+    },
+    {
+      "check": "canonical-function-name",
+      "status": "PASS"
+    },
+    {
+      "check": "canonical-instruction-order",
+      "status": "PASS"
+    },
+    {
+      "check": "compiled-fixture-runs",
+      "status": "PASS"
+    },
+    {
+      "check": "const-emission",
+      "status": "PASS"
+    },
+    {
+      "check": "copy-emission",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-source",
+      "status": "PASS"
+    },
+    {
+      "check": "empty-function-valid",
+      "status": "PASS"
+    },
+    {
+      "check": "empty-no-registers",
+      "status": "PASS"
+    },
+    {
+      "check": "entry-function-name",
+      "status": "PASS"
+    },
+    {
+      "check": "explicit-width",
+      "status": "PASS"
+    },
+    {
+      "check": "external-boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "external-no-target",
+      "status": "PASS"
+    },
+    {
+      "check": "external-status",
+      "status": "PASS"
+    },
+    {
+      "check": "fallthrough-emission",
+      "status": "PASS"
+    },
+    {
+      "check": "fingerprint-matches-text",
+      "status": "PASS"
+    },
+    {
+      "check": "helper-fail",
+      "status": "PASS"
+    },
+    {
+      "check": "helper-mask",
+      "status": "PASS"
+    },
+    {
+      "check": "immediate-masked-to-width",
+      "status": "PASS"
+    },
+    {
+      "check": "input-fingerprint-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "jump-emission",
+      "status": "PASS"
+    },
+    {
+      "check": "low-level-entry-point",
+      "status": "PASS"
+    },
+    {
+      "check": "multi-declarations-order",
+      "status": "PASS"
+    },
+    {
+      "check": "multi-translation-order",
+      "status": "PASS"
+    },
+    {
+      "check": "no-file-io",
+      "status": "PASS"
+    },
+    {
+      "check": "no-filename",
+      "status": "PASS"
+    },
+    {
+      "check": "no-host-call",
+      "status": "PASS"
+    },
+    {
+      "check": "no-ir-import:make_ir",
+      "status": "PASS"
+    },
+    {
+      "check": "no-ir-import:openrecomp.executor",
+      "status": "PASS"
+    },
+    {
+      "check": "no-ir-import:openrecomp.module",
+      "status": "PASS"
+    },
+    {
+      "check": "no-ir-import:openrecomp.runtime",
+      "status": "PASS"
+    },
+    {
+      "check": "no-ir-import:validate_ir",
+      "status": "PASS"
+    },
+    {
+      "check": "no-ir-lowering-api",
+      "status": "PASS"
+    },
+    {
+      "check": "no-memory",
+      "status": "PASS"
+    },
+    {
+      "check": "no-python-object-id",
+      "status": "PASS"
+    },
+    {
+      "check": "no-source-path",
+      "status": "PASS"
+    },
+    {
+      "check": "no-timestamp",
+      "status": "PASS"
+    },
+    {
+      "check": "only-portable-includes",
+      "status": "PASS"
+    },
+    {
+      "check": "operations-counted",
+      "status": "PASS"
+    },
+    {
+      "check": "ordering-input-independent",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-05-unmutated",
+      "status": "PASS"
+    },
+    {
+      "check": "register-accessors",
+      "status": "PASS"
+    },
+    {
+      "check": "register-names",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bad-binop-kind",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bad-predicate",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bad-word-bits",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:branch-without-condition",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:declared-register-missing",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:duplicate-register-names",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:duplicate-semantics",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:external-direct-call",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:indirect-without-source",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:jump-with-operations",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:low-level-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:mismatched-classification",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:missing-adapter-field",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:non-classification",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:non-unit-set",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:normal-with-condition",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:reject-policy",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:reject-policy-bounded",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:resolved-call-target-not-function",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:resolved-jump-target-not-block",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unknown-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unsupported-op",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-call-set",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-call-set-other",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-call-single",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-jump-set-case-a",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-jump-set-case-b",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-jump-set-default",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-jump-set-switch",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-jump-single",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-jump-single-no-switch",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-jump-status",
+      "status": "PASS"
+    },
+    {
+      "check": "return-emission",
+      "status": "PASS"
+    },
+    {
+      "check": "return-like-no-goto",
+      "status": "PASS"
+    },
+    {
+      "check": "return-like-return",
+      "status": "PASS"
+    },
+    {
+      "check": "return-like-status",
+      "status": "PASS"
+    },
+    {
+      "check": "run-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "serialize-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "shift-guard",
+      "status": "PASS"
+    },
+    {
+      "check": "signed-compare-uses-helper",
+      "status": "PASS"
+    },
+    {
+      "check": "signed-immediate-masked",
+      "status": "PASS"
+    },
+    {
+      "check": "single-translation",
+      "status": "PASS"
+    },
+    {
+      "check": "stable-declaration",
+      "status": "PASS"
+    },
+    {
+      "check": "unit-id-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "unresolved-call-boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "unresolved-jump-boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "unresolved-jump-status",
+      "status": "PASS"
+    },
+    {
+      "check": "unsigned-compare-direct",
+      "status": "PASS"
+    },
+    {
+      "check": "word-bits-16",
+      "status": "PASS"
+    },
+    {
+      "check": "word-bits-64",
+      "status": "PASS"
+    },
+    {
+      "check": "word-bits-8",
+      "status": "PASS"
+    }
+  ],
+  "sample_fingerprints": {
+    "arith": "e155689cb6220ce07ce016ce69082137cf33f47795284e3de85274109a132716",
+    "bounded": "88d9d65b24c17a3bcc00c8bd4a3ba5f64f4613bcc967bbe4873caf41d844b43c",
+    "branch": "9669e0d000bf35e263a5dcfb1caa24da940b59c5a953f51aed8ed704a2e9c21b",
+    "call": "cf89a7a75621d0d64034ac729b9ffc26a038afb5c31aa535183a08db92e8ac81",
+    "external": "9125daf878e757fcf926b3b1364136cfe0b53c88408b50c5ee7d11d7e7720685",
+    "multi": "30d4ba2ed01d7c8df6eeed1bbb57135164f7ce891c078041581a833a841608ce",
+    "resolved_call_set": "f0aa60d32d89e34d8c9714bf961ba7683e885edb4a96d3d8841e1438b7da7d6a",
+    "resolved_jump_set": "f82c2508995ed93b209b2f48f85abf2f43921c6c1240d1f9b6849dd56cef782d",
+    "return_like": "dcb5a1a259dd224ef0b61663b36457f38490f90f32ea443a893e90e507338cfa"
+  },
+  "stage": "P2-07",
+  "tests": 106
+}

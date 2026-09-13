@@ -11,8 +11,8 @@ Only one stage may be active at a time.
 | P2-04 | Call-graph recovery | COMPLETE | Deterministic direct-call graph with internal/external/unresolved call classification; indirect targets never guessed |
 | P2-05 | Translation-unit model | COMPLETE | One deterministic TranslationUnit per discovered function; stable host-independent units and dependencies; structural packaging only, no IR lowering |
 | P2-06 | Indirect-control-flow classification | COMPLETE | Classify resolvable versus unresolved indirect sites without guessing targets |
-| P2-07 | Host emitter V1 | NEXT | Deterministic generated host code for a bounded proven subset |
-| P2-08 | Generic runtime ABI V1 | QUEUED | Architecture-neutral CPU/memory/host-call/input/frame/audio/runtime contracts |
+| P2-07 | Host emitter V1 | COMPLETE | Deterministic generated host code for a bounded proven subset |
+| P2-08 | Generic runtime ABI V1 | NEXT | Architecture-neutral CPU/memory/host-call/input/frame/audio/runtime contracts |
 | P2-09 | Deterministic build pipeline | QUEUED | Reproducible generated-source/object/executable metadata and hashing |
 | P2-10 | Tiny MIPS32 end-to-end proof | QUEUED | Synthetic/open MIPS32 guest → generated host executable → observable equivalence |
 | P2-11 | MIPS32 calls/stack/memory | QUEUED | Multiple functions, stack frames, loads/stores through end-to-end path |

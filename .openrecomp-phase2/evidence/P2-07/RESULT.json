@@ -1,0 +1,120 @@
+{
+  "stage": "P2-07",
+  "title": "OPENRECOMP_P2_07_HOST_EMITTER_V1",
+  "verdict": "PASS",
+  "stage_marker": "OPENRECOMP_P2_07=PASS",
+  "gate_marker": "OPENRECOMP_HOST_EMITTER_V1=PASS tests=106",
+  "starting_commit": "f9f2662b90c165a967fa943070e79688ff8198b1",
+  "starting_boundary": "f9f2662 phase2: complete P2-06 indirect control flow classification",
+  "branch": "phase2/opencode-v1",
+  "phase1_tag": "openrecomp-phase1-pass",
+  "phase1_tag_commit": "46c2f971e1a42cf49bd936bad94697b81bf31002",
+  "p2_07_gate": {
+    "command": "python tools/test_host_emitter_v1.py",
+    "tests": 106,
+    "result": "PASS"
+  },
+  "upstream_regressions": {
+    "P2-06_indirect_control_flow": {"marker": "OPENRECOMP_INDIRECT_CONTROL_FLOW_V1=PASS tests=134", "tests": 134, "result": "PASS"},
+    "P2-05_translation_units": {"marker": "OPENRECOMP_TRANSLATION_UNITS_V1=PASS tests=104", "tests": 104, "result": "PASS"},
+    "P2-04_call_graph": {"marker": "OPENRECOMP_CALL_GRAPH_V1=PASS tests=61", "tests": 61, "result": "PASS"},
+    "P2-03_function_discovery": {"marker": "OPENRECOMP_FUNCTION_DISCOVERY_V1=PASS tests=67", "tests": 67, "result": "PASS"},
+    "P2-02_cfg": {"marker": "OPENRECOMP_CFG_V1=PASS tests=82", "tests": 82, "result": "PASS"},
+    "P2-01_program_model": {"marker": "OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49", "tests": 49, "result": "PASS"}
+  },
+  "phase1_host_gates": {
+    "command": "python tools/phase1_host_gates_v1.py",
+    "pass": 44,
+    "fail": 0,
+    "skipped_toolchain_unavailable": 2,
+    "skipped_gates": ["e07-hardened-end-to-end", "external-repro-v1"],
+    "result": "PASS"
+  },
+  "source_integrity": {
+    "command": "python tools/phase1_host_gates_v1.py --only source-integrity",
+    "result": "PASS",
+    "manifest_entries": 117,
+    "note": "one additive entry: tools/test_host_emitter_v1.py"
+  },
+  "host_language": "C (C99, portable: stdint.h/stddef.h only)",
+  "bounded_guest_semantics_emitted": [
+    "const (immediate load)",
+    "copy / register move",
+    "integer add, sub, mul",
+    "integer and, or, xor",
+    "shift left, logical shift right, arithmetic shift right",
+    "signed and unsigned integer compare (eq/ne/ult/ule/ugt/uge/slt/sle/sgt/sge)",
+    "explicit guest-word-width masking (8/16/32/64) with wraparound",
+    "direct fallthrough",
+    "direct conditional branch",
+    "direct jump",
+    "direct internal call",
+    "return",
+    "return-like indirect transfer (P2-06 RETURN_LIKE only)"
+  ],
+  "unsupported_semantics_fail_closed": [
+    "instruction with no proven (architecture, op) semantic rule",
+    "external direct call (requires generic runtime ABI P2-08)",
+    "unresolved indirect call",
+    "unresolved indirect jump",
+    "bounded candidate set (never promoted to resolved)",
+    "external or runtime-mediated indirect transfer",
+    "unsupported_or_malformed indirect classification",
+    "resolved indirect target not a block / not a known internal function",
+    "unresolved/non-local CFG edges",
+    "guest trap",
+    "shift count not normalized",
+    "malformed/mismatched P2-06 classification input"
+  ],
+  "indirect_control_flow_handling": {
+    "RESOLVED_single": "direct goto (jump) or direct internal call (call)",
+    "RESOLVED_finite_set": "switch on the proven runtime target with a fail-closed default",
+    "BOUNDED_CANDIDATES": "explicit fail-closed boundary (or REJECT policy); never resolved",
+    "EXTERNAL_OR_RUNTIME_MEDIATED": "explicit fail-closed boundary; no internal target invented",
+    "RETURN_LIKE": "return (indirect jumps only)",
+    "UNRESOLVED_INDIRECT_CALL": "explicit fail-closed boundary (or REJECT policy)",
+    "UNRESOLVED_INDIRECT_JUMP": "explicit fail-closed boundary (or REJECT policy)",
+    "UNSUPPORTED_OR_MALFORMED": "rejected at generation time"
+  },
+  "determinism": {
+    "run_count": 2,
+    "stdout_sha256": "fb6e6e2c6ba660a5c3df75602a59c0501bf86ca53e0371e4942c0c76108c45d5",
+    "byte_identical": true
+  },
+  "native_compile": {
+    "compiler": "clang",
+    "status": "ok",
+    "expected": "44 0",
+    "observed": "44 0",
+    "match": true,
+    "scope": "bounded synthetic 8-bit fixture; not an equivalence proof"
+  },
+  "artifacts_sha256": {
+    "openrecomp/host_emitter.py": "fad5655e548aa9f5c5d589b28aad292d37eb0e680d0e9b7a7ee661015ac7a043",
+    "tools/test_host_emitter_v1.py": "d9120782854e0892cc92a2e5e878cf19a99362a0a452e8bae1da30db9640e5b0",
+    "host_emitter_tests.json": "eae4a00e1fc28cabcfe8296c5110412f843eb4c4116e6377d2d44ed0d520b5c1",
+    "host_emitter_tests.txt": "746c56e419d3c71fefc6043c9497ca23117ceefe2d261cb8483c8b987a5b252d",
+    "host_gates.json": "c2d09892090af2fd7db2a354fd3c5c110b42664baf4dbef0df3cdacee761a408",
+    "host_gates.txt": "1805280a975fefa31ebd9706656d6fdc65790ba811ee8716fe50bdcb27d79e61",
+    "source_integrity.txt": "ba4c738d2853a005ed354a693af6a48b78145a3e8e919ddd608239fe424b4503",
+    "sample_generated_arith.c": "e155689cb6220ce07ce016ce69082137cf33f47795284e3de85274109a132716",
+    "sample_generated_branch.c": "9669e0d000bf35e263a5dcfb1caa24da940b59c5a953f51aed8ed704a2e9c21b",
+    "sample_generated_call.c": "cf89a7a75621d0d64034ac729b9ffc26a038afb5c31aa535183a08db92e8ac81",
+    "sample_generated_unresolved_boundary.c": "070be344d344587a9ce19548a2454f95badde879ef300617d8818cfee55721ad",
+    "sample_generated_resolved_call_set.c": "f0aa60d32d89e34d8c9714bf961ba7683e885edb4a96d3d8841e1438b7da7d6a"
+  },
+  "changed_files": {
+    "added": [
+      "openrecomp/host_emitter.py",
+      "tools/test_host_emitter_v1.py",
+      ".openrecomp-phase2/evidence/P2-07/"
+    ],
+    "modified": [
+      "SOURCE_SHA256SUMS.txt",
+      ".openrecomp-phase2/STATE.md",
+      ".openrecomp-phase2/HANDOFF.md",
+      ".openrecomp-phase2/STAGE_QUEUE.md"
+    ]
+  },
+  "next_stage": "P2-08"
+}

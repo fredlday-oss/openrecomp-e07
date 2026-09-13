@@ -1,0 +1,62 @@
+P2-07 host emitter determinism evidence
+=======================================
+
+Environment
+-----------
+python 3.11.9 (win32)
+branch: phase2/opencode-v1
+HEAD at stage start: f9f2662b90c165a967fa943070e79688ff8198b1
+text evidence encoding: UTF-8 without BOM
+
+Repeated-run byte identity (P2-07 gate)
+---------------------------------------
+command (run twice, stdout captured verbatim):
+  python tools/test_host_emitter_v1.py
+
+run 1 stdout sha256: fb6e6e2c6ba660a5c3df75602a59c0501bf86ca53e0371e4942c0c76108c45d5
+run 2 stdout sha256: fb6e6e2c6ba660a5c3df75602a59c0501bf86ca53e0371e4942c0c76108c45d5
+byte-identical: yes
+
+In-process assertions (tools/test_host_emitter_v1.py)
+-----------------------------------------------------
+deterministic-source: PASS
+deterministic-fingerprint: PASS
+fingerprint-matches-text: PASS
+input-fingerprint-stable: PASS
+serialize-stable: PASS
+ordering-input-independent: PASS
+low-level-entry-point: PASS
+write/compile/run of the generated 8-bit fixture: PASS (see native_compile.txt)
+
+Generated-source fingerprints (sha256 of the full C text)
+---------------------------------------------------------
+arith              e155689cb6220ce07ce016ce69082137cf33f47795284e3de85274109a132716
+branch             9669e0d000bf35e263a5dcfb1caa24da940b59c5a953f51aed8ed704a2e9c21b
+call               cf89a7a75621d0d64034ac729b9ffc26a038afb5c31aa535183a08db92e8ac81
+return_like        dcb5a1a259dd224ef0b61663b36457f38490f90f32ea443a893e90e507338cfa
+bounded            88d9d65b24c17a3bcc00c8bd4a3ba5f64f4613bcc967bbe4873caf41d844b43c
+external           9125daf878e757fcf926b3b1364136cfe0b53c88408b50c5ee7d11d7e7720685
+resolved_jump_set  f82c2508995ed93b209b2f48f85abf2f43921c6c1240d1f9b6849dd56cef782d
+resolved_call_set  f0aa60d32d89e34d8c9714bf961ba7683e885edb4a96d3d8841e1438b7da7d6a
+multi              30d4ba2ed01d7c8df6eeed1bbb57135164f7ce891c078041581a833a841608ce
+
+Each fingerprint is stable across runs; identical structural inputs produce
+byte-identical C regardless of Python hash/insertion ordering.
+
+Retained synthetic generated fixtures (evidence, no guest/copyrighted bytes)
+---------------------------------------------------------------------------
+sample_generated_arith.c                e155689cb6220ce07ce016ce69082137cf33f47795284e3de85274109a132716
+sample_generated_branch.c                9669e0d000bf35e263a5dcfb1caa24da940b59c5a953f51aed8ed704a2e9c21b
+sample_generated_call.c                  cf89a7a75621d0d64034ac729b9ffc26a038afb5c31aa535183a08db92e8ac81
+sample_generated_unresolved_boundary.c   070be344d344587a9ce19548a2454f95badde879ef300617d8818cfee55721ad
+sample_generated_resolved_call_set.c     f0aa60d32d89e34d8c9714bf961ba7683e885edb4a96d3d8841e1438b7da7d6a
+
+Evidence artifacts (sha256)
+---------------------------
+openrecomp/host_emitter.py         fad5655e548aa9f5c5d589b28aad292d37eb0e680d0e9b7a7ee661015ac7a043
+tools/test_host_emitter_v1.py      d9120782854e0892cc92a2e5e878cf19a99362a0a452e8bae1da30db9640e5b0
+host_emitter_tests.json            eae4a00e1fc28cabcfe8296c5110412f843eb4c4116e6377d2d44ed0d520b5c1
+host_emitter_tests.txt             746c56e419d3c71fefc6043c9497ca23117ceefe2d261cb8483c8b987a5b252d
+host_gates.json                    c2d09892090af2fd7db2a354fd3c5c110b42664baf4dbef0df3cdacee761a408
+host_gates.txt                     1805280a975fefa31ebd9706656d6fdc65790ba811ee8716fe50bdcb27d79e61
+source_integrity.txt               ba4c738d2853a005ed354a693af6a48b78145a3e8e919ddd608239fe424b4503

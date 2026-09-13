@@ -1,0 +1,36 @@
+P2-07 changed-file inventory
+============================
+
+Stage start HEAD: f9f2662b90c165a967fa943070e79688ff8198b1
+Branch:           phase2/opencode-v1
+Phase-1 tag:      openrecomp-phase1-pass -> 46c2f971e1a42cf49bd936bad94697b81bf31002 (unchanged)
+
+Added (untracked)
+-----------------
+openrecomp/host_emitter.py            P2-07 primary implementation.
+tools/test_host_emitter_v1.py         P2-07 deterministic gate (106 checks).
+.openrecomp-phase2/evidence/P2-07/    This evidence bundle (incl. synthetic
+                                      generated C fixtures).
+
+Modified (tracked)
+------------------
+SOURCE_SHA256SUMS.txt                 +1 entry (116 -> 117). Only the new
+                                      tools/test_host_emitter_v1.py line added;
+                                      no existing hash changed.
+.openrecomp-phase2/STATE.md           P2-07 PASS; CURRENT_STAGE=P2-08.
+.openrecomp-phase2/HANDOFF.md         P2-07 handoff/next-action update.
+.openrecomp-phase2/STAGE_QUEUE.md     Queue status: P2-07 COMPLETE, P2-08 NEXT.
+
+Not modified
+------------
+No P2-00..P2-06 implementation source was modified (openrecomp/program_model.py,
+cfg.py, functions.py, call_graph.py, translation_units.py,
+indirect_control_flow.py are byte-identical to their committed state).
+No P2-00..P2-06 evidence file was modified or regenerated.
+No commit was created.
+
+Untouched pre-existing untracked residue (not deleted, not cleaned)
+-------------------------------------------------------------------
+.openrecomp-phase2/backups/
+artifacts/mips32_translation_v1/
+artifacts/mips32_translation_evidence_closure_v1/
