@@ -1,0 +1,322 @@
+{
+  "marker": "OPENRECOMP_CFG_V1=PASS tests=82",
+  "python": "3.14.6",
+  "results": [
+    {
+      "check": "backward-jump-self",
+      "status": "PASS"
+    },
+    {
+      "check": "branch-block-count",
+      "status": "PASS"
+    },
+    {
+      "check": "branch-fallthrough",
+      "status": "PASS"
+    },
+    {
+      "check": "branch-predecessors",
+      "status": "PASS"
+    },
+    {
+      "check": "branch-taken-target",
+      "status": "PASS"
+    },
+    {
+      "check": "branch-two-successors",
+      "status": "PASS"
+    },
+    {
+      "check": "call-callee-not-absorbed",
+      "status": "PASS"
+    },
+    {
+      "check": "call-continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "call-local-callee-block",
+      "status": "PASS"
+    },
+    {
+      "check": "call-local-no-edge-to-callee",
+      "status": "PASS"
+    },
+    {
+      "check": "call-local-site-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "call-site-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "candidate-block-not-promoted",
+      "status": "PASS"
+    },
+    {
+      "check": "candidate-edge-not-promoted",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-program-valid",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-roundtrip-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-roundtrip-unresolved",
+      "status": "PASS"
+    },
+    {
+      "check": "combine-evidence-never-promotes",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-block-order",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-edge-order",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-serialization",
+      "status": "PASS"
+    },
+    {
+      "check": "disconnected-region-block",
+      "status": "PASS"
+    },
+    {
+      "check": "forward-jump-only-edge",
+      "status": "PASS"
+    },
+    {
+      "check": "forward-jump-target",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-call-continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-call-no-direct-site",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-call-site",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-jump-one-unsolved",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-jump-site",
+      "status": "PASS"
+    },
+    {
+      "check": "linear-instruction-membership",
+      "status": "PASS"
+    },
+    {
+      "check": "linear-one-block",
+      "status": "PASS"
+    },
+    {
+      "check": "linear-terminal-no-successor",
+      "status": "PASS"
+    },
+    {
+      "check": "loop-back-edge",
+      "status": "PASS"
+    },
+    {
+      "check": "loop-self-predecessor",
+      "status": "PASS"
+    },
+    {
+      "check": "multi-target-block-count",
+      "status": "PASS"
+    },
+    {
+      "check": "multi-target-taken",
+      "status": "PASS"
+    },
+    {
+      "check": "multiple-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "multiple-entry-blocks",
+      "status": "PASS"
+    },
+    {
+      "check": "nes-block-count",
+      "status": "PASS"
+    },
+    {
+      "check": "nes-branch-fallthrough",
+      "status": "PASS"
+    },
+    {
+      "check": "nes-branch-taken",
+      "status": "PASS"
+    },
+    {
+      "check": "nes-evidence-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "nes-variable-sizes",
+      "status": "PASS"
+    },
+    {
+      "check": "open-cfg-wrap-valid",
+      "status": "PASS"
+    },
+    {
+      "check": "open-external-edge",
+      "status": "PASS"
+    },
+    {
+      "check": "open-external-fallthrough",
+      "status": "PASS"
+    },
+    {
+      "check": "proven-block",
+      "status": "PASS"
+    },
+    {
+      "check": "proven-edge",
+      "status": "PASS"
+    },
+    {
+      "check": "region-boundary-splits",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:ambiguous-normal-unresolved",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:closed-missing-direct-target",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:direct-target-interior",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:duplicate-block-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:duplicate-instruction",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:edge-to-nonexistent-block",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:entry-interior",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:fallthrough-interior",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:impossible-fallthrough-call",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:instruction-after-terminal",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:instruction-in-two-blocks",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:instruction-unassigned",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:malformed-boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:malformed-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:missing-closed-target",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:overlapping-block-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:overlapping-extent",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:presorted-inconsistent",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:return-with-target",
+      "status": "PASS"
+    },
+    {
+      "check": "return-no-successor",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "trap-no-successor",
+      "status": "PASS"
+    },
+    {
+      "check": "variable-width-back-edge",
+      "status": "PASS"
+    },
+    {
+      "check": "variable-width-block-count",
+      "status": "PASS"
+    },
+    {
+      "check": "variable-width-fallthrough-address",
+      "status": "PASS"
+    },
+    {
+      "check": "wide-entry-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "wide-target-preserved",
+      "status": "PASS"
+    }
+  ],
+  "sample_fingerprints": {
+    "forward_branch": "c0cea9ede69ce637c53c86b08fa48c96aa4d0746f1fc33c6b24795231338389a",
+    "nes6502": "ec75d3886ff218fd2e1f2f7bc88b6a30f7e54e87585c04a381c5d4770ea9a554",
+    "open_external": "a220a642e8cbd1b3ff40e791ee537ea3b62276d7833e65af99e455afd651e68c",
+    "wide": "924c6f5f6373846bc80aa225149e023b382787eeeb64d408043d71cd4f10e62f"
+  },
+  "stage": "P2-02",
+  "tests": 82
+}

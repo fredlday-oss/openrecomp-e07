@@ -652,8 +652,10 @@ class ProgramModel:
                     raise ProgramModelError(
                         f"block {block.id}: successor target_address 0x{successor.target_address:x} does not match block {target.id}"
                     )
-            elif successor.kind not in (EdgeKind.INDIRECT,):
-                raise ProgramModelError(f"block {block.id}: only INDIRECT successors may be unresolved")
+            elif successor.kind in (EdgeKind.RETURN, EdgeKind.TRAP):
+                raise ProgramModelError(f"block {block.id}: {successor.kind.value} successor cannot be unresolved")
+            elif successor.detail is None:
+                raise ProgramModelError(f"block {block.id}: unresolved successor must carry a detail")
 
         flow = block.terminal_flow()
         kinds = [successor.kind for successor in block.successors]
@@ -664,8 +666,8 @@ class ProgramModel:
             if len(block.successors) != 1 or block.successors[0].resolved or block.successors[0].kind != EdgeKind.INDIRECT:
                 raise ProgramModelError(f"block {block.id}: INDIRECT_JUMP block needs exactly one unresolved INDIRECT successor")
         elif flow == InstructionFlow.INDIRECT_CALL:
-            if kinds != [EdgeKind.CALL_RETURN] or not block.successors[0].resolved:
-                raise ProgramModelError(f"block {block.id}: INDIRECT_CALL block needs exactly one resolved CALL_RETURN successor")
+            if kinds != [EdgeKind.CALL_RETURN]:
+                raise ProgramModelError(f"block {block.id}: INDIRECT_CALL block needs exactly one CALL_RETURN successor")
         elif flow == InstructionFlow.CALL:
             if kinds != [EdgeKind.CALL_RETURN]:
                 raise ProgramModelError(f"block {block.id}: CALL block needs exactly one CALL_RETURN successor")
