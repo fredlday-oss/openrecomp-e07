@@ -1,0 +1,65 @@
+{
+  "stage": "P2-05",
+  "title": "OPENRECOMP_P2_05_TRANSLATION_UNITS_V1",
+  "verdict": "PASS",
+  "stage_marker": "OPENRECOMP_P2_05=PASS",
+  "gate_marker": "OPENRECOMP_TRANSLATION_UNITS_V1=PASS tests=104",
+  "starting_commit": "ea954d6306352fe63ed438cc43f107fe168471d4",
+  "starting_boundary": "ea954d6 phase2: complete P2-04 call graph recovery",
+  "branch": "phase2/opencode-v1",
+  "phase1_tag": "openrecomp-phase1-pass",
+  "phase1_tag_commit": "46c2f971e1a42cf49bd936bad94697b81bf31002",
+  "p2_05_gate": {
+    "command": "python tools/test_translation_units_v1.py",
+    "tests": 104,
+    "result": "PASS"
+  },
+  "upstream_regressions": {
+    "P2-04_call_graph": {"marker": "OPENRECOMP_CALL_GRAPH_V1=PASS tests=61", "tests": 61, "result": "PASS"},
+    "P2-03_function_discovery": {"marker": "OPENRECOMP_FUNCTION_DISCOVERY_V1=PASS tests=67", "tests": 67, "result": "PASS"},
+    "P2-02_cfg": {"marker": "OPENRECOMP_CFG_V1=PASS tests=82", "tests": 82, "result": "PASS"},
+    "P2-01_program_model": {"marker": "OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49", "tests": 49, "result": "PASS"}
+  },
+  "phase1_host_gates": {
+    "command": "python tools/phase1_host_gates_v1.py",
+    "pass": 44,
+    "fail": 0,
+    "skipped_toolchain_unavailable": 2,
+    "skipped_gates": ["e07-hardened-end-to-end", "external-repro-v1"],
+    "result": "PASS"
+  },
+  "source_integrity": {
+    "command": "python tools/phase1_host_gates_v1.py --only source-integrity",
+    "result": "PASS",
+    "manifest_entries": 115,
+    "note": "one additive entry: tools/test_translation_units_v1.py"
+  },
+  "determinism": {
+    "run_count": 2,
+    "stdout_sha256": "7209c6ff6bc40d131af0e04eae3c48d48d785ce864de46d0e406d81dbdbbc24a",
+    "byte_identical": true,
+    "roundtrip_byte_identity": true
+  },
+  "artifacts_sha256": {
+    "openrecomp/translation_units.py": "21b6021442fc2c48532dcd6c03b55ff70c8993a8b199ec5ada07fa5108b5346f",
+    "tools/test_translation_units_v1.py": "fb7e0a72a5a437ac3b0bc3970cffe6290025be79b521ff100df24d80803a0f98",
+    "translation_units_tests.json": "c68226fa94b07bd7606ce7695769d42411a29380cffa85050489f6f80d462412",
+    "translation_units_tests.txt": "4e853f379806fbfa848eb28066f9db56be036ab5aaf518aa70b216f53ee3f70c",
+    "host_gates.json": "cc05d29338aa98cf00880477ffb687f5483a840c483b5e354265d6e1c832cc3b",
+    "host_gates.txt": "c70e826746f64223022514c6393069e4dc713dcfbf28b25db28497cb8812d259"
+  },
+  "changed_files": {
+    "added": [
+      "openrecomp/translation_units.py",
+      "tools/test_translation_units_v1.py",
+      ".openrecomp-phase2/evidence/P2-05/"
+    ],
+    "modified": [
+      "SOURCE_SHA256SUMS.txt",
+      ".openrecomp-phase2/STATE.md",
+      ".openrecomp-phase2/HANDOFF.md"
+    ]
+  },
+  "no_ir_lowering": true,
+  "next_stage": "P2-06"
+}

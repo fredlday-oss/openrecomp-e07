@@ -1,0 +1,432 @@
+{
+  "marker": "OPENRECOMP_TRANSLATION_UNITS_V1=PASS tests=104",
+  "python": "3.11.9",
+  "results": [
+    {
+      "check": "block-addresses:fn_7000",
+      "status": "PASS"
+    },
+    {
+      "check": "block-addresses:fn_8000",
+      "status": "PASS"
+    },
+    {
+      "check": "block-membership:fn_7000",
+      "status": "PASS"
+    },
+    {
+      "check": "block-membership:fn_8000",
+      "status": "PASS"
+    },
+    {
+      "check": "block-successors:fn_7000",
+      "status": "PASS"
+    },
+    {
+      "check": "block-successors:fn_8000",
+      "status": "PASS"
+    },
+    {
+      "check": "blocks-remain-neutral",
+      "status": "PASS"
+    },
+    {
+      "check": "call-graph-cross-check",
+      "status": "PASS"
+    },
+    {
+      "check": "callee-unit-single-block",
+      "status": "PASS"
+    },
+    {
+      "check": "candidate-not-promoted",
+      "status": "PASS"
+    },
+    {
+      "check": "canonical-block-order",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-construction",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-serialization",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-unit-order",
+      "status": "PASS"
+    },
+    {
+      "check": "entry-sources-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "entry-unit",
+      "status": "PASS"
+    },
+    {
+      "check": "external-edge-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "external-inventory-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "external-no-invented-callee",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-jump-block-owned",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-jump-no-target",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-jump-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "instruction-objects-preserved:fn_7000",
+      "status": "PASS"
+    },
+    {
+      "check": "instruction-objects-preserved:fn_8000",
+      "status": "PASS"
+    },
+    {
+      "check": "instruction-ops-unlowered",
+      "status": "PASS"
+    },
+    {
+      "check": "instructions-preserved:fn_7000",
+      "status": "PASS"
+    },
+    {
+      "check": "instructions-preserved:fn_8000",
+      "status": "PASS"
+    },
+    {
+      "check": "nes-block-order",
+      "status": "PASS"
+    },
+    {
+      "check": "nes-internal-edge",
+      "status": "PASS"
+    },
+    {
+      "check": "nes-one-unit-per-function",
+      "status": "PASS"
+    },
+    {
+      "check": "no-ir-import:make_ir",
+      "status": "PASS"
+    },
+    {
+      "check": "no-ir-import:openrecomp.executor",
+      "status": "PASS"
+    },
+    {
+      "check": "no-ir-import:openrecomp.module",
+      "status": "PASS"
+    },
+    {
+      "check": "no-ir-import:openrecomp.runtime",
+      "status": "PASS"
+    },
+    {
+      "check": "no-ir-import:validate_ir",
+      "status": "PASS"
+    },
+    {
+      "check": "no-ir-keys",
+      "status": "PASS"
+    },
+    {
+      "check": "no-lowering-api",
+      "status": "PASS"
+    },
+    {
+      "check": "one-unit-per-function",
+      "status": "PASS"
+    },
+    {
+      "check": "program-model-cross-check",
+      "status": "PASS"
+    },
+    {
+      "check": "provenance-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:call-graph-node-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:deserialize-invalid-json",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:duplicate-function-input",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:empty-functions",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:empty-unit-blocks-document",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:from-document-not-object",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:non-call-graph",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:non-discovery-input",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:set-duplicate-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:set-duplicate-function-id",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:set-duplicate-unit-id",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:set-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:set-external-matches-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:set-shared-block-not-owned",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:set-shared-owner-unknown",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:set-unknown-entry-unit",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:set-unowned-block-owned",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:set-unowned-control-flow-owned",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:set-width-overflow",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unit-call-edge-caller-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unit-direct-callees-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unit-empty-blocks",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unit-entry-not-a-block",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unit-unresolved-jump-not-owned",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unit-unresolved-site-not-owned",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unknown-function-lookup",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unknown-unit-lookup",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unsupported-version",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-call-one",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-call-site",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-callees",
+      "status": "PASS"
+    },
+    {
+      "check": "resolved-matches-call-graph",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip-direct-callees",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip-shared",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip-unowned",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip-unresolved",
+      "status": "PASS"
+    },
+    {
+      "check": "shared-block-also",
+      "status": "PASS"
+    },
+    {
+      "check": "shared-block-owner",
+      "status": "PASS"
+    },
+    {
+      "check": "shared-blocks-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "source-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "stable-order",
+      "status": "PASS"
+    },
+    {
+      "check": "stable-order-input-independent",
+      "status": "PASS"
+    },
+    {
+      "check": "suppressed-entries-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "unit-function-ids",
+      "status": "PASS"
+    },
+    {
+      "check": "unit-ids-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "unit-lookup-by-id",
+      "status": "PASS"
+    },
+    {
+      "check": "unit-one-to-one",
+      "status": "PASS"
+    },
+    {
+      "check": "unowned-blocks-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "unowned-control-flow-not-invented",
+      "status": "PASS"
+    },
+    {
+      "check": "unowned-control-flow-not-owned",
+      "status": "PASS"
+    },
+    {
+      "check": "unowned-control-flow-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "unresolved-edge-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "unresolved-no-invented-target",
+      "status": "PASS"
+    },
+    {
+      "check": "unresolved-site-matches-function",
+      "status": "PASS"
+    },
+    {
+      "check": "unresolved-site-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "valid-direct-construction",
+      "status": "PASS"
+    },
+    {
+      "check": "very-wide-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "very-wide-serialized",
+      "status": "PASS"
+    },
+    {
+      "check": "wide-callee",
+      "status": "PASS"
+    },
+    {
+      "check": "wide-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "wide-roundtrip",
+      "status": "PASS"
+    }
+  ],
+  "sample_fingerprints": {
+    "calls": "400c54cc1b30c0105650f955c08f931ce3838cac23469e90aac412e9270d0e17",
+    "nes6502": "b3541a1985add016a39fdf7be50b1e0db05cbb72306606f21000f41b23234f81",
+    "shared": "3d69309ebe040deaf742b7b7906ab80d623a600635b6f9ca8e1c3cdc648068a4",
+    "single": "bcce624595e3e69ec5b5d1d210147fb265e15b4d92af2fc6f7b38838f4b5ba71",
+    "unowned": "b15808062a0c3ab16be113a93168cc4746097ac9f50a445cbf5fea8d653f0a2c",
+    "wide": "30d604963ef9c303c7b2d61a5ac9de99440311abea87c2b2ed9ec405d3fe832c"
+  },
+  "stage": "P2-05",
+  "tests": 104
+}

@@ -1,0 +1,55 @@
+P2-05 translation-unit determinism evidence
+==========================================
+
+Environment
+-----------
+python 3.11.9 (win32)
+branch: phase2/opencode-v1
+HEAD at capture: ea954d6306352fe63ed438cc43f107fe168471d4
+text evidence encoding: UTF-8 without BOM
+
+Repeated-run byte identity (P2-05 gate)
+---------------------------------------
+command (run twice, stdout captured verbatim):
+  python tools/test_translation_units_v1.py
+
+run 1 stdout sha256: 7209c6ff6bc40d131af0e04eae3c48d48d785ce864de46d0e406d81dbdbbc24a
+run 2 stdout sha256: 7209c6ff6bc40d131af0e04eae3c48d48d785ce864de46d0e406d81dbdbbc24a
+byte-identical: yes
+
+In-process assertions (tools/test_translation_units_v1.py)
+----------------------------------------------------------
+deterministic-construction: PASS
+deterministic-serialization: PASS
+deterministic-fingerprint: PASS
+deterministic-unit-order: PASS
+stable-order-input-independent: PASS
+roundtrip-bytes: PASS
+roundtrip-fingerprint: PASS
+roundtrip-unresolved: PASS
+roundtrip-direct-callees: PASS
+roundtrip-shared: PASS
+roundtrip-unowned: PASS
+wide-roundtrip: PASS
+very-wide-entry: PASS
+
+TranslationUnitSet serialization fingerprints (canonical JSON, SHA-256)
+----------------------------------------------------------------------
+single    bcce624595e3e69ec5b5d1d210147fb265e15b4d92af2fc6f7b38838f4b5ba71
+calls     400c54cc1b30c0105650f955c08f931ce3838cac23469e90aac412e9270d0e17
+shared    3d69309ebe040deaf742b7b7906ab80d623a600635b6f9ca8e1c3cdc648068a4
+unowned   b15808062a0c3ab16be113a93168cc4746097ac9f50a445cbf5fea8d653f0a2c
+wide      30d604963ef9c303c7b2d61a5ac9de99440311abea87c2b2ed9ec405d3fe832c
+nes6502   b3541a1985add016a39fdf7be50b1e0db05cbb72306606f21000f41b23234f81
+
+Each fingerprint is stable across runs and identical after serialize()/deserialize()
+round-tripping (roundtrip-fingerprint: PASS).
+
+Evidence artifacts (sha256)
+---------------------------
+openrecomp/translation_units.py         21b6021442fc2c48532dcd6c03b55ff70c8993a8b199ec5ada07fa5108b5346f
+tools/test_translation_units_v1.py      fb7e0a72a5a437ac3b0bc3970cffe6290025be79b521ff100df24d80803a0f98
+translation_units_tests.json            c68226fa94b07bd7606ce7695769d42411a29380cffa85050489f6f80d462412
+translation_units_tests.txt             4e853f379806fbfa848eb28066f9db56be036ab5aaf518aa70b216f53ee3f70c
+host_gates.json                         cc05d29338aa98cf00880477ffb687f5483a840c483b5e354265d6e1c832cc3b
+host_gates.txt                          c70e826746f64223022514c6393069e4dc713dcfbf28b25db28497cb8812d259

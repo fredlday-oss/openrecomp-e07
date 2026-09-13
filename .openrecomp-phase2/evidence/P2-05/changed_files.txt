@@ -1,0 +1,34 @@
+P2-05 changed-file inventory
+============================
+
+Baseline HEAD: ea954d6306352fe63ed438cc43f107fe168471d4
+Branch:        phase2/opencode-v1
+Phase-1 tag:   openrecomp-phase1-pass -> 46c2f971e1a42cf49bd936bad94697b81bf31002 (unchanged)
+
+Added (untracked)
+-----------------
+openrecomp/translation_units.py          P2-05 primary implementation.
+tools/test_translation_units_v1.py       P2-05 deterministic gate (104 checks).
+.openrecomp-phase2/evidence/P2-05/       This evidence bundle.
+
+Modified (tracked)
+------------------
+SOURCE_SHA256SUMS.txt                    +1 entry (114 -> 115). Only the new
+                                         tools/test_translation_units_v1.py line
+                                         added; no existing hash changed.
+.openrecomp-phase2/STATE.md              Stage transition (P2-05 PASS -> P2-06).
+.openrecomp-phase2/HANDOFF.md            Handoff/next-action update.
+
+Untouched pre-existing untracked residue (not deleted, not cleaned)
+-------------------------------------------------------------------
+.openrecomp-phase2/backups/
+artifacts/mips32_translation_v1/
+artifacts/mips32_translation_evidence_closure_v1/
+
+Not modified
+------------
+No P2-01/P2-02/P2-03/P2-04 source was modified.
+Frozen IR V1 (ir_version 1.0.0), Module Image V1 (1.0.0), Core API, the AOT/native
+ABI, the CFG builder, function discovery and the call graph are untouched.
+No prior test was weakened, skipped or deleted.
+No commit was created.
