@@ -1,0 +1,28 @@
+P2-10 synthetic MIPS32 fixture
+==============================
+architecture: mips32-bounded-v1
+endianness: little
+instruction width: 4 bytes
+base/entry address: 0x1000
+instruction count: 13
+byte length: 52
+sha256: b33b597c28eb7f7239ee5079728c7f3e447387d4ed34525c445cf8c1e9234975
+origin: synthetic/original (no commercial ROM/ELF bytes)
+
+instructions:
+  0x00001000  0x24020007  addiu r2, r0, 7
+  0x00001004  0x24030005  addiu r3, r0, 5
+  0x00001008  0x10430002  beq r2, r3, 0x1014
+  0x0000100c  0x00000000  nop (delay slot)
+  0x00001010  0x24040003  addiu r4, r0, 3
+  0x00001014  0x24840001  addiu r4, r4, 1
+  0x00001018  0x14820001  bne r4, r2, 0x1020
+  0x0000101c  0x00000000  nop (delay slot)
+  0x00001020  0x00822821  addu r5, r4, r2
+  0x00001024  0x00a33023  subu r6, r5, r3
+  0x00001028  0x00c2382a  slt r7, r6, r2
+  0x0000102c  0x03e00008  jr r31
+  0x00001030  0x00000000  nop (delay slot)
+
+bytes (little-endian hex):
+0700022405000324020043100000000003000424010084240100821400000000212882002330a3002a38c2000800e00300000000

@@ -1,0 +1,16 @@
+P2-10 deterministic build run 1
+====================================
+build_status: OK
+classification: EXECUTABLE_REPRODUCIBLE
+inputs:
+  GENERATED_SOURCE generated.c 8570ea4a11321118a3fff270e0dc9756d2a4ee7a52421ece1d2d892384118fbb
+  RUNTIME_SUPPORT_SOURCE runtime_support.c 12db122f2e390c9989dcd514f98d71b23bff90c877a6bff998bc84f78b033c81
+outputs:
+  OBJECT generated.obj 26a41c3e84b8cb2c997bdf11a9f305a36e1aad2c4a1121b18c8fa9fbea5013a7
+  OBJECT runtime_support.obj 8c01d6d2a8722cf2cc24f2015b94ee6401dd5fab148626c0438ac0a818547050
+  EXECUTABLE program.exe f94c95d2e86fca83f56e5e87a98bccaa1e2a4ced3fd9222aef29608592810f4e
+compile_commands:
+  clang-cl.exe /c /Brepro /Od /std:c11 /nologo /Fo:generated.obj generated.c
+  clang-cl.exe /c /Brepro /Od /std:c11 /nologo /Fo:runtime_support.obj runtime_support.c
+link_command: lld-link.exe /Brepro /nologo /OUT:program.exe generated.obj runtime_support.obj
+manifest_sha256: cd4ebe292c94025394549f5d566208da7331eb1900c7b7d08d0f88e3701b887c

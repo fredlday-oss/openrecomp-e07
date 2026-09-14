@@ -3,8 +3,8 @@
 PHASE=2
 BASELINE_TAG=openrecomp-phase1-pass
 BASELINE_COMMIT=46c2f97
-CURRENT_STAGE=P2-10
-LAST_PASSED_STAGE=P2-09
+CURRENT_STAGE=P2-11
+LAST_PASSED_STAGE=P2-10
 STATUS=READY
 FINAL_VERDICT=NOT_YET_EVALUATED
 
@@ -22,7 +22,8 @@ FINAL_VERDICT=NOT_YET_EVALUATED
 | P2-07 | Host emitter V1 | `PASS` | `.openrecomp-phase2/evidence/P2-07/RESULT.md` |
 | P2-08 | Generic runtime ABI V1 | `PASS` | `.openrecomp-phase2/evidence/P2-08/RESULT.md` |
 | P2-09 | Deterministic build pipeline | `PASS` | `.openrecomp-phase2/evidence/P2-09/RESULT.md` |
-| P2-10 | Tiny MIPS32 end-to-end proof | `NEXT` | not started |
+| P2-10 | Tiny MIPS32 end-to-end proof | `PASS` | `.openrecomp-phase2/evidence/P2-10/RESULT.md` |
+| P2-11 | MIPS32 calls/stack/memory | `NEXT` | not started |
 
 ## P2-05 result (PASS)
 
@@ -171,9 +172,42 @@ Branch: `phase2/opencode-v1`. Phase-1 tag `openrecomp-phase1-pass` verified unch
   artifact-hash mismatch, over-strong reproducibility claim.
 - No P2-00..P2-08 implementation source modified; no prior test weakened; no P2-10 started.
 
+## P2-10 result (PASS)
+
+Stage: `OPENRECOMP_P2_10_TINY_MIPS32_END_TO_END_PROOF_V1`.
+Starting commit: `161893389cca5a30aa462670f19ecabfc1be679d` (P2-09 boundary).
+Branch: `phase2/opencode-v1`. Phase-1 tag `openrecomp-phase1-pass` verified unchanged at
+`46c2f971e1a42cf49bd936bad94697b81bf31002`.
+
+- Dedicated gate `tools/test_mips32_end_to_end_v1.py` (108 deterministic checks). No second
+  recompilation path was added; the proof reuses the frozen Phase-2 modules.
+- Synthetic/original 13-instruction MIPS32 fixture (52 bytes, SHA-256
+  `b33b597c28eb7f7239ee5079728c7f3e447387d4ed34525c445cf8c1e9234975`): `addiu`/`beq`/`nop`
+  (delay slot)/`addiu`/`bne`/`nop`/`addu`/`subu`/`slt`/`jr r31`/`nop`. No commercial
+  ROM/ELF/game bytes.
+- Real pipeline traversal: adapter decode -> P2-01 ProgramModel -> P2-02 CFG (6 blocks;
+  taken/not-taken/fallthrough/indirect edges) -> P2-03 function discovery (`fn_1000`;
+  `blk_1030` preserved unowned) -> P2-04 call graph (1 node, 0 edges) -> P2-05 translation
+  units (`tu_fn_1000`) -> P2-06 classification (`jr r31` at `0x102c` = `RETURN_LIKE`,
+  `STRUCTURAL_RETURN_EVIDENCE`, no guessed targets; fails closed as `UNRESOLVED_INDIRECT_JUMP`
+  without evidence) -> P2-07 host emission (generated source
+  `8570ea4a11321118a3fff270e0dc9756d2a4ee7a52421ece1d2d892384118fbb`) -> P2-09 deterministic
+  build. P2-08 is `NOT_APPLICABLE_FOR_FIXTURE` (no host service/runtime-mediated call).
+- Independent expected observable (mathematical derivation + tiny independent reference
+  interpreter + Phase-1 `mips32_oracle_v1` cross-check on reduced synthetic ELF fixtures)
+  equals the actual native observable exactly (`r5=11 r6=6 r7=1`; stdout
+  `failed=0` + register dump); returncode `0`; secondary execution identical.
+- Two independent `/Brepro` builds: generated source, objects and executable byte-identical
+  (`program.exe f94c95d2e86fca83f56e5e87a98bccaa1e2a4ced3fd9222aef29608592810f4e`);
+  classification `EXECUTABLE_REPRODUCIBLE`; no binary post-processing.
+- No P2-01..P2-09 implementation source modified; no prior test weakened; P2-11 not started.
+- Final marker `OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF` remains `NOT_PROVEN` (the
+  control plane reserves the final marker for the P2-99 final verdict).
+
 ## Gates
 
 ```text
+OPENRECOMP_MIPS32_END_TO_END_V1=PASS tests=108
 OPENRECOMP_DETERMINISTIC_BUILD_V1=PASS tests=120
 OPENRECOMP_GENERIC_RUNTIME_ABI_V1=PASS tests=169
 OPENRECOMP_HOST_EMITTER_V1=PASS tests=106
@@ -185,13 +219,11 @@ OPENRECOMP_CFG_V1=PASS tests=82
 OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49
 OPENRECOMP_PHASE1_HOST_GATES_PASS=44 FAIL=0 SKIPPED=2
 OPENRECOMP_PHASE1_HOST_GATES_V1=PASS
-PASS source-integrity  verified 119 manifest entries
+PASS source-integrity  verified 120 manifest entries
 ```
 
-Determinism: two consecutive P2-09 gate runs produced byte-identical stdout
-(`sha256 db055b5cd622a7ef188901ef8da65898e2dac0cacb03c0ee2fb6caeec5b3e273`); two
-independent evidence roots produced byte-identical evidence
-(`build_manifest.json sha256 22d8fd9bac9bca61c8f2920b6274a6076a518e59082e5f7965cee1dad348df77`).
+Determinism: two consecutive P2-10 gate runs produced byte-identical stdout
+(`sha256 5327f11c756e57fd23cae7243ae1222c8b2f990dc9884b8a5165787f1829b424`).
 
 ## Queue reconciliation note
 
@@ -204,20 +236,20 @@ reconciled to the executed sequence.
 The indirect-control-flow classification work was assigned to `P2-06` with the original
 safety requirement — classify resolvable versus unresolved indirect sites **without
 guessing targets** — and is `PASS`. `P2-07` (Host emitter V1), `P2-08` (Generic runtime ABI
-V1) and `P2-09` (Deterministic build pipeline) are `PASS`, and `P2-10` (Tiny MIPS32
-end-to-end proof) is `NEXT`.
+V1), `P2-09` (Deterministic build pipeline) and `P2-10` (Tiny MIPS32 end-to-end proof) are
+`PASS`, and `P2-11` (MIPS32 calls/stack/memory) is `NEXT`.
 
 This reassignment is a control-plane reconciliation caused by actual execution order. It
 does not change the semantics, claims, evidence or PASS status of any frozen prior stage
-(`P2-00`..`P2-09`), and it does not alter `ce9cd4f`, `f9f2662`, `30b4321`, `10971b7` or any
-earlier commit.
+(`P2-00`..`P2-10`), and it does not alter `ce9cd4f`, `f9f2662`, `30b4321`, `10971b7`,
+`1618933` or any earlier commit.
 
 ## Next exact action
 
-Begin P2-10 — Tiny MIPS32 end-to-end proof: synthetic/open MIPS32 guest → generated host
-executable → observable equivalence. P2-10 was **not** started in P2-09. Do not modify the
-frozen Phase-1 behavior or the P2-00..P2-09 layers except through an evidence-backed stage.
-Do not claim the final Phase-2 end-to-end marker.
+Begin P2-11 — MIPS32 calls/stack/memory: multiple functions, stack frames, loads/stores
+through the end-to-end path. P2-11 was **not** started in P2-10. Do not modify the frozen
+Phase-1 behavior or the P2-00..P2-10 layers except through an evidence-backed stage. Do not
+claim the final Phase-2 end-to-end marker.
 
 ## Carried-forward findings
 
@@ -241,30 +273,31 @@ Do not claim the final Phase-2 end-to-end marker.
   source on this host's clang-cl/lld-link pair. Object/executable reproducibility is
   demonstrated for that toolchain; other toolchains may need different deterministic flags
   and are classified honestly.
-- The P2-07/P2-08 native compile+run checks and the P2-09 build/execution smoke test are
-  bounded synthetic checks, not equivalence proofs.
+- P2-10 proves only a 13-instruction synthetic MIPS32 fixture. The neutral CFG/emitter do
+  not model delay slots as first-class semantics; the fixture uses `nop` delay slots, and
+  the post-`jr` delay slot is preserved as unowned residual evidence rather than executed.
+  No calls/stack/loads/stores are covered (P2-11/P2-12).
+- The P2-07/P2-08 native compile+run checks, the P2-09 build/execution smoke test and the
+  P2-10 end-to-end comparison are bounded synthetic checks, not equivalence proofs.
 - Toolchain-gated gates remain unexecutable on this host.
-- `STAGE_QUEUE.md` is reconciled to the executed sequence; `P2-09` is `COMPLETE` and
-  `P2-10` is `NEXT`.
+- `STAGE_QUEUE.md` is reconciled to the executed sequence; `P2-10` is `COMPLETE` and
+  `P2-11` is `NEXT`.
 
 ## Git status (short)
 
-- P2-08 boundary commit: `10971b7` (`phase2: complete P2-08 generic runtime ABI v1`); `HEAD`
-  at P2-09 start.
-- Current uncommitted changes: P2-09 implementation + evidence
-  (`openrecomp/build_pipeline.py`, `tools/test_build_pipeline_v1.py`,
-  `.openrecomp-phase2/evidence/P2-09/`) and the control-plane updates to
-  `.openrecomp-phase2/STAGE_QUEUE.md`, `.openrecomp-phase2/STATE.md`,
-  `.openrecomp-phase2/HANDOFF.md`, plus `SOURCE_SHA256SUMS.txt` (+1 entry, 118 -> 119).
-- Retained untracked cross-directory evidence:
-  `.openrecomp-phase2/scratch/p2-09-evidence-a/`,
-  `.openrecomp-phase2/scratch/p2-09-evidence-b/`.
+- P2-09 boundary commit: `1618933` (`phase2: complete P2-09 deterministic build pipeline`);
+  `HEAD` at P2-10 start.
+- Current uncommitted changes: P2-10 gate + evidence
+  (`tools/test_mips32_end_to_end_v1.py`, `.openrecomp-phase2/evidence/P2-10/`) and the
+  control-plane updates to `.openrecomp-phase2/STAGE_QUEUE.md`,
+  `.openrecomp-phase2/STATE.md`, `.openrecomp-phase2/HANDOFF.md`, plus
+  `SOURCE_SHA256SUMS.txt` (+1 entry, 119 -> 120).
 - Untouched pre-existing untracked residue: `.openrecomp-phase2/backups/`,
-  `artifacts/mips32_translation_v1/`,
+  `.openrecomp-phase2/scratch/`, `artifacts/mips32_translation_v1/`,
   `artifacts/mips32_translation_evidence_closure_v1/`.
-- No commit created (P2-09 boundary commit intentionally not created).
+- No commit created (P2-10 boundary commit intentionally not created).
 
-OPENRECOMP_P2_09=PASS
-OPENRECOMP_DETERMINISTIC_BUILD_V1=PASS tests=120
+OPENRECOMP_P2_10=PASS
+OPENRECOMP_MIPS32_END_TO_END_V1=PASS tests=108
 OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=NOT_PROVEN
-CURRENT_STAGE=P2-10
+CURRENT_STAGE=P2-11

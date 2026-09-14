@@ -1,0 +1,97 @@
+P2-10 tiny MIPS32 end-to-end proof determinism evidence
+=======================================================
+
+Environment
+-----------
+python 3.11.9 (win32)
+branch: phase2/opencode-v1
+HEAD at stage start: 161893389cca5a30aa462670f19ecabfc1be679d
+  (1618933 phase2: complete P2-09 deterministic build pipeline = frozen P2-09 boundary)
+phase-1 tag: openrecomp-phase1-pass -> 46c2f971e1a42cf49bd936bad94697b81bf31002 (unchanged)
+text evidence encoding: UTF-8 without BOM
+
+Gate repeated-run byte identity
+-------------------------------
+command (run twice, stdout captured verbatim, UTF-8):
+  python tools/test_mips32_end_to_end_v1.py
+
+run 1 stdout sha256: 5327f11c756e57fd23cae7243ae1222c8b2f990dc9884b8a5165787f1829b424
+run 2 stdout sha256: 5327f11c756e57fd23cae7243ae1222c8b2f990dc9884b8a5165787f1829b424
+byte-identical: yes
+marker: OPENRECOMP_MIPS32_END_TO_END_V1=PASS tests=108
+
+Fixture identity
+----------------
+architecture: mips32-bounded-v1
+endianness: little
+entry/base: 0x1000
+instructions: 13
+byte length: 52
+sha256: b33b597c28eb7f7239ee5079728c7f3e447387d4ed34525c445cf8c1e9234975
+source: synthetic/original (no commercial ROM/ELF bytes)
+
+Structural fingerprints (stable across repeated pipeline runs)
+--------------------------------------------------------------
+P2-02 CFG                  d5b1836baff0d23b496062b4028e8cdc5a42365816bec7a82f8eae4c2c87e114
+P2-03 function discovery   c51494362101c6b68f6ef538f22f370fcf1cdca595672b43789df66b729ca595
+P2-04 call graph           b4f4c6d4e46321ab2841196bb5e554e86454cf1ab5ccb54321c2906cfc36e31c
+P2-05 translation units    5560c00386b8650ebbc840ec9bb94e5a4c2a61598346157654456e1fb8a6aace
+P2-06 indirect control flow 4cf534f6052806e7e062b05a6cda04c420f6541e49219f05dbdc98902cacd791
+P2-07 generated source     8570ea4a11321118a3fff270e0dc9756d2a4ee7a52421ece1d2d892384118fbb
+
+Repeated host emission from identical structural input is byte-identical.
+
+Deterministic native build (P2-09, two independent runs)
+--------------------------------------------------------
+independent build count: 2 (isolated directories; source regenerated per run)
+runtime_support.c        12db122f2e390c9989dcd514f98d71b23bff90c877a6bff998bc84f78b033c81
+generated.obj            26a41c3e84b8cb2c997bdf11a9f305a36e1aad2c4a1121b18c8fa9fbea5013a7
+runtime_support.obj      8c01d6d2a8722cf2cc24f2015b94ee6401dd5fab148626c0438ac0a818547050
+program.exe              f94c95d2e86fca83f56e5e87a98bccaa1e2a4ced3fd9222aef29608592810f4e
+build_manifest.json      cd4ebe292c94025394549f5d566208da7331eb1900c7b7d08d0f88e3701b887c
+
+source reproducible:     IDENTICAL
+manifest reproducible:   IDENTICAL
+object reproducible:     IDENTICAL
+executable reproducible: IDENTICAL
+classification:          EXECUTABLE_REPRODUCIBLE
+binary post-processing:  none
+compiler:                clang-cl.exe 22.1.8 (x86_64-pc-windows-msvc)
+linker:                  lld-link.exe (LLD 22.1.8)
+compile flags:           /c /Brepro /Od /std:c11 /nologo
+link flags:              /Brepro /nologo
+
+Native execution
+----------------
+expected observable:
+failed=0
+reg[0]=0
+reg[1]=7
+reg[2]=5
+reg[3]=0
+reg[4]=4
+reg[5]=11
+reg[6]=6
+reg[7]=1
+
+actual observable: identical to expected
+returncode: 0
+secondary run: identical stdout
+expected guest registers: r2=7 r3=5 r4=4 r5=11 r6=6 r7=1 r31=0
+EXPECTED == ACTUAL: YES
+(Note: bounded synthetic build/execution result, not guest/host equivalence.)
+
+Independent expected-observable derivation
+------------------------------------------
+1. explicit mathematical derivation (r5=r4+r2=11, r6=r5-r3=6, slt(6,7)=1)
+2. tiny independent reference interpreter with architectural delay slots
+3. Phase-1 mips32_oracle_v1 cross-check on reduced synthetic ELF fixtures:
+   taken:     r2=5 r3=5 operations=6
+   not_taken: r2=9 r3=9 operations=7
+
+Path / identity leakage
+-----------------------
+The build manifest and generated source contain no repository path, temporary
+build root, evidence directory, username, hostname, process id, random UUID or
+Python object identity. Gate stdout contains no temporary machine-specific
+paths. (Bounded check, not a universal formal proof.)

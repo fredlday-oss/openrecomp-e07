@@ -1,0 +1,70 @@
+P2-10 changed-file inventory
+============================
+
+Stage start HEAD: 161893389cca5a30aa462670f19ecabfc1be679d
+Branch:           phase2/opencode-v1
+Phase-1 tag:      openrecomp-phase1-pass -> 46c2f971e1a42cf49bd936bad94697b81bf31002 (unchanged)
+
+Added (untracked)
+-----------------
+tools/test_mips32_end_to_end_v1.py   P2-10 dedicated end-to-end gate (108 checks):
+                                     synthetic MIPS32 fixture, real Phase-2
+                                     pipeline traversal, independent expected
+                                     observable, deterministic P2-09 build,
+                                     native execution comparison, fail-closed
+                                     coverage and deterministic evidence output.
+.openrecomp-phase2/evidence/P2-10/   This evidence bundle.
+
+Modified (tracked)
+------------------
+SOURCE_SHA256SUMS.txt                +1 entry (119 -> 120). Only the new
+                                     tools/test_mips32_end_to_end_v1.py line;
+                                     no existing hash changed.
+.openrecomp-phase2/STATE.md          P2-10 PASS; CURRENT_STAGE=P2-11.
+.openrecomp-phase2/HANDOFF.md        P2-10 handoff/next-action update.
+.openrecomp-phase2/STAGE_QUEUE.md    Queue status: P2-10 COMPLETE, P2-11 NEXT.
+
+Not modified
+------------
+No P2-01..P2-09 implementation source was modified. No prior test was weakened.
+No second recompilation path was added; P2-10 reuses the frozen Phase-2 modules.
+No prior evidence bundle was modified or regenerated.
+
+Untouched pre-existing untracked residue (not deleted, not cleaned, not staged)
+-------------------------------------------------------------------------------
+.openrecomp-phase2/backups/
+.openrecomp-phase2/scratch/
+artifacts/mips32_translation_v1/
+artifacts/mips32_translation_evidence_closure_v1/
+
+Artifact sha256 (final P2-10 source and evidence)
+-------------------------------------------------
+888211837132c5d6feda469e2b95357de651f73392c517733116dcd7c6461eaf  tools/test_mips32_end_to_end_v1.py
+cd4ebe292c94025394549f5d566208da7331eb1900c7b7d08d0f88e3701b887c  build_manifest.json
+6651f7e1d6c595aa78e1a9960024889ece26bbedc9112721cf2e9630e0c76919  build_run_1.txt
+c290457678737d390ab7bee2cbf1d68dd91f1b2f1857755c5822200b9df849eb  build_run_2.txt
+167a62469058b3ec2f3388aaeac5fbacf65cbffbc969eb6b56d1e795e972265c  fixture.txt
+8570ea4a11321118a3fff270e0dc9756d2a4ee7a52421ece1d2d892384118fbb  generated_source.c
+9a5dc1748879ab3b615147b26a5604041ec6e6206ecc55784c37c1bf07c4bf37  generated_source_sha256.txt
+ebf6dba997aa762a702ec01db91f9a6900c6d97592945a2bff9f50f6de61aac7  pipeline_cfg.txt
+d5ac9716e68d0b7fbf9a5f762e8e2c26a129284b39463aeccb13875d658d8b6f  pipeline_functions.txt
+701a937253e20343d1e4b7e61ab5012e3a61c5bd9c9af01a93c3d83c081f20f6  pipeline_call_graph.txt
+2ebe3ee1fc8fd9b26d86783c7af186e6340449ee1ef04ec091ac884a345edea2  pipeline_translation_units.txt
+3dc7fd72f32e3c22b04f8b001631905b8a21850f0f1950c74e5908711d197431  pipeline_indirect_control_flow.txt
+6388e80b73cf08c27fd8a6afcc22f4e29f3ecdca0a5b2b9cc8ca87336a6495e4  native_execution.txt
+b37fc1c4bedf3aa9279e504512e6f259e29803b6ec909b9f5158e7c7e57a35b7  expected_vs_actual.txt
+435ab9264b38b4d3caa21ed581a49d85d3ff0a631c364fb6854987a6f42c9ab3  oracle_cross_check.txt
+5327f11c756e57fd23cae7243ae1222c8b2f990dc9884b8a5165787f1829b424  p2_10_gate.txt
+2d424b212c4cf72f96d7299e11a9e9ac711a950cb7b2c2028a511bc89f77b932  p2_10_tests.json
+aec831936703b3524a6187b4105e96fe65467dfe45fddf253d18eaaca825b8a0  host_gates.json
+317c29204c4d08964ae5297ea524ddc5ff7a3865b13e39376ef4cc6c60852d7d  host_gates.txt
+426ad9a25928c39091e1a99f0834940b47e1d8e79008b5480c121ab6e66b055a  source_integrity.txt
+
+Reproducible build artifacts (both independent runs; not committed)
+-------------------------------------------------------------------
+b33b597c28eb7f7239ee5079728c7f3e447387d4ed34525c445cf8c1e9234975  fixture bytes (52)
+8570ea4a11321118a3fff270e0dc9756d2a4ee7a52421ece1d2d892384118fbb  generated.c
+12db122f2e390c9989dcd514f98d71b23bff90c877a6bff998bc84f78b033c81  runtime_support.c
+26a41c3e84b8cb2c997bdf11a9f305a36e1aad2c4a1121b18c8fa9fbea5013a7  generated.obj
+8c01d6d2a8722cf2cc24f2015b94ee6401dd5fab148626c0438ac0a818547050  runtime_support.obj
+f94c95d2e86fca83f56e5e87a98bccaa1e2a4ced3fd9222aef29608592810f4e  program.exe

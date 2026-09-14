@@ -1,0 +1,13 @@
+P2-02 CFG evidence
+==================
+mode: CLOSED
+fingerprint: d5b1836baff0d23b496062b4028e8cdc5a42365816bec7a82f8eae4c2c87e114
+blocks: 0x1000, 0x100c, 0x1014, 0x101c, 0x1020, 0x1030
+edges:
+  blk_1000: BRANCH_NOT_TAKEN -> blk_100c
+  blk_1000: BRANCH_TAKEN -> blk_1014
+  blk_100c: FALLTHROUGH -> blk_1014
+  blk_1014: BRANCH_NOT_TAKEN -> blk_101c
+  blk_1014: BRANCH_TAKEN -> blk_1020
+  blk_101c: FALLTHROUGH -> blk_1020
+  blk_1020: INDIRECT -> unresolved indirect jump target

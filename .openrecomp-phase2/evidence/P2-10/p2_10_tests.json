@@ -1,0 +1,458 @@
+{
+  "actual_observable": "failed=0\nreg[0]=0\nreg[1]=7\nreg[2]=5\nreg[3]=0\nreg[4]=4\nreg[5]=11\nreg[6]=6\nreg[7]=1",
+  "classification": "EXECUTABLE_REPRODUCIBLE",
+  "expected_equals_actual": true,
+  "expected_observable": "failed=0\nreg[0]=0\nreg[1]=7\nreg[2]=5\nreg[3]=0\nreg[4]=4\nreg[5]=11\nreg[6]=6\nreg[7]=1",
+  "fixture_byte_length": 52,
+  "fixture_id": "p2-10-mips32-tiny-v1",
+  "fixture_sha256": "b33b597c28eb7f7239ee5079728c7f3e447387d4ed34525c445cf8c1e9234975",
+  "generated_source_sha256": "8570ea4a11321118a3fff270e0dc9756d2a4ee7a52421ece1d2d892384118fbb",
+  "marker": "OPENRECOMP_MIPS32_END_TO_END_V1=PASS tests=108",
+  "python": "3.11.9",
+  "register_names": [
+    "r0",
+    "r2",
+    "r3",
+    "r31",
+    "r4",
+    "r5",
+    "r6",
+    "r7"
+  ],
+  "results": [
+    {
+      "check": "build-brepro-compile",
+      "status": "PASS"
+    },
+    {
+      "check": "build-brepro-link",
+      "status": "PASS"
+    },
+    {
+      "check": "build-classification",
+      "status": "PASS"
+    },
+    {
+      "check": "build-executable-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-no-hostname",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-no-repo-path",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-no-username",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-no-workspace",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build-object-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build-run-count",
+      "status": "PASS"
+    },
+    {
+      "check": "build-source-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build-status-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph-no-edges",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph-nodes",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-block-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-branch-not-taken",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-branch-not-taken-bne",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-branch-taken",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-branch-taken-bne",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-fallthrough-100c",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-fallthrough-101c",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-indirect-unresolved",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-no-phantom-blocks",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-no-successors-jr-unowned",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-addresses",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-branch-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-evidence-proven",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-jr-unresolved",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-ops",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-size-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "derivation-r5",
+      "status": "PASS"
+    },
+    {
+      "check": "derivation-r6",
+      "status": "PASS"
+    },
+    {
+      "check": "derivation-r7",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-add",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-branch",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-mask",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-no-hardcoded-result-11",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-no-hardcoded-result-6",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-registers",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-return-like",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-signed-compare",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-slt-select",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-sub",
+      "status": "PASS"
+    },
+    {
+      "check": "expected-equals-actual",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-byte-length",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-entry-aligned",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-instructions-13",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-sha256-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-synthetic-origin",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-tamper-detected",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-word-count",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-body",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-provenance",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-single",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-unowned",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-fails-closed-without-evidence",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-no-guessed-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-no-invented-target-without-evidence",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-site-address",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-site-count",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-status-return-like",
+      "status": "PASS"
+    },
+    {
+      "check": "native-executable-hash-matches-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "native-executable-present",
+      "status": "PASS"
+    },
+    {
+      "check": "native-failed-flag-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "native-guest-registers",
+      "status": "PASS"
+    },
+    {
+      "check": "native-object-hash-matches-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "native-output-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "native-returncode-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-import:p2_11",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-import:p2_12",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-import:p2_20",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-import:stack",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-symbol:equivalence",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-symbol:frame",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-symbol:p2_11",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-symbol:p2_12",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-symbol:p2_20",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-symbol:stack",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-11-evidence-directory",
+      "status": "PASS"
+    },
+    {
+      "check": "oracle-not-taken-branch",
+      "status": "PASS"
+    },
+    {
+      "check": "oracle-taken-branch",
+      "status": "PASS"
+    },
+    {
+      "check": "programmodel-functions",
+      "status": "PASS"
+    },
+    {
+      "check": "programmodel-source",
+      "status": "PASS"
+    },
+    {
+      "check": "programmodel-validates",
+      "status": "PASS"
+    },
+    {
+      "check": "reference-registers",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:empty-region",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:invalid-branch-target-outside-region",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:malformed-fixture-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:malformed-fixture-truncated",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:misaligned-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:missing-entry-function",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:missing-semantics-rule",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unsupported-opcode",
+      "status": "PASS"
+    },
+    {
+      "check": "units-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "units-function",
+      "status": "PASS"
+    },
+    {
+      "check": "units-single",
+      "status": "PASS"
+    },
+    {
+      "check": "units-unowned-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "unresolved-indirect-fails-closed-in-emission",
+      "status": "PASS"
+    },
+    {
+      "check": "unresolved-indirect-no-goto",
+      "status": "PASS"
+    }
+  ],
+  "stage": "P2-10",
+  "tests": 108
+}

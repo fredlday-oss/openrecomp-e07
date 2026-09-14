@@ -1,0 +1,23 @@
+P2-10 expected vs actual observable
+===================================
+expected (independent reference interpreter):
+failed=0
+reg[0]=0
+reg[1]=7
+reg[2]=5
+reg[3]=0
+reg[4]=4
+reg[5]=11
+reg[6]=6
+reg[7]=1
+actual (native executable stdout):
+failed=0
+reg[0]=0
+reg[1]=7
+reg[2]=5
+reg[3]=0
+reg[4]=4
+reg[5]=11
+reg[6]=6
+reg[7]=1
+EXPECTED == ACTUAL: YES
