@@ -1,0 +1,21 @@
+P2-11 expected vs actual observable
+===================================
+expected (independent reference interpreter, true MIPS32 with delay slots):
+failed=0
+reg[0]=0
+reg[1]=21
+reg[2]=256
+reg[3]=0
+reg[4]=21
+reg[5]=42
+ram_checksum=409079371
+actual (native executable stdout):
+failed=0
+reg[0]=0
+reg[1]=21
+reg[2]=256
+reg[3]=0
+reg[4]=21
+reg[5]=42
+ram_checksum=409079371
+EXPECTED == ACTUAL: YES

@@ -1,0 +1,174 @@
+{
+  "stage": "P2-11",
+  "title": "OPENRECOMP_P2_11_MIPS32_CALLS_STACK_MEMORY_V1",
+  "verdict": "PASS",
+  "stage_marker": "OPENRECOMP_P2_11=PASS",
+  "gate_marker": "OPENRECOMP_MIPS32_CALLS_MEMORY_V1=PASS tests=77",
+  "starting_commit": "62044d38feec255fbcceb72754e890e7b644c35e",
+  "starting_boundary": "62044d3 phase2: complete P2-10 tiny MIPS32 end-to-end proof",
+  "branch": "phase2/opencode-v1",
+  "phase1_tag": "openrecomp-phase1-pass",
+  "phase1_tag_commit": "46c2f971e1a42cf49bd936bad94697b81bf31002",
+  "fixture": {
+    "fixture_id": "p2-11-mips32-calls-memory-v1",
+    "architecture": "mips32-bounded-v1",
+    "endianness": "little",
+    "instruction_width_bytes": 4,
+    "entry_address": 4096,
+    "leaf_address": 4232,
+    "instruction_count": 16,
+    "byte_length": 64,
+    "sha256": "4ce3fdab7f9e622648eb74eff676fd79712c2043b8e35e752e84e26712e6d309",
+    "origin": "synthetic/original (no commercial ROM/ELF bytes)",
+    "stack_model": "o32-style save/restore of $ra with a local spill slot"
+  },
+  "guest_instructions": ["addiu", "addu", "sw", "lw", "jal", "jr", "nop"],
+  "guest_semantic_operations": ["immediate add", "register add", "word store", "word load", "direct call (jal)", "structural return (jr ra)", "stack frame adjust", "delay slot"],
+  "expected_observable": "failed=0\nreg[0]=0\nreg[1]=21\nreg[2]=256\nreg[3]=0\nreg[4]=21\nreg[5]=42\nram_checksum=409079371",
+  "expected_guest_registers": {"r2": 21, "r4": 21, "r5": 42, "sp": 256, "ra": 0},
+  "expected_ram_checksum": 409079371,
+  "expected_derivation": [
+    "explicit derivation: sp=0x100 -> 0x0f8; save $ra and spill r4; jal sets $ra=0x101c; leaf r2=21; reload r5=21; restore $ra=0; r5=21+21=42; sp=0x100; jr $ra halts",
+    "tiny independent true-MIPS32 reference interpreter (delay slots, jal/jr $ra, lw/sw, bounded little-endian RAM)",
+    "RAM checksum fold(c = c*31 + byte) over the 4096-byte runtime RAM"
+  ],
+  "actual_observable": "failed=0\nreg[0]=0\nreg[1]=21\nreg[2]=256\nreg[3]=0\nreg[4]=21\nreg[5]=42\nram_checksum=409079371",
+  "expected_equals_actual": true,
+  "native_returncode": 0,
+  "native_execution_stable": true,
+  "stages": {
+    "P2-01_program_model": "APPLIED",
+    "P2-02_cfg": "APPLIED",
+    "P2-03_function_discovery": "APPLIED",
+    "P2-04_call_graph": "APPLIED",
+    "P2-05_translation_units": "APPLIED",
+    "P2-06_indirect_control_flow": "APPLIED",
+    "P2-07_host_emitter": "APPLIED",
+    "P2-08_runtime_abi": "APPLIED",
+    "P2-09_deterministic_build": "APPLIED"
+  },
+  "stage_fingerprints": {
+    "P2-02_cfg": "99c4c440a085cdd860e622c5dff1b39a07d35936c4aaae76a498d6b9d4d5f358",
+    "P2-03_functions": "f8c2c964bedc0da11f490f0f311c571f69729a86dfd2d940e957551b3155ef94",
+    "P2-04_call_graph": "29faef8a3135004e201a755175d7053fffd785cb90728a6dd0c28b58d8165620",
+    "P2-05_translation_units": "ad11840f28c455a42686d83a244e2e309cbd328fa2fd745db0add4091a8094d1",
+    "P2-06_indirect_control_flow": "5ca0b7c3625206bad3c9833b63e91d445d2f6be9a445276a1e7bb7c6cac926a0",
+    "P2-07_generated_source": "4637ba676e99ba74e0c1708f100ba81b9506f1689fbee3d736364a6f821ceaf3"
+  },
+  "function_count": 2,
+  "call_edges": [{"caller": "fn_1000", "callee": "fn_1088", "kind": "INTERNAL_DIRECT"}],
+  "indirect_control_flow": {
+    "site_count": 2,
+    "sites": ["0x102c", "0x108c"],
+    "status": "RETURN_LIKE",
+    "basis": "STRUCTURAL_RETURN_EVIDENCE",
+    "targets": [],
+    "guessed_targets": false
+  },
+  "host_emitter_extension": {
+    "operations": ["HostLoad", "HostStore"],
+    "opt_in": "requires HostEmitterConfig.runtime_abi",
+    "memory_surface": ["or_rt_memory_read", "or_rt_memory_write"],
+    "width_bits": 32,
+    "pointer_casts": false,
+    "default_output_unchanged": true
+  },
+  "generated_source": {
+    "sha256": "4637ba676e99ba74e0c1708f100ba81b9506f1689fbee3d736364a6f821ceaf3",
+    "register_names": ["r0", "r2", "r29", "r31", "r4", "r5"],
+    "repeated_emission_byte_identical": true,
+    "final_observable_hardcoded": false
+  },
+  "build": {
+    "pipeline": "P2-09",
+    "manifest_schema": "openrecomp-build-manifest-v1",
+    "independent_build_count": 2,
+    "runtime_support_source_sha256": "413e68e44b233d9938905e1aceb2630f5a839609b8256c0a13d74e4d1bbc243e",
+    "generated_obj_sha256": "4953a149ba34dac442cb055760f09ee984da67f222d60ef56df6a53d96983bd1",
+    "runtime_support_obj_sha256": "b51f5f47e2d3351f686e69b5717e6d83f89fe3b2ad78e8dac3c06ffc1277112d",
+    "executable_sha256": "bd719060f38793a349271358e121730206f0799d67bd771c1a8ca6a31eba27c6",
+    "build_manifest_sha256": "68d256081e507386f41122922df1b396619a2b9f3faaef38ff508cfffac2bbf0",
+    "compiler_identity": "clang-cl.exe",
+    "compiler_version": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+    "compiler_target": "x86_64-pc-windows-msvc",
+    "linker_identity": "lld-link.exe",
+    "linker_version": "LLD 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+    "compile_arguments": ["/c", "/Brepro", "/Od", "/std:c11", "/nologo"],
+    "link_arguments": ["/Brepro", "/nologo"],
+    "source_reproducible": true,
+    "manifest_reproducible": true,
+    "object_reproducible": true,
+    "executable_reproducible": true,
+    "classification": "EXECUTABLE_REPRODUCIBLE",
+    "binary_post_processing": "none"
+  },
+  "runtime_memory_failure": {
+    "fixture": "sp=0x1000; sw r4,0(sp) outside the 4096-byte runtime RAM",
+    "observed": "failed=1",
+    "returncode": 0,
+    "result": "PASS (checked boundary reported the out-of-range access; no host out-of-bounds write)"
+  },
+  "p2_11_gate": {"command": "python tools/test_mips32_calls_memory_v1.py", "tests": 77, "result": "PASS"},
+  "determinism": {
+    "gate_stdout_sha256": "c0b39d658ef9f12cc056bbfcae30e945670944f51f3d12a86a0f2a4e21e0c168",
+    "run_count": 2,
+    "byte_identical": true
+  },
+  "fail_closed_tested": [
+    "guest memory access without a configured runtime ABI",
+    "missing lw/sw semantics rule",
+    "external direct call target (no invented callee)",
+    "malformed HostLoad/HostStore operands",
+    "unsupported opcode",
+    "misaligned entry",
+    "empty region",
+    "runtime out-of-range memory access (failed=1, no host out-of-bounds write)"
+  ],
+  "cross_stage_test_adjustment": {
+    "file": "tools/test_mips32_end_to_end_v1.py",
+    "removed_check": "no-p2-11-evidence-directory (obsolete cross-stage guard)",
+    "replacement_check": "no-p2-11-memory-emission-in-p2-10",
+    "reason": "The guard asserted P2-11 evidence must not exist; it encodes cross-stage build state and necessarily fails once the authorized P2-11 stage writes required evidence.",
+    "test_count_unchanged": 108,
+    "old_stdout_sha256": "5327f11c756e57fd23cae7243ae1222c8b2f990dc9884b8a5165787f1829b424",
+    "new_stdout_sha256": "347da29f2a3ede17719ea3c10f8fcf7ac1dd5a0c1bb849eace0b12f19fe0d8aa",
+    "committed_p2_10_semantics_changed": false
+  },
+  "upstream_regressions": {
+    "P2-10_mips32_end_to_end": {"marker": "OPENRECOMP_MIPS32_END_TO_END_V1=PASS tests=108", "tests": 108, "result": "PASS"},
+    "P2-09_deterministic_build": {"marker": "OPENRECOMP_DETERMINISTIC_BUILD_V1=PASS tests=120", "tests": 120, "result": "PASS"},
+    "P2-08_generic_runtime_abi": {"marker": "OPENRECOMP_GENERIC_RUNTIME_ABI_V1=PASS tests=169", "tests": 169, "result": "PASS"},
+    "P2-07_host_emitter": {"marker": "OPENRECOMP_HOST_EMITTER_V1=PASS tests=106", "tests": 106, "result": "PASS"},
+    "P2-06_indirect_control_flow": {"marker": "OPENRECOMP_INDIRECT_CONTROL_FLOW_V1=PASS tests=134", "tests": 134, "result": "PASS"},
+    "P2-05_translation_units": {"marker": "OPENRECOMP_TRANSLATION_UNITS_V1=PASS tests=104", "tests": 104, "result": "PASS"},
+    "P2-04_call_graph": {"marker": "OPENRECOMP_CALL_GRAPH_V1=PASS tests=61", "tests": 61, "result": "PASS"},
+    "P2-03_function_discovery": {"marker": "OPENRECOMP_FUNCTION_DISCOVERY_V1=PASS tests=67", "tests": 67, "result": "PASS"},
+    "P2-02_cfg": {"marker": "OPENRECOMP_CFG_V1=PASS tests=82", "tests": 82, "result": "PASS"},
+    "P2-01_program_model": {"marker": "OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49", "tests": 49, "result": "PASS"}
+  },
+  "phase1_host_gates": {
+    "command": "python tools/phase1_host_gates_v1.py --json .openrecomp-phase2/evidence/P2-11/host_gates.json",
+    "pass": 44,
+    "fail": 0,
+    "skipped_toolchain_unavailable": 2,
+    "skipped_gates": ["e07-hardened-end-to-end", "external-repro-v1"],
+    "result": "PASS"
+  },
+  "source_integrity": {
+    "command": "python tools/phase1_host_gates_v1.py --only source-integrity",
+    "result": "PASS",
+    "manifest_entries": 121,
+    "new_entry": "tools/test_mips32_calls_memory_v1.py",
+    "new_entry_sha256": "906b3b5898eda23715a2dd36aaed345900da174343fb95846949f2191168cef8",
+    "updated_entry": "tools/test_mips32_end_to_end_v1.py",
+    "updated_entry_sha256": "b207f94bb2cdbf449469a5bdf3021f644e8ab1996f4a6ee0cd3c4999b43586c1",
+    "note": "120 -> 121; one additive entry and one evidence-backed update; no unrelated hash changed"
+  },
+  "changed_files": {
+    "added": ["tools/test_mips32_calls_memory_v1.py", ".openrecomp-phase2/evidence/P2-11/"],
+    "modified": ["openrecomp/host_emitter.py", "tools/test_mips32_end_to_end_v1.py", "SOURCE_SHA256SUMS.txt", ".openrecomp-phase2/STATE.md", ".openrecomp-phase2/HANDOFF.md", ".openrecomp-phase2/STAGE_QUEUE.md"]
+  },
+  "phase2_end_to_end_marker": "OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=NOT_PROVEN",
+  "phase2_end_to_end_marker_reason": "STAGE_QUEUE.md reserves the final marker for the P2-99 Final verdict outcome; P2-11 alone does not satisfy that definition.",
+  "next_stage": "P2-12"
+}

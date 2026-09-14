@@ -1,0 +1,110 @@
+P2-11 MIPS32 calls/stack/memory determinism evidence
+====================================================
+
+Environment
+-----------
+python 3.11.9 (win32)
+branch: phase2/opencode-v1
+HEAD at stage start: 62044d38feec255fbcceb72754e890e7b644c35e
+  (62044d3 phase2: complete P2-10 tiny MIPS32 end-to-end proof = frozen P2-10 boundary)
+phase-1 tag: openrecomp-phase1-pass -> 46c2f971e1a42cf49bd936bad94697b81bf31002 (unchanged)
+text evidence encoding: UTF-8 without BOM
+
+Gate repeated-run byte identity
+-------------------------------
+command (run twice, stdout captured verbatim, UTF-8):
+  python tools/test_mips32_calls_memory_v1.py
+
+run 1 stdout sha256: c0b39d658ef9f12cc056bbfcae30e945670944f51f3d12a86a0f2a4e21e0c168
+run 2 stdout sha256: c0b39d658ef9f12cc056bbfcae30e945670944f51f3d12a86a0f2a4e21e0c168
+byte-identical: yes
+marker: OPENRECOMP_MIPS32_CALLS_MEMORY_V1=PASS tests=77
+
+Fixture identity
+----------------
+architecture: mips32-bounded-v1
+endianness: little
+entry: 0x1000 (fn_1000); leaf: 0x1088 (fn_1088)
+instructions: 16
+byte length: 64
+sha256: 4ce3fdab7f9e622648eb74eff676fd79712c2043b8e35e752e84e26712e6d309
+source: synthetic/original (no commercial ROM/ELF bytes)
+
+Structural fingerprints (stable across repeated pipeline runs)
+--------------------------------------------------------------
+P2-02 CFG                  99c4c440a085cdd860e622c5dff1b39a07d35936c4aaae76a498d6b9d4d5f358
+P2-03 function discovery   f8c2c964bedc0da11f490f0f311c571f69729a86dfd2d940e957551b3155ef94
+P2-04 call graph           29faef8a3135004e201a755175d7053fffd785cb90728a6dd0c28b58d8165620
+P2-05 translation units     ad11840f28c455a42686d83a244e2e309cbd328fa2fd745db0add4091a8094d1
+P2-06 indirect control flow 5ca0b7c3625206bad3c9833b63e91d445d2f6be9a445276a1e7bb7c6cac926a0
+P2-07 generated source      4637ba676e99ba74e0c1708f100ba81b9506f1689fbee3d736364a6f821ceaf3
+
+Deterministic native build (P2-09, two independent runs)
+--------------------------------------------------------
+independent build count: 2 (isolated directories; source regenerated per run)
+runtime_support.c        413e68e44b233d9938905e1aceb2630f5a839609b8256c0a13d74e4d1bbc243e
+generated.obj            4953a149ba34dac442cb055760f09ee984da67f222d60ef56df6a53d96983bd1
+runtime_support.obj      b51f5f47e2d3351f686e69b5717e6d83f89fe3b2ad78e8dac3c06ffc1277112d
+program.exe              bd719060f38793a349271358e121730206f0799d67bd771c1a8ca6a31eba27c6
+build_manifest.json      68d256081e507386f41122922df1b396619a2b9f3faaef38ff508cfffac2bbf0
+
+source reproducible:     IDENTICAL
+manifest reproducible:   IDENTICAL
+object reproducible:     IDENTICAL
+executable reproducible: IDENTICAL
+classification:          EXECUTABLE_REPRODUCIBLE
+binary post-processing:  none
+compiler:                clang-cl.exe 22.1.8 (x86_64-pc-windows-msvc)
+linker:                  lld-link.exe (LLD 22.1.8)
+compile flags:           /c /Brepro /Od /std:c11 /nologo
+link flags:              /Brepro /nologo
+
+Native execution
+----------------
+expected observable:
+failed=0
+reg[0]=0
+reg[1]=21
+reg[2]=256
+reg[3]=0
+reg[4]=21
+reg[5]=42
+ram_checksum=409079371
+
+actual observable: identical to expected
+returncode: 0
+secondary run: identical stdout
+guest registers: r2=21 r4=21 r5=42 sp=256 ra=0
+EXPECTED == ACTUAL: YES
+(Note: bounded synthetic build/execution result, not guest/host equivalence.)
+
+Independent expected-observable derivation
+------------------------------------------
+1. explicit derivation: sp=0x100 -> 0x0f8; save $ra=0 and spill r4=21; jal sets
+   $ra=0x101c; leaf r2=21; reload r5=21; restore $ra=0; r5=21+21=42; sp=0x100;
+   jr $ra (0) halts
+2. tiny independent true-MIPS32 reference interpreter with delay slots,
+   jal/jr $ra linkage, lw/sw and a bounded little-endian RAM
+3. RAM checksum fold(c = c*31 + byte) over the 4096-byte runtime RAM = 409079371
+
+Runtime memory failure (fail closed)
+------------------------------------
+fixture: sp=0x1000; sw r4,0(sp) -> address outside the 4096-byte runtime RAM
+observed: failed=1, returncode 0, no host out-of-bounds write
+
+Cross-stage test adjustment
+---------------------------
+tools/test_mips32_end_to_end_v1.py: the obsolete guard
+"no-p2-11-evidence-directory" was replaced by
+"no-p2-11-memory-emission-in-p2-10" (test count unchanged at 108). The P2-10
+gate stdout hash therefore changed:
+  old: 5327f11c756e57fd23cae7243ae1222c8b2f990dc9884b8a5165787f1829b424
+  new: 347da29f2a3ede17719ea3c10f8fcf7ac1dd5a0c1bb849eace0b12f19fe0d8aa
+P2-10 semantics, observable and committed evidence are otherwise unchanged.
+
+Path / identity leakage
+-----------------------
+The build manifest and generated source contain no repository path, temporary
+build root, evidence directory, username, hostname, process id, random UUID or
+Python object identity. Gate stdout contains no temporary machine-specific
+paths. (Bounded check, not a universal formal proof.)

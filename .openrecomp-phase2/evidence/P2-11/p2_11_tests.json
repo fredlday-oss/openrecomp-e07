@@ -1,0 +1,334 @@
+{
+  "actual_observable": "failed=0\nreg[0]=0\nreg[1]=21\nreg[2]=256\nreg[3]=0\nreg[4]=21\nreg[5]=42\nram_checksum=409079371",
+  "call_edge_count": 1,
+  "classification": "EXECUTABLE_REPRODUCIBLE",
+  "expected_equals_actual": true,
+  "expected_observable": "failed=0\nreg[0]=0\nreg[1]=21\nreg[2]=256\nreg[3]=0\nreg[4]=21\nreg[5]=42\nram_checksum=409079371",
+  "fixture_byte_length": 64,
+  "fixture_id": "p2-11-mips32-calls-memory-v1",
+  "fixture_sha256": "4ce3fdab7f9e622648eb74eff676fd79712c2043b8e35e752e84e26712e6d309",
+  "function_count": 2,
+  "generated_source_sha256": "4637ba676e99ba74e0c1708f100ba81b9506f1689fbee3d736364a6f821ceaf3",
+  "marker": "OPENRECOMP_MIPS32_CALLS_MEMORY_V1=PASS tests=77",
+  "python": "3.11.9",
+  "register_names": [
+    "r0",
+    "r2",
+    "r29",
+    "r31",
+    "r4",
+    "r5"
+  ],
+  "results": [
+    {
+      "check": "build-brepro",
+      "status": "PASS"
+    },
+    {
+      "check": "build-classification",
+      "status": "PASS"
+    },
+    {
+      "check": "build-executable-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-no-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-no-repo-path",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build-object-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build-source-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build-status-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph-edge-direction",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph-edge-kind",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph-internal-edge",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph-nodes",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-block-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-call-continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-return-unresolved",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-addresses",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-jal-target",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-memory-flow-normal",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-ops",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-size-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "derivation-call-result",
+      "status": "PASS"
+    },
+    {
+      "check": "derivation-ram-store",
+      "status": "PASS"
+    },
+    {
+      "check": "derivation-restored-ra",
+      "status": "PASS"
+    },
+    {
+      "check": "derivation-restored-sp",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-internal-call",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-memory-abi-declarations",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-memory-fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-memory-read",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-memory-width-32",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-memory-write",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-no-guest-pointer-cast",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-no-hardcoded-result-42",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-return-like",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-two-declarations",
+      "status": "PASS"
+    },
+    {
+      "check": "expected-equals-actual",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-byte-length",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-instruction-count",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-noncontiguous",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-two-functions",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-leaf-body",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-two",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-unowned-delay-slots",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-site-count",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-sites-no-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-sites-return-like",
+      "status": "PASS"
+    },
+    {
+      "check": "native-executable-hash-matches-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "native-guest-registers",
+      "status": "PASS"
+    },
+    {
+      "check": "native-output-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "native-ram-checksum",
+      "status": "PASS"
+    },
+    {
+      "check": "native-returncode-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-symbol:direct_table",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-symbol:p2_12",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-symbol:p2_13",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-symbol:p2_20",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-12-evidence-directory",
+      "status": "PASS"
+    },
+    {
+      "check": "reference-ram-checksum",
+      "status": "PASS"
+    },
+    {
+      "check": "reference-registers",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bad-load-base",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bad-store-offset",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:empty-region",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:external-call-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:memory-without-runtime-abi",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:misaligned-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:missing-memory-semantics-rule",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unsupported-opcode",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime-oob-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "units-call-edge",
+      "status": "PASS"
+    },
+    {
+      "check": "units-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "units-two",
+      "status": "PASS"
+    }
+  ],
+  "stage": "P2-11",
+  "tests": 77
+}

@@ -20,9 +20,11 @@ Core safety rule: **emit only what is proven**.
   indirect sites are never guessed; `BOUNDED_CANDIDATES` are never promoted to
   resolved targets; external/runtime-mediated transfers never receive an
   invented internal target.
-* No IR lowering, no guest execution, no generic runtime ABI (P2-08) and no
-  platform/framework APIs are introduced here. Loads, stores, host calls and
-  runtime services are outside the bounded V1 subset.
+* No IR lowering, no guest execution and no platform/framework APIs are
+  introduced here. Host calls (P2-08) and checked guest loads/stores (P2-11)
+  are additive, opt-in runtime-ABI operations: they are only emittable when the
+  emitter is configured with a `RuntimeAbiConfig`, and they fail closed
+  otherwise. They are never inferred from an opcode.
 
 Generated identifiers derive deterministically from stable OpenRecomp
 identities; ordering (translation units, functions, blocks, instructions,
@@ -191,8 +193,49 @@ class HostCompare:
             raise HostEmitterError(f"unsupported compare predicate {self.predicate!r}")
 
 
-HostOperation = Union[HostNop, HostCopy, HostConst, HostBinop, HostCompare]
-_NORMAL_OPERATIONS = (HostNop, HostCopy, HostConst, HostBinop, HostCompare)
+@dataclass(frozen=True)
+class HostLoad:
+    """A checked guest memory load through the generic runtime ABI (P2-08).
+
+    The address is the explicit guest base register plus an explicit adapter
+    offset; the access is bounded and width-explicit through
+    ``or_rt_memory_read``. A guest address is never treated as a host pointer.
+    A load is only emittable when the emitter is configured with a
+    `RuntimeAbiConfig`; otherwise it fails closed.
+    """
+
+    dest: HostRegister
+    base: HostRegister
+    offset: HostImmediate
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.dest, HostRegister):
+            raise HostEmitterError("HostLoad.dest must be a HostRegister")
+        if not isinstance(self.base, HostRegister):
+            raise HostEmitterError("HostLoad.base must be a HostRegister")
+        if not isinstance(self.offset, HostImmediate):
+            raise HostEmitterError("HostLoad.offset must be a HostImmediate")
+
+
+@dataclass(frozen=True)
+class HostStore:
+    """A checked guest memory store through the generic runtime ABI (P2-08)."""
+
+    source: HostRegister
+    base: HostRegister
+    offset: HostImmediate
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.source, HostRegister):
+            raise HostEmitterError("HostStore.source must be a HostRegister")
+        if not isinstance(self.base, HostRegister):
+            raise HostEmitterError("HostStore.base must be a HostRegister")
+        if not isinstance(self.offset, HostImmediate):
+            raise HostEmitterError("HostStore.offset must be a HostImmediate")
+
+
+HostOperation = Union[HostNop, HostCopy, HostConst, HostBinop, HostCompare, HostLoad, HostStore]
+_NORMAL_OPERATIONS = (HostNop, HostCopy, HostConst, HostBinop, HostCompare, HostLoad, HostStore)
 
 
 @dataclass(frozen=True)
@@ -601,6 +644,10 @@ class HostEmitter:
                 operands.extend((operation.dest, operation.value))
             elif isinstance(operation, (HostBinop, HostCompare)):
                 operands.extend((operation.dest, operation.lhs, operation.rhs))
+            elif isinstance(operation, HostLoad):
+                operands.extend((operation.dest, operation.base, operation.offset))
+            elif isinstance(operation, HostStore):
+                operands.extend((operation.source, operation.base, operation.offset))
         if rule.condition is not None:
             operands.extend((rule.condition.lhs, rule.condition.rhs))
         if rule.indirect_source is not None:
@@ -685,7 +732,50 @@ class HostEmitter:
             rhs = self._operand_expr(operation.rhs, instruction, context)
             condition = self._comparison_expr(lhs, rhs, operation.predicate, bits)
             return [f"    {dest} = ({condition}) ? UINT64_C(1) : UINT64_C(0);"]
+        if isinstance(operation, HostLoad):
+            return self._emit_memory_read(operation, instruction, context)
+        if isinstance(operation, HostStore):
+            return self._emit_memory_write(operation, instruction, context)
         raise HostEmitterError(f"unsupported operation {operation!r}")
+
+    def _memory_address(self, base: HostRegister, offset: HostImmediate, instruction: DecodedInstruction, context: _UnitContext) -> str:
+        if self.config.runtime_abi is None:
+            raise HostEmitterError("guest memory access requires the generic runtime ABI (P2-08)")
+        base_expr = self._operand_expr(base, instruction, context)
+        offset_expr = self._operand_expr(offset, instruction, context)
+        return f"(({base_expr}) + ({offset_expr})) & or_mask({self.config.word_bits}u)"
+
+    def _emit_memory_read(
+        self, operation: HostLoad, instruction: DecodedInstruction, context: _UnitContext
+    ) -> list[str]:
+        address = self._memory_address(operation.base, operation.offset, instruction, context)
+        dest = self._operand_expr(operation.dest, instruction, context)
+        return [
+            "    {",
+            f"        const uint64_t or_addr = {address};",
+            "        uint64_t or_value = UINT64_C(0);",
+            f"        if (or_rt_memory_read(or_addr, {self.config.word_bits}u, &or_value) != OR_RT_OK) {{",
+            '            or_fail("runtime memory read failed");',
+            "            return;",
+            "        }",
+            f"        {dest} = or_value & or_mask({self.config.word_bits}u);",
+            "    }",
+        ]
+
+    def _emit_memory_write(
+        self, operation: HostStore, instruction: DecodedInstruction, context: _UnitContext
+    ) -> list[str]:
+        address = self._memory_address(operation.base, operation.offset, instruction, context)
+        source = self._operand_expr(operation.source, instruction, context)
+        return [
+            "    {",
+            f"        const uint64_t or_addr = {address};",
+            f"        if (or_rt_memory_write(or_addr, {self.config.word_bits}u, {source}) != OR_RT_OK) {{",
+            f'            or_fail("runtime memory write failed");',
+            "            return;",
+            "        }",
+            "    }",
+        ]
 
     def _emit_binop(self, dest: str, lhs: str, rhs: str, kind: str, bits: int) -> list[str]:
         simple = {"add": "+", "sub": "-", "mul": "*", "and": "&", "or": "|", "xor": "^"}

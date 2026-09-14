@@ -1,0 +1,79 @@
+PASS: fixture-byte-length
+PASS: fixture-sha256
+PASS: fixture-instruction-count
+PASS: fixture-two-functions
+PASS: fixture-noncontiguous
+PASS: decode-addresses
+PASS: decode-ops
+PASS: decode-jal-target
+PASS: decode-memory-flow-normal
+PASS: decode-size-bytes
+PASS: cfg-block-entries
+PASS: cfg-call-continuation
+PASS: cfg-return-unresolved
+PASS: cfg-deterministic
+PASS: functions-two
+PASS: functions-entry
+PASS: functions-leaf-body
+PASS: functions-unowned-delay-slots
+PASS: functions-deterministic
+PASS: callgraph-nodes
+PASS: callgraph-internal-edge
+PASS: callgraph-edge-direction
+PASS: callgraph-edge-kind
+PASS: callgraph-deterministic
+PASS: units-two
+PASS: units-call-edge
+PASS: units-deterministic
+PASS: indirect-site-count
+PASS: indirect-sites-return-like
+PASS: indirect-sites-no-targets
+PASS: emission-two-declarations
+PASS: emission-internal-call
+PASS: emission-memory-read
+PASS: emission-memory-write
+PASS: emission-memory-abi-declarations
+PASS: emission-memory-width-32
+PASS: emission-memory-fail-closed
+PASS: emission-return-like
+PASS: emission-deterministic
+PASS: emission-no-hardcoded-result-42
+PASS: emission-no-guest-pointer-cast
+PASS: reference-registers
+PASS: derivation-call-result
+PASS: derivation-restored-sp
+PASS: derivation-restored-ra
+PASS: derivation-ram-store
+PASS: reference-ram-checksum
+PASS: build-status-ok
+PASS: build-classification
+PASS: build-source-reproducible
+PASS: build-manifest-reproducible
+PASS: build-object-reproducible
+PASS: build-executable-reproducible
+PASS: build-brepro
+PASS: build-manifest-deterministic
+PASS: build-manifest-no-repo-path
+PASS: build-manifest-no-identity
+PASS: native-executable-hash-matches-manifest
+PASS: native-returncode-zero
+PASS: native-output-stable
+PASS: expected-equals-actual
+PASS: native-ram-checksum
+PASS: native-guest-registers
+PASS: runtime-oob-fails-closed
+PASS reject: memory-without-runtime-abi
+PASS reject: missing-memory-semantics-rule
+PASS reject: external-call-fails-closed
+PASS reject: bad-load-base
+PASS reject: bad-store-offset
+PASS reject: unsupported-opcode
+PASS reject: misaligned-entry
+PASS reject: empty-region
+PASS: no-next-stage-symbol:p2_12
+PASS: no-next-stage-symbol:p2_13
+PASS: no-next-stage-symbol:p2_20
+PASS: no-next-stage-symbol:direct_table
+PASS: no-p2-12-evidence-directory
+OPENRECOMP_MIPS32_CALLS_MEMORY_V1_JSON=p2_11_tests.json
+OPENRECOMP_MIPS32_CALLS_MEMORY_V1=PASS tests=77

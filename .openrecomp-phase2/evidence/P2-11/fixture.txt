@@ -1,0 +1,33 @@
+P2-11 synthetic MIPS32 fixture (calls / stack / memory)
+========================================================
+architecture: mips32-bounded-v1
+endianness: little
+instruction width: 4 bytes
+entry address: 0x1000
+leaf address: 0x1088
+instruction count: 16
+byte length: 64
+sha256: 4ce3fdab7f9e622648eb74eff676fd79712c2043b8e35e752e84e26712e6d309
+origin: synthetic/original (no commercial ROM/ELF bytes)
+stack model: o32-style save/restore of $ra, local slot for r4
+
+instructions:
+  0x00001000  0x241d0100  addiu sp, r0, 0x100
+  0x00001004  0x27bdfff8  addiu sp, sp, -8
+  0x00001008  0xafbf0004  sw ra, 4(sp)
+  0x0000100c  0x24040015  addiu r4, r0, 21
+  0x00001010  0xafa40000  sw r4, 0(sp)
+  0x00001014  0x0c000422  jal 0x1088
+  0x00001018  0x00000000  nop (delay slot)
+  0x0000101c  0x8fa50000  lw r5, 0(sp)
+  0x00001020  0x8fbf0004  lw ra, 4(sp)
+  0x00001024  0x00a22821  addu r5, r5, r2
+  0x00001028  0x27bd0008  addiu sp, sp, 8
+  0x0000102c  0x03e00008  jr ra
+  0x00001030  0x00000000  nop (delay slot)
+  0x00001088  0x24020015  addiu r2, r0, 21
+  0x0000108c  0x03e00008  jr ra
+  0x00001090  0x00000000  nop (delay slot)
+
+bytes (little-endian hex):
+00011d24f8ffbd270400bfaf150004240000a4af2204000c000000000000a58f0400bf8f2128a2000800bd270800e00300000000150002240800e00300000000

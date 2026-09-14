@@ -1,0 +1,9 @@
+P2-02 CFG evidence
+==================
+mode: CLOSED
+fingerprint: 99c4c440a085cdd860e622c5dff1b39a07d35936c4aaae76a498d6b9d4d5f358
+blocks: 0x1000, 0x1018, 0x1030, 0x1088, 0x1090
+edges:
+  blk_1000: CALL_RETURN -> blk_1018
+  blk_1018: INDIRECT -> unresolved indirect jump target
+  blk_1088: INDIRECT -> unresolved indirect jump target

@@ -1,0 +1,13 @@
+P2-11 runtime memory failure (fail-closed) evidence
+====================================================
+fixture: addiu sp,r0,0x1000 ; sw r4,0(sp) (address 0x1000 is outside the 4096-byte runtime RAM)
+executable returncode: 0
+stdout:
+failed=1
+reg[0]=0
+reg[1]=4096
+reg[2]=0
+reg[3]=7
+ram_checksum=0
+observed failed flag: failed=1
+result: PASS (runtime memory boundary reported the out-of-range access; no host out-of-bounds write)
