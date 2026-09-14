@@ -1,6 +1,6 @@
 # OpenRecomp Phase 2 Handoff
 
-STATUS: P2-11 `PASS`; P2-12 (MIPS32 direct CFG stress) is `NEXT` and not started.
+STATUS: P2-12 `PASS`; P2-13 (Runtime-host boundary) is `NEXT` and not started.
 
 Frozen Phase-1 reference (verified):
 
@@ -18,6 +18,7 @@ Frozen Phase-1 reference (verified):
 - P2-08 boundary (P2-09 starting commit): `10971b76090746081cb29ca3405f96da7f143011`
 - P2-09 boundary (P2-10 starting commit): `161893389cca5a30aa462670f19ecabfc1be679d`
 - P2-10 boundary (P2-11 starting commit): `62044d38feec255fbcceb72754e890e7b644c35e`
+- P2-11 boundary (P2-12 starting commit): `6cb5ff40eca30eaeb383333c10bcf50165a167ce`
 - branch: `phase2/opencode-v1`.
 
 ## P2-07 outcome
@@ -157,6 +158,36 @@ Markers: `OPENRECOMP_P2_11=PASS`, `OPENRECOMP_MIPS32_CALLS_MEMORY_V1=PASS tests=
   (count unchanged at 108, replacement coverage; reason in P2-11 evidence). P2-10 semantics
   unchanged; its gate stdout hash changed.
 
+## P2-12 outcome
+
+Stage: `OPENRECOMP_P2_12_MIPS32_DIRECT_CFG_STRESS_V1`.
+Evidence: `.openrecomp-phase2/evidence/P2-12/RESULT.md`.
+Markers: `OPENRECOMP_P2_12=PASS`, `OPENRECOMP_MIPS32_DIRECT_CFG_V1=PASS tests=96`.
+
+- Dedicated gate `tools/test_mips32_direct_cfg_v1.py` (96 checks). No `openrecomp/*.py`
+  implementation source modified; the stage reuses the existing pipeline and the P2-11
+  opt-in memory emission.
+- Synthetic/original 35-instruction MIPS32 fixture (140 bytes, `2e3309f3...`): counted loop
+  with a backward branch and both outcomes, conditional branches, a direct `jal` call with
+  `jr ra` returns, o32 `$ra` save/restore, and a bounded indirect dispatch (`jr r5`).
+- Real pipeline traversal: P2-01 two functions -> P2-02 CFG (14 blocks; loop back edge;
+  branch/call/unresolved-indirect edges) -> P2-03 discovery -> P2-04 call graph
+  `fn_1000 -> fn_1080` -> P2-05 two units -> P2-06 dispatch `RESOLVED`/`EXACT_TARGET_SET`
+  `(0x105c, 0x106c)` plus two `RETURN_LIKE` sites -> P2-07 switch emission with fail-closed
+  default -> P2-08 memory boundary -> P2-09 deterministic build.
+- Independent expected observable (true-MIPS32 reference interpreter with delay slots and
+  `jal`/`jr $ra`) equals the actual native observable (`acc=15`, `r2=20`, case A `r6=120`,
+  `r7=125`, `sp=248`, `ra=0`); returncode 0; stable.
+- Two independent `/Brepro` builds byte-identical (`program.exe 3d92fc27...`);
+  `EXECUTABLE_REPRODUCIBLE`; no binary post-processing.
+- Out-of-set runtime selector (`0x2000`) hits the switch default and fails closed
+  (`failed=1`); `BOUNDED_CANDIDATES` never promoted; evidence-free indirect control flow is
+  `UNRESOLVED_INDIRECT_JUMP`.
+- Cross-stage adjustment: `tools/test_mips32_calls_memory_v1.py`'s obsolete
+  `no-p2-12-evidence-directory` guard replaced by `no-p2-12-switch-emission-in-p2-11`
+  (count unchanged at 77, replacement coverage; reason in P2-12 evidence). P2-11 semantics
+  unchanged; its gate stdout hash changed.
+
 ## Queue reconciliation
 
 The queue is reconciled to the executed sequence: `P2-04` = call-graph recovery
@@ -164,26 +195,28 @@ The queue is reconciled to the executed sequence: `P2-04` = call-graph recovery
 indirect-control-flow classification (COMPLETE), `P2-07` = Host emitter V1 (COMPLETE),
 `P2-08` = Generic runtime ABI V1 (COMPLETE), `P2-09` = Deterministic build pipeline
 (COMPLETE), `P2-10` = Tiny MIPS32 end-to-end proof (COMPLETE), `P2-11` = MIPS32
-calls/stack/memory (COMPLETE), `P2-12` = MIPS32 direct CFG stress (NEXT). The original queue
-numbered `P2-04` Direct CFG recovery / `P2-05` Indirect-control-flow classification /
-`P2-06` Translation-unit model; the reassignment is a control-plane reconciliation caused by
-actual execution order and does not change the semantics, claims or evidence of any frozen
-prior stage (`P2-00`..`P2-11`). It does not alter `ce9cd4f`, `f9f2662`, `30b4321`,
-`10971b7`, `1618933`, `62044d3` or any earlier commit.
+calls/stack/memory (COMPLETE), `P2-12` = MIPS32 direct CFG stress (COMPLETE), `P2-13` =
+Runtime-host boundary (NEXT). The original queue numbered `P2-04` Direct CFG recovery /
+`P2-05` Indirect-control-flow classification / `P2-06` Translation-unit model; the
+reassignment is a control-plane reconciliation caused by actual execution order and does not
+change the semantics, claims or evidence of any frozen prior stage (`P2-00`..`P2-12`). It
+does not alter `ce9cd4f`, `f9f2662`, `30b4321`, `10971b7`, `1618933`, `62044d3`, `6cb5ff4`
+or any earlier commit.
 
 ## Exact next action
 
-Begin P2-12 — MIPS32 direct CFG stress: branches, loops, calls, returns and a bounded
-switch/direct-table proof where evidence exists. Do not modify frozen Phase-1 behavior or the
-P2-00..P2-11 layers except through an evidence-backed stage. P2-12 was **not** started in
-P2-11, and the final Phase-2 end-to-end marker is not claimed.
+Begin P2-13 — Runtime-host boundary: deterministic host-call ABI; unsupported service
+handling fails closed. Do not modify frozen Phase-1 behavior or the P2-00..P2-12 layers
+except through an evidence-backed stage. P2-13 was **not** started in P2-12, and the final
+Phase-2 end-to-end marker is not claimed.
 
 ## Verification commands / results
 
 ```text
-python tools/test_mips32_end_to_end_v1.py
+python tools/test_mips32_calls_memory_v1.py
 OPENRECOMP_MIPS32_CALLS_MEMORY_V1=PASS tests=77
-(byte-identical across two runs; stdout sha256 c0b39d658ef9f12cc056bbfcae30e945670944f51f3d12a86a0f2a4e21e0c168)
+(byte-identical across two runs; current stdout sha256 35e92fa780eb842ee060edd747fd33d3e919699e7a753ccf864d88fb157e9b81)
+(committed P2-11 evidence recorded the pre-adjustment hash c0b39d65...; see P2-12 RESULT.md)
 (fixture 4ce3fdab... -> generated source 4637ba67... -> program.exe bd719060...)
 (independent expected observable == native actual observable; EXECUTABLE_REPRODUCIBLE)
 (runtime OOB memory access fails closed: failed=1)
@@ -192,6 +225,13 @@ python tools/test_mips32_end_to_end_v1.py
 OPENRECOMP_MIPS32_END_TO_END_V1=PASS tests=108
 (byte-identical across two runs; stdout sha256 347da29f2a3ede17719ea3c10f8fcf7ac1dd5a0c1bb849eace0b12f19fe0d8aa)
 (committed P2-10 evidence recorded the pre-adjustment hash 5327f11c...; see P2-11 RESULT.md)
+
+python tools/test_mips32_direct_cfg_v1.py
+OPENRECOMP_MIPS32_DIRECT_CFG_V1=PASS tests=96
+(byte-identical across two runs; stdout sha256 d01ec8f0bd5391684a1f18d6d3d3197b449e67021eae700c053573130a207100)
+(fixture 2e3309f3... -> generated source 36ba17c8... -> program.exe 3d92fc27...)
+(loop acc=15; bounded switch case A -> r6=120, r7=125; EXECUTABLE_REPRODUCIBLE)
+(out-of-set selector hits switch default: failed=1)
 
 python tools/test_build_pipeline_v1.py
 OPENRECOMP_DETERMINISTIC_BUILD_V1=PASS tests=120
@@ -224,27 +264,27 @@ OPENRECOMP_CFG_V1=PASS tests=82
 python tools/test_program_model_v1.py
 OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49
 
-python tools/phase1_host_gates_v1.py --json .openrecomp-phase2/evidence/P2-11/host_gates.json
+python tools/phase1_host_gates_v1.py --json .openrecomp-phase2/evidence/P2-12/host_gates.json
 OPENRECOMP_PHASE1_HOST_GATES_PASS=44 FAIL=0 SKIPPED=2
 OPENRECOMP_PHASE1_HOST_GATES_V1=PASS
 
 python tools/phase1_host_gates_v1.py --only source-integrity
-PASS source-integrity  verified 121 manifest entries
+PASS source-integrity  verified 122 manifest entries
 ```
 
 ## Evidence artifacts (UTF-8 text, no BOM)
 
-`.openrecomp-phase2/evidence/P2-11/`: `RESULT.md`, `RESULT.json`, `determinism.txt`,
+`.openrecomp-phase2/evidence/P2-12/`: `RESULT.md`, `RESULT.json`, `determinism.txt`,
 `changed_files.txt`, `fixture.txt`, `pipeline_cfg.txt`, `pipeline_functions.txt`,
 `pipeline_call_graph.txt`, `pipeline_translation_units.txt`,
 `pipeline_indirect_control_flow.txt`, `generated_source.c`, `generated_source_sha256.txt`,
 `build_manifest.json`, `build_run_1.txt`, `build_run_2.txt`, `native_execution.txt`,
-`expected_vs_actual.txt`, `runtime_memory_failure.txt`, `p2_11_gate.txt`,
-`p2_11_tests.json`, `host_gates.json`, `host_gates.txt`, `source_integrity.txt`, and
-regression captures `p2_10_mips32_end_to_end.txt`, `p2_09_deterministic_build.txt`,
-`p2_08_runtime_abi.txt`, `p2_07_host_emitter.txt`, `p2_06_indirect_control_flow.txt`,
-`p2_05_translation_units.txt`, `p2_04_call_graph.txt`, `p2_03_functions.txt`,
-`p2_02_cfg.txt`, `p2_01_program_model.txt`.
+`expected_vs_actual.txt`, `switch_fail_closed.txt`, `p2_12_gate.txt`, `p2_12_tests.json`,
+`host_gates.json`, `host_gates.txt`, `source_integrity.txt`, and regression captures
+`p2_11_mips32_calls_memory.txt`, `p2_10_mips32_end_to_end.txt`,
+`p2_09_deterministic_build.txt`, `p2_08_runtime_abi.txt`, `p2_07_host_emitter.txt`,
+`p2_06_indirect_control_flow.txt`, `p2_05_translation_units.txt`, `p2_04_call_graph.txt`,
+`p2_03_functions.txt`, `p2_02_cfg.txt`, `p2_01_program_model.txt`.
 
 ## Unresolved evidence / limitations
 
@@ -256,19 +296,22 @@ regression captures `p2_10_mips32_end_to_end.txt`, `p2_09_deterministic_build.tx
   `lw`/`sw` are covered. Delay slots, calling conventions and most runtime services remain
   outside the emitted set, and emitted functions are void with no argument/return ABI.
 - A finite resolved target set requires a runtime target value; it is dispatched with a
-  `switch` that fails closed outside the proven set.
+  `switch` that fails closed outside the proven set. The bounded dispatch target set is
+  supplied by explicit P2-06 evidence; the pipeline never recovers or guesses indirect
+  targets by analysis.
 - The P2-09 build pipeline builds bounded synthetic generated host fixtures plus synthetic
   runtime-support sources; they are not whole-guest recompilations.
 - Object/executable reproducibility is demonstrated for this host's clang-cl/lld-link pair.
   Other toolchains may require different deterministic flags and are classified honestly.
-- P2-10 and P2-11 prove only bounded synthetic MIPS32 fixtures; not full MIPS32 support, not
-  PS2 support and not guest/host equivalence. The neutral CFG/emitter do not model delay
-  slots as first-class semantics; fixtures use `nop` delay slots and unreachable
-  post-return delay slots are preserved as unowned residual evidence. P2-11 models
-  call/return structurally; the fixture's o32 `$ra` save/restore makes that agree with true
-  MIPS32 for the fixture, but general `$ra` dataflow is not recovered.
-- `tools/test_mips32_end_to_end_v1.py` was adjusted for one obsolete cross-stage guard (see
-  P2-11 `RESULT.md`); its committed P2-10 evidence records the pre-adjustment stdout hash.
+- P2-10, P2-11 and P2-12 prove only bounded synthetic MIPS32 fixtures (13, 16 and 35
+  instructions); not full MIPS32 support, not PS2 support and not guest/host equivalence.
+  The neutral CFG/emitter do not model delay slots as first-class semantics; fixtures use
+  `nop` delay slots and unreachable delay-slot blocks are preserved as unowned residual
+  evidence. Call/return is modeled structurally; the fixtures' o32 `$ra` save/restore makes
+  that agree with true MIPS32 for those cases, but general `$ra` dataflow is not recovered.
+- `tools/test_mips32_end_to_end_v1.py` (P2-10) and `tools/test_mips32_calls_memory_v1.py`
+  (P2-11) were each adjusted for one obsolete cross-stage guard; their committed evidence
+  records the pre-adjustment stdout hashes. See the P2-11/P2-12 `RESULT.md`.
 - `schema/*.json` / `openrecomp/*.py` (including `runtime_abi.py`, `build_pipeline.py` and
   `host_emitter.py`) remain outside `SOURCE_SHA256SUMS.txt` (pre-existing `update_sums.py`
   `schemas/` glob gap); their hashes are recorded in `changed_files.txt` / `RESULT.json`.
@@ -280,30 +323,30 @@ regression captures `p2_10_mips32_end_to_end.txt`, `p2_09_deterministic_build.tx
 No full MIPS32 recompilation, IR lowering, guest/host equivalence, console-specific runtime,
 BIOS/HLE, GPU/APU/DSP, controller backend, audio device, window, AOT integration,
 whole-game recompilation, console compatibility or RT64 integration. The generic runtime ABI
-is a contract surface only. The deterministic build pipeline and the P2-10/P2-11 end-to-end
-proofs were validated on bounded synthetic fixtures, not on a commercial guest. P2-12 was
-not started. The final `OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS` marker is not claimed
-and remains `NOT_PROVEN` (the control plane reserves it for the P2-99 final verdict).
+is a contract surface only. The deterministic build pipeline and the P2-10/P2-11/P2-12
+end-to-end proofs were validated on bounded synthetic fixtures, not on a commercial guest.
+P2-13 was not started. The final `OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS` marker is
+not claimed and remains `NOT_PROVEN` (the control plane reserves it for the P2-99 final
+verdict).
 
 ## Git status (short)
 
-- P2-10 boundary commit: `62044d3` (`phase2: complete P2-10 tiny MIPS32 end-to-end proof`);
-  `HEAD` at P2-11 start.
-- Current uncommitted changes: P2-11 implementation + evidence (additive
-  `openrecomp/host_emitter.py`, `tools/test_mips32_calls_memory_v1.py`,
-  `tools/test_mips32_end_to_end_v1.py`, `.openrecomp-phase2/evidence/P2-11/`) plus
-  control-plane updates to `.openrecomp-phase2/STAGE_QUEUE.md`,
-  `.openrecomp-phase2/STATE.md`, `.openrecomp-phase2/HANDOFF.md`, plus
-  `SOURCE_SHA256SUMS.txt` (120 -> 121).
+- P2-11 boundary commit: `6cb5ff4` (`phase2: complete P2-11 MIPS32 calls stack and memory`);
+  `HEAD` at P2-12 start.
+- Current uncommitted changes: P2-12 gate + evidence
+  (`tools/test_mips32_direct_cfg_v1.py`, `.openrecomp-phase2/evidence/P2-12/`) and the
+  updated `tools/test_mips32_calls_memory_v1.py`, plus control-plane updates to
+  `.openrecomp-phase2/STAGE_QUEUE.md`, `.openrecomp-phase2/STATE.md`,
+  `.openrecomp-phase2/HANDOFF.md`, plus `SOURCE_SHA256SUMS.txt` (121 -> 122).
 - Untouched pre-existing untracked residue: `.openrecomp-phase2/backups/`,
   `.openrecomp-phase2/scratch/`, `artifacts/mips32_translation_v1/`,
   `artifacts/mips32_translation_evidence_closure_v1/`.
-- No P2-11 boundary commit created (left for independent review).
+- No P2-12 boundary commit created (left for independent review).
 
 Resume by reading `CONTROL_POLICY.md`, `SCOPE.md`, `STAGE_QUEUE.md`, `STATE.md`,
 `HANDOFF.md`, and `EVIDENCE_SCHEMA.md`, then work only on `CURRENT_STAGE`.
 
-OPENRECOMP_P2_11=PASS
-OPENRECOMP_MIPS32_CALLS_MEMORY_V1=PASS tests=77
+OPENRECOMP_P2_12=PASS
+OPENRECOMP_MIPS32_DIRECT_CFG_V1=PASS tests=96
 OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=NOT_PROVEN
-CURRENT_STAGE=P2-12
+CURRENT_STAGE=P2-13

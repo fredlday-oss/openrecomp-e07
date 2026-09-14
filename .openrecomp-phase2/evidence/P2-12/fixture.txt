@@ -1,0 +1,51 @@
+P2-12 synthetic MIPS32 fixture (direct-CFG stress)
+================================================
+architecture: mips32-bounded-v1
+endianness: little
+instruction width: 4 bytes
+entry: 0x1000; leaf: 0x1080; dispatch: 0x1054
+instruction count: 35
+byte length: 140
+sha256: 2e3309f310a6f23c145ba7b95a22f10e3d81f32ec19afb966a9044395c066c84
+origin: synthetic/original (no commercial ROM/ELF bytes)
+features: counted loop with back edge; conditional branches; direct call; stack save/restore of $ra; bounded indirect dispatch with explicit evidence
+
+instructions:
+  0x00001000  0x241d0100  addiu sp, r0, 0x100
+  0x00001004  0x27bdfff8  addiu sp, sp, -8
+  0x00001008  0xafbf0004  sw ra, 4(sp)
+  0x0000100c  0x24020000  addiu r2, r0, 0
+  0x00001010  0x24030000  addiu r3, r0, 0
+  0x00001014  0x24080001  addiu r8, r0, 1
+  0x00001018  0x24630001  addiu r3, r3, 1          (loop: i += 1)
+  0x0000101c  0x00431021  addu r2, r2, r3          (acc += i)
+  0x00001020  0x28640005  slti r4, r3, 5
+  0x00001024  0x1480fffc  bne r4, r0, 0x1018       (back edge)
+  0x00001028  0x00000000  nop (delay slot)
+  0x0000102c  0x24440000  addiu r4, r2, 0          (arg = acc)
+  0x00001030  0x0c000420  jal 0x1080               (direct call)
+  0x00001034  0x00000000  nop (delay slot)
+  0x00001038  0x8fbf0004  lw ra, 4(sp)             (restore ra)
+  0x0000103c  0x24090001  addiu r9, r0, 1
+  0x00001040  0x1100000a  beq r8, r0, 0x106c       (structural edge to case B)
+  0x00001044  0x00000000  nop (delay slot)
+  0x00001048  0x11200004  beq r9, r0, 0x105c       (structural edge to case A)
+  0x0000104c  0x00000000  nop (delay slot)
+  0x00001050  0x2405105c  addiu r5, r0, 0x105c     (selector = case A)
+  0x00001054  0x00a00008  jr r5                    (bounded dispatch)
+  0x00001058  0x00000000  nop (delay slot)
+  0x0000105c  0x24060064  addiu r6, r0, 100        (case A)
+  0x00001060  0x00c23021  addu r6, r6, r2
+  0x00001064  0x0800041d  j 0x1074                 (to end)
+  0x00001068  0x00000000  nop (delay slot)
+  0x0000106c  0x240600c8  addiu r6, r0, 200        (case B)
+  0x00001070  0x00c23021  addu r6, r6, r2
+  0x00001074  0x24c70005  addiu r7, r6, 5          (end)
+  0x00001078  0x03e00008  jr ra
+  0x0000107c  0x00000000  nop (delay slot)
+  0x00001080  0x24420005  addiu r2, r2, 5          (leaf)
+  0x00001084  0x03e00008  jr ra
+  0x00001088  0x00000000  nop (delay slot)
+
+bytes (little-endian hex):
+00011d24f8ffbd270400bfaf000002240000032401000824010063242110430005006428fcff801400000000000044242004000c000000000400bf8f010009240a0000110000000004002011000000005c1005240800a00000000000640006242130c2001d04000800000000c80006242130c2000500c7240800e00300000000050042240800e00300000000

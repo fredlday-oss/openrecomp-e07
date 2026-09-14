@@ -1,0 +1,19 @@
+P2-12 bounded-dispatch fail-closed evidence
+===========================================
+fixture variant: selector r5 = 0x2000 (8192), outside the proven set {0x105c, 0x106c}
+executable returncode: 0
+stdout:
+failed=1
+error=indirect target outside proven set
+reg[0]=0
+reg[1]=20
+reg[2]=248
+reg[3]=5
+reg[4]=0
+reg[5]=15
+reg[6]=8192
+reg[7]=0
+reg[8]=0
+reg[9]=1
+reg[10]=1
+result: PASS (bounded switch default reported the out-of-set target; no guessed dispatch)

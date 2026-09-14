@@ -1,0 +1,117 @@
+P2-12 MIPS32 direct CFG stress determinism evidence
+===================================================
+
+Environment
+-----------
+python 3.11.9 (win32)
+branch: phase2/opencode-v1
+HEAD at stage start: 6cb5ff40eca30eaeb383333c10bcf50165a167ce
+  (6cb5ff4 phase2: complete P2-11 MIPS32 calls stack and memory = frozen P2-11 boundary)
+phase-1 tag: openrecomp-phase1-pass -> 46c2f971e1a42cf49bd936bad94697b81bf31002 (unchanged)
+text evidence encoding: UTF-8 without BOM
+
+Gate repeated-run byte identity
+-------------------------------
+command (run twice, stdout captured verbatim, UTF-8):
+  python tools/test_mips32_direct_cfg_v1.py
+
+run 1 stdout sha256: d01ec8f0bd5391684a1f18d6d3d3197b449e67021eae700c053573130a207100
+run 2 stdout sha256: d01ec8f0bd5391684a1f18d6d3d3197b449e67021eae700c053573130a207100
+byte-identical: yes
+marker: OPENRECOMP_MIPS32_DIRECT_CFG_V1=PASS tests=96
+
+Fixture identity
+----------------
+architecture: mips32-bounded-v1
+endianness: little
+entry: 0x1000 (fn_1000); leaf: 0x1080 (fn_1080); dispatch: 0x1054
+instructions: 35
+byte length: 140
+sha256: 2e3309f310a6f23c145ba7b95a22f10e3d81f32ec19afb966a9044395c066c84
+source: synthetic/original (no commercial ROM/ELF bytes)
+features: counted loop (back edge), conditional branches, direct call,
+          jr ra returns, o32 $ra save/restore, bounded indirect dispatch
+
+Structural fingerprints (stable across repeated pipeline runs)
+--------------------------------------------------------------
+P2-02 CFG                  8c288d4190fd6ad10ffcad27c2ed2e92c48dbef91adb1d610346743d875946e1
+P2-03 function discovery   a7bbc09af85ea215ef30307793b268a6c8b7abb3385e2efaf0a71c12fa311d74
+P2-04 call graph           55a0b6e30b556e27a6f16bc1a30075bf62cad700c40d8e679a4413d551b20c6c
+P2-05 translation units    00475b0e94487229a2a53933a0da52cf65ee4fbcb15e67d614002f49f8fdf486
+P2-06 indirect control flow a9b418af2c13693f0f4e2889921307fc77c754ab795fc647309597320ce849df
+P2-07 generated source     36ba17c8a1edcd22148c9789abe9348f68e9b6cd02912a9a94481de93a3009c9
+
+Bounded switch / direct-table evidence
+--------------------------------------
+dispatch 0x1054: status RESOLVED, basis EXACT_TARGET_SET, targets (0x105c, 0x106c)
+lowering: switch with cases UINT64_C(4188) -> bb_blk_105c and
+          UINT64_C(4204) -> bb_blk_106c, plus a fail-closed default.
+no evidence -> UNRESOLVED_INDIRECT_JUMP (boundary or REJECT).
+BOUNDED_CANDIDATES -> never promoted (boundary or REJECT).
+
+Deterministic native build (P2-09, two independent runs)
+--------------------------------------------------------
+independent build count: 2 (isolated directories; source regenerated per run)
+runtime_support.c        5eeb0d37d34a1f20b2646519f7dac43e196d3bfe736fbf714f4c64fefeb3512a
+generated.obj            14e89f593abe203b55e23498cdcaa6a029bd842eddc7d8109a043652e0df3da6
+runtime_support.obj      6b22d290f6215ac75f3b6768721db420199507000376878b02e62b24832b725f
+program.exe              3d92fc274ddb94190292fb9630243f7b064a42733406ecaf7cab2d85a5f2f266
+build_manifest.json      45ad066d75d2be84753214d143dc3084769965afb7b6f41d85e4bb1045d13eac
+
+source reproducible:     IDENTICAL
+manifest reproducible:   IDENTICAL
+object reproducible:     IDENTICAL
+executable reproducible: IDENTICAL
+classification:          EXECUTABLE_REPRODUCIBLE
+binary post-processing:  none
+compiler:                clang-cl.exe 22.1.8 (x86_64-pc-windows-msvc)
+linker:                  lld-link.exe (LLD 22.1.8)
+compile flags:           /c /Brepro /Od /std:c11 /nologo
+link flags:              /Brepro /nologo
+
+Native execution
+----------------
+expected observable:
+failed=0
+error=
+reg[0]=0
+reg[1]=20
+reg[2]=248
+reg[3]=5
+reg[4]=0
+reg[5]=15
+reg[6]=4188
+reg[7]=120
+reg[8]=125
+reg[9]=1
+reg[10]=1
+
+actual observable: identical to expected
+returncode: 0
+secondary run: identical stdout
+guest registers: r2=20 r3=5 r4=15 r5=0x105c r6=120 r7=125 r8=1 r9=1 sp=248 ra=0
+EXPECTED == ACTUAL: YES
+(Note: bounded synthetic build/execution result, not guest/host equivalence.)
+
+Runtime bounded-dispatch failure (fail closed)
+----------------------------------------------
+variant: selector r5 = 0x2000 (outside the proven set {0x105c, 0x106c})
+observed: failed=1, error=indirect target outside proven set
+result: PASS (switch default reported the out-of-set target; no guessed dispatch)
+
+Cross-stage test adjustment
+---------------------------
+tools/test_mips32_calls_memory_v1.py: the obsolete guard
+"no-p2-12-evidence-directory" was replaced by
+"no-p2-12-switch-emission-in-p2-11" (test count unchanged at 77). The P2-11
+gate stdout hash therefore changed:
+  old: c0b39d658ef9f12cc056bbfcae30e945670944f51f3d12a86a0f2a4e21e0c168
+  new: 35e92fa780eb842ee060edd747fd33d3e919699e7a753ccf864d88fb157e9b81
+P2-11 semantics, observable and committed evidence are otherwise unchanged.
+
+Path / identity leakage
+-----------------------
+The build manifest and generated source contain no repository path, temporary
+build root, evidence directory, username, hostname, process id, random UUID or
+Python object identity. Gate stdout contains no temporary machine-specific
+paths. (Bounded check, not a universal formal proof.)

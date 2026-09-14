@@ -1,0 +1,80 @@
+P2-12 changed-file inventory
+============================
+
+Stage start HEAD: 6cb5ff40eca30eaeb383333c10bcf50165a167ce
+Branch:           phase2/opencode-v1
+Phase-1 tag:      openrecomp-phase1-pass -> 46c2f971e1a42cf49bd936bad94697b81bf31002 (unchanged)
+
+Added (untracked)
+-----------------
+tools/test_mips32_direct_cfg_v1.py    P2-12 dedicated gate (96 checks): synthetic
+                                      MIPS32 loop/call/return/bounded-switch
+                                      fixture, real Phase-2 pipeline traversal,
+                                      independent expected observable,
+                                      deterministic P2-09 build, native
+                                      comparison, fail-closed coverage, evidence
+                                      output.
+.openrecomp-phase2/evidence/P2-12/    This evidence bundle.
+
+Modified (tracked)
+------------------
+tools/test_mips32_calls_memory_v1.py  One obsolete cross-stage guard replaced:
+                                      "no-p2-12-evidence-directory" ->
+                                      "no-p2-12-switch-emission-in-p2-11"
+                                      (test count unchanged at 77). Reason in
+                                      RESULT.md.
+SOURCE_SHA256SUMS.txt                 121 -> 122 entries: new P2-12 gate entry
+                                      and the updated P2-11 gate entry. No
+                                      unrelated hash changed.
+.openrecomp-phase2/STATE.md           P2-12 PASS; CURRENT_STAGE=P2-13.
+.openrecomp-phase2/HANDOFF.md         P2-12 handoff/next-action update.
+.openrecomp-phase2/STAGE_QUEUE.md     Queue status: P2-12 COMPLETE, P2-13 NEXT.
+
+Not modified
+------------
+No `openrecomp/*.py` implementation source was modified for P2-12; the stage
+reuses the existing pipeline and the P2-11 additive/opt-in memory emission. No
+prior test was weakened; the one replaced guard is explained and has replacement
+coverage. Committed P2-00..P2-11 evidence is untouched (the P2-11 gate stdout
+hash therefore differs from the committed P2-11 record; see RESULT.md
+"Cross-stage test adjustment").
+
+Untouched pre-existing untracked residue (not deleted, not cleaned, not staged)
+-------------------------------------------------------------------------------
+.openrecomp-phase2/backups/
+.openrecomp-phase2/scratch/
+artifacts/mips32_translation_v1/
+artifacts/mips32_translation_evidence_closure_v1/
+
+Artifact sha256 (final P2-12 source and evidence)
+-------------------------------------------------
+cf3b94cdae2d5649489bca2126d852cf582a5844abbe210fb37e904f41463bfc  tools/test_mips32_direct_cfg_v1.py
+ca908ddc538bebc150c6f7c12dfb0c039510c1311d0579ed2ad8b19423a4dae0  tools/test_mips32_calls_memory_v1.py
+45ad066d75d2be84753214d143dc3084769965afb7b6f41d85e4bb1045d13eac  build_manifest.json
+6d5f0f791e317e542e4034800370496c0c8278040e4bafc00d8e1284fe79a616  build_run_1.txt
+bb5422dd77f86d42602594034596d9190ba0c14069364191c216b39bbe3b0271  build_run_2.txt
+6e23247c459a758cb6ecbd05776b701629c4a9f1806f5c363851609c4cb80eac  fixture.txt
+36ba17c8a1edcd22148c9789abe9348f68e9b6cd02912a9a94481de93a3009c9  generated_source.c
+64228a8172447363185d64aa8d90874dd2467962d2b76b075c9be358e266df7d  generated_source_sha256.txt
+deb20fd87dd6c727e526412cac3a8f027def5ba6074703875a38f6cdf9b9ceb0  pipeline_call_graph.txt
+626899205c1079342f3e1b59c6dd3499c8ba156636d6bfa059e52bc28bb221ff  pipeline_cfg.txt
+87fe9f524e8faf681d4d466ad95d91ecec1ad69e998fe7708d2add6a1707c797  pipeline_functions.txt
+6f87c3370c9e552d965a4f5dc48d6cacfa44613dcc347d8815fe67d0f9548247  pipeline_indirect_control_flow.txt
+2485206edccc9a7c72a0df96a036dc27978c1a68ed45f7b57bdf331e53c6dec5  pipeline_translation_units.txt
+b47234c05a49cc0ac5a603bb363a0d21252bf44a47cae2c2d5feb86e0f888a23  native_execution.txt
+ae05ad465541c22cc43191fa66506d3d5fed78272d14ae1525df9c6238e94753  expected_vs_actual.txt
+d2384312430ede765d229fb166f5cec2f9886416d3c6ac5755dd78f6b560e0b9  switch_fail_closed.txt
+d01ec8f0bd5391684a1f18d6d3d3197b449e67021eae700c053573130a207100  p2_12_gate.txt
+09a43425e66e8436b42afb7583dfe4ce82cd607cd2ba4323361356c09f040056  p2_12_tests.json
+926aece627fdfa46a5770cd00b904e1e776a6717a1f34ab2325e4f77f290f0de  host_gates.json
+7b0bc794af79ef471f5954b8b5a731d15441d5df9b8f0c5cb4a03f821a8804ee  host_gates.txt
+6fecdd5a7a0eab6a36bbe7a477ee503922c66bc49b3016f28e5bcb755e5c6baa  source_integrity.txt
+
+Reproducible build artifacts (both independent runs; not committed)
+-------------------------------------------------------------------
+2e3309f310a6f23c145ba7b95a22f10e3d81f32ec19afb966a9044395c066c84  fixture bytes (140)
+36ba17c8a1edcd22148c9789abe9348f68e9b6cd02912a9a94481de93a3009c9  generated.c
+5eeb0d37d34a1f20b2646519f7dac43e196d3bfe736fbf714f4c64fefeb3512a  runtime_support.c
+14e89f593abe203b55e23498cdcaa6a029bd842eddc7d8109a043652e0df3da6  generated.obj
+6b22d290f6215ac75f3b6768721db420199507000376878b02e62b24832b725f  runtime_support.obj
+3d92fc274ddb94190292fb9630243f7b064a42733406ecaf7cab2d85a5f2f266  program.exe

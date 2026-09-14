@@ -1,0 +1,98 @@
+PASS: fixture-byte-length
+PASS: fixture-sha256
+PASS: fixture-instruction-count
+PASS: encoder-addiu
+PASS: encoder-sw
+PASS: encoder-lw
+PASS: encoder-addu
+PASS: encoder-slti
+PASS: encoder-bne
+PASS: encoder-beq
+PASS: encoder-j
+PASS: encoder-jal
+PASS: encoder-jr
+PASS: fixture-synthetic-origin
+PASS: decode-addresses
+PASS: decode-loop-backedge-target
+PASS: decode-call-target
+PASS: decode-jump-target
+PASS: decode-dispatch-unresolved
+PASS: decode-memory-flow-normal
+PASS: decode-size-bytes
+PASS: cfg-block-count
+PASS: cfg-loop-backedge
+PASS: cfg-loop-exit
+PASS: cfg-branch-to-caseb
+PASS: cfg-branch-to-casea
+PASS: cfg-dispatch-unresolved
+PASS: cfg-jump-to-end
+PASS: cfg-caseb-fallthrough
+PASS: cfg-call-continuation
+PASS: cfg-deterministic
+PASS: functions-two
+PASS: functions-loop-owned
+PASS: functions-leaf-owned
+PASS: functions-unowned-delay-slots
+PASS: functions-deterministic
+PASS: callgraph-nodes
+PASS: callgraph-edge
+PASS: units-two
+PASS: units-deterministic
+PASS: indirect-site-count
+PASS: indirect-dispatch-resolved
+PASS: indirect-dispatch-basis
+PASS: indirect-dispatch-targets
+PASS: indirect-returns
+PASS: indirect-no-evidence-fails-closed
+PASS: indirect-no-evidence-no-targets
+PASS: indirect-no-evidence-boundary
+PASS reject: indirect-no-evidence-reject-policy
+PASS: bounded-not-promoted
+PASS: bounded-no-case-emission
+PASS reject: bounded-reject-policy
+PASS: emission-loop-backedge
+PASS: emission-dispatch-switch
+PASS: emission-switch-cases
+PASS: emission-switch-default-fails-closed
+PASS: emission-call
+PASS: emission-memory
+PASS: emission-returns
+PASS: emission-deterministic
+PASS: emission-no-hardcoded-result-125
+PASS: emission-no-pointer-cast
+PASS: reference-registers
+PASS: derivation-loop-sum
+PASS: derivation-case-a-result
+PASS: derivation-end
+PASS: derivation-restored-ra
+PASS: build-status-ok
+PASS: build-classification
+PASS: build-source-reproducible
+PASS: build-manifest-reproducible
+PASS: build-object-reproducible
+PASS: build-executable-reproducible
+PASS: build-brepro
+PASS: build-manifest-deterministic
+PASS: build-manifest-no-path-leak
+PASS: build-manifest-no-identity
+PASS: native-executable-hash-matches-manifest
+PASS: native-returncode-zero
+PASS: native-output-stable
+PASS: expected-equals-actual
+PASS: native-guest-registers
+PASS: oob-selector-not-in-proven-set
+PASS: runtime-switch-default-fails-closed
+PASS: runtime-switch-default-error
+PASS reject: missing-slti-rule
+PASS reject: external-call-fails-closed
+PASS reject: bad-load-base
+PASS reject: unsupported-opcode
+PASS reject: misaligned-entry
+PASS reject: empty-region
+PASS: no-next-stage-symbol:p2_13
+PASS: no-next-stage-symbol:p2_14
+PASS: no-next-stage-symbol:p2_20
+PASS: no-next-stage-symbol:runtime_host_boundary
+PASS: no-p2-13-evidence-directory
+OPENRECOMP_MIPS32_DIRECT_CFG_V1_JSON=p2_12_tests.json
+OPENRECOMP_MIPS32_DIRECT_CFG_V1=PASS tests=96

@@ -1,0 +1,22 @@
+P2-02 CFG evidence (direct-CFG stress)
+======================================
+mode: CLOSED
+fingerprint: 8c288d4190fd6ad10ffcad27c2ed2e92c48dbef91adb1d610346743d875946e1
+blocks: 0x1000, 0x1018, 0x1028, 0x1034, 0x1044, 0x104c, 0x1058, 0x105c, 0x1068, 0x106c, 0x1074, 0x107c, 0x1080, 0x1088
+edges:
+  blk_1000: FALLTHROUGH -> blk_1018
+  blk_1018: BRANCH_NOT_TAKEN -> blk_1028
+  blk_1018: BRANCH_TAKEN -> blk_1018
+  blk_1028: CALL_RETURN -> blk_1034
+  blk_1034: BRANCH_NOT_TAKEN -> blk_1044
+  blk_1034: BRANCH_TAKEN -> blk_106c
+  blk_1044: BRANCH_NOT_TAKEN -> blk_104c
+  blk_1044: BRANCH_TAKEN -> blk_105c
+  blk_104c: INDIRECT -> unresolved indirect jump target
+  blk_1058: FALLTHROUGH -> blk_105c
+  blk_105c: JUMP -> blk_1074
+  blk_1068: FALLTHROUGH -> blk_106c
+  blk_106c: FALLTHROUGH -> blk_1074
+  blk_1074: INDIRECT -> unresolved indirect jump target
+  blk_107c: FALLTHROUGH -> blk_1080
+  blk_1080: INDIRECT -> unresolved indirect jump target

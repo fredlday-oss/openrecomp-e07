@@ -790,7 +790,11 @@ def main(argv=None) -> int:
     }
     for token in ("p2_12", "p2_13", "p2_20", "direct_table"):
         check(f"no-next-stage-symbol:{token}", not any(token in name.lower() for name in defined))
-    check("no-p2-12-evidence-directory", not (ROOT / ".openrecomp-phase2" / "evidence" / "P2-12").exists())
+    # P2-11's bounded fixture must not use the later P2-12 bounded-switch lowering.
+    # (The former "P2-12 evidence must not exist" cross-stage guard was replaced
+    # here once P2-12 was authorized; it asserted build state, not a P2-11
+    # property, and could not hold while P2-12 was in progress.)
+    check("no-p2-12-switch-emission-in-p2-11", "switch (" not in host.source_text)
 
     tests = sum(1 for item in RESULTS if item["status"] == "PASS")
     if args.json:

@@ -1,0 +1,31 @@
+P2-12 expected vs actual observable
+===================================
+expected (independent true-MIPS32 reference interpreter):
+failed=0
+error=
+reg[0]=0
+reg[1]=20
+reg[2]=248
+reg[3]=5
+reg[4]=0
+reg[5]=15
+reg[6]=4188
+reg[7]=120
+reg[8]=125
+reg[9]=1
+reg[10]=1
+actual (native executable stdout):
+failed=0
+error=
+reg[0]=0
+reg[1]=20
+reg[2]=248
+reg[3]=5
+reg[4]=0
+reg[5]=15
+reg[6]=4188
+reg[7]=120
+reg[8]=125
+reg[9]=1
+reg[10]=1
+EXPECTED == ACTUAL: YES

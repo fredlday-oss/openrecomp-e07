@@ -1,0 +1,176 @@
+{
+  "stage": "P2-12",
+  "title": "OPENRECOMP_P2_12_MIPS32_DIRECT_CFG_STRESS_V1",
+  "verdict": "PASS",
+  "stage_marker": "OPENRECOMP_P2_12=PASS",
+  "gate_marker": "OPENRECOMP_MIPS32_DIRECT_CFG_V1=PASS tests=96",
+  "starting_commit": "6cb5ff40eca30eaeb383333c10bcf50165a167ce",
+  "starting_boundary": "6cb5ff4 phase2: complete P2-11 MIPS32 calls stack and memory",
+  "branch": "phase2/opencode-v1",
+  "phase1_tag": "openrecomp-phase1-pass",
+  "phase1_tag_commit": "46c2f971e1a42cf49bd936bad94697b81bf31002",
+  "fixture": {
+    "fixture_id": "p2-12-mips32-direct-cfg-v1",
+    "architecture": "mips32-bounded-v1",
+    "endianness": "little",
+    "instruction_width_bytes": 4,
+    "entry_address": 4096,
+    "leaf_address": 4224,
+    "dispatch_address": 4180,
+    "instruction_count": 35,
+    "byte_length": 140,
+    "sha256": "2e3309f310a6f23c145ba7b95a22f10e3d81f32ec19afb966a9044395c066c84",
+    "origin": "synthetic/original (no commercial ROM/ELF bytes)",
+    "features": ["counted loop with back edge", "conditional branches (both outcomes)", "direct jal call", "jr ra returns", "o32 $ra save/restore", "bounded indirect dispatch"]
+  },
+  "guest_instructions": ["addiu", "addu", "slti", "sw", "lw", "beq", "bne", "j", "jal", "jr", "nop"],
+  "expected_observable": "failed=0\nerror=\nreg[0]=0\nreg[1]=20\nreg[2]=248\nreg[3]=5\nreg[4]=0\nreg[5]=15\nreg[6]=4188\nreg[7]=120\nreg[8]=125\nreg[9]=1\nreg[10]=1",
+  "expected_guest_registers": {"r2": 20, "r3": 5, "r4": 15, "r5": 4188, "r6": 120, "r7": 125, "r8": 1, "r9": 1, "sp": 248, "ra": 0},
+  "expected_derivation": [
+    "loop i=1..5 sums acc=15; jal leaf adds 5 -> r2=20; $ra restored to 0",
+    "both structural branches not taken at runtime; r5=0x105c; bounded switch dispatches to case A",
+    "r6=100+20=120; j end; r7=120+5=125; jr $ra (0) halts; sp=0x100-8=248",
+    "tiny independent true-MIPS32 reference interpreter with delay slots, jal/jr $ra, lw/sw and bounded RAM"
+  ],
+  "actual_observable": "failed=0\nerror=\nreg[0]=0\nreg[1]=20\nreg[2]=248\nreg[3]=5\nreg[4]=0\nreg[5]=15\nreg[6]=4188\nreg[7]=120\nreg[8]=125\nreg[9]=1\nreg[10]=1",
+  "expected_equals_actual": true,
+  "native_returncode": 0,
+  "native_execution_stable": true,
+  "stages": {
+    "P2-01_program_model": "APPLIED",
+    "P2-02_cfg": "APPLIED",
+    "P2-03_function_discovery": "APPLIED",
+    "P2-04_call_graph": "APPLIED",
+    "P2-05_translation_units": "APPLIED",
+    "P2-06_indirect_control_flow": "APPLIED",
+    "P2-07_host_emitter": "APPLIED",
+    "P2-08_runtime_abi": "APPLIED",
+    "P2-09_deterministic_build": "APPLIED"
+  },
+  "stage_fingerprints": {
+    "P2-02_cfg": "8c288d4190fd6ad10ffcad27c2ed2e92c48dbef91adb1d610346743d875946e1",
+    "P2-03_functions": "a7bbc09af85ea215ef30307793b268a6c8b7abb3385e2efaf0a71c12fa311d74",
+    "P2-04_call_graph": "55a0b6e30b556e27a6f16bc1a30075bf62cad700c40d8e679a4413d551b20c6c",
+    "P2-05_translation_units": "00475b0e94487229a2a53933a0da52cf65ee4fbcb15e67d614002f49f8fdf486",
+    "P2-06_indirect_control_flow": "a9b418af2c13693f0f4e2889921307fc77c754ab795fc647309597320ce849df",
+    "P2-07_generated_source": "36ba17c8a1edcd22148c9789abe9348f68e9b6cd02912a9a94481de93a3009c9"
+  },
+  "function_count": 2,
+  "call_edges": [{"caller": "fn_1000", "callee": "fn_1080", "kind": "INTERNAL_DIRECT"}],
+  "loop": {"back_edge": "blk_1018 -> blk_1018", "iterations": 5, "accumulator": 15},
+  "bounded_dispatch": {
+    "address": 4180,
+    "kind": "INDIRECT_JUMP",
+    "status": "RESOLVED",
+    "basis": "EXACT_TARGET_SET",
+    "targets": [4188, 4204],
+    "lowering": "switch",
+    "guessed_targets": false,
+    "without_evidence": "UNRESOLVED_INDIRECT_JUMP",
+    "bounded_candidates": "never promoted"
+  },
+  "indirect_control_flow": {
+    "site_count": 3,
+    "dispatch": "RESOLVED/EXACT_TARGET_SET",
+    "returns": ["0x1078", "0x1084"]
+  },
+  "generated_source": {
+    "sha256": "36ba17c8a1edcd22148c9789abe9348f68e9b6cd02912a9a94481de93a3009c9",
+    "register_names": ["r0", "r2", "r29", "r3", "r31", "r4", "r5", "r6", "r7", "r8", "r9"],
+    "repeated_emission_byte_identical": true,
+    "final_observable_hardcoded": false
+  },
+  "build": {
+    "pipeline": "P2-09",
+    "manifest_schema": "openrecomp-build-manifest-v1",
+    "independent_build_count": 2,
+    "runtime_support_source_sha256": "5eeb0d37d34a1f20b2646519f7dac43e196d3bfe736fbf714f4c64fefeb3512a",
+    "generated_obj_sha256": "14e89f593abe203b55e23498cdcaa6a029bd842eddc7d8109a043652e0df3da6",
+    "runtime_support_obj_sha256": "6b22d290f6215ac75f3b6768721db420199507000376878b02e62b24832b725f",
+    "executable_sha256": "3d92fc274ddb94190292fb9630243f7b064a42733406ecaf7cab2d85a5f2f266",
+    "build_manifest_sha256": "45ad066d75d2be84753214d143dc3084769965afb7b6f41d85e4bb1045d13eac",
+    "compiler_identity": "clang-cl.exe",
+    "compiler_version": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+    "compiler_target": "x86_64-pc-windows-msvc",
+    "linker_identity": "lld-link.exe",
+    "linker_version": "LLD 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+    "compile_arguments": ["/c", "/Brepro", "/Od", "/std:c11", "/nologo"],
+    "link_arguments": ["/Brepro", "/nologo"],
+    "source_reproducible": true,
+    "manifest_reproducible": true,
+    "object_reproducible": true,
+    "executable_reproducible": true,
+    "classification": "EXECUTABLE_REPRODUCIBLE",
+    "binary_post_processing": "none"
+  },
+  "switch_fail_closed": {
+    "variant": "selector r5 = 0x2000 (8192), outside the proven set {0x105c, 0x106c}",
+    "observed": "failed=1, error=indirect target outside proven set",
+    "result": "PASS"
+  },
+  "p2_12_gate": {"command": "python tools/test_mips32_direct_cfg_v1.py", "tests": 96, "result": "PASS"},
+  "determinism": {
+    "gate_stdout_sha256": "d01ec8f0bd5391684a1f18d6d3d3197b449e67021eae700c053573130a207100",
+    "run_count": 2,
+    "byte_identical": true
+  },
+  "fail_closed_tested": [
+    "out-of-set runtime dispatch target (switch default -> failed=1)",
+    "bounded candidate set never promoted (boundary or REJECT)",
+    "no dispatch evidence -> UNRESOLVED_INDIRECT_JUMP (boundary or REJECT)",
+    "missing semantics rule",
+    "external direct call target (no invented callee)",
+    "malformed HostLoad operands",
+    "unsupported opcode",
+    "misaligned entry",
+    "empty region"
+  ],
+  "cross_stage_test_adjustment": {
+    "file": "tools/test_mips32_calls_memory_v1.py",
+    "removed_check": "no-p2-12-evidence-directory (obsolete cross-stage guard)",
+    "replacement_check": "no-p2-12-switch-emission-in-p2-11",
+    "reason": "The guard asserted P2-12 evidence must not exist; it encodes cross-stage build state and necessarily fails once the authorized P2-12 stage writes required evidence.",
+    "test_count_unchanged": 77,
+    "old_stdout_sha256": "c0b39d658ef9f12cc056bbfcae30e945670944f51f3d12a86a0f2a4e21e0c168",
+    "new_stdout_sha256": "35e92fa780eb842ee060edd747fd33d3e919699e7a753ccf864d88fb157e9b81",
+    "committed_p2_11_semantics_changed": false
+  },
+  "upstream_regressions": {
+    "P2-11_mips32_calls_memory": {"marker": "OPENRECOMP_MIPS32_CALLS_MEMORY_V1=PASS tests=77", "tests": 77, "result": "PASS"},
+    "P2-10_mips32_end_to_end": {"marker": "OPENRECOMP_MIPS32_END_TO_END_V1=PASS tests=108", "tests": 108, "result": "PASS"},
+    "P2-09_deterministic_build": {"marker": "OPENRECOMP_DETERMINISTIC_BUILD_V1=PASS tests=120", "tests": 120, "result": "PASS"},
+    "P2-08_generic_runtime_abi": {"marker": "OPENRECOMP_GENERIC_RUNTIME_ABI_V1=PASS tests=169", "tests": 169, "result": "PASS"},
+    "P2-07_host_emitter": {"marker": "OPENRECOMP_HOST_EMITTER_V1=PASS tests=106", "tests": 106, "result": "PASS"},
+    "P2-06_indirect_control_flow": {"marker": "OPENRECOMP_INDIRECT_CONTROL_FLOW_V1=PASS tests=134", "tests": 134, "result": "PASS"},
+    "P2-05_translation_units": {"marker": "OPENRECOMP_TRANSLATION_UNITS_V1=PASS tests=104", "tests": 104, "result": "PASS"},
+    "P2-04_call_graph": {"marker": "OPENRECOMP_CALL_GRAPH_V1=PASS tests=61", "tests": 61, "result": "PASS"},
+    "P2-03_function_discovery": {"marker": "OPENRECOMP_FUNCTION_DISCOVERY_V1=PASS tests=67", "tests": 67, "result": "PASS"},
+    "P2-02_cfg": {"marker": "OPENRECOMP_CFG_V1=PASS tests=82", "tests": 82, "result": "PASS"},
+    "P2-01_program_model": {"marker": "OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49", "tests": 49, "result": "PASS"}
+  },
+  "phase1_host_gates": {
+    "command": "python tools/phase1_host_gates_v1.py --json .openrecomp-phase2/evidence/P2-12/host_gates.json",
+    "pass": 44,
+    "fail": 0,
+    "skipped_toolchain_unavailable": 2,
+    "skipped_gates": ["e07-hardened-end-to-end", "external-repro-v1"],
+    "result": "PASS"
+  },
+  "source_integrity": {
+    "command": "python tools/phase1_host_gates_v1.py --only source-integrity",
+    "result": "PASS",
+    "manifest_entries": 122,
+    "new_entry": "tools/test_mips32_direct_cfg_v1.py",
+    "new_entry_sha256": "cf3b94cdae2d5649489bca2126d852cf582a5844abbe210fb37e904f41463bfc",
+    "updated_entry": "tools/test_mips32_calls_memory_v1.py",
+    "updated_entry_sha256": "ca908ddc538bebc150c6f7c12dfb0c039510c1311d0579ed2ad8b19423a4dae0",
+    "note": "121 -> 122; one additive entry and one evidence-backed update; no unrelated hash changed"
+  },
+  "changed_files": {
+    "added": ["tools/test_mips32_direct_cfg_v1.py", ".openrecomp-phase2/evidence/P2-12/"],
+    "modified": ["tools/test_mips32_calls_memory_v1.py", "SOURCE_SHA256SUMS.txt", ".openrecomp-phase2/STATE.md", ".openrecomp-phase2/HANDOFF.md", ".openrecomp-phase2/STAGE_QUEUE.md"]
+  },
+  "phase2_end_to_end_marker": "OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=NOT_PROVEN",
+  "phase2_end_to_end_marker_reason": "STAGE_QUEUE.md reserves the final marker for the P2-99 Final verdict outcome; P2-12 alone does not satisfy that definition.",
+  "next_stage": "P2-13"
+}

@@ -1,0 +1,105 @@
+PASS: one-unit-per-function
+PASS: unit-function-ids
+PASS: unit-one-to-one
+PASS: unit-ids-stable
+PASS: unit-lookup-by-id
+PASS: stable-order
+PASS: stable-order-input-independent
+PASS: deterministic-construction
+PASS: instructions-preserved:fn_7000
+PASS: instruction-objects-preserved:fn_7000
+PASS: instructions-preserved:fn_8000
+PASS: instruction-objects-preserved:fn_8000
+PASS: instruction-ops-unlowered
+PASS: block-membership:fn_7000
+PASS: block-addresses:fn_7000
+PASS: block-successors:fn_7000
+PASS: block-membership:fn_8000
+PASS: block-addresses:fn_8000
+PASS: block-successors:fn_8000
+PASS: canonical-block-order
+PASS: resolved-call-one
+PASS: resolved-call-site
+PASS: resolved-callees
+PASS: resolved-matches-call-graph
+PASS: callee-unit-single-block
+PASS: unresolved-edge-preserved
+PASS: unresolved-no-invented-target
+PASS: unresolved-site-preserved
+PASS: unresolved-site-matches-function
+PASS: external-edge-preserved
+PASS: external-no-invented-callee
+PASS: indirect-jump-preserved
+PASS: indirect-jump-block-owned
+PASS: indirect-jump-no-target
+PASS: provenance-preserved
+PASS: entry-sources-preserved
+PASS: source-preserved
+PASS: external-inventory-preserved
+PASS: entry-unit
+PASS: candidate-not-promoted
+PASS: shared-blocks-preserved
+PASS: shared-block-owner
+PASS: shared-block-also
+PASS: unowned-blocks-preserved
+PASS: unowned-control-flow-preserved
+PASS: unowned-control-flow-not-invented
+PASS: unowned-control-flow-not-owned
+PASS: suppressed-entries-preserved
+PASS: wide-entry
+PASS: wide-callee
+PASS: wide-roundtrip
+PASS: very-wide-entry
+PASS: very-wide-serialized
+PASS: deterministic-serialization
+PASS: deterministic-fingerprint
+PASS: deterministic-unit-order
+PASS: roundtrip-bytes
+PASS: roundtrip-fingerprint
+PASS: roundtrip-unresolved
+PASS: roundtrip-direct-callees
+PASS: roundtrip-shared
+PASS: roundtrip-unowned
+PASS: no-ir-import:openrecomp.executor
+PASS: no-ir-import:openrecomp.runtime
+PASS: no-ir-import:openrecomp.module
+PASS: no-ir-import:validate_ir
+PASS: no-ir-import:make_ir
+PASS: no-lowering-api
+PASS: no-ir-keys
+PASS: blocks-remain-neutral
+PASS: program-model-cross-check
+PASS: call-graph-cross-check
+PASS: nes-one-unit-per-function
+PASS: nes-internal-edge
+PASS: nes-block-order
+PASS reject: non-discovery-input
+PASS reject: non-call-graph
+PASS reject: call-graph-node-mismatch
+PASS reject: duplicate-function-input
+PASS reject: empty-functions
+PASS reject: unit-empty-blocks
+PASS reject: unit-entry-not-a-block
+PASS reject: unit-call-edge-caller-mismatch
+PASS reject: unit-direct-callees-mismatch
+PASS reject: unit-unresolved-site-not-owned
+PASS reject: unit-unresolved-jump-not-owned
+PASS reject: set-empty
+PASS reject: set-duplicate-unit-id
+PASS reject: set-duplicate-function-id
+PASS reject: set-duplicate-entry
+PASS reject: set-unknown-entry-unit
+PASS reject: set-unowned-block-owned
+PASS reject: set-external-matches-entry
+PASS reject: set-width-overflow
+PASS reject: set-shared-block-not-owned
+PASS reject: set-shared-owner-unknown
+PASS reject: set-unowned-control-flow-owned
+PASS reject: deserialize-invalid-json
+PASS reject: from-document-not-object
+PASS reject: unsupported-version
+PASS reject: empty-unit-blocks-document
+PASS: valid-direct-construction
+PASS reject: unknown-unit-lookup
+PASS reject: unknown-function-lookup
+OPENRECOMP_TRANSLATION_UNITS_V1=PASS tests=104
