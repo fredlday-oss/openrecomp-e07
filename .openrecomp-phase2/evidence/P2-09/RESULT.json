@@ -1,0 +1,127 @@
+{
+  "stage": "P2-09",
+  "title": "OPENRECOMP_P2_09_DETERMINISTIC_BUILD_PIPELINE_V1",
+  "verdict": "PASS",
+  "stage_marker": "OPENRECOMP_P2_09=PASS",
+  "gate_marker": "OPENRECOMP_DETERMINISTIC_BUILD_V1=PASS tests=120",
+  "starting_commit": "10971b76090746081cb29ca3405f96da7f143011",
+  "starting_boundary": "10971b7 phase2: complete P2-08 generic runtime ABI v1",
+  "branch": "phase2/opencode-v1",
+  "phase1_tag": "openrecomp-phase1-pass",
+  "phase1_tag_commit": "46c2f971e1a42cf49bd936bad94697b81bf31002",
+  "manifest_schema": "openrecomp-build-manifest-v1",
+  "manifest_version": "1.0.0",
+  "pipeline_version": "1.0.0",
+  "toolchain": {
+    "compiler_identity": "clang-cl.exe",
+    "compiler_version": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+    "compiler_target": "x86_64-pc-windows-msvc",
+    "linker_identity": "lld-link.exe",
+    "linker_version": "LLD 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+    "compile_arguments": ["/c", "/Brepro", "/Od", "/std:c11", "/nologo"],
+    "link_arguments": ["/Brepro", "/nologo"]
+  },
+  "independent_build_count": 2,
+  "generated_source": {
+    "generated.c": "b75d7656517de8a75c5730fa22b7ea69dff9292be20a6f73d0bd49cf64705e24",
+    "runtime_support.c": "df4ab710fb2705bd26d3e021b6e706acbbcd4dd61a62926b057737a43b1bcb02"
+  },
+  "source_reproducible": true,
+  "manifest_reproducible": true,
+  "object_reproducible": true,
+  "executable_reproducible": true,
+  "reproducibility_classification": "EXECUTABLE_REPRODUCIBLE",
+  "artifacts": {
+    "generated.obj": "fc4524095d8ce2196cf3e67e8d4c53cfc63cefc2cd5fe59cf9592ceb227b5764",
+    "runtime_support.obj": "51910f332e91f26492a61b9168a3ce7566667b13c9de6da7157b021a83d153d8",
+    "program.exe": "de03764e429a6e31d46037c72cd08db126fab18f2838b037b8ecee7deea81368"
+  },
+  "pe_coff": {
+    "inspected_with": "llvm-readobj --file-headers",
+    "generated.obj_run1_TimeDateStamp": "0x0",
+    "generated.obj_run2_TimeDateStamp": "0x0",
+    "runtime_support.obj_run1_TimeDateStamp": "0x0",
+    "runtime_support.obj_run2_TimeDateStamp": "0x0",
+    "program.exe_run1_TimeDateStamp": "0x974E5A9",
+    "program.exe_run2_TimeDateStamp": "0x974E5A9",
+    "identical": true,
+    "machine": "IMAGE_FILE_MACHINE_AMD64 (0x8664)",
+    "binary_post_processing": "none"
+  },
+  "execution_smoke_test": {
+    "expected": "42 0",
+    "observed_run1": "42 0",
+    "observed_run2": "42 0",
+    "returncode": 0,
+    "result": "PASS",
+    "scope": "bounded synthetic build/execution smoke test only; not guest/host equivalence"
+  },
+  "determinism": {
+    "normal_gate_stdout_sha256": "db055b5cd622a7ef188901ef8da65898e2dac0cacb03c0ee2fb6caeec5b3e273",
+    "run_count": 2,
+    "byte_identical": true,
+    "evidence_cross_directory": "PASS",
+    "manifest_cross_directory": "PASS",
+    "manifest_sha256": "22d8fd9bac9bca61c8f2920b6274a6076a518e59082e5f7965cee1dad348df77"
+  },
+  "evidence_hashes": {
+    "build_manifest.json": "22d8fd9bac9bca61c8f2920b6274a6076a518e59082e5f7965cee1dad348df77",
+    "build_run_1.txt": "e32ab5e95a98687e780abc9a0bea34ffa3de67ba2b9b55a2c91f1db1c5403bfa",
+    "build_run_2.txt": "7c98bc7022a4d3bfa58eb14e140bc0dbda98b5f5063c163ca57e5faa22e4e788",
+    "compiler_version.txt": "6a749edf69ca1476b014832db63ee7009370e49b45f1151bb2424d635c669fca",
+    "source_hashes.txt": "a5931b34b626054703e28c52dadf6370fdca9296de31b3757eaffe95df74c98f",
+    "object_hashes.txt": "aea96acbf0006388731e91674cb640fb1ccecb7085cc3e272fb7b179fcaccbb2",
+    "executable_hashes.txt": "4169a9e38c00b3ddfe003dd0747828d67f13328690c4153f64f4fcfaf9c9fd84",
+    "execution_smoke_test.txt": "f09cef0e698bebda14d64fac106bd55fb40ab70493e0bdd19919cec8c25deb3a",
+    "pe_coff_inspection.txt": "6c9971b57e503c09d9e4dd8bd6534f758a4aeb1a697892fb8a11bb9616438a4b",
+    "p2_09_deterministic_build.txt": "95d0e30710d508d9097a96b3bacb437bb1c05b443f4f122e66b5dfd192d7c777",
+    "p2_09_tests.json": "079a9d003d68998bb1bf34d63e7a988f9423ff54193988c0af32cb3d2ad9a71b",
+    "host_gates.txt": "77ba35faa49f5a117aa49f6b9581ac20b91da040cd59f06188e7e8eabdff4e1f",
+    "host_gates.json": "f5c2410a0fe34eff6cede90de797ccd22dd64bed8865f0e3f135593edb0d6671",
+    "source_integrity.txt": "1911a320dc2ddaf5f1adc930a8dac15bab673bcde227829cded62c58de42af7f"
+  },
+  "text_encoding": {"result": "PASS", "bom": false, "nul": false, "utf8": true},
+  "path_leakage": {"result": "PASS"},
+  "p2_09_gate": {"command": "python tools/test_build_pipeline_v1.py", "tests": 120, "result": "PASS"},
+  "upstream_regressions": {
+    "P2-08_generic_runtime_abi": {"marker": "OPENRECOMP_GENERIC_RUNTIME_ABI_V1=PASS tests=169", "tests": 169, "result": "PASS"},
+    "P2-07_host_emitter": {"marker": "OPENRECOMP_HOST_EMITTER_V1=PASS tests=106", "tests": 106, "result": "PASS"},
+    "P2-06_indirect_control_flow": {"marker": "OPENRECOMP_INDIRECT_CONTROL_FLOW_V1=PASS tests=134", "tests": 134, "result": "PASS"},
+    "P2-05_translation_units": {"marker": "OPENRECOMP_TRANSLATION_UNITS_V1=PASS tests=104", "tests": 104, "result": "PASS"},
+    "P2-04_call_graph": {"marker": "OPENRECOMP_CALL_GRAPH_V1=PASS tests=61", "tests": 61, "result": "PASS"},
+    "P2-03_function_discovery": {"marker": "OPENRECOMP_FUNCTION_DISCOVERY_V1=PASS tests=67", "tests": 67, "result": "PASS"},
+    "P2-02_cfg": {"marker": "OPENRECOMP_CFG_V1=PASS tests=82", "tests": 82, "result": "PASS"},
+    "P2-01_program_model": {"marker": "OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49", "tests": 49, "result": "PASS"}
+  },
+  "phase1_host_gates": {
+    "command": "python tools/phase1_host_gates_v1.py --json .openrecomp-phase2/evidence/P2-09/host_gates.json",
+    "pass": 44,
+    "fail": 0,
+    "skipped_toolchain_unavailable": 2,
+    "skipped_gates": ["e07-hardened-end-to-end", "external-repro-v1"],
+    "result": "PASS"
+  },
+  "source_integrity": {
+    "command": "python tools/phase1_host_gates_v1.py --only source-integrity",
+    "result": "PASS",
+    "manifest_entries": 119,
+    "note": "one additive entry: tools/test_build_pipeline_v1.py (118 -> 119)"
+  },
+  "changed_files": {
+    "added": [
+      "openrecomp/build_pipeline.py",
+      "tools/test_build_pipeline_v1.py",
+      ".openrecomp-phase2/evidence/P2-09/"
+    ],
+    "modified": [
+      "SOURCE_SHA256SUMS.txt",
+      ".openrecomp-phase2/STATE.md",
+      ".openrecomp-phase2/HANDOFF.md",
+      ".openrecomp-phase2/STAGE_QUEUE.md"
+    ]
+  },
+  "no_p2_10": true,
+  "final_phase2_proof_claimed": false,
+  "final_phase2_marker": "OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=NOT_PROVEN",
+  "next_stage": "P2-10"
+}

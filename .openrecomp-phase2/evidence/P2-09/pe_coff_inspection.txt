@@ -1,0 +1,22 @@
+P2-09 PE/COFF header inspection (llvm-readobj --file-headers)
+==============================================================
+
+Inspected values only; binaries were not modified or post-processed.
+
+COFF/PE TimeDateStamp:
+  generated.obj run 1: 0x0
+  runtime_support.obj run 1: 0x0
+  program.exe run 1: 0x974E5A9
+  generated.obj run 2: 0x0
+  runtime_support.obj run 2: 0x0
+  program.exe run 2: 0x974E5A9
+
+Other checked header fields (identical across independent runs):
+  generated.obj Format: COFF-x86-64
+  generated.obj Machine: IMAGE_FILE_MACHINE_AMD64 (0x8664)
+  program.exe Format: COFF-x86-64
+  program.exe Machine: IMAGE_FILE_MACHINE_AMD64 (0x8664)
+  program.exe ImageBase: 0x140000000
+
+result: timestamps identical across independent builds; /Brepro used directly by clang-cl and lld-link.
+

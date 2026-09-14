@@ -1,0 +1,509 @@
+{
+  "classification": "EXECUTABLE_REPRODUCIBLE",
+  "executable_reproducible": true,
+  "manifest_reproducible": true,
+  "marker": "OPENRECOMP_DETERMINISTIC_BUILD_V1=PASS tests=120",
+  "object_reproducible": true,
+  "python": "3.11.9",
+  "results": [
+    {
+      "check": "artifact-absent-allowed",
+      "status": "PASS"
+    },
+    {
+      "check": "artifact-verification-passes",
+      "status": "PASS"
+    },
+    {
+      "check": "both-runs-have-source",
+      "status": "PASS"
+    },
+    {
+      "check": "build-status-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "build-status-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "canonical-json",
+      "status": "PASS"
+    },
+    {
+      "check": "classification-executable",
+      "status": "PASS"
+    },
+    {
+      "check": "compile-args-explicit",
+      "status": "PASS"
+    },
+    {
+      "check": "compile-command-has-brepro",
+      "status": "PASS"
+    },
+    {
+      "check": "compile-commands-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "compiler-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "compiler-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "compiler-target-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "compiler-version-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "cross-root-exe-hash-match",
+      "status": "PASS"
+    },
+    {
+      "check": "cross-root-executable-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "cross-root-object-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "cross-root-source-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-config-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-abi-version-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-artifact-hashes-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-classification-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-compile-args-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-compiler-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-cross-directory-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-file-set-complete",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-file-set-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-input-hashes-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-link-args-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-linker-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-manifest-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-manifest-matches-gate",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-manifest-semantics-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-no-hostname-leak",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-no-output-root-leak",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-no-repo-path-leak",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-no-temp-root-leak",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-no-username-leak",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-run-reports-distinct",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-text-utf8-clean",
+      "status": "PASS"
+    },
+    {
+      "check": "executable-hash-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "executable-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "executable-timestamp-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "explicit-compiler-discovery-none",
+      "status": "PASS"
+    },
+    {
+      "check": "failed-compile-classification",
+      "status": "PASS"
+    },
+    {
+      "check": "failed-compile-status",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-id-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "independent-build-directories",
+      "status": "PASS"
+    },
+    {
+      "check": "independent-source-regeneration",
+      "status": "PASS"
+    },
+    {
+      "check": "inputs-canonical-order",
+      "status": "PASS"
+    },
+    {
+      "check": "link-args-explicit",
+      "status": "PASS"
+    },
+    {
+      "check": "link-command-has-brepro",
+      "status": "PASS"
+    },
+    {
+      "check": "link-command-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "linker-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "linker-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "linker-version-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest-byte-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest-inputs-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest-no-absolute-repo-path",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest-no-build-root",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest-no-drive-letter",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest-no-forbidden-keys",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest-no-hostname",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest-no-python-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest-no-username",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest-roundtrip-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest-schema-no-forbidden",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest-version-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-10-import:emulator",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-10-import:equivalence",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-10-import:executor",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-10-import:mips",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-10-import:reference",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-10-symbol:end_to_end",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-10-symbol:equivalence",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-10-symbol:execute_guest",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-10-symbol:mips",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-10-symbol:recompile",
+      "status": "PASS"
+    },
+    {
+      "check": "no-path-leak:generated.obj",
+      "status": "PASS"
+    },
+    {
+      "check": "no-path-leak:program.exe",
+      "status": "PASS"
+    },
+    {
+      "check": "no-path-leak:runtime_support.obj",
+      "status": "PASS"
+    },
+    {
+      "check": "object-hash-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "object-hashes-present",
+      "status": "PASS"
+    },
+    {
+      "check": "object-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "object-timestamp-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "outputs-objects-first",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:absolute-source-name",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:artifact-hash-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:artifact-present-without-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bad-source-name",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:config-abi-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:config-bad-source-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:config-empty-fixture",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:config-reproducible-single-run",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:config-smoke-without-expected",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:duplicate-output",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:evidence-destination-is-file",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:manifest-abi-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:manifest-forbidden-timestamp",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:manifest-missing-key",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:manifest-not-json",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:manifest-unknown-key",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:overstrong-reproducibility-claim",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:single-run-comparison",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:source-hash-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unsupported-explicit-compiler",
+      "status": "PASS"
+    },
+    {
+      "check": "reproducibility-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "run-count",
+      "status": "PASS"
+    },
+    {
+      "check": "runs-regenerated-source",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime-abi-config-still-works",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime-abi-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime-abi-version-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "schema-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "smoke-output",
+      "status": "PASS"
+    },
+    {
+      "check": "smoke-returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "sorted-top-level-keys",
+      "status": "PASS"
+    },
+    {
+      "check": "source-hash-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "source-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "stage-recorded",
+      "status": "PASS"
+    }
+  ],
+  "sample_hashes": {
+    "generated.c": "b75d7656517de8a75c5730fa22b7ea69dff9292be20a6f73d0bd49cf64705e24"
+  },
+  "source_reproducible": true,
+  "stage": "P2-09",
+  "tests": 120,
+  "toolchain": {
+    "compiler": {
+      "identity": "clang-cl.exe",
+      "target": "x86_64-pc-windows-msvc",
+      "version": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"
+    },
+    "linker": {
+      "identity": "lld-link.exe",
+      "target": "x86_64-pc-windows-msvc",
+      "version": "LLD 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"
+    }
+  },
+  "toolchain_available": true
+}

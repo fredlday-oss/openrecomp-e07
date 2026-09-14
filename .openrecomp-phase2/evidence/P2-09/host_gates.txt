@@ -1,0 +1,49 @@
+PASS                             source-integrity                 verified 119 manifest entries
+PASS                             wasm-runner-intact               sha256=b973c3c52712937d59a15f2e50c405830be9882b5c457c05b1248b12405613ca
+PASS                             ir-v1-spec                       marker 'OPENRECOMP_IR_V1_SPEC=PASS' present
+PASS                             ir-v1-minimal-example            marker 'OPENRECOMP_IR_V1_VALID=PASS' present
+PASS                             core-api-v1                      marker 'OPENRECOMP_CORE_API_V1_TESTS=PASS' present
+PASS                             adapter-seam                     marker 'PASS: shared adapter interface is real' present
+PASS                             frontend-contract-v1             marker 'OPENRECOMP_FRONTEND_CONTRACT_V1=PASS' present
+PASS                             frontend-scaffold-v1             marker 'OPENRECOMP_FRONTEND_SCAFFOLD_V1=PASS' present
+PASS                             arch-harness-mips32-v1           marker 'OPENRECOMP_ARCH_HARNESS_V1=PASS' present
+PASS                             arch-harness-riscv32-v1          marker 'OPENRECOMP_ARCH_HARNESS_V1=PASS' present
+PASS                             sm83-state-v1                    marker 'OPENRECOMP_SM83_STATE_V1=PASS' present
+PASS                             sm83-decode-v1                   marker 'OPENRECOMP_SM83_DECODE_V1=PASS' present
+PASS                             sm83-semantics-v1                marker 'OPENRECOMP_SM83_SEMANTICS_V1=PASS' present
+PASS                             sm83-lowering-v1                 marker 'OPENRECOMP_SM83_LOWERING_V1=PASS' present
+PASS                             gb-rom-v1                        marker 'OPENRECOMP_GB_ROM_V1=PASS' present
+PASS                             gb-headless-v1                   marker 'OPENRECOMP_GB_HEADLESS_V1=PASS' present
+PASS                             gb-mode-v1                       marker 'OPENRECOMP_GB_MODE_V1=PASS' present
+PASS                             sm83-gb-gbc-regression-v1        marker 'OPENRECOMP_SM83_GB_GBC_REGRESSION_V1=PASS' present
+PASS                             z80-state-v1                     marker 'OPENRECOMP_Z80_STATE_V1=PASS' present
+PASS                             z80-decode-v1                    marker 'OPENRECOMP_Z80_DECODE_V1=PASS' present
+PASS                             z80-semantics-v1                 marker 'OPENRECOMP_Z80_SEMANTICS_V1=PASS' present
+PASS                             z80-lowering-v1                  marker 'OPENRECOMP_Z80_LOWERING_V1=PASS' present
+PASS                             sms-platform-v1                  marker 'OPENRECOMP_SMS_PLATFORM_V1=PASS' present
+PASS                             sms-headless-v1                  marker 'OPENRECOMP_SMS_HEADLESS_V1=PASS' present
+PASS                             z80-sms-regression-v1            marker 'OPENRECOMP_Z80_SMS_REGRESSION_V1=PASS' present
+PASS                             nes6502-state-v1                 marker 'OPENRECOMP_NES6502_STATE_V1=PASS' present
+PASS                             nes6502-decode-v1                marker 'OPENRECOMP_NES6502_DECODE_V1=PASS' present
+PASS                             nes6502-semantics-v1             marker 'OPENRECOMP_NES6502_SEMANTICS_V1=PASS' present
+PASS                             nes6502-lowering-v1              marker 'OPENRECOMP_NES6502_LOWERING_V1=PASS' present
+PASS                             nes-rom-v1                       marker 'OPENRECOMP_NES_ROM_V1=PASS' present
+PASS                             nes-platform-v1                  marker 'OPENRECOMP_NES_PLATFORM_V1=PASS' present
+PASS                             nes-headless-v1                  marker 'OPENRECOMP_NES_HEADLESS_V1=PASS' present
+PASS                             nes-regression-v1                marker 'OPENRECOMP_NES_REGRESSION_V1=PASS' present
+PASS                             arch-harness-sm83-v1             marker 'OPENRECOMP_ARCH_HARNESS_V1=PASS' present
+PASS                             mips32-frontend-v1               marker 'OPENRECOMP_MIPS32_FRONTEND_V1_TESTS=PASS' present
+PASS                             mips32-expansion-v1-negative     marker 'OPENRECOMP_MIPS32_EXPANSION_NEGATIVE_TESTS=PASS' present
+PASS                             mips32-microtests-v1             marker '0 failed' present
+PASS                             mips32-causality-v1              marker 'CAUSALITY_PASS' present
+PASS                             mips32-equivalence-v1            marker 'EQUIVALENCE_PASS' present
+PASS                             public-safety-scan               marker 'OPENRECOMP_PUBLIC_SAFETY=PASS' present
+PASS                             public-safety-missing-file-test  marker 'OPENRECOMP_PUBLIC_SAFETY_MISSING_FILE_TEST=PASS' present
+PASS                             doc-links                        marker 'OPENRECOMP_DOC_LINKS=PASS' present
+PASS                             release-metadata-tests           marker 'OPENRECOMP_RELEASE_AUTOMATION_V1_TESTS=PASS' present
+PASS                             release-v0_2_0-metadata          marker 'OPENRECOMP_V0_2_RELEASE_METADATA=PASS' present
+SKIPPED_TOOLCHAIN_UNAVAILABLE    e07-hardened-end-to-end          missing required tool(s): gcc
+SKIPPED_TOOLCHAIN_UNAVAILABLE    external-repro-v1                missing required tool(s): gcc, posix
+OPENRECOMP_PHASE1_HOST_GATES_JSON=host_gates.json
+OPENRECOMP_PHASE1_HOST_GATES_PASS=44 FAIL=0 SKIPPED=2
+OPENRECOMP_PHASE1_HOST_GATES_V1=PASS

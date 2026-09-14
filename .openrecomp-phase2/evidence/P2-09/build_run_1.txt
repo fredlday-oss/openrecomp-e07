@@ -1,0 +1,28 @@
+P2-09 deterministic build run 1
+========================================
+run_index: 1
+build_status: OK
+fixture_id: p2-08-runtime-host-call-v1
+runtime_abi: openrecomp-generic-runtime-abi 1.0.0
+
+inputs (canonical order):
+  [0] GENERATED_SOURCE         generated.c          sha256 b75d7656517de8a75c5730fa22b7ea69dff9292be20a6f73d0bd49cf64705e24
+  [1] RUNTIME_SUPPORT_SOURCE   runtime_support.c    sha256 df4ab710fb2705bd26d3e021b6e706acbbcd4dd61a62926b057737a43b1bcb02
+
+compile commands (normalized, no absolute paths):
+  [0] clang-cl.exe /c /Brepro /Od /std:c11 /nologo /Fo:generated.obj generated.c
+  [1] clang-cl.exe /c /Brepro /Od /std:c11 /nologo /Fo:runtime_support.obj runtime_support.c
+
+link command (normalized, no absolute paths):
+  lld-link.exe /Brepro /nologo /OUT:program.exe generated.obj runtime_support.obj
+
+outputs (canonical order):
+  [0] OBJECT       generated.obj          sha256 fc4524095d8ce2196cf3e67e8d4c53cfc63cefc2cd5fe59cf9592ceb227b5764
+  [1] OBJECT       runtime_support.obj    sha256 51910f332e91f26492a61b9168a3ce7566667b13c9de6da7157b021a83d153d8
+  [2] EXECUTABLE   program.exe            sha256 de03764e429a6e31d46037c72cd08db126fab18f2838b037b8ecee7deea81368
+
+generated source sha256: b75d7656517de8a75c5730fa22b7ea69dff9292be20a6f73d0bd49cf64705e24
+smoke returncode: 0
+smoke stdout: 42 0
+manifest sha256: 22d8fd9bac9bca61c8f2920b6274a6076a518e59082e5f7965cee1dad348df77
+classification: EXECUTABLE_REPRODUCIBLE

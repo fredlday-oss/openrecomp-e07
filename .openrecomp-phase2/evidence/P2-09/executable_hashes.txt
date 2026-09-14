@@ -1,0 +1,14 @@
+P2-09 executable reproducibility
+=================================
+
+program.exe:
+  run 1: de03764e429a6e31d46037c72cd08db126fab18f2838b037b8ecee7deea81368
+  run 2: de03764e429a6e31d46037c72cd08db126fab18f2838b037b8ecee7deea81368
+  identical: yes
+
+PE TimeDateStamp (llvm-readobj, inspected bytes):
+  program.exe run 1: 974E5A9
+  program.exe run 2: 974E5A9
+  identical: yes
+
+executable reproducible: yes

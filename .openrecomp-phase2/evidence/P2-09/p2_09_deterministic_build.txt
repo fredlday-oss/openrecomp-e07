@@ -1,0 +1,123 @@
+toolchain: available
+PASS: compiler-identity
+PASS: compiler-version-recorded
+PASS: compiler-target-recorded
+PASS: linker-identity
+PASS: linker-version-recorded
+PASS: compile-args-explicit
+PASS: link-args-explicit
+PASS: compile-command-has-brepro
+PASS: link-command-has-brepro
+PASS reject: unsupported-explicit-compiler
+PASS: explicit-compiler-discovery-none
+PASS: independent-source-regeneration
+PASS: independent-build-directories
+PASS: both-runs-have-source
+PASS: runs-regenerated-source
+PASS: run-count
+PASS: build-status-ok
+PASS: source-reproducible
+PASS: manifest-reproducible
+PASS: object-reproducible
+PASS: executable-reproducible
+PASS: classification-executable
+PASS: manifest-byte-identity
+PASS: manifest-inputs-identity
+PASS: source-hash-identity
+PASS: object-hash-identity
+PASS: executable-hash-identity
+PASS: object-hashes-present
+PASS: canonical-json
+PASS: sorted-top-level-keys
+PASS: schema-recorded
+PASS: manifest-version-recorded
+PASS: stage-recorded
+PASS: fixture-id-recorded
+PASS: runtime-abi-recorded
+PASS: compiler-recorded
+PASS: linker-recorded
+PASS: inputs-canonical-order
+PASS: outputs-objects-first
+PASS: compile-commands-recorded
+PASS: link-command-recorded
+PASS: build-status-recorded
+PASS: reproducibility-recorded
+PASS: deterministic-config-recorded
+PASS: manifest-no-forbidden-keys
+PASS: manifest-no-absolute-repo-path
+PASS: manifest-no-build-root
+PASS: manifest-no-username
+PASS: manifest-no-hostname
+PASS: manifest-no-drive-letter
+PASS: manifest-no-python-identity
+PASS: manifest-roundtrip-identity
+PASS: artifact-verification-passes
+PASS reject: artifact-hash-mismatch
+PASS: smoke-output
+PASS: smoke-returncode
+PASS: cross-root-source-identity
+PASS: cross-root-object-identity
+PASS: cross-root-executable-identity
+PASS: cross-root-exe-hash-match
+PASS: object-timestamp-zero
+PASS: executable-timestamp-identical
+PASS: no-path-leak:generated.obj
+PASS: no-path-leak:runtime_support.obj
+PASS: no-path-leak:program.exe
+PASS: evidence-file-set-complete
+PASS: evidence-file-set-identical
+PASS: evidence-cross-directory-identity
+PASS: evidence-manifest-identical
+PASS: evidence-manifest-matches-gate
+PASS: evidence-run-reports-distinct
+PASS: evidence-text-utf8-clean
+PASS: evidence-no-output-root-leak
+PASS: evidence-no-repo-path-leak
+PASS: evidence-no-temp-root-leak
+PASS: evidence-no-username-leak
+PASS: evidence-no-hostname-leak
+PASS: evidence-manifest-semantics-unchanged
+PASS: evidence-artifact-hashes-unchanged
+PASS: evidence-input-hashes-unchanged
+PASS: evidence-classification-unchanged
+PASS: evidence-abi-version-unchanged
+PASS: evidence-compiler-unchanged
+PASS: evidence-linker-unchanged
+PASS: evidence-compile-args-unchanged
+PASS: evidence-link-args-unchanged
+PASS reject: evidence-destination-is-file
+PASS reject: config-abi-mismatch
+PASS reject: config-reproducible-single-run
+PASS reject: config-smoke-without-expected
+PASS reject: config-empty-fixture
+PASS reject: config-bad-source-hash
+PASS reject: source-hash-mismatch
+PASS reject: manifest-forbidden-timestamp
+PASS reject: manifest-missing-key
+PASS reject: manifest-abi-mismatch
+PASS reject: manifest-unknown-key
+PASS reject: manifest-not-json
+PASS reject: duplicate-output
+PASS reject: bad-source-name
+PASS reject: absolute-source-name
+PASS: failed-compile-status
+PASS: failed-compile-classification
+PASS reject: overstrong-reproducibility-claim
+PASS reject: single-run-comparison
+PASS reject: artifact-present-without-hash
+PASS: artifact-absent-allowed
+PASS: no-p2-10-import:executor
+PASS: no-p2-10-import:mips
+PASS: no-p2-10-import:emulator
+PASS: no-p2-10-import:reference
+PASS: no-p2-10-import:equivalence
+PASS: no-p2-10-symbol:equivalence
+PASS: no-p2-10-symbol:end_to_end
+PASS: no-p2-10-symbol:execute_guest
+PASS: no-p2-10-symbol:mips
+PASS: no-p2-10-symbol:recompile
+PASS: manifest-schema-no-forbidden
+PASS: runtime-abi-version-unchanged
+PASS: runtime-abi-config-still-works
+OPENRECOMP_DETERMINISTIC_BUILD_V1_JSON=p2_09_tests.json
+OPENRECOMP_DETERMINISTIC_BUILD_V1=PASS tests=120

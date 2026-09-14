@@ -1,0 +1,19 @@
+P2-09 object reproducibility
+=============================
+
+generated.obj:
+  run 1: fc4524095d8ce2196cf3e67e8d4c53cfc63cefc2cd5fe59cf9592ceb227b5764
+  run 2: fc4524095d8ce2196cf3e67e8d4c53cfc63cefc2cd5fe59cf9592ceb227b5764
+  identical: yes
+
+runtime_support.obj:
+  run 1: 51910f332e91f26492a61b9168a3ce7566667b13c9de6da7157b021a83d153d8
+  run 2: 51910f332e91f26492a61b9168a3ce7566667b13c9de6da7157b021a83d153d8
+  identical: yes
+
+COFF TimeDateStamp (llvm-readobj, inspected bytes):
+  generated.obj run 1: 0
+  generated.obj run 2: 0
+  identical: yes
+
+object reproducible: yes

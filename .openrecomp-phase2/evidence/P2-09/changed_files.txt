@@ -1,0 +1,73 @@
+P2-09 changed-file inventory
+============================
+
+Stage start HEAD: 10971b76090746081cb29ca3405f96da7f143011
+Branch:           phase2/opencode-v1
+Phase-1 tag:      openrecomp-phase1-pass -> 46c2f971e1a42cf49bd936bad94697b81bf31002 (unchanged)
+
+Added (untracked)
+-----------------
+openrecomp/build_pipeline.py          P2-09 primary implementation: deterministic
+                                      build pipeline, canonical build manifest,
+                                      toolchain discovery, independent runs,
+                                      object/executable reproducibility
+                                      classification, fail-closed contracts.
+tools/test_build_pipeline_v1.py       P2-09 deterministic gate (120 checks),
+                                      including output-only --evidence-dir and
+                                      evidence-path independence tests.
+.openrecomp-phase2/evidence/P2-09/    This evidence bundle.
+
+Modified (tracked)
+------------------
+SOURCE_SHA256SUMS.txt                 +1 entry (118 -> 119). Only the new
+                                      tools/test_build_pipeline_v1.py line added;
+                                      no existing hash changed.
+.openrecomp-phase2/STATE.md           P2-09 PASS; CURRENT_STAGE=P2-10.
+.openrecomp-phase2/HANDOFF.md         P2-09 handoff/next-action update.
+.openrecomp-phase2/STAGE_QUEUE.md     Queue status: P2-09 COMPLETE, P2-10 NEXT.
+
+Not modified
+------------
+No P2-00..P2-08 implementation source was modified. No prior test was weakened.
+The P2-08 runtime ABI and the additive P2-07 emitter integration are unchanged.
+No prior evidence bundle was modified or regenerated.
+
+Retained cross-directory evidence (untracked, intentional)
+----------------------------------------------------------
+.openrecomp-phase2/scratch/p2-09-evidence-a/
+.openrecomp-phase2/scratch/p2-09-evidence-b/
+  Two independent --evidence-dir outputs retained for independent boundary
+  verification. Corresponding files are byte-identical; see determinism.txt.
+
+Untouched pre-existing untracked residue (not deleted, not cleaned, not staged)
+-------------------------------------------------------------------------------
+.openrecomp-phase2/backups/
+artifacts/mips32_translation_v1/
+artifacts/mips32_translation_evidence_closure_v1/
+
+Artifact sha256 (final P2-09 source and evidence)
+-------------------------------------------------
+1e7181ac42fabb0642f845d8070b7699ea2825452e652144c402176ef15fdfc7  openrecomp/build_pipeline.py
+e6e5f258fd89024ec1338476c8a6b9964e3817df749ec9bb1e00539de0e2c5ae  tools/test_build_pipeline_v1.py
+22d8fd9bac9bca61c8f2920b6274a6076a518e59082e5f7965cee1dad348df77  build_manifest.json
+e32ab5e95a98687e780abc9a0bea34ffa3de67ba2b9b55a2c91f1db1c5403bfa  build_run_1.txt
+7c98bc7022a4d3bfa58eb14e140bc0dbda98b5f5063c163ca57e5faa22e4e788  build_run_2.txt
+6a749edf69ca1476b014832db63ee7009370e49b45f1151bb2424d635c669fca  compiler_version.txt
+a5931b34b626054703e28c52dadf6370fdca9296de31b3757eaffe95df74c98f  source_hashes.txt
+aea96acbf0006388731e91674cb640fb1ccecb7085cc3e272fb7b179fcaccbb2  object_hashes.txt
+4169a9e38c00b3ddfe003dd0747828d67f13328690c4153f64f4fcfaf9c9fd84  executable_hashes.txt
+f09cef0e698bebda14d64fac106bd55fb40ab70493e0bdd19919cec8c25deb3a  execution_smoke_test.txt
+6c9971b57e503c09d9e4dd8bd6534f758a4aeb1a697892fb8a11bb9616438a4b  pe_coff_inspection.txt
+95d0e30710d508d9097a96b3bacb437bb1c05b443f4f122e66b5dfd192d7c777  p2_09_deterministic_build.txt
+079a9d003d68998bb1bf34d63e7a988f9423ff54193988c0af32cb3d2ad9a71b  p2_09_tests.json
+77ba35faa49f5a117aa49f6b9581ac20b91da040cd59f06188e7e8eabdff4e1f  host_gates.txt
+f5c2410a0fe34eff6cede90de797ccd22dd64bed8865f0e3f135593edb0d6671  host_gates.json
+1911a320dc2ddaf5f1adc930a8dac15bab673bcde227829cded62c58de42af7f  source_integrity.txt
+
+Reproducible build artifacts (both independent runs; not committed)
+-------------------------------------------------------------------
+b75d7656517de8a75c5730fa22b7ea69dff9292be20a6f73d0bd49cf64705e24  generated.c
+df4ab710fb2705bd26d3e021b6e706acbbcd4dd61a62926b057737a43b1bcb02  runtime_support.c
+fc4524095d8ce2196cf3e67e8d4c53cfc63cefc2cd5fe59cf9592ceb227b5764  generated.obj
+51910f332e91f26492a61b9168a3ce7566667b13c9de6da7157b021a83d153d8  runtime_support.obj
+de03764e429a6e31d46037c72cd08db126fab18f2838b037b8ecee7deea81368  program.exe

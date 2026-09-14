@@ -1,0 +1,115 @@
+P2-09 deterministic build pipeline determinism evidence
+=======================================================
+
+Environment
+-----------
+python 3.11.9 (win32)
+branch: phase2/opencode-v1
+HEAD at stage start: 10971b76090746081cb29ca3405f96da7f143011
+  (10971b7 phase2: complete P2-08 generic runtime ABI v1 = frozen P2-08 boundary)
+phase-1 tag: openrecomp-phase1-pass -> 46c2f971e1a42cf49bd936bad94697b81bf31002 (unchanged)
+text evidence encoding: UTF-8 without BOM
+
+Normal gate repeated-run byte identity
+--------------------------------------
+command (run twice, stdout captured verbatim, UTF-8):
+  python tools/test_build_pipeline_v1.py
+
+run 1 stdout sha256: db055b5cd622a7ef188901ef8da65898e2dac0cacb03c0ee2fb6caeec5b3e273
+run 2 stdout sha256: db055b5cd622a7ef188901ef8da65898e2dac0cacb03c0ee2fb6caeec5b3e273
+byte-identical: yes
+marker: OPENRECOMP_DETERMINISTIC_BUILD_V1=PASS tests=120
+
+Independent build runs
+----------------------
+Independent build count: 2 (run1, run2 in distinct isolated directories).
+Generated source regenerated per run; artifacts never copied between runs.
+A cross-root build under a different absolute build root reproduced the same
+source/object/executable hashes.
+
+run 1 / run 2 (identical in both runs):
+  generated.c          b75d7656517de8a75c5730fa22b7ea69dff9292be20a6f73d0bd49cf64705e24
+  runtime_support.c    df4ab710fb2705bd26d3e021b6e706acbbcd4dd61a62926b057737a43b1bcb02
+  generated.obj        fc4524095d8ce2196cf3e67e8d4c53cfc63cefc2cd5fe59cf9592ceb227b5764
+  runtime_support.obj  51910f332e91f26492a61b9168a3ce7566667b13c9de6da7157b021a83d153d8
+  program.exe          de03764e429a6e31d46037c72cd08db126fab18f2838b037b8ecee7deea81368
+
+source reproducible:     IDENTICAL
+manifest reproducible:   IDENTICAL
+object reproducible:     IDENTICAL
+executable reproducible: IDENTICAL
+classification:          EXECUTABLE_REPRODUCIBLE
+
+PE/COFF inspected byte values (llvm-readobj --file-headers)
+-----------------------------------------------------------
+  generated.obj        run 1 TimeDateStamp 0x0        run 2 TimeDateStamp 0x0
+  runtime_support.obj  run 1 TimeDateStamp 0x0        run 2 TimeDateStamp 0x0
+  program.exe          run 1 TimeDateStamp 0x974E5A9   run 2 TimeDateStamp 0x974E5A9
+  identical across runs: yes
+  machine: IMAGE_FILE_MACHINE_AMD64 (0x8664)
+  binaries modified/post-processed: no
+
+Certificate: /Brepro passed directly to clang-cl and lld-link; no timestamp was
+zeroed or edited outside the toolchain.
+
+Cross-directory evidence generation
+-----------------------------------
+The gate was run with output-only --evidence-dir into two distinct absolute
+roots (retained under .openrecomp-phase2/scratch/p2-09-evidence-a and
+p2-09-evidence-b). Corresponding files are byte-identical:
+
+  build_manifest.json       22d8fd9bac9bca61c8f2920b6274a6076a518e59082e5f7965cee1dad348df77
+  build_run_1.txt           e32ab5e95a98687e780abc9a0bea34ffa3de67ba2b9b55a2c91f1db1c5403bfa
+  build_run_2.txt           7c98bc7022a4d3bfa58eb14e140bc0dbda98b5f5063c163ca57e5faa22e4e788
+  compiler_version.txt      6a749edf69ca1476b014832db63ee7009370e49b45f1151bb2424d635c669fca
+  source_hashes.txt         a5931b34b626054703e28c52dadf6370fdca9296de31b3757eaffe95df74c98f
+  object_hashes.txt         aea96acbf0006388731e91674cb640fb1ccecb7085cc3e272fb7b179fcaccbb2
+  executable_hashes.txt     4169a9e38c00b3ddfe003dd0747828d67f13328690c4153f64f4fcfaf9c9fd84
+  execution_smoke_test.txt  f09cef0e698bebda14d64fac106bd55fb40ab70493e0bdd19919cec8c25deb3a
+
+P2_09_EVIDENCE_CROSS_DIRECTORY=PASS
+P2_09_MANIFEST_CROSS_DIRECTORY=PASS
+
+Evidence output is output-only: the --evidence-dir absolute path does not
+influence the manifest, generated source, compile/link semantics, artifact
+hashes, reproducibility classification, ordinary gate stdout or test count.
+
+Execution smoke test
+--------------------
+  expected: 42 0
+  run 1:    42 0 returncode=0 PASS
+  run 2:    42 0 returncode=0 PASS
+  result:   PASS
+(bounded synthetic build/execution smoke test only; not guest/host equivalence)
+
+Determinism assertions in tools/test_build_pipeline_v1.py
+---------------------------------------------------------
+manifest-byte-identity: PASS
+manifest-inputs-identity: PASS
+source-hash-identity: PASS
+object-hash-identity: PASS
+executable-hash-identity: PASS
+cross-root-source-identity: PASS
+cross-root-object-identity: PASS
+cross-root-executable-identity: PASS
+cross-root-exe-hash-match: PASS
+object-timestamp-zero: PASS
+executable-timestamp-identical: PASS
+evidence-cross-directory-identity: PASS
+evidence-manifest-identical: PASS
+evidence-manifest-matches-gate: PASS
+evidence-text-utf8-clean: PASS
+evidence-no-output-root-leak: PASS
+evidence-no-repo-path-leak: PASS
+evidence-no-temp-root-leak: PASS
+evidence-no-username-leak: PASS
+evidence-no-hostname-leak: PASS
+evidence-manifest-semantics-unchanged: PASS
+evidence-artifact-hashes-unchanged: PASS
+evidence-input-hashes-unchanged: PASS
+evidence-classification-unchanged: PASS
+evidence-abi-version-unchanged: PASS
+evidence-compiler-unchanged: PASS
+evidence-linker-unchanged: PASS
+evidence-compile-args-unchanged: PASS
+evidence-link-args-unchanged: PASS

@@ -3,8 +3,8 @@
 PHASE=2
 BASELINE_TAG=openrecomp-phase1-pass
 BASELINE_COMMIT=46c2f97
-CURRENT_STAGE=P2-09
-LAST_PASSED_STAGE=P2-08
+CURRENT_STAGE=P2-10
+LAST_PASSED_STAGE=P2-09
 STATUS=READY
 FINAL_VERDICT=NOT_YET_EVALUATED
 
@@ -21,7 +21,8 @@ FINAL_VERDICT=NOT_YET_EVALUATED
 | P2-06 | Indirect-control-flow classification V1 | `PASS` | `.openrecomp-phase2/evidence/P2-06/RESULT.md` |
 | P2-07 | Host emitter V1 | `PASS` | `.openrecomp-phase2/evidence/P2-07/RESULT.md` |
 | P2-08 | Generic runtime ABI V1 | `PASS` | `.openrecomp-phase2/evidence/P2-08/RESULT.md` |
-| P2-09 | Deterministic build pipeline | `NEXT` | not started |
+| P2-09 | Deterministic build pipeline | `PASS` | `.openrecomp-phase2/evidence/P2-09/RESULT.md` |
+| P2-10 | Tiny MIPS32 end-to-end proof | `NEXT` | not started |
 
 ## P2-05 result (PASS)
 
@@ -136,9 +137,44 @@ Branch: `phase2/opencode-v1`. Phase-1 tag `openrecomp-phase1-pass` verified unch
 - No P2-00..P2-07 implementation source modified except the additive/opt-in
   `host_emitter.py` change; no prior test weakened; no P2-09 started.
 
+## P2-09 result (PASS)
+
+Stage: `OPENRECOMP_P2_09_DETERMINISTIC_BUILD_PIPELINE_V1`.
+Starting commit: `10971b76090746081cb29ca3405f96da7f143011` (P2-08 boundary).
+Branch: `phase2/opencode-v1`. Phase-1 tag `openrecomp-phase1-pass` verified unchanged at
+`46c2f971e1a42cf49bd936bad94697b81bf31002`.
+
+- Module `openrecomp/build_pipeline.py`: deterministic build pipeline with canonical
+  `openrecomp-build-manifest-v1` serialization, explicit toolchain provenance, isolated
+  independent runs and an honest reproducibility classification
+  (`SOURCE_REPRODUCIBLE` / `MANIFEST_REPRODUCIBLE` / `OBJECT_REPRODUCIBLE` /
+  `EXECUTABLE_REPRODUCIBLE` / `FUNCTIONALLY_REBUILT_BUT_BINARY_DIFFERS` /
+  `TOOLCHAIN_UNAVAILABLE`; no claim may exceed observed artifact equality).
+- Toolchain detected, never assumed: `clang-cl.exe` 22.1.8 (target
+  `x86_64-pc-windows-msvc`) + `lld-link.exe` 22.1.8, with `/Brepro` passed directly to
+  both. No binary post-processing and no manual COFF timestamp editing.
+- Two genuinely independent builds in distinct directories, regenerating the generated
+  source each run, produced byte-identical source, object and executable hashes
+  (`generated.c b75d7656...`, `generated.obj fc452409...`, `runtime_support.obj
+  51910f33...`, `program.exe de03764e...`); inspected COFF `TimeDateStamp` is `0x0` for
+  both objects and `0x974E5A9` for both executables; classification
+  `EXECUTABLE_REPRODUCIBLE`.
+- The manifest records no timestamp, temporary directory, absolute path, username,
+  hostname, pid, UUID or Python identity, and the validator rejects such fields.
+- `tools/test_build_pipeline_v1.py`: 120 deterministic checks, including output-only
+  `--evidence-dir` generation and evidence-path independence (two evidence roots
+  byte-identical; the destination path never influences manifest, source, artifacts,
+  classification or gate stdout). Optional native build/execution smoke test observed
+  `42 0` (bounded synthetic smoke test, not equivalence).
+- Fail closed: source hash mismatch, ABI mismatch, malformed manifest, duplicate output,
+  unsafe/absolute names, unsupported compiler, failed compile/link, missing artifact,
+  artifact-hash mismatch, over-strong reproducibility claim.
+- No P2-00..P2-08 implementation source modified; no prior test weakened; no P2-10 started.
+
 ## Gates
 
 ```text
+OPENRECOMP_DETERMINISTIC_BUILD_V1=PASS tests=120
 OPENRECOMP_GENERIC_RUNTIME_ABI_V1=PASS tests=169
 OPENRECOMP_HOST_EMITTER_V1=PASS tests=106
 OPENRECOMP_INDIRECT_CONTROL_FLOW_V1=PASS tests=134
@@ -149,11 +185,13 @@ OPENRECOMP_CFG_V1=PASS tests=82
 OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49
 OPENRECOMP_PHASE1_HOST_GATES_PASS=44 FAIL=0 SKIPPED=2
 OPENRECOMP_PHASE1_HOST_GATES_V1=PASS
-PASS source-integrity  verified 118 manifest entries
+PASS source-integrity  verified 119 manifest entries
 ```
 
-Determinism: two consecutive P2-08 gate runs produced byte-identical stdout
-(`sha256 3c0abaf52efa534b2dc639efceb15cd6e5aa17a4ec218d5515b1160f260809a8`).
+Determinism: two consecutive P2-09 gate runs produced byte-identical stdout
+(`sha256 db055b5cd622a7ef188901ef8da65898e2dac0cacb03c0ee2fb6caeec5b3e273`); two
+independent evidence roots produced byte-identical evidence
+(`build_manifest.json sha256 22d8fd9bac9bca61c8f2920b6274a6076a518e59082e5f7965cee1dad348df77`).
 
 ## Queue reconciliation note
 
@@ -165,26 +203,27 @@ reconciled to the executed sequence.
 
 The indirect-control-flow classification work was assigned to `P2-06` with the original
 safety requirement — classify resolvable versus unresolved indirect sites **without
-guessing targets** — and is `PASS`. `P2-07` (Host emitter V1) is `PASS`, `P2-08`
-(Generic runtime ABI V1) is `PASS`, and `P2-09` (Deterministic build pipeline) is `NEXT`.
+guessing targets** — and is `PASS`. `P2-07` (Host emitter V1), `P2-08` (Generic runtime ABI
+V1) and `P2-09` (Deterministic build pipeline) are `PASS`, and `P2-10` (Tiny MIPS32
+end-to-end proof) is `NEXT`.
 
 This reassignment is a control-plane reconciliation caused by actual execution order. It
 does not change the semantics, claims, evidence or PASS status of any frozen prior stage
-(`P2-00`..`P2-08`), and it does not alter `ce9cd4f`, `f9f2662`, `30b4321` or any earlier
-commit.
+(`P2-00`..`P2-09`), and it does not alter `ce9cd4f`, `f9f2662`, `30b4321`, `10971b7` or any
+earlier commit.
 
 ## Next exact action
 
-Begin P2-09 — Deterministic build pipeline: reproducible generated-source/object/
-executable metadata and hashing. P2-09 was **not** started in P2-08. Do not modify the
-frozen Phase-1 behavior or the P2-00..P2-08 layers except through an evidence-backed stage.
+Begin P2-10 — Tiny MIPS32 end-to-end proof: synthetic/open MIPS32 guest → generated host
+executable → observable equivalence. P2-10 was **not** started in P2-09. Do not modify the
+frozen Phase-1 behavior or the P2-00..P2-09 layers except through an evidence-backed stage.
 Do not claim the final Phase-2 end-to-end marker.
 
 ## Carried-forward findings
 
 - `update_sums.py` globs `schemas/*.json` while the directory is `schema/`, so
-  `schema/*.json` (and `openrecomp/*.py`, including `runtime_abi.py`) remain outside the
-  integrity manifest (pre-existing; deferred).
+  `schema/*.json` (and `openrecomp/*.py`, including `runtime_abi.py` and
+  `build_pipeline.py`) remain outside the integrity manifest (pre-existing; deferred).
 - `direct_callees` are provisional structural facts validated across P2-04/P2-05, not ABI
   recovery.
 - P2-06 classifies indirect sites but does not recover targets by analysis; unresolved
@@ -198,26 +237,34 @@ Do not claim the final Phase-2 end-to-end marker.
   contains only boundary declarations (`extern or_rt_*`); no runtime implementation is
   generated, and `RuntimeState` is a deterministic contract surface rather than a guest
   execution engine.
-- The P2-07 and P2-08 native compile+run checks are bounded synthetic checks, not
-  equivalence proofs.
+- P2-09 builds a bounded synthetic generated host fixture plus a synthetic runtime-support
+  source on this host's clang-cl/lld-link pair. Object/executable reproducibility is
+  demonstrated for that toolchain; other toolchains may need different deterministic flags
+  and are classified honestly.
+- The P2-07/P2-08 native compile+run checks and the P2-09 build/execution smoke test are
+  bounded synthetic checks, not equivalence proofs.
 - Toolchain-gated gates remain unexecutable on this host.
-- `STAGE_QUEUE.md` is reconciled to the executed sequence; `P2-08` is `COMPLETE` and
-  `P2-09` is `NEXT`.
+- `STAGE_QUEUE.md` is reconciled to the executed sequence; `P2-09` is `COMPLETE` and
+  `P2-10` is `NEXT`.
 
 ## Git status (short)
 
-- P2-07 boundary commit: `30b4321` (`phase2: complete P2-07 host emitter v1`); `HEAD` at
-  P2-08 start.
-- Current uncommitted changes: P2-08 implementation + evidence (`openrecomp/runtime_abi.py`,
-  additive `openrecomp/host_emitter.py`, `tools/test_runtime_abi_v1.py`,
-  `.openrecomp-phase2/evidence/P2-08/`) and the control-plane updates to
+- P2-08 boundary commit: `10971b7` (`phase2: complete P2-08 generic runtime ABI v1`); `HEAD`
+  at P2-09 start.
+- Current uncommitted changes: P2-09 implementation + evidence
+  (`openrecomp/build_pipeline.py`, `tools/test_build_pipeline_v1.py`,
+  `.openrecomp-phase2/evidence/P2-09/`) and the control-plane updates to
   `.openrecomp-phase2/STAGE_QUEUE.md`, `.openrecomp-phase2/STATE.md`,
-  `.openrecomp-phase2/HANDOFF.md`, plus `SOURCE_SHA256SUMS.txt` (+1 entry, 117 -> 118).
-- Untouched untracked residue: `.openrecomp-phase2/backups/`,
+  `.openrecomp-phase2/HANDOFF.md`, plus `SOURCE_SHA256SUMS.txt` (+1 entry, 118 -> 119).
+- Retained untracked cross-directory evidence:
+  `.openrecomp-phase2/scratch/p2-09-evidence-a/`,
+  `.openrecomp-phase2/scratch/p2-09-evidence-b/`.
+- Untouched pre-existing untracked residue: `.openrecomp-phase2/backups/`,
   `artifacts/mips32_translation_v1/`,
   `artifacts/mips32_translation_evidence_closure_v1/`.
-- No commit created (P2-08 boundary commit intentionally not created).
+- No commit created (P2-09 boundary commit intentionally not created).
 
-OPENRECOMP_P2_08=PASS
-OPENRECOMP_GENERIC_RUNTIME_ABI_V1=PASS tests=169
-CURRENT_STAGE=P2-09
+OPENRECOMP_P2_09=PASS
+OPENRECOMP_DETERMINISTIC_BUILD_V1=PASS tests=120
+OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=NOT_PROVEN
+CURRENT_STAGE=P2-10
