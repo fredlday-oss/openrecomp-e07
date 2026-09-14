@@ -1,0 +1,189 @@
+{
+  "stage": "P2-13",
+  "title": "OPENRECOMP_P2_13_RUNTIME_HOST_BOUNDARY_V1",
+  "verdict": "PASS",
+  "stage_marker": "OPENRECOMP_P2_13=PASS",
+  "gate_marker": "OPENRECOMP_RUNTIME_HOST_BOUNDARY_V1=PASS tests=80",
+  "starting_commit": "aa9939a73addde9e029111a1c6b0a6a783dda8cc",
+  "starting_boundary": "aa9939a phase2: complete P2-12 MIPS32 direct CFG stress",
+  "branch": "phase2/opencode-v1",
+  "phase1_tag": "openrecomp-phase1-pass",
+  "phase1_tag_commit": "46c2f971e1a42cf49bd936bad94697b81bf31002",
+  "fixture": {
+    "fixture_id": "p2-13-runtime-host-boundary-v1",
+    "architecture": "mips32-bounded-v1",
+    "endianness": "little",
+    "instruction_width_bytes": 4,
+    "entry_address": 4096,
+    "call_site_address": 4104,
+    "instruction_count": 5,
+    "byte_length": 20,
+    "sha256": "7c9ba624b7503ccb31e0cd4b82b2c0316674b2c094945df84524503e34eb19b6",
+    "origin": "synthetic/original (no commercial ROM/ELF bytes)"
+  },
+  "guest_instructions": ["addiu", "jr", "nop"],
+  "service": {
+    "name": "demo.double",
+    "numeric_id": 1,
+    "macro": "OR_RT_SERVICE_DEMO_DOUBLE",
+    "semantics": "x -> 2x",
+    "abi_version": "openrecomp-generic-runtime-abi 1.0.0"
+  },
+  "expected_observable": "failed=0\nerror=\ncalls=1\nlast_service=1\nlast_arg=42\nlast_result=84\nreg[0]=0\nreg[1]=84\nreg[2]=92",
+  "expected_derivation": [
+    "guest arithmetic up to the call site: r4 = 21 + 21 = 42",
+    "declared fixture service demo.double(x) = 2x -> 84",
+    "continuation: r5 = 84 + 8 = 92",
+    "ABI-assigned service id 1 from RuntimeServiceTable.numeric_id"
+  ],
+  "actual_observable": "failed=0\nerror=\ncalls=1\nlast_service=1\nlast_arg=42\nlast_result=84\nreg[0]=0\nreg[1]=84\nreg[2]=92",
+  "expected_equals_actual": true,
+  "native_returncode": 0,
+  "native_execution_stable": true,
+  "stages": {
+    "P2-01_program_model": "APPLIED",
+    "P2-02_cfg": "APPLIED",
+    "P2-03_function_discovery": "APPLIED",
+    "P2-04_call_graph": "APPLIED",
+    "P2-05_translation_units": "APPLIED",
+    "P2-06_indirect_control_flow": "APPLIED",
+    "P2-07_host_emitter": "APPLIED",
+    "P2-08_runtime_abi": "APPLIED",
+    "P2-09_deterministic_build": "APPLIED"
+  },
+  "stage_fingerprints": {
+    "P2-02_cfg": "a5a4b89b171b3487603b4ba7b46d2fe9779a8fc8f8d83bdff041e6e207f1dd16",
+    "P2-03_functions": "350b7ef580a770a77fd7cb7a249d1bb6bf67186aa8ae9878b77d2ade73347d2f",
+    "P2-05_translation_units": "a8807b86310bbbc03f06156a31e9ba12f6cb563857c97b1c9f4f70ce6b5f7ca2",
+    "P2-06_indirect_control_flow": "b3317f0439137abc6366b9c84df8c0bda6a38bfb349ca1b1032fdb921c1e4d07",
+    "P2-07_generated_source": "8c602b35e47f90d5edf9fd6cad566b4b378c3ffc69574f63b80c48bdb55367ef"
+  },
+  "indirect_control_flow": {
+    "site_address": 4104,
+    "kind": "INDIRECT_CALL",
+    "status": "EXTERNAL_OR_RUNTIME_MEDIATED",
+    "basis": "EXTERNAL_RUNTIME_EVIDENCE",
+    "mechanism": "runtime-service",
+    "targets": [],
+    "guessed_targets": false,
+    "without_evidence": "UNRESOLVED_INDIRECT_CALL (host-call rule rejected at emission; plain indirect rule emits the fail-closed boundary)"
+  },
+  "host_call_boundary": {
+    "emitted": "or_rt_host_call(OR_RT_SERVICE_DEMO_DOUBLE, 1u, or_call_args, &or_call_result)",
+    "declaration": "extern int or_rt_host_call(uint64_t service_id, uint32_t argc, const uint64_t *args, uint64_t *out_value);",
+    "fail_closed_branch": "or_fail(\"runtime host service demo.double failed\"); return;",
+    "guest_to_host_pointers": "none",
+    "pointer_casts": false
+  },
+  "abi_contract": {
+    "known_dispatch_value": 84,
+    "unknown_service_failure": "UNKNOWN_HOST_SERVICE",
+    "arity_failure": "HOST_CALL_ARITY",
+    "state_record_args": [42],
+    "state_record_result": 84
+  },
+  "generated_source": {
+    "sha256": "8c602b35e47f90d5edf9fd6cad566b4b378c3ffc69574f63b80c48bdb55367ef",
+    "register_names": ["r0", "r4", "r5"],
+    "repeated_emission_byte_identical": true,
+    "final_observable_hardcoded": false
+  },
+  "build": {
+    "pipeline": "P2-09",
+    "manifest_schema": "openrecomp-build-manifest-v1",
+    "independent_build_count": 2,
+    "runtime_support_source_sha256": "0edc0a18500c0059a6b0ff6314c657a679bef1569af337c5dd22874f80ad25cb",
+    "generated_obj_sha256": "5323be22f2c393ce959ff75ed3285c559ec97c38ab8c0f7eae403f08096869ba",
+    "runtime_support_obj_sha256": "07f9021a18029a53dc3d1dc1d86a332036871085983b21f3d6d1f4f05a47eb7d",
+    "executable_sha256": "8ab94ab0f186e33778ddb6464f31c492045e6b612abeb523547b2aaa92a940a1",
+    "build_manifest_sha256": "bf75f08f6602ea100ae6156f3ed7856c8d65020bb910a4d0916ca185ee0c3ddc",
+    "compiler_identity": "clang-cl.exe",
+    "compiler_version": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+    "compiler_target": "x86_64-pc-windows-msvc",
+    "linker_identity": "lld-link.exe",
+    "linker_version": "LLD 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+    "compile_arguments": ["/c", "/Brepro", "/Od", "/std:c11", "/nologo"],
+    "link_arguments": ["/Brepro", "/nologo"],
+    "source_reproducible": true,
+    "manifest_reproducible": true,
+    "object_reproducible": true,
+    "executable_reproducible": true,
+    "classification": "EXECUTABLE_REPRODUCIBLE",
+    "binary_post_processing": "none"
+  },
+  "unsupported_service": {
+    "service": "demo.missing",
+    "declared_at_build": true,
+    "implemented_at_runtime": false,
+    "observed": "failed=1, error=runtime host service demo.missing failed, calls=1, continuation not executed (reg[2]=0)",
+    "result": "PASS"
+  },
+  "p2_13_gate": {"command": "python tools/test_runtime_host_boundary_v1.py", "tests": 80, "result": "PASS"},
+  "determinism": {
+    "gate_stdout_sha256": "8617ed85d188b99b4d954dcfdd6216c170cbc3ffa9b3ea004244be05dd7feee0",
+    "run_count": 2,
+    "byte_identical": true
+  },
+  "fail_closed_tested": [
+    "unsupported declared service at runtime (failed=1, no continuation)",
+    "host-call rule without explicit external evidence",
+    "undeclared service",
+    "host call without a configured runtime ABI",
+    "ABI unknown service (UNKNOWN_HOST_SERVICE)",
+    "ABI arity mismatch (HOST_CALL_ARITY)",
+    "malformed HostCallOperation (empty service, non-tuple args, non-register result)",
+    "service table without a handler",
+    "unsupported opcode",
+    "misaligned entry",
+    "empty region"
+  ],
+  "cross_stage_test_adjustment": {
+    "file": "tools/test_mips32_direct_cfg_v1.py",
+    "removed_check": "no-p2-13-evidence-directory (obsolete cross-stage guard)",
+    "replacement_check": "no-p2-13-host-call-emission-in-p2-12",
+    "reason": "The guard asserted P2-13 evidence must not exist; it encodes cross-stage build state and necessarily fails once the authorized P2-13 stage writes required evidence.",
+    "test_count_unchanged": 96,
+    "old_stdout_sha256": "d01ec8f0bd5391684a1f18d6d3d3197b449e67021eae700c053573130a207100",
+    "new_stdout_sha256": "6f19a2742dd8a2ff8688b8712585fa5e2657ed1dd9f9050f510c0d2dde7d0ee9",
+    "committed_p2_12_semantics_changed": false
+  },
+  "upstream_regressions": {
+    "P2-12_mips32_direct_cfg": {"marker": "OPENRECOMP_MIPS32_DIRECT_CFG_V1=PASS tests=96", "tests": 96, "result": "PASS"},
+    "P2-11_mips32_calls_memory": {"marker": "OPENRECOMP_MIPS32_CALLS_MEMORY_V1=PASS tests=77", "tests": 77, "result": "PASS"},
+    "P2-10_mips32_end_to_end": {"marker": "OPENRECOMP_MIPS32_END_TO_END_V1=PASS tests=108", "tests": 108, "result": "PASS"},
+    "P2-09_deterministic_build": {"marker": "OPENRECOMP_DETERMINISTIC_BUILD_V1=PASS tests=120", "tests": 120, "result": "PASS"},
+    "P2-08_generic_runtime_abi": {"marker": "OPENRECOMP_GENERIC_RUNTIME_ABI_V1=PASS tests=169", "tests": 169, "result": "PASS"},
+    "P2-07_host_emitter": {"marker": "OPENRECOMP_HOST_EMITTER_V1=PASS tests=106", "tests": 106, "result": "PASS"},
+    "P2-06_indirect_control_flow": {"marker": "OPENRECOMP_INDIRECT_CONTROL_FLOW_V1=PASS tests=134", "tests": 134, "result": "PASS"},
+    "P2-05_translation_units": {"marker": "OPENRECOMP_TRANSLATION_UNITS_V1=PASS tests=104", "tests": 104, "result": "PASS"},
+    "P2-04_call_graph": {"marker": "OPENRECOMP_CALL_GRAPH_V1=PASS tests=61", "tests": 61, "result": "PASS"},
+    "P2-03_function_discovery": {"marker": "OPENRECOMP_FUNCTION_DISCOVERY_V1=PASS tests=67", "tests": 67, "result": "PASS"},
+    "P2-02_cfg": {"marker": "OPENRECOMP_CFG_V1=PASS tests=82", "tests": 82, "result": "PASS"},
+    "P2-01_program_model": {"marker": "OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49", "tests": 49, "result": "PASS"}
+  },
+  "phase1_host_gates": {
+    "command": "python tools/phase1_host_gates_v1.py --json .openrecomp-phase2/evidence/P2-13/host_gates.json",
+    "pass": 44,
+    "fail": 0,
+    "skipped_toolchain_unavailable": 2,
+    "skipped_gates": ["e07-hardened-end-to-end", "external-repro-v1"],
+    "result": "PASS"
+  },
+  "source_integrity": {
+    "command": "python tools/phase1_host_gates_v1.py --only source-integrity",
+    "result": "PASS",
+    "manifest_entries": 123,
+    "new_entry": "tools/test_runtime_host_boundary_v1.py",
+    "new_entry_sha256": "3c35e22b4aaed5ea744408e10a3a5999c41e6d2a87659f889e1ad9fe9a973754",
+    "updated_entry": "tools/test_mips32_direct_cfg_v1.py",
+    "updated_entry_sha256": "f2a15007b475058b8dd152ab7f3bef3b12777a01fa0af91833c03b79dacd9526",
+    "note": "122 -> 123; one additive entry and one evidence-backed update; no unrelated hash changed"
+  },
+  "changed_files": {
+    "added": ["tools/test_runtime_host_boundary_v1.py", ".openrecomp-phase2/evidence/P2-13/"],
+    "modified": ["tools/test_mips32_direct_cfg_v1.py", "SOURCE_SHA256SUMS.txt", ".openrecomp-phase2/STATE.md", ".openrecomp-phase2/HANDOFF.md", ".openrecomp-phase2/STAGE_QUEUE.md"]
+  },
+  "phase2_end_to_end_marker": "OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=NOT_PROVEN",
+  "phase2_end_to_end_marker_reason": "STAGE_QUEUE.md reserves the final marker for the P2-99 Final verdict outcome; P2-13 alone does not satisfy that definition.",
+  "next_stage": "P2-14"
+}

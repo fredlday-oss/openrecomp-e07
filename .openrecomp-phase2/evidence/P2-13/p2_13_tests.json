@@ -1,0 +1,346 @@
+{
+  "actual_observable": "failed=0\nerror=\ncalls=1\nlast_service=1\nlast_arg=42\nlast_result=84\nreg[0]=0\nreg[1]=84\nreg[2]=92",
+  "classification": "EXECUTABLE_REPRODUCIBLE",
+  "continuation_result": 92,
+  "expected_equals_actual": true,
+  "expected_observable": "failed=0\nerror=\ncalls=1\nlast_service=1\nlast_arg=42\nlast_result=84\nreg[0]=0\nreg[1]=84\nreg[2]=92",
+  "fixture_byte_length": 20,
+  "fixture_id": "p2-13-runtime-host-boundary-v1",
+  "fixture_sha256": "7c9ba624b7503ccb31e0cd4b82b2c0316674b2c094945df84524503e34eb19b6",
+  "generated_source_sha256": "8c602b35e47f90d5edf9fd6cad566b4b378c3ffc69574f63b80c48bdb55367ef",
+  "guest_arg": 42,
+  "marker": "OPENRECOMP_RUNTIME_HOST_BOUNDARY_V1=PASS tests=80",
+  "python": "3.11.9",
+  "register_names": [
+    "r0",
+    "r4",
+    "r5"
+  ],
+  "results": [
+    {
+      "check": "abi-dispatch-arity-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "abi-dispatch-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "abi-dispatch-known",
+      "status": "PASS"
+    },
+    {
+      "check": "abi-dispatch-unknown-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "abi-service-id",
+      "status": "PASS"
+    },
+    {
+      "check": "abi-service-macro",
+      "status": "PASS"
+    },
+    {
+      "check": "abi-state-record",
+      "status": "PASS"
+    },
+    {
+      "check": "abi-version",
+      "status": "PASS"
+    },
+    {
+      "check": "build-brepro",
+      "status": "PASS"
+    },
+    {
+      "check": "build-classification",
+      "status": "PASS"
+    },
+    {
+      "check": "build-executable-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-no-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-no-path-leak",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build-object-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build-source-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build-status-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-call-continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-call-site-block",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-flow-indirect-call",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-guest-arithmetic",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-no-direct-target",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-op",
+      "status": "PASS"
+    },
+    {
+      "check": "derivation-continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "derivation-guest-arg",
+      "status": "PASS"
+    },
+    {
+      "check": "derivation-service-result",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-abi-declaration",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-host-call",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-no-hardcoded-result-84",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-no-pointer-cast",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-result-register",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-service-macro",
+      "status": "PASS"
+    },
+    {
+      "check": "expected-equals-actual",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-byte-length",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-call-site",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-instruction-count",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-synthetic-origin",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-single",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-unresolved-site",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-basis-external",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-mechanism-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-no-evidence-boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-no-evidence-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-no-evidence-no-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-no-guessed-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-site-count",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-status-external",
+      "status": "PASS"
+    },
+    {
+      "check": "native-continuation-register",
+      "status": "PASS"
+    },
+    {
+      "check": "native-executable-hash-matches-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "native-output-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "native-result-register",
+      "status": "PASS"
+    },
+    {
+      "check": "native-returncode-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "native-service-record",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-symbol:larger_fixture",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-symbol:nes_runtime",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-symbol:p2_14",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-symbol:p2_20",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-14-evidence-directory",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bad-host-call-args",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bad-host-call-result",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bad-host-call-service",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:empty-region",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:host-call-without-runtime-abi",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:misaligned-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:no-evidence-host-call-rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:service-table-handler-missing",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:undeclared-service",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unsupported-opcode",
+      "status": "PASS"
+    },
+    {
+      "check": "units-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "units-single",
+      "status": "PASS"
+    },
+    {
+      "check": "unsupported-service-error",
+      "status": "PASS"
+    },
+    {
+      "check": "unsupported-service-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "unsupported-service-macro-emitted",
+      "status": "PASS"
+    },
+    {
+      "check": "unsupported-service-no-continuation",
+      "status": "PASS"
+    }
+  ],
+  "service": "demo.double",
+  "service_id": 1,
+  "service_result": 84,
+  "stage": "P2-13",
+  "tests": 80
+}

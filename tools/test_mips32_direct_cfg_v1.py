@@ -860,7 +860,11 @@ def main(argv=None) -> int:
     }
     for token in ("p2_13", "p2_14", "p2_20", "runtime_host_boundary"):
         check(f"no-next-stage-symbol:{token}", not any(token in name.lower() for name in defined))
-    check("no-p2-13-evidence-directory", not (ROOT / ".openrecomp-phase2" / "evidence" / "P2-13").exists())
+    # P2-12's bounded fixture must not use the later P2-13 runtime host-call
+    # boundary. (The former "P2-13 evidence must not exist" cross-stage guard was
+    # replaced here once P2-13 was authorized; it asserted build state, not a
+    # P2-12 property, and could not hold while P2-13 was in progress.)
+    check("no-p2-13-host-call-emission-in-p2-12", "or_rt_host_call(OR_RT_SERVICE" not in host.source_text and "#define OR_RT_SERVICE_" not in host.source_text)
 
     tests = sum(1 for item in RESULTS if item["status"] == "PASS")
     if args.json:

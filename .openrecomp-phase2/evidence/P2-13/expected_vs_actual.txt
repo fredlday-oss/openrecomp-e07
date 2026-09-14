@@ -1,0 +1,23 @@
+P2-13 expected vs actual observable
+===================================
+expected (independent guest arithmetic + fixture-declared service semantics):
+failed=0
+error=
+calls=1
+last_service=1
+last_arg=42
+last_result=84
+reg[0]=0
+reg[1]=84
+reg[2]=92
+actual (native executable stdout):
+failed=0
+error=
+calls=1
+last_service=1
+last_arg=42
+last_result=84
+reg[0]=0
+reg[1]=84
+reg[2]=92
+EXPECTED == ACTUAL: YES

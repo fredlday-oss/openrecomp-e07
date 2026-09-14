@@ -17,8 +17,8 @@ Only one stage may be active at a time.
 | P2-10 | Tiny MIPS32 end-to-end proof | COMPLETE | Synthetic/open MIPS32 guest → generated host executable → observable equivalence |
 | P2-11 | MIPS32 calls/stack/memory | COMPLETE | Multiple functions, stack frames, loads/stores through end-to-end path |
 | P2-12 | MIPS32 direct CFG stress | COMPLETE | Branches, loops, calls, returns, bounded switch/direct-table proof where evidence exists |
-| P2-13 | Runtime-host boundary | NEXT | Deterministic host-call ABI; unsupported service handling fails closed |
-| P2-14 | Larger MIPS32 open fixture | QUEUED | Larger synthetic/open program with deterministic recompilation and replay |
+| P2-13 | Runtime-host boundary | COMPLETE | Deterministic host-call ABI; unsupported service handling fails closed |
+| P2-14 | Larger MIPS32 open fixture | NEXT | Larger synthetic/open program with deterministic recompilation and replay |
 | P2-20 | NES6502 program bridge | QUEUED | Feed NES6502 through same persistent program and translation-unit layers |
 | P2-21 | NES6502 host emitter path | QUEUED | Generated host code for proven 6502 semantics |
 | P2-22 | NES runtime bridge | QUEUED | Generic runtime memory/input/frame/audio contracts connected to NES platform layer |
@@ -50,8 +50,8 @@ indirect-control-flow classification work is assigned to `P2-06`. This reassignm
 semantics, claims or evidence of any frozen prior stage (`P2-00`..`P2-05`).
 `P2-07` remains Host emitter V1. `P2-08` (Generic runtime ABI V1), `P2-09`
 (Deterministic build pipeline), `P2-10` (Tiny MIPS32 end-to-end proof), `P2-11` (MIPS32
-calls/stack/memory) and `P2-12` (MIPS32 direct CFG stress) are `COMPLETE`; `P2-13`
-(Runtime-host boundary) is `NEXT`. `P2-13` was not started.
+calls/stack/memory), `P2-12` (MIPS32 direct CFG stress) and `P2-13` (Runtime-host boundary)
+are `COMPLETE`; `P2-14` (Larger MIPS32 open fixture) is `NEXT`. `P2-14` was not started.
 
 Success marker:
 

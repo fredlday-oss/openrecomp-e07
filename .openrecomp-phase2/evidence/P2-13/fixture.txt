@@ -1,0 +1,20 @@
+P2-13 synthetic MIPS32 fixture (runtime-host boundary)
+======================================================
+architecture: mips32-bounded-v1
+endianness: little
+entry: 0x1000; runtime-mediated call site: 0x1008
+instruction count: 5
+byte length: 20
+sha256: 7c9ba624b7503ccb31e0cd4b82b2c0316674b2c094945df84524503e34eb19b6
+origin: synthetic/original (no commercial ROM/ELF bytes)
+declared service: demo.double (ABI id 1)
+
+instructions:
+  0x00001000  0x24040015  addiu r4, r0, 21
+  0x00001004  0x24840015  addiu r4, r4, 21        ; r4 = 42
+  0x00001008  0x00800008  jr r4                  ; runtime-mediated host call
+  0x0000100c  0x00000000  nop (delay slot)
+  0x00001010  0x24850008  addiu r5, r4, 8        ; r5 = service result + 8
+
+bytes (little-endian hex):
+1500042415008424080080000000000008008524

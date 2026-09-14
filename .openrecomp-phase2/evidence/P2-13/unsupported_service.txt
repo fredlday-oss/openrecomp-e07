@@ -1,0 +1,13 @@
+P2-13 unsupported service fail-closed evidence
+================================================
+declared-at-build service: demo.missing (ABI id 1); runtime does not implement it
+executable returncode: 0
+stdout:
+failed=1
+error=runtime host service demo.missing failed
+calls=1
+last_service=1
+reg[0]=0
+reg[1]=42
+reg[2]=0
+result: PASS (checked host-call boundary reported the unsupported service; the generated code stopped instead of continuing)
