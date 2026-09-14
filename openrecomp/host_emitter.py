@@ -36,6 +36,7 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Any, Iterable, Mapping, Union
 
+from openrecomp import runtime_abi as rt_abi
 from openrecomp.call_graph import CallEdgeKind
 from openrecomp.indirect_control_flow import (
     IndirectControlFlowClassification,
@@ -208,12 +209,41 @@ class HostComparison:
 
 
 @dataclass(frozen=True)
+class HostCallOperation:
+    """An explicit, evidence-backed call into the generic runtime host boundary.
+
+    The service identity and the argument operands are declared by the trusted
+    semantic rule; the emitter never infers a service from an address, opcode or
+    nearby code. The optional ``result`` register receives the returned value.
+    A host call is only emittable when the emitter is configured with a
+    `RuntimeAbiConfig` that declares the exact service id (P2-08); otherwise it
+    fails closed.
+    """
+
+    service: str
+    args: tuple[HostOperand, ...] = ()
+    result: HostRegister | None = None
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.service, str) or not self.service:
+            raise HostEmitterError("HostCallOperation.service must be a non-empty string")
+        if not isinstance(self.args, tuple):
+            raise HostEmitterError("HostCallOperation.args must be a tuple")
+        for operand in self.args:
+            if not isinstance(operand, (HostRegister, HostImmediate, HostConstant)):
+                raise HostEmitterError(f"unsupported host-call argument operand {operand!r}")
+        if self.result is not None and not isinstance(self.result, HostRegister):
+            raise HostEmitterError("HostCallOperation.result must be a HostRegister or null")
+
+
+@dataclass(frozen=True)
 class HostInstructionSemantics:
     """An explicit, proven semantic rule for one ``(architecture, op)`` pair.
 
-    The rule declares the neutral operations emitted for the instruction and,
-    for control-flow instructions, the branch condition or the register holding
-    an indirect target. It is supplied by a trusted adapter/fixture; the emitter
+    The rule declares the neutral operations emitted for the instruction, an
+    explicit host call where evidence identifies a runtime service, and, for
+    control-flow instructions, the branch condition or the register holding an
+    indirect target. It is supplied by a trusted adapter/fixture; the emitter
     never fabricates one from an opcode mnemonic.
     """
 
@@ -223,6 +253,7 @@ class HostInstructionSemantics:
     operations: tuple[HostOperation, ...] = ()
     condition: HostComparison | None = None
     indirect_source: HostOperand | None = None
+    host_call: HostCallOperation | None = None
 
     def __post_init__(self) -> None:
         if not isinstance(self.architecture, str) or not self.architecture:
@@ -242,19 +273,23 @@ class HostInstructionSemantics:
             self.indirect_source, (HostRegister, HostImmediate, HostConstant)
         ):
             raise HostEmitterError("semantics.indirect_source must be a host operand or null")
+        if self.host_call is not None and not isinstance(self.host_call, HostCallOperation):
+            raise HostEmitterError("semantics.host_call must be a HostCallOperation or null")
 
         if self.flow is InstructionFlow.BRANCH:
             if self.condition is None:
                 raise HostEmitterError(f"{self.architecture}/{self.op}: BRANCH requires a condition")
-            if self.operations or self.indirect_source is not None:
-                raise HostEmitterError(f"{self.architecture}/{self.op}: BRANCH must not carry operations or indirect source")
+            if self.operations or self.indirect_source is not None or self.host_call is not None:
+                raise HostEmitterError(f"{self.architecture}/{self.op}: BRANCH must not carry operations, indirect source or host call")
         elif self.flow in (InstructionFlow.INDIRECT_CALL, InstructionFlow.INDIRECT_JUMP):
-            if self.indirect_source is None:
-                raise HostEmitterError(f"{self.architecture}/{self.op}: indirect flow requires an indirect source")
+            if self.indirect_source is None and self.host_call is None:
+                raise HostEmitterError(
+                    f"{self.architecture}/{self.op}: indirect flow requires an indirect source or an explicit host call"
+                )
             if self.operations or self.condition is not None:
                 raise HostEmitterError(f"{self.architecture}/{self.op}: indirect flow must not carry operations or condition")
         elif self.flow in (InstructionFlow.JUMP, InstructionFlow.CALL, InstructionFlow.RETURN, InstructionFlow.TRAP):
-            if self.operations or self.condition is not None or self.indirect_source is not None:
+            if self.operations or self.condition is not None or self.indirect_source is not None or self.host_call is not None:
                 raise HostEmitterError(f"{self.architecture}/{self.op}: {self.flow.value} must not carry semantics")
         elif self.flow is InstructionFlow.NORMAL:
             if self.condition is not None or self.indirect_source is not None:
@@ -295,8 +330,9 @@ class HostEmitterConfig:
 
     ``semantics`` is the explicit proven rule table; ``entry_function`` names the
     P2 function to expose as the generated entry point. ``word_bits`` defines the
-    explicit guest word width. No runtime/memory/host-call contract is provided:
-    those belong to P2-08.
+    explicit guest word width. ``runtime_abi`` optionally exposes the P2-08
+    generic runtime ABI host-call boundary; when absent (the default) the emitter
+    is byte-identical to the P2-07 boundary and every host call fails closed.
     """
 
     semantics: HostSemantics
@@ -304,6 +340,7 @@ class HostEmitterConfig:
     word_bits: int = 32
     register_names: tuple[str, ...] = ()
     unsupported_indirect_policy: HostUnsupportedPolicy = HostUnsupportedPolicy.BOUNDARY
+    runtime_abi: rt_abi.RuntimeAbiConfig | None = None
 
     def __post_init__(self) -> None:
         if not isinstance(self.semantics, HostSemantics):
@@ -321,6 +358,8 @@ class HostEmitterConfig:
             raise HostEmitterError("config.register_names must be unique")
         if not isinstance(self.unsupported_indirect_policy, HostUnsupportedPolicy):
             raise HostEmitterError("config.unsupported_indirect_policy must be a HostUnsupportedPolicy")
+        if self.runtime_abi is not None and not isinstance(self.runtime_abi, rt_abi.RuntimeAbiConfig):
+            raise HostEmitterError("config.runtime_abi must be a RuntimeAbiConfig or null")
 
 
 @dataclass(frozen=True)
@@ -566,6 +605,10 @@ class HostEmitter:
             operands.extend((rule.condition.lhs, rule.condition.rhs))
         if rule.indirect_source is not None:
             operands.append(rule.indirect_source)
+        if rule.host_call is not None:
+            operands.extend(rule.host_call.args)
+            if rule.host_call.result is not None:
+                operands.append(rule.host_call.result)
         return tuple(operands)
 
     @staticmethod
@@ -613,6 +656,8 @@ class HostEmitter:
         lines: list[str] = []
         for operation in rule.operations:
             lines.extend(self._emit_operation(operation, instruction, context))
+        if rule.host_call is not None and rule.flow is InstructionFlow.NORMAL:
+            lines.extend(self._emit_host_call(rule.host_call, instruction, context))
         return lines
 
     def _emit_operation(
@@ -665,6 +710,39 @@ class HostEmitter:
         if predicate in _SIGNED_PREDICATES:
             return f"(or_signed(({lhs}), {bits}u) {operators[predicate]} or_signed(({rhs}), {bits}u))"
         return f"(({lhs}) {operators[predicate]} ({rhs}))"
+
+    # -- generic runtime host-call boundary ---------------------------------
+    def _emit_host_call(
+        self, call: HostCallOperation, instruction: DecodedInstruction, context: _UnitContext
+    ) -> list[str]:
+        if self.config.runtime_abi is None:
+            raise HostEmitterError("host call requires the generic runtime ABI (P2-08)")
+        services = self.config.runtime_abi.services
+        if not services.has(call.service):
+            raise HostEmitterError(
+                f"host service {call.service!r} is not declared by the generic runtime ABI"
+            )
+        macro = services.macro(call.service)
+        args = [self._operand_expr(argument, instruction, context) for argument in call.args]
+        lines = ["    {"]
+        if args:
+            joined = ", ".join(args)
+            lines.append(f"        const uint64_t or_call_args[{len(args)}] = {{ {joined} }};")
+            argument_pointer = "or_call_args"
+        else:
+            argument_pointer = "0"
+        lines.append("        uint64_t or_call_result = UINT64_C(0);")
+        lines.append(
+            f"        if (or_rt_host_call({macro}, {len(args)}u, {argument_pointer}, &or_call_result) != OR_RT_OK) {{"
+        )
+        lines.append(f"            or_fail({_c_string('runtime host service ' + call.service + ' failed')});")
+        lines.append("            return;")
+        lines.append("        }")
+        if call.result is not None:
+            dest = self._operand_expr(call.result, instruction, context)
+            lines.append(f"        {dest} = or_call_result & or_mask({self.config.word_bits}u);")
+        lines.append("    }")
+        return lines
 
     # -- control transfer ----------------------------------------------------
     def _emit_transfer(
@@ -781,6 +859,19 @@ class HostEmitter:
         if status.value not in context.statuses:
             context.statuses.append(status.value)
 
+        if rule.host_call is not None:
+            if status is not IndirectControlFlowStatus.EXTERNAL_OR_RUNTIME_MEDIATED:
+                raise HostEmitterError(
+                    f"unit {context.unit.unit_id}: indirect site 0x{instruction.address:x} carries a host call "
+                    f"but is classified {status.value}; a host call requires explicit external/runtime evidence"
+                )
+            lines = self._emit_host_call(rule.host_call, instruction, context)
+            if kind is IndirectControlFlowKind.INDIRECT_CALL:
+                lines.append(f"    goto {self._continuation(block, context)};")
+            else:
+                lines.append("    return;")
+            return lines
+
         if kind is IndirectControlFlowKind.INDIRECT_JUMP:
             if status is IndirectControlFlowStatus.RETURN_LIKE:
                 return ["    return;"]
@@ -892,35 +983,42 @@ class HostEmitter:
             "#include <stdint.h>",
             "#include <stddef.h>",
             "",
-            f"static uint64_t g_r[{count}];",
-            "static int g_failed;",
-            'static const char *g_error = "";',
-            "",
-            "static uint64_t or_mask(unsigned bits) {",
-            "    return bits >= 64u ? UINT64_MAX : ((UINT64_C(1) << bits) - UINT64_C(1));",
-            "}",
-            "static int64_t or_signed(uint64_t value, unsigned bits) {",
-            "    uint64_t mask = or_mask(bits);",
-            "    value &= mask;",
-            "    if (bits >= 64u) return (int64_t)value;",
-            "    uint64_t sign = UINT64_C(1) << (bits - 1u);",
-            "    if (value & sign) value |= ~mask;",
-            "    return (int64_t)value;",
-            "}",
-            "static uint64_t or_ashr(uint64_t value, uint64_t shift, unsigned bits) {",
-            "    uint64_t mask = or_mask(bits);",
-            "    value &= mask;",
-            "    uint64_t shifted = value >> shift;",
-            "    uint64_t sign = bits >= 64u ? (value >> 63u) : (value >> (bits - 1u));",
-            "    if (sign) shifted |= (mask ^ (mask >> shift));",
-            "    return shifted & mask;",
-            "}",
-            "static void or_fail(const char *message) {",
-            "    if (!g_failed) g_error = message;",
-            "    g_failed = 1;",
-            "}",
-            "",
         ]
+        if self.config.runtime_abi is not None:
+            lines.append(rt_abi.abi_c_declarations(self.config.runtime_abi.services).rstrip("\n"))
+            lines.append("")
+        lines.extend(
+            [
+                f"static uint64_t g_r[{count}];",
+                "static int g_failed;",
+                'static const char *g_error = "";',
+                "",
+                "static uint64_t or_mask(unsigned bits) {",
+                "    return bits >= 64u ? UINT64_MAX : ((UINT64_C(1) << bits) - UINT64_C(1));",
+                "}",
+                "static int64_t or_signed(uint64_t value, unsigned bits) {",
+                "    uint64_t mask = or_mask(bits);",
+                "    value &= mask;",
+                "    if (bits >= 64u) return (int64_t)value;",
+                "    uint64_t sign = UINT64_C(1) << (bits - 1u);",
+                "    if (value & sign) value |= ~mask;",
+                "    return (int64_t)value;",
+                "}",
+                "static uint64_t or_ashr(uint64_t value, uint64_t shift, unsigned bits) {",
+                "    uint64_t mask = or_mask(bits);",
+                "    value &= mask;",
+                "    uint64_t shifted = value >> shift;",
+                "    uint64_t sign = bits >= 64u ? (value >> 63u) : (value >> (bits - 1u));",
+                "    if (sign) shifted |= (mask ^ (mask >> shift));",
+                "    return shifted & mask;",
+                "}",
+                "static void or_fail(const char *message) {",
+                "    if (!g_failed) g_error = message;",
+                "    g_failed = 1;",
+                "}",
+                "",
+            ]
+        )
         for translation in translations:
             lines.append(translation.declaration)
         lines.append("")

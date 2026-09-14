@@ -1,0 +1,181 @@
+{
+  "stage": "P2-08",
+  "title": "OPENRECOMP_P2_08_GENERIC_RUNTIME_ABI_V1",
+  "verdict": "PASS",
+  "stage_marker": "OPENRECOMP_P2_08=PASS",
+  "gate_marker": "OPENRECOMP_GENERIC_RUNTIME_ABI_V1=PASS tests=169",
+  "starting_commit": "30b4321011b963efce19b321c72b97f886ba2b3d",
+  "starting_boundary": "30b4321 phase2: complete P2-07 host emitter v1",
+  "branch": "phase2/opencode-v1",
+  "phase1_tag": "openrecomp-phase1-pass",
+  "phase1_tag_commit": "46c2f971e1a42cf49bd936bad94697b81bf31002",
+  "runtime_abi": {
+    "module": "openrecomp/runtime_abi.py",
+    "name": "openrecomp-generic-runtime-abi",
+    "version": "1.0.0",
+    "version_class": "RuntimeAbiVersion(name, major, minor, patch)",
+    "compatibility_rule": "same name and same major are compatible; incompatible versions are rejected (ABI_VERSION_MISMATCH)",
+    "failure_codes": [
+      "MEMORY_OUT_OF_RANGE",
+      "MEMORY_WIDTH_UNSUPPORTED",
+      "MEMORY_ADDRESS_OVERFLOW",
+      "MEMORY_ENDIANNESS_UNSUPPORTED",
+      "MEMORY_SEGMENT_OVERLAP",
+      "UNKNOWN_HOST_SERVICE",
+      "HOST_SERVICE_FAILED",
+      "HOST_CALL_ARITY",
+      "INPUT_INVALID",
+      "FRAME_INVALID",
+      "AUDIO_INVALID",
+      "ABI_VERSION_MISMATCH",
+      "UNSUPPORTED_OPERATION",
+      "TRAP"
+    ]
+  },
+  "p2_08_gate": {
+    "command": "python tools/test_runtime_abi_v1.py",
+    "tests": 169,
+    "result": "PASS"
+  },
+  "upstream_regressions": {
+    "P2-07_host_emitter": {"marker": "OPENRECOMP_HOST_EMITTER_V1=PASS tests=106", "tests": 106, "result": "PASS"},
+    "P2-06_indirect_control_flow": {"marker": "OPENRECOMP_INDIRECT_CONTROL_FLOW_V1=PASS tests=134", "tests": 134, "result": "PASS"},
+    "P2-05_translation_units": {"marker": "OPENRECOMP_TRANSLATION_UNITS_V1=PASS tests=104", "tests": 104, "result": "PASS"},
+    "P2-04_call_graph": {"marker": "OPENRECOMP_CALL_GRAPH_V1=PASS tests=61", "tests": 61, "result": "PASS"},
+    "P2-03_function_discovery": {"marker": "OPENRECOMP_FUNCTION_DISCOVERY_V1=PASS tests=67", "tests": 67, "result": "PASS"},
+    "P2-02_cfg": {"marker": "OPENRECOMP_CFG_V1=PASS tests=82", "tests": 82, "result": "PASS"},
+    "P2-01_program_model": {"marker": "OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49", "tests": 49, "result": "PASS"}
+  },
+  "phase1_host_gates": {
+    "command": "python tools/phase1_host_gates_v1.py --json .openrecomp-phase2/evidence/P2-08/host_gates.json",
+    "pass": 44,
+    "fail": 0,
+    "skipped_toolchain_unavailable": 2,
+    "skipped_gates": ["e07-hardened-end-to-end", "external-repro-v1"],
+    "result": "PASS"
+  },
+  "source_integrity": {
+    "command": "python tools/phase1_host_gates_v1.py --only source-integrity",
+    "result": "PASS",
+    "manifest_entries": 118,
+    "note": "one additive entry: tools/test_runtime_abi_v1.py"
+  },
+  "architecture_neutrality": {
+    "shared_abi_has_no": [
+      "MIPS32/NES6502 register naming",
+      "Xbox/PS2/NES/PSP/PS1 console API",
+      "Windows/POSIX API",
+      "emulator API",
+      "graphics backend (D3D/Vulkan/OpenGL/SDL/RT64)",
+      "audio backend (XAudio2/SDL audio/WASAPI/console DSP)"
+    ],
+    "platform_specific_behavior": "behind adapters; outside the shared runtime ABI"
+  },
+  "memory_model": {
+    "class": "RuntimeMemory",
+    "bounded_guest_address_space": true,
+    "widths_bits": [8, 16, 32, 64],
+    "endianness": "explicit (little/big), per-memory default with per-access override",
+    "checked_read": "RuntimeMemory.read / try_read",
+    "checked_write": "RuntimeMemory.write / try_write",
+    "overflow_rejected": true,
+    "host_pointer_exposure": "none; reads return integer values, byte access returns immutable bytes copies",
+    "failure_codes": ["MEMORY_OUT_OF_RANGE", "MEMORY_WIDTH_UNSUPPORTED", "MEMORY_ADDRESS_OVERFLOW", "MEMORY_ENDIANNESS_UNSUPPORTED", "MEMORY_SEGMENT_OVERLAP"]
+  },
+  "host_call_model": {
+    "request": "RuntimeHostCallRequest(service, args)",
+    "record": "RuntimeHostCallRecord(sequence, service, args, result)",
+    "dispatch": "RuntimeServiceTable.dispatch",
+    "unknown_service": "fails closed (UNKNOWN_HOST_SERVICE)",
+    "arity_mismatch": "fails closed (HOST_CALL_ARITY)",
+    "handler_exception": "fails closed (HOST_SERVICE_FAILED)",
+    "argument_result_representation": "unsigned 64-bit integers; args and result preserved deterministically"
+  },
+  "input_model": {
+    "class": "RuntimeInputSnapshot",
+    "digital": "ordered boolean channels, bounded (<=256)",
+    "analog": "ordered unsigned channels at explicit analog_bits (8/16/32/64), bounded (<=64)",
+    "layout_assumptions": "none (no Xbox/PlayStation/Nintendo controller layout)",
+    "canonicalization": "trailing default channels trimmed; logically equal states hash identically"
+  },
+  "frame_model": {
+    "class": "RuntimeFrame",
+    "fields": ["width", "height", "pixel_format", "payload", "sequence"],
+    "pixel_formats": ["RGBA8", "BGRA8", "RGB565", "INDEX8", "GRAY8"],
+    "checksum": "sha256(payload)",
+    "fingerprint": "sha256(canonical descriptor incl. checksum)",
+    "backend": "none (boundary only; no D3D/Vulkan/OpenGL/SDL/RT64/console GPU)"
+  },
+  "audio_model": {
+    "class": "RuntimeAudio",
+    "fields": ["sample_format", "sample_rate", "channels", "frames", "payload", "sequence"],
+    "sample_formats": ["U8", "S16LE", "S16BE", "S32LE", "F32LE", "F32BE"],
+    "checksum": "sha256(payload)",
+    "fingerprint": "sha256(canonical descriptor incl. checksum)",
+    "backend": "none (boundary only; no XAudio2/SDL/WASAPI/console DSP)"
+  },
+  "failure_model": {
+    "result": "RuntimeResult(ok, value, failure)",
+    "failure": "RuntimeFailure(code, detail, address, width_bits)",
+    "codes": "stable RuntimeFailureCode enum; emitted as OR_RT_<CODE> in generated C",
+    "trap": "RuntimeState.trap latches the first failure deterministically; no silent continuation"
+  },
+  "deterministic_state": {
+    "class": "RuntimeState",
+    "non_deterministic_dependencies": "none (no wall-clock, random host state, pid, memory address, filesystem order, locale, environment unless explicitly configured)",
+    "rng_hook": "RuntimeState.next_random: deterministic, configuration-seeded",
+    "serialization": "canonical JSON snapshot + sha256 fingerprint"
+  },
+  "emitter_integration": {
+    "config_field": "HostEmitterConfig.runtime_abi: RuntimeAbiConfig | None (default None)",
+    "rule_field": "HostInstructionSemantics.host_call: HostCallOperation | None",
+    "emission_condition": "an explicit rule names a service that the configured runtime ABI declares; on an indirect site the P2-06 classification must be EXTERNAL_OR_RUNTIME_MEDIATED",
+    "never_inferred": true,
+    "undeclared_service": "fails closed (HostEmitterError)",
+    "no_runtime_abi_config": "fails closed (HostEmitterError)",
+    "default_output_unchanged": true,
+    "declarations_only": "extern or_rt_* boundary; no platform implementation generated"
+  },
+  "determinism": {
+    "run_count": 2,
+    "stdout_sha256": "3c0abaf52efa534b2dc639efceb15cd6e5aa17a4ec218d5515b1160f260809a8",
+    "byte_identical": true
+  },
+  "native_compile": {
+    "compiler": "clang",
+    "status": "ok",
+    "expected": "42 0",
+    "observed": "42 0",
+    "match": true,
+    "scope": "bounded synthetic runtime execution against the generic host-call boundary; not an equivalence proof"
+  },
+  "no_p2_09": true,
+  "final_phase2_proof_claimed": false,
+  "artifacts_sha256": {
+    "openrecomp/runtime_abi.py": "f0c6fa461ea71026859cdb09ccf8e29062dba805ef800632d4bd3e319d4eea49",
+    "openrecomp/host_emitter.py": "6fd4fb482927cdcc15d0db4036cff897dadf1e73771517a73ba8bb75a6c4abb7",
+    "tools/test_runtime_abi_v1.py": "f79acf9b21162ee060da5f250a6a61d0855460fd8460f092aa45a75d195b2ce8",
+    "sample_generated_runtime_host_call.c": "b75d7656517de8a75c5730fa22b7ea69dff9292be20a6f73d0bd49cf64705e24",
+    "synthetic_runtime_fixture.txt": "c6ec839d4ba876f6eace922c6f5f51e06342bb204a6dbb8b6b7088ffb9aa97d2",
+    "runtime_abi_tests.json": "88f304beed3e675b198873002c81528964520761163152450184c63d12e6e3b7",
+    "runtime_abi_tests.txt": "4b60f8bcc8e7607640acb0792e7cfdf8c42809e839eefa1628d6075243607142",
+    "host_gates.json": "b96bb873088ae9d81442d5763535637fd0f12611ba6fe9b37fbdb074ec37933d",
+    "host_gates.txt": "5bb59f4d53914f0293878a084feffe5f869f9bd294614dd91ae48a62e39a6ed1",
+    "source_integrity.txt": "6094c55fe48a19444ec44bc14a0f89358fd6f3403550eecc19f175ca98e77f75"
+  },
+  "changed_files": {
+    "added": [
+      "openrecomp/runtime_abi.py",
+      "tools/test_runtime_abi_v1.py",
+      ".openrecomp-phase2/evidence/P2-08/"
+    ],
+    "modified": [
+      "openrecomp/host_emitter.py",
+      "SOURCE_SHA256SUMS.txt",
+      ".openrecomp-phase2/STATE.md",
+      ".openrecomp-phase2/HANDOFF.md",
+      ".openrecomp-phase2/STAGE_QUEUE.md"
+    ]
+  },
+  "next_stage": "P2-09"
+}

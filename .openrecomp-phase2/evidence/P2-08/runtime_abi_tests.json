@@ -1,0 +1,718 @@
+{
+  "failure_codes": [
+    "MEMORY_OUT_OF_RANGE",
+    "MEMORY_WIDTH_UNSUPPORTED",
+    "MEMORY_ADDRESS_OVERFLOW",
+    "MEMORY_ENDIANNESS_UNSUPPORTED",
+    "MEMORY_SEGMENT_OVERLAP",
+    "UNKNOWN_HOST_SERVICE",
+    "HOST_SERVICE_FAILED",
+    "HOST_CALL_ARITY",
+    "INPUT_INVALID",
+    "FRAME_INVALID",
+    "AUDIO_INVALID",
+    "ABI_VERSION_MISMATCH",
+    "UNSUPPORTED_OPERATION",
+    "TRAP"
+  ],
+  "marker": "OPENRECOMP_GENERIC_RUNTIME_ABI_V1=PASS tests=169",
+  "native_compile_result": {
+    "expected": "42 0",
+    "match": true,
+    "observed": "42 0",
+    "status": "ok"
+  },
+  "native_compiler": "C:\\Program Files\\LLVM\\bin\\clang.EXE",
+  "python": "3.11.9",
+  "results": [
+    {
+      "check": "abi-config-default-compatible",
+      "status": "PASS"
+    },
+    {
+      "check": "abi-config-document",
+      "status": "PASS"
+    },
+    {
+      "check": "abi-config-serialize-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "abi-version-compatible",
+      "status": "PASS"
+    },
+    {
+      "check": "abi-version-current",
+      "status": "PASS"
+    },
+    {
+      "check": "abi-version-document",
+      "status": "PASS"
+    },
+    {
+      "check": "abi-version-incompatible-major",
+      "status": "PASS"
+    },
+    {
+      "check": "abi-version-parse-roundtrip",
+      "status": "PASS"
+    },
+    {
+      "check": "abi-version-str",
+      "status": "PASS"
+    },
+    {
+      "check": "abi-version-string",
+      "status": "PASS"
+    },
+    {
+      "check": "audio-checksum-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "audio-checksum-payload-sensitive",
+      "status": "PASS"
+    },
+    {
+      "check": "audio-descriptor-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "audio-fingerprint-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "audio-roundtrip-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "compiled-runtime-abi-fixture",
+      "status": "PASS"
+    },
+    {
+      "check": "config-abi-version-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "config-roundtrip",
+      "status": "PASS"
+    },
+    {
+      "check": "config-serialize-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-rng-repeatable",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic-rng-seed-sensitive",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter-abi-opt-in-only",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter-declares-boundary-extern",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter-default-includes-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter-default-no-runtime-surface",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter-emits-abi-version",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter-emits-host-call",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter-emits-service-macro",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter-emits-support-codes",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter-host-call-continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter-host-call-fail-closed-branch",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter-no-platform-api",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter-portable-includes",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter-result-register",
+      "status": "PASS"
+    },
+    {
+      "check": "failure-codes-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "failure-document-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:memory-address-beyond-64",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:memory-address-overflow",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:memory-invalid-endianness",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:memory-invalid-width",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:memory-oob-read",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:memory-oob-read-wide",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:memory-oob-write",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:memory-segment-out-of-range",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:state-step-limit",
+      "status": "PASS"
+    },
+    {
+      "check": "frame-checksum-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "frame-checksum-payload-sensitive",
+      "status": "PASS"
+    },
+    {
+      "check": "frame-descriptor-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "frame-descriptor-excludes-payload",
+      "status": "PASS"
+    },
+    {
+      "check": "frame-fingerprint-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "frame-index8-size",
+      "status": "PASS"
+    },
+    {
+      "check": "frame-roundtrip-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "host-call-argument-preservation",
+      "status": "PASS"
+    },
+    {
+      "check": "host-call-record-document",
+      "status": "PASS"
+    },
+    {
+      "check": "host-call-result-preservation",
+      "status": "PASS"
+    },
+    {
+      "check": "host-call-sequence",
+      "status": "PASS"
+    },
+    {
+      "check": "input-analog-bits-explicit",
+      "status": "PASS"
+    },
+    {
+      "check": "input-canonical-equivalence",
+      "status": "PASS"
+    },
+    {
+      "check": "input-canonical-trims-analog",
+      "status": "PASS"
+    },
+    {
+      "check": "input-canonical-trims-digital",
+      "status": "PASS"
+    },
+    {
+      "check": "input-digital-document",
+      "status": "PASS"
+    },
+    {
+      "check": "input-roundtrip-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-boundary-last-byte",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-boundary-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-fingerprint-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-no-public-buffer",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-oob-read-result",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-oob-write-result",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-read-32",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-read-64",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-read-big-endian-override",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-read-bytes-is-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-read-little-endian",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-segment-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-snapshot-is-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-snapshot-is-copy",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-width-16",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-width-32",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-width-64",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-width-8",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-width-result",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-write-read-8",
+      "status": "PASS"
+    },
+    {
+      "check": "no-host-pointer-mechanism:PyMemoryView",
+      "status": "PASS"
+    },
+    {
+      "check": "no-host-pointer-mechanism:ctypes",
+      "status": "PASS"
+    },
+    {
+      "check": "no-host-pointer-mechanism:from_buffer",
+      "status": "PASS"
+    },
+    {
+      "check": "no-host-pointer-mechanism:memoryview",
+      "status": "PASS"
+    },
+    {
+      "check": "no-nondeterministic-dependency:datetime.now",
+      "status": "PASS"
+    },
+    {
+      "check": "no-nondeterministic-dependency:import os",
+      "status": "PASS"
+    },
+    {
+      "check": "no-nondeterministic-dependency:import random",
+      "status": "PASS"
+    },
+    {
+      "check": "no-nondeterministic-dependency:import secrets",
+      "status": "PASS"
+    },
+    {
+      "check": "no-nondeterministic-dependency:import subprocess",
+      "status": "PASS"
+    },
+    {
+      "check": "no-nondeterministic-dependency:import time",
+      "status": "PASS"
+    },
+    {
+      "check": "no-nondeterministic-dependency:os.environ",
+      "status": "PASS"
+    },
+    {
+      "check": "no-nondeterministic-dependency:os.getpid",
+      "status": "PASS"
+    },
+    {
+      "check": "no-nondeterministic-dependency:uuid.uuid4",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-09-build-pipeline:BuildPipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-09-build-pipeline:def build_",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-09-build-pipeline:link_executable",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-09-build-pipeline:object_file",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-09-build-pipeline:subprocess",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:abi-config-bad-services",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:abi-config-incompatible",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:abi-version-bad-text",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:audio-bad-format",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:audio-length-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:audio-malformed-document",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:audio-zero-rate",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:config-bad-endianness",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:config-incompatible-version",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:config-zero-memory",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:emitter-host-call-bad-service",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:emitter-host-call-config-type",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:emitter-host-call-model-requires-source-or-call",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:emitter-host-call-non-external",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:emitter-host-call-without-runtime-abi",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:emitter-runtime-abi-does-not-broaden-semantics",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:emitter-undeclared-service",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:frame-bad-format",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:frame-length-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:frame-malformed-document",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:frame-zero-dimension",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:input-analog-over-width",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:input-bad-analog-bits",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:input-malformed-document",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:input-negative-analog",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:input-non-bool-digital",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:input-too-many-digital",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:memory-segment-overlap",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:memory-zero-size",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:result-inconsistent-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:result-inconsistent-success",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:result-negative-value",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:service-bad-id",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:service-duplicate",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:service-handler-without-declaration",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:service-missing-handler",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:service-negative-arity",
+      "status": "PASS"
+    },
+    {
+      "check": "repeated-run-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "repeated-run-serialize-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "result-success-document",
+      "status": "PASS"
+    },
+    {
+      "check": "service-arity-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "service-document",
+      "status": "PASS"
+    },
+    {
+      "check": "service-handler-exception-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "service-ids-canonical",
+      "status": "PASS"
+    },
+    {
+      "check": "service-known-dispatch",
+      "status": "PASS"
+    },
+    {
+      "check": "service-macro-name",
+      "status": "PASS"
+    },
+    {
+      "check": "service-negative-result-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "service-numeric-id",
+      "status": "PASS"
+    },
+    {
+      "check": "service-unknown-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "service-void-dispatch",
+      "status": "PASS"
+    },
+    {
+      "check": "snapshot-no-absolute-path",
+      "status": "PASS"
+    },
+    {
+      "check": "snapshot-ser-roundtrip-json",
+      "status": "PASS"
+    },
+    {
+      "check": "state-audio-log-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "state-construction-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "state-frame-log-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "state-host-call-log-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "state-host-call-record-count",
+      "status": "PASS"
+    },
+    {
+      "check": "state-host-call-result",
+      "status": "PASS"
+    },
+    {
+      "check": "state-initially-not-failed",
+      "status": "PASS"
+    },
+    {
+      "check": "state-memory-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "state-serialize-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "state-snapshot-version",
+      "status": "PASS"
+    },
+    {
+      "check": "state-starts-at-zero-steps",
+      "status": "PASS"
+    },
+    {
+      "check": "state-unknown-service-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "state-unknown-service-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "trap-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "trap-first-failure-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "trap-latched",
+      "status": "PASS"
+    }
+  ],
+  "runtime_abi_name": "openrecomp-generic-runtime-abi",
+  "runtime_abi_version": "1.0.0",
+  "sample_fingerprints": {
+    "abi_config": "fb9f90f2ea3fec568f29ad2a4939f9d90c73b45615ba0a9c5446371f15eb932a",
+    "audio": "b7a034646399cc3dd60bf446c871da8944002749d87f243b4afdbe504f51b70d",
+    "default_source": "5b2c16c05cc8712f0a83bc2a64c3037b325e539916a529b94a4f348a7ea28ec9",
+    "frame": "2b3700f87630881ca6f5e8a3fb23acb616ef7cf3463fbeeefca4a3964f1e03e0",
+    "input": "0bc2e0ca3383a92d586ca76ad43a209960c4d95ac84aa0baeda2922fb190bbae",
+    "integrated_source": "b75d7656517de8a75c5730fa22b7ea69dff9292be20a6f73d0bd49cf64705e24",
+    "state_scenario": "308fad595e5215ea32cd0ebc540f6541f3db0d0d2e75d2374efd3d5a820a868b"
+  },
+  "stage": "P2-08",
+  "tests": 169
+}

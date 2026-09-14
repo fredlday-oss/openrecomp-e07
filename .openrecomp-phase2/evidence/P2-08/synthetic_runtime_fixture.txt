@@ -1,0 +1,14 @@
+P2-08 synthetic runtime fixture (deterministic)
+===============================================
+
+generated host source: sample_generated_runtime_host_call.c
+generated source sha256: b75d7656517de8a75c5730fa22b7ea69dff9292be20a6f73d0bd49cf64705e24
+
+RuntimeState scenario:
+  host_call(demo.mul, 6, 7) -> ok=True value=42
+  state.fingerprint() = f9fd852e47d7f43b504522b86213b20c229c2bdaea46c70714c0ed4e114543ec
+  state.steps = 6
+  failed = False
+
+snapshot:
+{"audio":[{"byte_length":4,"channels":1,"checksum":"9f64a747e1b97f131fabb6b447296c9b6f0201e79fb3c5356e6c77e89b6a806a","frames":4,"sample_format":"U8","sample_rate":8000,"sequence":0}],"failure":null,"frames":[{"byte_length":8,"checksum":"8a851ff82ee7048ad09ec3847f1ddf44944104d2cbd17ef4e3db22c6785a0d45","height":1,"pixel_format":"RGBA8","sequence":1,"width":2}],"host_calls":[{"args":[6,7],"result":{"failure":null,"ok":true,"value":42},"sequence":0,"service":"demo.mul"}],"input":{"analog":[10,20],"analog_bits":16,"digital":[1,0,1]},"memory":{"endianness":"little","sha256":"6272291029447ef13dd847da3972672010bdac87fe5dc2f9abde3cd63efff171","size_bytes":64},"runtime_abi":"1.0.0","steps":6}

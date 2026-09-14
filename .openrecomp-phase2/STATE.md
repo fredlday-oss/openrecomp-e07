@@ -3,8 +3,8 @@
 PHASE=2
 BASELINE_TAG=openrecomp-phase1-pass
 BASELINE_COMMIT=46c2f97
-CURRENT_STAGE=P2-08
-LAST_PASSED_STAGE=P2-07
+CURRENT_STAGE=P2-09
+LAST_PASSED_STAGE=P2-08
 STATUS=READY
 FINAL_VERDICT=NOT_YET_EVALUATED
 
@@ -20,7 +20,8 @@ FINAL_VERDICT=NOT_YET_EVALUATED
 | P2-05 | Translation units V1 | `PASS` | `.openrecomp-phase2/evidence/P2-05/RESULT.md` |
 | P2-06 | Indirect-control-flow classification V1 | `PASS` | `.openrecomp-phase2/evidence/P2-06/RESULT.md` |
 | P2-07 | Host emitter V1 | `PASS` | `.openrecomp-phase2/evidence/P2-07/RESULT.md` |
-| P2-08 | Generic runtime ABI V1 | `NEXT` | not started |
+| P2-08 | Generic runtime ABI V1 | `PASS` | `.openrecomp-phase2/evidence/P2-08/RESULT.md` |
+| P2-09 | Deterministic build pipeline | `NEXT` | not started |
 
 ## P2-05 result (PASS)
 
@@ -98,9 +99,47 @@ Branch: `phase2/opencode-v1`. Phase-1 tag `openrecomp-phase1-pass` verified unch
   compile+run of a synthetic 8-bit fixture: observed `44 0` == expected).
 - No P2-00..P2-06 implementation or evidence modified.
 
+## P2-08 result (PASS)
+
+Stage: `OPENRECOMP_P2_08_GENERIC_RUNTIME_ABI_V1`.
+Starting commit: `30b4321011b963efce19b321c72b97f886ba2b3d` (P2-07 boundary).
+Branch: `phase2/opencode-v1`. Phase-1 tag `openrecomp-phase1-pass` verified unchanged at
+`46c2f971e1a42cf49bd936bad94697b81bf31002`.
+
+- Module `openrecomp/runtime_abi.py`: first architecture-neutral generic runtime ABI V1
+  (`RuntimeAbiVersion`, `RuntimeMemory`, `RuntimeService`/`RuntimeServiceTable`,
+  `RuntimeHostCallRequest`/`RuntimeHostCallRecord`, `RuntimeInputSnapshot`, `RuntimeFrame`,
+  `RuntimeAudio`, `RuntimeFailure`/`RuntimeFailureCode`/`RuntimeResult`,
+  `RuntimeConfig`/`RuntimeAbiConfig`, `RuntimeState`, `abi_c_declarations`/`abi_c_source`).
+- Versioned ABI `openrecomp-generic-runtime-abi 1.0.0`; incompatible versions are detected
+  and rejected with `ABI_VERSION_MISMATCH`.
+- Bounded guest address space: checked read/write, explicit 8/16/32/64-bit width, explicit
+  little/big endianness, and deterministic failures for out-of-range, unsupported width,
+  unsupported endianness, segment overlap and 64-bit `address+width` overflow. Guest
+  addresses are never host pointers; byte access returns immutable `bytes` copies.
+- Host calls: stable service identity plus deterministic argument/result representation;
+  unknown services, arity mismatch and handler failure all fail closed. No console API is
+  invented.
+- Generic input (ordered digital/analog channels with canonicalization), frame
+  (geometry/format/checksum) and audio (format/rate/channels/frames/checksum) contracts;
+  no controller layout, graphics backend or audio backend is assumed.
+- Explicit failure/trap model with stable codes; `RuntimeState` is deterministic (no
+  wall-clock/random/pid/address/filesystem/locale/environment dependence) with a
+  configuration-seeded RNG hook and canonical serialization/fingerprint.
+- Bounded P2-07 emitter integration: `HostEmitterConfig.runtime_abi` (default null) plus an
+  explicit `HostCallOperation` rule. A host call is emitted only for a declared service on
+  an explicitly external/runtime-mediated P2-06 site; undeclared services, missing config
+  and non-external sites fail closed. Default (`runtime_abi=None`) output is byte-identical
+  to P2-07, so fail-closed behavior and the bounded semantic subset are preserved.
+- `tools/test_runtime_abi_v1.py`: 169 deterministic checks (incl. an optional native
+  compile+run of a synthetic host-call fixture: observed `42 0` == expected).
+- No P2-00..P2-07 implementation source modified except the additive/opt-in
+  `host_emitter.py` change; no prior test weakened; no P2-09 started.
+
 ## Gates
 
 ```text
+OPENRECOMP_GENERIC_RUNTIME_ABI_V1=PASS tests=169
 OPENRECOMP_HOST_EMITTER_V1=PASS tests=106
 OPENRECOMP_INDIRECT_CONTROL_FLOW_V1=PASS tests=134
 OPENRECOMP_TRANSLATION_UNITS_V1=PASS tests=104
@@ -110,11 +149,11 @@ OPENRECOMP_CFG_V1=PASS tests=82
 OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49
 OPENRECOMP_PHASE1_HOST_GATES_PASS=44 FAIL=0 SKIPPED=2
 OPENRECOMP_PHASE1_HOST_GATES_V1=PASS
-PASS source-integrity  verified 117 manifest entries
+PASS source-integrity  verified 118 manifest entries
 ```
 
-Determinism: two consecutive P2-07 gate runs produced byte-identical stdout
-(`sha256 fb6e6e2c6ba660a5c3df75602a59c0501bf86ca53e0371e4942c0c76108c45d5`).
+Determinism: two consecutive P2-08 gate runs produced byte-identical stdout
+(`sha256 3c0abaf52efa534b2dc639efceb15cd6e5aa17a4ec218d5515b1160f260809a8`).
 
 ## Queue reconciliation note
 
@@ -126,51 +165,59 @@ reconciled to the executed sequence.
 
 The indirect-control-flow classification work was assigned to `P2-06` with the original
 safety requirement — classify resolvable versus unresolved indirect sites **without
-guessing targets** — and is `PASS`. `P2-07` (Host emitter V1) is `PASS` and `P2-08`
-(Generic runtime ABI V1) is `NEXT`.
+guessing targets** — and is `PASS`. `P2-07` (Host emitter V1) is `PASS`, `P2-08`
+(Generic runtime ABI V1) is `PASS`, and `P2-09` (Deterministic build pipeline) is `NEXT`.
 
 This reassignment is a control-plane reconciliation caused by actual execution order. It
 does not change the semantics, claims, evidence or PASS status of any frozen prior stage
-(`P2-00`..`P2-07`), and it does not alter `ce9cd4f`, `f9f2662` or any earlier commit.
+(`P2-00`..`P2-08`), and it does not alter `ce9cd4f`, `f9f2662`, `30b4321` or any earlier
+commit.
 
 ## Next exact action
 
-Begin P2-08 — Generic runtime ABI V1: architecture-neutral CPU/memory/host-call/input/
-frame/audio/runtime contracts. P2-08 was **not** started in P2-07. Keep architecture-
-neutral contracts separate from platform implementations; do not claim the final Phase-2
-marker. Do not modify the frozen Phase-1 behavior or the P2-00..P2-07 layers except
-through an evidence-backed stage.
+Begin P2-09 — Deterministic build pipeline: reproducible generated-source/object/
+executable metadata and hashing. P2-09 was **not** started in P2-08. Do not modify the
+frozen Phase-1 behavior or the P2-00..P2-08 layers except through an evidence-backed stage.
+Do not claim the final Phase-2 end-to-end marker.
 
 ## Carried-forward findings
 
 - `update_sums.py` globs `schemas/*.json` while the directory is `schema/`, so
-  `schema/*.json` (and `openrecomp/*.py`) remain outside the integrity manifest
-  (pre-existing; deferred).
+  `schema/*.json` (and `openrecomp/*.py`, including `runtime_abi.py`) remain outside the
+  integrity manifest (pre-existing; deferred).
 - `direct_callees` are provisional structural facts validated across P2-04/P2-05, not ABI
   recovery.
 - P2-06 classifies indirect sites but does not recover targets by analysis; unresolved
   sites remain `UNRESOLVED_INDIRECT_CALL` / `UNRESOLVED_INDIRECT_JUMP` and bounded candidate
   sets remain `BOUNDED_CANDIDATES`.
 - Unowned control flow is preserved as P2-06 residual evidence and is not classified.
-- P2-07 emits only rule-proven semantics; loads/stores/host calls, calling conventions and
-  runtime services await P2-08. Emitted functions are void with no argument/return ABI.
-- The P2-07 native compile+run is a bounded synthetic check, not an equivalence proof.
+- P2-07 emits only rule-proven semantics; loads/stores, calling conventions and most runtime
+  services remain outside the emitted subset. Emitted functions are void with no
+  argument/return ABI.
+- P2-08 defines the generic runtime ABI and a bounded host-call seam. The generated C
+  contains only boundary declarations (`extern or_rt_*`); no runtime implementation is
+  generated, and `RuntimeState` is a deterministic contract surface rather than a guest
+  execution engine.
+- The P2-07 and P2-08 native compile+run checks are bounded synthetic checks, not
+  equivalence proofs.
 - Toolchain-gated gates remain unexecutable on this host.
-- `STAGE_QUEUE.md` is reconciled to the executed sequence; `P2-07` is `COMPLETE` and
-  `P2-08` is `NEXT`.
+- `STAGE_QUEUE.md` is reconciled to the executed sequence; `P2-08` is `COMPLETE` and
+  `P2-09` is `NEXT`.
 
 ## Git status (short)
 
-- P2-06 boundary commit: `f9f2662` (`phase2: complete P2-06 indirect control flow
-  classification`); `HEAD` at P2-07 start.
-- Current uncommitted changes: P2-07 implementation + evidence and the control-plane
-  updates to `.openrecomp-phase2/STAGE_QUEUE.md`, `.openrecomp-phase2/STATE.md`,
-  `.openrecomp-phase2/HANDOFF.md`, plus `SOURCE_SHA256SUMS.txt` (+1 entry).
+- P2-07 boundary commit: `30b4321` (`phase2: complete P2-07 host emitter v1`); `HEAD` at
+  P2-08 start.
+- Current uncommitted changes: P2-08 implementation + evidence (`openrecomp/runtime_abi.py`,
+  additive `openrecomp/host_emitter.py`, `tools/test_runtime_abi_v1.py`,
+  `.openrecomp-phase2/evidence/P2-08/`) and the control-plane updates to
+  `.openrecomp-phase2/STAGE_QUEUE.md`, `.openrecomp-phase2/STATE.md`,
+  `.openrecomp-phase2/HANDOFF.md`, plus `SOURCE_SHA256SUMS.txt` (+1 entry, 117 -> 118).
 - Untouched untracked residue: `.openrecomp-phase2/backups/`,
   `artifacts/mips32_translation_v1/`,
   `artifacts/mips32_translation_evidence_closure_v1/`.
-- No commit created (P2-07 boundary commit intentionally not created).
+- No commit created (P2-08 boundary commit intentionally not created).
 
-OPENRECOMP_P2_07=PASS
-OPENRECOMP_HOST_EMITTER_V1=PASS tests=106
-CURRENT_STAGE=P2-08
+OPENRECOMP_P2_08=PASS
+OPENRECOMP_GENERIC_RUNTIME_ABI_V1=PASS tests=169
+CURRENT_STAGE=P2-09

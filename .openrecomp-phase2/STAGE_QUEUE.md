@@ -12,8 +12,8 @@ Only one stage may be active at a time.
 | P2-05 | Translation-unit model | COMPLETE | One deterministic TranslationUnit per discovered function; stable host-independent units and dependencies; structural packaging only, no IR lowering |
 | P2-06 | Indirect-control-flow classification | COMPLETE | Classify resolvable versus unresolved indirect sites without guessing targets |
 | P2-07 | Host emitter V1 | COMPLETE | Deterministic generated host code for a bounded proven subset |
-| P2-08 | Generic runtime ABI V1 | NEXT | Architecture-neutral CPU/memory/host-call/input/frame/audio/runtime contracts |
-| P2-09 | Deterministic build pipeline | QUEUED | Reproducible generated-source/object/executable metadata and hashing |
+| P2-08 | Generic runtime ABI V1 | COMPLETE | Architecture-neutral CPU/memory/host-call/input/frame/audio/runtime contracts |
+| P2-09 | Deterministic build pipeline | NEXT | Reproducible generated-source/object/executable metadata and hashing |
 | P2-10 | Tiny MIPS32 end-to-end proof | QUEUED | Synthetic/open MIPS32 guest → generated host executable → observable equivalence |
 | P2-11 | MIPS32 calls/stack/memory | QUEUED | Multiple functions, stack frames, loads/stores through end-to-end path |
 | P2-12 | MIPS32 direct CFG stress | QUEUED | Branches, loops, calls, returns, bounded switch/direct-table proof where evidence exists |
@@ -48,7 +48,8 @@ targets but did not classify those sites, so the still-uncompleted
 indirect-control-flow classification work is assigned to `P2-06`. This reassignment is a
 **control-plane reconciliation caused by actual execution order**. It does not change the
 semantics, claims or evidence of any frozen prior stage (`P2-00`..`P2-05`).
-`P2-07` remains Host emitter V1.
+`P2-07` remains Host emitter V1. `P2-08` (Generic runtime ABI V1) is `COMPLETE` and
+`P2-09` (Deterministic build pipeline) is `NEXT`; `P2-09` was not started.
 
 Success marker:
 
