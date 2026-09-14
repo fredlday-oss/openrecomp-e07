@@ -657,7 +657,11 @@ def main(argv=None) -> int:
     defined = {node.name for node in _ast.walk(tree) if isinstance(node, (_ast.FunctionDef, _ast.AsyncFunctionDef, _ast.ClassDef))}
     for token in ("p2_14", "p2_20", "nes_runtime", "larger_fixture"):
         check(f"no-next-stage-symbol:{token}", not any(token in name.lower() for name in defined))
-    check("no-p2-14-evidence-directory", not (ROOT / ".openrecomp-phase2" / "evidence" / "P2-14").exists())
+    # P2-13's bounded fixture performs no guest memory access. (The former
+    # "P2-14 evidence must not exist" cross-stage guard was replaced here once
+    # P2-14 was authorized; it asserted build state, not a P2-13 property, and
+    # could not hold while P2-14 was in progress.)
+    check("no-guest-memory-access-in-p2-13", "or_rt_memory_read(or_addr" not in host.source_text and "or_rt_memory_write(or_addr" not in host.source_text)
 
     tests = sum(1 for item in RESULTS if item["status"] == "PASS")
     if args.json:

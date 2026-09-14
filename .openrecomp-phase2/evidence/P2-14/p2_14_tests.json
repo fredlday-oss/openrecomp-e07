@@ -1,0 +1,360 @@
+{
+  "actual_observable": "failed=0\nerror=\nreg[0]=0\nreg[1]=941\nreg[2]=81\nreg[3]=1024\nreg[4]=860\nreg[5]=0\nreg[6]=860\nreg[7]=81\nreg[8]=941\nreg[9]=0\nreg[10]=20",
+  "call_edge_count": 3,
+  "classification": "EXECUTABLE_REPRODUCIBLE",
+  "expected_equals_actual": true,
+  "expected_observable": "failed=0\nerror=\nreg[0]=0\nreg[1]=941\nreg[2]=81\nreg[3]=1024\nreg[4]=860\nreg[5]=0\nreg[6]=860\nreg[7]=81\nreg[8]=941\nreg[9]=0\nreg[10]=20",
+  "fixture_byte_length": 228,
+  "fixture_id": "p2-14-mips32-larger-open-fixture-v1",
+  "fixture_sha256": "1c233f56528cb3fe20a7b806ce40e8bef6fc66a8cf8c0fd15d8b7b49bce547eb",
+  "function_count": 4,
+  "generated_source_sha256": "25d8d85ff88d2009443a6c67db40855df5e0876cb2b0aef8505d12d500204203",
+  "instruction_count": 57,
+  "marker": "OPENRECOMP_MIPS32_LARGER_FIXTURE_V1=PASS tests=82",
+  "python": "3.11.9",
+  "register_names": [
+    "r0",
+    "r10",
+    "r2",
+    "r29",
+    "r3",
+    "r31",
+    "r4",
+    "r5",
+    "r6",
+    "r7",
+    "r9"
+  ],
+  "results": [
+    {
+      "check": "build-brepro",
+      "status": "PASS"
+    },
+    {
+      "check": "build-classification",
+      "status": "PASS"
+    },
+    {
+      "check": "build-executable-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-no-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-no-path-leak",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build-object-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build-source-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build-status-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph-all-internal",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph-edges",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph-nodes",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-back-jump",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-block-count",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-call-continuations",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-loop-conditional-not-taken",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-loop-conditional-taken",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-addresses",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-back-jump",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-call-count",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-call-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-jr-count",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-loop-branch",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-memory-count",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-size-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "derivation-best",
+      "status": "PASS"
+    },
+    {
+      "check": "derivation-formula",
+      "status": "PASS"
+    },
+    {
+      "check": "derivation-iteration",
+      "status": "PASS"
+    },
+    {
+      "check": "derivation-observable",
+      "status": "PASS"
+    },
+    {
+      "check": "derivation-restored-ra",
+      "status": "PASS"
+    },
+    {
+      "check": "derivation-restored-sp",
+      "status": "PASS"
+    },
+    {
+      "check": "derivation-total",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-calls",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-loop-backedge",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-memory",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-memory-fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-no-hardcoded-observable",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-no-pointer-cast",
+      "status": "PASS"
+    },
+    {
+      "check": "emission-prototypes",
+      "status": "PASS"
+    },
+    {
+      "check": "expected-equals-actual",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-assembler-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-byte-length",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-four-functions",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-instruction-count",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-synthetic-origin",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-count",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-four",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-unowned-delay-slots",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-all-return-like",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-no-evidence-unresolved",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-no-guessed-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-site-count",
+      "status": "PASS"
+    },
+    {
+      "check": "native-executable-hash-matches-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-symbol:nes6502",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-symbol:p2_20",
+      "status": "PASS"
+    },
+    {
+      "check": "no-next-stage-symbol:program_bridge",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-20-evidence-directory",
+      "status": "PASS"
+    },
+    {
+      "check": "recompilation-callgraph-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "recompilation-cfg-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "recompilation-classification-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "recompilation-functions-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "recompilation-source-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "recompilation-units-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "reference-step-count",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:empty-region",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:external-call-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:memory-without-runtime-abi",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:misaligned-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:missing-semantics-rule",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unsupported-opcode",
+      "status": "PASS"
+    },
+    {
+      "check": "replay-byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "replay-returncode-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "replay-stdout-hash-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "units-call-edges",
+      "status": "PASS"
+    },
+    {
+      "check": "units-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "units-four",
+      "status": "PASS"
+    }
+  ],
+  "stage": "P2-14",
+  "tests": 82
+}

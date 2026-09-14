@@ -1,0 +1,118 @@
+P2-14 larger MIPS32 open fixture determinism evidence
+====================================================
+
+Environment
+-----------
+python 3.11.9 (win32)
+branch: phase2/opencode-v1
+HEAD at stage start: c32a766a0b6499a239fcd4af351a73f1c172a1be
+  (c32a766 phase2: complete P2-13 runtime host boundary = frozen P2-13 boundary)
+phase-1 tag: openrecomp-phase1-pass -> 46c2f971e1a42cf49bd936bad94697b81bf31002 (unchanged)
+text evidence encoding: UTF-8 without BOM
+
+Gate repeated-run byte identity
+-------------------------------
+command (run twice, stdout captured verbatim, UTF-8):
+  python tools/test_mips32_larger_fixture_v1.py
+
+run 1 stdout sha256: 115c2c8a69ed3a9ebb33e990ffa9350a970e8c6f2ea258a40187365baaf6d3e9
+run 2 stdout sha256: 115c2c8a69ed3a9ebb33e990ffa9350a970e8c6f2ea258a40187365baaf6d3e9
+byte-identical: yes
+marker: OPENRECOMP_MIPS32_LARGER_FIXTURE_V1=PASS tests=82
+
+Fixture identity
+----------------
+architecture: mips32-bounded-v1
+endianness: little
+entry: 0x1000; functions: main@0x1000, outer@0x1084, inner@0x10ac, bigger@0x10c0
+instructions: 57
+byte length: 228
+sha256: 1c233f56528cb3fe20a7b806ce40e8bef6fc66a8cf8c0fd15d8b7b49bce547eb
+source: synthetic/original (no commercial ROM/ELF bytes)
+
+Program semantics
+-----------------
+outer(x) = inner(x) + x = (3x+1) + x = 4x+1
+total = sum(4i+1, i=1..20) = 860
+best = max(4i+1) = 81
+observable = total + best = 941 (guest r6 and r10)
+loop iterations: 20; restored sp = 0x400; restored ra = 0
+
+Structural fingerprints (stable across repeated pipeline runs)
+--------------------------------------------------------------
+P2-02 CFG                  428351e6f2702c9843a1829e46aa75209d05f22ac9af19c5121cb9246563127d
+P2-03 function discovery   f8f14c28185f357938d2d6cf191c2d1c5fa2b2576e1ef1b113563b3982686570
+P2-04 call graph           a5f513d18158ea74d34aebde5117af284e16dead64d6ed2e8b81712bc46d00ac
+P2-05 translation units    54cad08cddac2b9cce69eb49736b127735c6e07b5287f41b88f40d5be2358f84
+P2-06 indirect control     31e2d41971c428688d23f23a626ad77e637824a8b1216c0bcffdba7e861b2b71
+P2-07 generated source     25d8d85ff88d2009443a6c67db40855df5e0876cb2b0aef8505d12d500204203
+
+Deterministic recompilation (two independent structural runs)
+-------------------------------------------------------------
+cfg identical: True; functions identical: True; call graph identical: True;
+units identical: True; classification identical: True;
+generated source byte-identical: True.
+
+Deterministic native build (P2-09, two independent runs)
+--------------------------------------------------------
+independent build count: 2 (isolated directories; source regenerated per run)
+runtime_support.c        5eeb0d37d34a1f20b2646519f7dac43e196d3bfe736fbf714f4c64fefeb3512a
+generated.obj            6a4bc561646f81ada045458b04fd0574dcbed7cf120fd532e291fe0f9c4a0ea1
+runtime_support.obj      6b22d290f6215ac75f3b6768721db420199507000376878b02e62b24832b725f
+program.exe              1e81bf8cd32b60cd5b3acae26c8f9dc23c0f801cf46b0c49ccb348ebc5eb2ab4
+build_manifest.json      ecd6bf94389f2a56341b82b93e729b561e421b6981e830893770da4cc80c9269
+
+source reproducible:     IDENTICAL
+manifest reproducible:   IDENTICAL
+object reproducible:     IDENTICAL
+executable reproducible: IDENTICAL
+classification:          EXECUTABLE_REPRODUCIBLE
+binary post-processing:  none
+compiler:                clang-cl.exe 22.1.8 (x86_64-pc-windows-msvc)
+linker:                  lld-link.exe (LLD 22.1.8)
+compile flags:           /c /Brepro /Od /std:c11 /nologo
+link flags:              /Brepro /nologo
+
+Deterministic replay (native)
+-----------------------------
+executable sha256: 1e81bf8cd32b60cd5b3acae26c8f9dc23c0f801cf46b0c49ccb348ebc5eb2ab4
+replays: 3
+stdout sha256 per replay: 5a44a08c3bc1fd16044fa4309ed128f277586184f6661b6757b68e69a1517baa (all three)
+byte-identical: yes
+returncode: 0
+
+expected observable:
+failed=0
+error=
+reg[0]=0
+reg[1]=941
+reg[2]=81
+reg[3]=1024
+reg[4]=860
+reg[5]=0
+reg[6]=860
+reg[7]=81
+reg[8]=941
+reg[9]=0
+reg[10]=20
+
+actual observable: identical to expected
+EXPECTED == ACTUAL: YES
+(Note: bounded synthetic build/execution result, not guest/host equivalence.)
+
+Cross-stage test adjustment
+---------------------------
+tools/test_runtime_host_boundary_v1.py: the obsolete guard
+"no-p2-14-evidence-directory" was replaced by
+"no-guest-memory-access-in-p2-13" (test count unchanged at 80). The P2-13
+gate stdout hash therefore changed:
+  old: 8617ed85d188b99b4d954dcfdd6216c170cbc3ffa9b3ea004244be05dd7feee0
+  new: cf94b655d95dba72840823a9212b0d022d577bf7c73f9fe58fc8e864e464597f
+P2-13 semantics, observable and committed evidence are otherwise unchanged.
+
+Path / identity leakage
+-----------------------
+The build manifest and generated source contain no repository path, temporary
+build root, evidence directory, username, hostname, process id, random UUID or
+Python object identity. Gate stdout contains no temporary machine-specific
+paths. (Bounded check, not a universal formal proof.)

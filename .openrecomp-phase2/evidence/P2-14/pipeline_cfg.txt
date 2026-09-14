@@ -1,0 +1,26 @@
+P2-02 CFG evidence
+==================
+mode: CLOSED
+fingerprint: 428351e6f2702c9843a1829e46aa75209d05f22ac9af19c5121cb9246563127d
+block_count: 18
+blocks: 0x1000, 0x1020, 0x1028, 0x1038, 0x1054, 0x1060, 0x1064, 0x1080, 0x1084, 0x1094, 0x10a8, 0x10ac, 0x10bc, 0x10c0, 0x10c8, 0x10d4, 0x10d8, 0x10e0
+edges:
+  blk_1000: FALLTHROUGH -> blk_1020
+  blk_1020: BRANCH_NOT_TAKEN -> blk_1028
+  blk_1020: BRANCH_TAKEN -> blk_1064
+  blk_1028: CALL_RETURN -> blk_1038
+  blk_1038: CALL_RETURN -> blk_1054
+  blk_1054: JUMP -> blk_1020
+  blk_1060: FALLTHROUGH -> blk_1064
+  blk_1064: INDIRECT -> unresolved indirect jump target
+  blk_1080: FALLTHROUGH -> blk_1084
+  blk_1084: CALL_RETURN -> blk_1094
+  blk_1094: INDIRECT -> unresolved indirect jump target
+  blk_10a8: FALLTHROUGH -> blk_10ac
+  blk_10ac: INDIRECT -> unresolved indirect jump target
+  blk_10bc: FALLTHROUGH -> blk_10c0
+  blk_10c0: BRANCH_NOT_TAKEN -> blk_10c8
+  blk_10c0: BRANCH_TAKEN -> blk_10d8
+  blk_10c8: INDIRECT -> unresolved indirect jump target
+  blk_10d4: FALLTHROUGH -> blk_10d8
+  blk_10d8: INDIRECT -> unresolved indirect jump target

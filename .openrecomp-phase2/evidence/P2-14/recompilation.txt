@@ -1,0 +1,10 @@
+P2-14 deterministic recompilation
+=================================
+two independent structural pipeline runs (decode -> CFG -> discovery -> call graph -> units -> classification -> emission)
+cfg fingerprint identical: True (428351e6f2702c9843a1829e46aa75209d05f22ac9af19c5121cb9246563127d)
+functions fingerprint identical: True (f8f14c28185f357938d2d6cf191c2d1c5fa2b2576e1ef1b113563b3982686570)
+call graph fingerprint identical: True (a5f513d18158ea74d34aebde5117af284e16dead64d6ed2e8b81712bc46d00ac)
+units fingerprint identical: True (54cad08cddac2b9cce69eb49736b127735c6e07b5287f41b88f40d5be2358f84)
+classification fingerprint identical: True (31e2d41971c428688d23f23a626ad77e637824a8b1216c0bcffdba7e861b2b71)
+generated source byte-identical: True
+generated source sha256: 25d8d85ff88d2009443a6c67db40855df5e0876cb2b0aef8505d12d500204203
