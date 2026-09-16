@@ -1,0 +1,36 @@
+Regression run: tools/test_nes_end_to_end_v1.py
+returncode: 0
+marker: OPENRECOMP_NES_END_TO_END_V1=PASS tests=28
+stdout:
+PASS: fixture-assembler-deterministic
+PASS: fixture-sha256
+PASS: fixture-prg-bank-size
+PASS: fixture-synthetic-origin
+PASS: decode-instructions-present
+PASS: decode-proven-evidence
+PASS: decode-svc-frame
+PASS: decode-svc-audio
+PASS: classification-service-frame
+PASS: classification-service-audio
+PASS: reference-halted
+PASS: reference-frame-count
+PASS: reference-audio-count
+PASS: reference-frame-payload
+PASS: reference-audio-payload
+PASS: build-status-ok
+PASS: build-classification
+PASS: build-source-reproducible
+PASS: build-manifest-reproducible
+PASS: build-object-reproducible
+PASS: build-executable-reproducible
+PASS: build-run-count
+PASS: native-executable-present
+PASS: native-executable-hash-matches-manifest
+PASS: native-returncode-zero
+PASS: native-output-stable
+PASS: expected-equals-actual
+PASS reject: unsupported-mapper
+OPENRECOMP_NES_END_TO_END_V1=PASS tests=28
+
+stderr:
+

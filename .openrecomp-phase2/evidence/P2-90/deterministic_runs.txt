@@ -1,0 +1,14 @@
+P2-90 deterministic audit runs
+==============================
+
+command: python tools/test_phase2_whole_regression_v1.py
+run 1 stdout sha256: 74e9eadaf0e17ca4a97790e4239f40883cc745cd9817c172f7fa6e2663ce1ee7
+run 2 stdout sha256: 74e9eadaf0e17ca4a97790e4239f40883cc745cd9817c172f7fa6e2663ce1ee7
+stdout byte-identical: yes
+run 1 stderr sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+run 2 stderr sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+stderr byte-identical: yes
+
+run 1 marker: OPENRECOMP_P2_90=PASS
+run 1 marker: OPENRECOMP_PHASE2_WHOLE_REGRESSION_V1=PASS tests=361 gates=22 gate_tests=1990
+run 1 marker: OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=NOT_PROVEN

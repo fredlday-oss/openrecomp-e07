@@ -1,0 +1,44 @@
+P2-40 determinism record
+========================
+
+Gate stdout determinism
+-----------------------
+run1.txt sha256: 405c90d1c867495b3ac568a62b0d7c7e9234ca5ef469cdc2510d307b8d148228
+run2.txt sha256: 405c90d1c867495b3ac568a62b0d7c7e9234ca5ef469cdc2510d307b8d148228
+byte-identical: YES (two consecutive full gate runs, identical inputs)
+runs include: 20 regression gates, Phase-1 host gates, source integrity
+elapsed: run1 1398s, run2 1396s (host wall time only; not an observable)
+
+In-gate determinism checks (all PASS)
+-------------------------------------
+emitter-deterministic            two emissions byte-identical
+pipeline-deterministic           CFG and translation-unit fingerprints stable
+reference-*                      Python reference reproducible
+state-snapshot-deterministic     identical state -> identical fingerprint
+state-random-seeded-deterministic same seed -> same sequence; different seed differs
+build-manifest-deterministic     two independent build manifests byte-identical
+build-manifest-no-path-leak      no absolute/temporary path in the manifest
+build-manifest-no-identity       no username/hostname in the manifest
+native-output-stable             two native executions byte-identical
+build-classification             EXECUTABLE_REPRODUCIBLE
+build-executable-reproducible    independent /Brepro builds byte-identical
+unsupported-service-*            deterministic fail-closed output
+
+Recorded artifacts
+------------------
+fixture (synthetic MIPS32):
+  9323f24533ec6c31cf954c8315fd674ac8efc8c803e960eb9b1a902891cfe237 (44 bytes)
+generated_source.c:
+  c0a76e0f19217aeed017fca9f2abc82ef644563c1374d046987452800679246a
+executable program.exe:
+  96676becf33f2251fcbc0b097ad8fa7ea2c100f4754617a4a5dcbdac1ecaf5b2
+native observable (stable):
+  failed=0 error= register_count=5 reg[0]=0 reg[1]=66048 reg[2]=66064
+  reg[3]=141 reg[4]=148 mem_words=66048,66064 frame_count=1
+  frame[0]=2x2 format=RGBA8 checksum=16987283610251169330 audio_count=1
+  audio[0]=8000Hz channels=1 frames=4 format=U8 checksum=1557537621830222089
+  input_poll=141 memory_checksum=10954747769631612134
+expected == actual: YES
+
+No wall-clock, random, pid, address, filesystem, locale, environment, username
+or hostname input influences the record.

@@ -1,0 +1,29 @@
+P2-50 clean-build definition and procedure
+==========================================
+A clean build for one representative target consists of:
+  1. two independent build roots (A and B) created as fresh empty temporary
+     directories that never contain prior artifacts;
+  2. each root performs two isolated P2-09 runs in distinct run1/run2
+     subdirectories; the generated host source is regenerated from the
+     committed Python pipeline for every run and artifacts are never copied;
+  3. the compiler/linker are invoked per run with the explicit P2-09 argument
+     lists including /Brepro; no binary post-processing, no manual timestamp
+     edit, no artifact normalization;
+  4. the two roots are byte-compared on generated source, runtime support
+     source, compile/link command lines, build manifests, objects and
+     executables, and each root's artifacts are packaged independently
+     with the P2-50 release-package assembler and compared again.
+  5. the resulting executables are executed repeatedly and the declared
+     runtime observations must be byte-identical and equal the independent
+     reference observable.
+
+Committed-input interpretation: the package provenance records a canonical
+source-state list (repo-relative file plus SHA-256) for every pipeline
+module and fixture gate that determines the artifact, and the source state
+is re-verified against the working tree at package time. The tracked
+pipeline tools/adapters are additionally covered by SOURCE_SHA256SUMS.txt,
+which is verified by the source-integrity gate in this run. No fresh git
+checkout is created because the Phase-2 control policy forbids parallel
+worktrees; the frozen stage working tree is the source of truth.
+
+representatives: generic-runtime-pipeline, mips32-larger, nes-nrom-end-to-end

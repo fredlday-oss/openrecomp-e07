@@ -1,0 +1,56 @@
+P2-91 changed-files list
+========================
+
+P2-91-owned modifications (working tree, no commit created):
+  M SOURCE_SHA256SUMS.txt
+  M .openrecomp-phase2/STATE.md
+  M .openrecomp-phase2/HANDOFF.md
+  M .openrecomp-phase2/STAGE_QUEUE.md
+
+P2-91-owned new files:
+  A tools/test_phase2_evidence_closure_v1.py
+
+P2-91-owned new evidence artifacts:
+  A .openrecomp-phase2/evidence/P2-91/gate_determinism.txt
+  A .openrecomp-phase2/evidence/P2-91/host_path_audit.md
+  A .openrecomp-phase2/evidence/P2-91/host_path_occurrences.json
+  A .openrecomp-phase2/evidence/P2-91/legal_policy_audit.json
+  A .openrecomp-phase2/evidence/P2-91/p2_90_capture_preservation.json
+  A .openrecomp-phase2/evidence/P2-91/p2_90_capture_preservation.txt
+  A .openrecomp-phase2/evidence/P2-91/p2_90_rerun/frozen_phase1_host_gates_stdout.txt
+  A .openrecomp-phase2/evidence/P2-91/p2_90_rerun/frozen_source_integrity_stdout.txt
+  A .openrecomp-phase2/evidence/P2-91/p2_90_rerun/p2_90_tests.json
+  A .openrecomp-phase2/evidence/P2-91/p2_90_rerun/regression_matrix.json
+  A .openrecomp-phase2/evidence/P2-91/p2_90_rerun/regression_matrix.txt
+  A .openrecomp-phase2/evidence/P2-91/p2_90_rerun.json
+  A .openrecomp-phase2/evidence/P2-91/p2_90_rerun.txt
+  A .openrecomp-phase2/evidence/P2-91/p2_91_regression_run.err
+  A .openrecomp-phase2/evidence/P2-91/p2_91_regression_run.txt
+  A .openrecomp-phase2/evidence/P2-91/p2_91_regression_run_development_fail.err
+  A .openrecomp-phase2/evidence/P2-91/p2_91_regression_run_development_fail.txt
+  A .openrecomp-phase2/evidence/P2-91/p2_91_run1.err
+  A .openrecomp-phase2/evidence/P2-91/p2_91_run1.txt
+  A .openrecomp-phase2/evidence/P2-91/p2_91_run2.err
+  A .openrecomp-phase2/evidence/P2-91/p2_91_run2.txt
+  A .openrecomp-phase2/evidence/P2-91/p2_91_tests.json
+  A .openrecomp-phase2/evidence/P2-91/PHASE2_CLAIM_MATRIX.md
+  A .openrecomp-phase2/evidence/P2-91/PHASE2_EVIDENCE_INDEX.json
+  A .openrecomp-phase2/evidence/P2-91/PHASE2_EVIDENCE_INDEX.md
+  A .openrecomp-phase2/evidence/P2-91/PHASE2_LIMITATIONS.md
+  A .openrecomp-phase2/evidence/P2-91/portable_derivatives/P2-07_native_compile.portable.txt
+  A .openrecomp-phase2/evidence/P2-91/portable_derivatives/P2-08_determinism.portable.txt
+  A .openrecomp-phase2/evidence/P2-91/portable_derivatives/README.md
+  A .openrecomp-phase2/evidence/P2-91/RESULT.json
+  A .openrecomp-phase2/evidence/P2-91/RESULT.md
+  A .openrecomp-phase2/evidence/P2-91/source_integrity.txt
+
+Notes:
+- SOURCE_SHA256SUMS.txt delta is exactly additive: tools/test_phase2_evidence_closure_v1.py
+  (132 -> 133 entries); removing that line reproduces the P2-90 manifest sha256
+  1bf21db59bf11f4ff19d60bbe4e37afd8e4b8ca5f1391296d882c1149cc08fca.
+- No frozen prior-stage evidence file was modified by P2-91.
+- The working tree also contains pre-existing uncommitted changes from earlier
+  Phase-2 stages (P2-14..P2-90): those files are not P2-91 changes and are not
+  listed here.
+- Two P2-91 evidence artifacts are development captures retained for transparency:
+  p2_91_regression_run_development_fail.txt/.err.

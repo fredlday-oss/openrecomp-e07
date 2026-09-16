@@ -1,0 +1,13 @@
+P2-50 toolchain identity
+========================
+compiler identity: clang-cl.exe
+compiler version: clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
+compiler target: x86_64-pc-windows-msvc
+linker identity: lld-link.exe
+linker version: LLD 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
+linker target: x86_64-pc-windows-msvc
+reproducible flag: /Brepro passed directly to the compiler and linker
+compile arguments: /c /Brepro /Od /std:c11 /nologo
+link arguments: /Brepro /nologo
+binary post-processing: none
+archive metadata: fixed by the P2-50 canonical archive writer

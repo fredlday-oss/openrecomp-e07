@@ -1,0 +1,90 @@
+Regression run: tools/test_mips32_larger_fixture_v1.py
+returncode: 0
+marker: OPENRECOMP_MIPS32_LARGER_FIXTURE_V1=PASS tests=82
+stdout:
+PASS: fixture-assembler-deterministic
+PASS: fixture-byte-length
+PASS: fixture-sha256
+PASS: fixture-instruction-count
+PASS: fixture-four-functions
+PASS: fixture-synthetic-origin
+PASS: decode-addresses
+PASS: decode-call-count
+PASS: decode-memory-count
+PASS: decode-jr-count
+PASS: decode-loop-branch
+PASS: decode-back-jump
+PASS: decode-call-targets
+PASS: decode-size-bytes
+PASS: cfg-block-count
+PASS: cfg-loop-conditional-taken
+PASS: cfg-loop-conditional-not-taken
+PASS: cfg-back-jump
+PASS: cfg-call-continuations
+PASS: cfg-deterministic
+PASS: functions-four
+PASS: functions-count
+PASS: functions-unowned-delay-slots
+PASS: functions-deterministic
+PASS: callgraph-nodes
+PASS: callgraph-edges
+PASS: callgraph-all-internal
+PASS: callgraph-deterministic
+PASS: units-four
+PASS: units-call-edges
+PASS: units-deterministic
+PASS: indirect-site-count
+PASS: indirect-all-return-like
+PASS: indirect-no-guessed-targets
+PASS: indirect-no-evidence-unresolved
+PASS: emission-prototypes
+PASS: emission-calls
+PASS: emission-loop-backedge
+PASS: emission-memory
+PASS: emission-memory-fail-closed
+PASS: emission-deterministic
+PASS: emission-no-hardcoded-observable
+PASS: emission-no-pointer-cast
+PASS: derivation-total
+PASS: derivation-best
+PASS: derivation-observable
+PASS: derivation-iteration
+PASS: derivation-restored-sp
+PASS: derivation-restored-ra
+PASS: derivation-formula
+PASS: reference-step-count
+PASS: recompilation-cfg-identical
+PASS: recompilation-functions-identical
+PASS: recompilation-callgraph-identical
+PASS: recompilation-units-identical
+PASS: recompilation-classification-identical
+PASS: recompilation-source-identical
+PASS: build-status-ok
+PASS: build-classification
+PASS: build-source-reproducible
+PASS: build-manifest-reproducible
+PASS: build-object-reproducible
+PASS: build-executable-reproducible
+PASS: build-brepro
+PASS: build-manifest-deterministic
+PASS: build-manifest-no-path-leak
+PASS: build-manifest-no-identity
+PASS: native-executable-hash-matches-manifest
+PASS: replay-returncode-zero
+PASS: replay-byte-identical
+PASS: expected-equals-actual
+PASS: replay-stdout-hash-stable
+PASS reject: missing-semantics-rule
+PASS reject: memory-without-runtime-abi
+PASS reject: external-call-fails-closed
+PASS reject: unsupported-opcode
+PASS reject: misaligned-entry
+PASS reject: empty-region
+PASS: no-next-stage-symbol:p2_20
+PASS: no-next-stage-symbol:nes6502
+PASS: no-next-stage-symbol:program_bridge
+PASS: no-nes6502-dependency-in-p2-14
+OPENRECOMP_MIPS32_LARGER_FIXTURE_V1=PASS tests=82
+
+stderr:
+

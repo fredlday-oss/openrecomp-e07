@@ -1,0 +1,927 @@
+{
+  "changed_files": [
+    "685337fe2c1778dc96dae01d41f7baae617804c8f0300f67a0de4963196057b4  openrecomp/release_package.py",
+    "2b9b09386c6f530f41b4cfe3b8d9dec868ae858603e5b0bc54ae8f5c37691085  tools/test_build_package_reproducibility_v1.py",
+    "23cbed889b6eb64c89518f6dd48ab4837f97a5925d49cd079a0136684e5a2aa5  SOURCE_SHA256SUMS.txt"
+  ],
+  "checks": [
+    {
+      "check": "binary-byte-identity:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "binary-byte-identity:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "binary-byte-identity:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-byte-identical:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-byte-identical:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "build-manifest-byte-identical:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "build-status-ok:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "build-status-ok:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "build-status-ok:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "classification-executable-reproducible:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "classification-executable-reproducible:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "classification-executable-reproducible:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "compile-commands-identical:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "compile-commands-identical:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "compile-commands-identical:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "debug-directory-identical:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "debug-directory-identical:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "debug-directory-identical:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "executable-byte-identical:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "executable-byte-identical:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "executable-byte-identical:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "executable-no-host-needles:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "executable-no-host-needles:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "executable-no-host-needles:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "executable-reproducible:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "executable-reproducible:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "executable-reproducible:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "executable-timestamps-identical:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "executable-timestamps-identical:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "executable-timestamps-identical:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "expected-observable-nonempty:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "expected-observable-nonempty:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "expected-observable-nonempty:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "gate-recorded-in-source-integrity-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "generated-source-byte-identical:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "generated-source-byte-identical:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "generated-source-byte-identical:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "generated-source-hash-canonical:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "generated-source-hash-canonical:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "generated-source-hash-canonical:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "link-command-identical:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "link-command-identical:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "link-command-identical:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest-no-host-leak:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest-no-host-leak:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest-no-host-leak:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest-reproducible:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest-reproducible:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest-reproducible:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "object-byte-identical:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "object-byte-identical:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "object-byte-identical:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "object-no-host-needles:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "object-no-host-needles:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "object-no-host-needles:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "object-reproducible:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "object-reproducible:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "object-reproducible:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "object-timestamps-identical:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "object-timestamps-identical:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "object-timestamps-identical:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "package-archive-canonical:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "package-archive-canonical:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "package-archive-canonical:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "package-archive-entry-order",
+      "status": "PASS"
+    },
+    {
+      "check": "package-archive-metadata-fixed",
+      "status": "PASS"
+    },
+    {
+      "check": "package-assembly-deterministic:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "package-assembly-deterministic:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "package-assembly-deterministic:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "package-checksums-deterministic:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "package-checksums-deterministic:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "package-checksums-deterministic:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "package-content-policy-clean",
+      "status": "PASS"
+    },
+    {
+      "check": "package-entries-match-builds:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "package-entries-match-builds:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "package-entries-match-builds:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "package-entry-order-independent",
+      "status": "PASS"
+    },
+    {
+      "check": "package-expected-entry-map",
+      "status": "PASS"
+    },
+    {
+      "check": "package-manifest-canonical",
+      "status": "PASS"
+    },
+    {
+      "check": "package-manifest-deterministic:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "package-manifest-deterministic:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "package-manifest-deterministic:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "package-policy-clean:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "package-policy-clean:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "package-policy-clean:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "package-provenance-linked:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "package-provenance-linked:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "package-provenance-linked:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "package-source-state-verifies:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "package-source-state-verifies:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "package-source-state-verifies:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "package-verification-report",
+      "status": "PASS"
+    },
+    {
+      "check": "package-verified:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "package-verified:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "package-verified:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "phase1-host-gates",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline-source-files-present",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline-source-state-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline-source-state-verifies",
+      "status": "PASS"
+    },
+    {
+      "check": "recompilation-fingerprint-identical:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "recompilation-fingerprint-identical:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "recompilation-fingerprint-identical:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "recompilation-source-identical:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "recompilation-source-identical:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "recompilation-source-identical:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "regression-suite",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-abi-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-absolute-name",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-absolute-path-content",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-access-key-content",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-archive-duplicate-name",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-archive-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-archive-foreign-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-archive-unsafe-name",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-build-intermediate-extension",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-credential-content",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-duplicate-name",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-executable-without-category",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-extra-archive-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-fixture-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-forbidden-extension",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-hidden-name",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-ines-magic",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-manifest-forbidden-key",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-manifest-missing-key",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-manifest-noncanonical-archive-metadata",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-manifest-noncanonical-serialization",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-manifest-unknown-key",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-manifest-wrong-schema",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-noncanonical-archive",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-policy-rejected-at-assembly",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-private-key-content",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-provenance-executable-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-provenance-manifest-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-removed-archive-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-reordered-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-reserved-checksums-name",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-reserved-manifest-name",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-source-state-absolute",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-source-state-duplicate",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-source-state-missing",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-source-state-tamper",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-tampered-checksums",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-tampered-payload",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-temp-path-content",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:package-unsafe-name",
+      "status": "PASS"
+    },
+    {
+      "check": "release-module-architecture-neutral",
+      "status": "PASS"
+    },
+    {
+      "check": "release-module-no-platform-imports",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime-observations-identical:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime-observations-identical:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime-observations-identical:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime-observations-match-expected:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime-observations-match-expected:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime-observations-match-expected:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime-returncodes-zero:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime-returncodes-zero:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime-returncodes-zero:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime-support-byte-identical:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime-support-byte-identical:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime-support-byte-identical:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "source-integrity",
+      "status": "PASS"
+    },
+    {
+      "check": "source-reproducible:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "source-reproducible:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "source-reproducible:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "source-state-complete:generic-runtime-pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "source-state-complete:mips32-larger",
+      "status": "PASS"
+    },
+    {
+      "check": "source-state-complete:nes-nrom-end-to-end",
+      "status": "PASS"
+    },
+    {
+      "check": "source-state-exists:openrecomp/build_pipeline.py",
+      "status": "PASS"
+    },
+    {
+      "check": "source-state-exists:openrecomp/release_package.py",
+      "status": "PASS"
+    },
+    {
+      "check": "source-state-exists:openrecomp/runtime_abi.py",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain-available",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain-brepro-compile",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain-brepro-link",
+      "status": "PASS"
+    }
+  ],
+  "evidence_hashes": {
+    "build_manifest_comparison.txt": "b032a457db7a739b0c8eb339128c3446cd9b7a5ceff583e28fce78de91d1b19b",
+    "build_manifest_generic-runtime-pipeline.json": "d74334eccb52588a3ca21180ac3fabeb7f272341e8260dd174c594e4679988f9",
+    "build_manifest_mips32-larger.json": "75fcea1514e34bc7b25e26ff830b845394fe0c22c8d5b3223cb7653b3662d99a",
+    "build_manifest_nes-nrom-end-to-end.json": "5bbc194413674cfc13d07a00ea71a94dc042ed84c7a9801ef3550188833de287",
+    "changed_files.txt": "82fb920b5e7b2618c91a32692c534f3d4d6d413900d2feed1693cfa175786456",
+    "clean_build_description.txt": "a02f0ef1e5318751d306ff783c5c2721f4d57c3d31307e679acf35e8e52bff56",
+    "compiler_command_lines.txt": "26fac61bccfc25fff180948004e71bbcfb4935c34e2bd8824fd7fb40b0c7f318",
+    "executable_hashes.txt": "50c3e8b133df26b35e3bbb44f0d964da15358b4647ed60cf140379fd2ee0a0ab",
+    "generated_source_hashes.txt": "3cc9cc7412c7402bef6e09e79c0be9e7667150b9fc2f82a21729b06af4954499",
+    "input_hashes.txt": "bbdaa4d9462bd6b0477202aa287954acc0bcd08abbf9aff44ff47ef2ca6510b7",
+    "nondeterminism_analysis.txt": "c81ad2e05be5d8c06adfc4a76ec92d6836145ce5d93849ae33a4439067d03e7d",
+    "object_hashes.txt": "080f6702cda8dd64bdd40879ce7afe2095a5c141497c54cfa39fb201fc5d7259",
+    "package_contents.txt": "16a15721c9114c3755bd74b0e3ed9ce318db918bfd98893fee769ab2e9e2525b",
+    "package_generic-runtime-pipeline.zip": "fa72b5d169ad0f8f97c03578e18d1d0e4b810b9aa6281e154e947d9b2803888c",
+    "package_hashes.txt": "aba94fd2bc095cf51efc5dc2281b22b3636f433d49b3fc328e4c7c9cdd85b053",
+    "package_mips32-larger.zip": "1c1dac0ea9942a9a31d0780c187c52b7e6bc18d6708f6599a76dca350079ef17",
+    "package_nes-nrom-end-to-end.zip": "71847f9d7ffd126456cca96dea406884d4221b2c6fa86a2e4f15b6462d4c8745",
+    "recorded_artifact_hashes.json": "384cb82bf102d12b45e9cfa15483bfd31a087ae82238e17ec0e52b367736e7e6",
+    "regression_results.json": "0f12f2ddf4e8022e50c217e8bf1638a62d48b7000bc4544315a59c3442aa51cf",
+    "regression_tools_test_build_pipeline_v1.txt": "b57f803a0317e8549b6192bb9143c13ca059f1f665b4b48ebd52b3a4b9b2784f",
+    "regression_tools_test_call_graph_v1.txt": "9e3f6ace38aef8086dc80a697c3dd6e503574d893b53cd760bbb7f4d54ba75ef",
+    "regression_tools_test_cfg_v1.txt": "90301f3674a5b863210ed9d96cf5407a84217172636bb205143a9449c6629305",
+    "regression_tools_test_cross_architecture_neutrality_v1.txt": "8a6c311b2464070a2ea0320b2c49277307e94d3a9d55c8034cf69009bd5c5a95",
+    "regression_tools_test_functions_v1.txt": "36f08743b7fe7d6da4bf9a64f2435a1b0cf5cd5dad7b694e1b404343595e4a0e",
+    "regression_tools_test_generic_runtime_integration_v1.txt": "78555f99defe8d54e3301f531ea50f9421aa5950fa3d933006dd16d6a473951d",
+    "regression_tools_test_host_emitter_v1.txt": "406b5b649573479ccafd6a7526b67473d241e2f7c47af0b1e818c51bcb24f1b6",
+    "regression_tools_test_indirect_control_flow_v1.txt": "1b2bec00bd0af7ec8fd1666138c39b3be1006d1d04c06dd3a36ceb6fc5962f5f",
+    "regression_tools_test_mips32_calls_memory_v1.txt": "ab44db5f0ec95d4a786013380461e20429b2c9361dc9fb4b79b43f61c7023d77",
+    "regression_tools_test_mips32_direct_cfg_v1.txt": "d17184ef800fee9721be36623760cd21b3c017768214382b7de1aa6e78449152",
+    "regression_tools_test_mips32_end_to_end_v1.txt": "399e4df4778fe2199856f7151ce8a6df03e4ac4a43502b4b9c394b0210afde4d",
+    "regression_tools_test_mips32_larger_fixture_v1.txt": "f26b008dd16d190f336ded863c38ddc544addbda4b0e01af2b9d8358c4a8081e",
+    "regression_tools_test_nes6502_host_emitter_v1.txt": "ac322885d5be8d63e363aa8b416b2a6543a6310722815cb37dae71a4544766dc",
+    "regression_tools_test_nes6502_program_bridge_v1.txt": "3d916970b3f825c9ba837b37c2818d52f825dbd92a6f1f6500682a92344c5e91",
+    "regression_tools_test_nes_end_to_end_v1.txt": "2ccce0bfd877fd6a1e97d628b2ab0aed3b852956707a70058d83354314ebce76",
+    "regression_tools_test_nes_platform_v1.txt": "0fb9d5f8f5801e5c7a1617fc2e8e388dcd24d4b54f3ae7802b5c259eb5059572",
+    "regression_tools_test_nes_runtime_bridge_v1.txt": "3e70d6170a1d051349fc36d0e7fc82a50f5a00fa137ad018040ecffae8b2bd37",
+    "regression_tools_test_program_model_v1.txt": "ec3484a22f08d4b8dd12f564a7c9b34da1ef3aca6165d5147553e41d4b81dae0",
+    "regression_tools_test_runtime_abi_v1.txt": "92847d236aa2930a3ab5e6c47ec6185453e2538f4e6e379ea9dede5b47aa0dd5",
+    "regression_tools_test_runtime_host_boundary_v1.txt": "616e6926385fbc8032c75e85ba9cee05b7563cda1d29ab666cb1f243e4ea872f",
+    "regression_tools_test_translation_units_v1.txt": "aa5fb83b14019d48b985c41d22e10fd918b69568a312196f332dea94ff49ed3b",
+    "release_manifest_generic-runtime-pipeline.json": "e4e3fc6cf20bcd5fac2b2764049f58389753085a71afb255731c38372f116ed9",
+    "release_manifest_mips32-larger.json": "47d59ffa379cd3177540add1253382aebcc6c03eab4843c461944114c3b810b8",
+    "release_manifest_nes-nrom-end-to-end.json": "0d58f6f4fe3c29c097a3ff12fb71e714c72f71c25006f226b95ee3ac1732912c",
+    "reproducibility_comparison.txt": "114a46e2e01479eb868f0ea0c234dfd49a85353f337d2d7f1979f728e5b4c554",
+    "runtime_equivalence.txt": "144d1b27ecbbabeb4aacf2439b76ae2a37a4a45fd5f6d17226f0038effdded79",
+    "source_integrity.txt": "c12e03ca90accfc8a1160d645a34a36ca527f0aa013728bbb724c4c1a34aef51",
+    "source_state.txt": "e43b9a95196270cfac8fc9fa670b1ee5682c26f61db4365ca5eb2ea68da28b01",
+    "toolchain_identity.txt": "9c5be521c7389b1dcd85fa0744fe0d7c1775b95ac85d98faa0fe9f9f2c82da04"
+  },
+  "failed": 0,
+  "marker": "OPENRECOMP_BUILD_PACKAGE_REPRODUCIBILITY_V1=PASS tests=174",
+  "markers": [
+    "OPENRECOMP_P2_50=PASS",
+    "OPENRECOMP_BUILD_PACKAGE_REPRODUCIBILITY_V1=PASS tests=174"
+  ],
+  "passed": 174,
+  "python": "3.11.9",
+  "regression_failures": [],
+  "regressions": {
+    "tools/test_build_pipeline_v1.py": "OPENRECOMP_DETERMINISTIC_BUILD_V1=PASS tests=120",
+    "tools/test_call_graph_v1.py": "OPENRECOMP_CALL_GRAPH_V1=PASS tests=61",
+    "tools/test_cfg_v1.py": "OPENRECOMP_CFG_V1=PASS tests=82",
+    "tools/test_cross_architecture_neutrality_v1.py": "OPENRECOMP_CROSS_ARCHITECTURE_NEUTRALITY_V1=PASS tests=14",
+    "tools/test_functions_v1.py": "OPENRECOMP_FUNCTION_DISCOVERY_V1=PASS tests=67",
+    "tools/test_generic_runtime_integration_v1.py": "OPENRECOMP_GENERIC_RUNTIME_INTEGRATION_V1=PASS tests=181",
+    "tools/test_host_emitter_v1.py": "OPENRECOMP_HOST_EMITTER_V1=PASS tests=106",
+    "tools/test_indirect_control_flow_v1.py": "OPENRECOMP_INDIRECT_CONTROL_FLOW_V1=PASS tests=134",
+    "tools/test_mips32_calls_memory_v1.py": "OPENRECOMP_MIPS32_CALLS_MEMORY_V1=PASS tests=77",
+    "tools/test_mips32_direct_cfg_v1.py": "OPENRECOMP_MIPS32_DIRECT_CFG_V1=PASS tests=96",
+    "tools/test_mips32_end_to_end_v1.py": "OPENRECOMP_MIPS32_END_TO_END_V1=PASS tests=108",
+    "tools/test_mips32_larger_fixture_v1.py": "OPENRECOMP_MIPS32_LARGER_FIXTURE_V1=PASS tests=82",
+    "tools/test_nes6502_host_emitter_v1.py": "OPENRECOMP_NES6502_HOST_EMITTER_V1=PASS tests=74",
+    "tools/test_nes6502_program_bridge_v1.py": "OPENRECOMP_NES6502_PROGRAM_BRIDGE_V1=PASS tests=86",
+    "tools/test_nes_end_to_end_v1.py": "OPENRECOMP_NES_END_TO_END_V1=PASS tests=28",
+    "tools/test_nes_platform_v1.py": "OPENRECOMP_NES_PLATFORM_V1=PASS tests=10",
+    "tools/test_nes_runtime_bridge_v1.py": "OPENRECOMP_NES_RUNTIME_BRIDGE_V1=PASS tests=63",
+    "tools/test_program_model_v1.py": "OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49",
+    "tools/test_runtime_abi_v1.py": "OPENRECOMP_GENERIC_RUNTIME_ABI_V1=PASS tests=169",
+    "tools/test_runtime_host_boundary_v1.py": "OPENRECOMP_RUNTIME_HOST_BOUNDARY_V1=PASS tests=80",
+    "tools/test_translation_units_v1.py": "OPENRECOMP_TRANSLATION_UNITS_V1=PASS tests=104"
+  },
+  "representatives": [
+    {
+      "build_manifest_sha256": "d74334eccb52588a3ca21180ac3fabeb7f272341e8260dd174c594e4679988f9",
+      "classification": "EXECUTABLE_REPRODUCIBLE",
+      "executable_sha256": "96676becf33f2251fcbc0b097ad8fa7ea2c100f4754617a4a5dcbdac1ecaf5b2",
+      "fixture_id": "p2-50-generic-runtime-integration-v1",
+      "fixture_input_sha256": "9323f24533ec6c31cf954c8315fd674ac8efc8c803e960eb9b1a902891cfe237",
+      "fixture_kind": "synthetic-mips32-generic-runtime",
+      "generated_source_sha256": "c0a76e0f19217aeed017fca9f2abc82ef644563c1374d046987452800679246a",
+      "nondeterminism_classification": "BYTE_DETERMINISTIC_NO_NORMALIZATION",
+      "object_hashes": {
+        "generated.obj": "390819be9c29805d613550e7e71b8dd66da04928c36b32b08cb90a4a7fe8efd1",
+        "runtime_support.obj": "5eb1d76f5491690d0b98fc0116689b2cfbaaaf0706b77820058df59c1baf052f"
+      },
+      "observations_sha256": [
+        "25db9f5fd6de9759ea45c0f46a4682b0cad9c6b671e437e6c87784fd4462a2da",
+        "25db9f5fd6de9759ea45c0f46a4682b0cad9c6b671e437e6c87784fd4462a2da",
+        "25db9f5fd6de9759ea45c0f46a4682b0cad9c6b671e437e6c87784fd4462a2da",
+        "25db9f5fd6de9759ea45c0f46a4682b0cad9c6b671e437e6c87784fd4462a2da"
+      ],
+      "package_archive_sha256": "fa72b5d169ad0f8f97c03578e18d1d0e4b810b9aa6281e154e947d9b2803888c",
+      "package_byte_length": 164992,
+      "release_manifest_sha256": "e4e3fc6cf20bcd5fac2b2764049f58389753085a71afb255731c38372f116ed9",
+      "rep_id": "generic-runtime-pipeline",
+      "runtime_support_source_sha256": "0ae324883350749cb80266b17ac21d2cb94b3d9576e345fc12c799b17cbe073c"
+    },
+    {
+      "build_manifest_sha256": "75fcea1514e34bc7b25e26ff830b845394fe0c22c8d5b3223cb7653b3662d99a",
+      "classification": "EXECUTABLE_REPRODUCIBLE",
+      "executable_sha256": "1e81bf8cd32b60cd5b3acae26c8f9dc23c0f801cf46b0c49ccb348ebc5eb2ab4",
+      "fixture_id": "p2-50-mips32-larger-fixture-v1",
+      "fixture_input_sha256": "1c233f56528cb3fe20a7b806ce40e8bef6fc66a8cf8c0fd15d8b7b49bce547eb",
+      "fixture_kind": "synthetic-mips32-non-nes",
+      "generated_source_sha256": "25d8d85ff88d2009443a6c67db40855df5e0876cb2b0aef8505d12d500204203",
+      "nondeterminism_classification": "BYTE_DETERMINISTIC_NO_NORMALIZATION",
+      "object_hashes": {
+        "generated.obj": "6a4bc561646f81ada045458b04fd0574dcbed7cf120fd532e291fe0f9c4a0ea1",
+        "runtime_support.obj": "6b22d290f6215ac75f3b6768721db420199507000376878b02e62b24832b725f"
+      },
+      "observations_sha256": [
+        "5a44a08c3bc1fd16044fa4309ed128f277586184f6661b6757b68e69a1517baa",
+        "5a44a08c3bc1fd16044fa4309ed128f277586184f6661b6757b68e69a1517baa",
+        "5a44a08c3bc1fd16044fa4309ed128f277586184f6661b6757b68e69a1517baa",
+        "5a44a08c3bc1fd16044fa4309ed128f277586184f6661b6757b68e69a1517baa"
+      ],
+      "package_archive_sha256": "1c1dac0ea9942a9a31d0780c187c52b7e6bc18d6708f6599a76dca350079ef17",
+      "package_byte_length": 164571,
+      "release_manifest_sha256": "47d59ffa379cd3177540add1253382aebcc6c03eab4843c461944114c3b810b8",
+      "rep_id": "mips32-larger",
+      "runtime_support_source_sha256": "5eeb0d37d34a1f20b2646519f7dac43e196d3bfe736fbf714f4c64fefeb3512a"
+    },
+    {
+      "build_manifest_sha256": "5bbc194413674cfc13d07a00ea71a94dc042ed84c7a9801ef3550188833de287",
+      "classification": "EXECUTABLE_REPRODUCIBLE",
+      "executable_sha256": "5afd387d048299d53eb1cbc0534e9d01c373ccb9a370ca712bd01bef0b4c2207",
+      "fixture_id": "p2-50-nes-nrom-end-to-end-v1",
+      "fixture_input_sha256": "dfadcbe759121b0705f2a7db3295127b7adceb403a6254897caee85f8a1c44c2",
+      "fixture_kind": "synthetic-nes-nrom",
+      "generated_source_sha256": "9819b40e9909b4056211f6f452297b502b99bc4be4f96fe797cdcdfd6aaf2b78",
+      "nondeterminism_classification": "BYTE_DETERMINISTIC_NO_NORMALIZATION",
+      "object_hashes": {
+        "generated.obj": "3a1588dd3d921b54b12025b992db7457116242cfff95202d19bd13a5e8f3c28f",
+        "runtime_support.obj": "44ffd2855898d0e6647bce48b266cb54850820d375ee6bdf1970e106a0795b6c"
+      },
+      "observations_sha256": [
+        "a5b2e1c99a88b1227b4d84d6704e391d71b57053b017e0981bdf3e31bb304941",
+        "a5b2e1c99a88b1227b4d84d6704e391d71b57053b017e0981bdf3e31bb304941",
+        "a5b2e1c99a88b1227b4d84d6704e391d71b57053b017e0981bdf3e31bb304941",
+        "a5b2e1c99a88b1227b4d84d6704e391d71b57053b017e0981bdf3e31bb304941"
+      ],
+      "package_archive_sha256": "71847f9d7ffd126456cca96dea406884d4221b2c6fa86a2e4f15b6462d4c8745",
+      "package_byte_length": 186478,
+      "release_manifest_sha256": "0d58f6f4fe3c29c097a3ff12fb71e714c72f71c25006f226b95ee3ac1732912c",
+      "rep_id": "nes-nrom-end-to-end",
+      "runtime_support_source_sha256": "8108147b60b73fb8cf4af5ad2cc7bd5e00299f0c6422e3e301c928a1b7a0aaf0"
+    }
+  ],
+  "source_integrity_manifest_entries": 131,
+  "source_state": [
+    {
+      "file": "openrecomp/build_pipeline.py",
+      "sha256": "1e7181ac42fabb0642f845d8070b7699ea2825452e652144c402176ef15fdfc7"
+    },
+    {
+      "file": "openrecomp/call_graph.py",
+      "sha256": "0dda2c55022842604e55d8d902d2523d83b116dbf61fb34bb949d94b7d1ea734"
+    },
+    {
+      "file": "openrecomp/cfg.py",
+      "sha256": "27b5778428305a7948be50ee74ddc8f19ac1907c0a7b3ce980490d99ac6b5159"
+    },
+    {
+      "file": "openrecomp/functions.py",
+      "sha256": "c07a0c53ec13cecfb036cb4cf46a35ec7087c14f4e675d033730f02193a5055a"
+    },
+    {
+      "file": "openrecomp/host_emitter.py",
+      "sha256": "6ec5f87100cb42ea6ec538b6ba23a47155d218c6e973df0798d507a9bbfd89e0"
+    },
+    {
+      "file": "openrecomp/indirect_control_flow.py",
+      "sha256": "641f449a897dedf46ef3f98b5b5ccde49fa4c75eb039a1f0e7611e8946a52a21"
+    },
+    {
+      "file": "openrecomp/program_model.py",
+      "sha256": "a4ace1ae01cc7f86f6c863496a11be903f9e944ac27f91ea85d4846f981f172f"
+    },
+    {
+      "file": "openrecomp/release_package.py",
+      "sha256": "685337fe2c1778dc96dae01d41f7baae617804c8f0300f67a0de4963196057b4"
+    },
+    {
+      "file": "openrecomp/runtime_abi.py",
+      "sha256": "f0c6fa461ea71026859cdb09ccf8e29062dba805ef800632d4bd3e319d4eea49"
+    },
+    {
+      "file": "openrecomp/translation_units.py",
+      "sha256": "21b6021442fc2c48532dcd6c03b55ff70c8993a8b199ec5ada07fa5108b5346f"
+    },
+    {
+      "file": "tools/test_build_package_reproducibility_v1.py",
+      "sha256": "2b9b09386c6f530f41b4cfe3b8d9dec868ae858603e5b0bc54ae8f5c37691085"
+    }
+  ],
+  "source_state_fingerprint": "5d93971b102b24e56b2c98bf4c6b6486f58e6c174700af1c77cf969f85024c54",
+  "stage": "P2-50",
+  "status": "PASS",
+  "tests": 174,
+  "toolchain": {
+    "compiler": {
+      "identity": "clang-cl.exe",
+      "target": "x86_64-pc-windows-msvc",
+      "version": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"
+    },
+    "linker": {
+      "identity": "lld-link.exe",
+      "target": "x86_64-pc-windows-msvc",
+      "version": "LLD 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"
+    }
+  }
+}

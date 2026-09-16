@@ -1,0 +1,46 @@
+{
+  "build_classification": "EXECUTABLE_REPRODUCIBLE",
+  "evidence_hashes": {
+    "build_manifest.json": "2837af8a7c4f6977d48ed8966ea48af63d45c44ec344ababe78e84f479b48dce",
+    "fixture.txt": "fdd5571f5d328eab850a57e72eb45be240807f54be433cc8c3b6c2b48b8f3adb",
+    "generated_source.c": "7d42947f658f0e7dcb146f3c5f2dd19c742c94bb8cf3e6b2ae8feb789758fd74",
+    "p2_21_tests.json": "10ab23c5e6352315f60a08e1dc6f16472341663f9c1c1d9aadbca4f252fe75ca"
+  },
+  "executable_sha256": "dbba1e3a86274d2944a38de575faee48d04e7748e8a150c93a5adbb0325e35f8",
+  "fixture_byte_length": 26,
+  "fixture_id": "p2-21-nes6502-host-emitter-v1",
+  "fixture_sha256": "0a236023c59fd5363d0ebdd6ffb18d9b4e792ebeaa11a72ca513b183539fa398",
+  "gate_stdout_sha256": "e66406e043b9dab859f5cf56ea537f333be7b59619e8c7bbb06bad4fd45f57e4",
+  "generated_source_sha256": "7d42947f658f0e7dcb146f3c5f2dd19c742c94bb8cf3e6b2ae8feb789758fd74",
+  "marker": "OPENRECOMP_NES6502_HOST_EMITTER_V1=PASS tests=74",
+  "native_stdout_sha256": "99848de179b0b120e42eed2e4b68e6e14a2dfa950d1065ac615dd8a845d27f3c",
+  "reference": {
+    "a_matches": true,
+    "final_a": 15,
+    "final_pc": "0x0202",
+    "final_x": 1,
+    "trace_length": 21,
+    "x_matches": true
+  },
+  "regressions": {
+    "OPENRECOMP_CALL_GRAPH_V1": "PASS tests=61",
+    "OPENRECOMP_CFG_V1": "PASS tests=82",
+    "OPENRECOMP_DETERMINISTIC_BUILD_V1": "PASS tests=120",
+    "OPENRECOMP_FUNCTION_DISCOVERY_V1": "PASS tests=67",
+    "OPENRECOMP_GENERIC_RUNTIME_ABI_V1": "PASS tests=169",
+    "OPENRECOMP_HOST_EMITTER_V1": "PASS tests=106",
+    "OPENRECOMP_INDIRECT_CONTROL_FLOW_V1": "PASS tests=134",
+    "OPENRECOMP_MIPS32_CALLS_MEMORY_V1": "PASS tests=77",
+    "OPENRECOMP_MIPS32_DIRECT_CFG_V1": "PASS tests=96",
+    "OPENRECOMP_MIPS32_END_TO_END_V1": "PASS tests=108",
+    "OPENRECOMP_MIPS32_LARGER_FIXTURE_V1": "PASS tests=82",
+    "OPENRECOMP_NES6502_PROGRAM_BRIDGE_V1": "PASS tests=86",
+    "OPENRECOMP_PHASE1_HOST_GATES_V1": "PASS pass=44 fail=0 skipped=2",
+    "OPENRECOMP_PROGRAM_MODEL_V1": "PASS tests=49",
+    "OPENRECOMP_RUNTIME_HOST_BOUNDARY_V1": "PASS tests=80",
+    "OPENRECOMP_TRANSLATION_UNITS_V1": "PASS tests=104",
+    "source_integrity": "PASS verified 125 manifest entries"
+  },
+  "stage": "P2-21",
+  "verdict": "PASS"
+}

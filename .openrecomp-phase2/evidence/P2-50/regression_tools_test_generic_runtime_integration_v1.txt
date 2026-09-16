@@ -1,0 +1,236 @@
+Regression run: tools/test_generic_runtime_integration_v1.py
+returncode: 0
+marker: OPENRECOMP_GENERIC_RUNTIME_INTEGRATION_V1=PASS tests=181
+stdout:
+=== P2-40 Generic Runtime Integration Audit ===
+PASS: audited-runtime-module-count
+PASS: audited-runtime-modules-exist
+PASS: runtime-no-platform-imports
+PASS: runtime-no-platform-symbols
+PASS: runtime-no-platform-service-names
+PASS: runtime-no-platform-bus-addresses
+PASS: runtime-no-host-state-imports
+PASS: static-scanner-detects-planted-leak
+PASS: static-scanner-clean-source-passes
+PASS: runtime-abi-name
+PASS: runtime-abi-version
+PASS: runtime-widths-set
+PASS: runtime-endianness-set
+PASS: memory-16bit-space-round-trip
+PASS: memory-16bit-space-does-not-wrap
+PASS: memory-16bit-space-no-alias
+PASS: memory-no-nes-ram-mirror-read
+PASS: memory-no-nes-ram-mirror-write
+PASS: memory-no-nes-ram-mirror-alias
+PASS: memory-20bit-segment-no-truncation
+PASS: memory-20bit-segment-no-mirror
+PASS: memory-24bit-segment-no-truncation
+PASS: memory-24bit-segment-no-mirror
+PASS: memory-24bit-write-round-trip
+PASS: memory-64bit-address-overflow
+PASS: memory-unsupported-width
+PASS: memory-width-bool-rejected
+PASS: memory-out-of-range
+PASS: memory-unsupported-endianness
+PASS reject: memory-zero-size
+PASS: memory-segment-overlap
+PASS reject: memory-segment-out-of-range
+PASS: memory-big-endian-read
+PASS: memory-per-access-endianness
+PASS: memory-read-bytes-copy
+PASS: memory-write-value-masked
+PASS: memory-try-result-contract
+PASS: memory-read-bytes-negative
+PASS: input-generic-digital-analog
+PASS: input-contract-field-surface
+PASS: input-canonicalization
+PASS: input-round-trip
+PASS: input-digital-limit
+PASS: input-analog-limit
+PASS: input-analog-bits-invalid
+PASS: input-analog-overflow
+PASS: input-digital-non-bool
+PASS: input-deserialize-missing-key
+PASS: input-deserialize-malformed
+PASS: frame-non-nes-geometries-and-formats
+PASS: frame-payload-length
+PASS: frame-zero-dimension
+PASS reject: frame-dimension-bound
+PASS: frame-bad-pixel-format
+PASS: frame-contract-field-surface
+PASS: frame-document-generic
+PASS: frame-checksum-stable
+PASS: audio-all-sample-formats
+PASS: audio-payload-length
+PASS: audio-zero-rate
+PASS: audio-zero-channels
+PASS: audio-zero-frames
+PASS reject: audio-channel-bound
+PASS: audio-contract-field-surface
+PASS: services-extension-two-independent-tables
+PASS: services-numeric-id-canonical
+PASS: services-macro-sanitization
+PASS: services-dispatch-both-tables
+PASS: services-unknown-fails-closed
+PASS: services-arity-fails-closed
+PASS reject: services-unknown-raises
+PASS reject: services-duplicate-id
+PASS reject: services-handler-without-declaration
+PASS reject: services-declaration-without-handler
+PASS reject: services-invalid-identifier
+PASS reject: host-call-request-empty-service
+PASS reject: host-call-request-list-args
+PASS reject: host-call-request-negative-arg
+PASS: services-handler-exception-fails-closed
+PASS: services-handler-bad-return-fails-closed
+PASS: services-result-masked
+PASS: services-table-fingerprint-deterministic
+PASS: config-defaults
+PASS: config-no-fixed-guest-width-fields
+PASS reject: config-zero-memory
+PASS: config-endianness-invalid
+PASS: config-abi-mismatch
+PASS: abi-config-mismatch
+PASS: abi-version-parse
+PASS: abi-version-compatibility
+PASS reject: abi-version-parse-malformed
+PASS: state-steps-monotonic
+PASS: state-host-call-record
+PASS: state-unknown-host-call-latched-host-service
+PASS: state-frame-audio-recorded
+PASS: state-step-limit-trap
+PASS: state-trap-latches-failure
+PASS: state-failure-first-wins
+PASS: state-random-seeded-deterministic
+PASS: state-snapshot-deterministic
+PASS: state-fingerprint-changes-with-state
+PASS: state-serialize-versioned
+PASS: abi-c-declarations-generic
+PASS: abi-c-declarations-service-macros
+PASS: abi-c-declarations-deterministic
+PASS: classification-all-layers-declared
+PASS: classification-concept-count
+PASS: classification-platform-tokens-absent-from-generic-source
+PASS: extension-points-no-abi-changes
+PASS: emitter-host-call-frame
+PASS: emitter-host-call-audio
+PASS: emitter-host-call-input
+PASS: emitter-memory-boundary
+PASS: emitter-fail-closed-message
+PASS: emitter-boundary-declarations-only
+PASS: emitter-no-pointer-cast
+PASS: emitter-no-platform-tokens
+PASS: emitter-only-portable-standard-headers
+PASS: emitter-word-bits-explicit
+PASS: emitter-deterministic
+PASS reject: emitter-default-config-fails-closed
+PASS reject: emitter-undeclared-service-fails-closed
+PASS reject: emitter-host-call-without-evidence-fails-closed
+PASS reject: emitter-invalid-word-bits
+PASS reject: emitter-host-call-empty-service
+PASS: fixture-sha256
+PASS: fixture-instruction-count
+PASS: fixture-synthetic-origin
+PASS: pipeline-cfg-two-blocks
+PASS: pipeline-single-function
+PASS: pipeline-single-unit
+PASS: pipeline-classification-external
+PASS: pipeline-classification-no-targets
+PASS: pipeline-deterministic
+PASS: pipeline-no-evidence-fails-closed
+PASS: reference-memory-writes
+PASS: reference-frame-submitted
+PASS: reference-audio-submitted
+PASS: reference-input-poll
+PASS: reference-memory-image-matches
+PASS: reference-frame-descriptor
+PASS: reference-audio-descriptor
+PASS: build-status-ok
+PASS: build-classification-executable-reproducible
+PASS: build-source-reproducible
+PASS: build-manifest-reproducible
+PASS: build-object-reproducible
+PASS: build-executable-reproducible
+PASS: build-brepro
+PASS: build-manifest-deterministic
+PASS: build-manifest-no-path-leak
+PASS: build-manifest-no-identity
+PASS: native-executable-hash-matches-manifest
+PASS: native-returncode-zero
+PASS: native-output-stable
+PASS: expected-equals-actual
+PASS: native-frame-record
+PASS: native-audio-record
+PASS: native-input-poll-line
+PASS: native-register-values
+PASS: native-memory-checksum
+PASS: unsupported-service-fails-closed
+PASS: unsupported-service-error
+PASS: unsupported-service-no-audio
+PASS: unsupported-service-no-continuation
+PASS: unsupported-service-frame-still-submitted
+PASS: nes-adapter-services-declared
+PASS: nes-adapter-input-mapping
+PASS: nes-adapter-frame-submission
+PASS: nes-adapter-audio-submission
+PASS: nes-adapter-generic-state-records
+PASS: nes-adapter-arity-fails-closed
+PASS: nes-adapter-unsupported-format-fails-closed
+PASS reject: nes-adapter-unsupported-mapper
+PASS reject: nes-adapter-ppu-register-read
+PASS reject: nes-adapter-expansion-read
+PASS: nes-synthetic-share-generic-dispatch
+PASS: nes-service-names-adapter-local
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/test_program_model_v1.py
+PASS regression P2-01 program model
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/test_cfg_v1.py
+PASS regression P2-02 CFG
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/test_functions_v1.py
+PASS regression P2-03 function discovery
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/test_call_graph_v1.py
+PASS regression P2-04 call graph
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/test_translation_units_v1.py
+PASS regression P2-05 translation units
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/test_indirect_control_flow_v1.py
+PASS regression P2-06 indirect control flow
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/test_host_emitter_v1.py
+PASS regression P2-07 host emitter
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/test_runtime_abi_v1.py
+PASS regression P2-08 runtime ABI
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/test_build_pipeline_v1.py
+PASS regression P2-09 deterministic build
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/test_mips32_end_to_end_v1.py
+PASS regression P2-10 MIPS32 end-to-end
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/test_mips32_calls_memory_v1.py
+PASS regression P2-11 MIPS32 calls/memory
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/test_mips32_direct_cfg_v1.py
+PASS regression P2-12 MIPS32 direct CFG
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/test_runtime_host_boundary_v1.py
+PASS regression P2-13 runtime-host boundary
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/test_mips32_larger_fixture_v1.py
+PASS regression P2-14 larger MIPS32 fixture
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/test_nes6502_program_bridge_v1.py
+PASS regression P2-20 NES6502 program bridge
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/test_nes6502_host_emitter_v1.py
+PASS regression P2-21 NES6502 host emitter
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/test_nes_runtime_bridge_v1.py
+PASS regression P2-22 NES runtime bridge
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/test_nes_end_to_end_v1.py
+PASS regression P2-23 NES end-to-end
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/test_cross_architecture_neutrality_v1.py
+PASS regression P2-30 cross-architecture neutrality
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/test_nes_platform_v1.py
+PASS regression NES platform contract
+PASS: regression-suite
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/phase1_host_gates_v1.py --only source-integrity
+PASS: source-integrity
+RUN: C:\Users\fredd\AppData\Local\Programs\Python\Python311\python.exe tools/phase1_host_gates_v1.py --json .openrecomp-phase2\evidence\P2-40\host_gates.json
+PASS: phase1-host-gates
+EVIDENCE_FILES: build_manifest.json, build_run_1.txt, build_run_2.txt, expected_vs_actual.txt, fixture.txt, generated_source.c, generated_source_sha256.txt, native_execution.txt, nes_path_exercise.txt, pipeline_cfg.txt, pipeline_functions.txt, pipeline_indirect_control_flow.txt, pipeline_translation_units.txt, runtime_abi_contract.txt, static_isolation.json, unsupported_service.txt
+
+=== RESULT ===
+OPENRECOMP_P2_40=PASS
+OPENRECOMP_GENERIC_RUNTIME_INTEGRATION_V1=PASS tests=181
+
+stderr:
+

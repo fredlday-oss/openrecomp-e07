@@ -1,0 +1,17 @@
+P2-50 object reproducibility
+=============================
+representative: generic-runtime-pipeline
+  generated.obj: A1 390819be9c29805d613550e7e71b8dd66da04928c36b32b08cb90a4a7fe8efd1 B1 390819be9c29805d613550e7e71b8dd66da04928c36b32b08cb90a4a7fe8efd1 identical yes
+  runtime_support.obj: A1 5eb1d76f5491690d0b98fc0116689b2cfbaaaf0706b77820058df59c1baf052f B1 5eb1d76f5491690d0b98fc0116689b2cfbaaaf0706b77820058df59c1baf052f identical yes
+  byte-identical across roots: yes
+
+representative: mips32-larger
+  generated.obj: A1 6a4bc561646f81ada045458b04fd0574dcbed7cf120fd532e291fe0f9c4a0ea1 B1 6a4bc561646f81ada045458b04fd0574dcbed7cf120fd532e291fe0f9c4a0ea1 identical yes
+  runtime_support.obj: A1 6b22d290f6215ac75f3b6768721db420199507000376878b02e62b24832b725f B1 6b22d290f6215ac75f3b6768721db420199507000376878b02e62b24832b725f identical yes
+  byte-identical across roots: yes
+
+representative: nes-nrom-end-to-end
+  generated.obj: A1 3a1588dd3d921b54b12025b992db7457116242cfff95202d19bd13a5e8f3c28f B1 3a1588dd3d921b54b12025b992db7457116242cfff95202d19bd13a5e8f3c28f identical yes
+  runtime_support.obj: A1 44ffd2855898d0e6647bce48b266cb54850820d375ee6bdf1970e106a0795b6c B1 44ffd2855898d0e6647bce48b266cb54850820d375ee6bdf1970e106a0795b6c identical yes
+  byte-identical across roots: yes
+

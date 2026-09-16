@@ -1,0 +1,389 @@
+=== P2-90 Whole Phase-2 Regression and Evidence Audit ===
+PASS: control-plane:final-marker-not-claimed
+PASS: control-plane:current-stage-declared
+PASS: control-plane:last-passed-stage-declared
+PASS: control-plane:ledger-P2-00
+PASS: control-plane:queue-P2-00
+PASS: control-plane:ledger-P2-01
+PASS: control-plane:queue-P2-01
+PASS: control-plane:marker-P2-01-OPENRECOMP_PROGRAM_MODEL_V1
+PASS: control-plane:handoff-marker-P2-01-OPENRECOMP_PROGRAM_MODEL_V1
+PASS: control-plane:ledger-P2-02
+PASS: control-plane:queue-P2-02
+PASS: control-plane:marker-P2-02-OPENRECOMP_CFG_V1
+PASS: control-plane:handoff-marker-P2-02-OPENRECOMP_CFG_V1
+PASS: control-plane:ledger-P2-03
+PASS: control-plane:queue-P2-03
+PASS: control-plane:marker-P2-03-OPENRECOMP_FUNCTION_DISCOVERY_V1
+PASS: control-plane:handoff-marker-P2-03-OPENRECOMP_FUNCTION_DISCOVERY_V1
+PASS: control-plane:ledger-P2-04
+PASS: control-plane:queue-P2-04
+PASS: control-plane:marker-P2-04-OPENRECOMP_CALL_GRAPH_V1
+PASS: control-plane:handoff-marker-P2-04-OPENRECOMP_CALL_GRAPH_V1
+PASS: control-plane:ledger-P2-05
+PASS: control-plane:queue-P2-05
+PASS: control-plane:marker-P2-05-OPENRECOMP_TRANSLATION_UNITS_V1
+PASS: control-plane:handoff-marker-P2-05-OPENRECOMP_TRANSLATION_UNITS_V1
+PASS: control-plane:ledger-P2-06
+PASS: control-plane:queue-P2-06
+PASS: control-plane:marker-P2-06-OPENRECOMP_INDIRECT_CONTROL_FLOW_V1
+PASS: control-plane:handoff-marker-P2-06-OPENRECOMP_INDIRECT_CONTROL_FLOW_V1
+PASS: control-plane:ledger-P2-07
+PASS: control-plane:queue-P2-07
+PASS: control-plane:marker-P2-07-OPENRECOMP_HOST_EMITTER_V1
+PASS: control-plane:handoff-marker-P2-07-OPENRECOMP_HOST_EMITTER_V1
+PASS: control-plane:ledger-P2-08
+PASS: control-plane:queue-P2-08
+PASS: control-plane:marker-P2-08-OPENRECOMP_GENERIC_RUNTIME_ABI_V1
+PASS: control-plane:handoff-marker-P2-08-OPENRECOMP_GENERIC_RUNTIME_ABI_V1
+PASS: control-plane:ledger-P2-09
+PASS: control-plane:queue-P2-09
+PASS: control-plane:marker-P2-09-OPENRECOMP_DETERMINISTIC_BUILD_V1
+PASS: control-plane:handoff-marker-P2-09-OPENRECOMP_DETERMINISTIC_BUILD_V1
+PASS: control-plane:ledger-P2-10
+PASS: control-plane:queue-P2-10
+PASS: control-plane:marker-P2-10-OPENRECOMP_MIPS32_END_TO_END_V1
+PASS: control-plane:handoff-marker-P2-10-OPENRECOMP_MIPS32_END_TO_END_V1
+PASS: control-plane:ledger-P2-11
+PASS: control-plane:queue-P2-11
+PASS: control-plane:marker-P2-11-OPENRECOMP_MIPS32_CALLS_MEMORY_V1
+PASS: control-plane:handoff-marker-P2-11-OPENRECOMP_MIPS32_CALLS_MEMORY_V1
+PASS: control-plane:ledger-P2-12
+PASS: control-plane:queue-P2-12
+PASS: control-plane:marker-P2-12-OPENRECOMP_MIPS32_DIRECT_CFG_V1
+PASS: control-plane:handoff-marker-P2-12-OPENRECOMP_MIPS32_DIRECT_CFG_V1
+PASS: control-plane:ledger-P2-13
+PASS: control-plane:queue-P2-13
+PASS: control-plane:marker-P2-13-OPENRECOMP_RUNTIME_HOST_BOUNDARY_V1
+PASS: control-plane:handoff-marker-P2-13-OPENRECOMP_RUNTIME_HOST_BOUNDARY_V1
+PASS: control-plane:ledger-P2-14
+PASS: control-plane:queue-P2-14
+PASS: control-plane:marker-P2-14-OPENRECOMP_MIPS32_LARGER_FIXTURE_V1
+PASS: control-plane:handoff-marker-P2-14-OPENRECOMP_MIPS32_LARGER_FIXTURE_V1
+PASS: control-plane:ledger-P2-20
+PASS: control-plane:queue-P2-20
+PASS: control-plane:marker-P2-20-OPENRECOMP_NES6502_PROGRAM_BRIDGE_V1
+PASS: control-plane:handoff-marker-P2-20-OPENRECOMP_NES6502_PROGRAM_BRIDGE_V1
+PASS: control-plane:ledger-P2-21
+PASS: control-plane:queue-P2-21
+PASS: control-plane:marker-P2-21-OPENRECOMP_NES6502_HOST_EMITTER_V1
+PASS: control-plane:handoff-marker-P2-21-OPENRECOMP_NES6502_HOST_EMITTER_V1
+PASS: control-plane:ledger-P2-22
+PASS: control-plane:queue-P2-22
+PASS: control-plane:marker-P2-22-OPENRECOMP_NES_RUNTIME_BRIDGE_V1
+PASS: control-plane:handoff-marker-P2-22-OPENRECOMP_NES_RUNTIME_BRIDGE_V1
+PASS: control-plane:ledger-P2-23
+PASS: control-plane:queue-P2-23
+PASS: control-plane:marker-P2-23-OPENRECOMP_NES_END_TO_END_V1
+PASS: control-plane:handoff-marker-P2-23-OPENRECOMP_NES_END_TO_END_V1
+PASS: control-plane:ledger-P2-30
+PASS: control-plane:queue-P2-30
+PASS: control-plane:marker-P2-30-OPENRECOMP_CROSS_ARCHITECTURE_NEUTRALITY_V1
+PASS: control-plane:handoff-marker-P2-30-OPENRECOMP_CROSS_ARCHITECTURE_NEUTRALITY_V1
+PASS: control-plane:ledger-P2-40
+PASS: control-plane:queue-P2-40
+PASS: control-plane:marker-P2-40-OPENRECOMP_GENERIC_RUNTIME_INTEGRATION_V1
+PASS: control-plane:handoff-marker-P2-40-OPENRECOMP_GENERIC_RUNTIME_INTEGRATION_V1
+PASS: control-plane:ledger-P2-50
+PASS: control-plane:queue-P2-50
+PASS: control-plane:marker-P2-50-OPENRECOMP_BUILD_PACKAGE_REPRODUCIBILITY_V1
+PASS: control-plane:handoff-marker-P2-50-OPENRECOMP_BUILD_PACKAGE_REPRODUCIBILITY_V1
+PASS: control-plane:queue-p2-90
+PASS: control-plane:queue-p2-91
+PASS: control-plane:queue-p2-99
+PASS: control-plane:phase1-marker
+PASS: control-plane:no-superseded-p2-50-claims
+PASS: control-plane:p2-50-archive-generic-runtime-pipeline
+PASS: control-plane:p2-50-archive-mips32-larger
+PASS: control-plane:p2-50-archive-nes-nrom-end-to-end
+PASS: control-plane:p2-50-source-state-fingerprint
+PASS: control-plane:p2-14-guard-adjustment-documented
+PASS: evidence:result-md-P2-00
+PASS: evidence:verdict-P2-00
+PASS: evidence:result-md-P2-01
+PASS: evidence:verdict-P2-01
+PASS: evidence:marker-P2-01
+PASS: evidence:result-md-P2-02
+PASS: evidence:verdict-P2-02
+PASS: evidence:marker-P2-02
+PASS: evidence:result-md-P2-03
+PASS: evidence:verdict-P2-03
+PASS: evidence:marker-P2-03
+PASS: evidence:result-md-P2-04
+PASS: evidence:verdict-P2-04
+PASS: evidence:marker-P2-04
+PASS: evidence:result-md-P2-05
+PASS: evidence:verdict-P2-05
+PASS: evidence:marker-P2-05
+PASS: evidence:result-json-P2-05
+PASS: evidence:json-verdict-P2-05
+PASS: evidence:json-stage-P2-05
+PASS: evidence:result-md-P2-06
+PASS: evidence:verdict-P2-06
+PASS: evidence:marker-P2-06
+PASS: evidence:result-json-P2-06
+PASS: evidence:json-verdict-P2-06
+PASS: evidence:json-stage-P2-06
+PASS: evidence:result-md-P2-07
+PASS: evidence:verdict-P2-07
+PASS: evidence:marker-P2-07
+PASS: evidence:result-json-P2-07
+PASS: evidence:json-verdict-P2-07
+PASS: evidence:json-stage-P2-07
+PASS: evidence:result-md-P2-08
+PASS: evidence:verdict-P2-08
+PASS: evidence:marker-P2-08
+PASS: evidence:result-json-P2-08
+PASS: evidence:json-verdict-P2-08
+PASS: evidence:json-stage-P2-08
+PASS: evidence:result-md-P2-09
+PASS: evidence:verdict-P2-09
+PASS: evidence:marker-P2-09
+PASS: evidence:result-json-P2-09
+PASS: evidence:json-verdict-P2-09
+PASS: evidence:json-stage-P2-09
+PASS: evidence:result-md-P2-10
+PASS: evidence:verdict-P2-10
+PASS: evidence:marker-P2-10
+PASS: evidence:result-json-P2-10
+PASS: evidence:json-verdict-P2-10
+PASS: evidence:json-stage-P2-10
+PASS: evidence:result-md-P2-11
+PASS: evidence:verdict-P2-11
+PASS: evidence:marker-P2-11
+PASS: evidence:result-json-P2-11
+PASS: evidence:json-verdict-P2-11
+PASS: evidence:json-stage-P2-11
+PASS: evidence:result-md-P2-12
+PASS: evidence:verdict-P2-12
+PASS: evidence:marker-P2-12
+PASS: evidence:result-json-P2-12
+PASS: evidence:json-verdict-P2-12
+PASS: evidence:json-stage-P2-12
+PASS: evidence:result-md-P2-13
+PASS: evidence:verdict-P2-13
+PASS: evidence:marker-P2-13
+PASS: evidence:result-json-P2-13
+PASS: evidence:json-verdict-P2-13
+PASS: evidence:json-stage-P2-13
+PASS: evidence:result-md-P2-14
+PASS: evidence:verdict-P2-14
+PASS: evidence:marker-P2-14
+PASS: evidence:result-json-P2-14
+PASS: evidence:json-verdict-P2-14
+PASS: evidence:json-stage-P2-14
+PASS: evidence:result-md-P2-20
+PASS: evidence:verdict-P2-20
+PASS: evidence:marker-P2-20
+PASS: evidence:result-json-P2-20
+PASS: evidence:json-verdict-P2-20
+PASS: evidence:json-stage-P2-20
+PASS: evidence:result-md-P2-21
+PASS: evidence:verdict-P2-21
+PASS: evidence:marker-P2-21
+PASS: evidence:result-json-P2-21
+PASS: evidence:json-verdict-P2-21
+PASS: evidence:json-stage-P2-21
+PASS: evidence:result-md-P2-22
+PASS: evidence:verdict-P2-22
+PASS: evidence:marker-P2-22
+PASS: evidence:result-json-P2-22
+PASS: evidence:json-verdict-P2-22
+PASS: evidence:json-stage-P2-22
+PASS: evidence:result-md-P2-23
+PASS: evidence:verdict-P2-23
+PASS: evidence:marker-P2-23
+PASS: evidence:result-json-P2-23
+PASS: evidence:json-verdict-P2-23
+PASS: evidence:json-stage-P2-23
+PASS: evidence:result-md-P2-30
+PASS: evidence:verdict-P2-30
+PASS: evidence:marker-P2-30
+PASS: evidence:result-json-P2-30
+PASS: evidence:json-verdict-P2-30
+PASS: evidence:json-stage-P2-30
+PASS: evidence:result-md-P2-40
+PASS: evidence:verdict-P2-40
+PASS: evidence:marker-P2-40
+PASS: evidence:result-json-P2-40
+PASS: evidence:json-verdict-P2-40
+PASS: evidence:json-stage-P2-40
+PASS: evidence:result-md-P2-50
+PASS: evidence:verdict-P2-50
+PASS: evidence:marker-P2-50
+PASS: evidence:result-json-P2-50
+PASS: evidence:json-verdict-P2-50
+PASS: evidence:json-stage-P2-50
+PASS: identity:P2-10:fixture_sha256
+PASS: identity:P2-10:generated_source_sha256
+PASS: identity:P2-10:executable_sha256
+PASS: identity:P2-11:fixture_sha256
+PASS: identity:P2-11:generated_source_sha256
+PASS: identity:P2-11:executable_sha256
+PASS: identity:P2-12:fixture_sha256
+PASS: identity:P2-12:generated_source_sha256
+PASS: identity:P2-12:executable_sha256
+PASS: identity:P2-13:fixture_sha256
+PASS: identity:P2-13:generated_source_sha256
+PASS: identity:P2-13:executable_sha256
+PASS: identity:P2-14:fixture_sha256
+PASS: identity:P2-14:generated_source_sha256
+PASS: identity:P2-14:executable_sha256
+PASS: identity:P2-20:region_sha256
+PASS: identity:P2-21:fixture_sha256
+PASS: identity:P2-21:generated_source_sha256
+PASS: identity:P2-21:executable_sha256
+PASS: identity:P2-22:fixture_sha256
+PASS: identity:P2-23:fixture_sha256
+PASS: identity:P2-23:generated_source_sha256
+PASS: identity:P2-23:executable_sha256
+PASS: identity:P2-30:mips32_host_source_sha256
+PASS: identity:P2-40:generated_source_sha256
+PASS: identity:P2-40:executable_sha256
+PASS: identity:P2-40:fixture_input_sha256
+PASS: identity:P2-50:source_state_fingerprint
+PASS: identity:P2-50:generic-runtime-pipeline:executable_sha256
+PASS: identity:P2-50:generic-runtime-pipeline:package_archive_sha256
+PASS: identity:P2-50:mips32-larger:executable_sha256
+PASS: identity:P2-50:mips32-larger:package_archive_sha256
+PASS: identity:P2-50:nes-nrom-end-to-end:executable_sha256
+PASS: identity:P2-50:nes-nrom-end-to-end:package_archive_sha256
+PASS: evidence:refs-exist-P2-00
+PASS: evidence:refs-exist-P2-01
+PASS: evidence:refs-exist-P2-02
+PASS: evidence:refs-exist-P2-03
+PASS: evidence:refs-exist-P2-04
+PASS: evidence:refs-exist-P2-05
+PASS: evidence:refs-exist-P2-06
+PASS: evidence:refs-exist-P2-07
+PASS: evidence:refs-exist-P2-08
+PASS: evidence:refs-exist-P2-09
+PASS: evidence:refs-exist-P2-10
+PASS: evidence:refs-exist-P2-11
+PASS: evidence:refs-exist-P2-12
+PASS: evidence:refs-exist-P2-13
+PASS: evidence:refs-exist-P2-14
+PASS: evidence:refs-exist-P2-20
+PASS: evidence:refs-exist-P2-21
+PASS: evidence:refs-exist-P2-22
+PASS: evidence:refs-exist-P2-23
+PASS: evidence:refs-exist-P2-30
+PASS: evidence:refs-exist-P2-40
+PASS: evidence:refs-exist-P2-50
+PASS: claim:architecture-neutral shared analysis pipeline:classification-vocabulary
+PASS: claim:architecture-neutral shared analysis pipeline:basis-nonempty
+PASS: claim:architecture-neutral shared analysis pipeline:unique
+PASS: claim:NES/6502 frontend integration:classification-vocabulary
+PASS: claim:NES/6502 frontend integration:basis-nonempty
+PASS: claim:NES/6502 frontend integration:unique
+PASS: claim:NES runtime bridge:classification-vocabulary
+PASS: claim:NES runtime bridge:basis-nonempty
+PASS: claim:NES runtime bridge:unique
+PASS: claim:NES synthetic end-to-end native recompilation:classification-vocabulary
+PASS: claim:NES synthetic end-to-end native recompilation:basis-nonempty
+PASS: claim:NES synthetic end-to-end native recompilation:unique
+PASS: claim:observable equivalence:classification-vocabulary
+PASS: claim:observable equivalence:basis-nonempty
+PASS: claim:observable equivalence:unique
+PASS: claim:deterministic repeated execution:classification-vocabulary
+PASS: claim:deterministic repeated execution:basis-nonempty
+PASS: claim:deterministic repeated execution:unique
+PASS: claim:MIPS32 shared-path operation:classification-vocabulary
+PASS: claim:MIPS32 shared-path operation:basis-nonempty
+PASS: claim:MIPS32 shared-path operation:unique
+PASS: claim:generic runtime neutrality:classification-vocabulary
+PASS: claim:generic runtime neutrality:basis-nonempty
+PASS: claim:generic runtime neutrality:unique
+PASS: claim:reproducible native build:classification-vocabulary
+PASS: claim:reproducible native build:basis-nonempty
+PASS: claim:reproducible native build:unique
+PASS: claim:reproducible release package:classification-vocabulary
+PASS: claim:reproducible release package:basis-nonempty
+PASS: claim:reproducible release package:unique
+PASS: claim:arbitrary NES ROM compatibility:classification-vocabulary
+PASS: claim:arbitrary NES ROM compatibility:basis-nonempty
+PASS: claim:arbitrary NES ROM compatibility:unique
+PASS: claim:commercial-game compatibility:classification-vocabulary
+PASS: claim:commercial-game compatibility:basis-nonempty
+PASS: claim:commercial-game compatibility:unique
+PASS: claim:complete NES hardware compatibility:classification-vocabulary
+PASS: claim:complete NES hardware compatibility:basis-nonempty
+PASS: claim:complete NES hardware compatibility:unique
+PASS: claim:arbitrary MIPS32 binary compatibility:classification-vocabulary
+PASS: claim:arbitrary MIPS32 binary compatibility:basis-nonempty
+PASS: claim:arbitrary MIPS32 binary compatibility:unique
+PASS: claim:PS1/PS2/Xbox compatibility:classification-vocabulary
+PASS: claim:PS1/PS2/Xbox compatibility:basis-nonempty
+PASS: claim:PS1/PS2/Xbox compatibility:unique
+PASS: claim:cycle accuracy:classification-vocabulary
+PASS: claim:cycle accuracy:basis-nonempty
+PASS: claim:cycle accuracy:unique
+PASS: claim:future architecture compatibility:classification-vocabulary
+PASS: claim:future architecture compatibility:basis-nonempty
+PASS: claim:future architecture compatibility:unique
+PASS: claim:Phase-2 final end-to-end proof marker:classification-vocabulary
+PASS: claim:Phase-2 final end-to-end proof marker:basis-nonempty
+PASS: claim:Phase-2 final end-to-end proof marker:unique
+PASS: claim-required:architecture-neutral shared analysis pipeline
+PASS: claim-required:NES/6502 frontend integration
+PASS: claim-required:NES runtime bridge
+PASS: claim-required:NES synthetic end-to-end native recompilation
+PASS: claim-required:observable equivalence
+PASS: claim-required:deterministic repeated execution
+PASS: claim-required:MIPS32 shared-path operation
+PASS: claim-required:generic runtime neutrality
+PASS: claim-required:reproducible native build
+PASS: claim-required:reproducible release package
+PASS: claim-required:arbitrary NES ROM compatibility
+PASS: claim-required:commercial-game compatibility
+PASS: claim-required:complete NES hardware compatibility
+PASS: claim-required:arbitrary MIPS32 binary compatibility
+PASS: claim-required:PS1/PS2/Xbox compatibility
+PASS: claim-required:cycle accuracy
+PASS: claim-required:future architecture compatibility
+PASS gate P2-01: OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49 sha256=c2afcd2a9a04c03e
+PASS gate P2-02: OPENRECOMP_CFG_V1=PASS tests=82 sha256=bfe24768a47e13f2
+PASS gate P2-03: OPENRECOMP_FUNCTION_DISCOVERY_V1=PASS tests=67 sha256=5df8320de33e05ec
+PASS gate P2-04: OPENRECOMP_CALL_GRAPH_V1=PASS tests=61 sha256=99001a6c29f1c83c
+PASS gate P2-05: OPENRECOMP_TRANSLATION_UNITS_V1=PASS tests=104 sha256=2d5980f97bebc7a8
+PASS gate P2-06: OPENRECOMP_INDIRECT_CONTROL_FLOW_V1=PASS tests=134 sha256=b2f40c6a683768c0
+PASS gate P2-07: OPENRECOMP_HOST_EMITTER_V1=PASS tests=106 sha256=44c24de8a0f6f80e
+PASS gate P2-08: OPENRECOMP_GENERIC_RUNTIME_ABI_V1=PASS tests=169 sha256=bf0177edafc39080
+PASS gate P2-09: OPENRECOMP_DETERMINISTIC_BUILD_V1=PASS tests=120 sha256=25139e4da54ad7f6
+PASS: capture:P2-10:P2-10/p2_10_gate.txt
+PASS gate P2-10: OPENRECOMP_MIPS32_END_TO_END_V1=PASS tests=108 sha256=82378376b952c9c3
+PASS: capture:P2-11:P2-11/p2_11_gate.txt
+PASS gate P2-11: OPENRECOMP_MIPS32_CALLS_MEMORY_V1=PASS tests=77 sha256=d16107cd1740220f
+PASS: capture:P2-12:P2-12/p2_12_gate.txt
+PASS gate P2-12: OPENRECOMP_MIPS32_DIRECT_CFG_V1=PASS tests=96 sha256=915df670bf88aded
+PASS: capture:P2-13:P2-13/p2_13_gate.txt
+PASS gate P2-13: OPENRECOMP_RUNTIME_HOST_BOUNDARY_V1=PASS tests=80 sha256=ca82230b84a623f5
+PASS: capture:P2-14:P2-14/p2_14_gate.txt
+PASS gate P2-14: OPENRECOMP_MIPS32_LARGER_FIXTURE_V1=PASS tests=82 sha256=197a6c5e5c5578ee
+PASS: capture:P2-20:P2-20/p2_20_gate_evidence.txt
+PASS gate P2-20: OPENRECOMP_NES6502_PROGRAM_BRIDGE_V1=PASS tests=86 sha256=d8a58133d9e89d68
+PASS gate P2-21: OPENRECOMP_NES6502_HOST_EMITTER_V1=PASS tests=74 sha256=774155ab39376093
+PASS: capture:P2-22:P2-22/p2_22_run1.txt
+PASS gate P2-22: OPENRECOMP_NES_RUNTIME_BRIDGE_V1=PASS tests=66 sha256=1cfdff4347b9fe52
+PASS gate P2-23: OPENRECOMP_NES_END_TO_END_V1=PASS tests=50 sha256=5933b81701dc5471
+PASS: tests-json-identical:P2-30
+PASS gate P2-30: OPENRECOMP_CROSS_ARCHITECTURE_NEUTRALITY_V1=PASS tests=14 sha256=b8ad346bf5d67d1e
+PASS gate P2-40: OPENRECOMP_GENERIC_RUNTIME_INTEGRATION_V1=PASS tests=181 sha256=a91ad006d60e54fa
+PASS gate P2-50: OPENRECOMP_BUILD_PACKAGE_REPRODUCIBILITY_V1=PASS tests=174 sha256=b08d6b1d74d53305
+PASS gate NES-PLATFORM: OPENRECOMP_NES_PLATFORM_V1=PASS tests=10 sha256=d2275cd6fd678e98
+PASS: regression-matrix:no-failures
+PASS: phase1-host-gates:marker
+PASS: phase1-host-gates:counts
+PASS: source-integrity:pass
+PASS: source-integrity:count-matches-manifest
+PASS: source-integrity:audit-gate-registered
+PASS: legal:tracked-tree-clean
+PASS: legal:p2-90-artifacts-clean
+PASS: legal:frozen-evidence-findings-documented
+PASS: legal:release-packages-pass-content-policy
+PASS: legal:shared-source-no-host-paths
+
+=== RESULT ===
+OPENRECOMP_P2_90=PASS
+OPENRECOMP_PHASE2_WHOLE_REGRESSION_V1=PASS tests=361 gates=22 gate_tests=1990
+OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS

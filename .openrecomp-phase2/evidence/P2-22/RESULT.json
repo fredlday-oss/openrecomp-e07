@@ -1,0 +1,36 @@
+{
+  "stage": "P2-22",
+  "stage_name": "NES runtime bridge",
+  "verdict": "PASS",
+  "markers": {
+    "OPENRECOMP_P2_22": "PASS",
+    "OPENRECOMP_NES_RUNTIME_BRIDGE_V1": "PASS tests=66"
+  },
+  "fixture": {
+    "fixture_id": "p2-22-nes-runtime-bridge-v1",
+    "fixture_sha256": "cc57bba3124f264cb6f4ec2b0e83cb82d3a9eeea551d18c098278c7eef827763",
+    "fixture_byte_length": 42,
+    "p2_21_core_preserved": true
+  },
+  "adapter": {
+    "module": "openrecomp/frontends/nes_runtime.py",
+    "class": "NESRuntimeAdapter",
+    "services": ["nes.audio.submit", "nes.frame.submit"],
+    "mapper": 0
+  },
+  "determinism": {
+    "run1_stdout_sha256": "4ae725be384b991c58d5e072930603b93c72c939df89c18f07749ae5c3db7b5c",
+    "run2_stdout_sha256": "4ae725be384b991c58d5e072930603b93c72c939df89c18f07749ae5c3db7b5c",
+    "stdout_byte_identical": true,
+    "state_fingerprint": "55da1916e5f56b3e663beb37ceb6486fba76957cb66027b64db1223f21639759"
+  },
+  "source_integrity": {
+    "command": "python tools/phase1_host_gates_v1.py --only source-integrity",
+    "result": "PASS source-integrity verified 127 manifest entries"
+  },
+  "changed_files": {
+    "openrecomp/frontends/nes_runtime.py": "b4337eeb6933475f77cd414d4bac229c2614bf0c84aa03f7a2d9b968d6478f4d",
+    "tools/test_nes_runtime_bridge_v1.py": "e0765124b4f483d782afafd9bad12acf9bca6622a97ac4e77e4568a79563c361",
+    "SOURCE_SHA256SUMS.txt": "0edb599ec743e5ecc1cfde5ee057fe83867bb06c7d81f3344869a5b3bc031ad8"
+  }
+}

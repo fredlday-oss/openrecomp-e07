@@ -1,0 +1,68 @@
+Regression run: tools/test_call_graph_v1.py
+returncode: 0
+stdout:
+PASS: single-node
+PASS: single-no-edges
+PASS: single-node-evidence
+PASS: internal-one-edge
+PASS: internal-callee
+PASS: internal-evidence
+PASS: internal-callees-helper
+PASS: internal-edges-to
+PASS: internal-no-node-for-callee-duplicate
+PASS: external-one-edge
+PASS: external-target
+PASS: external-no-node
+PASS: indirect-one-edge
+PASS: indirect-no-target
+PASS: indirect-no-callee-node
+PASS: indirect-jump-excluded
+PASS: recursive-self-edge
+PASS: recursive-functions
+PASS: recursive-not-mutual
+PASS: mutual-two-nodes
+PASS: mutual-component
+PASS: mutual-no-self
+PASS: multi-site-two-edges
+PASS: multi-site-distinct-sites
+PASS: multi-site-same-callee
+PASS: candidate-internal-edge
+PASS: candidate-node
+PASS: deterministic-serialization
+PASS: deterministic-fingerprint
+PASS: deterministic-node-order
+PASS: deterministic-edge-order
+PASS: roundtrip-bytes
+PASS: document-derived
+PASS: wide-node-entry
+PASS: wide-internal-target
+PASS: nes-two-nodes
+PASS: nes-internal-edge
+PASS: program-model-cross-check
+PASS reject: call-site-block-unowned
+PASS reject: duplicate-block-ownership
+PASS reject: external-inventory-mismatch
+PASS reject: call-target-not-function-entry
+PASS reject: unresolved-call-block-unowned
+PASS reject: duplicate-node-id
+PASS reject: duplicate-node-entry
+PASS reject: empty-nodes
+PASS reject: edge-caller-not-node
+PASS reject: internal-callee-not-node
+PASS reject: external-target-matches-node
+PASS reject: unresolved-with-callee
+PASS reject: internal-without-callee
+PASS reject: duplicate-edge
+PASS reject: entry-function-not-node
+PASS reject: function-units-key-mismatch
+PASS reject: function-units-evidence-mismatch
+PASS reject: function-units-callee-mismatch
+PASS reject: evidence-mismatch-candidate-node
+PASS reject: unknown-edges-from
+PASS reject: unknown-edges-to
+PASS: valid-direct-construction
+PASS: valid-external-construction
+OPENRECOMP_CALL_GRAPH_V1=PASS tests=61
+
+stderr:
+

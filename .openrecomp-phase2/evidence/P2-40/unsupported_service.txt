@@ -1,0 +1,21 @@
+P2-40 native unsupported-service fail-closed evidence
+======================================================
+declared service: synthetic.audio.submit (ABI id 1)
+support-source variant: returns nonzero for the declared audio service (unsupported at runtime)
+executable returncode: 0
+stdout:
+failed=1
+error=runtime host service synthetic.audio.submit failed
+register_count=5
+reg[0]=0
+reg[1]=66048
+reg[2]=66064
+reg[3]=0
+reg[4]=0
+mem_words=66048,66064
+frame_count=1
+frame[0]=2x2 format=RGBA8 checksum=16987283610251169330
+audio_count=0
+input_poll=0
+memory_checksum=10954747769631612134
+result: PASS (the generated code stopped at the failed host call; the continuation did not run)

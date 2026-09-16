@@ -1,0 +1,114 @@
+Regression run: tools/test_host_emitter_v1.py
+returncode: 0
+marker: OPENRECOMP_HOST_EMITTER_V1=PASS tests=106
+stdout:
+PASS: deterministic-source
+PASS: deterministic-fingerprint
+PASS: fingerprint-matches-text
+PASS: canonical-function-name
+PASS: canonical-block-label
+PASS: entry-function-name
+PASS: stable-declaration
+PASS: single-translation
+PASS: register-names
+PASS: unit-id-preserved
+PASS: const-emission
+PASS: binop-emission
+PASS: explicit-width
+PASS: operations-counted
+PASS: copy-emission
+PASS: signed-immediate-masked
+PASS: signed-compare-uses-helper
+PASS: unsigned-compare-direct
+PASS: shift-guard
+PASS: arithmetic-shift-helper
+PASS: fallthrough-emission
+PASS: branch-emission
+PASS: jump-emission
+PASS: call-emission
+PASS: call-declaration
+PASS: call-reference
+PASS: return-emission
+PASS: canonical-instruction-order
+PASS: canonical-block-order
+PASS: return-like-return
+PASS: return-like-status
+PASS: return-like-no-goto
+PASS: unresolved-jump-boundary
+PASS: unresolved-jump-status
+PASS: unresolved-call-boundary
+PASS: bounded-boundary
+PASS: bounded-not-promoted-no-case
+PASS: bounded-not-promoted-no-goto
+PASS: bounded-status
+PASS: external-boundary
+PASS: external-no-target
+PASS: external-status
+PASS: resolved-jump-single
+PASS: resolved-jump-single-no-switch
+PASS: resolved-jump-status
+PASS: resolved-jump-set-case-a
+PASS: resolved-jump-set-case-b
+PASS: resolved-jump-set-default
+PASS: resolved-jump-set-switch
+PASS: resolved-call-single
+PASS: resolved-call-set
+PASS: resolved-call-set-other
+PASS reject: unsupported-op
+PASS reject: non-unit-set
+PASS reject: non-classification
+PASS reject: mismatched-classification
+PASS reject: unknown-entry
+PASS reject: external-direct-call
+PASS reject: resolved-jump-target-not-block
+PASS reject: resolved-call-target-not-function
+PASS reject: reject-policy
+PASS reject: reject-policy-bounded
+PASS: no-source-path
+PASS: no-timestamp
+PASS: no-python-object-id
+PASS: no-filename
+PASS: input-fingerprint-stable
+PASS: ordering-input-independent
+PASS reject: low-level-entry
+PASS: low-level-entry-point
+PASS: multi-translation-order
+PASS: multi-declarations-order
+PASS: empty-function-valid
+PASS: empty-no-registers
+PASS: word-bits-8
+PASS: word-bits-16
+PASS: word-bits-64
+PASS: immediate-masked-to-width
+PASS: no-host-call
+PASS: no-memory
+PASS: no-file-io
+PASS: only-portable-includes
+PASS: no-ir-import:openrecomp.executor
+PASS: no-ir-import:openrecomp.runtime
+PASS: no-ir-import:openrecomp.module
+PASS: no-ir-import:validate_ir
+PASS: no-ir-import:make_ir
+PASS: no-ir-lowering-api
+PASS: p2-05-unmutated
+PASS reject: duplicate-semantics
+PASS reject: branch-without-condition
+PASS reject: normal-with-condition
+PASS reject: indirect-without-source
+PASS reject: jump-with-operations
+PASS reject: bad-binop-kind
+PASS reject: bad-predicate
+PASS reject: bad-word-bits
+PASS reject: duplicate-register-names
+PASS reject: missing-adapter-field
+PASS reject: declared-register-missing
+PASS: helper-mask
+PASS: helper-fail
+PASS: run-entry
+PASS: register-accessors
+PASS: serialize-stable
+PASS: compiled-fixture-runs
+OPENRECOMP_HOST_EMITTER_V1=PASS tests=106
+
+stderr:
+

@@ -1,0 +1,49 @@
+P2-90 changed files
+===================
+
+New:
+  5832a0aaf0dd470f7bfdff093d09be371ab03fcfb66d45d2a9844a7cceb090ef  tools/test_phase2_whole_regression_v1.py
+
+Modified by P2-90:
+  1bf21db59bf11f4ff19d60bbe4e37afd8e4b8ca5f1391296d882c1149cc08fca  SOURCE_SHA256SUMS.txt (P2-90 gate registered; 131 -> 132 entries)
+  409589c57e5bebfac3a42beeaf113e11a07918dadfafb81d0dc0c286c30d888f  .openrecomp-phase2/STATE.md
+  f18bcc0600309685bf27b055cc7183825c665090f8576ed64148bd34056c8c3c  .openrecomp-phase2/HANDOFF.md
+  b122fd4e21548ec52ae13aeb9fd4ffae306e9f3ebfe414fe598664ebade45a61  .openrecomp-phase2/STAGE_QUEUE.md
+
+Annotated (pre-existing uncommitted change from the P2-20 session; not changed by P2-90):
+  5bf0edf34ee5f794c4031da7891e9daf1077681aae6e4975c9b0644ecd5f4a7d  tools/test_mips32_larger_fixture_v1.py
+    replacement of the obsolete guard no-p2-20-evidence-directory by
+    no-nes6502-dependency-in-p2-14 (count unchanged at 82; see corrections_report.md C2)
+
+P2-90 evidence files (names; hashes for the changed non-evidence files above):
+  .openrecomp-phase2/evidence/P2-90/asset_legal_audit.txt
+  .openrecomp-phase2/evidence/P2-90/changed_files.txt
+  .openrecomp-phase2/evidence/P2-90/claim_classification.json
+  .openrecomp-phase2/evidence/P2-90/claim_classification.md
+  .openrecomp-phase2/evidence/P2-90/corrections_report.md
+  .openrecomp-phase2/evidence/P2-90/deterministic_runs.txt
+  .openrecomp-phase2/evidence/P2-90/p2_90_run1.err
+  .openrecomp-phase2/evidence/P2-90/p2_90_run1.txt
+  .openrecomp-phase2/evidence/P2-90/p2_90_run2.err
+  .openrecomp-phase2/evidence/P2-90/p2_90_run2.txt
+  .openrecomp-phase2/evidence/P2-90/p2_90_tests.json
+  .openrecomp-phase2/evidence/P2-90/phase1_host_gates/command.txt
+  .openrecomp-phase2/evidence/P2-90/phase1_host_gates/stderr.txt
+  .openrecomp-phase2/evidence/P2-90/phase1_host_gates/stdout.txt
+  .openrecomp-phase2/evidence/P2-90/regression_matrix.json
+  .openrecomp-phase2/evidence/P2-90/regression_matrix.txt
+  .openrecomp-phase2/evidence/P2-90/regression_matrix_full.txt
+  .openrecomp-phase2/evidence/P2-90/RESULT.md
+  .openrecomp-phase2/evidence/P2-90/source_integrity/command.txt
+  .openrecomp-phase2/evidence/P2-90/source_integrity/stderr.txt
+  .openrecomp-phase2/evidence/P2-90/source_integrity/stdout.txt
+  .openrecomp-phase2/evidence/P2-90/source_integrity.txt
+  .openrecomp-phase2/evidence/P2-90/stage_evidence_consistency.json
+  .openrecomp-phase2/evidence/P2-90/stage_evidence_consistency.txt
+
+Raw audit captures (untracked scratch, outside the audited evidence tree):
+  .openrecomp-phase2/scratch/P2-90/regressions/<stage>/
+
+Unchanged: all openrecomp/*.py implementation modules, all adapters/*.py, all existing
+gates, and every frozen P2-00..P2-50 evidence artifact.
+

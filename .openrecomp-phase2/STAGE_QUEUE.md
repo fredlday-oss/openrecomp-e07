@@ -19,16 +19,16 @@ Only one stage may be active at a time.
 | P2-12 | MIPS32 direct CFG stress | COMPLETE | Branches, loops, calls, returns, bounded switch/direct-table proof where evidence exists |
 | P2-13 | Runtime-host boundary | COMPLETE | Deterministic host-call ABI; unsupported service handling fails closed |
 | P2-14 | Larger MIPS32 open fixture | COMPLETE | Larger synthetic/open program with deterministic recompilation and replay |
-| P2-20 | NES6502 program bridge | NEXT | Feed NES6502 through same persistent program and translation-unit layers |
-| P2-21 | NES6502 host emitter path | QUEUED | Generated host code for proven 6502 semantics |
-| P2-22 | NES runtime bridge | QUEUED | Generic runtime memory/input/frame/audio contracts connected to NES platform layer |
-| P2-23 | NES end-to-end proof | QUEUED | Synthetic/open NROM fixture → host executable → deterministic observable equivalence |
-| P2-30 | Cross-architecture neutrality audit | QUEUED | Prove shared P2 layers have no MIPS/NES platform leakage |
-| P2-40 | Generic runtime integration audit | QUEUED | Prove backend neutrality; document GB/GBC/SMS and future RT64-like extension points |
-| P2-50 | Build/package reproducibility | QUEUED | Clean-tree rebuild of generated outputs from committed inputs |
-| P2-90 | Whole-project regression | QUEUED | Phase-1 + Phase-2 gates; deterministic proof reruns where practical |
-| P2-91 | Evidence index + limitations | QUEUED | Complete index and explicit bounded/unproven claims |
-| P2-99 | Final verdict | QUEUED | Issue final verdict only if all required stages pass |
+| P2-20 | NES6502 program bridge | COMPLETE | Feed NES6502 through same persistent program and translation-unit layers |
+| P2-21 | NES6502 host emitter path | COMPLETE | Generated host code for proven 6502 semantics |
+| P2-22 | NES runtime bridge | COMPLETE | Generic runtime memory/input/frame/audio contracts connected to NES platform layer |
+| P2-23 | NES end-to-end proof | COMPLETE | Synthetic/open NROM fixture → host executable → deterministic observable equivalence |
+| P2-30 | Cross-architecture neutrality audit | COMPLETE | Prove shared P2 layers have no MIPS/NES platform leakage |
+| P2-40 | Generic runtime integration audit | COMPLETE | Prove backend neutrality; document GB/GBC/SMS and future RT64-like extension points |
+| P2-50 | Build/package reproducibility | COMPLETE | Clean-tree rebuild of generated outputs from committed inputs |
+| P2-90 | Whole-project regression | COMPLETE | Phase-1 + Phase-2 gates; deterministic proof reruns where practical |
+| P2-91 | Evidence index + limitations | COMPLETE | Complete index and explicit bounded/unproven claims |
+| P2-99 | Final verdict | COMPLETE | Final verdict issued: `OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS` after all required stages passed |
 
 ## Queue reconciliation (control-plane only)
 
@@ -50,14 +50,29 @@ indirect-control-flow classification work is assigned to `P2-06`. This reassignm
 semantics, claims or evidence of any frozen prior stage (`P2-00`..`P2-05`).
 `P2-07` remains Host emitter V1. `P2-08` (Generic runtime ABI V1), `P2-09`
 (Deterministic build pipeline), `P2-10` (Tiny MIPS32 end-to-end proof), `P2-11` (MIPS32
-calls/stack/memory), `P2-12` (MIPS32 direct CFG stress), `P2-13` (Runtime-host boundary) and
-`P2-14` (Larger MIPS32 open fixture) are `COMPLETE`; `P2-20` (NES6502 program bridge) is
-`NEXT`. `P2-20` was not started.
+calls/stack/memory), `P2-12` (MIPS32 direct CFG stress), `P2-13` (Runtime-host boundary),
+`P2-14` (Larger MIPS32 open fixture), `P2-20` (NES6502 program bridge), `P2-21`
+(NES6502 host emitter path), `P2-22` (NES runtime bridge) and `P2-23` (NES end-to-end
+proof) are `COMPLETE`. `P2-22` and `P2-23` started and completed in one session; `P2-30`
+(cross-architecture neutrality audit) and `P2-40` (generic runtime integration audit) are
+`COMPLETE`. `P2-50` (build/package reproducibility) is `COMPLETE`; `P2-90`
+(whole-project regression and evidence audit) is `COMPLETE` and passed with byte-identical
+repeated audit output; `P2-91` (evidence index + limitations) is `COMPLETE` and passed with
+the authoritative evidence index, limitations record, claim matrix, host-path resolution and
+re-verified P2-90 regression; `P2-99` (final verdict) is `COMPLETE` and issued
+`OPENRECOMP_P2_99=PASS` and `OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS` on the audited
+terminal tree after the terminal whole-project regression re-run, the P2-91 closure re-run,
+source integrity, the legal/content policy and the claim/limitation consistency all passed.
+The marker is issued only for the bounded claim recorded in
+`.openrecomp-phase2/evidence/P2-99/RESULT.md` and
+`.openrecomp-phase2/evidence/P2-99/final_claim_boundary.md`; it does not imply arbitrary
+NES ROM, MIPS32, commercial-game, complete-console, cycle-accurate, PS1/PS2/Xbox,
+universal-console or future-architecture compatibility.
 
-Success marker:
+Success marker (issued):
 
 `OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS`
 
-Otherwise:
+Failure value (not issued):
 
 `OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=NOT_PROVEN`

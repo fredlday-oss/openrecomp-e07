@@ -1,0 +1,71 @@
+Regression run: tools/test_nes_runtime_bridge_v1.py
+returncode: 0
+marker: OPENRECOMP_NES_RUNTIME_BRIDGE_V1=PASS tests=63
+stdout:
+PASS: fixture-assembler-deterministic
+PASS: fixture-p2-21-core-length
+PASS: fixture-p2-21-region-preserved
+PASS: fixture-sha256
+PASS: fixture-prg-bank-size
+PASS: fixture-synthetic-origin
+PASS: adapter-state-type
+PASS: adapter-memory-size
+PASS: adapter-services-declared
+PASS: adapter-mapper-zero
+PASS: memory-ram-write
+PASS: memory-ram-mirror-0800
+PASS: memory-ram-mirror-1000
+PASS: memory-ram-mirror-1800
+PASS: memory-prg-read
+PASS: memory-prg-mirror
+PASS reject: memory-disabled-io-read
+PASS reject: memory-expansion-read
+PASS reject: memory-prg-ram-absent
+PASS reject: memory-ppu-read
+PASS reject: memory-ppu-write
+PASS reject: memory-address-space
+PASS reject: memory-invalid-value
+PASS: input-snapshot-recorded
+PASS: input-controller-0
+PASS: input-controller-1
+PASS: input-port0-serial
+PASS: input-port1-serial
+PASS: input-open-bus
+PASS: frame-submit-success
+PASS: frame-count
+PASS: frame-dimensions
+PASS: frame-format
+PASS: frame-payload-match
+PASS: frame-checksum-deterministic
+PASS reject: frame-unsupported-format
+PASS: audio-submit-success
+PASS: audio-count
+PASS: audio-descriptor
+PASS: audio-format
+PASS: audio-payload-match
+PASS reject: audio-unsupported-format
+PASS: abi-service-ids
+PASS: abi-audio-numeric-id
+PASS: abi-frame-numeric-id
+PASS: abi-audio-macro
+PASS: abi-frame-macro
+PASS: state-frame-host-call
+PASS: state-audio-host-call
+PASS: state-host-call-arity-fails-closed
+PASS: determinism-scenario
+PASS reject: unsupported-mapper
+PASS reject: prg-rom-oversized
+PASS reject: bad-input-type
+PASS: neutrality-no-nes-import:openrecomp.program_model
+PASS: neutrality-no-nes-import:openrecomp.cfg
+PASS: neutrality-no-nes-import:openrecomp.functions
+PASS: neutrality-no-nes-import:openrecomp.call_graph
+PASS: neutrality-no-nes-import:openrecomp.translation_units
+PASS: neutrality-no-nes-import:openrecomp.indirect_control_flow
+PASS: neutrality-no-nes-import:openrecomp.runtime_abi
+PASS: neutrality-no-nes-import:openrecomp.host_emitter
+PASS: neutrality-no-nes-import:openrecomp.build_pipeline
+OPENRECOMP_NES_RUNTIME_BRIDGE_V1=PASS tests=63
+
+stderr:
+

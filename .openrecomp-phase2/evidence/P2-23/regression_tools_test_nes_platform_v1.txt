@@ -1,0 +1,24 @@
+Regression run: tools/test_nes_platform_v1.py
+returncode: 0
+stdout:
+PASS ram-2k-with-mirrors
+PASS ppustatus-vblank-read-clear
+PASS ppudata-write-buffered-read-increment-1-and-32
+PASS palette-immediate-read-and-mirror
+PASS nametable-arrangement-horizontal-vertical
+PASS oamdata-increment-and-oamdma
+PASS controller-strobe-shift-order-and-open-bus
+PASS apu-latch-status-frame-counter
+PASS reject: read-disabled-io
+PASS reject: write-disabled-io
+PASS reject: read-expansion-area
+PASS reject: write-expansion-area
+PASS reject: out-of-range-address
+PASS reject: chr-rom-write
+PASS reject: four-screen-nametable-unmodelled
+PASS fail-closed-surfaces
+LOCAL_NES_ROM metadata-only sha256=2a9345e608ec0c57470dc6658ce8199ddea9c18076134d9ef2a56f91b0a066d1 mapper=1 prg_bytes=131072 chr_bytes=131072 mirroring=horizontal nes2=1 tv=ntsc
+OPENRECOMP_NES_PLATFORM_V1=PASS tests=10
+
+stderr:
+

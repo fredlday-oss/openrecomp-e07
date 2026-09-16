@@ -1,0 +1,88 @@
+Regression run: tools/test_runtime_host_boundary_v1.py
+returncode: 0
+marker: OPENRECOMP_RUNTIME_HOST_BOUNDARY_V1=PASS tests=80
+stdout:
+PASS: fixture-byte-length
+PASS: fixture-sha256
+PASS: fixture-instruction-count
+PASS: fixture-call-site
+PASS: fixture-synthetic-origin
+PASS: decode-op
+PASS: decode-flow-indirect-call
+PASS: decode-no-direct-target
+PASS: decode-guest-arithmetic
+PASS: cfg-call-continuation
+PASS: cfg-call-site-block
+PASS: cfg-deterministic
+PASS: functions-single
+PASS: functions-unresolved-site
+PASS: units-single
+PASS: units-deterministic
+PASS: indirect-site-count
+PASS: indirect-status-external
+PASS: indirect-basis-external
+PASS: indirect-mechanism-recorded
+PASS: indirect-no-guessed-targets
+PASS: indirect-no-evidence-fails-closed
+PASS: indirect-no-evidence-no-targets
+PASS reject: no-evidence-host-call-rejected
+PASS: indirect-no-evidence-boundary
+PASS: abi-service-id
+PASS: abi-service-macro
+PASS: abi-dispatch-known
+PASS: abi-dispatch-unknown-fails-closed
+PASS: abi-dispatch-arity-fails-closed
+PASS: abi-dispatch-deterministic
+PASS: abi-state-record
+PASS: abi-version
+PASS: emission-host-call
+PASS: emission-abi-declaration
+PASS: emission-service-macro
+PASS: emission-result-register
+PASS: emission-fail-closed
+PASS: emission-continuation
+PASS: emission-deterministic
+PASS: emission-no-pointer-cast
+PASS: emission-no-hardcoded-result-84
+PASS reject: undeclared-service
+PASS reject: host-call-without-runtime-abi
+PASS: derivation-guest-arg
+PASS: derivation-service-result
+PASS: derivation-continuation
+PASS: build-status-ok
+PASS: build-classification
+PASS: build-source-reproducible
+PASS: build-manifest-reproducible
+PASS: build-object-reproducible
+PASS: build-executable-reproducible
+PASS: build-brepro
+PASS: build-manifest-deterministic
+PASS: build-manifest-no-path-leak
+PASS: build-manifest-no-identity
+PASS: native-executable-hash-matches-manifest
+PASS: native-returncode-zero
+PASS: native-output-stable
+PASS: expected-equals-actual
+PASS: native-service-record
+PASS: native-continuation-register
+PASS: native-result-register
+PASS: unsupported-service-macro-emitted
+PASS: unsupported-service-fails-closed
+PASS: unsupported-service-error
+PASS: unsupported-service-no-continuation
+PASS reject: bad-host-call-service
+PASS reject: bad-host-call-args
+PASS reject: bad-host-call-result
+PASS reject: unsupported-opcode
+PASS reject: misaligned-entry
+PASS reject: empty-region
+PASS reject: service-table-handler-missing
+PASS: no-next-stage-symbol:p2_14
+PASS: no-next-stage-symbol:p2_20
+PASS: no-next-stage-symbol:nes_runtime
+PASS: no-next-stage-symbol:larger_fixture
+PASS: no-guest-memory-access-in-p2-13
+OPENRECOMP_RUNTIME_HOST_BOUNDARY_V1=PASS tests=80
+
+stderr:
+

@@ -1,0 +1,15 @@
+﻿P2-21 Phase-1 reference interpreter comparison
+==============================================
+reference trace length: 21
+reference halted: pc=0x0202 steps=21
+reference a=15 x=1 y=0 sp=0xfd p=0x24
+generated a=15 x=1
+a matches reference: True
+x matches reference: True
+reference ram_checksum: 2289366979
+native ram_checksum: 1430085296
+note: The reference interpreter models the 6502 stack push/pop performed by
+jsr/rts, modifying bytes at 0x01FE/0x01FF. The Phase-2 structural call/return
+path emits native C function calls and does not model the 6502 stack, so those
+bytes remain at their initial HALT padding value. The explicitly modeled stores
+(sta $0400,x at 0x0401-0x0403) match between reference and generated code.

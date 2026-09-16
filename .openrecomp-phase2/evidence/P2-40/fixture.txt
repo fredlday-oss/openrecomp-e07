@@ -1,0 +1,26 @@
+P2-40 synthetic non-NES MIPS32 fixture (generic runtime integration)
+============================================================================
+architecture: mips32-bounded-v1
+endianness: little
+entry: 0x1000; runtime-mediated call site: 0x1018
+instruction count: 11
+byte length: 44
+sha256: 9323f24533ec6c31cf954c8315fd674ac8efc8c803e960eb9b1a902891cfe237
+origin: synthetic/original (no commercial ROM/ELF bytes)
+fixture-declared services: synthetic.frame.submit (4 args), synthetic.audio.submit (5 args), synthetic.input.poll (0 args)
+
+instructions:
+  0x00001000  0x3c040001  lui r4, 0x0001                 ; r4 = 0x10000
+  0x00001004  0x24840200  addiu r4, r4, 0x200           ; r4 = 0x10200 frame payload
+  0x00001008  0x3c050001  lui r5, 0x0001                 ; r5 = 0x10000
+  0x0000100c  0x24a50210  addiu r5, r5, 0x210           ; r5 = 0x10210 audio payload
+  0x00001010  0xac040000  sw r4, 0(r0)                  ; generic 32-bit memory write
+  0x00001014  0xac050004  sw r5, 4(r0)                  ; generic 32-bit memory write
+  0x00001018  0x00800008  jr r4                         ; synthetic.frame.submit(r4,2,2,1)
+  0x0000101c  0x00000000  nop (delay slot)
+  0x00001020  0x34a50000  ori r5, r5, 0                 ; synthetic.audio.submit(r5,8000,1,4,0)
+  0x00001024  0x38c60000  xori r6, r6, 0                ; r6 = synthetic.input.poll()
+  0x00001028  0x24c70007  addiu r7, r6, 7               ; r7 = poll + 7
+
+bytes (little-endian hex):
+0100043c000284240100053c1002a524000004ac040005ac08008000000000000000a5340000c6380700c724

@@ -1,0 +1,20 @@
+P2-50 source-state reconstruction
+==================================
+Every artifact package records the repo-relative pipeline source files and
+their SHA-256 values; the gate re-verifies each file against the working
+tree and records the canonical source-state fingerprint.
+
+  1e7181ac42fabb0642f845d8070b7699ea2825452e652144c402176ef15fdfc7  openrecomp/build_pipeline.py
+  0dda2c55022842604e55d8d902d2523d83b116dbf61fb34bb949d94b7d1ea734  openrecomp/call_graph.py
+  27b5778428305a7948be50ee74ddc8f19ac1907c0a7b3ce980490d99ac6b5159  openrecomp/cfg.py
+  c07a0c53ec13cecfb036cb4cf46a35ec7087c14f4e675d033730f02193a5055a  openrecomp/functions.py
+  6ec5f87100cb42ea6ec538b6ba23a47155d218c6e973df0798d507a9bbfd89e0  openrecomp/host_emitter.py
+  641f449a897dedf46ef3f98b5b5ccde49fa4c75eb039a1f0e7611e8946a52a21  openrecomp/indirect_control_flow.py
+  a4ace1ae01cc7f86f6c863496a11be903f9e944ac27f91ea85d4846f981f172f  openrecomp/program_model.py
+  685337fe2c1778dc96dae01d41f7baae617804c8f0300f67a0de4963196057b4  openrecomp/release_package.py
+  f0c6fa461ea71026859cdb09ccf8e29062dba805ef800632d4bd3e319d4eea49  openrecomp/runtime_abi.py
+  21b6021442fc2c48532dcd6c03b55ff70c8993a8b199ec5ada07fa5108b5346f  openrecomp/translation_units.py
+  2b9b09386c6f530f41b4cfe3b8d9dec868ae858603e5b0bc54ae8f5c37691085  tools/test_build_package_reproducibility_v1.py
+
+source_state_fingerprint: 5d93971b102b24e56b2c98bf4c6b6486f58e6c174700af1c77cf969f85024c54
+verified files: 11

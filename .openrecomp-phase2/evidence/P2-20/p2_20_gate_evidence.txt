@@ -1,0 +1,88 @@
+PASS: fixture-assembler-deterministic
+PASS: fixture-region-length
+PASS: fixture-region-sha256
+PASS: fixture-entry
+PASS: fixture-region-end
+PASS: fixture-halt-padding
+PASS: fixture-synthetic-origin
+PASS: decode-instruction-count
+PASS: decode-addresses
+PASS: decode-ops
+PASS: decode-sizes
+PASS: decode-proven-evidence
+PASS: decode-branch-flow
+PASS: decode-call-flow
+PASS: decode-jump-flow
+PASS: decode-indirect-jump
+PASS: decode-return-flow
+PASS: decode-normal-flow
+PASS: decode-imm-operand
+PASS: decode-relative-operand
+PASS: decode-absx-operand
+PASS: decode-indirect-pointer
+PASS: decode-jsr-target
+PASS: programmodel-source
+PASS: programmodel-functions
+PASS: programmodel-validates
+PASS: cfg-block-entries
+PASS: cfg-loop-backedge
+PASS: cfg-loop-exit
+PASS: cfg-entry-fallthrough
+PASS: cfg-call-continuation
+PASS: cfg-direct-jump
+PASS: cfg-indirect-unresolved
+PASS: cfg-return-no-successors
+PASS: cfg-no-phantom-blocks
+PASS: cfg-deterministic
+PASS: functions-two
+PASS: functions-entry
+PASS: functions-main-body
+PASS: functions-helper-body
+PASS: functions-unowned
+PASS: callgraph-nodes
+PASS: callgraph-internal-edge
+PASS: units-two
+PASS: units-call-edges
+PASS: units-unowned-preserved
+PASS: indirect-site-count
+PASS: indirect-site-address
+PASS: indirect-status-unresolved
+PASS: indirect-no-guessed-targets
+PASS: indirect-basis-none
+PASS: indirect-unowned-control-flow-empty
+PASS: determinism-program-fingerprint
+PASS: determinism-cfg
+PASS: determinism-functions
+PASS: determinism-callgraph
+PASS: determinism-units
+PASS: determinism-classification
+PASS: determinism-serialize
+PASS: cfg-roundtrip
+PASS: units-roundtrip
+PASS: neutrality-no-arch-import:program_model
+PASS: neutrality-no-arch-import:cfg
+PASS: neutrality-no-arch-import:functions
+PASS: neutrality-no-arch-import:call_graph
+PASS: neutrality-no-arch-import:translation_units
+PASS: neutrality-no-arch-import:indirect_control_flow
+PASS: neutrality-bridge-imports-adapter
+PASS: neutrality-bridge-no-host-emission
+PASS: neutrality-generic-metadata
+PASS: reference-trace-in-model
+PASS: reference-executed-control-matches
+PASS: reference-loop-taken
+PASS: reference-call-order
+PASS: reference-halts
+PASS: reference-final-state
+PASS: reference-steps
+PASS reject: undocumented-opcode
+PASS reject: truncated-operands
+PASS reject: region-past-memory
+PASS reject: entry-not-before-end
+PASS reject: entry-out-of-range
+PASS reject: memory-not-bytes
+PASS reject: empty-region-selection
+PASS: no-p2-21-host-emitter-import
+PASS: no-p2-21-emission-symbol
+OPENRECOMP_NES6502_PROGRAM_BRIDGE_V1_JSON=p2_20_tests.json
+OPENRECOMP_NES6502_PROGRAM_BRIDGE_V1=PASS tests=86

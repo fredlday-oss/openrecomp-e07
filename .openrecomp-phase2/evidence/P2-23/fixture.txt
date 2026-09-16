@@ -1,0 +1,78 @@
+P2-23 synthetic NES end-to-end equivalence fixture
+==================================================
+architecture: nes6502
+endianness: little
+address width: 16 bits
+entry: 0x8000
+region end: 0x8090
+region byte length: 144
+region sha256: dfadcbe759121b0705f2a7db3295127b7adceb403a6254897caee85f8a1c44c2
+origin: synthetic/original (no commercial ROM bytes)
+P2-21 core region preserved: yes (first 26 bytes)
+P2-22 controller-probe bytes preserved: yes
+frame/audio triggers: real host-call thunks (expanded)
+labels: audio_0=0x806f, audio_1=0x8074, audio_2=0x8079, audio_3=0x807e, audio_thunk=0x808c, bne=0x8009, call_audio=0x8083, call_frame=0x806c, frame_0=0x801c, frame_1=0x8021, frame_10=0x804e, frame_11=0x8053, frame_12=0x8058, frame_13=0x805d, frame_14=0x8062, frame_15=0x8067, frame_2=0x8026, frame_3=0x802b, frame_4=0x8030, frame_5=0x8035, frame_6=0x803a, frame_7=0x803f, frame_8=0x8044, frame_9=0x8049, frame_thunk=0x8089, halt_block=0x808f, input_probe=0x800c, inx=0x800b, jmp_halt=0x8086, loop=0x8002, start=0x8000
+
+region bytes (hex):
+a2031869059d0004cad0f7e8a9018d1640a9008d1640ad16408d0005a9ff8d0002a9008d0102a9008d0202a9ff8d0302a9008d0402a9ff8d0502a9008d0602a9ff8d0702a9008d0802a9008d0902a9ff8d0a02a9ff8d0b02a9ff8d0c02a9ff8d0d02a9ff8d0e02a9008d0f02208980a9108d1403a9208d1503a9308d1603a9408d1703208c804c8f806c00036c1003ea
+
+decoded instructions:
+  0x8000  ldx          size=2 flow=NORMAL target=None fields={'word': 162, 'src': 'imm', 'imm8': 3, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8002  clc          size=1 flow=NORMAL target=None fields={'word': 24, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8003  adc          size=2 flow=NORMAL target=None fields={'word': 105, 'src': 'imm', 'imm8': 5, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8005  sta_abs_x    size=3 flow=NORMAL target=None fields={'word': 157, 'dst': 'abs,x', 'abs,x': 1024, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8008  dex          size=1 flow=NORMAL target=None fields={'word': 202, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8009  bne          size=2 flow=BRANCH target=32770 fields={'word': 208, 'rel': -9, 'target': 32770, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x800b  inx          size=1 flow=NORMAL target=None fields={'word': 232, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x800c  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 1, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x800e  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 16406, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8011  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 0, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8013  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 16406, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8016  lda_abs      size=3 flow=NORMAL target=None fields={'word': 173, 'src': 'abs', 'abs': 16406, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8019  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 1280, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x801c  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 255, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x801e  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 512, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8021  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 0, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8023  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 513, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8026  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 0, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8028  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 514, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x802b  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 255, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x802d  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 515, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8030  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 0, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8032  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 516, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8035  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 255, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8037  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 517, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x803a  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 0, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x803c  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 518, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x803f  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 255, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8041  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 519, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8044  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 0, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8046  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 520, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8049  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 0, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x804b  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 521, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x804e  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 255, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8050  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 522, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8053  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 255, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8055  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 523, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8058  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 255, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x805a  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 524, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x805d  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 255, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x805f  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 525, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8062  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 255, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8064  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 526, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8067  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 0, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8069  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 527, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x806c  jsr          size=3 flow=CALL target=32905 fields={'word': 32, 'a16': 32905, 'target': 32905, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x806f  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 16, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8071  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 788, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8074  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 32, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8076  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 789, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8079  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 48, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x807b  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 790, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x807e  lda_imm      size=2 flow=NORMAL target=None fields={'word': 169, 'src': 'imm', 'imm8': 64, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8080  sta_abs      size=3 flow=NORMAL target=None fields={'word': 141, 'dst': 'abs', 'abs': 791, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8083  jsr          size=3 flow=CALL target=32908 fields={'word': 32, 'a16': 32908, 'target': 32908, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8086  jmp          size=3 flow=JUMP target=32911 fields={'word': 76, 'dst': 'abs', 'abs': 32911, 'target': 32911, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8089  svc_frame    size=3 flow=INDIRECT_JUMP target=None fields={'word': 108, 'dst': '(indirect)', 'indirect': 768, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0, 'frame_ptr': 512, 'frame_width': 2, 'frame_height': 2, 'frame_format': 0}
+  0x808c  svc_audio    size=3 flow=INDIRECT_JUMP target=None fields={'word': 108, 'dst': '(indirect)', 'indirect': 784, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0, 'audio_ptr': 788, 'audio_rate': 8000, 'audio_channels': 1, 'audio_frames': 4, 'audio_format': 0}
+  0x808f  nop          size=1 flow=NORMAL target=None fields={'word': 234, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}

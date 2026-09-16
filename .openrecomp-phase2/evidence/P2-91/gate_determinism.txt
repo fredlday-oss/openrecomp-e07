@@ -1,0 +1,37 @@
+P2-91 closure gate determinism
+==============================
+
+Canonical invocation:
+  python tools/test_phase2_evidence_closure_v1.py
+  marker: OPENRECOMP_PHASE2_EVIDENCE_CLOSURE_V1=PASS tests=882
+
+run 1 (p2_91_run1.txt): exit=0 bytes=40674 stderr=empty
+  stdout sha256: 78b33d0cee634f0ce7327d22cedcbf6d84246951410c3aae1ecdc82e71d10048
+run 2 (p2_91_run2.txt): exit=0 bytes=40674 stderr=empty
+  stdout sha256: 78b33d0cee634f0ce7327d22cedcbf6d84246951410c3aae1ecdc82e71d10048
+byte-identical: yes
+
+Regression-execution invocation (official full closure run):
+  python tools/test_phase2_evidence_closure_v1.py --run-regression
+  capture: p2_91_regression_run.txt  exit=0 bytes=40731 stderr=empty
+  stdout sha256: 4433d1c7cc099781379ab4e5e295b8f3b7a87042ec9c4e1eeb96b775df5ec7c8
+  marker: OPENRECOMP_PHASE2_EVIDENCE_CLOSURE_V1=PASS tests=884
+  elapsed: ~5315 s
+  executed the P2-90 whole-project audit after all P2-91 changes and re-validated
+  the stored capture in the same process; adds exactly two checks
+  (p2-90-rerun:executed, p2-90-rerun:preserved) over the canonical mode.
+
+Development capture retained for transparency:
+  p2_91_regression_run_development_fail.txt (exit=1, 33965 bytes)
+  stdout sha256: b7a1436ff2ae64e703aebc00fc0e3745786d7dbd040c7e6f5c854bd4deebcb04
+  Failure: the closure gate's stdout-identity check used the LF-normalized hash
+  while the recorded P2-90 identity is the CRLF capture hash. The nested P2-90
+  audit itself passed in this run (361 audit checks, 22 gates, 1990 gate checks,
+  0 failures). The check was corrected to compare LF-normalized content for
+  identity and to verify the recorded CRLF capture hash separately, before any
+  official run. No frozen prior-stage evidence was changed.
+
+Determinism statement: two consecutive canonical full gate runs produced
+byte-identical stdout (sha256
+78b33d0cee634f0ce7327d22cedcbf6d84246951410c3aae1ecdc82e71d10048) and empty
+stderr. The gate emits no host path, timestamp, random or process identity.

@@ -794,7 +794,17 @@ def main(argv=None) -> int:
     defined = {node.name for node in _ast.walk(tree) if isinstance(node, (_ast.FunctionDef, _ast.AsyncFunctionDef, _ast.ClassDef))}
     for token in ("p2_20", "nes6502", "program_bridge"):
         check(f"no-next-stage-symbol:{token}", not any(token in name.lower() for name in defined))
-    check("no-p2-20-evidence-directory", not (ROOT / ".openrecomp-phase2" / "evidence" / "P2-20").exists())
+    # P2-14 is a MIPS32-only stage; it must not depend on the later NES6502 bridge.
+    # (The former "P2-20 evidence must not exist" cross-stage guard was replaced
+    # here once P2-20 was authorized; it asserted build state, not a P2-14
+    # property, and could not hold while P2-20 was in progress.)
+    gate_imports: set[str] = set()
+    for node in _ast.walk(tree):
+        if isinstance(node, _ast.Import):
+            gate_imports.update(alias.name for alias in node.names)
+        elif isinstance(node, _ast.ImportFrom):
+            gate_imports.add(node.module or "")
+    check("no-nes6502-dependency-in-p2-14", not any("nes6502" in value.lower() for value in gate_imports))
 
     tests = sum(1 for item in RESULTS if item["status"] == "PASS")
     if args.json:

@@ -1,0 +1,84 @@
+# Host-neutral derivative (P2-91) of `.openrecomp-phase2/evidence/P2-08/determinism.txt`.
+# Frozen original sha256: f5903884e47c8a9cd928bc075206046249efaea0155b2bfd5be164ea498e28b3
+# Transformation: the detected compiler executable path is replaced by <host-compiler-path>.
+# The frozen original remains the authoritative historical evidence; this derivative
+# exists only to make the recorded toolchain detection portable.
+
+P2-08 generic runtime ABI determinism evidence
+==============================================
+
+Environment
+-----------
+python 3.11.9 (win32)
+branch: phase2/opencode-v1
+HEAD at stage start: 30b4321011b963efce19b321c72b97f886ba2b3d
+  (30b4321 phase2: complete P2-07 host emitter v1 = frozen P2-07 boundary)
+phase-1 tag: openrecomp-phase1-pass -> 46c2f971e1a42cf49bd936bad94697b81bf31002 (unchanged)
+text evidence encoding: UTF-8 without BOM
+
+Repeated-run byte identity (P2-08 gate)
+---------------------------------------
+command (run twice, stdout captured verbatim):
+  python tools/test_runtime_abi_v1.py
+
+run 1 stdout sha256: 3c0abaf52efa534b2dc639efceb15cd6e5aa17a4ec218d5515b1160f260809a8
+run 2 stdout sha256: 3c0abaf52efa534b2dc639efceb15cd6e5aa17a4ec218d5515b1160f260809a8
+byte-identical: yes
+
+In-process determinism assertions (tools/test_runtime_abi_v1.py)
+----------------------------------------------------------------
+state-construction-deterministic: PASS
+state-serialize-deterministic: PASS
+repeated-run-identity: PASS
+repeated-run-serialize-identity: PASS
+deterministic-rng-repeatable: PASS
+deterministic-rng-seed-sensitive: PASS
+memory-fingerprint-stable: PASS
+frame-descriptor-deterministic: PASS
+frame-checksum-deterministic: PASS
+frame-fingerprint-stable: PASS
+audio-descriptor-deterministic: PASS
+audio-checksum-deterministic: PASS
+audio-fingerprint-stable: PASS
+config-serialize-stable: PASS
+abi-config-serialize-stable: PASS
+emitter-deterministic: PASS
+
+Source-level non-determinism guard
+----------------------------------
+runtime_abi.py is asserted (by the gate) to contain none of:
+  import time, import random, import secrets, import os, import subprocess,
+  os.getpid, os.environ, uuid.uuid4, datetime.now
+
+Host-pointer guard
+------------------
+runtime_abi.py is asserted to contain none of:
+  memoryview, ctypes, from_buffer, PyMemoryView
+RuntimeMemory never returns an internal mutable buffer: snapshot()/read_bytes()
+return immutable `bytes` copies and no public `data`/`buffer` attribute exists.
+
+State fingerprints observed on this host (stable across repeated runs)
+----------------------------------------------------------------------
+RuntimeState scenario fingerprint:
+  308fad595e5215ea32cd0ebc540f6541f3db0d0d2e75d2374efd3d5a820a868b
+RuntimeAbiConfig(services=[demo.mul, demo.noop]) fingerprint:
+  fb9f90f2ea3fec568f29ad2a4939f9d90c73b45615ba0a9c5446371f15eb932a
+generated host source fingerprint (runtime host-call fixture):
+  b75d7656517de8a75c5730fa22b7ea69dff9292be20a6f73d0bd49cf64705e24
+input snapshot fingerprint:  0bc2e0ca3383a92d586ca76ad43a209960c4d95ac84aa0baeda2922fb190bbae
+frame descriptor fingerprint: 2b3700f87630881ca6f5e8a3fb23acb616ef7cf3463fbeeefca4a3964f1e03e0
+audio descriptor fingerprint: b7a034646399cc3dd60bf446c871da8944002749d87f243b4afdbe504f51b70d
+
+(Exact sample fingerprints are recorded in runtime_abi_tests.json under
+ "sample_fingerprints"; two consecutive gate runs produce identical values.)
+
+Optional native execution (bounded synthetic proof)
+---------------------------------------------------
+compiler: clang (<host-compiler-path>)
+fixture:  generated runtime host-call fixture (sample_generated_runtime_host_call.c)
+          + hand-written or_rt_host_call stub in the driver
+expected: 42 0
+observed: 42 0
+match:    yes
+scope:    bounded synthetic runtime execution against the generic host-call
+          boundary; not a guest/host equivalence proof.

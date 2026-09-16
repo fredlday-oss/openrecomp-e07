@@ -1,0 +1,73 @@
+{
+  "stage": "P2-30",
+  "verdict": "PASS",
+  "stage_marker": "OPENRECOMP_P2_30=PASS",
+  "gate_marker": "OPENRECOMP_CROSS_ARCHITECTURE_NEUTRALITY_V1=PASS tests=14",
+  "tests": 14,
+  "passed": 14,
+  "failed": 0,
+  "gate_stdout_sha256": "49a2a255e714d17ab00d224dc3f6f218df8eb0e00d26d60ecfc71c89404abb54",
+  "gate_deterministic": true,
+  "shared_modules": [
+    "openrecomp/program_model.py",
+    "openrecomp/cfg.py",
+    "openrecomp/functions.py",
+    "openrecomp/call_graph.py",
+    "openrecomp/translation_units.py",
+    "openrecomp/indirect_control_flow.py",
+    "openrecomp/host_emitter.py",
+    "openrecomp/runtime_abi.py",
+    "openrecomp/build_pipeline.py"
+  ],
+  "architecture_specific_modules": [
+    "openrecomp/frontends/nes6502.py",
+    "openrecomp/frontends/nes_runtime.py"
+  ],
+  "findings": {
+    "import_leakage": [],
+    "symbol_leakage": [],
+    "adapter_isolation": [],
+    "regression_failures": []
+  },
+  "mips32_path_exercise": {
+    "architecture": "mips32-bounded-v1",
+    "instructions": 8,
+    "functions": 2,
+    "internal_direct_calls": 1,
+    "translation_units": 2,
+    "return_like_classifications": 2,
+    "host_source_sha256": "be52ef25060e22f8c4677c2e87a2e89180f82ae88833c4d910ec11fe1881b9f6",
+    "host_source_deterministic": true,
+    "host_source_contains_nes_terms": false
+  },
+  "regressions": [
+    {"name": "P2-01 program model", "script": "tools/test_program_model_v1.py", "marker": "OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49"},
+    {"name": "P2-02 CFG", "script": "tools/test_cfg_v1.py", "marker": "OPENRECOMP_CFG_V1=PASS tests=82"},
+    {"name": "P2-03 function discovery", "script": "tools/test_functions_v1.py", "marker": "OPENRECOMP_FUNCTION_DISCOVERY_V1=PASS tests=67"},
+    {"name": "P2-04 call graph", "script": "tools/test_call_graph_v1.py", "marker": "OPENRECOMP_CALL_GRAPH_V1=PASS tests=61"},
+    {"name": "P2-05 translation units", "script": "tools/test_translation_units_v1.py", "marker": "OPENRECOMP_TRANSLATION_UNITS_V1=PASS tests=104"},
+    {"name": "P2-06 indirect control flow", "script": "tools/test_indirect_control_flow_v1.py", "marker": "OPENRECOMP_INDIRECT_CONTROL_FLOW_V1=PASS tests=134"},
+    {"name": "P2-07 host emitter", "script": "tools/test_host_emitter_v1.py", "marker": "OPENRECOMP_HOST_EMITTER_V1=PASS tests=106"},
+    {"name": "P2-08 runtime ABI", "script": "tools/test_runtime_abi_v1.py", "marker": "OPENRECOMP_GENERIC_RUNTIME_ABI_V1=PASS tests=169"},
+    {"name": "P2-09 deterministic build", "script": "tools/test_build_pipeline_v1.py", "marker": "OPENRECOMP_DETERMINISTIC_BUILD_V1=PASS tests=120"},
+    {"name": "P2-10 MIPS32 end-to-end", "script": "tools/test_mips32_end_to_end_v1.py", "marker": "OPENRECOMP_MIPS32_END_TO_END_V1=PASS tests=108"},
+    {"name": "P2-11 MIPS32 calls/memory", "script": "tools/test_mips32_calls_memory_v1.py", "marker": "OPENRECOMP_MIPS32_CALLS_MEMORY_V1=PASS tests=77"},
+    {"name": "P2-12 MIPS32 direct CFG", "script": "tools/test_mips32_direct_cfg_v1.py", "marker": "OPENRECOMP_MIPS32_DIRECT_CFG_V1=PASS tests=96"},
+    {"name": "P2-13 runtime-host boundary", "script": "tools/test_runtime_host_boundary_v1.py", "marker": "OPENRECOMP_RUNTIME_HOST_BOUNDARY_V1=PASS tests=80"},
+    {"name": "P2-14 larger MIPS32 fixture", "script": "tools/test_mips32_larger_fixture_v1.py", "marker": "OPENRECOMP_MIPS32_LARGER_FIXTURE_V1=PASS tests=82"},
+    {"name": "P2-20 NES6502 program bridge", "script": "tools/test_nes6502_program_bridge_v1.py", "marker": "OPENRECOMP_NES6502_PROGRAM_BRIDGE_V1=PASS tests=86"},
+    {"name": "P2-21 NES6502 host emitter", "script": "tools/test_nes6502_host_emitter_v1.py", "marker": "OPENRECOMP_NES6502_HOST_EMITTER_V1=PASS tests=74"},
+    {"name": "P2-22 NES runtime bridge", "script": "tools/test_nes_runtime_bridge_v1.py", "marker": "OPENRECOMP_NES_RUNTIME_BRIDGE_V1=PASS tests=66"},
+    {"name": "P2-23 NES end-to-end", "script": "tools/test_nes_end_to_end_v1.py", "marker": "OPENRECOMP_NES_END_TO_END_V1=PASS tests=50"}
+  ],
+  "phase1_host_gates": {
+    "marker": "OPENRECOMP_PHASE1_HOST_GATES_V1=PASS",
+    "pass": 2,
+    "fail": 0,
+    "skipped": 0
+  },
+  "source_integrity": {
+    "result": "PASS",
+    "entries_verified": 129
+  }
+}

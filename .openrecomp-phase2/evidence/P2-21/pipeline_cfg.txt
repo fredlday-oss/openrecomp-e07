@@ -1,0 +1,15 @@
+P2-02 CFG evidence (NES6502 host emitter)
+=========================================
+mode: CLOSED
+fingerprint: 270981541868afea62520219ec4d4b15d4cfe754b126f2dfdde1fac927a2b18d
+block_count: 8
+blocks: 0x8000, 0x8002, 0x800b, 0x800e, 0x8011, 0x8012, 0x8015, 0x8018
+edges:
+  blk_8000: FALLTHROUGH -> blk_8002
+  blk_8002: BRANCH_NOT_TAKEN -> blk_800b
+  blk_8002: BRANCH_TAKEN -> blk_8002
+  blk_800b: CALL_RETURN -> blk_800e
+  blk_800e: JUMP -> blk_8012
+  blk_8011: FALLTHROUGH -> blk_8012
+  blk_8012: INDIRECT -> unresolved indirect jump target
+  blk_8015: FALLTHROUGH -> blk_8018

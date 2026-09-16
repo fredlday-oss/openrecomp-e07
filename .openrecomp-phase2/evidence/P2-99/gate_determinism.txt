@@ -1,0 +1,68 @@
+P2-99 final-verdict gate determinism record
+===========================================
+
+Official terminal runs (identical check set; --run-regression additionally
+re-executes the whole-project P2-90 audit on the terminal tree):
+
+  run 1: python tools/test_phase2_final_verdict_v1.py --run-regression
+         returncode 0, stderr empty, 7799 bytes
+         sha256 66913e5752a9e2b7e399513710b4dce05efce9a714335c3b9908c0e30ea38c28
+  run 2: python tools/test_phase2_final_verdict_v1.py
+         returncode 0, stderr empty, 7799 bytes
+         sha256 66913e5752a9e2b7e399513710b4dce05efce9a714335c3b9908c0e30ea38c28
+
+  byte-identical stdout: YES
+  markers (both runs):
+    OPENRECOMP_P2_99=PASS
+    OPENRECOMP_PHASE2_FINAL_VERDICT_V1=PASS tests=202
+    OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS
+
+  run 3 (confirmatory verify-only re-run after this record was written):
+         returncode 0, stderr empty, sha256 66913e5752a9e2b7e399513710b4dce05efce9a714335c3b9908c0e30ea38c28
+         byte-identical to runs 1 and 2: YES
+
+  run 4 (final confirmatory verify-only re-run after the last evidence writes):
+         returncode 0, stderr empty, sha256 66913e5752a9e2b7e399513710b4dce05efce9a714335c3b9908c0e30ea38c28
+         byte-identical to runs 1, 2 and 3: YES
+
+Terminal whole-project P2-90 regression capture:
+
+  file: p2_90_terminal_run.txt (LF-normalized content)
+  sha256_lf ac9c0b8abcdd7c0d0c3d271f0276f2e4a923cf32e3103a8322757ec96824a7f2
+  gate marker: OPENRECOMP_PHASE2_WHOLE_REGRESSION_V1=PASS tests=361 gates=22 gate_tests=1990
+  gate lines PASS: 22/22, no FAIL, stderr empty
+  content identical to frozen P2-90 capture (.openrecomp-phase2/evidence/P2-90/p2_90_run1.txt,
+  sha256 74e9eadaf0e17ca4a97790e4239f40883cc745cd9817c172f7fa6e2663ce1ee7)
+  modulo the single authorized final-verdict line: YES
+  frozen P2-90 capture files restored byte-identically: YES (all six)
+
+P2-91 evidence-closure re-run (executed inside every P2-99 run and once
+standalone; LF-normalized stdout):
+
+  markers:
+    OPENRECOMP_P2_91=PASS
+    OPENRECOMP_PHASE2_EVIDENCE_CLOSURE_V1=PASS tests=882
+    OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS
+  capture: p2_91_closure_run.txt
+  standalone re-run sha256_lf 7e1329cb013b55a90910b55626067b062f33e1cec32c3e6fbd59be7bb19729ca
+  byte-identical across runs: YES (returncode 0, stderr empty)
+
+Source integrity (LF-normalized stdout):
+
+  file: source_integrity.txt
+  sha256_lf 5d994c31aca5335c00cfe05829f7b9e73b4f17b006cb558347cfc2d42e117de4
+  manifest: SOURCE_SHA256SUMS.txt, 134 entries
+  authorized terminal delta verified (P2-99 gate entry added; the two
+  terminal-aware gates' hashes refreshed; removing those reproduces the P2-91
+  manifest 05180dec... and the P2-90 manifest 1bf21db5... exactly)
+  source-integrity gate output: PASS, verified 134 manifest entries
+
+Terminal gate check record: p2_99_tests.json, status PASS, 202 passed, 0 failed.
+
+Recorded control-plane hashes at verdict time:
+
+  STATE.md   sha256 116e5f6e47c96402f716dc8d0a7053b27aa9395e9ab8881458b4862f8a79193b
+  HANDOFF.md sha256 750e3a206adf05ce4047b23e075dc153a264d4c15ddf0bf31a793d8ee52ea4a9
+  RESULT.json sha256 880d25961949b0dc9aedaca78ca60d2dac54bbffeb6fd61e63045acd6394d8df
+
+No timestamp, host path, random value or process identity appears in this file.

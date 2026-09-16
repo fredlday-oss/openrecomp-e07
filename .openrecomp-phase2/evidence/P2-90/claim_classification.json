@@ -1,0 +1,92 @@
+[
+  {
+    "basis": "synthetic 13/16/35/5/57-instruction fixtures; no general MIPS32 support",
+    "claim": "MIPS32 shared-path operation",
+    "classification": "BOUNDED_PROVEN"
+  },
+  {
+    "basis": "bounded synthetic NROM fixture; memory/input/frame/audio contracts via the generic ABI; no PPU/APU implementation",
+    "claim": "NES runtime bridge",
+    "classification": "BOUNDED_PROVEN"
+  },
+  {
+    "basis": "one synthetic 59-instruction NROM fixture; reference observable equals native observable",
+    "claim": "NES synthetic end-to-end native recompilation",
+    "classification": "BOUNDED_PROVEN"
+  },
+  {
+    "basis": "one synthetic 26-byte NES6502 region through P2-01..P2-06 (P2-20) and one bounded emitted subset (P2-21); no full 6502 support",
+    "claim": "NES/6502 frontend integration",
+    "classification": "BOUNDED_PROVEN"
+  },
+  {
+    "basis": "not implemented, not claimed",
+    "claim": "PS1/PS2/Xbox compatibility",
+    "classification": "OUT_OF_SCOPE"
+  },
+  {
+    "basis": "OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF is reserved for P2-99 and remains NOT_PROVEN",
+    "claim": "Phase-2 final end-to-end proof marker",
+    "classification": "NOT_PROVEN"
+  },
+  {
+    "basis": "bounded synthetic fixtures only",
+    "claim": "arbitrary MIPS32 binary compatibility",
+    "classification": "NOT_PROVEN"
+  },
+  {
+    "basis": "no general NES ROM support is implemented or claimed",
+    "claim": "arbitrary NES ROM compatibility",
+    "classification": "NOT_PROVEN"
+  },
+  {
+    "basis": "static import/symbol isolation over the audited shared modules plus MIPS32 and NES6502 path exercises (P2-30); neutral is proven for the audited modules and synthetic fixtures only",
+    "claim": "architecture-neutral shared analysis pipeline",
+    "classification": "PROVEN"
+  },
+  {
+    "basis": "no commercial ROM/game is used or supported",
+    "claim": "commercial-game compatibility",
+    "classification": "NOT_PROVEN"
+  },
+  {
+    "basis": "no full PPU/APU/mapper implementation",
+    "claim": "complete NES hardware compatibility",
+    "classification": "NOT_PROVEN"
+  },
+  {
+    "basis": "cycle-exact behavior is not modeled or claimed",
+    "claim": "cycle accuracy",
+    "classification": "OUT_OF_SCOPE"
+  },
+  {
+    "basis": "byte-identical stdout across repeated gate runs and repeated native executions for the audited fixtures",
+    "claim": "deterministic repeated execution",
+    "classification": "PROVEN"
+  },
+  {
+    "basis": "GB/GBC/SMS/RT64-like extension points are documented only; no adapter implemented",
+    "claim": "future architecture compatibility",
+    "classification": "NOT_PROVEN"
+  },
+  {
+    "basis": "no platform leakage in the audited generic runtime modules; adapters share the generic contracts unchanged (P2-40)",
+    "claim": "generic runtime neutrality",
+    "classification": "PROVEN"
+  },
+  {
+    "basis": "declared observable sets for synthetic fixtures only; not general guest/host equivalence",
+    "claim": "observable equivalence",
+    "classification": "BOUNDED_PROVEN"
+  },
+  {
+    "basis": "detected clang-cl/lld-link 22.1.8 toolchain on this host for the audited fixtures",
+    "claim": "reproducible native build",
+    "classification": "BOUNDED_PROVEN"
+  },
+  {
+    "basis": "audited canonical packaging path for three representative fixtures",
+    "claim": "reproducible release package",
+    "classification": "BOUNDED_PROVEN"
+  }
+]

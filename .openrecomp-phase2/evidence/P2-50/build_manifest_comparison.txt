@@ -1,0 +1,23 @@
+P2-50 build-manifest reproducibility
+====================================
+representative: generic-runtime-pipeline
+  A1 inputs_fingerprint: 400af0889b58abbbc42124da92a04527b58ac7d14610ed0142a15d4f7e072e23
+  B1 inputs_fingerprint: 400af0889b58abbbc42124da92a04527b58ac7d14610ed0142a15d4f7e072e23
+  A1 manifest sha256: d74334eccb52588a3ca21180ac3fabeb7f272341e8260dd174c594e4679988f9
+  B1 manifest sha256: d74334eccb52588a3ca21180ac3fabeb7f272341e8260dd174c594e4679988f9
+  byte-identical across roots: yes
+
+representative: mips32-larger
+  A1 inputs_fingerprint: bcaba040bd291d613c97262576cafa5eebb36c055493defb35d8d0064252c970
+  B1 inputs_fingerprint: bcaba040bd291d613c97262576cafa5eebb36c055493defb35d8d0064252c970
+  A1 manifest sha256: 75fcea1514e34bc7b25e26ff830b845394fe0c22c8d5b3223cb7653b3662d99a
+  B1 manifest sha256: 75fcea1514e34bc7b25e26ff830b845394fe0c22c8d5b3223cb7653b3662d99a
+  byte-identical across roots: yes
+
+representative: nes-nrom-end-to-end
+  A1 inputs_fingerprint: 4db8b658d62392e19cfc6e821da138023c26ff5216ee54e31a09f933db0db9d9
+  B1 inputs_fingerprint: 4db8b658d62392e19cfc6e821da138023c26ff5216ee54e31a09f933db0db9d9
+  A1 manifest sha256: 5bbc194413674cfc13d07a00ea71a94dc042ed84c7a9801ef3550188833de287
+  B1 manifest sha256: 5bbc194413674cfc13d07a00ea71a94dc042ed84c7a9801ef3550188833de287
+  byte-identical across roots: yes
+

@@ -1,0 +1,10 @@
+P2-40 NES runtime-adapter exercise (generic contract reuse)
+============================================================
+adapter: openrecomp.frontends.nes_runtime.NESRuntimeAdapter
+declared services: ['nes.audio.submit', 'nes.frame.submit']
+controller bits read through $4016: 10110001
+frame submissions: 1 (payload checksum 908883545ad4186728fbfe00ee3d68a300ebfea8b4888a716d2131772a165902)
+audio submissions: 1 (payload checksum 9f64a747e1b97f131fabb6b447296c9b6f0201e79fb3c5356e6c77e89b6a806a)
+host-call records: ['nes.frame.submit', 'nes.audio.submit', 'nes.frame.submit', 'nes.frame.submit']
+unsupported mapper, PPU register access, expansion access, arity mismatch and unsupported
+format ids fail closed through the same generic dispatch used by the synthetic adapter.

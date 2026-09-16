@@ -1,0 +1,64 @@
+P2-50 runtime equivalence
+==========================
+representative: generic-runtime-pipeline
+  expected observable:
+failed=0
+error=
+register_count=5
+reg[0]=0
+reg[1]=66048
+reg[2]=66064
+reg[3]=141
+reg[4]=148
+mem_words=66048,66064
+frame_count=1
+frame[0]=2x2 format=RGBA8 checksum=16987283610251169330
+audio_count=1
+audio[0]=8000Hz channels=1 frames=4 format=U8 checksum=1557537621830222089
+input_poll=141
+memory_checksum=10954747769631612134
+  observed stdout sha256 per independent execution: ['25db9f5fd6de9759ea45c0f46a4682b0cad9c6b671e437e6c87784fd4462a2da', '25db9f5fd6de9759ea45c0f46a4682b0cad9c6b671e437e6c87784fd4462a2da', '25db9f5fd6de9759ea45c0f46a4682b0cad9c6b671e437e6c87784fd4462a2da', '25db9f5fd6de9759ea45c0f46a4682b0cad9c6b671e437e6c87784fd4462a2da']
+  returncodes: [0, 0, 0, 0]
+  observations byte-identical: yes
+  observations equal declared expected: yes
+
+representative: mips32-larger
+  expected observable:
+failed=0
+error=
+reg[0]=0
+reg[1]=941
+reg[2]=81
+reg[3]=1024
+reg[4]=860
+reg[5]=0
+reg[6]=860
+reg[7]=81
+reg[8]=941
+reg[9]=0
+reg[10]=20
+  observed stdout sha256 per independent execution: ['5a44a08c3bc1fd16044fa4309ed128f277586184f6661b6757b68e69a1517baa', '5a44a08c3bc1fd16044fa4309ed128f277586184f6661b6757b68e69a1517baa', '5a44a08c3bc1fd16044fa4309ed128f277586184f6661b6757b68e69a1517baa', '5a44a08c3bc1fd16044fa4309ed128f277586184f6661b6757b68e69a1517baa']
+  returncodes: [0, 0, 0, 0]
+  observations byte-identical: yes
+  observations equal declared expected: yes
+
+representative: nes-nrom-end-to-end
+  expected observable:
+failed=0
+error=
+reg[a]=64
+reg[x]=1
+input_result=0x41
+frame_count=1
+frame_payload=ff0000ff00ff00ff0000ffffffffff00
+audio_count=1
+audio_payload=10203040
+mem[0x0401]=0x0f
+mem[0x0402]=0x0a
+mem[0x0403]=0x05
+mem[0x0500]=0x41
+  observed stdout sha256 per independent execution: ['a5b2e1c99a88b1227b4d84d6704e391d71b57053b017e0981bdf3e31bb304941', 'a5b2e1c99a88b1227b4d84d6704e391d71b57053b017e0981bdf3e31bb304941', 'a5b2e1c99a88b1227b4d84d6704e391d71b57053b017e0981bdf3e31bb304941', 'a5b2e1c99a88b1227b4d84d6704e391d71b57053b017e0981bdf3e31bb304941']
+  returncodes: [0, 0, 0, 0]
+  observations byte-identical: yes
+  observations equal declared expected: yes
+

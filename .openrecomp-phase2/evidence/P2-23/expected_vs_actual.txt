@@ -1,0 +1,31 @@
+P2-23 expected vs actual observable
+====================================
+expected (independent reference interpreter + NES runtime adapter):
+failed=0
+error=
+reg[a]=64
+reg[x]=1
+input_result=0x41
+frame_count=1
+frame_payload=ff0000ff00ff00ff0000ffffffffff00
+audio_count=1
+audio_payload=10203040
+mem[0x0401]=0x0f
+mem[0x0402]=0x0a
+mem[0x0403]=0x05
+mem[0x0500]=0x41
+actual (native executable stdout):
+failed=0
+error=
+reg[a]=64
+reg[x]=1
+input_result=0x41
+frame_count=1
+frame_payload=ff0000ff00ff00ff0000ffffffffff00
+audio_count=1
+audio_payload=10203040
+mem[0x0401]=0x0f
+mem[0x0402]=0x0a
+mem[0x0403]=0x05
+mem[0x0500]=0x41
+EXPECTED == ACTUAL: YES

@@ -1,0 +1,280 @@
+{
+  "fixture_byte_length": 42,
+  "fixture_id": "p2-22-nes-runtime-bridge-v1",
+  "fixture_sha256": "cc57bba3124f264cb6f4ec2b0e83cb82d3a9eeea551d18c098278c7eef827763",
+  "marker": "OPENRECOMP_NES_RUNTIME_BRIDGE_V1=PASS tests=66",
+  "python": "3.11.9",
+  "results": [
+    {
+      "check": "abi-audio-macro",
+      "status": "PASS"
+    },
+    {
+      "check": "abi-audio-numeric-id",
+      "status": "PASS"
+    },
+    {
+      "check": "abi-frame-macro",
+      "status": "PASS"
+    },
+    {
+      "check": "abi-frame-numeric-id",
+      "status": "PASS"
+    },
+    {
+      "check": "abi-service-ids",
+      "status": "PASS"
+    },
+    {
+      "check": "adapter-mapper-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "adapter-memory-size",
+      "status": "PASS"
+    },
+    {
+      "check": "adapter-services-declared",
+      "status": "PASS"
+    },
+    {
+      "check": "adapter-state-type",
+      "status": "PASS"
+    },
+    {
+      "check": "audio-count",
+      "status": "PASS"
+    },
+    {
+      "check": "audio-descriptor",
+      "status": "PASS"
+    },
+    {
+      "check": "audio-format",
+      "status": "PASS"
+    },
+    {
+      "check": "audio-payload-match",
+      "status": "PASS"
+    },
+    {
+      "check": "audio-submit-success",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism-scenario",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-assembler-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-p2-21-core-length",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-p2-21-region-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-prg-bank-size",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-synthetic-origin",
+      "status": "PASS"
+    },
+    {
+      "check": "frame-checksum-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "frame-count",
+      "status": "PASS"
+    },
+    {
+      "check": "frame-dimensions",
+      "status": "PASS"
+    },
+    {
+      "check": "frame-format",
+      "status": "PASS"
+    },
+    {
+      "check": "frame-payload-match",
+      "status": "PASS"
+    },
+    {
+      "check": "frame-submit-success",
+      "status": "PASS"
+    },
+    {
+      "check": "input-controller-0",
+      "status": "PASS"
+    },
+    {
+      "check": "input-controller-1",
+      "status": "PASS"
+    },
+    {
+      "check": "input-open-bus",
+      "status": "PASS"
+    },
+    {
+      "check": "input-port0-serial",
+      "status": "PASS"
+    },
+    {
+      "check": "input-port1-serial",
+      "status": "PASS"
+    },
+    {
+      "check": "input-snapshot-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-prg-mirror",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-prg-read",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-ram-mirror-0800",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-ram-mirror-1000",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-ram-mirror-1800",
+      "status": "PASS"
+    },
+    {
+      "check": "memory-ram-write",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality-no-nes-import:openrecomp.build_pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality-no-nes-import:openrecomp.call_graph",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality-no-nes-import:openrecomp.cfg",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality-no-nes-import:openrecomp.functions",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality-no-nes-import:openrecomp.host_emitter",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality-no-nes-import:openrecomp.indirect_control_flow",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality-no-nes-import:openrecomp.program_model",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality-no-nes-import:openrecomp.runtime_abi",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality-no-nes-import:openrecomp.translation_units",
+      "status": "PASS"
+    },
+    {
+      "check": "regression-test_nes6502_host_emitter_v1.py",
+      "status": "PASS"
+    },
+    {
+      "check": "regression-test_nes_platform_v1.py",
+      "status": "PASS"
+    },
+    {
+      "check": "regression-test_runtime_abi_v1.py",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:audio-unsupported-format",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bad-input-type",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:frame-unsupported-format",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:memory-address-space",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:memory-disabled-io-read",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:memory-expansion-read",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:memory-invalid-value",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:memory-ppu-read",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:memory-ppu-write",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:memory-prg-ram-absent",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:prg-rom-oversized",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unsupported-mapper",
+      "status": "PASS"
+    },
+    {
+      "check": "state-audio-host-call",
+      "status": "PASS"
+    },
+    {
+      "check": "state-frame-host-call",
+      "status": "PASS"
+    },
+    {
+      "check": "state-host-call-arity-fails-closed",
+      "status": "PASS"
+    }
+  ],
+  "services": [
+    "nes.audio.submit",
+    "nes.frame.submit"
+  ],
+  "stage": "P2-22",
+  "state_fingerprint": "55da1916e5f56b3e663beb37ceb6486fba76957cb66027b64db1223f21639759",
+  "tests": 66
+}

@@ -1,0 +1,35 @@
+P2-90 asset / legal / content-policy audit
+==========================================
+
+Tracked tree:
+  console-asset suffixes: none
+  console-header magics at offset 0: none
+  public-safety markers (credentials/auth/epic/private keys): none
+
+Release packages (frozen P2-50 package_*.zip payloads):
+  release content policy findings: none
+
+Shared implementation source (openrecomp/*.py, adapters/*.py):
+  absolute host paths: none
+
+P2-90 evidence tree:
+  console magics / secrets / absolute host paths: none
+
+Frozen earlier-stage evidence findings (pre-existing, bounded, documented):
+  absolute-host-path: .openrecomp-phase2/evidence/P2-00/RESULT.md
+  absolute-host-path: .openrecomp-phase2/evidence/P2-07/host_emitter_tests.json
+  absolute-host-path: .openrecomp-phase2/evidence/P2-07/native_compile.txt
+  absolute-host-path: .openrecomp-phase2/evidence/P2-08/determinism.txt
+  absolute-host-path: .openrecomp-phase2/evidence/P2-08/runtime_abi_tests.json
+  absolute-host-path: .openrecomp-phase2/evidence/P2-40/run1.txt
+  absolute-host-path: .openrecomp-phase2/evidence/P2-40/run2.txt
+  absolute-host-path: .openrecomp-phase2/evidence/P2-50/regression_tools_test_cross_architecture_neutrality_v1.txt
+  absolute-host-path: .openrecomp-phase2/evidence/P2-50/regression_tools_test_generic_runtime_integration_v1.txt
+
+Classification of the frozen-evidence host-path findings:
+  Nine files in P2-00/P2-07/P2-08/P2-40/P2-50 evidence record host-environment
+  identifiers (working-copy path, detected compiler/interpreter executable paths).
+  They are not secrets, not console assets and do not appear in release packages or
+  generated outputs. They cannot be rewritten without invalidating the hash-pinned
+  evidence of those PASS stages, so P2-90 documents them as a bounded evidence-hygiene
+  limitation and leaves sanitization to P2-91 (evidence index).

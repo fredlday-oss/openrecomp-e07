@@ -1,0 +1,40 @@
+# Host-neutral derivative (P2-91) of `.openrecomp-phase2/evidence/P2-07/native_compile.txt`.
+# Frozen original sha256: 96f80ec6d271f5a282f345a5449f174ef702895365ddcca0c28b6f38f507b028
+# Transformation: the detected compiler executable path is replaced by <host-compiler-path>.
+# The frozen original remains the authoritative historical evidence; this derivative
+# exists only to make the recorded toolchain detection portable.
+
+P2-07 optional native compilation / execution evidence
+======================================================
+
+Compiler detection
+------------------
+The P2-07 gate detects a native C compiler from PATH in the order
+`clang`, `gcc`, `cc`. Availability is never assumed; if none is found the
+compilation check is skipped (a documented toolchain skip, not a pass).
+
+Detected on this host: clang (<host-compiler-path>)
+
+Bounded fixture
+---------------
+The gate emits a synthetic (non-copyrighted) 8-bit arithmetic fixture:
+
+    0x1000  li  rd=r1 imm=200
+    0x1001  li  rd=r2 imm=100
+    0x1002  add rd=r3 rs=r1 rt=r2
+    0x1003  ret
+
+It compiles the generated C with a tiny harness and executes it. The harness
+prints `openrecomp_register_value(2)` (r3) and `openrecomp_failed()`.
+
+Observed:  `44 0`
+Expected:  `44 0`   ((200 + 100) mod 2^8 = 44; no fail-closed boundary hit)
+Match:     yes
+
+Scope of this claim
+-------------------
+This is a bounded compile-and-run check of the generated host source for one
+synthetic fixture with explicit 8-bit guest-width wraparound. It is NOT a
+guest/host equivalence proof and does not claim Phase-2 end-to-end
+recompilation. The semantic gate (`OPENRECOMP_HOST_EMITTER_V1`) passes
+independently of compiler availability.

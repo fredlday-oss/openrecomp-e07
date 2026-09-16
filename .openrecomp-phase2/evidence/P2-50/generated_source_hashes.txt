@@ -1,0 +1,23 @@
+P2-50 generated-source reproducibility
+======================================
+representative: generic-runtime-pipeline
+  run A1 generated.c sha256: c0a76e0f19217aeed017fca9f2abc82ef644563c1374d046987452800679246a
+  run A2 generated.c sha256: c0a76e0f19217aeed017fca9f2abc82ef644563c1374d046987452800679246a
+  run B1 generated.c sha256: c0a76e0f19217aeed017fca9f2abc82ef644563c1374d046987452800679246a
+  run B2 generated.c sha256: c0a76e0f19217aeed017fca9f2abc82ef644563c1374d046987452800679246a
+  byte-identical across roots/runs: yes
+
+representative: mips32-larger
+  run A1 generated.c sha256: 25d8d85ff88d2009443a6c67db40855df5e0876cb2b0aef8505d12d500204203
+  run A2 generated.c sha256: 25d8d85ff88d2009443a6c67db40855df5e0876cb2b0aef8505d12d500204203
+  run B1 generated.c sha256: 25d8d85ff88d2009443a6c67db40855df5e0876cb2b0aef8505d12d500204203
+  run B2 generated.c sha256: 25d8d85ff88d2009443a6c67db40855df5e0876cb2b0aef8505d12d500204203
+  byte-identical across roots/runs: yes
+
+representative: nes-nrom-end-to-end
+  run A1 generated.c sha256: 9819b40e9909b4056211f6f452297b502b99bc4be4f96fe797cdcdfd6aaf2b78
+  run A2 generated.c sha256: 9819b40e9909b4056211f6f452297b502b99bc4be4f96fe797cdcdfd6aaf2b78
+  run B1 generated.c sha256: 9819b40e9909b4056211f6f452297b502b99bc4be4f96fe797cdcdfd6aaf2b78
+  run B2 generated.c sha256: 9819b40e9909b4056211f6f452297b502b99bc4be4f96fe797cdcdfd6aaf2b78
+  byte-identical across roots/runs: yes
+

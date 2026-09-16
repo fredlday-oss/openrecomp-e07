@@ -1,0 +1,73 @@
+{
+  "architecture": "nes6502",
+  "bridge_version": "1.0.0",
+  "call_edges": [
+    {
+      "callee": "fn_8018",
+      "caller": "fn_8000",
+      "kind": "INTERNAL_DIRECT"
+    }
+  ],
+  "entry": 32768,
+  "fingerprints": {
+    "bridge_version": "1.0.0",
+    "call_graph_fingerprint": "e99dce4ba85879cc6627b0d67a5f46aa5ead5007ca6c90004f2dbea5a4cfe370",
+    "cfg_fingerprint": "2924881e53cef31f6408a74abad5a7ff739c160870d7815a88bfc48a58960228",
+    "classification_fingerprint": "67113cc118d04289ea7677802198509f80751342f9a4eeca2321c9e7a71e03de",
+    "end": 32794,
+    "entry": 32768,
+    "function_ids": [
+      "fn_8000",
+      "fn_8018"
+    ],
+    "functions_fingerprint": "7b83a827d3311d89961c3622d56f95f07bef83094de9771e0b0b82b7d5870d3f",
+    "instruction_addresses": [
+      32768,
+      32770,
+      32771,
+      32773,
+      32776,
+      32777,
+      32779,
+      32782,
+      32785,
+      32786,
+      32789,
+      32790,
+      32791,
+      32792,
+      32793
+    ],
+    "region_sha256": "0a236023c59fd5363d0ebdd6ffb18d9b4e792ebeaa11a72ca513b183539fa398",
+    "source": {
+      "adapter": "adapters.nes6502",
+      "address_width_bits": 16,
+      "architecture": "nes6502",
+      "endianness": "little",
+      "input_sha256": "0a236023c59fd5363d0ebdd6ffb18d9b4e792ebeaa11a72ca513b183539fa398"
+    },
+    "units_fingerprint": "d0062fed1f2db5114cfbe2590f032cec844827f23f76310eba5e0fc97c7aa613"
+  },
+  "functions": [
+    "fn_8000",
+    "fn_8018"
+  ],
+  "gate_stdout_sha256": "d104147c5bbc176af44499aed94320e095350f8e9e7f6fafbab8667d33025f03",
+  "indirect_sites": [
+    {
+      "address": 32786,
+      "status": "UNRESOLVED_INDIRECT_JUMP",
+      "targets": []
+    }
+  ],
+  "marker": "OPENRECOMP_NES6502_PROGRAM_BRIDGE_V1=PASS tests=86",
+  "region_end": 32794,
+  "region_sha256": "0a236023c59fd5363d0ebdd6ffb18d9b4e792ebeaa11a72ca513b183539fa398",
+  "stage": "P2-20",
+  "tests": 86,
+  "units": [
+    "tu_fn_8000",
+    "tu_fn_8018"
+  ],
+  "verdict": "PASS"
+}

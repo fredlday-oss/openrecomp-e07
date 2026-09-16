@@ -1,0 +1,253 @@
+{
+  "address_isolation": [],
+  "audited_modules": [
+    "openrecomp.runtime_abi",
+    "openrecomp.runtime",
+    "openrecomp.module",
+    "openrecomp.host_emitter",
+    "openrecomp.build_pipeline"
+  ],
+  "backend_extension_points": [
+    {
+      "abi_changes_required": "none",
+      "adapter_responsibilities": [
+        "ROM banking / MBC mapping",
+        "JOYP input protocol",
+        "2bpp tile-to-pixel conversion",
+        "4-channel APU mixing/resampling"
+      ],
+      "generic_contracts_used": [
+        "RuntimeMemory",
+        "RuntimeInputSnapshot",
+        "RuntimeFrame",
+        "RuntimeAudio",
+        "RuntimeServiceTable",
+        "RuntimeState"
+      ],
+      "guest_address_width_bits": 16,
+      "notes": "16-bit guest space is an adapter configuration, not a shared-ABI assumption.",
+      "platform": "gb"
+    },
+    {
+      "abi_changes_required": "none",
+      "adapter_responsibilities": [
+        "VRAM/WRAM banking",
+        "double-speed timing policy",
+        "CGB palette expansion to a RuntimePixelFormat"
+      ],
+      "generic_contracts_used": [
+        "RuntimeMemory",
+        "RuntimeInputSnapshot",
+        "RuntimeFrame",
+        "RuntimeAudio",
+        "RuntimeServiceTable",
+        "RuntimeState"
+      ],
+      "guest_address_width_bits": 16,
+      "notes": "CGB extras stay in the platform adapter; the generic contracts are unchanged.",
+      "platform": "gbc"
+    },
+    {
+      "abi_changes_required": "none",
+      "adapter_responsibilities": [
+        "Sega mapper banking",
+        "controller port decoding",
+        "VDP palette expansion",
+        "PSG synthesis"
+      ],
+      "generic_contracts_used": [
+        "RuntimeMemory",
+        "RuntimeInputSnapshot",
+        "RuntimeFrame",
+        "RuntimeAudio",
+        "RuntimeServiceTable",
+        "RuntimeState"
+      ],
+      "guest_address_width_bits": 16,
+      "notes": "Z80 I/O ports map to adapter-defined services and memory-side registers.",
+      "platform": "sms"
+    },
+    {
+      "abi_changes_required": "none",
+      "adapter_responsibilities": [
+        "GPU-side scene/present integration",
+        "frame pacing and resampling"
+      ],
+      "generic_contracts_used": [
+        "RuntimeFrame",
+        "RuntimeAudio",
+        "RuntimeServiceTable"
+      ],
+      "guest_address_width_bits": null,
+      "notes": "Rendering backends consume RuntimeFrame submissions from the host side; no GPU API enters the shared ABI.",
+      "platform": "rt64-like presentation backend"
+    }
+  ],
+  "concept_classification": [
+    {
+      "concept": "guest memory image and checked byte/word access",
+      "layer": "architecture-neutral runtime contract",
+      "reference": "openrecomp.runtime_abi.RuntimeMemory"
+    },
+    {
+      "concept": "guest address space size, endianness and segment layout",
+      "layer": "platform adapter responsibility",
+      "reference": "adapter-supplied RuntimeMemory configuration"
+    },
+    {
+      "concept": "guest address width declaration",
+      "layer": "architecture/frontend responsibility",
+      "reference": "ProgramSource.address_width_bits and emitter word_bits"
+    },
+    {
+      "concept": "guest register file ownership",
+      "layer": "architecture/frontend responsibility",
+      "reference": "emitter register_names derived from adapter fields"
+    },
+    {
+      "concept": "digital/analog input snapshot transport",
+      "layer": "architecture-neutral runtime contract",
+      "reference": "openrecomp.runtime_abi.RuntimeInputSnapshot"
+    },
+    {
+      "concept": "device button/axis layout and serial protocol",
+      "layer": "platform adapter responsibility",
+      "reference": "NES controller mapping in openrecomp/frontends/nes_runtime.py"
+    },
+    {
+      "concept": "physical input device acquisition",
+      "layer": "host implementation responsibility",
+      "reference": "host process feeding RuntimeInputSnapshot"
+    },
+    {
+      "concept": "frame geometry/format/payload transport",
+      "layer": "architecture-neutral runtime contract",
+      "reference": "openrecomp.runtime_abi.RuntimeFrame"
+    },
+    {
+      "concept": "platform pixel format ids and rendering",
+      "layer": "platform adapter responsibility",
+      "reference": "adapter-local format id maps; rendering stays outside the ABI"
+    },
+    {
+      "concept": "frame presentation backend selection",
+      "layer": "host implementation responsibility",
+      "reference": "host backend fed by RuntimeFrame"
+    },
+    {
+      "concept": "audio sample format/rate/channel/payload transport",
+      "layer": "architecture-neutral runtime contract",
+      "reference": "openrecomp.runtime_abi.RuntimeAudio"
+    },
+    {
+      "concept": "platform audio format ids and synthesis",
+      "layer": "platform adapter responsibility",
+      "reference": "adapter-local format id maps; DSP stays outside the ABI"
+    },
+    {
+      "concept": "audio device backend selection",
+      "layer": "host implementation responsibility",
+      "reference": "host backend fed by RuntimeAudio"
+    },
+    {
+      "concept": "host service identity, arity and dispatch",
+      "layer": "architecture-neutral runtime contract",
+      "reference": "openrecomp.runtime_abi.RuntimeService and RuntimeServiceTable"
+    },
+    {
+      "concept": "platform service names and implementations",
+      "layer": "platform adapter responsibility",
+      "reference": "adapter-declared services (for example nes.frame.submit)"
+    },
+    {
+      "concept": "which guest site invokes which service",
+      "layer": "architecture/frontend responsibility",
+      "reference": "P2-06 external/runtime evidence plus explicit emitter rule"
+    },
+    {
+      "concept": "runtime lifecycle, step budget and failure latch",
+      "layer": "architecture-neutral runtime contract",
+      "reference": "openrecomp.runtime_abi.RuntimeConfig and RuntimeState"
+    },
+    {
+      "concept": "deterministic RNG hook",
+      "layer": "architecture-neutral runtime contract",
+      "reference": "openrecomp.runtime_abi.RuntimeState.next_random"
+    },
+    {
+      "concept": "ABI identity and versioning",
+      "layer": "architecture-neutral runtime contract",
+      "reference": "openrecomp.runtime_abi.RuntimeAbiVersion"
+    },
+    {
+      "concept": "generated host -> runtime boundary",
+      "layer": "host implementation responsibility",
+      "reference": "or_rt_* declarations plus host-provided implementation"
+    },
+    {
+      "concept": "build, launch and artifact reproducibility",
+      "layer": "host implementation responsibility",
+      "reference": "openrecomp.build_pipeline plus host toolchain"
+    }
+  ],
+  "host_state_imports": [],
+  "import_isolation": [],
+  "scanner_self_test": {
+    "clean_address_findings": [],
+    "clean_symbol_findings": [],
+    "planted_address_findings": [
+      {
+        "hex": "0x2000",
+        "kind": "platform_bus_address",
+        "literal": 8192,
+        "meaning": "NES PPU register base",
+        "module": "<planted>"
+      },
+      {
+        "hex": "0x4016",
+        "kind": "platform_bus_address",
+        "literal": 16406,
+        "meaning": "NES controller port 1",
+        "module": "<planted>"
+      }
+    ],
+    "planted_symbol_findings": [
+      {
+        "detail": "NES_PPU_BASE",
+        "kind": "platform_identifier",
+        "module": "<planted>",
+        "token": "nes"
+      },
+      {
+        "detail": "nes.frame.submit",
+        "kind": "platform_string",
+        "module": "<planted>",
+        "token": "nes"
+      },
+      {
+        "detail": "NES_PPU_BASE",
+        "kind": "platform_identifier",
+        "module": "<planted>",
+        "token": "ppu"
+      },
+      {
+        "detail": "CONTROLLER_STROBE",
+        "kind": "platform_identifier",
+        "module": "<planted>",
+        "token": "controller"
+      },
+      {
+        "detail": "read_controller",
+        "kind": "platform_identifier",
+        "module": "<planted>",
+        "token": "controller"
+      },
+      {
+        "detail": "nes.frame.submit",
+        "kind": "platform_service_name",
+        "module": "<planted>"
+      }
+    ]
+  },
+  "symbol_isolation": []
+}

@@ -1,0 +1,35 @@
+P2-40 expected vs actual observable
+===================================
+expected (independent Python reference through the generic runtime contracts):
+failed=0
+error=
+register_count=5
+reg[0]=0
+reg[1]=66048
+reg[2]=66064
+reg[3]=141
+reg[4]=148
+mem_words=66048,66064
+frame_count=1
+frame[0]=2x2 format=RGBA8 checksum=16987283610251169330
+audio_count=1
+audio[0]=8000Hz channels=1 frames=4 format=U8 checksum=1557537621830222089
+input_poll=141
+memory_checksum=10954747769631612134
+actual (native executable stdout):
+failed=0
+error=
+register_count=5
+reg[0]=0
+reg[1]=66048
+reg[2]=66064
+reg[3]=141
+reg[4]=148
+mem_words=66048,66064
+frame_count=1
+frame[0]=2x2 format=RGBA8 checksum=16987283610251169330
+audio_count=1
+audio[0]=8000Hz channels=1 frames=4 format=U8 checksum=1557537621830222089
+input_poll=141
+memory_checksum=10954747769631612134
+EXPECTED == ACTUAL: YES

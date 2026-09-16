@@ -1,0 +1,422 @@
+{
+  "architecture": "nes6502",
+  "call_edges": [
+    {
+      "callee": "fn_8018",
+      "caller": "fn_8000",
+      "kind": "INTERNAL_DIRECT"
+    }
+  ],
+  "entry": 32768,
+  "fingerprints": {
+    "bridge_version": "1.0.0",
+    "call_graph_fingerprint": "e99dce4ba85879cc6627b0d67a5f46aa5ead5007ca6c90004f2dbea5a4cfe370",
+    "cfg_fingerprint": "2924881e53cef31f6408a74abad5a7ff739c160870d7815a88bfc48a58960228",
+    "classification_fingerprint": "67113cc118d04289ea7677802198509f80751342f9a4eeca2321c9e7a71e03de",
+    "end": 32794,
+    "entry": 32768,
+    "function_ids": [
+      "fn_8000",
+      "fn_8018"
+    ],
+    "functions_fingerprint": "7b83a827d3311d89961c3622d56f95f07bef83094de9771e0b0b82b7d5870d3f",
+    "instruction_addresses": [
+      32768,
+      32770,
+      32771,
+      32773,
+      32776,
+      32777,
+      32779,
+      32782,
+      32785,
+      32786,
+      32789,
+      32790,
+      32791,
+      32792,
+      32793
+    ],
+    "region_sha256": "0a236023c59fd5363d0ebdd6ffb18d9b4e792ebeaa11a72ca513b183539fa398",
+    "source": {
+      "adapter": "adapters.nes6502",
+      "address_width_bits": 16,
+      "architecture": "nes6502",
+      "endianness": "little",
+      "input_sha256": "0a236023c59fd5363d0ebdd6ffb18d9b4e792ebeaa11a72ca513b183539fa398"
+    },
+    "units_fingerprint": "d0062fed1f2db5114cfbe2590f032cec844827f23f76310eba5e0fc97c7aa613"
+  },
+  "functions": [
+    "fn_8000",
+    "fn_8018"
+  ],
+  "indirect_sites": [
+    {
+      "address": 32786,
+      "status": "UNRESOLVED_INDIRECT_JUMP",
+      "targets": []
+    }
+  ],
+  "instruction_count": 15,
+  "marker": "OPENRECOMP_NES6502_PROGRAM_BRIDGE_V1=PASS tests=86",
+  "python": "3.11.9",
+  "region_end": 32794,
+  "region_sha256": "0a236023c59fd5363d0ebdd6ffb18d9b4e792ebeaa11a72ca513b183539fa398",
+  "results": [
+    {
+      "check": "callgraph-internal-edge",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph-nodes",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-block-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-call-continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-direct-jump",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-entry-fallthrough",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-indirect-unresolved",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-loop-backedge",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-loop-exit",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-no-phantom-blocks",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-return-no-successors",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg-roundtrip",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-absx-operand",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-addresses",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-branch-flow",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-call-flow",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-imm-operand",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-indirect-jump",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-indirect-pointer",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-instruction-count",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-jsr-target",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-jump-flow",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-normal-flow",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-ops",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-proven-evidence",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-relative-operand",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-return-flow",
+      "status": "PASS"
+    },
+    {
+      "check": "decode-sizes",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism-callgraph",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism-cfg",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism-classification",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism-functions",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism-program-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism-serialize",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism-units",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-assembler-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-halt-padding",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-region-end",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-region-length",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-region-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-synthetic-origin",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-helper-body",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-main-body",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-two",
+      "status": "PASS"
+    },
+    {
+      "check": "functions-unowned",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-basis-none",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-no-guessed-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-site-address",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-site-count",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-status-unresolved",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect-unowned-control-flow-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality-bridge-imports-adapter",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality-bridge-no-host-emission",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality-generic-metadata",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality-no-arch-import:call_graph",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality-no-arch-import:cfg",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality-no-arch-import:functions",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality-no-arch-import:indirect_control_flow",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality-no-arch-import:program_model",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality-no-arch-import:translation_units",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-21-emission-symbol",
+      "status": "PASS"
+    },
+    {
+      "check": "no-p2-21-host-emitter-import",
+      "status": "PASS"
+    },
+    {
+      "check": "programmodel-functions",
+      "status": "PASS"
+    },
+    {
+      "check": "programmodel-source",
+      "status": "PASS"
+    },
+    {
+      "check": "programmodel-validates",
+      "status": "PASS"
+    },
+    {
+      "check": "reference-call-order",
+      "status": "PASS"
+    },
+    {
+      "check": "reference-executed-control-matches",
+      "status": "PASS"
+    },
+    {
+      "check": "reference-final-state",
+      "status": "PASS"
+    },
+    {
+      "check": "reference-halts",
+      "status": "PASS"
+    },
+    {
+      "check": "reference-loop-taken",
+      "status": "PASS"
+    },
+    {
+      "check": "reference-steps",
+      "status": "PASS"
+    },
+    {
+      "check": "reference-trace-in-model",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:empty-region-selection",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:entry-not-before-end",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:entry-out-of-range",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:memory-not-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:region-past-memory",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:truncated-operands",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:undocumented-opcode",
+      "status": "PASS"
+    },
+    {
+      "check": "units-call-edges",
+      "status": "PASS"
+    },
+    {
+      "check": "units-roundtrip",
+      "status": "PASS"
+    },
+    {
+      "check": "units-two",
+      "status": "PASS"
+    },
+    {
+      "check": "units-unowned-preserved",
+      "status": "PASS"
+    }
+  ],
+  "stage": "P2-20",
+  "tests": 86,
+  "units": [
+    "tu_fn_8000",
+    "tu_fn_8018"
+  ],
+  "unowned_blocks": [
+    "blk_8011",
+    "blk_8015"
+  ]
+}

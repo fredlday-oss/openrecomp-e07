@@ -1,0 +1,722 @@
+{
+  "asset_legal_audit": {
+    "classification": "Nine pre-existing frozen evidence files record host-environment identifiers (working-copy/compiler/interpreter paths). Not secrets, absent from source, generated output and release packages; pinned by hash-recorded PASS evidence, so sanitization is deferred to P2-91.",
+    "frozen_evidence_host_path_files": [
+      "P2-00/RESULT.md",
+      "P2-07/host_emitter_tests.json",
+      "P2-07/native_compile.txt",
+      "P2-08/determinism.txt",
+      "P2-08/runtime_abi_tests.json",
+      "P2-40/run1.txt",
+      "P2-40/run2.txt",
+      "P2-50/regression_tools_test_cross_architecture_neutrality_v1.txt",
+      "P2-50/regression_tools_test_generic_runtime_integration_v1.txt"
+    ],
+    "p2_90_artifacts": "clean (no console magics, secrets or absolute host paths)",
+    "release_packages": "clean (release content policy findings: none)",
+    "shared_source_host_paths": "none",
+    "tracked_tree": "clean (no console assets/magics, no public-safety markers)"
+  },
+  "audit_gate": {
+    "checks": 361,
+    "command": "python tools/test_phase2_whole_regression_v1.py",
+    "failed": 0,
+    "file": "tools/test_phase2_whole_regression_v1.py",
+    "sha256": "5832a0aaf0dd470f7bfdff093d09be371ab03fcfb66d45d2a9844a7cceb090ef",
+    "skipped": 0
+  },
+  "baseline": {
+    "branch": "phase2/opencode-v1",
+    "head": "2fc27bfd80ef36b62ab3dc854562bbb4d0ce82db",
+    "head_subject": "phase2: complete P2-14 larger MIPS32 open fixture",
+    "phase1_tag": "openrecomp-phase1-pass",
+    "phase1_tag_commit": "46c2f971e1a42cf49bd936bad94697b81bf31002",
+    "phase1_tag_verified_unchanged": true
+  },
+  "changed_files": [
+    "P2-90 changed files",
+    "===================",
+    "",
+    "New:",
+    "  5832a0aaf0dd470f7bfdff093d09be371ab03fcfb66d45d2a9844a7cceb090ef  tools/test_phase2_whole_regression_v1.py",
+    "",
+    "Modified by P2-90:",
+    "  1bf21db59bf11f4ff19d60bbe4e37afd8e4b8ca5f1391296d882c1149cc08fca  SOURCE_SHA256SUMS.txt (P2-90 gate registered; 131 -> 132 entries)",
+    "  409589c57e5bebfac3a42beeaf113e11a07918dadfafb81d0dc0c286c30d888f  .openrecomp-phase2/STATE.md",
+    "  f18bcc0600309685bf27b055cc7183825c665090f8576ed64148bd34056c8c3c  .openrecomp-phase2/HANDOFF.md",
+    "  b122fd4e21548ec52ae13aeb9fd4ffae306e9f3ebfe414fe598664ebade45a61  .openrecomp-phase2/STAGE_QUEUE.md",
+    "",
+    "Annotated (pre-existing uncommitted change from the P2-20 session; not changed by P2-90):",
+    "  5bf0edf34ee5f794c4031da7891e9daf1077681aae6e4975c9b0644ecd5f4a7d  tools/test_mips32_larger_fixture_v1.py",
+    "    replacement of the obsolete guard no-p2-20-evidence-directory by",
+    "    no-nes6502-dependency-in-p2-14 (count unchanged at 82; see corrections_report.md C2)",
+    "",
+    "P2-90 evidence files (names; hashes for the changed non-evidence files above):",
+    "  .openrecomp-phase2/evidence/P2-90/asset_legal_audit.txt",
+    "  .openrecomp-phase2/evidence/P2-90/changed_files.txt",
+    "  .openrecomp-phase2/evidence/P2-90/claim_classification.json",
+    "  .openrecomp-phase2/evidence/P2-90/claim_classification.md",
+    "  .openrecomp-phase2/evidence/P2-90/corrections_report.md",
+    "  .openrecomp-phase2/evidence/P2-90/deterministic_runs.txt",
+    "  .openrecomp-phase2/evidence/P2-90/p2_90_run1.err",
+    "  .openrecomp-phase2/evidence/P2-90/p2_90_run1.txt",
+    "  .openrecomp-phase2/evidence/P2-90/p2_90_run2.err",
+    "  .openrecomp-phase2/evidence/P2-90/p2_90_run2.txt",
+    "  .openrecomp-phase2/evidence/P2-90/p2_90_tests.json",
+    "  .openrecomp-phase2/evidence/P2-90/phase1_host_gates/command.txt",
+    "  .openrecomp-phase2/evidence/P2-90/phase1_host_gates/stderr.txt",
+    "  .openrecomp-phase2/evidence/P2-90/phase1_host_gates/stdout.txt",
+    "  .openrecomp-phase2/evidence/P2-90/regression_matrix.json",
+    "  .openrecomp-phase2/evidence/P2-90/regression_matrix.txt",
+    "  .openrecomp-phase2/evidence/P2-90/regression_matrix_full.txt",
+    "  .openrecomp-phase2/evidence/P2-90/RESULT.md",
+    "  .openrecomp-phase2/evidence/P2-90/source_integrity/command.txt",
+    "  .openrecomp-phase2/evidence/P2-90/source_integrity/stderr.txt",
+    "  .openrecomp-phase2/evidence/P2-90/source_integrity/stdout.txt",
+    "  .openrecomp-phase2/evidence/P2-90/source_integrity.txt",
+    "  .openrecomp-phase2/evidence/P2-90/stage_evidence_consistency.json",
+    "  .openrecomp-phase2/evidence/P2-90/stage_evidence_consistency.txt",
+    "",
+    "Raw audit captures (untracked scratch, outside the audited evidence tree):",
+    "  .openrecomp-phase2/scratch/P2-90/regressions/<stage>/",
+    "",
+    "Unchanged: all openrecomp/*.py implementation modules, all adapters/*.py, all existing",
+    "gates, and every frozen P2-00..P2-50 evidence artifact.",
+    ""
+  ],
+  "claim_classification": [
+    {
+      "basis": "synthetic 13/16/35/5/57-instruction fixtures; no general MIPS32 support",
+      "claim": "MIPS32 shared-path operation",
+      "classification": "BOUNDED_PROVEN"
+    },
+    {
+      "basis": "bounded synthetic NROM fixture; memory/input/frame/audio contracts via the generic ABI; no PPU/APU implementation",
+      "claim": "NES runtime bridge",
+      "classification": "BOUNDED_PROVEN"
+    },
+    {
+      "basis": "one synthetic 59-instruction NROM fixture; reference observable equals native observable",
+      "claim": "NES synthetic end-to-end native recompilation",
+      "classification": "BOUNDED_PROVEN"
+    },
+    {
+      "basis": "one synthetic 26-byte NES6502 region through P2-01..P2-06 (P2-20) and one bounded emitted subset (P2-21); no full 6502 support",
+      "claim": "NES/6502 frontend integration",
+      "classification": "BOUNDED_PROVEN"
+    },
+    {
+      "basis": "not implemented, not claimed",
+      "claim": "PS1/PS2/Xbox compatibility",
+      "classification": "OUT_OF_SCOPE"
+    },
+    {
+      "basis": "OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF is reserved for P2-99 and remains NOT_PROVEN",
+      "claim": "Phase-2 final end-to-end proof marker",
+      "classification": "NOT_PROVEN"
+    },
+    {
+      "basis": "bounded synthetic fixtures only",
+      "claim": "arbitrary MIPS32 binary compatibility",
+      "classification": "NOT_PROVEN"
+    },
+    {
+      "basis": "no general NES ROM support is implemented or claimed",
+      "claim": "arbitrary NES ROM compatibility",
+      "classification": "NOT_PROVEN"
+    },
+    {
+      "basis": "static import/symbol isolation over the audited shared modules plus MIPS32 and NES6502 path exercises (P2-30); neutral is proven for the audited modules and synthetic fixtures only",
+      "claim": "architecture-neutral shared analysis pipeline",
+      "classification": "PROVEN"
+    },
+    {
+      "basis": "no commercial ROM/game is used or supported",
+      "claim": "commercial-game compatibility",
+      "classification": "NOT_PROVEN"
+    },
+    {
+      "basis": "no full PPU/APU/mapper implementation",
+      "claim": "complete NES hardware compatibility",
+      "classification": "NOT_PROVEN"
+    },
+    {
+      "basis": "cycle-exact behavior is not modeled or claimed",
+      "claim": "cycle accuracy",
+      "classification": "OUT_OF_SCOPE"
+    },
+    {
+      "basis": "byte-identical stdout across repeated gate runs and repeated native executions for the audited fixtures",
+      "claim": "deterministic repeated execution",
+      "classification": "PROVEN"
+    },
+    {
+      "basis": "GB/GBC/SMS/RT64-like extension points are documented only; no adapter implemented",
+      "claim": "future architecture compatibility",
+      "classification": "NOT_PROVEN"
+    },
+    {
+      "basis": "no platform leakage in the audited generic runtime modules; adapters share the generic contracts unchanged (P2-40)",
+      "claim": "generic runtime neutrality",
+      "classification": "PROVEN"
+    },
+    {
+      "basis": "declared observable sets for synthetic fixtures only; not general guest/host equivalence",
+      "claim": "observable equivalence",
+      "classification": "BOUNDED_PROVEN"
+    },
+    {
+      "basis": "detected clang-cl/lld-link 22.1.8 toolchain on this host for the audited fixtures",
+      "claim": "reproducible native build",
+      "classification": "BOUNDED_PROVEN"
+    },
+    {
+      "basis": "audited canonical packaging path for three representative fixtures",
+      "claim": "reproducible release package",
+      "classification": "BOUNDED_PROVEN"
+    }
+  ],
+  "corrections": [
+    {
+      "applied": true,
+      "classification": "control-plane documentation staleness",
+      "id": "C1",
+      "summary": "Stale P2-50 archive/source-state claims in STATE/HANDOFF replaced with the evidence-derived values."
+    },
+    {
+      "applied": true,
+      "classification": "documentation/annotation gap (count-preserving guard fix)",
+      "id": "C2",
+      "summary": "P2-20-session P2-14 guard replacement documented; current P2-14 stdout hash recorded."
+    },
+    {
+      "applied": true,
+      "classification": "control-plane documentation staleness",
+      "id": "C3",
+      "summary": "Gate-block source-integrity count corrected to 132 manifest entries."
+    },
+    {
+      "applied": true,
+      "classification": "bounded evidence-hygiene limitation",
+      "id": "C4",
+      "summary": "Nine frozen host-path occurrences enumerated; no new occurrence permitted; sanitization deferred to P2-91."
+    }
+  ],
+  "deterministic_runs": {
+    "captures": [
+      "p2_90_run1.txt",
+      "p2_90_run2.txt",
+      "p2_90_run1.err",
+      "p2_90_run2.err"
+    ],
+    "run_count": 2,
+    "stderr_byte_identical": true,
+    "stderr_sha256": [
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "stdout_byte_identical": true,
+    "stdout_sha256": [
+      "74e9eadaf0e17ca4a97790e4239f40883cc745cd9817c172f7fa6e2663ce1ee7",
+      "74e9eadaf0e17ca4a97790e4239f40883cc745cd9817c172f7fa6e2663ce1ee7"
+    ]
+  },
+  "evidence_consistency": [
+    {
+      "expected_tests": 104,
+      "feature_marker": "OPENRECOMP_TRANSLATION_UNITS_V1",
+      "result_json_sha256": "22c4ed36a90f5705bf1708fa6c97c753fcc8ced5623bf71612aaff134887bc14",
+      "result_md_sha256": "738bfb01f0dc32bc461de412e080fac6a8f66ec79888a108bddb741f88d7d0dc",
+      "stage": "P2-05"
+    },
+    {
+      "expected_tests": 134,
+      "feature_marker": "OPENRECOMP_INDIRECT_CONTROL_FLOW_V1",
+      "result_json_sha256": "b68b3243c6e0780c1f4036ee99ceb0a6a39a060de62826ef703402c5ba8011fd",
+      "result_md_sha256": "3d443fe0520ee0a51b7d53b0b6d4b8bc3560bac954fff46290dcafbc8c2ba694",
+      "stage": "P2-06"
+    },
+    {
+      "expected_tests": 106,
+      "feature_marker": "OPENRECOMP_HOST_EMITTER_V1",
+      "result_json_sha256": "0bc323c516c80d7ac83ae1b28e27de66a327b0f9b9caa7c4151ea41b9ffd46f3",
+      "result_md_sha256": "d680b92d47ee215c5448b7cdab2d7edd6ca8c4a99fe6fbc5594e4403cb04daba",
+      "stage": "P2-07"
+    },
+    {
+      "expected_tests": 169,
+      "feature_marker": "OPENRECOMP_GENERIC_RUNTIME_ABI_V1",
+      "result_json_sha256": "ea757f5eb3e4d7ebdd119b26e5f6cd4f7f931e2975424c3abf1724a6e02cf0d7",
+      "result_md_sha256": "329d84e86c7f941f40ab6290840e4685e51a292662caff98e7f4c3df848aeaf0",
+      "stage": "P2-08"
+    },
+    {
+      "expected_tests": 120,
+      "feature_marker": "OPENRECOMP_DETERMINISTIC_BUILD_V1",
+      "result_json_sha256": "35fc4aa27ae6ce44bb96fc28176ca9a3da22bf2560e1933a05a456dc8841397b",
+      "result_md_sha256": "67d1c9c47af4e088bf8fa1c737f731cc2c8db9d2df1e515ad993596b67361b18",
+      "stage": "P2-09"
+    },
+    {
+      "expected_tests": 108,
+      "feature_marker": "OPENRECOMP_MIPS32_END_TO_END_V1",
+      "result_json_sha256": "85badcb7be26dec73ff7dd0202234bb87f36e3f929b616d617d025c42792c9c1",
+      "result_md_sha256": "e56cb09192aa578da23c52749c21ad14294c5b1708b7831cc3c4291730610ff1",
+      "stage": "P2-10"
+    },
+    {
+      "expected_tests": 77,
+      "feature_marker": "OPENRECOMP_MIPS32_CALLS_MEMORY_V1",
+      "result_json_sha256": "b22ff28843d7d1ebc9470b6d2750a834d1726576112f4ed2a8c2f9052256b1f9",
+      "result_md_sha256": "e1fee70afe4f063f7945f1fe2f11d03d015b3c1bc764b44a57538e2bf7dfbad5",
+      "stage": "P2-11"
+    },
+    {
+      "expected_tests": 96,
+      "feature_marker": "OPENRECOMP_MIPS32_DIRECT_CFG_V1",
+      "result_json_sha256": "df84e1fbc8c4e7c906da9d42aa8bc4b64c033c1917e75c7ec95ac2e28f6c3665",
+      "result_md_sha256": "37ada415e38e0692fcee5b98d8a3808b613600148dd543d79f13042397645b45",
+      "stage": "P2-12"
+    },
+    {
+      "expected_tests": 80,
+      "feature_marker": "OPENRECOMP_RUNTIME_HOST_BOUNDARY_V1",
+      "result_json_sha256": "5b36fa1511aaf52c6c1e3bf733174f689cc7fb1aa1c2e879b4877a6341d6d2a9",
+      "result_md_sha256": "9d9ef55791003f9ce88aad106ef2689fc357fe0ebc475869ab06a7fc3fd34caa",
+      "stage": "P2-13"
+    },
+    {
+      "expected_tests": 82,
+      "feature_marker": "OPENRECOMP_MIPS32_LARGER_FIXTURE_V1",
+      "result_json_sha256": "024b5789a5506e663c5973fcfe2bb6cccbfdfca43e51bf7d8cb82dfad216454b",
+      "result_md_sha256": "9a9cb6f696728080cd60728d8628260047673372e8abb10b6b2f7b6a34a8a376",
+      "stage": "P2-14"
+    },
+    {
+      "expected_tests": 86,
+      "feature_marker": "OPENRECOMP_NES6502_PROGRAM_BRIDGE_V1",
+      "result_json_sha256": "21327d5ccdff0a5b4a62c31866b93f62c1b5589b21b3965331817a2e685c2a03",
+      "result_md_sha256": "0fee10e1fad84d66e69a42d6157cac15c89326656a47e3b0a1d4b71fda792118",
+      "stage": "P2-20"
+    },
+    {
+      "expected_tests": 74,
+      "feature_marker": "OPENRECOMP_NES6502_HOST_EMITTER_V1",
+      "result_json_sha256": "3886b0a000fd5b4f47d98ef4739cd48b9ec3db46bb532c8d529574c502a72fb2",
+      "result_md_sha256": "f94193346cd516a9198d43e5fcc47a81fda6be92dd9fc2f970de4e05ade2c87e",
+      "stage": "P2-21"
+    },
+    {
+      "expected_tests": 66,
+      "feature_marker": "OPENRECOMP_NES_RUNTIME_BRIDGE_V1",
+      "result_json_sha256": "c5059c9ed309c79b1860a757528a700df7196f7df32a2cbd079a093beed412df",
+      "result_md_sha256": "44f56815a02acdccd822b3102d6866a7950b88f6f01c725f24ef767f8ae6e919",
+      "stage": "P2-22"
+    },
+    {
+      "expected_tests": 50,
+      "feature_marker": "OPENRECOMP_NES_END_TO_END_V1",
+      "result_json_sha256": "b023f5197dc23744de003ce8e2826c4ef24a3b3987a4d0d4acf22f7784e79660",
+      "result_md_sha256": "4e48338a43fa175c0e9a62c74f4e07b4801491d2c60ec680390320c37aa3a7b4",
+      "stage": "P2-23"
+    },
+    {
+      "expected_tests": 14,
+      "feature_marker": "OPENRECOMP_CROSS_ARCHITECTURE_NEUTRALITY_V1",
+      "result_json_sha256": "5bdec11206a6aa47cd6faa339f75521c6030a6ca898625fa50076e8ba8930974",
+      "result_md_sha256": "68dd6bc040c5e872fd61fa1c63bb16b60dd1429eab430b28f84f3d7f1d46f476",
+      "stage": "P2-30"
+    },
+    {
+      "expected_tests": 181,
+      "feature_marker": "OPENRECOMP_GENERIC_RUNTIME_INTEGRATION_V1",
+      "result_json_sha256": "9d12b524f13ff174c532cecd603837634263c87c43536b3a1d27e5b978997d6e",
+      "result_md_sha256": "381aa93ca824a27506a5d06308c8c41d34cb793b67ae80801250de87b04d7fe2",
+      "stage": "P2-40"
+    },
+    {
+      "expected_tests": 174,
+      "feature_marker": "OPENRECOMP_BUILD_PACKAGE_REPRODUCIBILITY_V1",
+      "result_json_sha256": "4f52129f991f40a10e95d3f438a1d9dbf0c06f77cd5a7a52acc8406e962dd873",
+      "result_md_sha256": "7daa337bb4d8219536553e88a485cb0ec8410ce2ae7be73c4da58299be9617fa",
+      "stage": "P2-50"
+    }
+  ],
+  "expected_manifest_count_deltas": [
+    {
+      "classification": "EXPECTED_DOCUMENTED_OR_ADDITIVE_DELTA",
+      "current_sha256": "8f67f6107c7974afceb4e476f8297c6e0f8c999b508dfc97dd1d4356edcbde22",
+      "file": "RESULT.md",
+      "recorded_sha256": "4e48338a43fa175c0e9a62c74f4e07b4801491d2c60ec680390320c37aa3a7b4",
+      "stage": "P2-23"
+    },
+    {
+      "classification": "EXPECTED_DOCUMENTED_OR_ADDITIVE_DELTA",
+      "current_sha256": "b1549228ac3f42bcbe211b50612628760655bec5aeb524e84c6507861b575dd6",
+      "file": "changed_files.txt",
+      "recorded_sha256": "195aa577b5023b1232fb42d6607810fc565461094d7311821ecf44e5c6b6d6c5",
+      "stage": "P2-23"
+    },
+    {
+      "classification": "EXPECTED_DOCUMENTED_OR_ADDITIVE_DELTA",
+      "current_sha256": "0a5f9ab9b3a2a249503d57ae1760a816cad05e43cd9b374546b6cca847ba4c5d",
+      "file": "regression_tools_phase1_host_gates_v1.txt",
+      "recorded_sha256": "e6b16ba8d3a1b8a2c8334334b97eeb5da8bf57583c11eb415d62053eb003d09d",
+      "stage": "P2-23"
+    },
+    {
+      "classification": "EXPECTED_DOCUMENTED_OR_ADDITIVE_DELTA",
+      "current_sha256": "1992c04082654a6cef8e7ee6fb897645bd01d27080d01fb8766aba7fba4446e6",
+      "file": "source_integrity.txt",
+      "recorded_sha256": "44a35e5fc4e6c54765ff91d90d287970168cac3d659274ec92fc661ef9704578",
+      "stage": "P2-23"
+    },
+    {
+      "classification": "EXPECTED_DOCUMENTED_OR_ADDITIVE_DELTA",
+      "current_sha256": "7f0b876ed4dc9265297b91e62f9e8bb57f7f30fb16aa2aa9a9377b6d14c0d543",
+      "file": "changed_files.txt",
+      "recorded_sha256": "82fb920b5e7b2618c91a32692c534f3d4d6d413900d2feed1693cfa175786456",
+      "stage": "P2-50"
+    },
+    {
+      "classification": "EXPECTED_DOCUMENTED_OR_ADDITIVE_DELTA",
+      "current_sha256": "7d3c2582b73b1ef8e0bb9ebc49a3e9d25eb2988ac7fa5f0154f9cfd4d5e8bc50",
+      "file": "input_hashes.txt",
+      "recorded_sha256": "bbdaa4d9462bd6b0477202aa287954acc0bcd08abbf9aff44ff47ef2ca6510b7",
+      "stage": "P2-50"
+    },
+    {
+      "classification": "EXPECTED_DOCUMENTED_OR_ADDITIVE_DELTA",
+      "current_sha256": "1bd77a4282260bf88fc477f243ee8c42e2fa2828331d783a2827d2fd3ce5853a",
+      "file": "source_integrity.txt",
+      "recorded_sha256": "c12e03ca90accfc8a1160d645a34a36ca527f0aa013728bbb724c4c1a34aef51",
+      "stage": "P2-50"
+    }
+  ],
+  "final_phase2_marker_value": "NOT_PROVEN",
+  "final_phase2_proof_claimed": false,
+  "frozen_capture_comparisons": [
+    "P2-10/p2_10_gate.txt (documented guard delta no-p2-11-evidence-directory -> no-p2-11-memory-emission-in-p2-10)",
+    "P2-11/p2_11_gate.txt (documented guard delta no-p2-12-evidence-directory -> no-p2-12-switch-emission-in-p2-11)",
+    "P2-12/p2_12_gate.txt (documented guard delta no-p2-13-evidence-directory -> no-p2-13-host-call-emission-in-p2-12)",
+    "P2-13/p2_13_gate.txt (documented guard delta no-p2-14-evidence-directory -> no-guest-memory-access-in-p2-13)",
+    "P2-14/p2_14_gate.txt (P2-90-documented guard delta no-p2-20-evidence-directory -> no-nes6502-dependency-in-p2-14)",
+    "P2-20/p2_20_gate_evidence.txt (byte-identical after newline normalisation)",
+    "P2-22/p2_22_run1.txt (byte-identical after newline normalisation)"
+  ],
+  "implementation_source_modified": false,
+  "limitations": [
+    "P2-90 does not upgrade any bounded stage claim; all proofs remain scoped to synthetic fixtures.",
+    "Arbitrary NES ROM, commercial-game, complete NES hardware, arbitrary MIPS32 and future-architecture compatibility remain NOT_PROVEN; PS1/PS2/Xbox support and cycle accuracy remain OUT_OF_SCOPE.",
+    "The final OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF marker remains NOT_PROVEN (reserved for P2-99).",
+    "Nine frozen evidence files contain absolute host-environment identifiers; documented, not rewritten.",
+    "P2-50 manifest-count-dependent evidence files differ by exactly the P2-90 gate registration (131 -> 132 entries)."
+  ],
+  "markers": [
+    "OPENRECOMP_P2_90=PASS",
+    "OPENRECOMP_PHASE2_WHOLE_REGRESSION_V1=PASS tests=361 gates=22 gate_tests=1990",
+    "OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=NOT_PROVEN"
+  ],
+  "next_stage": "P2-91",
+  "objective": "Re-run every applicable completed Phase-2 gate on the frozen tree, audit the cross-stage evidence for internal consistency, verify source integrity and the asset/legal/content policy, and record a deterministic regression matrix, stage/evidence consistency table and claim classification table.",
+  "phase1_host_gates": {
+    "fail": 0,
+    "marker": "OPENRECOMP_PHASE1_HOST_GATES_V1=PASS",
+    "pass": 44,
+    "skipped_toolchain_unavailable": 2
+  },
+  "prior_test_weakened": false,
+  "recorded_identity_checks": [
+    "identity:P2-10:executable_sha256",
+    "identity:P2-10:fixture_sha256",
+    "identity:P2-10:generated_source_sha256",
+    "identity:P2-11:executable_sha256",
+    "identity:P2-11:fixture_sha256",
+    "identity:P2-11:generated_source_sha256",
+    "identity:P2-12:executable_sha256",
+    "identity:P2-12:fixture_sha256",
+    "identity:P2-12:generated_source_sha256",
+    "identity:P2-13:executable_sha256",
+    "identity:P2-13:fixture_sha256",
+    "identity:P2-13:generated_source_sha256",
+    "identity:P2-14:executable_sha256",
+    "identity:P2-14:fixture_sha256",
+    "identity:P2-14:generated_source_sha256",
+    "identity:P2-20:region_sha256",
+    "identity:P2-21:executable_sha256",
+    "identity:P2-21:fixture_sha256",
+    "identity:P2-21:generated_source_sha256",
+    "identity:P2-22:fixture_sha256",
+    "identity:P2-23:executable_sha256",
+    "identity:P2-23:fixture_sha256",
+    "identity:P2-23:generated_source_sha256",
+    "identity:P2-30:mips32_host_source_sha256",
+    "identity:P2-40:executable_sha256",
+    "identity:P2-40:fixture_input_sha256",
+    "identity:P2-40:generated_source_sha256",
+    "identity:P2-50:generic-runtime-pipeline:executable_sha256",
+    "identity:P2-50:generic-runtime-pipeline:package_archive_sha256",
+    "identity:P2-50:mips32-larger:executable_sha256",
+    "identity:P2-50:mips32-larger:package_archive_sha256",
+    "identity:P2-50:nes-nrom-end-to-end:executable_sha256",
+    "identity:P2-50:nes-nrom-end-to-end:package_archive_sha256",
+    "identity:P2-50:source_state_fingerprint"
+  ],
+  "regression_matrix": {
+    "failures": [],
+    "gate_checks": 1990,
+    "gates": [
+      {
+        "marker": "OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49",
+        "mode": "noargs",
+        "name": "program model",
+        "recorded_hash_convention": "utf-8-lf",
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_program_model_v1.py",
+        "stage": "P2-01",
+        "stdout_lf_sha256": "c2afcd2a9a04c03e422bd48488c3b71d4872e152ba1dd0a70aa5a637b416a8f4"
+      },
+      {
+        "marker": "OPENRECOMP_CFG_V1=PASS tests=82",
+        "mode": "noargs",
+        "name": "CFG",
+        "recorded_hash_convention": "utf-8-lf",
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_cfg_v1.py",
+        "stage": "P2-02",
+        "stdout_lf_sha256": "bfe24768a47e13f2d0cd88f4ee42ad979715cd694437aacf37ca943a0f5f1255"
+      },
+      {
+        "marker": "OPENRECOMP_FUNCTION_DISCOVERY_V1=PASS tests=67",
+        "mode": "noargs",
+        "name": "function discovery",
+        "recorded_hash_convention": "utf-8-lf",
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_functions_v1.py",
+        "stage": "P2-03",
+        "stdout_lf_sha256": "5df8320de33e05ec999c3b2ec3f1921d1ac26a7968f8cacaf216f539fc23df2b"
+      },
+      {
+        "marker": "OPENRECOMP_CALL_GRAPH_V1=PASS tests=61",
+        "mode": "noargs",
+        "name": "call graph",
+        "recorded_hash_convention": "utf-8-lf",
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_call_graph_v1.py",
+        "stage": "P2-04",
+        "stdout_lf_sha256": "99001a6c29f1c83cc28036d99024675d90993d393a1fe38d2e8a2f542e38254a"
+      },
+      {
+        "marker": "OPENRECOMP_TRANSLATION_UNITS_V1=PASS tests=104",
+        "mode": "noargs",
+        "name": "translation units",
+        "recorded_hash_convention": "utf-8-lf",
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_translation_units_v1.py",
+        "stage": "P2-05",
+        "stdout_lf_sha256": "2d5980f97bebc7a8053bf9f3292bc7e7a823567232f50a9012c0f686bbf9d671"
+      },
+      {
+        "marker": "OPENRECOMP_INDIRECT_CONTROL_FLOW_V1=PASS tests=134",
+        "mode": "noargs",
+        "name": "indirect control flow",
+        "recorded_hash_convention": "utf-8-lf",
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_indirect_control_flow_v1.py",
+        "stage": "P2-06",
+        "stdout_lf_sha256": "b2f40c6a683768c0ac96222064a37f897670f972a0503757e5c759ada2a9758b"
+      },
+      {
+        "marker": "OPENRECOMP_HOST_EMITTER_V1=PASS tests=106",
+        "mode": "noargs",
+        "name": "host emitter",
+        "recorded_hash_convention": "utf-8-lf",
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_host_emitter_v1.py",
+        "stage": "P2-07",
+        "stdout_lf_sha256": "44c24de8a0f6f80ee81514caeb64057c28d0dae604d389db8dfe2ef259180863"
+      },
+      {
+        "marker": "OPENRECOMP_GENERIC_RUNTIME_ABI_V1=PASS tests=169",
+        "mode": "noargs",
+        "name": "runtime ABI",
+        "recorded_hash_convention": "utf-8-lf",
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_runtime_abi_v1.py",
+        "stage": "P2-08",
+        "stdout_lf_sha256": "bf0177edafc3908053306a6bc2c97648451e2eb71ad132519ade8146ed53975c"
+      },
+      {
+        "marker": "OPENRECOMP_DETERMINISTIC_BUILD_V1=PASS tests=120",
+        "mode": "noargs",
+        "name": "deterministic build",
+        "recorded_hash_convention": "utf-8-lf",
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_build_pipeline_v1.py",
+        "stage": "P2-09",
+        "stdout_lf_sha256": "25139e4da54ad7f683e442570250b739cec1477c49f03f9cd3ff648f1ffed9a4"
+      },
+      {
+        "marker": "OPENRECOMP_MIPS32_END_TO_END_V1=PASS tests=108",
+        "mode": "noargs",
+        "name": "MIPS32 end-to-end",
+        "recorded_hash_convention": "utf-8-lf",
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_mips32_end_to_end_v1.py",
+        "stage": "P2-10",
+        "stdout_lf_sha256": "82378376b952c9c396fcf5f95a389348bff5ba444f2d8dbb3aa86776d0774560"
+      },
+      {
+        "marker": "OPENRECOMP_MIPS32_CALLS_MEMORY_V1=PASS tests=77",
+        "mode": "noargs",
+        "name": "MIPS32 calls/memory",
+        "recorded_hash_convention": "utf-8-lf",
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_mips32_calls_memory_v1.py",
+        "stage": "P2-11",
+        "stdout_lf_sha256": "d16107cd1740220f6f187856fcb9e04f7416ab1c003dbed01c89a72c5d6dd4c1"
+      },
+      {
+        "marker": "OPENRECOMP_MIPS32_DIRECT_CFG_V1=PASS tests=96",
+        "mode": "noargs",
+        "name": "MIPS32 direct CFG",
+        "recorded_hash_convention": "utf-8-lf",
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_mips32_direct_cfg_v1.py",
+        "stage": "P2-12",
+        "stdout_lf_sha256": "915df670bf88aded03deab9bc09ca1e96c055e196eb2c6dd7b7a61da101b8504"
+      },
+      {
+        "marker": "OPENRECOMP_RUNTIME_HOST_BOUNDARY_V1=PASS tests=80",
+        "mode": "noargs",
+        "name": "runtime-host boundary",
+        "recorded_hash_convention": "utf-8-lf",
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_runtime_host_boundary_v1.py",
+        "stage": "P2-13",
+        "stdout_lf_sha256": "ca82230b84a623f52f63f1f4a5d27c73ca137061c0674362334d1d111a362f24"
+      },
+      {
+        "marker": "OPENRECOMP_MIPS32_LARGER_FIXTURE_V1=PASS tests=82",
+        "mode": "noargs",
+        "name": "larger MIPS32 fixture",
+        "recorded_hash_convention": "utf-8-lf",
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_mips32_larger_fixture_v1.py",
+        "stage": "P2-14",
+        "stdout_lf_sha256": "197a6c5e5c5578ee6fced2eb45b937359bbd612dab8ec11bb4d5c2e6b717da51"
+      },
+      {
+        "marker": "OPENRECOMP_NES6502_PROGRAM_BRIDGE_V1=PASS tests=86",
+        "mode": "evidence",
+        "name": "NES6502 program bridge",
+        "recorded_hash_convention": "utf-8-lf",
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_nes6502_program_bridge_v1.py",
+        "stage": "P2-20",
+        "stdout_lf_sha256": "d8a58133d9e89d681538226d524593405ef918359ca1c9d98ebbf02628fc6930"
+      },
+      {
+        "marker": "OPENRECOMP_NES6502_HOST_EMITTER_V1=PASS tests=74",
+        "mode": "evidence",
+        "name": "NES6502 host emitter",
+        "recorded_hash_convention": null,
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_nes6502_host_emitter_v1.py",
+        "stage": "P2-21",
+        "stdout_lf_sha256": "774155ab39376093b191ab0293f23a3533e75d1c470fd317647011cc21572fbc"
+      },
+      {
+        "marker": "OPENRECOMP_NES_RUNTIME_BRIDGE_V1=PASS tests=66",
+        "mode": "evidence",
+        "name": "NES runtime bridge",
+        "recorded_hash_convention": "utf-8-lf",
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_nes_runtime_bridge_v1.py",
+        "stage": "P2-22",
+        "stdout_lf_sha256": "1cfdff4347b9fe525189032812ce74aeae8572a11d2b85f61e696de7b4317c99"
+      },
+      {
+        "marker": "OPENRECOMP_NES_END_TO_END_V1=PASS tests=50",
+        "mode": "evidence",
+        "name": "NES end-to-end",
+        "recorded_hash_convention": null,
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_nes_end_to_end_v1.py",
+        "stage": "P2-23",
+        "stdout_lf_sha256": "5933b81701dc5471775a895acf4751b4048ddcda3d41c06aa2f0b8af18f2eb67"
+      },
+      {
+        "marker": "OPENRECOMP_CROSS_ARCHITECTURE_NEUTRALITY_V1=PASS tests=14",
+        "mode": "evidence",
+        "name": "cross-architecture neutrality",
+        "recorded_hash_convention": "utf-16le-bom-crlf",
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_cross_architecture_neutrality_v1.py",
+        "stage": "P2-30",
+        "stdout_lf_sha256": "b8ad346bf5d67d1e7cef9825ab6285b3ca6f04109a70d079fee29f586dfbba46"
+      },
+      {
+        "marker": "OPENRECOMP_GENERIC_RUNTIME_INTEGRATION_V1=PASS tests=181",
+        "mode": "evidence",
+        "name": "generic runtime integration",
+        "recorded_hash_convention": "utf-8-crlf",
+        "recorded_hash_reconstruction": true,
+        "returncode": 0,
+        "script": "tools/test_generic_runtime_integration_v1.py",
+        "stage": "P2-40",
+        "stdout_lf_sha256": "a91ad006d60e54fafb2609cdb2c02efbb7f17889d045c09bd1abe8eafb52cc19"
+      },
+      {
+        "marker": "OPENRECOMP_BUILD_PACKAGE_REPRODUCIBILITY_V1=PASS tests=174",
+        "mode": "evidence",
+        "name": "build/package reproducibility",
+        "recorded_hash_convention": "utf-16le-bom-crlf",
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_build_package_reproducibility_v1.py",
+        "stage": "P2-50",
+        "stdout_lf_sha256": "b08d6b1d74d533058bda5fa9946d4cba5d00ac1239a33dbf6b7baf3ee63cf80c"
+      },
+      {
+        "marker": "OPENRECOMP_NES_PLATFORM_V1=PASS tests=10",
+        "mode": "noargs",
+        "name": "NES platform contract",
+        "recorded_hash_convention": "utf-8-lf",
+        "recorded_hash_reconstruction": false,
+        "returncode": 0,
+        "script": "tools/test_nes_platform_v1.py",
+        "stage": "NES-PLATFORM",
+        "stdout_lf_sha256": "d2275cd6fd678e98621de9298e7f64bf4dfec6e29ede7850a53667f69a73e7e8"
+      }
+    ]
+  },
+  "source_integrity": {
+    "audit_gate_registered": true,
+    "manifest_entries": 132,
+    "manifest_sha256": "1bf21db59bf11f4ff19d60bbe4e37afd8e4b8ca5f1391296d882c1149cc08fca"
+  },
+  "stage": "P2-90",
+  "stage_name": "OPENRECOMP_PHASE2_WHOLE_REGRESSION_AUDIT_V1",
+  "text_encoding": "UTF-8 without BOM",
+  "verdict": "PASS"
+}

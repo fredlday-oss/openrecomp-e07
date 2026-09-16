@@ -1,0 +1,428 @@
+{
+  "architecture_specific_boundary_modules": [
+    "openrecomp/frontends/nes_runtime.py",
+    "openrecomp/frontends/nes6502.py",
+    "tools/nes_platform_v1.py",
+    "tools/gb_platform_v1.py",
+    "tools/sms_platform_v1.py"
+  ],
+  "audited_runtime_modules": [
+    "openrecomp.runtime_abi",
+    "openrecomp.runtime",
+    "openrecomp.module",
+    "openrecomp.host_emitter",
+    "openrecomp.build_pipeline"
+  ],
+  "backend_extension_points": [
+    {
+      "abi_changes_required": "none",
+      "adapter_responsibilities": [
+        "ROM banking / MBC mapping",
+        "JOYP input protocol",
+        "2bpp tile-to-pixel conversion",
+        "4-channel APU mixing/resampling"
+      ],
+      "generic_contracts_used": [
+        "RuntimeMemory",
+        "RuntimeInputSnapshot",
+        "RuntimeFrame",
+        "RuntimeAudio",
+        "RuntimeServiceTable",
+        "RuntimeState"
+      ],
+      "guest_address_width_bits": 16,
+      "notes": "16-bit guest space is an adapter configuration, not a shared-ABI assumption.",
+      "platform": "gb"
+    },
+    {
+      "abi_changes_required": "none",
+      "adapter_responsibilities": [
+        "VRAM/WRAM banking",
+        "double-speed timing policy",
+        "CGB palette expansion to a RuntimePixelFormat"
+      ],
+      "generic_contracts_used": [
+        "RuntimeMemory",
+        "RuntimeInputSnapshot",
+        "RuntimeFrame",
+        "RuntimeAudio",
+        "RuntimeServiceTable",
+        "RuntimeState"
+      ],
+      "guest_address_width_bits": 16,
+      "notes": "CGB extras stay in the platform adapter; the generic contracts are unchanged.",
+      "platform": "gbc"
+    },
+    {
+      "abi_changes_required": "none",
+      "adapter_responsibilities": [
+        "Sega mapper banking",
+        "controller port decoding",
+        "VDP palette expansion",
+        "PSG synthesis"
+      ],
+      "generic_contracts_used": [
+        "RuntimeMemory",
+        "RuntimeInputSnapshot",
+        "RuntimeFrame",
+        "RuntimeAudio",
+        "RuntimeServiceTable",
+        "RuntimeState"
+      ],
+      "guest_address_width_bits": 16,
+      "notes": "Z80 I/O ports map to adapter-defined services and memory-side registers.",
+      "platform": "sms"
+    },
+    {
+      "abi_changes_required": "none",
+      "adapter_responsibilities": [
+        "GPU-side scene/present integration",
+        "frame pacing and resampling"
+      ],
+      "generic_contracts_used": [
+        "RuntimeFrame",
+        "RuntimeAudio",
+        "RuntimeServiceTable"
+      ],
+      "guest_address_width_bits": null,
+      "notes": "Rendering backends consume RuntimeFrame submissions from the host side; no GPU API enters the shared ABI.",
+      "platform": "rt64-like presentation backend"
+    }
+  ],
+  "baseline": {
+    "branch": "phase2/opencode-v1",
+    "head": "2fc27bfd80ef36b62ab3dc854562bbb4d0ce82db",
+    "phase1_commit": "46c2f971e1a42cf49bd936bad94697b81bf31002",
+    "phase1_tag": "openrecomp-phase1-pass",
+    "phase1_tag_object": "8dbbd79ac3c7104bfa0374aecf2d9093be89c6c7"
+  },
+  "contract_classification": [
+    {
+      "concept": "guest memory image and checked byte/word access",
+      "layer": "architecture-neutral runtime contract",
+      "reference": "openrecomp.runtime_abi.RuntimeMemory"
+    },
+    {
+      "concept": "guest address space size, endianness and segment layout",
+      "layer": "platform adapter responsibility",
+      "reference": "adapter-supplied RuntimeMemory configuration"
+    },
+    {
+      "concept": "guest address width declaration",
+      "layer": "architecture/frontend responsibility",
+      "reference": "ProgramSource.address_width_bits and emitter word_bits"
+    },
+    {
+      "concept": "guest register file ownership",
+      "layer": "architecture/frontend responsibility",
+      "reference": "emitter register_names derived from adapter fields"
+    },
+    {
+      "concept": "digital/analog input snapshot transport",
+      "layer": "architecture-neutral runtime contract",
+      "reference": "openrecomp.runtime_abi.RuntimeInputSnapshot"
+    },
+    {
+      "concept": "device button/axis layout and serial protocol",
+      "layer": "platform adapter responsibility",
+      "reference": "NES controller mapping in openrecomp/frontends/nes_runtime.py"
+    },
+    {
+      "concept": "physical input device acquisition",
+      "layer": "host implementation responsibility",
+      "reference": "host process feeding RuntimeInputSnapshot"
+    },
+    {
+      "concept": "frame geometry/format/payload transport",
+      "layer": "architecture-neutral runtime contract",
+      "reference": "openrecomp.runtime_abi.RuntimeFrame"
+    },
+    {
+      "concept": "platform pixel format ids and rendering",
+      "layer": "platform adapter responsibility",
+      "reference": "adapter-local format id maps; rendering stays outside the ABI"
+    },
+    {
+      "concept": "frame presentation backend selection",
+      "layer": "host implementation responsibility",
+      "reference": "host backend fed by RuntimeFrame"
+    },
+    {
+      "concept": "audio sample format/rate/channel/payload transport",
+      "layer": "architecture-neutral runtime contract",
+      "reference": "openrecomp.runtime_abi.RuntimeAudio"
+    },
+    {
+      "concept": "platform audio format ids and synthesis",
+      "layer": "platform adapter responsibility",
+      "reference": "adapter-local format id maps; DSP stays outside the ABI"
+    },
+    {
+      "concept": "audio device backend selection",
+      "layer": "host implementation responsibility",
+      "reference": "host backend fed by RuntimeAudio"
+    },
+    {
+      "concept": "host service identity, arity and dispatch",
+      "layer": "architecture-neutral runtime contract",
+      "reference": "openrecomp.runtime_abi.RuntimeService and RuntimeServiceTable"
+    },
+    {
+      "concept": "platform service names and implementations",
+      "layer": "platform adapter responsibility",
+      "reference": "adapter-declared services (for example nes.frame.submit)"
+    },
+    {
+      "concept": "which guest site invokes which service",
+      "layer": "architecture/frontend responsibility",
+      "reference": "P2-06 external/runtime evidence plus explicit emitter rule"
+    },
+    {
+      "concept": "runtime lifecycle, step budget and failure latch",
+      "layer": "architecture-neutral runtime contract",
+      "reference": "openrecomp.runtime_abi.RuntimeConfig and RuntimeState"
+    },
+    {
+      "concept": "deterministic RNG hook",
+      "layer": "architecture-neutral runtime contract",
+      "reference": "openrecomp.runtime_abi.RuntimeState.next_random"
+    },
+    {
+      "concept": "ABI identity and versioning",
+      "layer": "architecture-neutral runtime contract",
+      "reference": "openrecomp.runtime_abi.RuntimeAbiVersion"
+    },
+    {
+      "concept": "generated host -> runtime boundary",
+      "layer": "host implementation responsibility",
+      "reference": "or_rt_* declarations plus host-provided implementation"
+    },
+    {
+      "concept": "build, launch and artifact reproducibility",
+      "layer": "host implementation responsibility",
+      "reference": "openrecomp.build_pipeline plus host toolchain"
+    }
+  ],
+  "corrections_required": false,
+  "failed": 0,
+  "findings": {
+    "address_isolation": [],
+    "host_state_imports": [],
+    "import_isolation": [],
+    "platform_service_names": [],
+    "scanner_self_test": {
+      "clean_source_findings": 0,
+      "planted_address_findings": 2,
+      "planted_finding_kinds": [
+        "platform_identifier",
+        "platform_service_name",
+        "platform_string"
+      ],
+      "planted_leak_detected": true
+    },
+    "symbol_isolation": []
+  },
+  "gate_deterministic": true,
+  "gate_marker": "OPENRECOMP_GENERIC_RUNTIME_INTEGRATION_V1=PASS tests=181",
+  "gate_runs": [
+    "run1.txt",
+    "run2.txt"
+  ],
+  "gate_stdout_sha256": "405c90d1c867495b3ac568a62b0d7c7e9234ca5ef469cdc2510d307b8d148228",
+  "hashes": {
+    "contract_classification.md": "8f92a3ffc023d24bd6ee9966f8d8ded8f4f7bc122f89cd5efaf08b2bdeda5db3",
+    "dependency_findings.txt": "406ffdf8554b0ca514ed71babf6ce95f7c36a718602af77694fbefce0cb89f20",
+    "determinism.txt": "48e6a668371fe6c2ad34ecd7ebafc8b9198550f39f2c1ce034d748af0d14a102",
+    "generated_source.c": "c0a76e0f19217aeed017fca9f2abc82ef644563c1374d046987452800679246a",
+    "p2_40_tests.json": "5744efbe553ed49d7a79ad58bcb25318159d544a51bf5c41e354dc87254fceb7",
+    "responsibility_analysis.md": "fd3dc37b89a40aa152d5454e6d20d1c84150b8641d2929b5d70bd4b983be68ff",
+    "static_isolation.json": "27560a7378f487043c5eed43440d52c5f6af7aeefd48f464ded7bfa8a29e2972"
+  },
+  "implementation_source_modified": false,
+  "limitations": [
+    "Proves the audited runtime contracts are architecture-neutral only for the supported Phase-2 paths.",
+    "Does not prove complete generic console emulation, arbitrary future-architecture compatibility, complete NES PPU/APU behavior, commercial-game runtime compatibility, cycle accuracy or full hardware emulation.",
+    "The non-NES native exercise covers exactly the bounded synthetic MIPS32 fixture and its three declared services.",
+    "GB/GBC/SMS support is documented as extension points only; no adapter was implemented.",
+    "Toolchain-gated Phase-1 gates remain skipped on this host and are never counted as passes.",
+    "openrecomp/*.py remain outside SOURCE_SHA256SUMS.txt due to the pre-existing update_sums.py glob gap."
+  ],
+  "name": "Generic runtime integration audit",
+  "nes_path_exercise": {
+    "adapter": "openrecomp.frontends.nes_runtime.NESRuntimeAdapter",
+    "audio_submissions": 1,
+    "fail_closed": [
+      "unsupported mapper",
+      "PPU register access",
+      "expansion area",
+      "arity mismatch",
+      "unsupported format id"
+    ],
+    "frame_submissions": 1,
+    "input_bits_via_4016": "10110001",
+    "services": [
+      "nes.audio.submit",
+      "nes.frame.submit"
+    ],
+    "shared_dispatch": "rt.RuntimeServiceTable.dispatch used unchanged by both adapters"
+  },
+  "new_files": [
+    "tools/test_generic_runtime_integration_v1.py"
+  ],
+  "non_nes_exercise": {
+    "actual_observable": "failed=0\nerror=\nregister_count=5\nreg[0]=0\nreg[1]=66048\nreg[2]=66064\nreg[3]=141\nreg[4]=148\nmem_words=66048,66064\nframe_count=1\nframe[0]=2x2 format=RGBA8 checksum=16987283610251169330\naudio_count=1\naudio[0]=8000Hz channels=1 frames=4 format=U8 checksum=1557537621830222089\ninput_poll=141\nmemory_checksum=10954747769631612134",
+    "architecture": "mips32-bounded-v1",
+    "build_classification": "EXECUTABLE_REPRODUCIBLE",
+    "executable_sha256": "96676becf33f2251fcbc0b097ad8fa7ea2c100f4754617a4a5dcbdac1ecaf5b2",
+    "expected_equals_actual": true,
+    "expected_observable": "failed=0\nerror=\nregister_count=5\nreg[0]=0\nreg[1]=66048\nreg[2]=66064\nreg[3]=141\nreg[4]=148\nmem_words=66048,66064\nframe_count=1\nframe[0]=2x2 format=RGBA8 checksum=16987283610251169330\naudio_count=1\naudio[0]=8000Hz channels=1 frames=4 format=U8 checksum=1557537621830222089\ninput_poll=141\nmemory_checksum=10954747769631612134",
+    "fail_closed_native": "unsupported declared service -> failed=1, continuation not executed",
+    "fixture": "synthetic/original 11-instruction MIPS32 runtime-integration fixture",
+    "fixture_byte_length": 44,
+    "fixture_sha256": "9323f24533ec6c31cf954c8315fd674ac8efc8c803e960eb9b1a902891cfe237",
+    "generated_source_sha256": "c0a76e0f19217aeed017fca9f2abc82ef644563c1374d046987452800679246a",
+    "native_returncode": 0,
+    "services": [
+      "synthetic.audio.submit",
+      "synthetic.frame.submit",
+      "synthetic.input.poll"
+    ]
+  },
+  "passed": 181,
+  "phase1_host_gates": {
+    "fail": 0,
+    "pass": 44,
+    "skipped_toolchain_unavailable": 2
+  },
+  "regression_failures": [],
+  "regressions": [
+    {
+      "name": "P2-01 program model",
+      "returncode": 0,
+      "script": "tools/test_program_model_v1.py",
+      "stdout_sha256": "c2afcd2a9a04c03e422bd48488c3b71d4872e152ba1dd0a70aa5a637b416a8f4"
+    },
+    {
+      "name": "P2-02 CFG",
+      "returncode": 0,
+      "script": "tools/test_cfg_v1.py",
+      "stdout_sha256": "bfe24768a47e13f2d0cd88f4ee42ad979715cd694437aacf37ca943a0f5f1255"
+    },
+    {
+      "name": "P2-03 function discovery",
+      "returncode": 0,
+      "script": "tools/test_functions_v1.py",
+      "stdout_sha256": "5df8320de33e05ec999c3b2ec3f1921d1ac26a7968f8cacaf216f539fc23df2b"
+    },
+    {
+      "name": "P2-04 call graph",
+      "returncode": 0,
+      "script": "tools/test_call_graph_v1.py",
+      "stdout_sha256": "99001a6c29f1c83cc28036d99024675d90993d393a1fe38d2e8a2f542e38254a"
+    },
+    {
+      "name": "P2-05 translation units",
+      "returncode": 0,
+      "script": "tools/test_translation_units_v1.py",
+      "stdout_sha256": "2d5980f97bebc7a8053bf9f3292bc7e7a823567232f50a9012c0f686bbf9d671"
+    },
+    {
+      "name": "P2-06 indirect control flow",
+      "returncode": 0,
+      "script": "tools/test_indirect_control_flow_v1.py",
+      "stdout_sha256": "b2f40c6a683768c0ac96222064a37f897670f972a0503757e5c759ada2a9758b"
+    },
+    {
+      "name": "P2-07 host emitter",
+      "returncode": 0,
+      "script": "tools/test_host_emitter_v1.py",
+      "stdout_sha256": "44c24de8a0f6f80ee81514caeb64057c28d0dae604d389db8dfe2ef259180863"
+    },
+    {
+      "name": "P2-08 runtime ABI",
+      "returncode": 0,
+      "script": "tools/test_runtime_abi_v1.py",
+      "stdout_sha256": "bf0177edafc3908053306a6bc2c97648451e2eb71ad132519ade8146ed53975c"
+    },
+    {
+      "name": "P2-09 deterministic build",
+      "returncode": 0,
+      "script": "tools/test_build_pipeline_v1.py",
+      "stdout_sha256": "25139e4da54ad7f683e442570250b739cec1477c49f03f9cd3ff648f1ffed9a4"
+    },
+    {
+      "name": "P2-10 MIPS32 end-to-end",
+      "returncode": 0,
+      "script": "tools/test_mips32_end_to_end_v1.py",
+      "stdout_sha256": "82378376b952c9c396fcf5f95a389348bff5ba444f2d8dbb3aa86776d0774560"
+    },
+    {
+      "name": "P2-11 MIPS32 calls/memory",
+      "returncode": 0,
+      "script": "tools/test_mips32_calls_memory_v1.py",
+      "stdout_sha256": "d16107cd1740220f6f187856fcb9e04f7416ab1c003dbed01c89a72c5d6dd4c1"
+    },
+    {
+      "name": "P2-12 MIPS32 direct CFG",
+      "returncode": 0,
+      "script": "tools/test_mips32_direct_cfg_v1.py",
+      "stdout_sha256": "915df670bf88aded03deab9bc09ca1e96c055e196eb2c6dd7b7a61da101b8504"
+    },
+    {
+      "name": "P2-13 runtime-host boundary",
+      "returncode": 0,
+      "script": "tools/test_runtime_host_boundary_v1.py",
+      "stdout_sha256": "ca82230b84a623f52f63f1f4a5d27c73ca137061c0674362334d1d111a362f24"
+    },
+    {
+      "name": "P2-14 larger MIPS32 fixture",
+      "returncode": 0,
+      "script": "tools/test_mips32_larger_fixture_v1.py",
+      "stdout_sha256": "197a6c5e5c5578ee6fced2eb45b937359bbd612dab8ec11bb4d5c2e6b717da51"
+    },
+    {
+      "name": "P2-20 NES6502 program bridge",
+      "returncode": 0,
+      "script": "tools/test_nes6502_program_bridge_v1.py",
+      "stdout_sha256": "65b7d3acd2fd76c6327d7ddabf6a4338cd6d137e4632af620ec7535317d2784a"
+    },
+    {
+      "name": "P2-21 NES6502 host emitter",
+      "returncode": 0,
+      "script": "tools/test_nes6502_host_emitter_v1.py",
+      "stdout_sha256": "e66406e043b9dab859f5cf56ea537f333be7b59619e8c7bbb06bad4fd45f57e4"
+    },
+    {
+      "name": "P2-22 NES runtime bridge",
+      "returncode": 0,
+      "script": "tools/test_nes_runtime_bridge_v1.py",
+      "stdout_sha256": "baf56c47b10ef738298c2a459f1806bee8c1d596cc10fe6bd5a1dd817ff8328c"
+    },
+    {
+      "name": "P2-23 NES end-to-end",
+      "returncode": 0,
+      "script": "tools/test_nes_end_to_end_v1.py",
+      "stdout_sha256": "96dbf5965310bc17a21bfc9fdd38042d30067b1efe7eae41522033dcc2ad1540"
+    },
+    {
+      "name": "P2-30 cross-architecture neutrality",
+      "returncode": 0,
+      "script": "tools/test_cross_architecture_neutrality_v1.py",
+      "stdout_sha256": "b8ad346bf5d67d1e7cef9825ab6285b3ca6f04109a70d079fee29f586dfbba46"
+    },
+    {
+      "name": "NES platform contract",
+      "returncode": 0,
+      "script": "tools/test_nes_platform_v1.py",
+      "stdout_sha256": "d2275cd6fd678e98621de9298e7f64bf4dfec6e29ede7850a53667f69a73e7e8"
+    }
+  ],
+  "source_integrity": {
+    "manifest_entries": 130,
+    "status": "PASS"
+  },
+  "stage": "P2-40",
+  "stage_marker": "OPENRECOMP_P2_40=PASS",
+  "tests": 181,
+  "verdict": "PASS"
+}

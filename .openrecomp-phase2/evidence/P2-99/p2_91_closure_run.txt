@@ -1,0 +1,888 @@
+=== P2-91 Phase-2 Evidence, Limitations and Final-Claim Closure ===
+PASS: artifacts:present:index_md
+PASS: artifacts:marker:index_md
+PASS: artifacts:present:index_json
+PASS: artifacts:present:limitations
+PASS: artifacts:marker:limitations
+PASS: artifacts:present:claim_matrix
+PASS: artifacts:marker:claim_matrix
+PASS: artifacts:present:host_path_audit
+PASS: artifacts:marker:host_path_audit
+PASS: artifacts:present:host_path_register
+PASS: artifacts:present:capture_preservation
+PASS: artifacts:present:rerun_summary
+PASS: index:coverage-complete
+PASS: index:json-coverage-complete
+PASS: index:stage-P2-00
+PASS: index:stage-P2-00:fields
+PASS: index:stage-P2-00:name
+PASS: index:stage-P2-00:pass-marker
+PASS: index:stage-P2-00:gate-marker
+PASS: index:stage-P2-00:count
+PASS: index:stage-P2-00:evidence-dir
+PASS: index:stage-P2-00:result
+PASS: index:stage-P2-00:result-exists
+PASS: index:stage-P2-00:identity:dc063ef0a3ab0bce
+PASS: index:stage-P2-00:identity-in-evidence:dc063ef0a3ab0bce
+PASS: index:json-P2-00
+PASS: index:json-P2-00:gate-marker
+PASS: index:json-P2-00:count
+PASS: index:json-P2-00:evidence-dir
+PASS: index:json-P2-00:result
+PASS: index:json-P2-00:fixture_input_identity
+PASS: index:json-P2-00:generated_executable_package_identity
+PASS: index:json-P2-00:deterministic_run_identity
+PASS: index:json-P2-00:claim_boundary
+PASS: index:json-P2-00:identity:dc063ef0a3ab0bce
+PASS: index:stage-P2-01
+PASS: index:stage-P2-01:fields
+PASS: index:stage-P2-01:name
+PASS: index:stage-P2-01:pass-marker
+PASS: index:stage-P2-01:gate-marker
+PASS: index:stage-P2-01:count
+PASS: index:stage-P2-01:evidence-dir
+PASS: index:stage-P2-01:result
+PASS: index:stage-P2-01:result-exists
+PASS: index:stage-P2-01:identity:c52847e67a35e889
+PASS: index:stage-P2-01:identity-in-evidence:c52847e67a35e889
+PASS: index:stage-P2-01:identity:sample_nes_call.
+PASS: index:stage-P2-01:identity-in-evidence:sample_nes_call.
+PASS: index:json-P2-01
+PASS: index:json-P2-01:gate-marker
+PASS: index:json-P2-01:count
+PASS: index:json-P2-01:evidence-dir
+PASS: index:json-P2-01:result
+PASS: index:json-P2-01:fixture_input_identity
+PASS: index:json-P2-01:generated_executable_package_identity
+PASS: index:json-P2-01:deterministic_run_identity
+PASS: index:json-P2-01:claim_boundary
+PASS: index:json-P2-01:identity:c52847e67a35e889
+PASS: index:json-P2-01:identity:sample_nes_call.
+PASS: index:stage-P2-02
+PASS: index:stage-P2-02:fields
+PASS: index:stage-P2-02:name
+PASS: index:stage-P2-02:pass-marker
+PASS: index:stage-P2-02:gate-marker
+PASS: index:stage-P2-02:count
+PASS: index:stage-P2-02:evidence-dir
+PASS: index:stage-P2-02:result
+PASS: index:stage-P2-02:result-exists
+PASS: index:stage-P2-02:identity:483df98e4ecb6a64
+PASS: index:stage-P2-02:identity-in-evidence:483df98e4ecb6a64
+PASS: index:stage-P2-02:identity:sample_cfg.json
+PASS: index:stage-P2-02:identity-in-evidence:sample_cfg.json
+PASS: index:json-P2-02
+PASS: index:json-P2-02:gate-marker
+PASS: index:json-P2-02:count
+PASS: index:json-P2-02:evidence-dir
+PASS: index:json-P2-02:result
+PASS: index:json-P2-02:fixture_input_identity
+PASS: index:json-P2-02:generated_executable_package_identity
+PASS: index:json-P2-02:deterministic_run_identity
+PASS: index:json-P2-02:claim_boundary
+PASS: index:json-P2-02:identity:483df98e4ecb6a64
+PASS: index:json-P2-02:identity:sample_cfg.json
+PASS: index:stage-P2-03
+PASS: index:stage-P2-03:fields
+PASS: index:stage-P2-03:name
+PASS: index:stage-P2-03:pass-marker
+PASS: index:stage-P2-03:gate-marker
+PASS: index:stage-P2-03:count
+PASS: index:stage-P2-03:evidence-dir
+PASS: index:stage-P2-03:result
+PASS: index:stage-P2-03:result-exists
+PASS: index:stage-P2-03:identity:05218d8d1db991e2
+PASS: index:stage-P2-03:identity-in-evidence:05218d8d1db991e2
+PASS: index:stage-P2-03:identity:sample_functions
+PASS: index:stage-P2-03:identity-in-evidence:sample_functions
+PASS: index:json-P2-03
+PASS: index:json-P2-03:gate-marker
+PASS: index:json-P2-03:count
+PASS: index:json-P2-03:evidence-dir
+PASS: index:json-P2-03:result
+PASS: index:json-P2-03:fixture_input_identity
+PASS: index:json-P2-03:generated_executable_package_identity
+PASS: index:json-P2-03:deterministic_run_identity
+PASS: index:json-P2-03:claim_boundary
+PASS: index:json-P2-03:identity:05218d8d1db991e2
+PASS: index:json-P2-03:identity:sample_functions
+PASS: index:stage-P2-04
+PASS: index:stage-P2-04:fields
+PASS: index:stage-P2-04:name
+PASS: index:stage-P2-04:pass-marker
+PASS: index:stage-P2-04:gate-marker
+PASS: index:stage-P2-04:count
+PASS: index:stage-P2-04:evidence-dir
+PASS: index:stage-P2-04:result
+PASS: index:stage-P2-04:result-exists
+PASS: index:stage-P2-04:identity:ee4602245dfad530
+PASS: index:stage-P2-04:identity-in-evidence:ee4602245dfad530
+PASS: index:stage-P2-04:identity:sample_call_grap
+PASS: index:stage-P2-04:identity-in-evidence:sample_call_grap
+PASS: index:json-P2-04
+PASS: index:json-P2-04:gate-marker
+PASS: index:json-P2-04:count
+PASS: index:json-P2-04:evidence-dir
+PASS: index:json-P2-04:result
+PASS: index:json-P2-04:fixture_input_identity
+PASS: index:json-P2-04:generated_executable_package_identity
+PASS: index:json-P2-04:deterministic_run_identity
+PASS: index:json-P2-04:claim_boundary
+PASS: index:json-P2-04:identity:ee4602245dfad530
+PASS: index:json-P2-04:identity:sample_call_grap
+PASS: index:stage-P2-05
+PASS: index:stage-P2-05:fields
+PASS: index:stage-P2-05:name
+PASS: index:stage-P2-05:pass-marker
+PASS: index:stage-P2-05:gate-marker
+PASS: index:stage-P2-05:count
+PASS: index:stage-P2-05:evidence-dir
+PASS: index:stage-P2-05:result
+PASS: index:stage-P2-05:result-exists
+PASS: index:stage-P2-05:identity:7209c6ff6bc40d13
+PASS: index:stage-P2-05:identity-in-evidence:7209c6ff6bc40d13
+PASS: index:json-P2-05
+PASS: index:json-P2-05:gate-marker
+PASS: index:json-P2-05:count
+PASS: index:json-P2-05:evidence-dir
+PASS: index:json-P2-05:result
+PASS: index:json-P2-05:fixture_input_identity
+PASS: index:json-P2-05:generated_executable_package_identity
+PASS: index:json-P2-05:deterministic_run_identity
+PASS: index:json-P2-05:claim_boundary
+PASS: index:json-P2-05:identity:7209c6ff6bc40d13
+PASS: index:stage-P2-06
+PASS: index:stage-P2-06:fields
+PASS: index:stage-P2-06:name
+PASS: index:stage-P2-06:pass-marker
+PASS: index:stage-P2-06:gate-marker
+PASS: index:stage-P2-06:count
+PASS: index:stage-P2-06:evidence-dir
+PASS: index:stage-P2-06:result
+PASS: index:stage-P2-06:result-exists
+PASS: index:stage-P2-06:identity:866d290a59228e5b
+PASS: index:stage-P2-06:identity-in-evidence:866d290a59228e5b
+PASS: index:json-P2-06
+PASS: index:json-P2-06:gate-marker
+PASS: index:json-P2-06:count
+PASS: index:json-P2-06:evidence-dir
+PASS: index:json-P2-06:result
+PASS: index:json-P2-06:fixture_input_identity
+PASS: index:json-P2-06:generated_executable_package_identity
+PASS: index:json-P2-06:deterministic_run_identity
+PASS: index:json-P2-06:claim_boundary
+PASS: index:json-P2-06:identity:866d290a59228e5b
+PASS: index:stage-P2-07
+PASS: index:stage-P2-07:fields
+PASS: index:stage-P2-07:name
+PASS: index:stage-P2-07:pass-marker
+PASS: index:stage-P2-07:gate-marker
+PASS: index:stage-P2-07:count
+PASS: index:stage-P2-07:evidence-dir
+PASS: index:stage-P2-07:result
+PASS: index:stage-P2-07:result-exists
+PASS: index:stage-P2-07:identity:fb6e6e2c6ba660a5
+PASS: index:stage-P2-07:identity-in-evidence:fb6e6e2c6ba660a5
+PASS: index:json-P2-07
+PASS: index:json-P2-07:gate-marker
+PASS: index:json-P2-07:count
+PASS: index:json-P2-07:evidence-dir
+PASS: index:json-P2-07:result
+PASS: index:json-P2-07:fixture_input_identity
+PASS: index:json-P2-07:generated_executable_package_identity
+PASS: index:json-P2-07:deterministic_run_identity
+PASS: index:json-P2-07:claim_boundary
+PASS: index:json-P2-07:identity:fb6e6e2c6ba660a5
+PASS: index:stage-P2-08
+PASS: index:stage-P2-08:fields
+PASS: index:stage-P2-08:name
+PASS: index:stage-P2-08:pass-marker
+PASS: index:stage-P2-08:gate-marker
+PASS: index:stage-P2-08:count
+PASS: index:stage-P2-08:evidence-dir
+PASS: index:stage-P2-08:result
+PASS: index:stage-P2-08:result-exists
+PASS: index:stage-P2-08:identity:3c0abaf52efa534b
+PASS: index:stage-P2-08:identity-in-evidence:3c0abaf52efa534b
+PASS: index:json-P2-08
+PASS: index:json-P2-08:gate-marker
+PASS: index:json-P2-08:count
+PASS: index:json-P2-08:evidence-dir
+PASS: index:json-P2-08:result
+PASS: index:json-P2-08:fixture_input_identity
+PASS: index:json-P2-08:generated_executable_package_identity
+PASS: index:json-P2-08:deterministic_run_identity
+PASS: index:json-P2-08:claim_boundary
+PASS: index:json-P2-08:identity:3c0abaf52efa534b
+PASS: index:stage-P2-09
+PASS: index:stage-P2-09:fields
+PASS: index:stage-P2-09:name
+PASS: index:stage-P2-09:pass-marker
+PASS: index:stage-P2-09:gate-marker
+PASS: index:stage-P2-09:count
+PASS: index:stage-P2-09:evidence-dir
+PASS: index:stage-P2-09:result
+PASS: index:stage-P2-09:result-exists
+PASS: index:stage-P2-09:identity:b75d7656517de8a7
+PASS: index:stage-P2-09:identity-in-evidence:b75d7656517de8a7
+PASS: index:stage-P2-09:identity:db055b5cd622a7ef
+PASS: index:stage-P2-09:identity-in-evidence:db055b5cd622a7ef
+PASS: index:stage-P2-09:identity:de03764e429a6e31
+PASS: index:stage-P2-09:identity-in-evidence:de03764e429a6e31
+PASS: index:json-P2-09
+PASS: index:json-P2-09:gate-marker
+PASS: index:json-P2-09:count
+PASS: index:json-P2-09:evidence-dir
+PASS: index:json-P2-09:result
+PASS: index:json-P2-09:fixture_input_identity
+PASS: index:json-P2-09:generated_executable_package_identity
+PASS: index:json-P2-09:deterministic_run_identity
+PASS: index:json-P2-09:claim_boundary
+PASS: index:json-P2-09:identity:b75d7656517de8a7
+PASS: index:json-P2-09:identity:db055b5cd622a7ef
+PASS: index:json-P2-09:identity:de03764e429a6e31
+PASS: index:stage-P2-10
+PASS: index:stage-P2-10:fields
+PASS: index:stage-P2-10:name
+PASS: index:stage-P2-10:pass-marker
+PASS: index:stage-P2-10:gate-marker
+PASS: index:stage-P2-10:count
+PASS: index:stage-P2-10:evidence-dir
+PASS: index:stage-P2-10:result
+PASS: index:stage-P2-10:result-exists
+PASS: index:stage-P2-10:identity:8570ea4a11321118
+PASS: index:stage-P2-10:identity-in-evidence:8570ea4a11321118
+PASS: index:stage-P2-10:identity:b33b597c28eb7f72
+PASS: index:stage-P2-10:identity-in-evidence:b33b597c28eb7f72
+PASS: index:stage-P2-10:identity:f94c95d2e86fca83
+PASS: index:stage-P2-10:identity-in-evidence:f94c95d2e86fca83
+PASS: index:json-P2-10
+PASS: index:json-P2-10:gate-marker
+PASS: index:json-P2-10:count
+PASS: index:json-P2-10:evidence-dir
+PASS: index:json-P2-10:result
+PASS: index:json-P2-10:fixture_input_identity
+PASS: index:json-P2-10:generated_executable_package_identity
+PASS: index:json-P2-10:deterministic_run_identity
+PASS: index:json-P2-10:claim_boundary
+PASS: index:json-P2-10:identity:8570ea4a11321118
+PASS: index:json-P2-10:identity:b33b597c28eb7f72
+PASS: index:json-P2-10:identity:f94c95d2e86fca83
+PASS: index:stage-P2-11
+PASS: index:stage-P2-11:fields
+PASS: index:stage-P2-11:name
+PASS: index:stage-P2-11:pass-marker
+PASS: index:stage-P2-11:gate-marker
+PASS: index:stage-P2-11:count
+PASS: index:stage-P2-11:evidence-dir
+PASS: index:stage-P2-11:result
+PASS: index:stage-P2-11:result-exists
+PASS: index:stage-P2-11:identity:4637ba676e99ba74
+PASS: index:stage-P2-11:identity-in-evidence:4637ba676e99ba74
+PASS: index:stage-P2-11:identity:4ce3fdab7f9e6226
+PASS: index:stage-P2-11:identity-in-evidence:4ce3fdab7f9e6226
+PASS: index:stage-P2-11:identity:bd719060f38793a3
+PASS: index:stage-P2-11:identity-in-evidence:bd719060f38793a3
+PASS: index:json-P2-11
+PASS: index:json-P2-11:gate-marker
+PASS: index:json-P2-11:count
+PASS: index:json-P2-11:evidence-dir
+PASS: index:json-P2-11:result
+PASS: index:json-P2-11:fixture_input_identity
+PASS: index:json-P2-11:generated_executable_package_identity
+PASS: index:json-P2-11:deterministic_run_identity
+PASS: index:json-P2-11:claim_boundary
+PASS: index:json-P2-11:identity:4637ba676e99ba74
+PASS: index:json-P2-11:identity:4ce3fdab7f9e6226
+PASS: index:json-P2-11:identity:bd719060f38793a3
+PASS: index:stage-P2-12
+PASS: index:stage-P2-12:fields
+PASS: index:stage-P2-12:name
+PASS: index:stage-P2-12:pass-marker
+PASS: index:stage-P2-12:gate-marker
+PASS: index:stage-P2-12:count
+PASS: index:stage-P2-12:evidence-dir
+PASS: index:stage-P2-12:result
+PASS: index:stage-P2-12:result-exists
+PASS: index:stage-P2-12:identity:2e3309f310a6f23c
+PASS: index:stage-P2-12:identity-in-evidence:2e3309f310a6f23c
+PASS: index:stage-P2-12:identity:36ba17c8a1edcd22
+PASS: index:stage-P2-12:identity-in-evidence:36ba17c8a1edcd22
+PASS: index:stage-P2-12:identity:3d92fc274ddb9419
+PASS: index:stage-P2-12:identity-in-evidence:3d92fc274ddb9419
+PASS: index:json-P2-12
+PASS: index:json-P2-12:gate-marker
+PASS: index:json-P2-12:count
+PASS: index:json-P2-12:evidence-dir
+PASS: index:json-P2-12:result
+PASS: index:json-P2-12:fixture_input_identity
+PASS: index:json-P2-12:generated_executable_package_identity
+PASS: index:json-P2-12:deterministic_run_identity
+PASS: index:json-P2-12:claim_boundary
+PASS: index:json-P2-12:identity:2e3309f310a6f23c
+PASS: index:json-P2-12:identity:36ba17c8a1edcd22
+PASS: index:json-P2-12:identity:3d92fc274ddb9419
+PASS: index:stage-P2-13
+PASS: index:stage-P2-13:fields
+PASS: index:stage-P2-13:name
+PASS: index:stage-P2-13:pass-marker
+PASS: index:stage-P2-13:gate-marker
+PASS: index:stage-P2-13:count
+PASS: index:stage-P2-13:evidence-dir
+PASS: index:stage-P2-13:result
+PASS: index:stage-P2-13:result-exists
+PASS: index:stage-P2-13:identity:7c9ba624b7503ccb
+PASS: index:stage-P2-13:identity-in-evidence:7c9ba624b7503ccb
+PASS: index:stage-P2-13:identity:8ab94ab0f186e337
+PASS: index:stage-P2-13:identity-in-evidence:8ab94ab0f186e337
+PASS: index:stage-P2-13:identity:8c602b35e47f90d5
+PASS: index:stage-P2-13:identity-in-evidence:8c602b35e47f90d5
+PASS: index:json-P2-13
+PASS: index:json-P2-13:gate-marker
+PASS: index:json-P2-13:count
+PASS: index:json-P2-13:evidence-dir
+PASS: index:json-P2-13:result
+PASS: index:json-P2-13:fixture_input_identity
+PASS: index:json-P2-13:generated_executable_package_identity
+PASS: index:json-P2-13:deterministic_run_identity
+PASS: index:json-P2-13:claim_boundary
+PASS: index:json-P2-13:identity:7c9ba624b7503ccb
+PASS: index:json-P2-13:identity:8ab94ab0f186e337
+PASS: index:json-P2-13:identity:8c602b35e47f90d5
+PASS: index:stage-P2-14
+PASS: index:stage-P2-14:fields
+PASS: index:stage-P2-14:name
+PASS: index:stage-P2-14:pass-marker
+PASS: index:stage-P2-14:gate-marker
+PASS: index:stage-P2-14:count
+PASS: index:stage-P2-14:evidence-dir
+PASS: index:stage-P2-14:result
+PASS: index:stage-P2-14:result-exists
+PASS: index:stage-P2-14:identity:1c233f56528cb3fe
+PASS: index:stage-P2-14:identity-in-evidence:1c233f56528cb3fe
+PASS: index:stage-P2-14:identity:1e81bf8cd32b60cd
+PASS: index:stage-P2-14:identity-in-evidence:1e81bf8cd32b60cd
+PASS: index:stage-P2-14:identity:25d8d85ff88d2009
+PASS: index:stage-P2-14:identity-in-evidence:25d8d85ff88d2009
+PASS: index:json-P2-14
+PASS: index:json-P2-14:gate-marker
+PASS: index:json-P2-14:count
+PASS: index:json-P2-14:evidence-dir
+PASS: index:json-P2-14:result
+PASS: index:json-P2-14:fixture_input_identity
+PASS: index:json-P2-14:generated_executable_package_identity
+PASS: index:json-P2-14:deterministic_run_identity
+PASS: index:json-P2-14:claim_boundary
+PASS: index:json-P2-14:identity:1c233f56528cb3fe
+PASS: index:json-P2-14:identity:1e81bf8cd32b60cd
+PASS: index:json-P2-14:identity:25d8d85ff88d2009
+PASS: index:stage-P2-20
+PASS: index:stage-P2-20:fields
+PASS: index:stage-P2-20:name
+PASS: index:stage-P2-20:pass-marker
+PASS: index:stage-P2-20:gate-marker
+PASS: index:stage-P2-20:count
+PASS: index:stage-P2-20:evidence-dir
+PASS: index:stage-P2-20:result
+PASS: index:stage-P2-20:result-exists
+PASS: index:stage-P2-20:identity:0a236023c59fd536
+PASS: index:stage-P2-20:identity-in-evidence:0a236023c59fd536
+PASS: index:stage-P2-20:identity:0dfbf094
+PASS: index:stage-P2-20:identity-in-evidence:0dfbf094
+PASS: index:stage-P2-20:identity:2924881e
+PASS: index:stage-P2-20:identity-in-evidence:2924881e
+PASS: index:stage-P2-20:identity:67113cc1
+PASS: index:stage-P2-20:identity-in-evidence:67113cc1
+PASS: index:stage-P2-20:identity:7b83a827
+PASS: index:stage-P2-20:identity-in-evidence:7b83a827
+PASS: index:stage-P2-20:identity:d0062fed
+PASS: index:stage-P2-20:identity-in-evidence:d0062fed
+PASS: index:stage-P2-20:identity:e99dce4b
+PASS: index:stage-P2-20:identity-in-evidence:e99dce4b
+PASS: index:json-P2-20
+PASS: index:json-P2-20:gate-marker
+PASS: index:json-P2-20:count
+PASS: index:json-P2-20:evidence-dir
+PASS: index:json-P2-20:result
+PASS: index:json-P2-20:fixture_input_identity
+PASS: index:json-P2-20:generated_executable_package_identity
+PASS: index:json-P2-20:deterministic_run_identity
+PASS: index:json-P2-20:claim_boundary
+PASS: index:json-P2-20:identity:0a236023c59fd536
+PASS: index:json-P2-20:identity:0dfbf094
+PASS: index:json-P2-20:identity:2924881e
+PASS: index:json-P2-20:identity:67113cc1
+PASS: index:json-P2-20:identity:7b83a827
+PASS: index:json-P2-20:identity:d0062fed
+PASS: index:json-P2-20:identity:e99dce4b
+PASS: index:stage-P2-21
+PASS: index:stage-P2-21:fields
+PASS: index:stage-P2-21:name
+PASS: index:stage-P2-21:pass-marker
+PASS: index:stage-P2-21:gate-marker
+PASS: index:stage-P2-21:count
+PASS: index:stage-P2-21:evidence-dir
+PASS: index:stage-P2-21:result
+PASS: index:stage-P2-21:result-exists
+PASS: index:stage-P2-21:identity:0a236023c59fd536
+PASS: index:stage-P2-21:identity-in-evidence:0a236023c59fd536
+PASS: index:stage-P2-21:identity:7d42947f658f0e7d
+PASS: index:stage-P2-21:identity-in-evidence:7d42947f658f0e7d
+PASS: index:stage-P2-21:identity:dbba1e3a86274d29
+PASS: index:stage-P2-21:identity-in-evidence:dbba1e3a86274d29
+PASS: index:json-P2-21
+PASS: index:json-P2-21:gate-marker
+PASS: index:json-P2-21:count
+PASS: index:json-P2-21:evidence-dir
+PASS: index:json-P2-21:result
+PASS: index:json-P2-21:fixture_input_identity
+PASS: index:json-P2-21:generated_executable_package_identity
+PASS: index:json-P2-21:deterministic_run_identity
+PASS: index:json-P2-21:claim_boundary
+PASS: index:json-P2-21:identity:0a236023c59fd536
+PASS: index:json-P2-21:identity:7d42947f658f0e7d
+PASS: index:json-P2-21:identity:dbba1e3a86274d29
+PASS: index:stage-P2-22
+PASS: index:stage-P2-22:fields
+PASS: index:stage-P2-22:name
+PASS: index:stage-P2-22:pass-marker
+PASS: index:stage-P2-22:gate-marker
+PASS: index:stage-P2-22:count
+PASS: index:stage-P2-22:evidence-dir
+PASS: index:stage-P2-22:result
+PASS: index:stage-P2-22:result-exists
+PASS: index:stage-P2-22:identity:4ae725be384b991c
+PASS: index:stage-P2-22:identity-in-evidence:4ae725be384b991c
+PASS: index:stage-P2-22:identity:cc57bba3124f264c
+PASS: index:stage-P2-22:identity-in-evidence:cc57bba3124f264c
+PASS: index:json-P2-22
+PASS: index:json-P2-22:gate-marker
+PASS: index:json-P2-22:count
+PASS: index:json-P2-22:evidence-dir
+PASS: index:json-P2-22:result
+PASS: index:json-P2-22:fixture_input_identity
+PASS: index:json-P2-22:generated_executable_package_identity
+PASS: index:json-P2-22:deterministic_run_identity
+PASS: index:json-P2-22:claim_boundary
+PASS: index:json-P2-22:identity:4ae725be384b991c
+PASS: index:json-P2-22:identity:cc57bba3124f264c
+PASS: index:stage-P2-23
+PASS: index:stage-P2-23:fields
+PASS: index:stage-P2-23:name
+PASS: index:stage-P2-23:pass-marker
+PASS: index:stage-P2-23:gate-marker
+PASS: index:stage-P2-23:count
+PASS: index:stage-P2-23:evidence-dir
+PASS: index:stage-P2-23:result
+PASS: index:stage-P2-23:result-exists
+PASS: index:stage-P2-23:identity:5afd387d048299d5
+PASS: index:stage-P2-23:identity-in-evidence:5afd387d048299d5
+PASS: index:stage-P2-23:identity:9819b40e9909b405
+PASS: index:stage-P2-23:identity-in-evidence:9819b40e9909b405
+PASS: index:stage-P2-23:identity:dfadcbe759121b07
+PASS: index:stage-P2-23:identity-in-evidence:dfadcbe759121b07
+PASS: index:json-P2-23
+PASS: index:json-P2-23:gate-marker
+PASS: index:json-P2-23:count
+PASS: index:json-P2-23:evidence-dir
+PASS: index:json-P2-23:result
+PASS: index:json-P2-23:fixture_input_identity
+PASS: index:json-P2-23:generated_executable_package_identity
+PASS: index:json-P2-23:deterministic_run_identity
+PASS: index:json-P2-23:claim_boundary
+PASS: index:json-P2-23:identity:5afd387d048299d5
+PASS: index:json-P2-23:identity:9819b40e9909b405
+PASS: index:json-P2-23:identity:dfadcbe759121b07
+PASS: index:stage-P2-30
+PASS: index:stage-P2-30:fields
+PASS: index:stage-P2-30:name
+PASS: index:stage-P2-30:pass-marker
+PASS: index:stage-P2-30:gate-marker
+PASS: index:stage-P2-30:count
+PASS: index:stage-P2-30:evidence-dir
+PASS: index:stage-P2-30:result
+PASS: index:stage-P2-30:result-exists
+PASS: index:stage-P2-30:identity:be52ef25060e22f8
+PASS: index:stage-P2-30:identity-in-evidence:be52ef25060e22f8
+PASS: index:json-P2-30
+PASS: index:json-P2-30:gate-marker
+PASS: index:json-P2-30:count
+PASS: index:json-P2-30:evidence-dir
+PASS: index:json-P2-30:result
+PASS: index:json-P2-30:fixture_input_identity
+PASS: index:json-P2-30:generated_executable_package_identity
+PASS: index:json-P2-30:deterministic_run_identity
+PASS: index:json-P2-30:claim_boundary
+PASS: index:json-P2-30:identity:be52ef25060e22f8
+PASS: index:stage-P2-40
+PASS: index:stage-P2-40:fields
+PASS: index:stage-P2-40:name
+PASS: index:stage-P2-40:pass-marker
+PASS: index:stage-P2-40:gate-marker
+PASS: index:stage-P2-40:count
+PASS: index:stage-P2-40:evidence-dir
+PASS: index:stage-P2-40:result
+PASS: index:stage-P2-40:result-exists
+PASS: index:stage-P2-40:identity:9323f24533ec6c31
+PASS: index:stage-P2-40:identity-in-evidence:9323f24533ec6c31
+PASS: index:stage-P2-40:identity:96676becf33f2251
+PASS: index:stage-P2-40:identity-in-evidence:96676becf33f2251
+PASS: index:stage-P2-40:identity:c0a76e0f19217aee
+PASS: index:stage-P2-40:identity-in-evidence:c0a76e0f19217aee
+PASS: index:json-P2-40
+PASS: index:json-P2-40:gate-marker
+PASS: index:json-P2-40:count
+PASS: index:json-P2-40:evidence-dir
+PASS: index:json-P2-40:result
+PASS: index:json-P2-40:fixture_input_identity
+PASS: index:json-P2-40:generated_executable_package_identity
+PASS: index:json-P2-40:deterministic_run_identity
+PASS: index:json-P2-40:claim_boundary
+PASS: index:json-P2-40:identity:9323f24533ec6c31
+PASS: index:json-P2-40:identity:96676becf33f2251
+PASS: index:json-P2-40:identity:c0a76e0f19217aee
+PASS: index:stage-P2-50
+PASS: index:stage-P2-50:fields
+PASS: index:stage-P2-50:name
+PASS: index:stage-P2-50:pass-marker
+PASS: index:stage-P2-50:gate-marker
+PASS: index:stage-P2-50:count
+PASS: index:stage-P2-50:evidence-dir
+PASS: index:stage-P2-50:result
+PASS: index:stage-P2-50:result-exists
+PASS: index:stage-P2-50:identity:1c1dac0ea9942a9a
+PASS: index:stage-P2-50:identity-in-evidence:1c1dac0ea9942a9a
+PASS: index:stage-P2-50:identity:1e81bf8cd32b60cd
+PASS: index:stage-P2-50:identity-in-evidence:1e81bf8cd32b60cd
+PASS: index:stage-P2-50:identity:5afd387d048299d5
+PASS: index:stage-P2-50:identity-in-evidence:5afd387d048299d5
+PASS: index:stage-P2-50:identity:5d93971b102b24e5
+PASS: index:stage-P2-50:identity-in-evidence:5d93971b102b24e5
+PASS: index:stage-P2-50:identity:71847f9d7ffd1264
+PASS: index:stage-P2-50:identity-in-evidence:71847f9d7ffd1264
+PASS: index:stage-P2-50:identity:96676becf33f2251
+PASS: index:stage-P2-50:identity-in-evidence:96676becf33f2251
+PASS: index:stage-P2-50:identity:fa72b5d169ad0f8f
+PASS: index:stage-P2-50:identity-in-evidence:fa72b5d169ad0f8f
+PASS: index:json-P2-50
+PASS: index:json-P2-50:gate-marker
+PASS: index:json-P2-50:count
+PASS: index:json-P2-50:evidence-dir
+PASS: index:json-P2-50:result
+PASS: index:json-P2-50:fixture_input_identity
+PASS: index:json-P2-50:generated_executable_package_identity
+PASS: index:json-P2-50:deterministic_run_identity
+PASS: index:json-P2-50:claim_boundary
+PASS: index:json-P2-50:identity:1c1dac0ea9942a9a
+PASS: index:json-P2-50:identity:1e81bf8cd32b60cd
+PASS: index:json-P2-50:identity:5afd387d048299d5
+PASS: index:json-P2-50:identity:5d93971b102b24e5
+PASS: index:json-P2-50:identity:71847f9d7ffd1264
+PASS: index:json-P2-50:identity:96676becf33f2251
+PASS: index:json-P2-50:identity:fa72b5d169ad0f8f
+PASS: index:stage-P2-90
+PASS: index:stage-P2-90:fields
+PASS: index:stage-P2-90:name
+PASS: index:stage-P2-90:pass-marker
+PASS: index:stage-P2-90:gate-marker
+PASS: index:stage-P2-90:count
+PASS: index:stage-P2-90:evidence-dir
+PASS: index:stage-P2-90:result
+PASS: index:stage-P2-90:result-exists
+PASS: index:stage-P2-90:identity:74e9eadaf0e17ca4
+PASS: index:stage-P2-90:identity-in-evidence:74e9eadaf0e17ca4
+PASS: index:json-P2-90
+PASS: index:json-P2-90:gate-marker
+PASS: index:json-P2-90:count
+PASS: index:json-P2-90:evidence-dir
+PASS: index:json-P2-90:result
+PASS: index:json-P2-90:fixture_input_identity
+PASS: index:json-P2-90:generated_executable_package_identity
+PASS: index:json-P2-90:deterministic_run_identity
+PASS: index:json-P2-90:claim_boundary
+PASS: index:json-P2-90:identity:74e9eadaf0e17ca4
+PASS: index:refs-resolve
+PASS: limitations:proven-heading
+PASS: limitations:unproven-heading
+PASS: limitations:final-marker-statement
+PASS: limitations:proven:architecture-neutral shared analysis pipeline
+PASS: limitations:proven:deterministic ProgramModel/CFG/function/call-graph/translation pipeline
+PASS: limitations:proven:NES/6502 frontend integration
+PASS: limitations:proven:NES runtime bridge
+PASS: limitations:proven:NES synthetic end-to-end native recompilation
+PASS: limitations:proven:observable equivalence
+PASS: limitations:proven:deterministic repeated execution
+PASS: limitations:proven:MIPS32 shared-path operation
+PASS: limitations:proven:generic runtime neutrality
+PASS: limitations:proven:fail-closed unsupported-service behavior
+PASS: limitations:proven:reproducible native build
+PASS: limitations:proven:reproducible release package
+PASS: limitations:proven:provenance and legal-asset policy enforcement
+PASS: limitations:proven:Phase-2 final end-to-end proof marker
+PASS: limitations:unproven:arbitrary NES ROM compatibility
+PASS: limitations:unproven:commercial-game compatibility
+PASS: limitations:unproven:complete NES hardware compatibility
+PASS: limitations:unproven:arbitrary mapper support
+PASS: limitations:unproven:cycle accuracy
+PASS: limitations:unproven:arbitrary MIPS32 binary compatibility
+PASS: limitations:unproven:PS1/PS2/Xbox compatibility
+PASS: limitations:unproven:future architecture compatibility
+PASS: limitations:unproven:production-ready universal console runtime
+PASS: limitations:no-final-pass-claim
+PASS: limitations:refs-resolve
+PASS: claim-matrix:final-marker-statement
+PASS: claim-matrix:no-final-pass-claim
+PASS: claim-matrix:p2-90:architecture-neutral shared analysis pipeline
+PASS: claim-matrix:p2-90:NES/6502 frontend integration
+PASS: claim-matrix:p2-90:NES runtime bridge
+PASS: claim-matrix:p2-90:NES synthetic end-to-end native recompilation
+PASS: claim-matrix:p2-90:observable equivalence
+PASS: claim-matrix:p2-90:deterministic repeated execution
+PASS: claim-matrix:p2-90:MIPS32 shared-path operation
+PASS: claim-matrix:p2-90:generic runtime neutrality
+PASS: claim-matrix:p2-90:reproducible native build
+PASS: claim-matrix:p2-90:reproducible release package
+PASS: claim-matrix:p2-90:arbitrary NES ROM compatibility
+PASS: claim-matrix:p2-90:commercial-game compatibility
+PASS: claim-matrix:p2-90:complete NES hardware compatibility
+PASS: claim-matrix:p2-90:arbitrary MIPS32 binary compatibility
+PASS: claim-matrix:p2-90:PS1/PS2/Xbox compatibility
+PASS: claim-matrix:p2-90:cycle accuracy
+PASS: claim-matrix:p2-90:future architecture compatibility
+PASS: claim-matrix:p2-90:Phase-2 final end-to-end proof marker
+PASS: claim-matrix:new:deterministic ProgramModel/CFG/function/call-graph/translation pipeline
+PASS: claim-matrix:new:fail-closed unsupported-service behavior
+PASS: claim-matrix:new:provenance and legal-asset policy enforcement
+PASS: claim-matrix:new:arbitrary mapper support
+PASS: claim-matrix:new:production-ready universal console runtime
+PASS: claim-matrix:vocabulary:architecture-neutral shared analysis pipeline
+PASS: claim-matrix:vocabulary:deterministic ProgramModel/CFG/function/call-graph/translation pipeline
+PASS: claim-matrix:vocabulary:NES/6502 frontend integration
+PASS: claim-matrix:vocabulary:NES runtime bridge
+PASS: claim-matrix:vocabulary:NES synthetic end-to-end native recompilation
+PASS: claim-matrix:vocabulary:observable equivalence
+PASS: claim-matrix:vocabulary:deterministic repeated execution
+PASS: claim-matrix:vocabulary:MIPS32 shared-path operation
+PASS: claim-matrix:vocabulary:generic runtime neutrality
+PASS: claim-matrix:vocabulary:fail-closed unsupported-service behavior
+PASS: claim-matrix:vocabulary:reproducible native build
+PASS: claim-matrix:vocabulary:reproducible release package
+PASS: claim-matrix:vocabulary:provenance and legal-asset policy enforcement
+PASS: claim-matrix:vocabulary:arbitrary NES ROM compatibility
+PASS: claim-matrix:vocabulary:commercial-game compatibility
+PASS: claim-matrix:vocabulary:complete NES hardware compatibility
+PASS: claim-matrix:vocabulary:arbitrary mapper support
+PASS: claim-matrix:vocabulary:cycle accuracy
+PASS: claim-matrix:vocabulary:arbitrary MIPS32 binary compatibility
+PASS: claim-matrix:vocabulary:PS1/PS2/Xbox compatibility
+PASS: claim-matrix:vocabulary:future architecture compatibility
+PASS: claim-matrix:vocabulary:production-ready universal console runtime
+PASS: claim-matrix:vocabulary:Phase-2 final end-to-end proof marker
+PASS: claim-matrix:key-coverage
+PASS: claim-matrix:proven-section:architecture-neutral shared analysis pipeline
+PASS: claim-matrix:proven-section:deterministic ProgramModel/CFG/function/call-graph/translation pipeline
+PASS: claim-matrix:proven-section:NES/6502 frontend integration
+PASS: claim-matrix:proven-section:NES runtime bridge
+PASS: claim-matrix:proven-section:NES synthetic end-to-end native recompilation
+PASS: claim-matrix:proven-section:observable equivalence
+PASS: claim-matrix:proven-section:deterministic repeated execution
+PASS: claim-matrix:proven-section:MIPS32 shared-path operation
+PASS: claim-matrix:proven-section:generic runtime neutrality
+PASS: claim-matrix:proven-section:fail-closed unsupported-service behavior
+PASS: claim-matrix:proven-section:reproducible native build
+PASS: claim-matrix:proven-section:reproducible release package
+PASS: claim-matrix:proven-section:provenance and legal-asset policy enforcement
+PASS: claim-matrix:proven-section:Phase-2 final end-to-end proof marker
+PASS: claim-matrix:unproven-section:arbitrary NES ROM compatibility
+PASS: claim-matrix:unproven-section:commercial-game compatibility
+PASS: claim-matrix:unproven-section:complete NES hardware compatibility
+PASS: claim-matrix:unproven-section:arbitrary mapper support
+PASS: claim-matrix:unproven-section:cycle accuracy
+PASS: claim-matrix:unproven-section:arbitrary MIPS32 binary compatibility
+PASS: claim-matrix:unproven-section:PS1/PS2/Xbox compatibility
+PASS: claim-matrix:unproven-section:future architecture compatibility
+PASS: claim-matrix:unproven-section:production-ready universal console runtime
+PASS: claim-matrix:refs-resolve
+PASS: terminology:state-ledger:P2-00
+PASS: terminology:state-gate-marker:P2-01
+PASS: terminology:state-gate-marker:P2-02
+PASS: terminology:state-gate-marker:P2-03
+PASS: terminology:state-gate-marker:P2-04
+PASS: terminology:state-gate-marker:P2-05
+PASS: terminology:state-gate-marker:P2-06
+PASS: terminology:state-gate-marker:P2-07
+PASS: terminology:state-gate-marker:P2-08
+PASS: terminology:state-gate-marker:P2-09
+PASS: terminology:state-gate-marker:P2-10
+PASS: terminology:state-gate-marker:P2-11
+PASS: terminology:state-gate-marker:P2-12
+PASS: terminology:state-gate-marker:P2-13
+PASS: terminology:state-gate-marker:P2-14
+PASS: terminology:state-gate-marker:P2-20
+PASS: terminology:state-gate-marker:P2-21
+PASS: terminology:state-gate-marker:P2-22
+PASS: terminology:state-gate-marker:P2-23
+PASS: terminology:state-gate-marker:P2-30
+PASS: terminology:state-gate-marker:P2-40
+PASS: terminology:state-gate-marker:P2-50
+PASS: terminology:state-gate-marker:P2-90
+PASS: terminology:p2-91-consistent
+PASS: terminology:queue-P2-00
+PASS: terminology:queue-P2-01
+PASS: terminology:queue-P2-02
+PASS: terminology:queue-P2-03
+PASS: terminology:queue-P2-04
+PASS: terminology:queue-P2-05
+PASS: terminology:queue-P2-06
+PASS: terminology:queue-P2-07
+PASS: terminology:queue-P2-08
+PASS: terminology:queue-P2-09
+PASS: terminology:queue-P2-10
+PASS: terminology:queue-P2-11
+PASS: terminology:queue-P2-12
+PASS: terminology:queue-P2-13
+PASS: terminology:queue-P2-14
+PASS: terminology:queue-P2-20
+PASS: terminology:queue-P2-21
+PASS: terminology:queue-P2-22
+PASS: terminology:queue-P2-23
+PASS: terminology:queue-P2-30
+PASS: terminology:queue-P2-40
+PASS: terminology:queue-P2-50
+PASS: terminology:queue-P2-90
+PASS: terminology:queue-p2-91-and-p2-99
+PASS: terminology:index-json-stage-names
+PASS: premature-verdict:PHASE2_EVIDENCE_INDEX.md
+PASS: premature-verdict:PHASE2_LIMITATIONS.md
+PASS: premature-verdict:PHASE2_CLAIM_MATRIX.md
+PASS: premature-verdict:host_path_audit.md
+PASS: premature-verdict:state-not-proven
+PASS: premature-verdict:handoff-not-proven
+PASS: premature-verdict:queue-reserves-p2-99
+PASS: premature-verdict:queue-p2-91
+PASS: premature-verdict:no-unnegated-pass-marker
+PASS: p2-90-rerun:capture-exists
+PASS: p2-90-rerun:stage-marker
+PASS: p2-90-rerun:gate-marker
+PASS: p2-90-rerun:final-marker
+PASS: p2-90-rerun:no-failures
+PASS: p2-90-rerun:stdout-content-identical
+PASS: p2-90-rerun:stdout-hash
+PASS: p2-90-rerun:summary-stage
+PASS: p2-90-rerun:summary-marker
+PASS: p2-90-rerun:summary-tests
+PASS: p2-90-rerun:summary-gates
+PASS: p2-90-rerun:summary-audit-checks
+PASS: p2-90-rerun:summary-stdout-hash
+PASS: p2-90-rerun:summary-content-match
+PASS: p2-90-rerun:summary-recorded-capture-hash
+PASS: p2-90-rerun:summary-frozen-preserved
+PASS: p2-90-rerun:tests-json-exists
+PASS: p2-90-rerun:tests-json-pass
+PASS: p2-90-rerun:matrix-exists
+PASS: p2-90-rerun:matrix-gates
+PASS: p2-90-rerun:matrix-all-pass
+PASS: p2-90-rerun:preservation-recorded
+PASS: p2-90-rerun:preserved-restored:phase1_host_gates/command.txt
+PASS: p2-90-rerun:currently-frozen:phase1_host_gates/command.txt
+PASS: p2-90-rerun:preserved-restored:phase1_host_gates/stderr.txt
+PASS: p2-90-rerun:currently-frozen:phase1_host_gates/stderr.txt
+PASS: p2-90-rerun:preserved-restored:phase1_host_gates/stdout.txt
+PASS: p2-90-rerun:currently-frozen:phase1_host_gates/stdout.txt
+PASS: p2-90-rerun:preserved-restored:source_integrity/command.txt
+PASS: p2-90-rerun:currently-frozen:source_integrity/command.txt
+PASS: p2-90-rerun:preserved-restored:source_integrity/stderr.txt
+PASS: p2-90-rerun:currently-frozen:source_integrity/stderr.txt
+PASS: p2-90-rerun:preserved-restored:source_integrity/stdout.txt
+PASS: p2-90-rerun:currently-frozen:source_integrity/stdout.txt
+PASS: p2-90-rerun:source-integrity-capture
+PASS: p2-90-rerun:source-integrity-count
+PASS: p2-90-rerun:phase1-capture
+PASS: p2-90-rerun:phase1-counts
+PASS: source-integrity:pass
+PASS: source-integrity:count-matches-manifest
+PASS: source-integrity:closure-gate-registered
+PASS: source-integrity:manifest-delta-additive-only
+PASS: legal:tracked-tree-clean
+PASS: legal:release-package-policy:package_generic-runtime-pipeline.zip
+PASS: legal:release-package-policy:package_mips32-larger.zip
+PASS: legal:release-package-policy:package_nes-nrom-end-to-end.zip
+PASS: host-path:register-complete
+PASS: host-path:frozen-exists:P2-00/RESULT.md
+PASS: host-path:frozen-sha256:P2-00/RESULT.md
+PASS: host-path:frozen-still-detected:P2-00/RESULT.md
+PASS: host-path:register-class:P2-00/RESULT.md
+PASS: host-path:register-pinning:P2-00/RESULT.md
+PASS: host-path:register-sha256:P2-00/RESULT.md
+PASS: host-path:register-resolution:P2-00/RESULT.md
+PASS: host-path:frozen-exists:P2-07/host_emitter_tests.json
+PASS: host-path:frozen-sha256:P2-07/host_emitter_tests.json
+PASS: host-path:frozen-still-detected:P2-07/host_emitter_tests.json
+PASS: host-path:register-class:P2-07/host_emitter_tests.json
+PASS: host-path:register-pinning:P2-07/host_emitter_tests.json
+PASS: host-path:register-sha256:P2-07/host_emitter_tests.json
+PASS: host-path:register-resolution:P2-07/host_emitter_tests.json
+PASS: host-path:frozen-exists:P2-07/native_compile.txt
+PASS: host-path:frozen-sha256:P2-07/native_compile.txt
+PASS: host-path:frozen-still-detected:P2-07/native_compile.txt
+PASS: host-path:register-class:P2-07/native_compile.txt
+PASS: host-path:register-pinning:P2-07/native_compile.txt
+PASS: host-path:register-sha256:P2-07/native_compile.txt
+PASS: host-path:register-resolution:P2-07/native_compile.txt
+PASS: host-path:frozen-exists:P2-08/determinism.txt
+PASS: host-path:frozen-sha256:P2-08/determinism.txt
+PASS: host-path:frozen-still-detected:P2-08/determinism.txt
+PASS: host-path:register-class:P2-08/determinism.txt
+PASS: host-path:register-pinning:P2-08/determinism.txt
+PASS: host-path:register-sha256:P2-08/determinism.txt
+PASS: host-path:register-resolution:P2-08/determinism.txt
+PASS: host-path:frozen-exists:P2-08/runtime_abi_tests.json
+PASS: host-path:frozen-sha256:P2-08/runtime_abi_tests.json
+PASS: host-path:frozen-still-detected:P2-08/runtime_abi_tests.json
+PASS: host-path:register-class:P2-08/runtime_abi_tests.json
+PASS: host-path:register-pinning:P2-08/runtime_abi_tests.json
+PASS: host-path:register-sha256:P2-08/runtime_abi_tests.json
+PASS: host-path:register-resolution:P2-08/runtime_abi_tests.json
+PASS: host-path:frozen-exists:P2-40/run1.txt
+PASS: host-path:frozen-sha256:P2-40/run1.txt
+PASS: host-path:frozen-still-detected:P2-40/run1.txt
+PASS: host-path:register-class:P2-40/run1.txt
+PASS: host-path:register-pinning:P2-40/run1.txt
+PASS: host-path:register-sha256:P2-40/run1.txt
+PASS: host-path:register-resolution:P2-40/run1.txt
+PASS: host-path:frozen-exists:P2-40/run2.txt
+PASS: host-path:frozen-sha256:P2-40/run2.txt
+PASS: host-path:frozen-still-detected:P2-40/run2.txt
+PASS: host-path:register-class:P2-40/run2.txt
+PASS: host-path:register-pinning:P2-40/run2.txt
+PASS: host-path:register-sha256:P2-40/run2.txt
+PASS: host-path:register-resolution:P2-40/run2.txt
+PASS: host-path:frozen-exists:P2-50/regression_tools_test_cross_architecture_neutrality_v1.txt
+PASS: host-path:frozen-sha256:P2-50/regression_tools_test_cross_architecture_neutrality_v1.txt
+PASS: host-path:frozen-still-detected:P2-50/regression_tools_test_cross_architecture_neutrality_v1.txt
+PASS: host-path:register-class:P2-50/regression_tools_test_cross_architecture_neutrality_v1.txt
+PASS: host-path:register-pinning:P2-50/regression_tools_test_cross_architecture_neutrality_v1.txt
+PASS: host-path:register-sha256:P2-50/regression_tools_test_cross_architecture_neutrality_v1.txt
+PASS: host-path:register-resolution:P2-50/regression_tools_test_cross_architecture_neutrality_v1.txt
+PASS: host-path:frozen-exists:P2-50/regression_tools_test_generic_runtime_integration_v1.txt
+PASS: host-path:frozen-sha256:P2-50/regression_tools_test_generic_runtime_integration_v1.txt
+PASS: host-path:frozen-still-detected:P2-50/regression_tools_test_generic_runtime_integration_v1.txt
+PASS: host-path:register-class:P2-50/regression_tools_test_generic_runtime_integration_v1.txt
+PASS: host-path:register-pinning:P2-50/regression_tools_test_generic_runtime_integration_v1.txt
+PASS: host-path:register-sha256:P2-50/regression_tools_test_generic_runtime_integration_v1.txt
+PASS: host-path:register-resolution:P2-50/regression_tools_test_generic_runtime_integration_v1.txt
+PASS: host-path:control-plane-metadata-documented
+PASS: host-path:control-plane-metadata-exists:.openrecomp-phase2/INSTALL_INFO.txt
+PASS: host-path:control-plane-metadata-sha256:.openrecomp-phase2/INSTALL_INFO.txt
+PASS: host-path:control-plane-metadata-detected:.openrecomp-phase2/INSTALL_INFO.txt
+PASS: host-path:control-plane-metadata-exists:.openrecomp-phase2/P2_00_START_PROMPT.txt
+PASS: host-path:control-plane-metadata-sha256:.openrecomp-phase2/P2_00_START_PROMPT.txt
+PASS: host-path:control-plane-metadata-detected:.openrecomp-phase2/P2_00_START_PROMPT.txt
+PASS: host-path:no-new-occurrences
+PASS: host-path:p2-91-artifacts-clean
+PASS: host-path:release-packages-clean
+
+=== RESULT ===
+OPENRECOMP_P2_91=PASS
+OPENRECOMP_PHASE2_EVIDENCE_CLOSURE_V1=PASS tests=882
+OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS

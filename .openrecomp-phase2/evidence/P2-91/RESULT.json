@@ -1,0 +1,128 @@
+{
+  "stage": "P2-91",
+  "stage_name": "OPENRECOMP_PHASE2_EVIDENCE_CLOSURE_V1",
+  "verdict": "PASS",
+  "markers": {
+    "stage": "OPENRECOMP_P2_91=PASS",
+    "gate": "OPENRECOMP_PHASE2_EVIDENCE_CLOSURE_V1=PASS tests=882",
+    "gate_regression_mode": "OPENRECOMP_PHASE2_EVIDENCE_CLOSURE_V1=PASS tests=884",
+    "final": "OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=NOT_PROVEN"
+  },
+  "deliverables": {
+    "evidence_index_md": "PHASE2_EVIDENCE_INDEX.md",
+    "evidence_index_json": "PHASE2_EVIDENCE_INDEX.json",
+    "limitations": "PHASE2_LIMITATIONS.md",
+    "claim_matrix": "PHASE2_CLAIM_MATRIX.md",
+    "host_path_audit": "host_path_audit.md",
+    "host_path_register": "host_path_occurrences.json",
+    "portable_derivatives": [
+      "portable_derivatives/P2-07_native_compile.portable.txt",
+      "portable_derivatives/P2-08_determinism.portable.txt",
+      "portable_derivatives/README.md"
+    ],
+    "regression_capture": "p2_90_rerun.txt",
+    "regression_evidence_dir": "p2_90_rerun/",
+    "regression_summary": "p2_90_rerun.json",
+    "capture_preservation": [
+      "p2_90_capture_preservation.json",
+      "p2_90_capture_preservation.txt"
+    ],
+    "gate_tests": "p2_91_tests.json",
+    "legal_policy_audit": "legal_policy_audit.json",
+    "source_integrity": "source_integrity.txt",
+    "changed_files": "changed_files.txt",
+    "gate_determinism": "gate_determinism.txt",
+    "gate_runs": [
+      "p2_91_run1.txt",
+      "p2_91_run2.txt",
+      "p2_91_regression_run.txt",
+      "p2_91_regression_run_development_fail.txt"
+    ]
+  },
+  "stage_index": {
+    "stages_indexed": 23,
+    "stage_ids": [
+      "P2-00", "P2-01", "P2-02", "P2-03", "P2-04", "P2-05", "P2-06",
+      "P2-07", "P2-08", "P2-09", "P2-10", "P2-11", "P2-12", "P2-13",
+      "P2-14", "P2-20", "P2-21", "P2-22", "P2-23", "P2-30", "P2-40",
+      "P2-50", "P2-90"
+    ],
+    "required_fields_per_stage": [
+      "PASS marker", "Gate marker", "Test/check count", "Evidence directory",
+      "Principal RESULT", "Fixture/input identity",
+      "Generated/executable/package identity", "Deterministic-run identity",
+      "Claim boundary"
+    ],
+    "identity_tokens_reverified": true,
+    "references_resolved": true
+  },
+  "limitations": {
+    "proven_or_bounded_proven_claims": 13,
+    "unproven_or_out_of_scope_claims": 10,
+    "claim_vocabulary_keys": 23,
+    "p2_90_claims_preserved": 18,
+    "p2_91_closure_claims_added": 5
+  },
+  "host_path_resolution": {
+    "occurrences_identified_by_p2_90": 9,
+    "frozen_historical_evidence": 7,
+    "safely_relocatable_metadata": 2,
+    "regenerated_portably": 0,
+    "genuine_portability_defects_corrected": 0,
+    "frozen_files_modified": 0,
+    "portable_derivatives": 2,
+    "control_plane_installer_metadata_pinned": 2,
+    "new_occurrences_in_portable_scope": 0
+  },
+  "p2_90_regression_rerun": {
+    "command": "python tools/test_phase2_evidence_closure_v1.py --run-regression",
+    "marker": "OPENRECOMP_PHASE2_WHOLE_REGRESSION_V1=PASS tests=361 gates=22 gate_tests=1990",
+    "status": "PASS",
+    "audit_checks": 361,
+    "gates": 22,
+    "gate_checks": 1990,
+    "failures": 0,
+    "stderr_empty": true,
+    "stdout_content_sha256_lf": "00675593b278c8b660e2e4b00165e434057549a91263ba15b046150d82d00903",
+    "stdout_content_identical_to_frozen_capture": true,
+    "p2_90_recorded_capture_sha256": "74e9eadaf0e17ca4a97790e4239f40883cc745cd9817c172f7fa6e2663ce1ee7",
+    "frozen_captures_preserved": true,
+    "frozen_capture_regeneration_deltas": {
+      "phase1_host_gates/stdout.txt": "manifest count line 132 -> 133",
+      "source_integrity/stdout.txt": "manifest count line 132 -> 133",
+      "other_frozen_files": "byte-identical regeneration"
+    },
+    "closure_gate_mode_checks": 884,
+    "closure_gate_run_stdout_sha256": "4433d1c7cc099781379ab4e5e295b8f3b7a87042ec9c4e1eeb96b775df5ec7c8",
+    "elapsed_seconds": 5315,
+    "development_capture_corrected_before_official_runs": "p2_91_regression_run_development_fail.txt (b7a1436f; gate stdout-convention check defect, nested P2-90 audit passed)"
+  },
+  "source_integrity": {
+    "status": "PASS",
+    "manifest_entries": 133,
+    "closure_gate_registered": true,
+    "manifest_delta_additive_only": true,
+    "p2_90_manifest_sha256_reproduced_without_closure_gate_line": "1bf21db59bf11f4ff19d60bbe4e37afd8e4b8ca5f1391296d882c1149cc08fca",
+    "manifest_sha256": "05180decf8bd835062dfc7b840dcc71893eae3789d7e27baaf57322c3371f144"
+  },
+  "legal_and_content_policy": {
+    "tracked_tree_clean": true,
+    "release_packages_clean": true,
+    "p2_91_artifacts_host_path_free": true,
+    "premature_final_marker_claims": 0
+  },
+  "determinism": {
+    "full_gate_runs": 2,
+    "byte_identical": true,
+    "stdout_sha256": "78b33d0cee634f0ce7327d22cedcbf6d84246951410c3aae1ecdc82e71d10048",
+    "stdout_bytes": 40674,
+    "stderr_empty": true,
+    "regression_mode_run_capture": "p2_91_regression_run.txt",
+    "regression_mode_run_sha256": "4433d1c7cc099781379ab4e5e295b8f3b7a87042ec9c4e1eeb96b775df5ec7c8",
+    "recorded_in": "gate_determinism.txt"
+  },
+  "claim_boundary": "P2-91 proves the completeness, reference validity, internal consistency and host-path hygiene of the Phase-2 evidence closure on the audited tree and that the whole-project regression still passes after the closure changes; it adds no capability, upgrades no bounded claim and does not issue the final verdict.",
+  "final_phase2_marker": "OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=NOT_PROVEN",
+  "final_verdict_reserved_for": "P2-99",
+  "next_stage": "P2-99"
+}

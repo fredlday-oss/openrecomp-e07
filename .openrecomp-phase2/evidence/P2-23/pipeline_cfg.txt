@@ -1,0 +1,15 @@
+P2-02 CFG evidence (NES end-to-end)
+====================================
+mode: CLOSED
+fingerprint: 4111ddabd572af1e2ca01ffc0f21230db0408b727dfce4bf3036ca7020ee271d
+block_count: 8
+blocks: 0x8000, 0x8002, 0x800b, 0x806f, 0x8086, 0x8089, 0x808c, 0x808f
+edges:
+  blk_8000: FALLTHROUGH -> blk_8002
+  blk_8002: BRANCH_NOT_TAKEN -> blk_800b
+  blk_8002: BRANCH_TAKEN -> blk_8002
+  blk_800b: CALL_RETURN -> blk_806f
+  blk_806f: CALL_RETURN -> blk_8086
+  blk_8086: JUMP -> blk_808f
+  blk_8089: INDIRECT -> unresolved indirect jump target
+  blk_808c: INDIRECT -> unresolved indirect jump target

@@ -1,0 +1,20 @@
+P2-50 compiler/linker command lines
+====================================
+representative: generic-runtime-pipeline
+  compile [0] clang-cl.exe /c /Brepro /Od /std:c11 /nologo /Fo:generated.obj generated.c
+  compile [1] clang-cl.exe /c /Brepro /Od /std:c11 /nologo /Fo:runtime_support.obj runtime_support.c
+  link lld-link.exe /Brepro /nologo /OUT:program.exe generated.obj runtime_support.obj
+  identical across roots: yes
+
+representative: mips32-larger
+  compile [0] clang-cl.exe /c /Brepro /Od /std:c11 /nologo /Fo:generated.obj generated.c
+  compile [1] clang-cl.exe /c /Brepro /Od /std:c11 /nologo /Fo:runtime_support.obj runtime_support.c
+  link lld-link.exe /Brepro /nologo /OUT:program.exe generated.obj runtime_support.obj
+  identical across roots: yes
+
+representative: nes-nrom-end-to-end
+  compile [0] clang-cl.exe /c /Brepro /Od /std:c11 /nologo /Fo:generated.obj generated.c
+  compile [1] clang-cl.exe /c /Brepro /Od /std:c11 /nologo /Fo:runtime_support.obj runtime_support.c
+  link lld-link.exe /Brepro /nologo /OUT:program.exe generated.obj runtime_support.obj
+  identical across roots: yes
+

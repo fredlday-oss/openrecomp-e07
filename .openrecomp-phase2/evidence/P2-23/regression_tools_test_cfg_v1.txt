@@ -1,0 +1,88 @@
+Regression run: tools/test_cfg_v1.py
+returncode: 0
+stdout:
+PASS: linear-one-block
+PASS: linear-instruction-membership
+PASS: linear-terminal-no-successor
+PASS: branch-two-successors
+PASS: branch-taken-target
+PASS: branch-fallthrough
+PASS: branch-block-count
+PASS: branch-predecessors
+PASS: loop-back-edge
+PASS: loop-self-predecessor
+PASS: forward-jump-only-edge
+PASS: forward-jump-target
+PASS: backward-jump-self
+PASS: return-no-successor
+PASS: call-continuation
+PASS: call-site-recorded
+PASS: call-callee-not-absorbed
+PASS: call-local-callee-block
+PASS: call-local-no-edge-to-callee
+PASS: call-local-site-preserved
+PASS: indirect-call-continuation
+PASS: indirect-call-site
+PASS: indirect-call-no-direct-site
+PASS: indirect-jump-one-unsolved
+PASS: indirect-jump-site
+PASS: trap-no-successor
+PASS: multi-target-taken
+PASS: multi-target-block-count
+PASS: multiple-entries
+PASS: multiple-entry-blocks
+PASS: disconnected-region-block
+PASS: variable-width-block-count
+PASS: variable-width-back-edge
+PASS: variable-width-fallthrough-address
+PASS: nes-block-count
+PASS: nes-branch-taken
+PASS: nes-branch-fallthrough
+PASS: nes-variable-sizes
+PASS: nes-evidence-preserved
+PASS: wide-entry-preserved
+PASS: wide-target-preserved
+PASS: deterministic-serialization
+PASS: deterministic-fingerprint
+PASS: deterministic-block-order
+PASS: deterministic-edge-order
+PASS: roundtrip-bytes
+PASS: proven-block
+PASS: proven-edge
+PASS: candidate-block-not-promoted
+PASS: candidate-edge-not-promoted
+PASS: combine-evidence-never-promotes
+PASS reject: closed-missing-direct-target
+PASS: open-external-edge
+PASS: open-cfg-wrap-valid
+PASS: open-external-fallthrough
+PASS: region-boundary-splits
+PASS reject: duplicate-instruction
+PASS reject: overlapping-extent
+PASS reject: direct-target-interior
+PASS reject: fallthrough-interior
+PASS reject: missing-closed-target
+PASS reject: malformed-entry
+PASS reject: entry-interior
+PASS reject: presorted-inconsistent
+PASS reject: ambiguous-normal-unresolved
+PASS reject: return-with-target
+PASS reject: impossible-fallthrough-call
+PASS reject: malformed-boundary
+PASS reject: edge-to-nonexistent-block
+PASS reject: instruction-after-terminal
+PASS reject: duplicate-block-identity
+PASS reject: overlapping-block-entry
+PASS reject: instruction-in-two-blocks
+PASS reject: instruction-unassigned
+PASS schema: forward-branch
+PASS schema: open-external
+PASS schema: nes6502
+PASS schema: wide
+PASS: cfg-program-valid
+PASS: cfg-roundtrip-fingerprint
+PASS: cfg-roundtrip-unresolved
+OPENRECOMP_CFG_V1=PASS tests=82
+
+stderr:
+

@@ -1,0 +1,17 @@
+P2-50 executable reproducibility
+=================================
+representative: generic-runtime-pipeline
+  A1 program.exe sha256: 96676becf33f2251fcbc0b097ad8fa7ea2c100f4754617a4a5dcbdac1ecaf5b2
+  B1 program.exe sha256: 96676becf33f2251fcbc0b097ad8fa7ea2c100f4754617a4a5dcbdac1ecaf5b2
+  byte-identical across roots: yes
+
+representative: mips32-larger
+  A1 program.exe sha256: 1e81bf8cd32b60cd5b3acae26c8f9dc23c0f801cf46b0c49ccb348ebc5eb2ab4
+  B1 program.exe sha256: 1e81bf8cd32b60cd5b3acae26c8f9dc23c0f801cf46b0c49ccb348ebc5eb2ab4
+  byte-identical across roots: yes
+
+representative: nes-nrom-end-to-end
+  A1 program.exe sha256: 5afd387d048299d53eb1cbc0534e9d01c373ccb9a370ca712bd01bef0b4c2207
+  B1 program.exe sha256: 5afd387d048299d53eb1cbc0534e9d01c373ccb9a370ca712bd01bef0b4c2207
+  byte-identical across roots: yes
+

@@ -1,0 +1,128 @@
+{
+  "stage": "P2-91",
+  "document": "host_path_audit.md",
+  "policy_version": "1.0.0",
+  "detector": "same absolute-local-host-path pattern as tools/test_phase2_whole_regression_v1.py",
+  "scope": [
+    ".openrecomp-phase2/** except scratch/ and backups/ (raw capture/backup residue by design)",
+    "openrecomp/** and adapters/** shared sources (release-artifact inputs)",
+    "P2-50 release packages (content policy)",
+    "P2-91-owned evidence artifacts"
+  ],
+  "files": [
+    {
+      "file": "P2-00/RESULT.md",
+      "sha256": "74e0d86d5004313db7f9200f84d345f75fb5308a2bf9fba2218d32d68aecc651",
+      "hits": 1,
+      "occurrence": "baseline working-copy path row",
+      "class": "FROZEN_HISTORICAL_EVIDENCE",
+      "pinning": "frozen P2-00 baseline RESULT (no direct hash pin)",
+      "resolution": "FROZEN_AS_DOCUMENTED_EXCEPTION"
+    },
+    {
+      "file": "P2-07/host_emitter_tests.json",
+      "sha256": "eae4a00e1fc28cabcfe8296c5110412f843eb4c4116e6377d2d44ed0d520b5c1",
+      "hits": 4,
+      "occurrence": "detected native compiler executable path",
+      "class": "FROZEN_HASH_PINNED_EVIDENCE",
+      "pinning": "P2-07/RESULT.json artifacts_sha256, P2-07/determinism.txt",
+      "resolution": "FROZEN_AS_DOCUMENTED_EXCEPTION"
+    },
+    {
+      "file": "P2-07/native_compile.txt",
+      "sha256": "96f80ec6d271f5a282f345a5449f174ef702895365ddcca0c28b6f38f507b028",
+      "hits": 1,
+      "occurrence": "detected native compiler executable path (raw capture)",
+      "class": "FROZEN_HISTORICAL_EVIDENCE",
+      "pinning": "frozen raw capture (no direct hash pin); portable derivative provided",
+      "resolution": "FROZEN_AS_DOCUMENTED_EXCEPTION_WITH_PORTABLE_DERIVATIVE"
+    },
+    {
+      "file": "P2-08/determinism.txt",
+      "sha256": "f5903884e47c8a9cd928bc075206046249efaea0155b2bfd5be164ea498e28b3",
+      "hits": 1,
+      "occurrence": "detected native compiler executable path (raw capture)",
+      "class": "FROZEN_HISTORICAL_EVIDENCE",
+      "pinning": "frozen raw capture (no direct hash pin); portable derivative provided",
+      "resolution": "FROZEN_AS_DOCUMENTED_EXCEPTION_WITH_PORTABLE_DERIVATIVE"
+    },
+    {
+      "file": "P2-08/runtime_abi_tests.json",
+      "sha256": "88f304beed3e675b198873002c81528964520761163152450184c63d12e6e3b7",
+      "hits": 4,
+      "occurrence": "detected native compiler executable path",
+      "class": "FROZEN_HASH_PINNED_EVIDENCE",
+      "pinning": "P2-08/RESULT.json artifacts_sha256, P2-08/changed_files.txt",
+      "resolution": "FROZEN_AS_DOCUMENTED_EXCEPTION"
+    },
+    {
+      "file": "P2-40/run1.txt",
+      "sha256": "405c90d1c867495b3ac568a62b0d7c7e9234ca5ef469cdc2510d307b8d148228",
+      "hits": 44,
+      "occurrence": "interpreter path in captured gate stdout (recorded determinism run)",
+      "class": "FROZEN_HASH_PINNED_EVIDENCE",
+      "pinning": "P2-40/RESULT.json gate_stdout_sha256, RESULT.md, determinism.txt",
+      "resolution": "FROZEN_AS_DOCUMENTED_EXCEPTION"
+    },
+    {
+      "file": "P2-40/run2.txt",
+      "sha256": "405c90d1c867495b3ac568a62b0d7c7e9234ca5ef469cdc2510d307b8d148228",
+      "hits": 44,
+      "occurrence": "interpreter path in captured gate stdout (recorded determinism run)",
+      "class": "FROZEN_HASH_PINNED_EVIDENCE",
+      "pinning": "P2-40/RESULT.json gate_stdout_sha256, RESULT.md, determinism.txt",
+      "resolution": "FROZEN_AS_DOCUMENTED_EXCEPTION"
+    },
+    {
+      "file": "P2-50/regression_tools_test_cross_architecture_neutrality_v1.txt",
+      "sha256": "8a6c311b2464070a2ea0320b2c49277307e94d3a9d55c8034cf69009bd5c5a95",
+      "hits": 40,
+      "occurrence": "interpreter path in nested regression capture",
+      "class": "FROZEN_HASH_PINNED_EVIDENCE",
+      "pinning": "P2-50/RESULT.json evidence_hashes; re-verified by the P2-90 audit",
+      "resolution": "FROZEN_AS_DOCUMENTED_EXCEPTION"
+    },
+    {
+      "file": "P2-50/regression_tools_test_generic_runtime_integration_v1.txt",
+      "sha256": "78555f99defe8d54e3301f531ea50f9421aa5950fa3d933006dd16d6a473951d",
+      "hits": 44,
+      "occurrence": "interpreter path in nested regression capture",
+      "class": "FROZEN_HASH_PINNED_EVIDENCE",
+      "pinning": "P2-50/RESULT.json evidence_hashes; re-verified by the P2-90 audit",
+      "resolution": "FROZEN_AS_DOCUMENTED_EXCEPTION"
+    }
+  ],
+  "control_plane_metadata": [
+    {
+      "file": ".openrecomp-phase2/INSTALL_INFO.txt",
+      "sha256": "7564ff729689bc6aed3ccd4a3a2d7e2ffbfb4c27a609c734c03d264fac84868a",
+      "note": "pre-existing installer metadata (project root), not evidence; out of portable-evidence scope and pinned so any later change is detected"
+    },
+    {
+      "file": ".openrecomp-phase2/P2_00_START_PROMPT.txt",
+      "sha256": "ef23c6306335091cfbee3935baa88f7c077699ece1074f6ba43e5851411b7759",
+      "note": "pre-existing installer prompt metadata, not evidence; out of portable-evidence scope and pinned so any later change is detected"
+    }
+  ],
+  "portable_derivatives": [
+    {
+      "derivative": "portable_derivatives/P2-07_native_compile.portable.txt",
+      "source": ".openrecomp-phase2/evidence/P2-07/native_compile.txt",
+      "source_sha256": "96f80ec6d271f5a282f345a5449f174ef702895365ddcca0c28b6f38f507b028",
+      "transformation": "detected compiler executable path replaced by <host-compiler-path>"
+    },
+    {
+      "derivative": "portable_derivatives/P2-08_determinism.portable.txt",
+      "source": ".openrecomp-phase2/evidence/P2-08/determinism.txt",
+      "source_sha256": "f5903884e47c8a9cd928bc075206046249efaea0155b2bfd5be164ea498e28b3",
+      "transformation": "detected compiler executable path replaced by <host-compiler-path>"
+    }
+  ],
+  "summary": {
+    "frozen_historical_evidence": 7,
+    "safely_relocatable_metadata": 2,
+    "regenerated_portably": 0,
+    "genuine_portability_defect_corrected": 0,
+    "new_occurrences_allowed": 0
+  }
+}

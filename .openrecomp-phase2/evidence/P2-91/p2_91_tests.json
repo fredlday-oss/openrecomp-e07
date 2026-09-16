@@ -1,0 +1,4081 @@
+{
+  "checks": [
+    {
+      "check": "artifacts:marker:claim_matrix",
+      "status": "PASS"
+    },
+    {
+      "check": "artifacts:marker:host_path_audit",
+      "status": "PASS"
+    },
+    {
+      "check": "artifacts:marker:index_md",
+      "status": "PASS"
+    },
+    {
+      "check": "artifacts:marker:limitations",
+      "status": "PASS"
+    },
+    {
+      "check": "artifacts:present:capture_preservation",
+      "status": "PASS"
+    },
+    {
+      "check": "artifacts:present:claim_matrix",
+      "status": "PASS"
+    },
+    {
+      "check": "artifacts:present:host_path_audit",
+      "status": "PASS"
+    },
+    {
+      "check": "artifacts:present:host_path_register",
+      "status": "PASS"
+    },
+    {
+      "check": "artifacts:present:index_json",
+      "status": "PASS"
+    },
+    {
+      "check": "artifacts:present:index_md",
+      "status": "PASS"
+    },
+    {
+      "check": "artifacts:present:limitations",
+      "status": "PASS"
+    },
+    {
+      "check": "artifacts:present:rerun_summary",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:final-marker-statement",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:key-coverage",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:new:arbitrary mapper support",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:new:deterministic ProgramModel/CFG/function/call-graph/translation pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:new:fail-closed unsupported-service behavior",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:new:production-ready universal console runtime",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:new:provenance and legal-asset policy enforcement",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:no-final-pass-claim",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:p2-90:MIPS32 shared-path operation",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:p2-90:NES runtime bridge",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:p2-90:NES synthetic end-to-end native recompilation",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:p2-90:NES/6502 frontend integration",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:p2-90:PS1/PS2/Xbox compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:p2-90:Phase-2 final end-to-end proof marker",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:p2-90:arbitrary MIPS32 binary compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:p2-90:arbitrary NES ROM compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:p2-90:architecture-neutral shared analysis pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:p2-90:commercial-game compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:p2-90:complete NES hardware compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:p2-90:cycle accuracy",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:p2-90:deterministic repeated execution",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:p2-90:future architecture compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:p2-90:generic runtime neutrality",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:p2-90:observable equivalence",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:p2-90:reproducible native build",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:p2-90:reproducible release package",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:proven-section:MIPS32 shared-path operation",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:proven-section:NES runtime bridge",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:proven-section:NES synthetic end-to-end native recompilation",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:proven-section:NES/6502 frontend integration",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:proven-section:Phase-2 final end-to-end proof marker",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:proven-section:architecture-neutral shared analysis pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:proven-section:deterministic ProgramModel/CFG/function/call-graph/translation pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:proven-section:deterministic repeated execution",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:proven-section:fail-closed unsupported-service behavior",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:proven-section:generic runtime neutrality",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:proven-section:observable equivalence",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:proven-section:provenance and legal-asset policy enforcement",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:proven-section:reproducible native build",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:proven-section:reproducible release package",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:refs-resolve",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:unproven-section:PS1/PS2/Xbox compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:unproven-section:arbitrary MIPS32 binary compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:unproven-section:arbitrary NES ROM compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:unproven-section:arbitrary mapper support",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:unproven-section:commercial-game compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:unproven-section:complete NES hardware compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:unproven-section:cycle accuracy",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:unproven-section:future architecture compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:unproven-section:production-ready universal console runtime",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:MIPS32 shared-path operation",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:NES runtime bridge",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:NES synthetic end-to-end native recompilation",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:NES/6502 frontend integration",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:PS1/PS2/Xbox compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:Phase-2 final end-to-end proof marker",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:arbitrary MIPS32 binary compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:arbitrary NES ROM compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:arbitrary mapper support",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:architecture-neutral shared analysis pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:commercial-game compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:complete NES hardware compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:cycle accuracy",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:deterministic ProgramModel/CFG/function/call-graph/translation pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:deterministic repeated execution",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:fail-closed unsupported-service behavior",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:future architecture compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:generic runtime neutrality",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:observable equivalence",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:production-ready universal console runtime",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:provenance and legal-asset policy enforcement",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:reproducible native build",
+      "status": "PASS"
+    },
+    {
+      "check": "claim-matrix:vocabulary:reproducible release package",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:control-plane-metadata-detected:.openrecomp-phase2/INSTALL_INFO.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:control-plane-metadata-detected:.openrecomp-phase2/P2_00_START_PROMPT.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:control-plane-metadata-documented",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:control-plane-metadata-exists:.openrecomp-phase2/INSTALL_INFO.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:control-plane-metadata-exists:.openrecomp-phase2/P2_00_START_PROMPT.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:control-plane-metadata-sha256:.openrecomp-phase2/INSTALL_INFO.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:control-plane-metadata-sha256:.openrecomp-phase2/P2_00_START_PROMPT.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-exists:P2-00/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-exists:P2-07/host_emitter_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-exists:P2-07/native_compile.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-exists:P2-08/determinism.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-exists:P2-08/runtime_abi_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-exists:P2-40/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-exists:P2-40/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-exists:P2-50/regression_tools_test_cross_architecture_neutrality_v1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-exists:P2-50/regression_tools_test_generic_runtime_integration_v1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-sha256:P2-00/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-sha256:P2-07/host_emitter_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-sha256:P2-07/native_compile.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-sha256:P2-08/determinism.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-sha256:P2-08/runtime_abi_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-sha256:P2-40/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-sha256:P2-40/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-sha256:P2-50/regression_tools_test_cross_architecture_neutrality_v1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-sha256:P2-50/regression_tools_test_generic_runtime_integration_v1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-still-detected:P2-00/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-still-detected:P2-07/host_emitter_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-still-detected:P2-07/native_compile.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-still-detected:P2-08/determinism.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-still-detected:P2-08/runtime_abi_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-still-detected:P2-40/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-still-detected:P2-40/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-still-detected:P2-50/regression_tools_test_cross_architecture_neutrality_v1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:frozen-still-detected:P2-50/regression_tools_test_generic_runtime_integration_v1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:no-new-occurrences",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:p2-91-artifacts-clean",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-class:P2-00/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-class:P2-07/host_emitter_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-class:P2-07/native_compile.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-class:P2-08/determinism.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-class:P2-08/runtime_abi_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-class:P2-40/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-class:P2-40/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-class:P2-50/regression_tools_test_cross_architecture_neutrality_v1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-class:P2-50/regression_tools_test_generic_runtime_integration_v1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-complete",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-pinning:P2-00/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-pinning:P2-07/host_emitter_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-pinning:P2-07/native_compile.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-pinning:P2-08/determinism.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-pinning:P2-08/runtime_abi_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-pinning:P2-40/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-pinning:P2-40/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-pinning:P2-50/regression_tools_test_cross_architecture_neutrality_v1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-pinning:P2-50/regression_tools_test_generic_runtime_integration_v1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-resolution:P2-00/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-resolution:P2-07/host_emitter_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-resolution:P2-07/native_compile.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-resolution:P2-08/determinism.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-resolution:P2-08/runtime_abi_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-resolution:P2-40/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-resolution:P2-40/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-resolution:P2-50/regression_tools_test_cross_architecture_neutrality_v1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-resolution:P2-50/regression_tools_test_generic_runtime_integration_v1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-sha256:P2-00/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-sha256:P2-07/host_emitter_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-sha256:P2-07/native_compile.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-sha256:P2-08/determinism.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-sha256:P2-08/runtime_abi_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-sha256:P2-40/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-sha256:P2-40/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-sha256:P2-50/regression_tools_test_cross_architecture_neutrality_v1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:register-sha256:P2-50/regression_tools_test_generic_runtime_integration_v1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "host-path:release-packages-clean",
+      "status": "PASS"
+    },
+    {
+      "check": "index:coverage-complete",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-00",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-00:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-00:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-00:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-00:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-00:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-00:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-00:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-00:identity:dc063ef0a3ab0bce",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-00:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-01",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-01:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-01:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-01:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-01:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-01:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-01:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-01:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-01:identity:c52847e67a35e889",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-01:identity:sample_nes_call.",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-01:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-02",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-02:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-02:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-02:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-02:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-02:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-02:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-02:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-02:identity:483df98e4ecb6a64",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-02:identity:sample_cfg.json",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-02:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-03",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-03:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-03:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-03:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-03:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-03:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-03:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-03:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-03:identity:05218d8d1db991e2",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-03:identity:sample_functions",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-03:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-04",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-04:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-04:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-04:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-04:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-04:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-04:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-04:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-04:identity:ee4602245dfad530",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-04:identity:sample_call_grap",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-04:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-05",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-05:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-05:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-05:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-05:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-05:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-05:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-05:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-05:identity:7209c6ff6bc40d13",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-05:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-06",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-06:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-06:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-06:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-06:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-06:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-06:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-06:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-06:identity:866d290a59228e5b",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-06:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-07",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-07:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-07:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-07:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-07:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-07:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-07:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-07:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-07:identity:fb6e6e2c6ba660a5",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-07:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-08",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-08:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-08:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-08:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-08:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-08:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-08:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-08:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-08:identity:3c0abaf52efa534b",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-08:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-09",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-09:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-09:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-09:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-09:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-09:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-09:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-09:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-09:identity:b75d7656517de8a7",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-09:identity:db055b5cd622a7ef",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-09:identity:de03764e429a6e31",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-09:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-10",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-10:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-10:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-10:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-10:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-10:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-10:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-10:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-10:identity:8570ea4a11321118",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-10:identity:b33b597c28eb7f72",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-10:identity:f94c95d2e86fca83",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-10:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-11",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-11:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-11:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-11:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-11:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-11:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-11:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-11:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-11:identity:4637ba676e99ba74",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-11:identity:4ce3fdab7f9e6226",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-11:identity:bd719060f38793a3",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-11:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-12",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-12:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-12:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-12:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-12:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-12:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-12:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-12:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-12:identity:2e3309f310a6f23c",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-12:identity:36ba17c8a1edcd22",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-12:identity:3d92fc274ddb9419",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-12:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-13",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-13:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-13:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-13:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-13:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-13:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-13:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-13:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-13:identity:7c9ba624b7503ccb",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-13:identity:8ab94ab0f186e337",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-13:identity:8c602b35e47f90d5",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-13:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-14",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-14:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-14:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-14:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-14:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-14:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-14:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-14:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-14:identity:1c233f56528cb3fe",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-14:identity:1e81bf8cd32b60cd",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-14:identity:25d8d85ff88d2009",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-14:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-20",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-20:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-20:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-20:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-20:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-20:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-20:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-20:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-20:identity:0a236023c59fd536",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-20:identity:0dfbf094",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-20:identity:2924881e",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-20:identity:67113cc1",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-20:identity:7b83a827",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-20:identity:d0062fed",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-20:identity:e99dce4b",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-20:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-21",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-21:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-21:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-21:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-21:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-21:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-21:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-21:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-21:identity:0a236023c59fd536",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-21:identity:7d42947f658f0e7d",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-21:identity:dbba1e3a86274d29",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-21:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-22",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-22:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-22:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-22:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-22:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-22:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-22:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-22:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-22:identity:4ae725be384b991c",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-22:identity:cc57bba3124f264c",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-22:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-23",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-23:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-23:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-23:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-23:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-23:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-23:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-23:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-23:identity:5afd387d048299d5",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-23:identity:9819b40e9909b405",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-23:identity:dfadcbe759121b07",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-23:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-30",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-30:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-30:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-30:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-30:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-30:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-30:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-30:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-30:identity:be52ef25060e22f8",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-30:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-40",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-40:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-40:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-40:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-40:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-40:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-40:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-40:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-40:identity:9323f24533ec6c31",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-40:identity:96676becf33f2251",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-40:identity:c0a76e0f19217aee",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-40:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-50",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-50:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-50:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-50:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-50:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-50:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-50:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-50:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-50:identity:1c1dac0ea9942a9a",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-50:identity:1e81bf8cd32b60cd",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-50:identity:5afd387d048299d5",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-50:identity:5d93971b102b24e5",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-50:identity:71847f9d7ffd1264",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-50:identity:96676becf33f2251",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-50:identity:fa72b5d169ad0f8f",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-50:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-90",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-90:claim_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-90:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-90:deterministic_run_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-90:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-90:fixture_input_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-90:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-90:generated_executable_package_identity",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-90:identity:74e9eadaf0e17ca4",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-P2-90:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:json-coverage-complete",
+      "status": "PASS"
+    },
+    {
+      "check": "index:refs-resolve",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-00",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-00:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-00:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-00:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-00:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-00:identity-in-evidence:dc063ef0a3ab0bce",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-00:identity:dc063ef0a3ab0bce",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-00:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-00:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-00:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-00:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-01",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-01:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-01:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-01:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-01:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-01:identity-in-evidence:c52847e67a35e889",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-01:identity-in-evidence:sample_nes_call.",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-01:identity:c52847e67a35e889",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-01:identity:sample_nes_call.",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-01:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-01:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-01:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-01:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-02",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-02:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-02:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-02:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-02:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-02:identity-in-evidence:483df98e4ecb6a64",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-02:identity-in-evidence:sample_cfg.json",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-02:identity:483df98e4ecb6a64",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-02:identity:sample_cfg.json",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-02:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-02:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-02:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-02:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-03",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-03:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-03:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-03:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-03:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-03:identity-in-evidence:05218d8d1db991e2",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-03:identity-in-evidence:sample_functions",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-03:identity:05218d8d1db991e2",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-03:identity:sample_functions",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-03:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-03:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-03:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-03:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-04",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-04:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-04:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-04:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-04:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-04:identity-in-evidence:ee4602245dfad530",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-04:identity-in-evidence:sample_call_grap",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-04:identity:ee4602245dfad530",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-04:identity:sample_call_grap",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-04:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-04:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-04:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-04:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-05",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-05:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-05:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-05:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-05:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-05:identity-in-evidence:7209c6ff6bc40d13",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-05:identity:7209c6ff6bc40d13",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-05:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-05:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-05:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-05:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-06",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-06:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-06:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-06:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-06:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-06:identity-in-evidence:866d290a59228e5b",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-06:identity:866d290a59228e5b",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-06:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-06:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-06:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-06:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-07",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-07:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-07:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-07:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-07:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-07:identity-in-evidence:fb6e6e2c6ba660a5",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-07:identity:fb6e6e2c6ba660a5",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-07:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-07:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-07:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-07:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-08",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-08:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-08:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-08:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-08:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-08:identity-in-evidence:3c0abaf52efa534b",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-08:identity:3c0abaf52efa534b",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-08:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-08:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-08:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-08:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-09",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-09:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-09:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-09:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-09:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-09:identity-in-evidence:b75d7656517de8a7",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-09:identity-in-evidence:db055b5cd622a7ef",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-09:identity-in-evidence:de03764e429a6e31",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-09:identity:b75d7656517de8a7",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-09:identity:db055b5cd622a7ef",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-09:identity:de03764e429a6e31",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-09:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-09:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-09:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-09:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-10",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-10:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-10:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-10:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-10:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-10:identity-in-evidence:8570ea4a11321118",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-10:identity-in-evidence:b33b597c28eb7f72",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-10:identity-in-evidence:f94c95d2e86fca83",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-10:identity:8570ea4a11321118",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-10:identity:b33b597c28eb7f72",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-10:identity:f94c95d2e86fca83",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-10:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-10:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-10:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-10:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-11",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-11:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-11:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-11:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-11:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-11:identity-in-evidence:4637ba676e99ba74",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-11:identity-in-evidence:4ce3fdab7f9e6226",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-11:identity-in-evidence:bd719060f38793a3",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-11:identity:4637ba676e99ba74",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-11:identity:4ce3fdab7f9e6226",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-11:identity:bd719060f38793a3",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-11:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-11:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-11:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-11:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-12",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-12:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-12:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-12:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-12:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-12:identity-in-evidence:2e3309f310a6f23c",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-12:identity-in-evidence:36ba17c8a1edcd22",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-12:identity-in-evidence:3d92fc274ddb9419",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-12:identity:2e3309f310a6f23c",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-12:identity:36ba17c8a1edcd22",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-12:identity:3d92fc274ddb9419",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-12:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-12:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-12:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-12:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-13",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-13:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-13:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-13:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-13:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-13:identity-in-evidence:7c9ba624b7503ccb",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-13:identity-in-evidence:8ab94ab0f186e337",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-13:identity-in-evidence:8c602b35e47f90d5",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-13:identity:7c9ba624b7503ccb",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-13:identity:8ab94ab0f186e337",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-13:identity:8c602b35e47f90d5",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-13:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-13:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-13:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-13:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-14",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-14:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-14:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-14:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-14:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-14:identity-in-evidence:1c233f56528cb3fe",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-14:identity-in-evidence:1e81bf8cd32b60cd",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-14:identity-in-evidence:25d8d85ff88d2009",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-14:identity:1c233f56528cb3fe",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-14:identity:1e81bf8cd32b60cd",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-14:identity:25d8d85ff88d2009",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-14:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-14:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-14:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-14:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:identity-in-evidence:0a236023c59fd536",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:identity-in-evidence:0dfbf094",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:identity-in-evidence:2924881e",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:identity-in-evidence:67113cc1",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:identity-in-evidence:7b83a827",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:identity-in-evidence:d0062fed",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:identity-in-evidence:e99dce4b",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:identity:0a236023c59fd536",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:identity:0dfbf094",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:identity:2924881e",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:identity:67113cc1",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:identity:7b83a827",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:identity:d0062fed",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:identity:e99dce4b",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-20:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-21",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-21:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-21:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-21:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-21:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-21:identity-in-evidence:0a236023c59fd536",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-21:identity-in-evidence:7d42947f658f0e7d",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-21:identity-in-evidence:dbba1e3a86274d29",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-21:identity:0a236023c59fd536",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-21:identity:7d42947f658f0e7d",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-21:identity:dbba1e3a86274d29",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-21:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-21:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-21:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-21:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-22",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-22:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-22:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-22:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-22:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-22:identity-in-evidence:4ae725be384b991c",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-22:identity-in-evidence:cc57bba3124f264c",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-22:identity:4ae725be384b991c",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-22:identity:cc57bba3124f264c",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-22:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-22:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-22:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-22:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-23",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-23:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-23:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-23:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-23:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-23:identity-in-evidence:5afd387d048299d5",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-23:identity-in-evidence:9819b40e9909b405",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-23:identity-in-evidence:dfadcbe759121b07",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-23:identity:5afd387d048299d5",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-23:identity:9819b40e9909b405",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-23:identity:dfadcbe759121b07",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-23:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-23:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-23:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-23:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-30",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-30:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-30:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-30:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-30:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-30:identity-in-evidence:be52ef25060e22f8",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-30:identity:be52ef25060e22f8",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-30:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-30:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-30:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-30:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-40",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-40:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-40:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-40:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-40:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-40:identity-in-evidence:9323f24533ec6c31",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-40:identity-in-evidence:96676becf33f2251",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-40:identity-in-evidence:c0a76e0f19217aee",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-40:identity:9323f24533ec6c31",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-40:identity:96676becf33f2251",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-40:identity:c0a76e0f19217aee",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-40:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-40:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-40:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-40:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:identity-in-evidence:1c1dac0ea9942a9a",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:identity-in-evidence:1e81bf8cd32b60cd",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:identity-in-evidence:5afd387d048299d5",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:identity-in-evidence:5d93971b102b24e5",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:identity-in-evidence:71847f9d7ffd1264",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:identity-in-evidence:96676becf33f2251",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:identity-in-evidence:fa72b5d169ad0f8f",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:identity:1c1dac0ea9942a9a",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:identity:1e81bf8cd32b60cd",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:identity:5afd387d048299d5",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:identity:5d93971b102b24e5",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:identity:71847f9d7ffd1264",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:identity:96676becf33f2251",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:identity:fa72b5d169ad0f8f",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-50:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-90",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-90:count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-90:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-90:fields",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-90:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-90:identity-in-evidence:74e9eadaf0e17ca4",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-90:identity:74e9eadaf0e17ca4",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-90:name",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-90:pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-90:result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-P2-90:result-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "legal:release-package-policy:package_generic-runtime-pipeline.zip",
+      "status": "PASS"
+    },
+    {
+      "check": "legal:release-package-policy:package_mips32-larger.zip",
+      "status": "PASS"
+    },
+    {
+      "check": "legal:release-package-policy:package_nes-nrom-end-to-end.zip",
+      "status": "PASS"
+    },
+    {
+      "check": "legal:tracked-tree-clean",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:final-marker-statement",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:no-final-pass-claim",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:proven-heading",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:proven:MIPS32 shared-path operation",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:proven:NES runtime bridge",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:proven:NES synthetic end-to-end native recompilation",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:proven:NES/6502 frontend integration",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:proven:Phase-2 final end-to-end proof marker",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:proven:architecture-neutral shared analysis pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:proven:deterministic ProgramModel/CFG/function/call-graph/translation pipeline",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:proven:deterministic repeated execution",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:proven:fail-closed unsupported-service behavior",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:proven:generic runtime neutrality",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:proven:observable equivalence",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:proven:provenance and legal-asset policy enforcement",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:proven:reproducible native build",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:proven:reproducible release package",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:refs-resolve",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:unproven-heading",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:unproven:PS1/PS2/Xbox compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:unproven:arbitrary MIPS32 binary compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:unproven:arbitrary NES ROM compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:unproven:arbitrary mapper support",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:unproven:commercial-game compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:unproven:complete NES hardware compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:unproven:cycle accuracy",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:unproven:future architecture compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "limitations:unproven:production-ready universal console runtime",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:capture-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:currently-frozen:phase1_host_gates/command.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:currently-frozen:phase1_host_gates/stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:currently-frozen:phase1_host_gates/stdout.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:currently-frozen:source_integrity/command.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:currently-frozen:source_integrity/stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:currently-frozen:source_integrity/stdout.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:final-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:gate-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:matrix-all-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:matrix-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:matrix-gates",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:no-failures",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:phase1-capture",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:phase1-counts",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:preservation-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:preserved-restored:phase1_host_gates/command.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:preserved-restored:phase1_host_gates/stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:preserved-restored:phase1_host_gates/stdout.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:preserved-restored:source_integrity/command.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:preserved-restored:source_integrity/stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:preserved-restored:source_integrity/stdout.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:source-integrity-capture",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:source-integrity-count",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:stage-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:stdout-content-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:stdout-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:summary-audit-checks",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:summary-content-match",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:summary-frozen-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:summary-gates",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:summary-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:summary-recorded-capture-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:summary-stage",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:summary-stdout-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:summary-tests",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:tests-json-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-90-rerun:tests-json-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "premature-verdict:PHASE2_CLAIM_MATRIX.md",
+      "status": "PASS"
+    },
+    {
+      "check": "premature-verdict:PHASE2_EVIDENCE_INDEX.md",
+      "status": "PASS"
+    },
+    {
+      "check": "premature-verdict:PHASE2_LIMITATIONS.md",
+      "status": "PASS"
+    },
+    {
+      "check": "premature-verdict:handoff-not-proven",
+      "status": "PASS"
+    },
+    {
+      "check": "premature-verdict:host_path_audit.md",
+      "status": "PASS"
+    },
+    {
+      "check": "premature-verdict:no-unnegated-pass-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "premature-verdict:queue-p2-91",
+      "status": "PASS"
+    },
+    {
+      "check": "premature-verdict:queue-reserves-p2-99",
+      "status": "PASS"
+    },
+    {
+      "check": "premature-verdict:state-not-proven",
+      "status": "PASS"
+    },
+    {
+      "check": "source-integrity:closure-gate-registered",
+      "status": "PASS"
+    },
+    {
+      "check": "source-integrity:count-matches-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source-integrity:manifest-delta-additive-only",
+      "status": "PASS"
+    },
+    {
+      "check": "source-integrity:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:index-json-stage-names",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:p2-91-consistent",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-00",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-01",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-02",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-03",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-04",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-05",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-06",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-07",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-08",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-09",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-10",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-11",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-12",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-13",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-14",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-20",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-21",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-22",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-23",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-30",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-40",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-50",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-P2-90",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:queue-p2-91-and-p2-99",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-01",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-02",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-03",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-04",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-05",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-06",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-07",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-08",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-09",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-10",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-11",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-12",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-13",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-14",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-20",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-21",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-22",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-23",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-30",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-40",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-50",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-gate-marker:P2-90",
+      "status": "PASS"
+    },
+    {
+      "check": "terminology:state-ledger:P2-00",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "claim_matrix": [
+      {
+        "claim": "MIPS32 shared-path operation",
+        "classification": "BOUNDED_PROVEN"
+      },
+      {
+        "claim": "NES runtime bridge",
+        "classification": "BOUNDED_PROVEN"
+      },
+      {
+        "claim": "NES synthetic end-to-end native recompilation",
+        "classification": "BOUNDED_PROVEN"
+      },
+      {
+        "claim": "NES/6502 frontend integration",
+        "classification": "BOUNDED_PROVEN"
+      },
+      {
+        "claim": "PS1/PS2/Xbox compatibility",
+        "classification": "OUT_OF_SCOPE"
+      },
+      {
+        "claim": "Phase-2 final end-to-end proof marker",
+        "classification": "PROVEN"
+      },
+      {
+        "claim": "arbitrary MIPS32 binary compatibility",
+        "classification": "NOT_PROVEN"
+      },
+      {
+        "claim": "arbitrary NES ROM compatibility",
+        "classification": "NOT_PROVEN"
+      },
+      {
+        "claim": "arbitrary mapper support",
+        "classification": "NOT_PROVEN"
+      },
+      {
+        "claim": "architecture-neutral shared analysis pipeline",
+        "classification": "PROVEN"
+      },
+      {
+        "claim": "commercial-game compatibility",
+        "classification": "NOT_PROVEN"
+      },
+      {
+        "claim": "complete NES hardware compatibility",
+        "classification": "NOT_PROVEN"
+      },
+      {
+        "claim": "cycle accuracy",
+        "classification": "OUT_OF_SCOPE"
+      },
+      {
+        "claim": "deterministic ProgramModel/CFG/function/call-graph/translation pipeline",
+        "classification": "PROVEN"
+      },
+      {
+        "claim": "deterministic repeated execution",
+        "classification": "PROVEN"
+      },
+      {
+        "claim": "fail-closed unsupported-service behavior",
+        "classification": "BOUNDED_PROVEN"
+      },
+      {
+        "claim": "future architecture compatibility",
+        "classification": "NOT_PROVEN"
+      },
+      {
+        "claim": "generic runtime neutrality",
+        "classification": "PROVEN"
+      },
+      {
+        "claim": "observable equivalence",
+        "classification": "BOUNDED_PROVEN"
+      },
+      {
+        "claim": "production-ready universal console runtime",
+        "classification": "NOT_PROVEN"
+      },
+      {
+        "claim": "provenance and legal-asset policy enforcement",
+        "classification": "PROVEN"
+      },
+      {
+        "claim": "reproducible native build",
+        "classification": "BOUNDED_PROVEN"
+      },
+      {
+        "claim": "reproducible release package",
+        "classification": "BOUNDED_PROVEN"
+      }
+    ],
+    "host_path_findings": [
+      {
+        "class": "FROZEN_HISTORICAL_EVIDENCE",
+        "file": ".openrecomp-phase2/evidence/P2-00/RESULT.md",
+        "resolution": "FROZEN_AS_DOCUMENTED_EXCEPTION",
+        "sha256": "74e0d86d5004313db7f9200f84d345f75fb5308a2bf9fba2218d32d68aecc651"
+      },
+      {
+        "class": "FROZEN_HASH_PINNED_EVIDENCE",
+        "file": ".openrecomp-phase2/evidence/P2-07/host_emitter_tests.json",
+        "resolution": "FROZEN_AS_DOCUMENTED_EXCEPTION",
+        "sha256": "eae4a00e1fc28cabcfe8296c5110412f843eb4c4116e6377d2d44ed0d520b5c1"
+      },
+      {
+        "class": "FROZEN_HISTORICAL_EVIDENCE",
+        "file": ".openrecomp-phase2/evidence/P2-07/native_compile.txt",
+        "resolution": "FROZEN_AS_DOCUMENTED_EXCEPTION_WITH_PORTABLE_DERIVATIVE",
+        "sha256": "96f80ec6d271f5a282f345a5449f174ef702895365ddcca0c28b6f38f507b028"
+      },
+      {
+        "class": "FROZEN_HISTORICAL_EVIDENCE",
+        "file": ".openrecomp-phase2/evidence/P2-08/determinism.txt",
+        "resolution": "FROZEN_AS_DOCUMENTED_EXCEPTION_WITH_PORTABLE_DERIVATIVE",
+        "sha256": "f5903884e47c8a9cd928bc075206046249efaea0155b2bfd5be164ea498e28b3"
+      },
+      {
+        "class": "FROZEN_HASH_PINNED_EVIDENCE",
+        "file": ".openrecomp-phase2/evidence/P2-08/runtime_abi_tests.json",
+        "resolution": "FROZEN_AS_DOCUMENTED_EXCEPTION",
+        "sha256": "88f304beed3e675b198873002c81528964520761163152450184c63d12e6e3b7"
+      },
+      {
+        "class": "FROZEN_HASH_PINNED_EVIDENCE",
+        "file": ".openrecomp-phase2/evidence/P2-40/run1.txt",
+        "resolution": "FROZEN_AS_DOCUMENTED_EXCEPTION",
+        "sha256": "405c90d1c867495b3ac568a62b0d7c7e9234ca5ef469cdc2510d307b8d148228"
+      },
+      {
+        "class": "FROZEN_HASH_PINNED_EVIDENCE",
+        "file": ".openrecomp-phase2/evidence/P2-40/run2.txt",
+        "resolution": "FROZEN_AS_DOCUMENTED_EXCEPTION",
+        "sha256": "405c90d1c867495b3ac568a62b0d7c7e9234ca5ef469cdc2510d307b8d148228"
+      },
+      {
+        "class": "FROZEN_HASH_PINNED_EVIDENCE",
+        "file": ".openrecomp-phase2/evidence/P2-50/regression_tools_test_cross_architecture_neutrality_v1.txt",
+        "resolution": "FROZEN_AS_DOCUMENTED_EXCEPTION",
+        "sha256": "8a6c311b2464070a2ea0320b2c49277307e94d3a9d55c8034cf69009bd5c5a95"
+      },
+      {
+        "class": "FROZEN_HASH_PINNED_EVIDENCE",
+        "file": ".openrecomp-phase2/evidence/P2-50/regression_tools_test_generic_runtime_integration_v1.txt",
+        "resolution": "FROZEN_AS_DOCUMENTED_EXCEPTION",
+        "sha256": "78555f99defe8d54e3301f531ea50f9421aa5950fa3d933006dd16d6a473951d"
+      }
+    ],
+    "index_refs": {
+      "missing": [],
+      "resolved": [
+        ".openrecomp-phase2/evidence/P2-00/",
+        ".openrecomp-phase2/evidence/P2-00/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-01/",
+        ".openrecomp-phase2/evidence/P2-01/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-02/",
+        ".openrecomp-phase2/evidence/P2-02/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-03/",
+        ".openrecomp-phase2/evidence/P2-03/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-04/",
+        ".openrecomp-phase2/evidence/P2-04/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-05/",
+        ".openrecomp-phase2/evidence/P2-05/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-06/",
+        ".openrecomp-phase2/evidence/P2-06/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-07/",
+        ".openrecomp-phase2/evidence/P2-07/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-08/",
+        ".openrecomp-phase2/evidence/P2-08/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-09/",
+        ".openrecomp-phase2/evidence/P2-09/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-10/",
+        ".openrecomp-phase2/evidence/P2-10/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-11/",
+        ".openrecomp-phase2/evidence/P2-11/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-12/",
+        ".openrecomp-phase2/evidence/P2-12/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-13/",
+        ".openrecomp-phase2/evidence/P2-13/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-14/",
+        ".openrecomp-phase2/evidence/P2-14/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-20/",
+        ".openrecomp-phase2/evidence/P2-20/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-21/",
+        ".openrecomp-phase2/evidence/P2-21/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-22/",
+        ".openrecomp-phase2/evidence/P2-22/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-23/",
+        ".openrecomp-phase2/evidence/P2-23/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-30/",
+        ".openrecomp-phase2/evidence/P2-30/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-40/",
+        ".openrecomp-phase2/evidence/P2-40/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-50/",
+        ".openrecomp-phase2/evidence/P2-50/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-90/",
+        ".openrecomp-phase2/evidence/P2-90/RESULT.md",
+        ".openrecomp-phase2/evidence/P2-99/RESULT.md",
+        "tools/test_phase2_evidence_closure_v1.py"
+      ]
+    },
+    "legal_findings": [],
+    "limitations": {
+      "proven_keys": [
+        "architecture-neutral shared analysis pipeline",
+        "deterministic ProgramModel/CFG/function/call-graph/translation pipeline",
+        "NES/6502 frontend integration",
+        "NES runtime bridge",
+        "NES synthetic end-to-end native recompilation",
+        "observable equivalence",
+        "deterministic repeated execution",
+        "MIPS32 shared-path operation",
+        "generic runtime neutrality",
+        "fail-closed unsupported-service behavior",
+        "reproducible native build",
+        "reproducible release package",
+        "provenance and legal-asset policy enforcement",
+        "Phase-2 final end-to-end proof marker"
+      ],
+      "unproven_keys": [
+        "arbitrary NES ROM compatibility",
+        "commercial-game compatibility",
+        "complete NES hardware compatibility",
+        "arbitrary mapper support",
+        "cycle accuracy",
+        "arbitrary MIPS32 binary compatibility",
+        "PS1/PS2/Xbox compatibility",
+        "future architecture compatibility",
+        "production-ready universal console runtime"
+      ]
+    },
+    "p2_90_rerun": {
+      "audit_checks": 361,
+      "frozen_captures_preserved": true,
+      "gate_checks": 1990,
+      "gates": 22,
+      "p2_90_recorded_capture_sha256": "74e9eadaf0e17ca4a97790e4239f40883cc745cd9817c172f7fa6e2663ce1ee7",
+      "stdout_content_identical_to_frozen_capture": true,
+      "stdout_content_sha256_lf": "00675593b278c8b660e2e4b00165e434057549a91263ba15b046150d82d00903"
+    },
+    "premature_verdict_findings": [],
+    "source_integrity": {
+      "manifest_entries": 134,
+      "manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095",
+      "stdout_sha256": "f4ba9f28441d3641f083df13522afee75d4c67a8d3a0279c6cbc29fa9fa39c83"
+    },
+    "stage_index": [
+      {
+        "check_count": null,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-00/",
+        "gate_marker": "n/a",
+        "identity_tokens_verified": [
+          "dc063ef0a3ab0bce4eb98a3ba82ba53be10ba8fcf286629ceaf7f5e9f6ba6d68"
+        ],
+        "name": "Baseline + control plane",
+        "principal_result": ".openrecomp-phase2/evidence/P2-00/RESULT.md",
+        "stage": "P2-00"
+      },
+      {
+        "check_count": 49,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-01/",
+        "gate_marker": "OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49",
+        "identity_tokens_verified": [
+          "c52847e67a35e8890bc1e9e2c7c474e2e8dfe7bce567190018b459fb8645b9df",
+          "sample_nes_call.program.json"
+        ],
+        "name": "Shared program model V1",
+        "principal_result": ".openrecomp-phase2/evidence/P2-01/RESULT.md",
+        "stage": "P2-01"
+      },
+      {
+        "check_count": 82,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-02/",
+        "gate_marker": "OPENRECOMP_CFG_V1=PASS tests=82",
+        "identity_tokens_verified": [
+          "483df98e4ecb6a64441d22692ddcd54777ec52956dc041dae44242cb32886e70",
+          "sample_cfg.json"
+        ],
+        "name": "CFG construction V1",
+        "principal_result": ".openrecomp-phase2/evidence/P2-02/RESULT.md",
+        "stage": "P2-02"
+      },
+      {
+        "check_count": 67,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-03/",
+        "gate_marker": "OPENRECOMP_FUNCTION_DISCOVERY_V1=PASS tests=67",
+        "identity_tokens_verified": [
+          "05218d8d1db991e2ff93679340490d59dcea24add7c3c8d2faee0bf26cbe39a8",
+          "sample_functions.discovery.json"
+        ],
+        "name": "Function discovery V1",
+        "principal_result": ".openrecomp-phase2/evidence/P2-03/RESULT.md",
+        "stage": "P2-03"
+      },
+      {
+        "check_count": 61,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-04/",
+        "gate_marker": "OPENRECOMP_CALL_GRAPH_V1=PASS tests=61",
+        "identity_tokens_verified": [
+          "ee4602245dfad5301385b958826dca112c0b600d7e418a37954d39172ea9b374",
+          "sample_call_graph.json"
+        ],
+        "name": "Call-graph recovery V1",
+        "principal_result": ".openrecomp-phase2/evidence/P2-04/RESULT.md",
+        "stage": "P2-04"
+      },
+      {
+        "check_count": 104,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-05/",
+        "gate_marker": "OPENRECOMP_TRANSLATION_UNITS_V1=PASS tests=104",
+        "identity_tokens_verified": [
+          "7209c6ff6bc40d131af0e04eae3c48d48d785ce864de46d0e406d81dbdbbc24a"
+        ],
+        "name": "Translation units V1",
+        "principal_result": ".openrecomp-phase2/evidence/P2-05/RESULT.md",
+        "stage": "P2-05"
+      },
+      {
+        "check_count": 134,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-06/",
+        "gate_marker": "OPENRECOMP_INDIRECT_CONTROL_FLOW_V1=PASS tests=134",
+        "identity_tokens_verified": [
+          "866d290a59228e5bd01f5bc026d2a2b1ca5558e28e9165b2dea42e00464d72a2"
+        ],
+        "name": "Indirect-control-flow classification V1",
+        "principal_result": ".openrecomp-phase2/evidence/P2-06/RESULT.md",
+        "stage": "P2-06"
+      },
+      {
+        "check_count": 106,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-07/",
+        "gate_marker": "OPENRECOMP_HOST_EMITTER_V1=PASS tests=106",
+        "identity_tokens_verified": [
+          "fb6e6e2c6ba660a5c3df75602a59c0501bf86ca53e0371e4942c0c76108c45d5"
+        ],
+        "name": "Host emitter V1",
+        "principal_result": ".openrecomp-phase2/evidence/P2-07/RESULT.md",
+        "stage": "P2-07"
+      },
+      {
+        "check_count": 169,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-08/",
+        "gate_marker": "OPENRECOMP_GENERIC_RUNTIME_ABI_V1=PASS tests=169",
+        "identity_tokens_verified": [
+          "3c0abaf52efa534b2dc639efceb15cd6e5aa17a4ec218d5515b1160f260809a8"
+        ],
+        "name": "Generic runtime ABI V1",
+        "principal_result": ".openrecomp-phase2/evidence/P2-08/RESULT.md",
+        "stage": "P2-08"
+      },
+      {
+        "check_count": 120,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-09/",
+        "gate_marker": "OPENRECOMP_DETERMINISTIC_BUILD_V1=PASS tests=120",
+        "identity_tokens_verified": [
+          "b75d7656517de8a75c5730fa22b7ea69dff9292be20a6f73d0bd49cf64705e24",
+          "db055b5cd622a7ef188901ef8da65898e2dac0cacb03c0ee2fb6caeec5b3e273",
+          "de03764e429a6e31d46037c72cd08db126fab18f2838b037b8ecee7deea81368"
+        ],
+        "name": "Deterministic build pipeline",
+        "principal_result": ".openrecomp-phase2/evidence/P2-09/RESULT.md",
+        "stage": "P2-09"
+      },
+      {
+        "check_count": 108,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-10/",
+        "gate_marker": "OPENRECOMP_MIPS32_END_TO_END_V1=PASS tests=108",
+        "identity_tokens_verified": [
+          "8570ea4a11321118a3fff270e0dc9756d2a4ee7a52421ece1d2d892384118fbb",
+          "b33b597c28eb7f7239ee5079728c7f3e447387d4ed34525c445cf8c1e9234975",
+          "f94c95d2e86fca83f56e5e87a98bccaa1e2a4ced3fd9222aef29608592810f4e"
+        ],
+        "name": "Tiny MIPS32 end-to-end proof",
+        "principal_result": ".openrecomp-phase2/evidence/P2-10/RESULT.md",
+        "stage": "P2-10"
+      },
+      {
+        "check_count": 77,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-11/",
+        "gate_marker": "OPENRECOMP_MIPS32_CALLS_MEMORY_V1=PASS tests=77",
+        "identity_tokens_verified": [
+          "4637ba676e99ba74e0c1708f100ba81b9506f1689fbee3d736364a6f821ceaf3",
+          "4ce3fdab7f9e622648eb74eff676fd79712c2043b8e35e752e84e26712e6d309",
+          "bd719060f38793a349271358e121730206f0799d67bd771c1a8ca6a31eba27c6"
+        ],
+        "name": "MIPS32 calls/stack/memory",
+        "principal_result": ".openrecomp-phase2/evidence/P2-11/RESULT.md",
+        "stage": "P2-11"
+      },
+      {
+        "check_count": 96,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-12/",
+        "gate_marker": "OPENRECOMP_MIPS32_DIRECT_CFG_V1=PASS tests=96",
+        "identity_tokens_verified": [
+          "2e3309f310a6f23c145ba7b95a22f10e3d81f32ec19afb966a9044395c066c84",
+          "36ba17c8a1edcd22148c9789abe9348f68e9b6cd02912a9a94481de93a3009c9",
+          "3d92fc274ddb94190292fb9630243f7b064a42733406ecaf7cab2d85a5f2f266"
+        ],
+        "name": "MIPS32 direct CFG stress",
+        "principal_result": ".openrecomp-phase2/evidence/P2-12/RESULT.md",
+        "stage": "P2-12"
+      },
+      {
+        "check_count": 80,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-13/",
+        "gate_marker": "OPENRECOMP_RUNTIME_HOST_BOUNDARY_V1=PASS tests=80",
+        "identity_tokens_verified": [
+          "7c9ba624b7503ccb31e0cd4b82b2c0316674b2c094945df84524503e34eb19b6",
+          "8ab94ab0f186e33778ddb6464f31c492045e6b612abeb523547b2aaa92a940a1",
+          "8c602b35e47f90d5edf9fd6cad566b4b378c3ffc69574f63b80c48bdb55367ef"
+        ],
+        "name": "Runtime-host boundary",
+        "principal_result": ".openrecomp-phase2/evidence/P2-13/RESULT.md",
+        "stage": "P2-13"
+      },
+      {
+        "check_count": 82,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-14/",
+        "gate_marker": "OPENRECOMP_MIPS32_LARGER_FIXTURE_V1=PASS tests=82",
+        "identity_tokens_verified": [
+          "1c233f56528cb3fe20a7b806ce40e8bef6fc66a8cf8c0fd15d8b7b49bce547eb",
+          "1e81bf8cd32b60cd5b3acae26c8f9dc23c0f801cf46b0c49ccb348ebc5eb2ab4",
+          "25d8d85ff88d2009443a6c67db40855df5e0876cb2b0aef8505d12d500204203"
+        ],
+        "name": "Larger MIPS32 open fixture",
+        "principal_result": ".openrecomp-phase2/evidence/P2-14/RESULT.md",
+        "stage": "P2-14"
+      },
+      {
+        "check_count": 86,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-20/",
+        "gate_marker": "OPENRECOMP_NES6502_PROGRAM_BRIDGE_V1=PASS tests=86",
+        "identity_tokens_verified": [
+          "0a236023c59fd5363d0ebdd6ffb18d9b4e792ebeaa11a72ca513b183539fa398",
+          "0dfbf094",
+          "2924881e",
+          "67113cc1",
+          "7b83a827",
+          "d0062fed",
+          "e99dce4b"
+        ],
+        "name": "NES6502 program bridge",
+        "principal_result": ".openrecomp-phase2/evidence/P2-20/RESULT.md",
+        "stage": "P2-20"
+      },
+      {
+        "check_count": 74,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-21/",
+        "gate_marker": "OPENRECOMP_NES6502_HOST_EMITTER_V1=PASS tests=74",
+        "identity_tokens_verified": [
+          "0a236023c59fd5363d0ebdd6ffb18d9b4e792ebeaa11a72ca513b183539fa398",
+          "7d42947f658f0e7dcb146f3c5f2dd19c742c94bb8cf3e6b2ae8feb789758fd74",
+          "dbba1e3a86274d2944a38de575faee48d04e7748e8a150c93a5adbb0325e35f8"
+        ],
+        "name": "NES6502 host emitter path",
+        "principal_result": ".openrecomp-phase2/evidence/P2-21/RESULT.md",
+        "stage": "P2-21"
+      },
+      {
+        "check_count": 66,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-22/",
+        "gate_marker": "OPENRECOMP_NES_RUNTIME_BRIDGE_V1=PASS tests=66",
+        "identity_tokens_verified": [
+          "4ae725be384b991c58d5e072930603b93c72c939df89c18f07749ae5c3db7b5c",
+          "cc57bba3124f264cb6f4ec2b0e83cb82d3a9eeea551d18c098278c7eef827763"
+        ],
+        "name": "NES runtime bridge",
+        "principal_result": ".openrecomp-phase2/evidence/P2-22/RESULT.md",
+        "stage": "P2-22"
+      },
+      {
+        "check_count": 50,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-23/",
+        "gate_marker": "OPENRECOMP_NES_END_TO_END_V1=PASS tests=50",
+        "identity_tokens_verified": [
+          "5afd387d048299d53eb1cbc0534e9d01c373ccb9a370ca712bd01bef0b4c2207",
+          "9819b40e9909b4056211f6f452297b502b99bc4be4f96fe797cdcdfd6aaf2b78",
+          "dfadcbe759121b0705f2a7db3295127b7adceb403a6254897caee85f8a1c44c2"
+        ],
+        "name": "NES end-to-end proof",
+        "principal_result": ".openrecomp-phase2/evidence/P2-23/RESULT.md",
+        "stage": "P2-23"
+      },
+      {
+        "check_count": 14,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-30/",
+        "gate_marker": "OPENRECOMP_CROSS_ARCHITECTURE_NEUTRALITY_V1=PASS tests=14",
+        "identity_tokens_verified": [
+          "be52ef25060e22f8c4677c2e87a2e89180f82ae88833c4d910ec11fe1881b9f6"
+        ],
+        "name": "Cross-architecture neutrality audit",
+        "principal_result": ".openrecomp-phase2/evidence/P2-30/RESULT.md",
+        "stage": "P2-30"
+      },
+      {
+        "check_count": 181,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-40/",
+        "gate_marker": "OPENRECOMP_GENERIC_RUNTIME_INTEGRATION_V1=PASS tests=181",
+        "identity_tokens_verified": [
+          "9323f24533ec6c31cf954c8315fd674ac8efc8c803e960eb9b1a902891cfe237",
+          "96676becf33f2251fcbc0b097ad8fa7ea2c100f4754617a4a5dcbdac1ecaf5b2",
+          "c0a76e0f19217aeed017fca9f2abc82ef644563c1374d046987452800679246a"
+        ],
+        "name": "Generic runtime integration audit",
+        "principal_result": ".openrecomp-phase2/evidence/P2-40/RESULT.md",
+        "stage": "P2-40"
+      },
+      {
+        "check_count": 174,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-50/",
+        "gate_marker": "OPENRECOMP_BUILD_PACKAGE_REPRODUCIBILITY_V1=PASS tests=174",
+        "identity_tokens_verified": [
+          "1c1dac0ea9942a9a31d0780c187c52b7e6bc18d6708f6599a76dca350079ef17",
+          "1e81bf8cd32b60cd5b3acae26c8f9dc23c0f801cf46b0c49ccb348ebc5eb2ab4",
+          "5afd387d048299d53eb1cbc0534e9d01c373ccb9a370ca712bd01bef0b4c2207",
+          "5d93971b102b24e56b2c98bf4c6b6486f58e6c174700af1c77cf969f85024c54",
+          "71847f9d7ffd126456cca96dea406884d4221b2c6fa86a2e4f15b6462d4c8745",
+          "96676becf33f2251fcbc0b097ad8fa7ea2c100f4754617a4a5dcbdac1ecaf5b2",
+          "fa72b5d169ad0f8f97c03578e18d1d0e4b810b9aa6281e154e947d9b2803888c"
+        ],
+        "name": "Build/package reproducibility",
+        "principal_result": ".openrecomp-phase2/evidence/P2-50/RESULT.md",
+        "stage": "P2-50"
+      },
+      {
+        "check_count": 361,
+        "evidence_directory": ".openrecomp-phase2/evidence/P2-90/",
+        "gate_marker": "OPENRECOMP_PHASE2_WHOLE_REGRESSION_V1=PASS tests=361",
+        "identity_tokens_verified": [
+          "74e9eadaf0e17ca4a97790e4239f40883cc745cd9817c172f7fa6e2663ce1ee7"
+        ],
+        "name": "Whole-project regression",
+        "principal_result": ".openrecomp-phase2/evidence/P2-90/RESULT.md",
+        "stage": "P2-90"
+      }
+    ]
+  },
+  "marker": "OPENRECOMP_PHASE2_EVIDENCE_CLOSURE_V1=PASS tests=882",
+  "passed": 882,
+  "python": "3.11.9",
+  "stage": "P2-91",
+  "stage_name": "OPENRECOMP_PHASE2_EVIDENCE_CLOSURE_V1",
+  "status": "PASS",
+  "tests": 882
+}

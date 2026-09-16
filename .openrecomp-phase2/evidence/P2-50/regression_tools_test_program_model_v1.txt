@@ -1,0 +1,57 @@
+Regression run: tools/test_program_model_v1.py
+returncode: 0
+marker: OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49
+stdout:
+PASS: 64bit-address-preserved
+PASS: 64bit-lookup
+PASS: 64bit-predecessor
+PASS: branch-two-successors
+PASS: branch-terminal-classification
+PASS: branch-variable-length-size
+PASS: branch-predecessors
+PASS: branch-adapter-unresolved-false
+PASS: direct-call-graph
+PASS: direct-call-callee-recorded
+PASS: direct-call-no-unresolved
+PASS: unresolved-count
+PASS: unresolved-call-kind
+PASS: unresolved-jump-kind
+PASS: unresolved-excluded-from-direct-call-graph
+PASS: default-evidence-candidate
+PASS: default-instruction-candidate
+PASS: adapter-default-candidate
+PASS: proven-survives-serialization
+PASS: deterministic-serialize
+PASS: roundtrip-bytes
+PASS: fingerprint-stable
+PASS: order-independent-serialize
+PASS schema: linear64
+PASS schema: nes-branch
+PASS schema: nes-call
+PASS schema: unresolved
+PASS: cli-valid
+PASS reject: cli-schema-reject
+PASS reject: duplicate-block-id
+PASS reject: duplicate-function-id
+PASS reject: dangling-successor
+PASS reject: successor-target-address-mismatch
+PASS reject: unknown-direct-callee
+PASS reject: function-entry-mismatch
+PASS reject: return-block-with-successor
+PASS reject: branch-one-successor
+PASS reject: call-without-return-edge
+PASS reject: indirect-jump-resolved-successor
+PASS reject: address-exceeds-declared-width
+PASS reject: unknown-entry-function
+PASS reject: unsorted-instructions
+PASS reject: unsupported-model-version
+PASS reject: indirect-with-direct-target
+PASS reject: resolved-successor-without-target
+PASS reject: unresolved-successor-with-target
+PASS reject: non-serializable-metadata
+PASS reject: invalid-evidence
+PASS reject: undocumented-opcode-fails-closed
+OPENRECOMP_PROGRAM_MODEL_V1=PASS tests=49
+
+stderr:
+

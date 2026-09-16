@@ -1,0 +1,33 @@
+{
+  "checks": {
+    "failed": 0,
+    "passed": 202
+  },
+  "claim_boundary": "P2-99 issues the terminal Phase-2 verdict only for the accumulated, bounded evidence chain audited on the terminal tree; it adds no capability and broadens no compatibility claim. The final claim is bounded to supported synthetic guest programs and the audited NES6502 and MIPS32 paths.",
+  "closure_validation": {
+    "capture": "p2_91_closure_run.txt",
+    "marker": "OPENRECOMP_PHASE2_EVIDENCE_CLOSURE_V1=PASS tests=882",
+    "status": "PASS"
+  },
+  "final_phase2_marker": "OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS",
+  "gate_sha256": "8d6a42d5e335fb7d7612bb222adca19be0e5290a26a8cc65e63b8be0b9e64e21",
+  "markers": {
+    "final": "OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS",
+    "gate": "OPENRECOMP_PHASE2_FINAL_VERDICT_V1=PASS",
+    "stage": "OPENRECOMP_P2_99=PASS"
+  },
+  "next_stage": null,
+  "phase2_status": "COMPLETE",
+  "stage": "P2-99",
+  "stage_name": "OPENRECOMP_PHASE2_FINAL_VERDICT_V1",
+  "status": "PASS",
+  "terminal_regression_validation": {
+    "capture": "p2_90_terminal_run.txt",
+    "capture_sha256_lf": "ac9c0b8abcdd7c0d0c3d271f0276f2e4a923cf32e3103a8322757ec96824a7f2",
+    "content_identical_modulo_final_marker": true,
+    "frozen_capture": ".openrecomp-phase2/evidence/P2-90/p2_90_run1.txt",
+    "frozen_capture_sha256": "74e9eadaf0e17ca4a97790e4239f40883cc745cd9817c172f7fa6e2663ce1ee7",
+    "status": "PASS"
+  },
+  "verdict": "PASS"
+}

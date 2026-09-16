@@ -1,0 +1,53 @@
+P2-40 architecture-specific dependency findings (static isolation)
+=================================================================
+
+Audited generic runtime modules
+------------------------------
+openrecomp.runtime_abi     -> openrecomp/runtime_abi.py
+openrecomp.runtime         -> openrecomp/runtime.py
+openrecomp.module          -> openrecomp/module.py
+openrecomp.host_emitter    -> openrecomp/host_emitter.py
+openrecomp.build_pipeline  -> openrecomp/build_pipeline.py
+
+Import isolation (prohibited: adapters.*, openrecomp.frontends.*, tools.*)
+--------------------------------------------------------------------------
+findings: none
+documented allowance: openrecomp.module imports the frozen Phase-1 generic IR
+validator tools.validate_ir_v1 (schema validation, not a platform adapter).
+
+Identifier/string isolation (NES/6502/PPU/APU/NROM/cartridge/mapper/controller/
+joypad/gamepad/PS2/PSX/PSP/Xbox/RT64/Vulkan/D3D/OpenGL/Metal/SDL/WASAPI/XAudio/
+ALSA/PulseAudio/CoreAudio/SM83/Z80/M68K/SH2/EE/IOP/BIOS/HLE)
+-------------------------------------------------------------------------------
+findings: none
+
+Platform service-name isolation (^nes.|^gb.|^gbc.|^sms.|^gg.|^psx.|^ps2.|^nds.|
+^n64.|^snes.|^atari. in non-docstring string constants)
+-------------------------------------------------------------------------------
+findings: none
+
+Platform bus-address literal isolation
+--------------------------------------
+Prohibited literals: 0x2000, 0x2007, 0x3F00, 0x4014, 0x4015, 0x4016, 0x4017,
+0x6000, 0x8000, 0xFF00, 0xFFFF, 0x10000
+findings: none
+
+Host-state import isolation (os, sys, time, random, uuid, socket, platform,
+locale, subprocess, tempfile, shutil, pathlib, getpass, secrets)
+-----------------------------------------------------------------
+Scanned modules: openrecomp.runtime_abi, openrecomp.runtime
+findings: none
+
+Scanner self-test (regression guard against a silent no-op scanner)
+-------------------------------------------------------------------
+planted leak detected:
+  NES_PPU_BASE = 0x2000                  -> platform_identifier (token: nes, ppu)
+  SERVICE = "nes.frame.submit"           -> platform_service_name
+  CONTROLLER_STROBE = 0x4016             -> platform_identifier (token: controller)
+  read_controller()                      -> platform_identifier (token: controller)
+  0x2000, 0x4016                         -> platform_bus_address (2 findings)
+clean generic source:
+  no symbol findings, no address findings
+
+Machine-readable detail: static_isolation.json
+Full check list: p2_40_tests.json (181/181 PASS)

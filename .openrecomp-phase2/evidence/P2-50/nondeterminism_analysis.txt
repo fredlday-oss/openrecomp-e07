@@ -1,0 +1,47 @@
+P2-50 nondeterminism analysis
+==============================
+representative: generic-runtime-pipeline
+  object TimeDateStamp A1/B1: ['0', '0']
+  executable TimeDateStamp A1/B1: ['26e0f4ee', '26e0f4ee']
+  object timestamps identical: yes
+  executable timestamps identical: yes
+  debug directory (A1 object): ['DebugDirectory [', ']']
+  debug directory (A1 executable): ['DebugDirectory [', 'DebugEntry {', 'Characteristics: 0x0', 'TimeDateStamp: 1990-09-02 12:02:54 (0x26E0F4EE)', 'MajorVersion: 0x0', 'MinorVersion: 0x0', 'Type: Repro (0x10)', 'SizeOfData: 0x0', 'AddressOfRawData: 0x0', 'PointerToRawData: 0x0', '}', ']']
+  debug entry types (object): []
+  debug entry types (executable): ['Type: Repro (0x10)']
+  binary byte identity: yes
+  binary difference analysis: {"identical": true}
+  host-path/secret needle findings: []
+  normalization applied: none
+  classification: BYTE_DETERMINISTIC_NO_NORMALIZATION
+
+representative: mips32-larger
+  object TimeDateStamp A1/B1: ['0', '0']
+  executable TimeDateStamp A1/B1: ['3cda4de5', '3cda4de5']
+  object timestamps identical: yes
+  executable timestamps identical: yes
+  debug directory (A1 object): ['DebugDirectory [', ']']
+  debug directory (A1 executable): ['DebugDirectory [', 'DebugEntry {', 'Characteristics: 0x0', 'TimeDateStamp: 2002-05-09 10:22:29 (0x3CDA4DE5)', 'MajorVersion: 0x0', 'MinorVersion: 0x0', 'Type: Repro (0x10)', 'SizeOfData: 0x0', 'AddressOfRawData: 0x0', 'PointerToRawData: 0x0', '}', ']']
+  debug entry types (object): []
+  debug entry types (executable): ['Type: Repro (0x10)']
+  binary byte identity: yes
+  binary difference analysis: {"identical": true}
+  host-path/secret needle findings: []
+  normalization applied: none
+  classification: BYTE_DETERMINISTIC_NO_NORMALIZATION
+
+representative: nes-nrom-end-to-end
+  object TimeDateStamp A1/B1: ['0', '0']
+  executable TimeDateStamp A1/B1: ['4dae9adf', '4dae9adf']
+  object timestamps identical: yes
+  executable timestamps identical: yes
+  debug directory (A1 object): ['DebugDirectory [', ']']
+  debug directory (A1 executable): ['DebugDirectory [', 'DebugEntry {', 'Characteristics: 0x0', 'TimeDateStamp: 2011-04-20 08:35:43 (0x4DAE9ADF)', 'MajorVersion: 0x0', 'MinorVersion: 0x0', 'Type: Repro (0x10)', 'SizeOfData: 0x0', 'AddressOfRawData: 0x0', 'PointerToRawData: 0x0', '}', ']']
+  debug entry types (object): []
+  debug entry types (executable): ['Type: Repro (0x10)']
+  binary byte identity: yes
+  binary difference analysis: {"identical": true}
+  host-path/secret needle findings: []
+  normalization applied: none
+  classification: BYTE_DETERMINISTIC_NO_NORMALIZATION
+

@@ -1,0 +1,73 @@
+{
+  "checks": [
+    {
+      "check": "shared_modules_no_architecture_imports",
+      "status": "PASS"
+    },
+    {
+      "check": "shared_modules_no_architecture_symbols",
+      "status": "PASS"
+    },
+    {
+      "check": "architecture_adapters_isolated",
+      "status": "PASS"
+    },
+    {
+      "check": "mips32_cfg_blocks",
+      "status": "PASS"
+    },
+    {
+      "check": "mips32_function_discovery",
+      "status": "PASS"
+    },
+    {
+      "check": "mips32_call_graph",
+      "status": "PASS"
+    },
+    {
+      "check": "mips32_translation_units",
+      "status": "PASS"
+    },
+    {
+      "check": "mips32_indirect_classification",
+      "status": "PASS"
+    },
+    {
+      "check": "mips32_host_source_generated",
+      "status": "PASS"
+    },
+    {
+      "check": "mips32_host_source_no_nes_terms",
+      "status": "PASS"
+    },
+    {
+      "check": "mips32_host_source_deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_suite",
+      "status": "PASS"
+    },
+    {
+      "check": "source_integrity",
+      "status": "PASS"
+    },
+    {
+      "check": "phase1_host_gates",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "findings": {
+    "adapter_isolation": [],
+    "import_leakage": [],
+    "regression_failures": [],
+    "symbol_leakage": []
+  },
+  "marker": "OPENRECOMP_CROSS_ARCHITECTURE_NEUTRALITY_V1",
+  "mips32_host_source_sha256": "be52ef25060e22f8c4677c2e87a2e89180f82ae88833c4d910ec11fe1881b9f6",
+  "passed": 14,
+  "stage": "P2-30",
+  "status": "PASS",
+  "tests": 14
+}

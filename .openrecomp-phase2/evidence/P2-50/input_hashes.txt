@@ -1,0 +1,38 @@
+P2-50 input identities
+======================
+representative: generic-runtime-pipeline
+  fixture_id: p2-50-generic-runtime-integration-v1
+  fixture_kind: synthetic-mips32-generic-runtime
+  fixture_input_sha256: 9323f24533ec6c31cf954c8315fd674ac8efc8c803e960eb9b1a902891cfe237
+  fixture_byte_length: 44
+  runtime_support_source_sha256: 0ae324883350749cb80266b17ac21d2cb94b3d9576e345fc12c799b17cbe073c
+  expected_observable_sha256: 25db9f5fd6de9759ea45c0f46a4682b0cad9c6b671e437e6c87784fd4462a2da
+representative: mips32-larger
+  fixture_id: p2-50-mips32-larger-fixture-v1
+  fixture_kind: synthetic-mips32-non-nes
+  fixture_input_sha256: 1c233f56528cb3fe20a7b806ce40e8bef6fc66a8cf8c0fd15d8b7b49bce547eb
+  fixture_byte_length: 228
+  runtime_support_source_sha256: 5eeb0d37d34a1f20b2646519f7dac43e196d3bfe736fbf714f4c64fefeb3512a
+  expected_observable_sha256: 5a44a08c3bc1fd16044fa4309ed128f277586184f6661b6757b68e69a1517baa
+representative: nes-nrom-end-to-end
+  fixture_id: p2-50-nes-nrom-end-to-end-v1
+  fixture_kind: synthetic-nes-nrom
+  fixture_input_sha256: dfadcbe759121b0705f2a7db3295127b7adceb403a6254897caee85f8a1c44c2
+  fixture_byte_length: 144
+  runtime_support_source_sha256: 8108147b60b73fb8cf4af5ad2cc7bd5e00299f0c6422e3e301c928a1b7a0aaf0
+  expected_observable_sha256: a5b2e1c99a88b1227b4d84d6704e391d71b57053b017e0981bdf3e31bb304941
+
+pipeline source state:
+  1e7181ac42fabb0642f845d8070b7699ea2825452e652144c402176ef15fdfc7  openrecomp/build_pipeline.py
+  0dda2c55022842604e55d8d902d2523d83b116dbf61fb34bb949d94b7d1ea734  openrecomp/call_graph.py
+  27b5778428305a7948be50ee74ddc8f19ac1907c0a7b3ce980490d99ac6b5159  openrecomp/cfg.py
+  c07a0c53ec13cecfb036cb4cf46a35ec7087c14f4e675d033730f02193a5055a  openrecomp/functions.py
+  6ec5f87100cb42ea6ec538b6ba23a47155d218c6e973df0798d507a9bbfd89e0  openrecomp/host_emitter.py
+  641f449a897dedf46ef3f98b5b5ccde49fa4c75eb039a1f0e7611e8946a52a21  openrecomp/indirect_control_flow.py
+  a4ace1ae01cc7f86f6c863496a11be903f9e944ac27f91ea85d4846f981f172f  openrecomp/program_model.py
+  685337fe2c1778dc96dae01d41f7baae617804c8f0300f67a0de4963196057b4  openrecomp/release_package.py
+  f0c6fa461ea71026859cdb09ccf8e29062dba805ef800632d4bd3e319d4eea49  openrecomp/runtime_abi.py
+  21b6021442fc2c48532dcd6c03b55ff70c8993a8b199ec5ada07fa5108b5346f  openrecomp/translation_units.py
+  2b9b09386c6f530f41b4cfe3b8d9dec868ae858603e5b0bc54ae8f5c37691085  tools/test_build_package_reproducibility_v1.py
+source_state_fingerprint: 5d93971b102b24e56b2c98bf4c6b6486f58e6c174700af1c77cf969f85024c54
+SOURCE_SHA256SUMS.txt entries: 131
