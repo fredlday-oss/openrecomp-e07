@@ -6,13 +6,15 @@ The project separates binary analysis, a versioned intermediate representation (
 
 Unreal Engine is an optional consumer of the versioned native-module interface, not a dependency of the OpenRecomp core.
 
-## Current public milestone
+## Milestone status
 
-**OpenRecomp v0.2.0** is the first formal public research/developer milestone. It freezes the current evidence-backed open-core architecture and reviewer-facing validation state; it is not a claim of general guest-binary compatibility or a production-quality optimizing compiler.
+**Phase 2 end-to-end recompilation proof: PASS in the audited local worktree.** The P2-99 verdict covers supported synthetic NES6502 and MIPS32 programs through decoding, program modelling, control-flow recovery, host compilation, generic runtime execution, observable comparison and bounded packaging. The Phase 2 implementation and full evidence are **not yet published on GitHub**; this status is a recorded local result, not a clean-clone public proof. See the [Phase 2 final report](docs/PHASE2_FINAL_REPORT.md) for the exact boundary and publication gap.
 
-Post-v0.2.0 development is tracked separately from the immutable release notes. Current development adds bounded multi-fixture MIPS32 expansion evidence, a reusable `OpenRecompRuntime` Unreal plugin, a bounded UE5.8 Windows x64 Development packaged-build validation, and a one-command Linux external-reviewer reproducibility gate without changing IR V1 or Native AOT ABI V1.
+**Phase 3: in progress.** The local real-ELF/CoreMark work has no final verdict. Real-program recompilation and general guest-binary compatibility are not proven.
 
-See [`docs/RELEASE_V0_2_0.md`](docs/RELEASE_V0_2_0.md) for the bounded v0.2.0 release notes and [`docs/RELEASE_CHECKLIST_V0_2_0.md`](docs/RELEASE_CHECKLIST_V0_2_0.md) for its publication/reproducibility gate.
+The latest tagged **public release remains v0.2.0**. It freezes the evidence-backed open-core architecture and reviewer-facing validation state available on this repository. Post-v0.2.0 public work includes bounded MIPS32 expansion, Unreal host integration and a one-command Linux external-reviewer gate; those claims remain distinct from the local Phase 2 result.
+
+See [`docs/RELEASE_V0_2_0.md`](docs/RELEASE_V0_2_0.md) for the v0.2.0 release notes and [`docs/RELEASE_CHECKLIST_V0_2_0.md`](docs/RELEASE_CHECKLIST_V0_2_0.md) for its publication gate.
 
 ## Current evidence status
 
@@ -66,7 +68,7 @@ Explicit host services
 Native / WebAssembly / optional engine integration
 ```
 
-The strongest current generalization result is bounded but concrete: two materially different clean synthetic guest paths, RV32I and MIPS32, cross the same normalized IR, Module Image and Core API boundaries. The MIPS32 evidence now spans several independent little-endian semantic fixtures plus a bounded big-endian memory fixture. The same portable C backend reproduces their reference results after native compilation.
+The strongest generalization result reproducible from public `main` is bounded but concrete: two materially different clean synthetic guest paths, RV32I and MIPS32, cross the same normalized IR, Module Image and Core API boundaries. The MIPS32 evidence now spans several independent little-endian semantic fixtures plus a bounded big-endian memory fixture. The same portable C backend reproduces their reference results after native compilation.
 
 ## Reproducible proof entry points
 
@@ -214,6 +216,7 @@ The public-safety gate scans tracked material and is designed to fail closed, in
 
 ## Documentation
 
+- [`docs/PHASE2_FINAL_REPORT.md`](docs/PHASE2_FINAL_REPORT.md)
 - [`docs/RELEASE_V0_2_0.md`](docs/RELEASE_V0_2_0.md)
 - [`docs/RELEASE_CHECKLIST_V0_2_0.md`](docs/RELEASE_CHECKLIST_V0_2_0.md)
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)

@@ -1,6 +1,15 @@
 # OpenRecomp proof status
 
-OpenRecomp uses evidence labels narrowly. The table below distinguishes reproducible project CI from runtime observations that currently require a machine-local environment.
+OpenRecomp uses evidence labels narrowly. The table below covers the source and gates already available on public `main`; it distinguishes reproducible project CI from runtime observations that require a machine-local environment.
+
+## Phase 2 and Phase 3 milestone boundary
+
+| Milestone | Status | Evidence and publication boundary |
+| --- | --- | --- |
+| Phase 2 end-to-end recompilation proof | **PASS — audited local worktree** | P2-99 issued `OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS` for supported synthetic NES6502 and MIPS32 programs. The terminal P2-90 regression recorded 361 audit checks, 22 gates and 1,990 gate checks; P2-91 closure recorded 882 checks. The implementation and full evidence are not on public `main`. |
+| Phase 3 real-ELF/CoreMark path | **IN PROGRESS — local development** | No final Phase 3 verdict or real-program recompilation claim. |
+
+The [Phase 2 final report](PHASE2_FINAL_REPORT.md) identifies the local boundary commits, evidence, limitations and remaining public reproducibility work. The milestone rows do not promote local results to public CI or extend the fixture-backed claims in the table below.
 
 | Component | Status | Evidence / notes |
 | --- | --- | --- |

@@ -1,5 +1,14 @@
 # OpenRecomp roadmap
 
+## Current milestone sequence — 16 September 2026
+
+| Milestone | Status | Next public step |
+| --- | --- | --- |
+| Phase 2 end-to-end recompilation proof | **PASS on the audited local tree** | Publish a reviewed, rights-safe implementation and evidence branch; reproduce the bounded gates from that public source before calling it a public release. |
+| Phase 3 real-ELF/CoreMark path | **ACTIVE; final verdict NOT PROVEN** | Continue the staged real-ELF proof and keep real-program recompilation claims behind its final gate. |
+
+See the [Phase 2 final report](PHASE2_FINAL_REPORT.md) and [proof status](PROOF_STATUS.md). The earlier roadmap sections below describe continuing workstreams and do not mean the local Phase 2 source or Phase 3 work is already present on public `main`.
+
 This is a forward-looking development roadmap. It is **not** a historical schedule and does not imply that external grant funding has been awarded.
 
 Some work was completed earlier than the original phase ordering. The current baseline already includes bounded RV32I validation, the original MIPS32 vertical slice, post-v0.2.0 MIPS32 Expansion V1 with five little/big-endian synthetic fixtures, IR V1/Core API V1, the additive IR V1.1 `integer-divrem-v1` feature contract, a hardened common portable-C AOT backend, Native AOT ABI V1, Linux/Windows x64 portability, a one-command reproducible Linux external-reviewer path for the bounded open-core evidence, a reproducible Windows Native AOT host-core matrix, a reusable code-only `OpenRecompRuntime` Unreal plugin, local UE5.8 runtime evidence for both the Native AOT host proof and Plugin V1 synthetic consumer, and a bounded UE5.8 Windows x64 Development packaged-build/runtime PASS outside Editor/PIE.
