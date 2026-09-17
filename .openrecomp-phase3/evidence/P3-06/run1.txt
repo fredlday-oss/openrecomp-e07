@@ -1,0 +1,145 @@
+=== P3-06 Static Data / Global Reconstruction Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest-exists
+PASS: source:root-manifest-frozen-sha256
+PASS: source:root-manifest-entry-count
+PASS: source:root-manifest-entries-verified
+PASS: source:phase3-manifest-exists
+PASS: source:phase3-manifest-entry-set
+PASS: source:phase3-manifest-entries-verified
+
+--- fixture ---
+PASS: fixture:exists
+PASS: fixture:sha256
+PASS: fixture:size
+PASS: fixture:text-identity
+PASS: fixture:entry
+
+--- static data model ---
+PASS: model:section-count
+PASS: model:section-set
+PASS: model:section:.text
+PASS: model:section:.MIPS.abiflags
+PASS: model:section:.reginfo
+PASS: model:section:.rodata
+PASS: model:section:.data
+PASS: model:section:.bss
+PASS: model:bss-zero-fill
+PASS: model:bss-kind
+PASS: model:rodata-kind
+PASS: model:data-writable
+PASS: model:metadata-read-only
+PASS: model:p3-02-section-hashes
+PASS: model:p3-02-bss-hash
+PASS: model:p3-02-readonly-hash
+PASS: model:p3-02-data-hash
+PASS: model:p3-02-executable-hash
+PASS: model:region-set
+PASS: model:sections-monotonic
+PASS: model:readonly-metadata-tiling
+PASS: model:text-gap
+PASS: model:rodata-data-gap
+PASS: model:data-bss-gap
+PASS: model:symbol:seed1_volatile
+PASS: model:symbol:seed2_volatile
+PASS: model:symbol:seed3_volatile
+PASS: model:symbol:seed4_volatile
+PASS: model:symbol:seed5_volatile
+PASS: model:symbol:default_num_contexts
+PASS: model:symbol:mem_name
+PASS: model:symbol:static_memblk
+PASS: model:symbol:p3_tick
+PASS: model:symbol:p3_start_time_val
+PASS: model:symbol:p3_stop_time_val
+PASS: model:symbol:p3_uart_byte_count
+PASS: model:symbol:p3_stack
+PASS: model:symbol:_gp
+PASS: model:seed-symbol-set
+PASS: model:no-seed-outside-static-image
+
+--- cross-checks ---
+PASS: cross:p3-04-seed-values
+PASS: cross:p3-04-seed-hashes
+PASS: cross:seed-table-pointers
+PASS: cross:seed-table-targets-are-seeds
+PASS: cross:gp-symbol-matches-entry-init
+PASS: cross:stack-top-symbol
+PASS: cross:p3-04-seed-materialisation-absent
+
+--- structure ---
+
+--- global analysis ---
+PASS: materials:count
+PASS: materials:with-uses
+PASS: materials:all-have-provenance
+PASS: materials:sites-unique
+PASS: materials:static-range-values
+PASS: access:status-counts
+PASS: access:kind-counts
+PASS: access:no-cross-section
+PASS: access:no-region-unclassified
+PASS: access:resolved-static-sites
+PASS: access:resolved:0x000021cc
+PASS: access:resolved:0x0000235c
+PASS: access:resolved:0x000023c8
+PASS: access:resolved:0x000044d8
+PASS: access:resolved:0x000044e4
+PASS: access:resolved:0x000044f4
+PASS: access:resolved:0x00004500
+PASS: access:resolved:0x00004510
+PASS: access:resolved:0x00004518
+PASS: access:resolved:0x00004548
+PASS: access:mmio-sites
+PASS: access:mmio:0x00004540
+PASS: access:mmio:0x00004560
+PASS: access:runtime-base-count
+PASS: access:runtime-base-never-resolved
+PASS: access:runtime-base-histogram
+PASS: access:loads-and-stores-covered
+PASS: access:no-resolved-access-to-seed
+PASS: access:no-store-to-read-only
+PASS: access:resolved-address-in-expected-section
+PASS: access:unclassified-ops-empty
+PASS: gp:no-base-access
+PASS: gp:status
+PASS: gp:writes
+PASS: gp:entry-gp-value
+PASS: gp:entry-sp-value
+PASS: gp:symbol-cross-check
+PASS: seed:instruction-set
+PASS: seed:guard-bounds
+PASS: seed:guard-target
+PASS: seed:table-base-materialised
+PASS: seed:two-load-shape
+PASS: seed:return-block
+PASS: seed:function
+PASS: seed:table-materialisation
+PASS: seed:table-pointers
+PASS: seed:table-sixth-word
+PASS: seed:guard-bounds-table
+PASS: seed:pointer-symbols
+PASS: seed:value-loads
+PASS: seed:table-in-rodata
+PASS: seed:no-static-seed-pointer-elsewhere
+PASS: pointer-args:count
+PASS: pointer-args:static-range
+PASS: pointer-args:callees-are-functions
+
+--- negatives ---
+PASS: negatives:model-positive-read
+PASS: negatives:written-registers
+PASS: negatives:no-failures
+PASS: negatives:count
+
+--- determinism ---
+PASS: determinism:section-hashes
+PASS: determinism:materializations
+PASS: determinism:accesses
+PASS: determinism:gp
+PASS: determinism:artifact-hashes-recorded
+
+=== RESULT ===
+OPENRECOMP_P3_06=PASS
+OPENRECOMP_PHASE3_STATIC_DATA_V1=PASS tests=123
+OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN

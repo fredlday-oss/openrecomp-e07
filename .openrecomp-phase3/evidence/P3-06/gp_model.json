@@ -1,0 +1,21 @@
+{
+  "entry_register_initialization": {
+    "gp_value": "0x0000cdf0",
+    "provenance": "lui/addiu immediate chains in _start (0x4650..)",
+    "site_gp": "0x00004654",
+    "site_sp": "0x0000465c",
+    "sp_value": "0x00009620"
+  },
+  "gp_base_accesses": [],
+  "gp_status": "NOT_REQUIRED_BY_REACHABLE_CODE",
+  "gp_writes": [
+    "0x00002dc8",
+    "0x00003108",
+    "0x00003558",
+    "0x00003564",
+    "0x00004650",
+    "0x00004654"
+  ],
+  "policy": "the O32 ABI names $28 as $gp and _start initialises it to the _gp symbol value, but no reachable instruction uses $28 as a memory base and the register is reused as a general scratch register; GP-relative global access is therefore not required by the audited reachable path",
+  "stage": "P3-06"
+}

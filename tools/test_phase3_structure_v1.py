@@ -111,6 +111,7 @@ P3_SOURCE_FILES = (
     ".openrecomp-phase3/src/p3_decode_mips32_v1.py",
     ".openrecomp-phase3/src/p3_elf_image_v1.py",
     ".openrecomp-phase3/src/p3_semantics_mips32_v1.py",
+    ".openrecomp-phase3/src/p3_static_data_v1.py",
     ".openrecomp-phase3/src/p3_structure_v1.py",
     ".openrecomp-phase3/src/p3_target_mips32_v1.py",
     "tools/test_phase3_boundary_v1.py",
@@ -118,6 +119,7 @@ P3_SOURCE_FILES = (
     "tools/test_phase3_decode_frontier_v1.py",
     "tools/test_phase3_elf_ingestion_v1.py",
     "tools/test_phase3_reachable_semantics_v1.py",
+    "tools/test_phase3_static_data_v1.py",
     "tools/test_phase3_structure_v1.py",
 )
 ROOT_MANIFEST = ROOT / "SOURCE_SHA256SUMS.txt"

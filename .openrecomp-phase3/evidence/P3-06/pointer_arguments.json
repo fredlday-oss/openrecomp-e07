@@ -1,0 +1,164 @@
+{
+  "count": 13,
+  "policy": "argument materialisations are exact values live at a direct call in the same straight-line block; a static-range value is a proven static address in use, values outside the image are not classified as addresses",
+  "rows": [
+    {
+      "call_site": "0x00001eb4",
+      "callee": "0x000033d0",
+      "containing_function": "fn_1e5c",
+      "origin": "IMMEDIATE_CHAIN",
+      "provenance": [
+        "zero",
+        "addiu@0x00001eac"
+      ],
+      "register": 4,
+      "value": "0x00000001"
+    },
+    {
+      "call_site": "0x00001ec0",
+      "callee": "0x000033d0",
+      "containing_function": "fn_1e5c",
+      "origin": "IMMEDIATE_CHAIN",
+      "provenance": [
+        "zero",
+        "addiu@0x00001eb8"
+      ],
+      "register": 4,
+      "value": "0x00000002"
+    },
+    {
+      "call_site": "0x00001ecc",
+      "callee": "0x000033d0",
+      "containing_function": "fn_1e5c",
+      "origin": "IMMEDIATE_CHAIN",
+      "provenance": [
+        "zero",
+        "addiu@0x00001ec4"
+      ],
+      "register": 4,
+      "value": "0x00000003"
+    },
+    {
+      "call_site": "0x00001ed8",
+      "callee": "0x000033d0",
+      "containing_function": "fn_1e5c",
+      "origin": "IMMEDIATE_CHAIN",
+      "provenance": [
+        "zero",
+        "addiu@0x00001ed0"
+      ],
+      "register": 4,
+      "value": "0x00000004"
+    },
+    {
+      "call_site": "0x00002098",
+      "callee": "0x000036d8",
+      "containing_function": "fn_1e5c",
+      "origin": "IMMEDIATE_CHAIN",
+      "provenance": [
+        "zero",
+        "addiu@0x00002090"
+      ],
+      "register": 5,
+      "value": "0x00000000"
+    },
+    {
+      "call_site": "0x00002328",
+      "callee": "0x0000371c",
+      "containing_function": "fn_1e5c",
+      "origin": "IMMEDIATE_CHAIN",
+      "provenance": [
+        "lui@0x0000231c",
+        "addiu@0x00002320"
+      ],
+      "register": 4,
+      "value": "0x00004ae0"
+    },
+    {
+      "call_site": "0x000023ec",
+      "callee": "0x0000371c",
+      "containing_function": "fn_1e5c",
+      "origin": "IMMEDIATE_CHAIN",
+      "provenance": [
+        "lui@0x000023e0",
+        "addiu@0x000023e4"
+      ],
+      "register": 4,
+      "value": "0x000048d2"
+    },
+    {
+      "call_site": "0x00002400",
+      "callee": "0x0000371c",
+      "containing_function": "fn_1e5c",
+      "origin": "IMMEDIATE_CHAIN",
+      "provenance": [
+        "lui@0x000023f4",
+        "addiu@0x000023f8"
+      ],
+      "register": 4,
+      "value": "0x000049f4"
+    },
+    {
+      "call_site": "0x00002414",
+      "callee": "0x0000371c",
+      "containing_function": "fn_1e5c",
+      "origin": "IMMEDIATE_CHAIN",
+      "provenance": [
+        "lui@0x00002408",
+        "addiu@0x0000240c"
+      ],
+      "register": 4,
+      "value": "0x000047d4"
+    },
+    {
+      "call_site": "0x00002424",
+      "callee": "0x0000371c",
+      "containing_function": "fn_1e5c",
+      "origin": "IMMEDIATE_CHAIN",
+      "provenance": [
+        "lui@0x0000241c",
+        "addiu@0x00002420"
+      ],
+      "register": 4,
+      "value": "0x00004726"
+    },
+    {
+      "call_site": "0x00002a20",
+      "callee": "0x000036d8",
+      "containing_function": "fn_2618",
+      "origin": "IMMEDIATE_CHAIN",
+      "provenance": [
+        "zero",
+        "addiu@0x00002a1c"
+      ],
+      "register": 4,
+      "value": "0x00000000"
+    },
+    {
+      "call_site": "0x00002a38",
+      "callee": "0x000036d8",
+      "containing_function": "fn_2618",
+      "origin": "IMMEDIATE_CHAIN",
+      "provenance": [
+        "zero",
+        "addiu@0x00002a30"
+      ],
+      "register": 4,
+      "value": "0x00000000"
+    },
+    {
+      "call_site": "0x00002a44",
+      "callee": "0x000036d8",
+      "containing_function": "fn_2618",
+      "origin": "IMMEDIATE_CHAIN",
+      "provenance": [
+        "zero",
+        "addiu@0x00002a3c"
+      ],
+      "register": 4,
+      "value": "0x00000000"
+    }
+  ],
+  "stage": "P3-06",
+  "static_range_count": 5
+}

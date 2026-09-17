@@ -1,0 +1,681 @@
+{
+  "checks": [
+    {
+      "check": "access:kind-counts",
+      "status": "PASS"
+    },
+    {
+      "check": "access:loads-and-stores-covered",
+      "status": "PASS"
+    },
+    {
+      "check": "access:mmio-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "access:mmio:0x00004540",
+      "status": "PASS"
+    },
+    {
+      "check": "access:mmio:0x00004560",
+      "status": "PASS"
+    },
+    {
+      "check": "access:no-cross-section",
+      "status": "PASS"
+    },
+    {
+      "check": "access:no-region-unclassified",
+      "status": "PASS"
+    },
+    {
+      "check": "access:no-resolved-access-to-seed",
+      "status": "PASS"
+    },
+    {
+      "check": "access:no-store-to-read-only",
+      "status": "PASS"
+    },
+    {
+      "check": "access:resolved-address-in-expected-section",
+      "status": "PASS"
+    },
+    {
+      "check": "access:resolved-static-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "access:resolved:0x000021cc",
+      "status": "PASS"
+    },
+    {
+      "check": "access:resolved:0x0000235c",
+      "status": "PASS"
+    },
+    {
+      "check": "access:resolved:0x000023c8",
+      "status": "PASS"
+    },
+    {
+      "check": "access:resolved:0x000044d8",
+      "status": "PASS"
+    },
+    {
+      "check": "access:resolved:0x000044e4",
+      "status": "PASS"
+    },
+    {
+      "check": "access:resolved:0x000044f4",
+      "status": "PASS"
+    },
+    {
+      "check": "access:resolved:0x00004500",
+      "status": "PASS"
+    },
+    {
+      "check": "access:resolved:0x00004510",
+      "status": "PASS"
+    },
+    {
+      "check": "access:resolved:0x00004518",
+      "status": "PASS"
+    },
+    {
+      "check": "access:resolved:0x00004548",
+      "status": "PASS"
+    },
+    {
+      "check": "access:runtime-base-count",
+      "status": "PASS"
+    },
+    {
+      "check": "access:runtime-base-histogram",
+      "status": "PASS"
+    },
+    {
+      "check": "access:runtime-base-never-resolved",
+      "status": "PASS"
+    },
+    {
+      "check": "access:status-counts",
+      "status": "PASS"
+    },
+    {
+      "check": "access:unclassified-ops-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "cross:gp-symbol-matches-entry-init",
+      "status": "PASS"
+    },
+    {
+      "check": "cross:p3-04-seed-hashes",
+      "status": "PASS"
+    },
+    {
+      "check": "cross:p3-04-seed-materialisation-absent",
+      "status": "PASS"
+    },
+    {
+      "check": "cross:p3-04-seed-values",
+      "status": "PASS"
+    },
+    {
+      "check": "cross:seed-table-pointers",
+      "status": "PASS"
+    },
+    {
+      "check": "cross:seed-table-targets-are-seeds",
+      "status": "PASS"
+    },
+    {
+      "check": "cross:stack-top-symbol",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:accesses",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:artifact-hashes-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:gp",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:materializations",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:section-hashes",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:entry",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:exists",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:size",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:text-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "gp:entry-gp-value",
+      "status": "PASS"
+    },
+    {
+      "check": "gp:entry-sp-value",
+      "status": "PASS"
+    },
+    {
+      "check": "gp:no-base-access",
+      "status": "PASS"
+    },
+    {
+      "check": "gp:status",
+      "status": "PASS"
+    },
+    {
+      "check": "gp:symbol-cross-check",
+      "status": "PASS"
+    },
+    {
+      "check": "gp:writes",
+      "status": "PASS"
+    },
+    {
+      "check": "materials:all-have-provenance",
+      "status": "PASS"
+    },
+    {
+      "check": "materials:count",
+      "status": "PASS"
+    },
+    {
+      "check": "materials:sites-unique",
+      "status": "PASS"
+    },
+    {
+      "check": "materials:static-range-values",
+      "status": "PASS"
+    },
+    {
+      "check": "materials:with-uses",
+      "status": "PASS"
+    },
+    {
+      "check": "model:bss-kind",
+      "status": "PASS"
+    },
+    {
+      "check": "model:bss-zero-fill",
+      "status": "PASS"
+    },
+    {
+      "check": "model:data-bss-gap",
+      "status": "PASS"
+    },
+    {
+      "check": "model:data-writable",
+      "status": "PASS"
+    },
+    {
+      "check": "model:metadata-read-only",
+      "status": "PASS"
+    },
+    {
+      "check": "model:no-seed-outside-static-image",
+      "status": "PASS"
+    },
+    {
+      "check": "model:p3-02-bss-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "model:p3-02-data-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "model:p3-02-executable-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "model:p3-02-readonly-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "model:p3-02-section-hashes",
+      "status": "PASS"
+    },
+    {
+      "check": "model:readonly-metadata-tiling",
+      "status": "PASS"
+    },
+    {
+      "check": "model:region-set",
+      "status": "PASS"
+    },
+    {
+      "check": "model:rodata-data-gap",
+      "status": "PASS"
+    },
+    {
+      "check": "model:rodata-kind",
+      "status": "PASS"
+    },
+    {
+      "check": "model:section-count",
+      "status": "PASS"
+    },
+    {
+      "check": "model:section-set",
+      "status": "PASS"
+    },
+    {
+      "check": "model:section:.MIPS.abiflags",
+      "status": "PASS"
+    },
+    {
+      "check": "model:section:.bss",
+      "status": "PASS"
+    },
+    {
+      "check": "model:section:.data",
+      "status": "PASS"
+    },
+    {
+      "check": "model:section:.reginfo",
+      "status": "PASS"
+    },
+    {
+      "check": "model:section:.rodata",
+      "status": "PASS"
+    },
+    {
+      "check": "model:section:.text",
+      "status": "PASS"
+    },
+    {
+      "check": "model:sections-monotonic",
+      "status": "PASS"
+    },
+    {
+      "check": "model:seed-symbol-set",
+      "status": "PASS"
+    },
+    {
+      "check": "model:symbol:_gp",
+      "status": "PASS"
+    },
+    {
+      "check": "model:symbol:default_num_contexts",
+      "status": "PASS"
+    },
+    {
+      "check": "model:symbol:mem_name",
+      "status": "PASS"
+    },
+    {
+      "check": "model:symbol:p3_stack",
+      "status": "PASS"
+    },
+    {
+      "check": "model:symbol:p3_start_time_val",
+      "status": "PASS"
+    },
+    {
+      "check": "model:symbol:p3_stop_time_val",
+      "status": "PASS"
+    },
+    {
+      "check": "model:symbol:p3_tick",
+      "status": "PASS"
+    },
+    {
+      "check": "model:symbol:p3_uart_byte_count",
+      "status": "PASS"
+    },
+    {
+      "check": "model:symbol:seed1_volatile",
+      "status": "PASS"
+    },
+    {
+      "check": "model:symbol:seed2_volatile",
+      "status": "PASS"
+    },
+    {
+      "check": "model:symbol:seed3_volatile",
+      "status": "PASS"
+    },
+    {
+      "check": "model:symbol:seed4_volatile",
+      "status": "PASS"
+    },
+    {
+      "check": "model:symbol:seed5_volatile",
+      "status": "PASS"
+    },
+    {
+      "check": "model:symbol:static_memblk",
+      "status": "PASS"
+    },
+    {
+      "check": "model:text-gap",
+      "status": "PASS"
+    },
+    {
+      "check": "negatives:count",
+      "status": "PASS"
+    },
+    {
+      "check": "negatives:model-positive-read",
+      "status": "PASS"
+    },
+    {
+      "check": "negatives:no-failures",
+      "status": "PASS"
+    },
+    {
+      "check": "negatives:written-registers",
+      "status": "PASS"
+    },
+    {
+      "check": "pointer-args:callees-are-functions",
+      "status": "PASS"
+    },
+    {
+      "check": "pointer-args:count",
+      "status": "PASS"
+    },
+    {
+      "check": "pointer-args:static-range",
+      "status": "PASS"
+    },
+    {
+      "check": "seed:function",
+      "status": "PASS"
+    },
+    {
+      "check": "seed:guard-bounds",
+      "status": "PASS"
+    },
+    {
+      "check": "seed:guard-bounds-table",
+      "status": "PASS"
+    },
+    {
+      "check": "seed:guard-target",
+      "status": "PASS"
+    },
+    {
+      "check": "seed:instruction-set",
+      "status": "PASS"
+    },
+    {
+      "check": "seed:no-static-seed-pointer-elsewhere",
+      "status": "PASS"
+    },
+    {
+      "check": "seed:pointer-symbols",
+      "status": "PASS"
+    },
+    {
+      "check": "seed:return-block",
+      "status": "PASS"
+    },
+    {
+      "check": "seed:table-base-materialised",
+      "status": "PASS"
+    },
+    {
+      "check": "seed:table-in-rodata",
+      "status": "PASS"
+    },
+    {
+      "check": "seed:table-materialisation",
+      "status": "PASS"
+    },
+    {
+      "check": "seed:table-pointers",
+      "status": "PASS"
+    },
+    {
+      "check": "seed:table-sixth-word",
+      "status": "PASS"
+    },
+    {
+      "check": "seed:two-load-shape",
+      "status": "PASS"
+    },
+    {
+      "check": "seed:value-loads",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entry-set",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entry-count",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-frozen-sha256",
+      "status": "PASS"
+    }
+  ],
+  "claim_boundary": "P3-06 proves only the static-data reconstruction of the audited CoreMark MIPS32 image: exact .rodata/.data/.bss content and zero-fill, ten resolved static accesses and two external MMIO stores, 283 provenance-recorded constant formations, an explicit gp/sp entry model and the bounded seed pointer chain. It does not execute or translate CoreMark, does not resolve the 493 runtime-base accesses, does not perform alias analysis, and claims no arbitrary MIPS32, PS1 or PS2 compatibility.",
+  "evidence_files": {
+    "accesses.json": "b44c056b76c5a66a0320662dcf1924771ee94d5cfbb2219e49ffcf13981e6ba5",
+    "determinism.json": "7953468e12722beac9ad449a1984bdc4e4bbbff5b3f41465c235c209d2410ac3",
+    "fixture.json": "641129d5092cc261341d729df09cf6df0047f85bff13d10b0317ee7e683e5bf3",
+    "gp_model.json": "bb71ecf3a431df176932be5a9f1a4120ddd0c6a24dae7116ac96cea4f7fe791f",
+    "materializations.json": "aa9eccc2bec85103c7f27e2457d2ac14bc4303eb0c2d31cf6f31d1cb53820880",
+    "negatives.json": "4fb410615a7f03e8bf182d64247df15c1c11060a254412afb7c814603171c48a",
+    "pointer_arguments.json": "fa7f1cfbd9ec6c254f0d967efb588bd7c9bb96ad4474136f3acb95223cecb1c7",
+    "seed_chain.json": "055540ba31dc692ed4627d259b5df9d34bec9f761ccf50c9bf950efa066dde7e",
+    "source_integrity.txt": "ca69d907fb3249cf9eeed7f5f90470f1cd9b1aa154159548a98a248e2cde92ac",
+    "static_data_model.json": "2626aea4e4b67d1ed6121ee4a27236765471b557307d07e132f74d2dc233f021"
+  },
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "accesses": {
+      "kind_counts": {
+        "RESOLVED_OUTSIDE_IMAGE:STORE": 2,
+        "RESOLVED_STATIC:LOAD": 8,
+        "RESOLVED_STATIC:STORE": 2,
+        "RUNTIME_BASE:LOAD": 286,
+        "RUNTIME_BASE:STORE": 207
+      },
+      "mmio_sites": [
+        "0x00004540",
+        "0x00004560"
+      ],
+      "resolved_static_sites": [
+        "0x000021cc",
+        "0x0000235c",
+        "0x000023c8",
+        "0x000044d8",
+        "0x000044e4",
+        "0x000044f4",
+        "0x00004500",
+        "0x00004510",
+        "0x00004518",
+        "0x00004548"
+      ],
+      "rows_sha256": "d774dec3df2dca4fec297f4599771eb59362218bfd68d56ed38c267281f6badf",
+      "status_counts": {
+        "RESOLVED_OUTSIDE_IMAGE": 2,
+        "RESOLVED_STATIC": 10,
+        "RUNTIME_BASE": 493
+      }
+    },
+    "cross_checks": {
+      "gp_symbol": "0x0000cdf0",
+      "seed_table_pointers": [
+        "0x00005600",
+        "0x00005604",
+        "0x00004e10",
+        "0x00004e14",
+        "0x00005608"
+      ],
+      "seed_values": [
+        "0x00000000",
+        "0x00000000",
+        "0x00000066",
+        "0x000003e8",
+        "0x00000000"
+      ]
+    },
+    "determinism": {
+      "access_count": 505,
+      "artifact_sha256": {
+        "accesses.json": "b44c056b76c5a66a0320662dcf1924771ee94d5cfbb2219e49ffcf13981e6ba5",
+        "fixture.json": "641129d5092cc261341d729df09cf6df0047f85bff13d10b0317ee7e683e5bf3",
+        "gp_model.json": "bb71ecf3a431df176932be5a9f1a4120ddd0c6a24dae7116ac96cea4f7fe791f",
+        "materializations.json": "aa9eccc2bec85103c7f27e2457d2ac14bc4303eb0c2d31cf6f31d1cb53820880",
+        "negatives.json": "4fb410615a7f03e8bf182d64247df15c1c11060a254412afb7c814603171c48a",
+        "pointer_arguments.json": "fa7f1cfbd9ec6c254f0d967efb588bd7c9bb96ad4474136f3acb95223cecb1c7",
+        "seed_chain.json": "055540ba31dc692ed4627d259b5df9d34bec9f761ccf50c9bf950efa066dde7e",
+        "source_integrity.txt": "ca69d907fb3249cf9eeed7f5f90470f1cd9b1aa154159548a98a248e2cde92ac",
+        "static_data_model.json": "2626aea4e4b67d1ed6121ee4a27236765471b557307d07e132f74d2dc233f021"
+      },
+      "materialization_count": 283,
+      "section_count": 6,
+      "source_sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669"
+    },
+    "fixture": {
+      "entry": "0x00004650",
+      "path": ".openrecomp-phase3/build/P3-01/candidate-a/coremark_mips32_O1.elf",
+      "sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669",
+      "size": 31184
+    },
+    "gp_model": {
+      "base_accesses": 0,
+      "gp_value": "0x0000cdf0",
+      "sp_value": "0x00009620",
+      "status": "NOT_REQUIRED_BY_REACHABLE_CODE",
+      "writes": [
+        "0x00002dc8",
+        "0x00003108",
+        "0x00003558",
+        "0x00003564",
+        "0x00004650",
+        "0x00004654"
+      ]
+    },
+    "materializations": {
+      "count": 283,
+      "rows_sha256": "c1da14326f729f49994bd2114cfea2f779ecc57771d0c42d96704bb9a92f8e92",
+      "with_uses": 25
+    },
+    "negatives": {
+      "count": 9,
+      "failed": 0
+    },
+    "pointer_arguments": {
+      "count": 13,
+      "static_range_count": 5,
+      "static_range_values": [
+        "0x00004726",
+        "0x000047d4",
+        "0x000048d2",
+        "0x000049f4",
+        "0x00004ae0"
+      ]
+    },
+    "seed_chain": {
+      "function": "fn_33d0",
+      "pointers": [
+        "0x00005600",
+        "0x00005604",
+        "0x00004e10",
+        "0x00004e14",
+        "0x00005608"
+      ],
+      "table_address": "0x00004c50"
+    },
+    "source_integrity": {
+      "phase3_files": [
+        ".openrecomp-phase3/src/p3_code_frontier_v1.py",
+        ".openrecomp-phase3/src/p3_decode_mips32_v1.py",
+        ".openrecomp-phase3/src/p3_elf_image_v1.py",
+        ".openrecomp-phase3/src/p3_semantics_mips32_v1.py",
+        ".openrecomp-phase3/src/p3_static_data_v1.py",
+        ".openrecomp-phase3/src/p3_structure_v1.py",
+        ".openrecomp-phase3/src/p3_target_mips32_v1.py",
+        "tools/test_phase3_boundary_v1.py",
+        "tools/test_phase3_coremark_fixture_v1.py",
+        "tools/test_phase3_decode_frontier_v1.py",
+        "tools/test_phase3_elf_ingestion_v1.py",
+        "tools/test_phase3_reachable_semantics_v1.py",
+        "tools/test_phase3_static_data_v1.py",
+        "tools/test_phase3_structure_v1.py"
+      ],
+      "phase3_manifest_entries": 14,
+      "phase3_manifest_mismatched": [],
+      "phase3_manifest_sha256": "ab215e2cc36c62c5faa2120172233c91a80dac4f411976b3be24ebd5103d22f3",
+      "root_manifest_entries": 134,
+      "root_manifest_mismatched": [],
+      "root_manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"
+    },
+    "static_data_model": {
+      "data_sections": [
+        ".MIPS.abiflags",
+        ".reginfo",
+        ".rodata",
+        ".data",
+        ".bss"
+      ],
+      "gp_symbol": "0x0000cdf0",
+      "section_count": 6,
+      "seed_symbols": {
+        "seed1_volatile": "0x00005600",
+        "seed2_volatile": "0x00005604",
+        "seed3_volatile": "0x00004e10",
+        "seed4_volatile": "0x00004e14",
+        "seed5_volatile": "0x00005608"
+      }
+    }
+  },
+  "markers": {
+    "gate": "OPENRECOMP_PHASE3_STATIC_DATA_V1=PASS tests=123",
+    "stage": "OPENRECOMP_P3_06=PASS",
+    "terminal": "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
+  },
+  "passed": 123,
+  "stage": "P3-06",
+  "stage_name": "OPENRECOMP_PHASE3_STATIC_DATA_V1",
+  "status": "PASS",
+  "tests": 123
+}

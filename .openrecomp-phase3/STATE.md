@@ -4,8 +4,8 @@ PHASE=3
 BASELINE_TAG=openrecomp-phase2-pass
 BASELINE_COMMIT=01b1d7cba8c931fca95d041389cfb1902b7c89fe
 BASELINE_TREE=6513eefa5ef59b7d0e127f0179c6fc6c21fdac78
-CURRENT_STAGE=P3-06
-LAST_PASSED_STAGE=P3-05
+CURRENT_STAGE=P3-07
+LAST_PASSED_STAGE=P3-06
 STATUS=ACTIVE
 FINAL_VERDICT=NOT_PROVEN
 COREMARK_STATUS=NOT_PROVEN
@@ -79,8 +79,8 @@ QUEUE_FREEZE_STAGES=P3-05..P3-99
 | P3-03 | MIPS32 decode expansion | `PASS` | `.openrecomp-phase3/evidence/P3-03/` |
 | P3-04 | CoreMark reachable MIPS32 semantics | `PASS` | `.openrecomp-phase3/evidence/P3-04/` |
 | P3-05 | ProgramModel/CFG/functions/call graph/translation units | `PASS` | `.openrecomp-phase3/evidence/P3-05/` |
-| P3-06 | Static data/global reconstruction | `ACTIVE` | - |
-| P3-07 | Host emission for CoreMark semantics | `QUEUED` | - |
+| P3-06 | Static data/global reconstruction | `PASS` | `.openrecomp-phase3/evidence/P3-06/` |
+| P3-07 | Host emission for CoreMark semantics | `ACTIVE` | - |
 | P3-08 | Native build + generic runtime execution | `QUEUED` | - |
 | P3-09 | Independent MIPS32 reference + equivalence | `QUEUED` | - |
 | P3-10 | Reproducible package + whole regression | `QUEUED` | - |
@@ -493,6 +493,77 @@ targets are not resolved, true delay-slot execution semantics are not modelled,
 and no arbitrary MIPS32/PS1/PS2 compatibility is claimed.
 `COREMARK_STATUS=NOT_PROVEN`.
 
+## P3-06 result (PASS)
+
+Stage: `OPENRECOMP_PHASE3_STATIC_DATA_V1`. Evidence:
+`.openrecomp-phase3/evidence/P3-06/`. Gate:
+`tools/test_phase3_static_data_v1.py` (123 checks).
+
+Markers issued:
+
+- Stage marker: `OPENRECOMP_P3_06=PASS`
+- Gate marker: `OPENRECOMP_PHASE3_STATIC_DATA_V1=PASS tests=123`
+- Terminal marker (reserved): `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`
+
+Implementation (new Phase-3 files only; no shared layer, frozen adapter,
+Phase-1/Phase-2 file, gate or frozen manifest was modified):
+
+- `.openrecomp-phase3/src/p3_static_data_v1.py` — fail-closed static-data
+  model (sections, zero-fill, hashes, symbol-annotated layout) and a
+  block-local exact-constant global access analysis that records every
+  constant formation with provenance and classifies every reachable memory
+  access as `RESOLVED_STATIC`, `RESOLVED_OUTSIDE_IMAGE`,
+  `RESOLVED_REGION_UNCLASSIFIED`, `CROSS_SECTION_ACCESS` or `RUNTIME_BASE`.
+  Loads from read-only file-backed sections propagate exact image values;
+  stores into read-only static sections fail closed.
+- `tools/test_phase3_static_data_v1.py` — the P3-06 gate.
+- `.openrecomp-phase3/SOURCE_SHA256SUMS.txt` — grown additively from twelve
+  to fourteen entries; the P3-02/P3-03/P3-04/P3-05 gates now expect fourteen
+  entries (additive) and still emit byte-identical stdout.
+
+Static data model (fixture `16a0a0aa...`): `.rodata` `0x46b0`+1864,
+`.data` `0x4e00`+40, `.bss` `0x4e30`+18416 exact zero-fill, the two read-only
+metadata sections, every section hash cross-checked against the P3-02
+evidence. Seed symbol layout `seed1/2` `0x5600`/`0x5604`, `seed3/4`
+`0x4e10`/`0x4e14`, `seed5` `0x5608`; `static_memblk` `0x4e30`+2000;
+`p3_stack` `0x5620`+16384; `_gp = 0xcdf0`.
+
+Global access model: 283 provenance-recorded constant formations (25 with
+recorded uses). Of 505 reachable memory accesses, 10 are `RESOLVED_STATIC`
+(3 `.data` loads of `default_num_contexts`; `p3_tick`,
+`p3_start_time_val`, `p3_stop_time_val`, `p3_uart_byte_count` in `.bss` —
+5 loads and 2 stores), 2 are `RESOLVED_OUTSIDE_IMAGE` UART stores
+(`0x10000000`, `0x10000008`) and 493 are `RUNTIME_BASE` with no address
+claim. No resolved access targets a seed and no store resolves into a
+read-only section.
+
+GP/SP model: `_start` sets `$28 = _gp = 0xcdf0` and `$29 = 0x9620` (stack
+top) with provenance; no reachable instruction uses `$28` as a memory base
+and the register is reused as a general scratch register at four sites, so
+`GP_STATUS=NOT_REQUIRED_BY_REACHABLE_CODE`. Seed chain: the `.rodata` table
+base `0x4c50` materialised at `0x33e8`, the `sltiu`/`beq` guard bounding the
+index to five entries, the five statically known seed pointers and the
+two-level `get_seed_32` load shape; initial seed values `0, 0, 0x66, 0x3e8, 0`
+match the P3-04 fixture constants.
+
+Verification: 123 checks including exact P3-02/P3-04 cross-checks and 9
+fail-closed negatives. Determinism: two consecutive official runs
+byte-identical (4294 bytes raw, raw sha256 `23d2f1c2...`, LF sha256
+`c4a1d4ff...`, empty stderr, exit 0). Regressions all exit 0 with empty
+stderr and byte-identical stdout: P2-99 `PASS tests=202` (`66913e57...`),
+P3-00 `PASS tests=61` (`a039bbff...`), P3-01 `PASS tests=76`
+(`81eede03...`), P3-02 `PASS tests=197` (`f24f4cef...`), P3-03
+`PASS tests=201` (`15e20a2c...`), P3-04 `PASS tests=126` (`412544a4...`),
+P3-05 `PASS tests=202` (`12bf87d7...`), Phase-1 host gates
+`PASS=44 FAIL=0 SKIPPED=2` (`2a9d1bba...`), public safety `PASS`
+(`ad022ff1...`); root manifest verified (134 entries).
+
+Claim boundary: P3-06 proves only the static-data reconstruction and the
+reachable global access model of the audited image. CoreMark is not
+translated or executed, the 493 runtime-base accesses stay unresolved, no
+alias analysis is performed, and no arbitrary MIPS32/PS1/PS2 compatibility
+is claimed. `COREMARK_STATUS=NOT_PROVEN`.
+
 ## Claim boundary
 
 Phase 3 adds no Phase-2 claim. Phase 2 remains the proven bounded
@@ -503,10 +574,10 @@ independent evidence.
 
 ## Next exact action
 
-P3-05 is `PASS`. Advance to P3-06 (static data/global reconstruction, frozen
-queue row): model the audited `.rodata`/`.data`/`.bss` and the image's global
-memory explicitly against the P3-02 guest image and the P3-05 structure
-(absolute/GP-relative addressing evidence from the reachable instruction set),
-never guessing an unresolved address, and record evidence under
-`.openrecomp-phase3/evidence/P3-06/`. Do not begin host emission (P3-07) or
-runtime work (P3-08) in P3-06.
+P3-06 is `PASS`. Advance to P3-07 (host emission for CoreMark semantics,
+frozen queue row): emit deterministic host code for the proven subset from the
+P3-04 semantic overlay, the P3-05 structure and the P3-06 static-data model,
+with unsupported or external behaviour failing closed or explicitly
+runtime-mediated; never resolve an indirect target and never invent
+semantics. Record evidence under `.openrecomp-phase3/evidence/P3-07/`. Do not
+begin native build/runtime execution (P3-08) in P3-07.

@@ -1,0 +1,56 @@
+{
+  "function": "fn_33d0",
+  "guard": {
+    "bound": "1 <= index <= 5, exactly the five static table entries",
+    "branch": "0x000033d8",
+    "exit": "0x000033f8",
+    "form": "sltiu $1, (index-1), 5",
+    "site": "0x000033d4"
+  },
+  "load_shape": {
+    "semantics": "pointer = seed_ptrs[index-1]; value = *pointer",
+    "table_load": "0x000033f0",
+    "value_load": "0x000033f4"
+  },
+  "policy": "the finite target set is derived from the materialised table base, the guard immediate and the exact .rodata bytes; no runtime target is guessed and no indirect store is assumed absent",
+  "stage": "P3-06",
+  "table_address": "0x00004c50",
+  "table_entries": [
+    {
+      "index": 1,
+      "initial_value": "0x00000000",
+      "pointer": "0x00005600",
+      "slot": "0x00004c50",
+      "symbol": "seed1_volatile"
+    },
+    {
+      "index": 2,
+      "initial_value": "0x00000000",
+      "pointer": "0x00005604",
+      "slot": "0x00004c54",
+      "symbol": "seed2_volatile"
+    },
+    {
+      "index": 3,
+      "initial_value": "0x00000066",
+      "pointer": "0x00004e10",
+      "slot": "0x00004c58",
+      "symbol": "seed3_volatile"
+    },
+    {
+      "index": 4,
+      "initial_value": "0x000003e8",
+      "pointer": "0x00004e14",
+      "slot": "0x00004c5c",
+      "symbol": "seed4_volatile"
+    },
+    {
+      "index": 5,
+      "initial_value": "0x00000000",
+      "pointer": "0x00005608",
+      "slot": "0x00004c60",
+      "symbol": "seed5_volatile"
+    }
+  ],
+  "table_section": ".rodata"
+}

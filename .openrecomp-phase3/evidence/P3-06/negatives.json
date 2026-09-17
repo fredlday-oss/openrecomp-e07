@@ -1,0 +1,60 @@
+{
+  "cases": [
+    {
+      "actual_code": "UNMAPPED_STATIC_ADDRESS",
+      "expected_code": "UNMAPPED_STATIC_ADDRESS",
+      "fixture": "unmapped-read",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNMAPPED_STATIC_ADDRESS",
+      "expected_code": "UNMAPPED_STATIC_ADDRESS",
+      "fixture": "cross-section-read",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNMAPPED_STATIC_ADDRESS",
+      "expected_code": "UNMAPPED_STATIC_ADDRESS",
+      "fixture": "read-at-section-end",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNMAPPED_STATIC_ADDRESS",
+      "expected_code": "UNMAPPED_STATIC_ADDRESS",
+      "fixture": "read-crossing-data-end",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INVALID_SIZE",
+      "expected_code": "INVALID_SIZE",
+      "fixture": "negative-size",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNCLASSIFIED_OP",
+      "expected_code": "UNCLASSIFIED_OP",
+      "fixture": "unclassified-op",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "STORE_TO_READ_ONLY_STATIC",
+      "expected_code": "STORE_TO_READ_ONLY_STATIC",
+      "fixture": "store-to-read-only-static",
+      "status": "PASS"
+    },
+    {
+      "actual_code": null,
+      "expected_code": null,
+      "fixture": "synthetic-resolved-static-store",
+      "status": "PASS"
+    },
+    {
+      "actual_code": null,
+      "expected_code": null,
+      "fixture": "synthetic-outside-image",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "stage": "P3-06"
+}

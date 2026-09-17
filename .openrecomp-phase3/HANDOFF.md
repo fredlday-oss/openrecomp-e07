@@ -5,7 +5,8 @@ MIPS32 fixture acquisition/build) `PASS`; P3-02 (ELF ingestion + section/data
 image) `PASS`; P3-03 (MIPS32 decode expansion) `PASS`; P3-04 (CoreMark
 reachable MIPS32 semantics) `PASS`; P3-05
 (ProgramModel/CFG/functions/call graph/translation units on the real ELF)
-`PASS`; P3-06 (static data/global reconstruction) is `ACTIVE`. The remaining
+`PASS`; P3-06 (static data/global reconstruction) `PASS`; P3-07 (host emission
+for CoreMark semantics) is `ACTIVE`. The remaining
 Phase-3 queue (`P3-05` .. `P3-99`) was frozen at the
 P3-04 `PASS` boundary before any P3-05 implementation work; the frozen contract
 is `STAGE_QUEUE.md` `## Queue freeze` (no renumber/insert/merge/split/silent
@@ -18,6 +19,53 @@ and is documented). The Phase-2 terminal state is frozen at tag
 `OPENRECOMP_P2_99=PASS`,
 `OPENRECOMP_PHASE2_FINAL_VERDICT_V1=PASS tests=202` and
 `OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS`.
+
+## P3-06 outcome (PASS)
+
+Markers: `OPENRECOMP_P3_06=PASS`,
+`OPENRECOMP_PHASE3_STATIC_DATA_V1=PASS tests=123`; terminal marker reserved as
+`OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`.
+
+- New Phase-3 files only; no shared layer, frozen adapter, Phase-1/Phase-2
+  file, gate or frozen manifest was modified.
+- `.openrecomp-phase3/src/p3_static_data_v1.py`: fail-closed static-data model
+  (`.rodata` `0x46b0`+1864, `.data` `0x4e00`+40, `.bss` `0x4e30`+18416 exact
+  zero-fill, the two read-only metadata sections) plus block-local
+  exact-constant global analysis recording provenance for every formation and
+  classifying every access (`RESOLVED_STATIC`, `RESOLVED_OUTSIDE_IMAGE`,
+  `RESOLVED_REGION_UNCLASSIFIED`, `CROSS_SECTION_ACCESS`, `RUNTIME_BASE`);
+  read-only loads propagate exact values and read-only stores fail closed.
+- `tools/test_phase3_static_data_v1.py`: the P3-06 gate (123 checks).
+- `.openrecomp-phase3/SOURCE_SHA256SUMS.txt`: grown additively to fourteen
+  entries; P3-02/P3-03/P3-04/P3-05 expected 14 entries additively and their
+  stdout is unchanged.
+- Access model: 283 provenance-recorded constant formations (25 with uses);
+  505 accesses = 10 `RESOLVED_STATIC` (3 `.data` loads of
+  `default_num_contexts`; 5 `.bss` loads and 2 `.bss` stores of the p3 timer /
+  UART counters), 2 `RESOLVED_OUTSIDE_IMAGE` UART stores (`0x10000000`,
+  `0x10000008`), 493 `RUNTIME_BASE` with no address claim. No resolved access
+  targets a seed global and no store resolves into a read-only section.
+- GP/SP: `_start` sets `$28 = _gp = 0xcdf0` and `$29 = 0x9620` (stack top)
+  with immediate-chain provenance; zero reachable `$28` memory bases; `$28` is
+  reused as a scratch register at `0x2dc8`, `0x3108`, `0x3558`, `0x3564`;
+  `GP_STATUS=NOT_REQUIRED_BY_REACHABLE_CODE`.
+- Seed chain: `.rodata` table `0x4c50` materialised at `0x33e8`, index bounded
+  to five entries by `sltiu`/`beq` at `0x33d4`/`0x33d8`, five seed pointers
+  `0x5600/0x5604/0x4e10/0x4e14/0x5608`, two-level `get_seed_32` load shape,
+  initial values `0, 0, 0x66, 0x3e8, 0` matching the P3-04 fixture constants.
+- Determinism: two consecutive official runs byte-identical (4294 bytes raw,
+  raw sha256
+  `23d2f1c25ccf6d7e25b6f3ea7d86a0b6e9cd378a56c65f98ae053aa69b8f1c97`, LF
+  sha256 `c4a1d4ff9a0b4fc96266188c0e0422837274b2d5218d8239278c4d0c9e5521ad`,
+  empty stderr, exit 0).
+- Regressions re-run and unchanged: P2-99 `PASS tests=202` (`66913e57...`),
+  P3-00 `PASS tests=61` (`a039bbff...`), P3-01 `PASS tests=76`
+  (`81eede03...`), P3-02 `PASS tests=197` (`f24f4cef...`), P3-03
+  `PASS tests=201` (`15e20a2c...`), P3-04 `PASS tests=126` (`412544a4...`),
+  P3-05 `PASS tests=202` (`12bf87d7...`), Phase-1 host gates
+  `PASS=44 FAIL=0 SKIPPED=2` (`2a9d1bba...`), public safety `PASS`
+  (`ad022ff1...`). Evidence under `.openrecomp-phase3/evidence/P3-06/`.
+- CoreMark remains `NOT_PROVEN`; nothing is translated or executed.
 
 ## P3-05 outcome (PASS)
 
@@ -398,25 +446,24 @@ implementation work began.
 
 ## Exact next action
 
-Execute P3-06 (static data/global reconstruction, frozen queue row):
+Execute P3-07 (host emission for CoreMark semantics, frozen queue row):
 
-1. Consume the P3-02 guest image
-   (`.openrecomp-phase3/evidence/P3-02/load_image_map.json`,
-   `region_hashes.json`) and the P3-05 structure
-   (`.openrecomp-phase3/evidence/P3-05/neutral_instructions.json`,
-   `cfg_structure.json`): `.rodata` is `0x4680` + 1912, `.data` is `0x4e00`
-   filesz 40, `.bss` is `0x4e30` + 18416 zero-fill (the `.data` segment is
-   filesz 40 / memsz 18464).
-2. Reconstruct the static data/global image explicitly and verifiably: exact
-   section bytes, initialized data, zero-fill, and the reachable absolute /
-   GP-relative global access evidence from the audited instruction set (no
-   guessed address, no invented pointer).
-3. Carry PROVEN vs CANDIDATE classification forward and keep the unresolved
-   frontier explicit.
-4. Record evidence under `.openrecomp-phase3/evidence/P3-06/`, update
+1. Consume the P3-04 semantic overlay
+   (`.openrecomp-phase3/evidence/P3-04/semantic_implementations.json`,
+   `reachable_unsupported_after.json`), the P3-05 structure
+   (`.openrecomp-phase3/evidence/P3-05/`), and the P3-06 static-data model
+   (`.openrecomp-phase3/evidence/P3-06/`).
+2. Emit deterministic host code for the proven subset through the existing
+   Phase-2 host-emission layers/contracts; unsupported or external behaviour
+   must fail closed or be explicitly runtime-mediated (the two UART MMIO
+   stores are outside the guest image and the three `jr $at` jump tables stay
+   unresolved: neither may be invented).
+3. Carry PROVEN vs CANDIDATE classification forward; transport the static data
+   image and the resolved global accesses exactly.
+4. Record evidence under `.openrecomp-phase3/evidence/P3-07/`, update
    `.openrecomp-phase3/SOURCE_SHA256SUMS.txt` for any new Phase-3 source/gate
-   file, and update the control plane. Do not begin host emission (P3-07) or
-   runtime work (P3-08) in P3-06.
+   file, and update the control plane. Do not begin native build/runtime
+   execution (P3-08) in P3-07.
 
 ## Constraints
 
