@@ -4,8 +4,8 @@ PHASE=4
 BASELINE_TAG=openrecomp-phase3-pass
 BASELINE_COMMIT=e16e4b29b90f379615f1af97e47747cd1d531796
 BASELINE_TREE=a940f0d84a32adaf191f7ff2bebfb24cc855cde0
-CURRENT_STAGE=P4-02
-LAST_PASSED_STAGE=P4-01
+CURRENT_STAGE=P4-03
+LAST_PASSED_STAGE=P4-02
 STATUS=ACTIVE
 GENERIC_RUNTIME_STATUS=NOT_PROVEN
 FINAL_VERDICT=NOT_PROVEN
@@ -72,7 +72,7 @@ QUEUE_FREEZE_STAGES=P4-01..P4-99
 | --- | --- | --- | --- |
 | P4-00 | Phase-4 boundary | PASS | `.openrecomp-phase4/evidence/P4-00/` |
 | P4-01 | Generic Runtime ABI V1 | PASS | `.openrecomp-phase4/evidence/P4-01/` |
-| P4-02 | Guest memory/runtime model | QUEUED | `.openrecomp-phase4/evidence/P4-02/` |
+| P4-02 | Guest memory/runtime model | PASS | `.openrecomp-phase4/evidence/P4-02/` |
 | P4-03 | Runtime service mediation | QUEUED | `.openrecomp-phase4/evidence/P4-03/` |
 | P4-04 | Deterministic I/O, timing and input | QUEUED | `.openrecomp-phase4/evidence/P4-04/` |
 | P4-05 | Platform Adapter Interface V1 | QUEUED | `.openrecomp-phase4/evidence/P4-05/` |
@@ -102,6 +102,47 @@ QUEUE_FREEZE_STAGES=P4-01..P4-99
    terminal/general compatibility markers stay reserved as `NOT_PROVEN`.
 6. The working tree has no unexpected untracked paths beyond the documented
    Phase-2/Phase-3 sets and the Phase-4 control plane itself.
+
+## P4-02 result (PASS)
+
+Stage: \OPENRECOMP_PHASE4_GUEST_MEMORY_V1\. Evidence:
+\.openrecomp-phase4/evidence/P4-02/\. Gate:
+\	ools/test_phase4_guest_memory_v1.py\ (113 checks, sha256 \c015734...\).
+
+Markers issued:
+
+- Stage marker: \OPENRECOMP_P4_02=PASS- Gate marker: \OPENRECOMP_PHASE4_GUEST_MEMORY_V1=PASS tests=113- Terminal marker (reserved): \OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN- General compatibility marker (never promoted):
+  \OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN
+Delivered (additive Phase-4 files only; no frozen file modified):
+
+- \.openrecomp-phase4/src/p4_guest_memory_v1.py\: explicit guest memory model
+  with region kinds (code/rodata/data/bss/stack/heap), declared permissions,
+  non-overlap/bounds/W^X validation, widths 8/16/32/64, explicit
+  endianness, alignment policies (\llow\, equire-natural\),
+  deterministic fail-closed fault kinds mapped totally to the P2-08/P4-01
+  ABI failure codes, canonical state document/fingerprint, an
+  \AbiMemoryService\ adapter and the pinned frozen Phase-3 instance adapter.
+- \	ools/test_phase4_guest_memory_v1.py\; Phase-4 manifest grown additively
+  to eight entries.
+
+Verified: the frozen \g_image\ window (sha256 eecfc95...\, 65536 bytes)
+and emitted four-region table parse exactly; the permissioned model regions
+merge to exactly the emitted coverage; entry word, text/rodata/data reads,
+BSS zero-fill, guest stack window inside BSS, and fail-closed writes to
+headers/text/rodata are proven; widths/endianness/alignment/bounds/permission
+faults are deterministic; fault-to-ABI-code mapping is total; differential
+agreement with t.RuntimeMemory\ holds for allowed flat accesses. Two
+official runs byte-identical (3855 bytes raw cfc58f1...\, empty stderr,
+exit 0) with \p4_02_tests.json\ identical across runs (?f49e22...\).
+
+Regressions: P2-08 \PASS tests=169\, P4-01 \PASS tests=156(\81c96314...\), Phase-1 host gates \PASS=44 FAIL=0 SKIPPED=2\, public
+safety \PASS\, P4-00 \PASS tests=74\ (\953312d0...\) with the documented
+boundary-context hygiene.
+
+Limitations: the model is not yet the execution backing store of the runtime
+(P4-08/P4-09 scope); permission/alignment faults map to
+\MEMORY_OUT_OF_RANGE\ at the ABI boundary while the precise fault kind is
+preserved in model evidence; \GENERIC_RUNTIME_STATUS=NOT_PROVEN\.
 
 ## P4-01 result (PASS)
 

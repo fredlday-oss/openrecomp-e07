@@ -1,0 +1,562 @@
+{
+  "checks": [
+    {
+      "check": "abi:differential-flat-memory",
+      "status": "PASS"
+    },
+    {
+      "check": "abi:fault-map-codes-p2-08",
+      "status": "PASS"
+    },
+    {
+      "check": "abi:fault-map-codes-valid",
+      "status": "PASS"
+    },
+    {
+      "check": "abi:fault-map-total",
+      "status": "PASS"
+    },
+    {
+      "check": "abi:fetch-code",
+      "status": "PASS"
+    },
+    {
+      "check": "abi:fetch-non-code",
+      "status": "PASS"
+    },
+    {
+      "check": "abi:read-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "abi:read-permission",
+      "status": "PASS"
+    },
+    {
+      "check": "abi:read-unmapped",
+      "status": "PASS"
+    },
+    {
+      "check": "abi:read-width-64-rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "abi:write-code",
+      "status": "PASS"
+    },
+    {
+      "check": "abi:write-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "access:big-endian-override",
+      "status": "PASS"
+    },
+    {
+      "check": "access:bss-starts-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "access:bytes-roundtrip",
+      "status": "PASS"
+    },
+    {
+      "check": "access:bytes-zero-length",
+      "status": "PASS"
+    },
+    {
+      "check": "access:data-big-endian",
+      "status": "PASS"
+    },
+    {
+      "check": "access:data-little-endian",
+      "status": "PASS"
+    },
+    {
+      "check": "access:fetch-code",
+      "status": "PASS"
+    },
+    {
+      "check": "access:fetch-default-width",
+      "status": "PASS"
+    },
+    {
+      "check": "access:read-16",
+      "status": "PASS"
+    },
+    {
+      "check": "access:read-32",
+      "status": "PASS"
+    },
+    {
+      "check": "access:read-64",
+      "status": "PASS"
+    },
+    {
+      "check": "access:read-8",
+      "status": "PASS"
+    },
+    {
+      "check": "access:read-after-write",
+      "status": "PASS"
+    },
+    {
+      "check": "access:unaligned-allowed",
+      "status": "PASS"
+    },
+    {
+      "check": "access:write-bss",
+      "status": "PASS"
+    },
+    {
+      "check": "access:write-heap",
+      "status": "PASS"
+    },
+    {
+      "check": "access:write-mask",
+      "status": "PASS"
+    },
+    {
+      "check": "access:write-stack",
+      "status": "PASS"
+    },
+    {
+      "check": "align:byte-never-faults",
+      "status": "PASS"
+    },
+    {
+      "check": "align:fault",
+      "status": "PASS"
+    },
+    {
+      "check": "align:fault-32",
+      "status": "PASS"
+    },
+    {
+      "check": "align:natural-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "align:write-fault",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:address-beyond-space",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:address-overflow",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:bad-endianness",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:bad-width",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:bad-width-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:bool-address",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:cross-region-end",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:fetch-rodata",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:gap-between-regions",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:negative-address",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:read-blind",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:unmapped",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:unmapped-write",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:write-blind",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:write-code",
+      "status": "PASS"
+    },
+    {
+      "check": "fault:write-rodata",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:abi-entry-fetch",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:abi-width-64-rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:abi-write-text-rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:bss-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:bss-zero-at-end",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:data-readable",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:deterministic-document",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:deterministic-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:emitted-regions",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:entry-word",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:gap-before-rodata-unmapped",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:guest-stack-in-bss",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:image-elf-magic",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:image-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:image-window",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:model-coverage-equals-emitted",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:model-endianness",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:model-image-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:model-regions",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:outside-image-unmapped",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:program-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:rodata-readable",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:text-readable",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:write-data-allowed",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:write-headers-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:write-rodata-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:write-text-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "model-adjacent-regions-allowed",
+      "status": "PASS"
+    },
+    {
+      "check": "region:bss-permissions",
+      "status": "PASS"
+    },
+    {
+      "check": "region:code-permissions",
+      "status": "PASS"
+    },
+    {
+      "check": "region:data-permissions",
+      "status": "PASS"
+    },
+    {
+      "check": "region:kind-value",
+      "status": "PASS"
+    },
+    {
+      "check": "region:rodata-permissions",
+      "status": "PASS"
+    },
+    {
+      "check": "region:stack-heap-permissions",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:abi-bad-width-subset",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:abi-unknown-failure-code",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:model-bad-alignment",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:model-bad-endianness",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:model-duplicate-name",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:model-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:model-overlap",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:region-address-wrap",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:region-bss-file-data",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:region-code-not-executable",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:region-file-data-too-large",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:region-stack-file-data",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:region-w-x",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:region-zero-size",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase4-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "state:document-no-host-path",
+      "status": "PASS"
+    },
+    {
+      "check": "state:document-regions",
+      "status": "PASS"
+    },
+    {
+      "check": "state:document-roundtrip",
+      "status": "PASS"
+    },
+    {
+      "check": "state:fingerprint-sensitive",
+      "status": "PASS"
+    },
+    {
+      "check": "state:fingerprint-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "state:region-at",
+      "status": "PASS"
+    },
+    {
+      "check": "state:snapshot-copy",
+      "status": "PASS"
+    },
+    {
+      "check": "state:snapshot-deterministic",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "abi_integration": {
+      "mapping": {
+        "ALIGNMENT": "MEMORY_OUT_OF_RANGE",
+        "ENDIANNESS": "MEMORY_ENDIANNESS_UNSUPPORTED",
+        "OVERFLOW": "MEMORY_ADDRESS_OVERFLOW",
+        "PERMISSION": "MEMORY_OUT_OF_RANGE",
+        "UNMAPPED": "MEMORY_OUT_OF_RANGE",
+        "WIDTH": "MEMORY_WIDTH_UNSUPPORTED"
+      }
+    },
+    "access_semantics": {
+      "fingerprint": "1f40069f2269746a4bcfb4d7b1ea8fcd18b9c7bc9558a4490c4e2f1c8891b5a8",
+      "regions": 7
+    },
+    "frozen_instance": {
+      "emitted_regions": [
+        [
+          0,
+          308,
+          1
+        ],
+        [
+          4096,
+          18044,
+          1
+        ],
+        [
+          18048,
+          19960,
+          1
+        ],
+        [
+          19968,
+          38432,
+          3
+        ]
+      ],
+      "fingerprint": "392cb36e2be335a45b88a44374a0e8e79bf510d320558910600511e9b3eee9e4",
+      "image_sha256": "3eecfc957c4ed147544d2aa98c6e4f4d7aac41957e531cdfe01c2555ff0a91ae",
+      "model_regions": [
+        [
+          "elf_image_headers",
+          0,
+          308,
+          "rodata"
+        ],
+        [
+          "text",
+          4096,
+          18044,
+          "code"
+        ],
+        [
+          "rodata",
+          18048,
+          19960,
+          "rodata"
+        ],
+        [
+          "data",
+          19968,
+          20008,
+          "data"
+        ],
+        [
+          "bss_zero_fill",
+          20008,
+          38432,
+          "bss"
+        ]
+      ]
+    },
+    "region_structure": {
+      "alignment_policies": [
+        "allow",
+        "require-natural"
+      ],
+      "kinds": [
+        "code",
+        "rodata",
+        "data",
+        "bss",
+        "stack",
+        "heap"
+      ]
+    },
+    "source_integrity": {
+      "phase3_entries": 24,
+      "phase4_entries": 8,
+      "root_entries": 134
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE4_GUEST_MEMORY_V1=PASS tests=113",
+    "stage": "OPENRECOMP_P4_02=PASS",
+    "terminal": "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN"
+  },
+  "passed": 113,
+  "stage": "P4-02",
+  "stage_name": "OPENRECOMP_PHASE4_GUEST_MEMORY_V1",
+  "status": "PASS",
+  "tests": 113
+}
