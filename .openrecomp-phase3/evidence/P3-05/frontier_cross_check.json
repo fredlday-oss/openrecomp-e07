@@ -1,0 +1,39 @@
+{
+  "recomputed": {
+    "boundary": {
+      "site": "0x00004674",
+      "successor": "0x0000467c",
+      "word": "0x1000ffff"
+    },
+    "control_flow_site_counts": {
+      "conditional-branches": 198,
+      "direct-calls": 96,
+      "indirect-calls": 0,
+      "indirect-jumps": 3,
+      "jumps": 70,
+      "returns": 24,
+      "unsupported-control-transfers": 0
+    },
+    "dead_jalr": "0x00001958",
+    "delay_slot_count": 391,
+    "exception_site_count": 6,
+    "indirect_sites": [
+      "0x00003130",
+      "0x00003830",
+      "0x000039a0"
+    ],
+    "reachability_sha256": "c62d54838cbc5fcc7b0ff83cdc9b2f0f47b8851c5e4023ae2ca6d629c8f76edf",
+    "unresolved_site_counts": {
+      "indirect-jump": 3,
+      "successor-outside-image": 1
+    }
+  },
+  "recorded": {
+    "control_frontier_sha256": "2e4f1fd1bf1cdeb25e73890267360783817d8215b066cd5dcff39e6988fedf36",
+    "inventory_sha256": "dc83fb0595db5710379e5091f31a3cb457d3eb74703df3bfb51643aab32741f5",
+    "padding_note_sha256": "54f88cddd1351cbf2ca20c38dec72bac97f507862ebc94cc1097026a26fc48d8",
+    "reachable_map_sha256": "abf032e267e36677aa81ad09715367f9f6bcb172ad5477956b614aa44b37c831"
+  },
+  "result": "RECORDED_EVIDENCE_REPRODUCED_EXACTLY",
+  "stage": "P3-05"
+}

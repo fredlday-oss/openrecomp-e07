@@ -1,0 +1,37 @@
+{
+  "stage": "P3-03",
+  "source_sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669",
+  "rows_sha256": "27a5db07879c7a224c843a51021217f7dbc39e68212b1ed75f5c50c24ff9fcc9",
+  "official_runs": {
+    "run1": {
+      "stdout_bytes": 7910,
+      "stdout_sha256": "15e20a2c9a6e4eba629e67ceb14b70db8bf367c9ffe1d69473be57e7a8091878",
+      "stderr_bytes": 0
+    },
+    "run2": {
+      "stdout_bytes": 7910,
+      "stdout_sha256": "15e20a2c9a6e4eba629e67ceb14b70db8bf367c9ffe1d69473be57e7a8091878",
+      "stderr_bytes": 0
+    },
+    "byte_identical": true,
+    "exit_codes": [0, 0]
+  },
+  "isolated_evidence_run": {
+    "evidence_dir": "isolated temporary directory",
+    "artifact_files_compared": 9,
+    "artifact_mismatches": [],
+    "stdout_matches_official": true,
+    "stderr_bytes": 0
+  },
+  "artifact_sha256": {
+    "RESULT.json": "91acf927771df97a9e722ca7743ae1f514fe2a03eca2d7e66c9100774ee0614b",
+    "control_flow_frontier.json": "2e4f1fd1bf1cdeb25e73890267360783817d8215b066cd5dcff39e6988fedf36",
+    "determinism.json": "02c8b69318c263d0a64d63ab096c079fc8db89afed572f345dec9553b7fea38e",
+    "instruction_inventory.json": "dc83fb0595db5710379e5091f31a3cb457d3eb74703df3bfb51643aab32741f5",
+    "invalid_padding_analysis.json": "5b900bc2a89b29fb82c0d5e4d2b45f5be46988734052db1b30389eebb409d26b",
+    "negative_results.json": "ea1d738559987c77322788c394602338f965b70275896356df0fbc3870c8d02a",
+    "reachable_code_map.json": "abf032e267e36677aa81ad09715367f9f6bcb172ad5477956b614aa44b37c831",
+    "source_integrity.txt": "0475131c0eae3dfb84f59db2e65f78d258bd7e3e7b32fb6c43e9f3882ffe8684",
+    "unsupported_frontier.json": "f5e3ff1fabf8a4f075c3fe97f274ea11089af799a6340b85d0bebb3e7025be79"
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "cases": [
+    {
+      "actual_code": "INVALID_RECORD_ADDRESS",
+      "expected_code": "INVALID_RECORD_ADDRESS",
+      "fixture": "misaligned-record-address",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "REACHABLE_INVALID_ENCODING",
+      "expected_code": "REACHABLE_INVALID_ENCODING",
+      "fixture": "reachable-reserved-encoding",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INCONSISTENT_TERMINATOR",
+      "expected_code": "INCONSISTENT_TERMINATOR",
+      "fixture": "non-control-with-terminator",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INCONSISTENT_TARGET",
+      "expected_code": "INCONSISTENT_TARGET",
+      "fixture": "non-control-with-target",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INCONSISTENT_DELAY_SLOT",
+      "expected_code": "INCONSISTENT_DELAY_SLOT",
+      "fixture": "non-control-with-delay-slot",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNKNOWN_EXCEPTION_TRANSFER",
+      "expected_code": "UNKNOWN_EXCEPTION_TRANSFER",
+      "fixture": "unknown-exception-transfer",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "MISSING_BRANCH_TARGET",
+      "expected_code": "MISSING_BRANCH_TARGET",
+      "fixture": "branch-without-target",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "MISSING_JUMP_TARGET",
+      "expected_code": "MISSING_JUMP_TARGET",
+      "fixture": "jump-without-target",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "MISSING_CALL_TARGET",
+      "expected_code": "MISSING_CALL_TARGET",
+      "fixture": "call-without-target",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "MISSING_DELAY_SLOT",
+      "expected_code": "MISSING_DELAY_SLOT",
+      "fixture": "jump-without-delay-slot",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "RETURN_WITH_TARGET",
+      "expected_code": "RETURN_WITH_TARGET",
+      "fixture": "return-with-target",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INDIRECT_JUMP_WITH_TARGET",
+      "expected_code": "INDIRECT_JUMP_WITH_TARGET",
+      "fixture": "indirect-jump-with-target",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INDIRECT_CALL_WITH_TARGET",
+      "expected_code": "INDIRECT_CALL_WITH_TARGET",
+      "fixture": "indirect-call-with-target",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNSUPPORTED_CONTROL_TRANSFER",
+      "expected_code": "UNSUPPORTED_CONTROL_TRANSFER",
+      "fixture": "unsupported-control-transfer",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INCONSISTENT_TRAP",
+      "expected_code": "INCONSISTENT_TRAP",
+      "fixture": "external-trap-with-target",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNKNOWN_TERMINATOR",
+      "expected_code": "UNKNOWN_TERMINATOR",
+      "fixture": "unknown-terminator",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "MISSING_OPERANDS",
+      "expected_code": "MISSING_OPERANDS",
+      "fixture": "missing-operands",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "DUPLICATE_RECORD",
+      "expected_code": "DUPLICATE_RECORD",
+      "fixture": "duplicate-record",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INCONSISTENT_REGION",
+      "expected_code": "INCONSISTENT_REGION",
+      "fixture": "inconsistent-region-missing-word",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INVALID_REGION",
+      "expected_code": "INVALID_REGION",
+      "fixture": "inconsistent-region-unaligned",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "ENTRY_OUTSIDE_REGION",
+      "expected_code": "ENTRY_OUTSIDE_REGION",
+      "fixture": "entry-outside-region",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "ENTRY_OUTSIDE_REGION",
+      "expected_code": "ENTRY_OUTSIDE_REGION",
+      "fixture": "entry-above-declared-region",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INVALID_REACHABLE_ADDRESS",
+      "expected_code": "INVALID_REACHABLE_ADDRESS",
+      "fixture": "invalid-reachable-address",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INVALID_SOURCE",
+      "expected_code": "INVALID_SOURCE",
+      "fixture": "invalid-source",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INVALID_ENTRY",
+      "expected_code": "INVALID_ENTRY",
+      "fixture": "invalid-entry",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INVALID_ANALYSIS",
+      "expected_code": "INVALID_ANALYSIS",
+      "fixture": "invalid-analysis",
+      "status": "PASS"
+    },
+    {
+      "actual_code": null,
+      "expected_code": null,
+      "fixture": "synthetic-positive-mini-program",
+      "status": "PASS"
+    },
+    {
+      "actual_code": null,
+      "expected_code": null,
+      "fixture": "synthetic-branch-target-continuation",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "stage": "P3-05"
+}

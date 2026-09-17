@@ -4,8 +4,8 @@ PHASE=3
 BASELINE_TAG=openrecomp-phase2-pass
 BASELINE_COMMIT=01b1d7cba8c931fca95d041389cfb1902b7c89fe
 BASELINE_TREE=6513eefa5ef59b7d0e127f0179c6fc6c21fdac78
-CURRENT_STAGE=P3-05
-LAST_PASSED_STAGE=P3-04
+CURRENT_STAGE=P3-06
+LAST_PASSED_STAGE=P3-05
 STATUS=ACTIVE
 FINAL_VERDICT=NOT_PROVEN
 COREMARK_STATUS=NOT_PROVEN
@@ -78,8 +78,8 @@ QUEUE_FREEZE_STAGES=P3-05..P3-99
 | P3-02 | ELF ingestion + section/data image | `PASS` | `.openrecomp-phase3/evidence/P3-02/` |
 | P3-03 | MIPS32 decode expansion | `PASS` | `.openrecomp-phase3/evidence/P3-03/` |
 | P3-04 | CoreMark reachable MIPS32 semantics | `PASS` | `.openrecomp-phase3/evidence/P3-04/` |
-| P3-05 | ProgramModel/CFG/functions/call graph/translation units | `ACTIVE` | - |
-| P3-06 | Static data/global reconstruction | `QUEUED` | - |
+| P3-05 | ProgramModel/CFG/functions/call graph/translation units | `PASS` | `.openrecomp-phase3/evidence/P3-05/` |
+| P3-06 | Static data/global reconstruction | `ACTIVE` | - |
 | P3-07 | Host emission for CoreMark semantics | `QUEUED` | - |
 | P3-08 | Native build + generic runtime execution | `QUEUED` | - |
 | P3-09 | Independent MIPS32 reference + equivalence | `QUEUED` | - |
@@ -418,6 +418,81 @@ path. CoreMark is not translated or executed, the unresolved jump tables are
 not recovered, and no arbitrary MIPS32/PS1/PS2 compatibility is claimed.
 `COREMARK_STATUS=NOT_PROVEN`.
 
+## P3-05 result (PASS)
+
+Stage: `OPENRECOMP_PHASE3_PROGRAM_STRUCTURE_V1`. Evidence:
+`.openrecomp-phase3/evidence/P3-05/`. Gate:
+`tools/test_phase3_structure_v1.py` (202 checks).
+
+Markers issued:
+
+- Stage marker: `OPENRECOMP_P3_05=PASS`
+- Gate marker: `OPENRECOMP_PHASE3_PROGRAM_STRUCTURE_V1=PASS tests=202`
+- Terminal marker (reserved): `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`
+
+Implementation (new Phase-3 files only; no shared layer, frozen adapter,
+Phase-1/Phase-2 file, gate or frozen manifest was modified):
+
+- `.openrecomp-phase3/src/p3_structure_v1.py` — fail-closed bridge from the
+  frozen P3-03 frontier records to the shared Phase-2 neutral types. Only
+  `REACHABLE` words become `DecodedInstruction`s; flow is a pure function of
+  the frozen record (`movz`/`divu`/`teq` etc. stay NORMAL continuations,
+  `jr $ra` is RETURN, the three `jr $at` sites are unresolved INDIRECT_JUMP
+  with no target, `syscall`/`break` would be TRAP); inconsistent records,
+  unknown terminators, unsupported control transfers, invalid encodings and
+  malformed regions fail closed with stable codes.
+- `tools/test_phase3_structure_v1.py` — the P3-05 gate (202 checks).
+- `.openrecomp-phase3/SOURCE_SHA256SUMS.txt` — grown additively from ten to
+  twelve entries (new bridge module and gate registered).
+- Documented contract growth: the P3-02/P3-03/P3-04 gates now expect the
+  twelve-entry registry (10 -> 12, additive); all entries verified and stdout
+  byte-identical to their recorded captures.
+
+Structure on the real ELF (fixture `16a0a0aa...`, `.text` 3487 words, entry
+`0x4650`): the P3-03 frontier reproduced exactly (2178 reachable, 1309
+unreachable, 391 delay slots, reachability hash `c62d5483...`). Neutral
+instructions 2178 (NORMAL 1787, BRANCH 198, CALL 96, JUMP 70, RETURN 24,
+INDIRECT_JUMP 3); CFG 615 blocks / 770 edges (198 BRANCH_TAKEN, 198
+BRANCH_NOT_TAKEN, 96 CALL_RETURN, 205 FALLTHROUGH, 70 JUMP, 3 unresolved
+INDIRECT); 26 PROVEN functions; 96-edge all-internal direct call graph; 26
+translation units with entry unit `tu_fn_4650`. The three reachable `jr $at`
+sites stay unresolved with no invented target; the dead `jalr` at `0x1958`
+and the eight padding words stay outside the structural model. Fingerprints:
+program model `8ed487c0...`, CFG `c9029a0d...`, call graph `9462f40c...`,
+unit set `44c8b895...`, discovery `cf307c18...`.
+
+Delay-slot policy: the shared layers have no MIPS32 delay-slot concept, so
+delay slots are ordinary NORMAL instructions with their relationship recorded
+separately in `cfg_structure.json`; call delay slots are the `CALL_RETURN`
+continuation, branch delay slots are the `BRANCH_NOT_TAKEN` successor, and the
+97 jump/return/indirect-jump delay slots are explicit orphan blocks never
+attributed to a function and never given an invented predecessor. The
+`ProgramModel` therefore covers the 2081 owned instructions while the CFG
+covers all 2178; this is recorded as a limitation, not an execution claim.
+
+`PROVEN` basis: exact decode plus reachability from the proven ELF entry
+through resolved direct edges (the shared model's structural classification,
+not a runtime or semantics claim).
+
+Verification: 202 checks including exact P3-03/P3-04 cross-checks, CFG edge
+targets equal to decoded targets, round-trips of all four shared containers
+byte-identical, and 27 fail-closed negative/synthetic panels. Determinism: two
+consecutive official runs byte-identical (7819 bytes, raw sha256
+`12bf87d7...`, LF sha256 `f8948ea8...`, empty stderr, exit 0). Regressions all
+exit 0 with empty stderr and byte-identical stdout: P2-99 `PASS tests=202`
+(`66913e57...`), P3-00 `PASS tests=61` (`a039bbff...`), P3-01 `PASS tests=76`
+(`81eede03...`), P3-02 `PASS tests=197` (`f24f4cef...`), P3-03 `PASS tests=201`
+(`15e20a2c...`), P3-04 `PASS tests=126` (`412544a4...`), Phase-1 host gates
+`PASS=44 FAIL=0 SKIPPED=2` (`2a9d1bba...`), public safety `PASS`
+(`ad022ff1...`); root manifest verified (134 entries).
+
+Claim boundary: P3-05 proves only that the frozen Phase-2 structural layers run
+deterministically on the audited CoreMark reachable frontier and recover the
+direct structure exactly. CoreMark is not translated or executed, indirect
+targets are not resolved, true delay-slot execution semantics are not modelled,
+and no arbitrary MIPS32/PS1/PS2 compatibility is claimed.
+`COREMARK_STATUS=NOT_PROVEN`.
+
 ## Claim boundary
 
 Phase 3 adds no Phase-2 claim. Phase 2 remains the proven bounded
@@ -428,10 +503,10 @@ independent evidence.
 
 ## Next exact action
 
-P3-04 is `PASS`. Advance to P3-05 (ProgramModel/CFG/functions/call
-graph/translation units on the real ELF, the reconciled queue row): exercise
-the shared Phase-2 layers against the P3-03/P3-04 frontier without changing
-shared-layer neutrality, carry the exact semantic and indirect-control-flow
-frontier forward (never guess indirect targets), and record evidence under
-`.openrecomp-phase3/evidence/P3-05/`. Do not begin host emission (P3-07) or
-runtime work (P3-08) in P3-05.
+P3-05 is `PASS`. Advance to P3-06 (static data/global reconstruction, frozen
+queue row): model the audited `.rodata`/`.data`/`.bss` and the image's global
+memory explicitly against the P3-02 guest image and the P3-05 structure
+(absolute/GP-relative addressing evidence from the reachable instruction set),
+never guessing an unresolved address, and record evidence under
+`.openrecomp-phase3/evidence/P3-06/`. Do not begin host emission (P3-07) or
+runtime work (P3-08) in P3-06.

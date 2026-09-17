@@ -1,0 +1,208 @@
+{
+  "image": {
+    "entry": "0x00004650",
+    "hashes": {
+      "bss_description_sha256": "a2b9b978010bdde3458be6ee18213a4cd80fdee286a53c3dd7bc050deae67d45",
+      "bss_zero_fill_sha256": "c7d9a61211afaf5d6daf6f796219e56bd345ec160378ce97d0cd5d9d8c3aea81",
+      "executable_sha256": "c7b48c7c01772f179193ac123560b1f2ae16da116e2c2c69d5b53c96e0f98f6f",
+      "file_backed_sha256": "3f0e928f6a01312e2c68577b982c3ec0aa1b5bb57802d0c444e235167dcee0cf",
+      "readonly_sha256": "a862ec4169b4d103ca8a58c5db60c491fba2804654a8d4ce27f61a9ff81b73e9",
+      "writable_initialized_sha256": "89a1e02aacc300ae9f52752ea428e09fcd43bf9855601d2092eedb9f030db7aa",
+      "zero_extended_sha256": "941421e80952177e14d004f2ede7e4cfe2368d861df156fa6591c48b8821500c",
+      "zero_fill_sha256": "26c816a346efedd3f5f55c16ac7fec1d5bf8449e0f5e69925fc2b0a51d893c66"
+    },
+    "image_sha256": "e072b38dd1404a243fa61c4dd7d17b7d7d50f268650318756a4ef9629c1d88d4",
+    "regions": [
+      {
+        "align": 65536,
+        "content_sha256": "28d07cb13aaf4a98543385bff167c7105abf559c3bb2141381317fbdded72e66",
+        "file_offset": 0,
+        "file_sha256": "28d07cb13aaf4a98543385bff167c7105abf559c3bb2141381317fbdded72e66",
+        "filesz": 308,
+        "index": 0,
+        "kind": "FILE_BACKED",
+        "memsz": 308,
+        "permissions": "r--",
+        "segment_index": 1,
+        "vaddr": "0x00000000",
+        "zero_fill_size": 0
+      },
+      {
+        "align": 65536,
+        "content_sha256": "c7b48c7c01772f179193ac123560b1f2ae16da116e2c2c69d5b53c96e0f98f6f",
+        "file_offset": 4096,
+        "file_sha256": "c7b48c7c01772f179193ac123560b1f2ae16da116e2c2c69d5b53c96e0f98f6f",
+        "filesz": 13948,
+        "index": 1,
+        "kind": "FILE_BACKED",
+        "memsz": 13948,
+        "permissions": "r-x",
+        "segment_index": 2,
+        "vaddr": "0x00001000",
+        "zero_fill_size": 0
+      },
+      {
+        "align": 65536,
+        "content_sha256": "512c4714d168fbb654ec03013b865197465393ea58e639ba38a3a7ece1aebe40",
+        "file_offset": 18048,
+        "file_sha256": "512c4714d168fbb654ec03013b865197465393ea58e639ba38a3a7ece1aebe40",
+        "filesz": 1912,
+        "index": 2,
+        "kind": "FILE_BACKED",
+        "memsz": 1912,
+        "permissions": "r--",
+        "segment_index": 3,
+        "vaddr": "0x00004680",
+        "zero_fill_size": 0
+      },
+      {
+        "align": 65536,
+        "content_sha256": "dce5b527a52f5a879f1cd132c7e54b8c11989afd63737f9768490bf7d05a8dd0",
+        "file_offset": 19968,
+        "file_sha256": "89a1e02aacc300ae9f52752ea428e09fcd43bf9855601d2092eedb9f030db7aa",
+        "filesz": 40,
+        "index": 3,
+        "kind": "FILE_BACKED",
+        "memsz": 18464,
+        "permissions": "rw-",
+        "segment_index": 4,
+        "vaddr": "0x00004e00",
+        "zero_fill_size": 18424
+      }
+    ],
+    "sections": [
+      {
+        "align": 16,
+        "file_offset": 4096,
+        "file_size": 13948,
+        "index": 1,
+        "kind": "FILE_BACKED",
+        "name": ".text",
+        "permissions": "r-x",
+        "section_type": 1,
+        "segment_index": 2,
+        "size": 13948,
+        "vaddr": "0x00001000"
+      },
+      {
+        "align": 8,
+        "file_offset": 18048,
+        "file_size": 24,
+        "index": 2,
+        "kind": "FILE_BACKED",
+        "name": ".MIPS.abiflags",
+        "permissions": "r--",
+        "section_type": 1879048234,
+        "segment_index": 3,
+        "size": 24,
+        "vaddr": "0x00004680"
+      },
+      {
+        "align": 4,
+        "file_offset": 18072,
+        "file_size": 24,
+        "index": 3,
+        "kind": "FILE_BACKED",
+        "name": ".reginfo",
+        "permissions": "r--",
+        "section_type": 1879048198,
+        "segment_index": 3,
+        "size": 24,
+        "vaddr": "0x00004698"
+      },
+      {
+        "align": 16,
+        "file_offset": 18096,
+        "file_size": 1864,
+        "index": 4,
+        "kind": "FILE_BACKED",
+        "name": ".rodata",
+        "permissions": "r--",
+        "section_type": 1,
+        "segment_index": 3,
+        "size": 1864,
+        "vaddr": "0x000046b0"
+      },
+      {
+        "align": 16,
+        "file_offset": 19968,
+        "file_size": 40,
+        "index": 5,
+        "kind": "FILE_BACKED",
+        "name": ".data",
+        "permissions": "rw-",
+        "section_type": 1,
+        "segment_index": 4,
+        "size": 40,
+        "vaddr": "0x00004e00"
+      },
+      {
+        "align": 16,
+        "file_offset": 0,
+        "file_size": 0,
+        "index": 6,
+        "kind": "ZERO_FILL",
+        "name": ".bss",
+        "permissions": "rw-",
+        "section_type": 8,
+        "segment_index": 4,
+        "size": 18416,
+        "vaddr": "0x00004e30"
+      }
+    ],
+    "source_sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669",
+    "source_size": 31184,
+    "zero_fill": {
+      "description": [
+        {
+          "name": ".bss",
+          "size": 18416,
+          "vaddr": "0x00004e30"
+        }
+      ],
+      "total_bytes": 18416
+    }
+  },
+  "load_map": [
+    {
+      "align": 65536,
+      "file_offset": 0,
+      "filesz": 308,
+      "memsz": 308,
+      "permissions": "r--",
+      "segment_index": 1,
+      "vaddr": "0x00000000",
+      "zero_fill_size": 0
+    },
+    {
+      "align": 65536,
+      "file_offset": 4096,
+      "filesz": 13948,
+      "memsz": 13948,
+      "permissions": "r-x",
+      "segment_index": 2,
+      "vaddr": "0x00001000",
+      "zero_fill_size": 0
+    },
+    {
+      "align": 65536,
+      "file_offset": 18048,
+      "filesz": 1912,
+      "memsz": 1912,
+      "permissions": "r--",
+      "segment_index": 3,
+      "vaddr": "0x00004680",
+      "zero_fill_size": 0
+    },
+    {
+      "align": 65536,
+      "file_offset": 19968,
+      "filesz": 40,
+      "memsz": 18464,
+      "permissions": "rw-",
+      "segment_index": 4,
+      "vaddr": "0x00004e00",
+      "zero_fill_size": 18424
+    }
+  ]
+}

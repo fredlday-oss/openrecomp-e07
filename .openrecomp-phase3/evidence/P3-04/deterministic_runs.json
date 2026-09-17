@@ -1,0 +1,59 @@
+{
+  "evidence_artifact_set": [
+    "15e20a2c9a6e4eba629e67ceb14b70db8bf367c9ffe1d69473be57e7a8091878 regression_p3_03.txt",
+    "2291518ba64ea7ec4f5c6651ecd6b1870aa70d5d583616f1f00fbca08d27f3e2 hi_lo_dependency.json",
+    "235105953bbcfe3ee8e61d418995a3cf80a1d2706b5636721ba84b88a02573a3 semantic_implementations.json",
+    "2a9d1bba538b91605d61c3c47d8208cc7012cdfe49042f088c409dc54729cc35 regression_phase1_host_gates.txt",
+    "4f74d860bc0bbf3f2302977739e24ecd34e30f7b8afd94e45d6aac5068bc2d62 source_integrity.txt",
+    "6272f8eccf537980406c548418019053dde19ff42c1f92f2ec121d28c352a27d semantic_site_coverage.json",
+    "66913e5752a9e2b7e399513710b4dce05efce9a714335c3b9908c0e30ea38c28 regression_p2_99.txt",
+    "6bf492e0c2e99bc384a74ef76169d5cd7ba109b6160f0e7bf71381f2d8df11e3 RESULT.json",
+    "815dbadc1cfd7a4e22d990808cdafaa5e9688103b451769671089e694d29c7ad reachable_unsupported_before.json",
+    "81eede037e04ab14cb23747c8186ca1e8121e464f956683eb57dd0bcbfa17621 regression_p3_01.txt",
+    "89b6328c8c6161d351b0ffa8d5b1f00cf75a49962a9a31f830df94dab85d3417 semantic_reference_vectors.json",
+    "9a54e0212404cbe05fc0ac956a3922392eec0a1bf305ae88543a1d74383ccca9 coremark_frontier_rerun.json",
+    "a039bbffa55afd786e7b44427c5aafe0b09aff6f8309e1e6c643ad812b5b7c73 regression_p3_00.txt",
+    "ad022ff195be230e31115124d48b7f6d8ccaae58d97eab2779b8b1ad694dbb2e regression_public_safety.txt",
+    "c4698ad07e9b83bcdfa2b561c71c65e1eb28fc456576dce120acd2d82fc98455 semantic_negative_results.json",
+    "d033501f6e08aa477f31200ae2c98ba10f28e72d5618ac89aeaa46745274ad59 reachable_unsupported_after.json",
+    "de83b3a7e2036eb696e90a1270f6b7e9592723594427f19a867e5de218796cbc determinism.json",
+    "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 regression_p2_99.err.txt",
+    "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 regression_p3_00.err.txt",
+    "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 regression_p3_01.err.txt",
+    "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 regression_p3_02.err.txt",
+    "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 regression_p3_03.err.txt",
+    "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 regression_phase1_host_gates.err.txt",
+    "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 regression_public_safety.err.txt",
+    "eeb04eb73f6c7737b326a67af7c1e7d0a20dfa6f6252209d8a3688079a8b2eda exception_frontier.json",
+    "f24f4cef9182f80b87b3c2c291267000f79d3db78677862844694efca698354a regression_p3_02.txt"
+  ],
+  "evidence_artifacts_identical_across_runs": true,
+  "official_runs": [
+    {
+      "capture": "run1.txt",
+      "exit_code": 0,
+      "markers": [
+        "OPENRECOMP_P3_04=PASS",
+        "OPENRECOMP_PHASE3_COREMARK_REACHABLE_SEMANTICS_V1=PASS tests=126",
+        "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
+      ],
+      "stderr_bytes": 0,
+      "stdout_bytes": 5202,
+      "stdout_sha256": "412544a413bbe3e55e688bc45e379dccfe4e8b4ebdc299211ccba2a832e39b36"
+    },
+    {
+      "capture": "run2.txt",
+      "exit_code": 0,
+      "markers": [
+        "OPENRECOMP_P3_04=PASS",
+        "OPENRECOMP_PHASE3_COREMARK_REACHABLE_SEMANTICS_V1=PASS tests=126",
+        "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
+      ],
+      "stderr_bytes": 0,
+      "stdout_bytes": 5202,
+      "stdout_sha256": "412544a413bbe3e55e688bc45e379dccfe4e8b4ebdc299211ccba2a832e39b36"
+    }
+  ],
+  "stage": "P3-04",
+  "stdout_byte_identical": true
+}

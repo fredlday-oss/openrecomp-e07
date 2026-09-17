@@ -1,0 +1,1013 @@
+{
+  "checks": [
+    {
+      "check": "callgraph:all-internal",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph:edge-count",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph:edge-evidence-proven",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph:edge-sites-resolve",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph:edges-match-call-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph:entry-function",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph:function-callee-consistency",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph:no-recursion",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph:node-count",
+      "status": "PASS"
+    },
+    {
+      "check": "callgraph:node-function-match",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:all-blocks-proven",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:all-instructions-assigned",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:block-count",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:boundary-branch-block",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:boundary-delay-block-no-out-of-region-edge",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:boundary-delay-block-terminal",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:boundary-not-taken-is-delay-slot",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:boundary-target-is-self",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:branch-block-count",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:branch-not-taken-is-delay-slot",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:branch-successor-pairs",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:call-return-is-own-delay-slot",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:direct-edge-count",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:direct-edges-match-decode",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:edge-histogram",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:entry-block",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:indirect-block-count",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:indirect-blocks-are-jr-at",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:indirect-single-unresolved",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:instruction-partition",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:no-direct-target-into-delay-slot",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:orphan-count",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:orphans-are-delay-slots",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:predecessor-count",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:predecessors-cover",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:resolved-edge-count",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:resolved-edge-target-match",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:resolved-edges-have-blocks",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:return-block-count",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:return-blocks-no-successors",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:unowned-only-jump-return-indirect",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:unowned-set-match",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:unresolved-edge-count",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:unresolved-edges-are-indirect",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:artifact-hashes-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:call-graph-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:cfg-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:discovery-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:frontier-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:program-model-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:records-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:structure-summary-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:unit-set-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:entry",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:exists",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:image-equals-file-slice",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:size",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:text-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:text-section",
+      "status": "PASS"
+    },
+    {
+      "check": "functions:all-proven",
+      "status": "PASS"
+    },
+    {
+      "check": "functions:bodies-non-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "functions:callees-declared",
+      "status": "PASS"
+    },
+    {
+      "check": "functions:count",
+      "status": "PASS"
+    },
+    {
+      "check": "functions:direct-call-provenance",
+      "status": "PASS"
+    },
+    {
+      "check": "functions:entries-exact",
+      "status": "PASS"
+    },
+    {
+      "check": "functions:entry-function",
+      "status": "PASS"
+    },
+    {
+      "check": "functions:no-external-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "functions:no-shared-blocks",
+      "status": "PASS"
+    },
+    {
+      "check": "functions:no-suppressed-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "functions:owned-plus-orphans-is-all",
+      "status": "PASS"
+    },
+    {
+      "check": "functions:partition",
+      "status": "PASS"
+    },
+    {
+      "check": "functions:provenance-retained",
+      "status": "PASS"
+    },
+    {
+      "check": "functions:unresolved-call-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "functions:unresolved-jump-reasons",
+      "status": "PASS"
+    },
+    {
+      "check": "functions:unresolved-jump-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "negatives:count",
+      "status": "PASS"
+    },
+    {
+      "check": "negatives:no-failures",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:all-decoded-instruction",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:all-delay-slots-present",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:all-evidence-proven",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:all-size-four",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:branch-targets-present",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:dead-jalr-classified",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:dead-jalr-excluded",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:delay-slot-count",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:delay-slots-normal",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:direct-call-targets-present",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:direct-target-matches-record",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:exception-continuations-normal",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:flow-histogram",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:indirect-jump-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:indirect-targets-never-guessed",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:instruction-addresses-exact",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:instruction-count",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:jump-targets-present",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:metadata-canonical",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:no-invalid-encoding-included",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:no-reachable-indirect-call",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:padding-excluded",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:padding-unreachable",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:return-count",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:returns-without-target",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:unsupported-control-transfer-absent",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:word-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:boundary-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:boundary-recorded-word",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:boundary-successor",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:control-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:control-flow-counts",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:control-recorded-counts",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:dead-jalr",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:delay-slot-count",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:diagnostics-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:exception-frontier",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:exception-frontier-records",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:indirect-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:decoded_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:invalid_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:reachable_invalid_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:reachable_supported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:reachable_unsupported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:reachable_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:recognized_unsupported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:reserved_encoding_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:supported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:total_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:unknown_encoding_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:unreachable_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:padding-addresses",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:padding-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:reachability-sha256-frozen",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:reachable-control-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:reachable-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:reachable-map-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:reachable-words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:recomputed-exception-frontier",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:supported-histogram",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:total:decoded_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:total:invalid_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:total:reachable_invalid_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:total:reachable_supported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:total:reachable_unsupported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:total:reachable_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:total:recognized_unsupported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:total:reserved_encoding_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:total:supported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:total:total_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:total:unknown_encoding_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:total:unreachable_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:unreachable-words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:unresolved-counts",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:unresolved-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:unresolved-records",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-04:after-table-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-04:all-sites-implemented",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-04:reachable-semantic-gap-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-04:reachable-site-count",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-04:reachable-sites-match",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip:call-graph-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip:call-graph-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip:cfg-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip:cfg-covers-all-instructions",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip:cfg-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip:direct-call-graph-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip:evidence-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip:instruction-identity-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip:orphan-blocks-excluded",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip:owned-instruction-partition",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip:program-model-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip:program-model-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip:units-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip:units-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip:unresolved-inventory",
+      "status": "PASS"
+    },
+    {
+      "check": "roundtrip:unresolved-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entry-set",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entry-count",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-frozen-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "units:block-ownership-partition",
+      "status": "PASS"
+    },
+    {
+      "check": "units:call-edges-match",
+      "status": "PASS"
+    },
+    {
+      "check": "units:canonical-block-order",
+      "status": "PASS"
+    },
+    {
+      "check": "units:count",
+      "status": "PASS"
+    },
+    {
+      "check": "units:direct-callees-match",
+      "status": "PASS"
+    },
+    {
+      "check": "units:entry-unit",
+      "status": "PASS"
+    },
+    {
+      "check": "units:no-shared/suppressed/external",
+      "status": "PASS"
+    },
+    {
+      "check": "units:no-unowned-control-flow",
+      "status": "PASS"
+    },
+    {
+      "check": "units:no-unresolved-call-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "units:one-to-one-functions",
+      "status": "PASS"
+    },
+    {
+      "check": "units:provenance-retained",
+      "status": "PASS"
+    },
+    {
+      "check": "units:unowned-blocks-match",
+      "status": "PASS"
+    },
+    {
+      "check": "unreachable:count",
+      "status": "PASS"
+    },
+    {
+      "check": "unreachable:dead-jalr-record",
+      "status": "PASS"
+    },
+    {
+      "check": "unreachable:decoded-word-count",
+      "status": "PASS"
+    },
+    {
+      "check": "unreachable:disjoint-from-instructions",
+      "status": "PASS"
+    },
+    {
+      "check": "unreachable:no-duplicate-addresses",
+      "status": "PASS"
+    },
+    {
+      "check": "unreachable:padding-classes",
+      "status": "PASS"
+    },
+    {
+      "check": "unreachable:recognized-unsupported-count",
+      "status": "PASS"
+    }
+  ],
+  "claim_boundary": "P3-05 proves only that the frozen Phase-2 architecture-neutral structural layers run deterministically on the audited CoreMark MIPS32 reachable frontier: 2178 reachable instructions become 615 blocks, 26 proven functions, a 96-edge direct call graph and 26 translation units with the three reachable jr $at sites and the dead jalr left unresolved. It does not translate or execute CoreMark, does not resolve indirect targets, does not model MIPS32 delay slots in the shared layers beyond the explicitly recorded delay-slot frontier, and claims no arbitrary MIPS32, PS1 or PS2 compatibility.",
+  "evidence_files": {
+    "call_graph.json": "51445d7a27356236304fbaee587973c7999ae1a9c2be40083290b29f5dc3c997",
+    "cfg_structure.json": "00424039288de5fd68da03b1e5ee3f2b4b9d4bfc449e306578675eb9be29a722",
+    "determinism.json": "3bdbb9663afd58f9534d0f1e695f0cbca2a51812bd6b5ab9048fff4f6d1c5aeb",
+    "fixture.json": "4d52c1decd668f112404a7775751e7b43caca9e3331c06d260281c771694ca6f",
+    "frontier_cross_check.json": "0404bd59a414fd84c2e141548e24df84fc5af2e42a76fd9a27e0acb5134d01e2",
+    "functions.json": "e6d014009470ab44c5d471a26301db7a83d9cc0d0ef964e9da1670578fe4205c",
+    "negatives.json": "27322898892e65e1a7735da703f5c4ea5149189071b61a6d9a070187fce7413c",
+    "neutral_instructions.json": "b5c246dae7fc8aff4e020a4805bd2c20115af74a67d8525a3590f4c3bac025fa",
+    "roundtrip.json": "8bdbe7ec11b4133e0f3e2c0f1c8687cce44c80ff95c45136d65478e4e7e68afe",
+    "source_integrity.txt": "da5a44374409a33964c1c8fc174cda3b7b758593751ee7cfe7c8c95937112839",
+    "translation_units.json": "71cc6157e80061474e66d8bb9feacb40a049f03e2da9b9d8724e574492a4406e"
+  },
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "call_graph": {
+      "counts": {
+        "edges": 96,
+        "external_direct": 0,
+        "internal_direct": 96,
+        "nodes": 26,
+        "unresolved_indirect": 0
+      },
+      "edges_sha256": "245d709d4533ff0205767d39ddcdebc721eb20cacaa842c80636a7f47a65b592",
+      "fingerprint": "9462f40ccd7cd23bcedc37c03222335913d2da785696baf8cabb86fc5b4e93c9"
+    },
+    "cfg": {
+      "block_count": 615,
+      "blocks_sha256": "b39e57b751ed82bd7dc0ddf4e23677d9819b47146f5ec915cb69df907889b500",
+      "edge_histogram": {
+        "BRANCH_NOT_TAKEN": 198,
+        "BRANCH_TAKEN": 198,
+        "CALL_RETURN": 96,
+        "FALLTHROUGH": 205,
+        "INDIRECT": 3,
+        "JUMP": 70
+      },
+      "orphan_delay_blocks": 97,
+      "resolved_edges": 767,
+      "unresolved_edges": 3
+    },
+    "determinism": {
+      "artifact_sha256": {
+        "call_graph.json": "51445d7a27356236304fbaee587973c7999ae1a9c2be40083290b29f5dc3c997",
+        "cfg_structure.json": "00424039288de5fd68da03b1e5ee3f2b4b9d4bfc449e306578675eb9be29a722",
+        "fixture.json": "4d52c1decd668f112404a7775751e7b43caca9e3331c06d260281c771694ca6f",
+        "frontier_cross_check.json": "0404bd59a414fd84c2e141548e24df84fc5af2e42a76fd9a27e0acb5134d01e2",
+        "functions.json": "e6d014009470ab44c5d471a26301db7a83d9cc0d0ef964e9da1670578fe4205c",
+        "negatives.json": "27322898892e65e1a7735da703f5c4ea5149189071b61a6d9a070187fce7413c",
+        "neutral_instructions.json": "b5c246dae7fc8aff4e020a4805bd2c20115af74a67d8525a3590f4c3bac025fa",
+        "roundtrip.json": "8bdbe7ec11b4133e0f3e2c0f1c8687cce44c80ff95c45136d65478e4e7e68afe",
+        "source_integrity.txt": "da5a44374409a33964c1c8fc174cda3b7b758593751ee7cfe7c8c95937112839",
+        "translation_units.json": "71cc6157e80061474e66d8bb9feacb40a049f03e2da9b9d8724e574492a4406e"
+      },
+      "fingerprints": {
+        "call_graph": "9462f40ccd7cd23bcedc37c03222335913d2da785696baf8cabb86fc5b4e93c9",
+        "cfg": "c9029a0d2382a9845f0da811dbbc343fe4d4573cc2cea6ac484f0d3fdc8ab814",
+        "discovery": "cf307c18bc925001e54edb678d83c5591d6e1e6af07435a91d7e17326c238e2f",
+        "program_model": "8ed487c0332977f2b5da2767ebc6a858020c5f8df9f049a30fbc026a099e5d94",
+        "translation_units": "44c8b895d7672d692b487c961ec448f655b1e0854639af706335f8760a9f3e25"
+      },
+      "instruction_count": 2178,
+      "source_sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669"
+    },
+    "fixture": {
+      "entry": "0x00004650",
+      "path": ".openrecomp-phase3/build/P3-01/candidate-a/coremark_mips32_O1.elf",
+      "sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669",
+      "size": 31184,
+      "text_size": 13948,
+      "text_slice_sha256": "c7b48c7c01772f179193ac123560b1f2ae16da116e2c2c69d5b53c96e0f98f6f",
+      "text_vaddr": "0x00001000",
+      "text_words": 3487
+    },
+    "functions": {
+      "count": 26,
+      "discovery_fingerprint": "cf307c18bc925001e54edb678d83c5591d6e1e6af07435a91d7e17326c238e2f",
+      "entry_function": "fn_4650",
+      "functions_sha256": "8f9fa8404f7651c47aa097ce5861627d39d5e6be142df7db8be952227fbdb259",
+      "program_model_fingerprint": "8ed487c0332977f2b5da2767ebc6a858020c5f8df9f049a30fbc026a099e5d94",
+      "unresolved_jump_sites": {
+        "fn_30b0": [
+          12592
+        ],
+        "fn_371c": [
+          14384,
+          14752
+        ]
+      }
+    },
+    "instructions": {
+      "count": 2178,
+      "flow_histogram": {
+        "BRANCH": 198,
+        "CALL": 96,
+        "INDIRECT_JUMP": 3,
+        "JUMP": 70,
+        "NORMAL": 1787,
+        "RETURN": 24
+      },
+      "rows_sha256": "483e5d3dce779220bd424cde9c86f3d95c12b74d84ecb12c7cb07c13d069dfdf",
+      "unreachable_word_count": 1309
+    },
+    "negatives": {
+      "count": 28,
+      "failed": 0
+    },
+    "p3_03_cross_check": {
+      "control_flow_site_counts": {
+        "conditional-branches": 198,
+        "direct-calls": 96,
+        "indirect-calls": 0,
+        "indirect-jumps": 3,
+        "jumps": 70,
+        "returns": 24,
+        "unsupported-control-transfers": 0
+      },
+      "reachability_sha256": "c62d54838cbc5fcc7b0ff83cdc9b2f0f47b8851c5e4023ae2ca6d629c8f76edf",
+      "unresolved_site_counts": {
+        "indirect-jump": 3,
+        "successor-outside-image": 1
+      }
+    },
+    "p3_04_cross_check": {
+      "after_table_sha256": "d033501f6e08aa477f31200ae2c98ba10f28e72d5618ac89aeaa46745274ad59",
+      "reachable_unsupported_sites": 55
+    },
+    "roundtrip": {
+      "call_graph": {
+        "bytes": 17787,
+        "fingerprint": "9462f40ccd7cd23bcedc37c03222335913d2da785696baf8cabb86fc5b4e93c9",
+        "roundtrip_identical": true
+      },
+      "cfg": {
+        "bytes": 812853,
+        "fingerprint": "c9029a0d2382a9845f0da811dbbc343fe4d4573cc2cea6ac484f0d3fdc8ab814",
+        "roundtrip_identical": true
+      },
+      "policy": "canonical serialization reconstructs an equal model; PROVEN/CANDIDATE classification, unresolved flags and indirect sites survive unchanged",
+      "program_model": {
+        "bytes": 761254,
+        "fingerprint": "8ed487c0332977f2b5da2767ebc6a858020c5f8df9f049a30fbc026a099e5d94",
+        "roundtrip_identical": true
+      },
+      "stage": "P3-05",
+      "translation_units": {
+        "bytes": 790603,
+        "fingerprint": "44c8b895d7672d692b487c961ec448f655b1e0854639af706335f8760a9f3e25",
+        "roundtrip_identical": true
+      }
+    },
+    "source_integrity": {
+      "phase3_files": [
+        ".openrecomp-phase3/src/p3_code_frontier_v1.py",
+        ".openrecomp-phase3/src/p3_decode_mips32_v1.py",
+        ".openrecomp-phase3/src/p3_elf_image_v1.py",
+        ".openrecomp-phase3/src/p3_semantics_mips32_v1.py",
+        ".openrecomp-phase3/src/p3_structure_v1.py",
+        ".openrecomp-phase3/src/p3_target_mips32_v1.py",
+        "tools/test_phase3_boundary_v1.py",
+        "tools/test_phase3_coremark_fixture_v1.py",
+        "tools/test_phase3_decode_frontier_v1.py",
+        "tools/test_phase3_elf_ingestion_v1.py",
+        "tools/test_phase3_reachable_semantics_v1.py",
+        "tools/test_phase3_structure_v1.py"
+      ],
+      "phase3_manifest_entries": 12,
+      "phase3_manifest_mismatched": [],
+      "phase3_manifest_sha256": "90aba19d12394aff9eb2ae7e5512d582cee1e1dd5a57c870ff33b4c88f044c93",
+      "root_manifest_entries": 134,
+      "root_manifest_mismatched": [],
+      "root_manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"
+    },
+    "translation_units": {
+      "count": 26,
+      "entry_unit": "tu_fn_4650",
+      "fingerprint": "44c8b895d7672d692b487c961ec448f655b1e0854639af706335f8760a9f3e25",
+      "units_sha256": "922e15ef16c10406b5829404abf8ae4ad064775a4270fe8d2ac4124b2f306eec",
+      "unresolved_jump_sites": {
+        "fn_30b0": [
+          12592
+        ],
+        "fn_371c": [
+          14384,
+          14752
+        ]
+      }
+    }
+  },
+  "markers": {
+    "gate": "OPENRECOMP_PHASE3_PROGRAM_STRUCTURE_V1=PASS tests=202",
+    "stage": "OPENRECOMP_P3_05=PASS",
+    "terminal": "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
+  },
+  "passed": 202,
+  "stage": "P3-05",
+  "stage_name": "OPENRECOMP_PHASE3_PROGRAM_STRUCTURE_V1",
+  "status": "PASS",
+  "tests": 202
+}

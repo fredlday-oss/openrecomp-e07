@@ -1,0 +1,100 @@
+{
+  "control_flow_counts": {
+    "conditional-branches": 198,
+    "direct-calls": 96,
+    "indirect-calls": 0,
+    "indirect-jumps": 3,
+    "jumps": 70,
+    "returns": 24,
+    "unsupported-control-transfers": 0
+  },
+  "dead_jalr": {
+    "resolution": "never targeted; no target invented",
+    "site": "0x00001958"
+  },
+  "entry": "0x00004650",
+  "exception_sites": [
+    "0x00001f60",
+    "0x00001f64",
+    "0x00002044",
+    "0x00002048",
+    "0x00002370",
+    "0x00002374"
+  ],
+  "indirect_sites": [
+    {
+      "resolution": "not statically resolved; no target invented",
+      "site": "0x00003130"
+    },
+    {
+      "resolution": "not statically resolved; no target invented",
+      "site": "0x00003830"
+    },
+    {
+      "resolution": "not statically resolved; no target invented",
+      "site": "0x000039a0"
+    }
+  ],
+  "note": "recomputed from the parsed guest image with the P3-03 engine; the frontier itself is unchanged by P3-04",
+  "reachability_sha256": "c62d54838cbc5fcc7b0ff83cdc9b2f0f47b8851c5e4023ae2ca6d629c8f76edf",
+  "semantic_overlay": {
+    "classes": [
+      "divu",
+      "jalr",
+      "movn",
+      "movz",
+      "mul",
+      "swl",
+      "swr",
+      "teq"
+    ],
+    "reachable_semantically_supported": 2178,
+    "reachable_semantically_unsupported": 0
+  },
+  "stage": "P3-04",
+  "totals": {
+    "decoded_words": 3479,
+    "invalid_words": 8,
+    "reachable_invalid_words": 0,
+    "reachable_supported_words": 2123,
+    "reachable_unsupported_words": 55,
+    "reachable_words": 2178,
+    "recognized_unsupported_words": 82,
+    "reserved_encoding_words": 8,
+    "supported_words": 3397,
+    "total_words": 3487,
+    "unknown_encoding_words": 0,
+    "unreachable_words": 1309
+  },
+  "unresolved_counts": {
+    "indirect-jump": 3,
+    "successor-outside-image": 1
+  },
+  "unsupported_histogram": {
+    "divu": 4,
+    "jalr": 1,
+    "movn": 12,
+    "movz": 35,
+    "mul": 22,
+    "swl": 2,
+    "swr": 2,
+    "teq": 4
+  },
+  "unsupported_reachable_histogram": {
+    "divu": 3,
+    "movn": 9,
+    "movz": 21,
+    "mul": 15,
+    "swl": 2,
+    "swr": 2,
+    "teq": 3
+  },
+  "unsupported_unreachable_histogram": {
+    "divu": 1,
+    "jalr": 1,
+    "movn": 3,
+    "movz": 14,
+    "mul": 7,
+    "teq": 1
+  }
+}

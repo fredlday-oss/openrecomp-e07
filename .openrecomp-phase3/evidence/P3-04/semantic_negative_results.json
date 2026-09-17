@@ -1,0 +1,114 @@
+{
+  "cases": [
+    {
+      "actual_code": "INVALID_RECORD",
+      "expected_code": "INVALID_RECORD",
+      "fixture": "supported-op-record-outside-bounded-contract",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNSUPPORTED_INSTRUCTION",
+      "expected_code": "UNSUPPORTED_INSTRUCTION",
+      "fixture": "unimplemented-bounded-op",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "DIVIDE_BY_ZERO",
+      "expected_code": "DIVIDE_BY_ZERO",
+      "fixture": "divu-divisor-zero",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "TRAP_TAKEN",
+      "expected_code": "TRAP_TAKEN",
+      "fixture": "teq-equal",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNALIGNED_TARGET",
+      "expected_code": "UNALIGNED_TARGET",
+      "fixture": "jalr-unaligned",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "MEMORY_FAULT",
+      "expected_code": "MEMORY_FAULT",
+      "fixture": "swl-unmapped-aligned-word",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "WRITE_PROTECTED",
+      "expected_code": "WRITE_PROTECTED",
+      "fixture": "swr-read-only",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "ENDIANNESS_UNSUPPORTED",
+      "expected_code": "ENDIANNESS_UNSUPPORTED",
+      "fixture": "big-endian-unsupported",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INVALID_STATE",
+      "expected_code": "INVALID_STATE",
+      "fixture": "invalid-state-register",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INVALID_RECORD",
+      "expected_code": "INVALID_RECORD",
+      "fixture": "malformed-record-missing-operand",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INVALID_RECORD",
+      "expected_code": "INVALID_RECORD",
+      "fixture": "misaligned-record-address",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "HI_LO_UNPREDICTABLE",
+      "expected_code": "HI_LO_UNPREDICTABLE",
+      "fixture": "mul-then-read-lo",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "HI_LO_UNPREDICTABLE",
+      "expected_code": "HI_LO_UNPREDICTABLE",
+      "fixture": "mul-then-read-hi",
+      "status": "PASS"
+    },
+    {
+      "actual_code": null,
+      "expected_code": null,
+      "fixture": "divu-defines-hi-lo",
+      "status": "PASS"
+    },
+    {
+      "actual_code": null,
+      "expected_code": null,
+      "fixture": "divu-zero-leaves-hi-lo-untouched",
+      "status": "PASS"
+    },
+    {
+      "actual_code": null,
+      "expected_code": null,
+      "fixture": "teq-taken-leaves-state-untouched",
+      "status": "PASS"
+    },
+    {
+      "actual_code": null,
+      "expected_code": null,
+      "fixture": "mul-leaves-hi-lo-values-but-marks-unpredictable",
+      "status": "PASS"
+    },
+    {
+      "actual_code": null,
+      "expected_code": null,
+      "fixture": "movz-rd-zero-discards-write",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "stage": "P3-04"
+}

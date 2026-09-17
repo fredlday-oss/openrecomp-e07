@@ -16,8 +16,8 @@ P3-05 implementation work.
 | P3-02 | ELF ingestion + section/data image | COMPLETE | Fail-closed ELF32 MIPS ingestion; validated class/endian/machine/entry/program headers/sections; deterministic guest data image with bounds-checked access |
 | P3-03 | MIPS32 decode expansion | COMPLETE | Inventory-driven decode coverage for the P3-01 unsupported classes (`movz`, `movn`, `mul`, `divu`+`teq`, `swl`/`swr`, `jalr`, padding); unsupported encodings stay classified and fail closed |
 | P3-04 | CoreMark reachable MIPS32 semantics | COMPLETE | Exact table of the 82 recognized-unsupported words with reachability/function/implementation status; exact MIPS32 semantics implemented and reference-verified for the instruction classes required by the reachable CoreMark path; the six reachable exception-frontier sites classified with evidence; unresolved indirect-control-flow `jr $at` frontiers and the dead `jalr` carried forward, never guessed |
-| P3-05 | ProgramModel/CFG/functions/call graph/translation units on the real ELF | ACTIVE | Shared Phase-2 layers exercised on the real program with unchanged shared-layer neutrality; indirect targets never guessed |
-| P3-06 | Static data/global reconstruction | QUEUED | `.rodata`/`.data`/`.bss` and GP-relative/absolute global access modelled explicitly and verifiably |
+| P3-05 | ProgramModel/CFG/functions/call graph/translation units on the real ELF | COMPLETE | Shared Phase-2 layers exercised on the real program with unchanged shared-layer neutrality; indirect targets never guessed |
+| P3-06 | Static data/global reconstruction | ACTIVE | `.rodata`/`.data`/`.bss` and GP-relative/absolute global access modelled explicitly and verifiably |
 | P3-07 | Host emission for CoreMark semantics | QUEUED | Deterministic generated host code for the proven subset; unsupported or external behaviour fails closed or is explicitly runtime-mediated |
 | P3-08 | Native build + generic runtime execution | QUEUED | Deterministic native host build of the generated program; execution through the generic runtime ABI with bounded I/O and deterministic benchmark inputs |
 | P3-09 | Independent MIPS32 reference + equivalence | QUEUED | Independent MIPS32 reference execution and deterministic observable equivalence against the native host executable |
@@ -54,6 +54,10 @@ Frozen-queue rules:
 - Queue freeze (control-plane only, documented): the P3-04 `PASS` boundary
   froze rows `P3-05` .. `P3-99` exactly as written above. No stage was
   renumbered, inserted, merged, split or redefined by the freeze.
+- P3-05 completed with the frozen contract unchanged: the
+  ProgramModel/CFG/functions/call graph/translation-unit stage passed as the
+  frozen row specifies, so no reconciliation, renumbering or redefinition was
+  required or performed.
 - P3-04 (control-plane only, documented): the pre-P3-04 queue assigned P3-04 to
   "ProgramModel/CFG/functions/call graph/translation units on the real ELF".
   The P3-03 evidence established the exact reachable MIPS32 semantic frontier
@@ -73,6 +77,8 @@ Frozen-queue rules:
 - `OPENRECOMP_PHASE3_BOUNDARY_V1=PASS tests=<count>`
 - `OPENRECOMP_P3_04=PASS`
 - `OPENRECOMP_PHASE3_COREMARK_REACHABLE_SEMANTICS_V1=PASS tests=<count>`
+- `OPENRECOMP_P3_05=PASS`
+- `OPENRECOMP_PHASE3_PROGRAM_STRUCTURE_V1=PASS tests=202`
 - terminal Phase-3 marker: reserved, value `NOT_PROVEN`
 
 ## Failure values (not issued)

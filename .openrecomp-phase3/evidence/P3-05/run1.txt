@@ -1,0 +1,238 @@
+=== P3-05 Real-ELF Program Structure Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest-exists
+PASS: source:root-manifest-frozen-sha256
+PASS: source:root-manifest-entry-count
+PASS: source:root-manifest-entries-verified
+PASS: source:phase3-manifest-exists
+PASS: source:phase3-manifest-entry-set
+PASS: source:phase3-manifest-entries-verified
+
+--- fixture ---
+PASS: fixture:exists
+PASS: fixture:sha256
+PASS: fixture:size
+PASS: fixture:text-section
+PASS: fixture:text-identity
+PASS: fixture:entry
+PASS: fixture:image-equals-file-slice
+
+--- frontier ---
+
+--- p3_03 cross-check ---
+PASS: p3-03:inventory-exists
+PASS: p3-03:reachable-exists
+PASS: p3-03:control-exists
+PASS: p3-03:padding-exists
+PASS: p3-03:total:total_words
+PASS: p3-03:inventory:total_words
+PASS: p3-03:total:decoded_words
+PASS: p3-03:inventory:decoded_words
+PASS: p3-03:total:supported_words
+PASS: p3-03:inventory:supported_words
+PASS: p3-03:total:recognized_unsupported_words
+PASS: p3-03:inventory:recognized_unsupported_words
+PASS: p3-03:total:reserved_encoding_words
+PASS: p3-03:inventory:reserved_encoding_words
+PASS: p3-03:total:unknown_encoding_words
+PASS: p3-03:inventory:unknown_encoding_words
+PASS: p3-03:total:invalid_words
+PASS: p3-03:inventory:invalid_words
+PASS: p3-03:total:reachable_words
+PASS: p3-03:inventory:reachable_words
+PASS: p3-03:total:unreachable_words
+PASS: p3-03:inventory:unreachable_words
+PASS: p3-03:total:reachable_supported_words
+PASS: p3-03:inventory:reachable_supported_words
+PASS: p3-03:total:reachable_unsupported_words
+PASS: p3-03:inventory:reachable_unsupported_words
+PASS: p3-03:total:reachable_invalid_words
+PASS: p3-03:inventory:reachable_invalid_words
+PASS: p3-03:supported-histogram
+PASS: p3-03:reachability-sha256-frozen
+PASS: p3-03:reachable-map-sha256
+PASS: p3-03:reachable-words
+PASS: p3-03:unreachable-words
+PASS: p3-03:padding-addresses
+PASS: p3-03:control-flow-counts
+PASS: p3-03:control-recorded-counts
+PASS: p3-03:unresolved-counts
+PASS: p3-03:unresolved-recorded
+PASS: p3-03:unresolved-records
+PASS: p3-03:delay-slot-count
+PASS: p3-03:diagnostics-empty
+PASS: p3-03:indirect-sites
+PASS: p3-03:dead-jalr
+PASS: p3-03:exception-frontier
+PASS: p3-03:recomputed-exception-frontier
+PASS: p3-03:boundary-successor
+PASS: p3-03:boundary-recorded
+PASS: p3-03:boundary-recorded-word
+PASS: p3-03:reachable-control-sites
+PASS: p3-03:exception-frontier-records
+
+--- p3_04 cross-check ---
+PASS: p3-04:after-table-exists
+PASS: p3-04:reachable-site-count
+PASS: p3-04:reachable-sites-match
+PASS: p3-04:all-sites-implemented
+PASS: p3-04:reachable-semantic-gap-zero
+
+--- structure ---
+
+--- neutral instructions ---
+PASS: neutral:instruction-count
+PASS: neutral:instruction-addresses-exact
+PASS: neutral:all-decoded-instruction
+PASS: neutral:all-size-four
+PASS: neutral:all-evidence-proven
+PASS: neutral:flow-histogram
+PASS: neutral:no-invalid-encoding-included
+PASS: neutral:word-identity
+PASS: neutral:metadata-canonical
+PASS: neutral:all-delay-slots-present
+PASS: neutral:delay-slots-normal
+PASS: neutral:delay-slot-count
+PASS: neutral:padding-excluded
+PASS: neutral:padding-unreachable
+PASS: neutral:indirect-jump-sites
+PASS: neutral:indirect-targets-never-guessed
+PASS: neutral:no-reachable-indirect-call
+PASS: neutral:dead-jalr-excluded
+PASS: neutral:dead-jalr-classified
+PASS: neutral:return-count
+PASS: neutral:returns-without-target
+PASS: neutral:direct-call-targets-present
+PASS: neutral:branch-targets-present
+PASS: neutral:jump-targets-present
+PASS: neutral:direct-target-matches-record
+PASS: neutral:exception-continuations-normal
+PASS: neutral:unsupported-control-transfer-absent
+
+--- unreachable frontier ---
+PASS: unreachable:count
+PASS: unreachable:padding-classes
+PASS: unreachable:recognized-unsupported-count
+PASS: unreachable:decoded-word-count
+PASS: unreachable:dead-jalr-record
+PASS: unreachable:no-duplicate-addresses
+PASS: unreachable:disjoint-from-instructions
+
+--- cfg ---
+PASS: cfg:block-count
+PASS: cfg:edge-histogram
+PASS: cfg:resolved-edge-count
+PASS: cfg:unresolved-edge-count
+PASS: cfg:entry-block
+PASS: cfg:all-blocks-proven
+PASS: cfg:all-instructions-assigned
+PASS: cfg:instruction-partition
+PASS: cfg:resolved-edges-have-blocks
+PASS: cfg:resolved-edge-target-match
+PASS: cfg:direct-edges-match-decode
+PASS: cfg:direct-edge-count
+PASS: cfg:branch-block-count
+PASS: cfg:branch-successor-pairs
+PASS: cfg:branch-not-taken-is-delay-slot
+PASS: cfg:return-block-count
+PASS: cfg:return-blocks-no-successors
+PASS: cfg:indirect-block-count
+PASS: cfg:indirect-single-unresolved
+PASS: cfg:indirect-blocks-are-jr-at
+PASS: cfg:unresolved-edges-are-indirect
+PASS: cfg:orphan-count
+PASS: cfg:orphans-are-delay-slots
+PASS: cfg:unowned-set-match
+PASS: cfg:unowned-only-jump-return-indirect
+PASS: cfg:predecessors-cover
+PASS: cfg:predecessor-count
+PASS: cfg:boundary-branch-block
+PASS: cfg:boundary-target-is-self
+PASS: cfg:boundary-not-taken-is-delay-slot
+PASS: cfg:boundary-delay-block-terminal
+PASS: cfg:boundary-delay-block-no-out-of-region-edge
+PASS: cfg:no-direct-target-into-delay-slot
+PASS: cfg:call-return-is-own-delay-slot
+
+--- functions ---
+PASS: functions:count
+PASS: functions:entries-exact
+PASS: functions:all-proven
+PASS: functions:entry-function
+PASS: functions:direct-call-provenance
+PASS: functions:no-suppressed-entries
+PASS: functions:no-shared-blocks
+PASS: functions:no-external-targets
+PASS: functions:unresolved-call-sites
+PASS: functions:bodies-non-empty
+PASS: functions:partition
+PASS: functions:owned-plus-orphans-is-all
+PASS: functions:callees-declared
+PASS: functions:unresolved-jump-sites
+PASS: functions:unresolved-jump-reasons
+PASS: functions:provenance-retained
+
+--- call graph ---
+PASS: callgraph:node-count
+PASS: callgraph:edge-count
+PASS: callgraph:all-internal
+PASS: callgraph:node-function-match
+PASS: callgraph:entry-function
+PASS: callgraph:no-recursion
+PASS: callgraph:edges-match-call-sites
+PASS: callgraph:edge-evidence-proven
+PASS: callgraph:edge-sites-resolve
+PASS: callgraph:function-callee-consistency
+
+--- translation units ---
+PASS: units:count
+PASS: units:one-to-one-functions
+PASS: units:entry-unit
+PASS: units:call-edges-match
+PASS: units:direct-callees-match
+PASS: units:no-unresolved-call-sites
+PASS: units:no-unowned-control-flow
+PASS: units:unowned-blocks-match
+PASS: units:no-shared/suppressed/external
+PASS: units:provenance-retained
+PASS: units:block-ownership-partition
+PASS: units:canonical-block-order
+
+--- roundtrip ---
+PASS: roundtrip:program-model-bytes
+PASS: roundtrip:program-model-fingerprint
+PASS: roundtrip:cfg-bytes
+PASS: roundtrip:cfg-fingerprint
+PASS: roundtrip:call-graph-bytes
+PASS: roundtrip:call-graph-fingerprint
+PASS: roundtrip:units-bytes
+PASS: roundtrip:units-fingerprint
+PASS: roundtrip:owned-instruction-partition
+PASS: roundtrip:instruction-identity-preserved
+PASS: roundtrip:orphan-blocks-excluded
+PASS: roundtrip:cfg-covers-all-instructions
+PASS: roundtrip:evidence-preserved
+PASS: roundtrip:unresolved-preserved
+PASS: roundtrip:unresolved-inventory
+PASS: roundtrip:direct-call-graph-stable
+
+--- negatives ---
+PASS: negatives:no-failures
+PASS: negatives:count
+
+--- determinism ---
+PASS: determinism:frontier-stable
+PASS: determinism:records-stable
+PASS: determinism:structure-summary-stable
+PASS: determinism:program-model-fingerprint
+PASS: determinism:cfg-fingerprint
+PASS: determinism:call-graph-fingerprint
+PASS: determinism:unit-set-fingerprint
+PASS: determinism:discovery-fingerprint
+PASS: determinism:artifact-hashes-recorded
+
+=== RESULT ===
+OPENRECOMP_P3_05=PASS
+OPENRECOMP_PHASE3_PROGRAM_STRUCTURE_V1=PASS tests=202
+OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN

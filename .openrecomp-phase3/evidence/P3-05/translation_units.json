@@ -1,0 +1,573 @@
+{
+  "entry_unit": "tu_fn_4650",
+  "fingerprint": "44c8b895d7672d692b487c961ec448f655b1e0854639af706335f8760a9f3e25",
+  "policy": "translation units are a structural packaging boundary only: no instruction is lowered, no indirect target is resolved, and the unresolved jr $at sites stay attached to their owning units",
+  "residual_evidence": {
+    "external_direct_call_targets": [],
+    "shared_blocks": [],
+    "suppressed_entries": [],
+    "unowned_blocks": [
+      "blk_1094",
+      "blk_109c",
+      "blk_10f8",
+      "blk_11e8",
+      "blk_126c",
+      "blk_12cc",
+      "blk_12d4",
+      "blk_1318",
+      "blk_1320",
+      "blk_1328",
+      "blk_1340",
+      "blk_1364",
+      "blk_138c",
+      "blk_13d0",
+      "blk_13f8",
+      "blk_148c",
+      "blk_14a0",
+      "blk_14b8",
+      "blk_14d4",
+      "blk_1540",
+      "blk_15b8",
+      "blk_15d8",
+      "blk_1618",
+      "blk_163c",
+      "blk_16d0",
+      "blk_16e4",
+      "blk_16fc",
+      "blk_1718",
+      "blk_1774",
+      "blk_1ab8",
+      "blk_1ad4",
+      "blk_1b40",
+      "blk_1b68",
+      "blk_1ba8",
+      "blk_1bb0",
+      "blk_1bd0",
+      "blk_1c10",
+      "blk_1c34",
+      "blk_1cc8",
+      "blk_1cdc",
+      "blk_1cf4",
+      "blk_1d10",
+      "blk_1d18",
+      "blk_1e58",
+      "blk_20fc",
+      "blk_216c",
+      "blk_2194",
+      "blk_21a4",
+      "blk_21b0",
+      "blk_2228",
+      "blk_225c",
+      "blk_22f8",
+      "blk_23b8",
+      "blk_25c8",
+      "blk_2614",
+      "blk_2a18",
+      "blk_2a80",
+      "blk_2d5c",
+      "blk_2e3c",
+      "blk_2f14",
+      "blk_2f3c",
+      "blk_2f9c",
+      "blk_2fc4",
+      "blk_30ac",
+      "blk_3134",
+      "blk_3290",
+      "blk_3298",
+      "blk_32e4",
+      "blk_3318",
+      "blk_3398",
+      "blk_33c4",
+      "blk_33fc",
+      "blk_36a0",
+      "blk_36d4",
+      "blk_36f0",
+      "blk_36f8",
+      "blk_37b0",
+      "blk_37f4",
+      "blk_3800",
+      "blk_3834",
+      "blk_38a0",
+      "blk_3928",
+      "blk_3934",
+      "blk_3978",
+      "blk_39a4",
+      "blk_3ccc",
+      "blk_3d20",
+      "blk_41f0",
+      "blk_4228",
+      "blk_44ec",
+      "blk_4508",
+      "blk_4520",
+      "blk_4538",
+      "blk_4554",
+      "blk_4568",
+      "blk_4574",
+      "blk_457c"
+    ],
+    "unowned_control_flow": []
+  },
+  "stage": "P3-05",
+  "translation_unit_set_version": "1.0.0",
+  "units": [
+    {
+      "block_count": 13,
+      "call_edge_count": 3,
+      "direct_callees": [
+        "fn_25d0",
+        "fn_2e40",
+        "fn_34e0"
+      ],
+      "entry_address": "0x00001000",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_1000",
+      "instruction_count": 60,
+      "unit_id": "tu_fn_1000",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 115,
+      "call_edge_count": 4,
+      "direct_callees": [
+        "fn_1000",
+        "fn_36d8"
+      ],
+      "entry_address": "0x00001190",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_1190",
+      "instruction_count": 352,
+      "unit_id": "tu_fn_1190",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 48,
+      "call_edge_count": 0,
+      "direct_callees": [],
+      "entry_address": "0x00001a40",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_1a40",
+      "instruction_count": 169,
+      "unit_id": "tu_fn_1a40",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 14,
+      "call_edge_count": 8,
+      "direct_callees": [
+        "fn_1190",
+        "fn_34e0"
+      ],
+      "entry_address": "0x00001d90",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_1d90",
+      "instruction_count": 50,
+      "unit_id": "tu_fn_1d90",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 131,
+      "call_edge_count": 47,
+      "direct_callees": [
+        "fn_1a40",
+        "fn_1d90",
+        "fn_2d0c",
+        "fn_32e8",
+        "fn_33d0",
+        "fn_36d8",
+        "fn_36f4",
+        "fn_371c",
+        "fn_44d4",
+        "fn_44f0",
+        "fn_450c",
+        "fn_4524",
+        "fn_456c",
+        "fn_4578"
+      ],
+      "entry_address": "0x00001e5c",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_1e5c",
+      "instruction_count": 466,
+      "unit_id": "tu_fn_1e5c",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 3,
+      "call_edge_count": 2,
+      "direct_callees": [
+        "fn_2618",
+        "fn_36d8"
+      ],
+      "entry_address": "0x000025d0",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_25d0",
+      "instruction_count": 17,
+      "unit_id": "tu_fn_25d0",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 56,
+      "call_edge_count": 8,
+      "direct_callees": [
+        "fn_36d8"
+      ],
+      "entry_address": "0x00002618",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_2618",
+      "instruction_count": 281,
+      "unit_id": "tu_fn_2618",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 12,
+      "call_edge_count": 0,
+      "direct_callees": [],
+      "entry_address": "0x00002d0c",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_2d0c",
+      "instruction_count": 75,
+      "unit_id": "tu_fn_2d0c",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 39,
+      "call_edge_count": 18,
+      "direct_callees": [
+        "fn_30b0",
+        "fn_36a4"
+      ],
+      "entry_address": "0x00002e40",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_2e40",
+      "instruction_count": 151,
+      "unit_id": "tu_fn_2e40",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 11,
+      "call_edge_count": 0,
+      "direct_callees": [],
+      "entry_address": "0x000030b0",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_30b0",
+      "instruction_count": 45,
+      "unit_id": "tu_fn_30b0",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": [
+        {
+          "address": 12592,
+          "block": "blk_3120",
+          "evidence": "PROVEN",
+          "op": "jr",
+          "reason": "unresolved indirect jump target",
+          "target_resolution": "not statically resolved; no target invented"
+        }
+      ]
+    },
+    {
+      "block_count": 13,
+      "call_edge_count": 0,
+      "direct_callees": [],
+      "entry_address": "0x000032e8",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_32e8",
+      "instruction_count": 53,
+      "unit_id": "tu_fn_32e8",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 3,
+      "call_edge_count": 0,
+      "direct_callees": [],
+      "entry_address": "0x000033d0",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_33d0",
+      "instruction_count": 11,
+      "unit_id": "tu_fn_33d0",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 1,
+      "call_edge_count": 0,
+      "direct_callees": [],
+      "entry_address": "0x000034e0",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_34e0",
+      "instruction_count": 112,
+      "unit_id": "tu_fn_34e0",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 3,
+      "call_edge_count": 2,
+      "direct_callees": [
+        "fn_34e0"
+      ],
+      "entry_address": "0x000036a4",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_36a4",
+      "instruction_count": 12,
+      "unit_id": "tu_fn_36a4",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 2,
+      "call_edge_count": 1,
+      "direct_callees": [
+        "fn_34e0"
+      ],
+      "entry_address": "0x000036d8",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_36d8",
+      "instruction_count": 6,
+      "unit_id": "tu_fn_36d8",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 1,
+      "call_edge_count": 0,
+      "direct_callees": [],
+      "entry_address": "0x000036f4",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_36f4",
+      "instruction_count": 1,
+      "unit_id": "tu_fn_36f4",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 39,
+      "call_edge_count": 1,
+      "direct_callees": [
+        "fn_453c"
+      ],
+      "entry_address": "0x0000371c",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_371c",
+      "instruction_count": 174,
+      "unit_id": "tu_fn_371c",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": [
+        {
+          "address": 14384,
+          "block": "blk_3820",
+          "evidence": "PROVEN",
+          "op": "jr",
+          "reason": "unresolved indirect jump target",
+          "target_resolution": "not statically resolved; no target invented"
+        },
+        {
+          "address": 14752,
+          "block": "blk_3990",
+          "evidence": "PROVEN",
+          "op": "jr",
+          "reason": "unresolved indirect jump target",
+          "target_resolution": "not statically resolved; no target invented"
+        }
+      ]
+    },
+    {
+      "block_count": 1,
+      "call_edge_count": 0,
+      "direct_callees": [],
+      "entry_address": "0x000044d4",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_44d4",
+      "instruction_count": 6,
+      "unit_id": "tu_fn_44d4",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 1,
+      "call_edge_count": 0,
+      "direct_callees": [],
+      "entry_address": "0x000044f0",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_44f0",
+      "instruction_count": 6,
+      "unit_id": "tu_fn_44f0",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 1,
+      "call_edge_count": 0,
+      "direct_callees": [],
+      "entry_address": "0x0000450c",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_450c",
+      "instruction_count": 5,
+      "unit_id": "tu_fn_450c",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 1,
+      "call_edge_count": 0,
+      "direct_callees": [],
+      "entry_address": "0x00004524",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_4524",
+      "instruction_count": 5,
+      "unit_id": "tu_fn_4524",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 1,
+      "call_edge_count": 0,
+      "direct_callees": [],
+      "entry_address": "0x0000453c",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_453c",
+      "instruction_count": 6,
+      "unit_id": "tu_fn_453c",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 2,
+      "call_edge_count": 0,
+      "direct_callees": [],
+      "entry_address": "0x00004558",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_4558",
+      "instruction_count": 4,
+      "unit_id": "tu_fn_4558",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 1,
+      "call_edge_count": 0,
+      "direct_callees": [],
+      "entry_address": "0x0000456c",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_456c",
+      "instruction_count": 2,
+      "unit_id": "tu_fn_456c",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 1,
+      "call_edge_count": 0,
+      "direct_callees": [],
+      "entry_address": "0x00004578",
+      "entry_sources": [
+        "DIRECT_CALL"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_4578",
+      "instruction_count": 1,
+      "unit_id": "tu_fn_4578",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    },
+    {
+      "block_count": 5,
+      "call_edge_count": 2,
+      "direct_callees": [
+        "fn_1e5c",
+        "fn_4558"
+      ],
+      "entry_address": "0x00004650",
+      "entry_sources": [
+        "PROGRAM_ENTRY"
+      ],
+      "evidence": "PROVEN",
+      "function_id": "fn_4650",
+      "instruction_count": 11,
+      "unit_id": "tu_fn_4650",
+      "unresolved_call_sites": [],
+      "unresolved_jump_sites": []
+    }
+  ],
+  "units_sha256": "922e15ef16c10406b5829404abf8ae4ad064775a4270fe8d2ac4124b2f306eec"
+}

@@ -1,0 +1,857 @@
+{
+  "checks": [
+    {
+      "check": "after:all-sites-covered",
+      "status": "PASS"
+    },
+    {
+      "check": "after:all-sites-semantically-implemented",
+      "status": "PASS"
+    },
+    {
+      "check": "after:reachable-path-fully-covered",
+      "status": "PASS"
+    },
+    {
+      "check": "after:reachable-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "after:site-count",
+      "status": "PASS"
+    },
+    {
+      "check": "after:unreachable-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "before:all-sites-in-function-ranges",
+      "status": "PASS"
+    },
+    {
+      "check": "before:control-flow-counts",
+      "status": "PASS"
+    },
+    {
+      "check": "before:exception-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "before:jalr-frontier",
+      "status": "PASS"
+    },
+    {
+      "check": "before:reachable-count",
+      "status": "PASS"
+    },
+    {
+      "check": "before:reachable-jr-at-frontier",
+      "status": "PASS"
+    },
+    {
+      "check": "before:site-count",
+      "status": "PASS"
+    },
+    {
+      "check": "before:total:decoded_words",
+      "status": "PASS"
+    },
+    {
+      "check": "before:total:invalid_words",
+      "status": "PASS"
+    },
+    {
+      "check": "before:total:reachable_invalid_words",
+      "status": "PASS"
+    },
+    {
+      "check": "before:total:reachable_supported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "before:total:reachable_unsupported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "before:total:reachable_words",
+      "status": "PASS"
+    },
+    {
+      "check": "before:total:recognized_unsupported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "before:total:reserved_encoding_words",
+      "status": "PASS"
+    },
+    {
+      "check": "before:total:supported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "before:total:total_words",
+      "status": "PASS"
+    },
+    {
+      "check": "before:total:unknown_encoding_words",
+      "status": "PASS"
+    },
+    {
+      "check": "before:total:unreachable_words",
+      "status": "PASS"
+    },
+    {
+      "check": "before:unreachable-count",
+      "status": "PASS"
+    },
+    {
+      "check": "before:unresolved-counts",
+      "status": "PASS"
+    },
+    {
+      "check": "before:unsupported-histogram",
+      "status": "PASS"
+    },
+    {
+      "check": "before:unsupported-reachable-histogram",
+      "status": "PASS"
+    },
+    {
+      "check": "before:unsupported-unreachable-histogram",
+      "status": "PASS"
+    },
+    {
+      "check": "coverage:all-match-independent-reference",
+      "status": "PASS"
+    },
+    {
+      "check": "coverage:all-sites-executed",
+      "status": "PASS"
+    },
+    {
+      "check": "coverage:classes",
+      "status": "PASS"
+    },
+    {
+      "check": "coverage:no-site-unsupported",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:control-flow-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:frontier-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:vectors-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:all-conditions-proven-false",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:no-reachable-seed-materialisation",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:pair1-divisor-nonzero",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:pair1-divisor-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:pair1-execs-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:pair1-no-target-in-popcount",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:pair2-delay-slot-inert",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:pair2-guard",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:pair2-iterations-nonzero",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:pair2-no-target-into-site",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:pair2-predecessor-writes-only-1",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:pair2-stack-slot-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:pair3-argument-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:pair3-callee-pure",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:pair3-callees",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:pair3-delay-slots",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:pair3-guard",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:pair3-no-target-into-block",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:popcount-model",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:seed-table",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:seed-values",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:site-count",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:site:0x00001f60",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:site:0x00001f64",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:site:0x00002044",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:site:0x00002048",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:site:0x00002370",
+      "status": "PASS"
+    },
+    {
+      "check": "exception:site:0x00002374",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:exists",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:size",
+      "status": "PASS"
+    },
+    {
+      "check": "hi-lo:no-mul-crossed",
+      "status": "PASS"
+    },
+    {
+      "check": "hi-lo:no-unpredictable-dependency",
+      "status": "PASS"
+    },
+    {
+      "check": "hi-lo:reachable-read-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "implementations:class-set",
+      "status": "PASS"
+    },
+    {
+      "check": "implementations:classes-cover-audited-frontier",
+      "status": "PASS"
+    },
+    {
+      "check": "implementations:status-per-op",
+      "status": "PASS"
+    },
+    {
+      "check": "implementations:unsupported-op-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "input:entry",
+      "status": "PASS"
+    },
+    {
+      "check": "input:guest-image-equals-file-slice",
+      "status": "PASS"
+    },
+    {
+      "check": "input:text-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "input:text-section",
+      "status": "PASS"
+    },
+    {
+      "check": "negatives:count",
+      "status": "PASS"
+    },
+    {
+      "check": "negatives:no-failures",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:control-flow-counts",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:control_flow_frontier.json:exists",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:exception-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:frontier-jalr",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:frontier-unsupported-total",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:indirect-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:instruction_inventory.json:exists",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory-recorded-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory-supported-histogram",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory-unsupported-classes",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:decoded_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:invalid_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:reachable_invalid_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:reachable_supported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:reachable_unsupported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:reachable_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:recognized_unsupported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:reserved_encoding_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:supported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:total_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:unknown_encoding_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:inventory:unreachable_words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:padding-addresses",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:reachability-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:reachability-sha256-frozen",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:reachable-words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:reachable_code_map.json:exists",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:unreachable-words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-03:unsupported_frontier.json:exists",
+      "status": "PASS"
+    },
+    {
+      "check": "rerun:identical-control-flow",
+      "status": "PASS"
+    },
+    {
+      "check": "rerun:identical-records",
+      "status": "PASS"
+    },
+    {
+      "check": "rerun:identical-summary",
+      "status": "PASS"
+    },
+    {
+      "check": "rerun:identical-unresolved",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entry-set",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entry-count",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-frozen-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:all-match-independent-reference",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:class-coverage",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:count",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:fail-closed-covered",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:swl-swr-idiom-covered",
+      "status": "PASS"
+    }
+  ],
+  "claim_boundary": "P3-04 proves only that the audited reachable MIPS32 semantic frontier in the P3-01 recognized-unsupported classes is implemented and verified for the CoreMark path: exact, fail-closed semantics for movz, movn, mul, divu, teq, swl, swr and jalr, reference-checked against an independent model and applied to every audited site. It does not prove complete CoreMark translation, does not prove CoreMark execution, does not recover the unresolved jr $at jump tables or the dead jalr target, and claims no arbitrary MIPS32, PS1 or PS2 compatibility.",
+  "evidence_files": {
+    "coremark_frontier_rerun.json": "9a54e0212404cbe05fc0ac956a3922392eec0a1bf305ae88543a1d74383ccca9",
+    "determinism.json": "1102d895b7c5e10d127661fc56f08cfa6e27acfb099ea2aaecf5d31fc377ceb5",
+    "exception_frontier.json": "eeb04eb73f6c7737b326a67af7c1e7d0a20dfa6f6252209d8a3688079a8b2eda",
+    "hi_lo_dependency.json": "2291518ba64ea7ec4f5c6651ecd6b1870aa70d5d583616f1f00fbca08d27f3e2",
+    "reachable_unsupported_after.json": "d033501f6e08aa477f31200ae2c98ba10f28e72d5618ac89aeaa46745274ad59",
+    "reachable_unsupported_before.json": "815dbadc1cfd7a4e22d990808cdafaa5e9688103b451769671089e694d29c7ad",
+    "semantic_implementations.json": "235105953bbcfe3ee8e61d418995a3cf80a1d2706b5636721ba84b88a02573a3",
+    "semantic_negative_results.json": "c4698ad07e9b83bcdfa2b561c71c65e1eb28fc456576dce120acd2d82fc98455",
+    "semantic_reference_vectors.json": "89b6328c8c6161d351b0ffa8d5b1f00cf75a49962a9a31f830df94dab85d3417",
+    "semantic_site_coverage.json": "6272f8eccf537980406c548418019053dde19ff42c1f92f2ec121d28c352a27d",
+    "source_integrity.txt": "da5a44374409a33964c1c8fc174cda3b7b758593751ee7cfe7c8c95937112839"
+  },
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "after": {
+      "counts": {
+        "reachable": 55,
+        "reachable_semantically_supported_after": 2178,
+        "reachable_semantically_unsupported_after": 0,
+        "total": 82,
+        "unreachable": 27,
+        "unreachable_semantically_supported_after": 27,
+        "unreachable_semantically_unsupported_after": 0
+      },
+      "remaining_frontier": {
+        "dead_function_words": 687,
+        "notes": [
+          "unreachable recognized-unsupported words carry implemented semantics but are not required by the reachable path",
+          "MUL leaves HI/LO architecturally UNPREDICTABLE; no reachable HI/LO read depends on it (see hi_lo_dependency.json)"
+        ],
+        "padding_words": 8,
+        "reachable_semantic_gap": "none in the P3-01 bounded classes",
+        "unreached_code_words": 1301,
+        "unresolved_control_flow": {
+          "boundary_successor": "0x0000467c",
+          "dead_jalr": "0x00001958",
+          "jr_at_jump_tables": [
+            "0x00003130",
+            "0x00003830",
+            "0x000039a0"
+          ],
+          "note": "never resolved, never guessed"
+        }
+      },
+      "site_table_sha256": "f311d2f622a611408e961a9a45c5997d460570f40a28b5097e826d8553c261cc"
+    },
+    "before": {
+      "counts": {
+        "reachable": 55,
+        "total": 82,
+        "unreachable": 27
+      },
+      "exception_sites": [
+        {
+          "containing_function": "main",
+          "op": "divu",
+          "operands": {
+            "rs": 4,
+            "rt": 1
+          },
+          "reachability": "REACHABLE",
+          "site": "0x00001f60",
+          "word": "0x0081001b"
+        },
+        {
+          "containing_function": "main",
+          "op": "teq",
+          "operands": {
+            "code": 7,
+            "rs": 1,
+            "rt": 0
+          },
+          "reachability": "REACHABLE",
+          "site": "0x00001f64",
+          "word": "0x002001f4"
+        },
+        {
+          "containing_function": "main",
+          "op": "divu",
+          "operands": {
+            "rs": 1,
+            "rt": 2
+          },
+          "reachability": "REACHABLE",
+          "site": "0x00002044",
+          "word": "0x0022001b"
+        },
+        {
+          "containing_function": "main",
+          "op": "teq",
+          "operands": {
+            "code": 7,
+            "rs": 2,
+            "rt": 0
+          },
+          "reachability": "REACHABLE",
+          "site": "0x00002048",
+          "word": "0x004001f4"
+        },
+        {
+          "containing_function": "main",
+          "op": "divu",
+          "operands": {
+            "rs": 16,
+            "rt": 2
+          },
+          "reachability": "REACHABLE",
+          "site": "0x00002370",
+          "word": "0x0202001b"
+        },
+        {
+          "containing_function": "main",
+          "op": "teq",
+          "operands": {
+            "code": 7,
+            "rs": 2,
+            "rt": 0
+          },
+          "reachability": "REACHABLE",
+          "site": "0x00002374",
+          "word": "0x004001f4"
+        }
+      ],
+      "histogram": {
+        "divu": 4,
+        "jalr": 1,
+        "movn": 12,
+        "movz": 35,
+        "mul": 22,
+        "swl": 2,
+        "swr": 2,
+        "teq": 4
+      },
+      "reachable_histogram": {
+        "divu": 3,
+        "movn": 9,
+        "movz": 21,
+        "mul": 15,
+        "swl": 2,
+        "swr": 2,
+        "teq": 3
+      },
+      "site_table_sha256": "4b03b3ac7a11bdb73424a95628c4383a7e61b1d1ed554e4e80d3e1aeddbc21a4",
+      "unreachable_histogram": {
+        "divu": 1,
+        "jalr": 1,
+        "movn": 3,
+        "movz": 14,
+        "mul": 7,
+        "teq": 1
+      }
+    },
+    "coverage": {
+      "failures": [],
+      "per_class": {
+        "divu": {
+          "failures": 0,
+          "sites": 4
+        },
+        "jalr": {
+          "failures": 0,
+          "sites": 1
+        },
+        "movn": {
+          "failures": 0,
+          "sites": 12
+        },
+        "movz": {
+          "failures": 0,
+          "sites": 35
+        },
+        "mul": {
+          "failures": 0,
+          "sites": 22
+        },
+        "swl": {
+          "failures": 0,
+          "sites": 2
+        },
+        "swr": {
+          "failures": 0,
+          "sites": 2
+        },
+        "teq": {
+          "failures": 0,
+          "sites": 4
+        }
+      },
+      "sites": 82
+    },
+    "determinism": {
+      "artifact_sha256": {
+        "coremark_frontier_rerun.json": "9a54e0212404cbe05fc0ac956a3922392eec0a1bf305ae88543a1d74383ccca9",
+        "exception_frontier.json": "eeb04eb73f6c7737b326a67af7c1e7d0a20dfa6f6252209d8a3688079a8b2eda",
+        "hi_lo_dependency.json": "2291518ba64ea7ec4f5c6651ecd6b1870aa70d5d583616f1f00fbca08d27f3e2",
+        "reachable_unsupported_after.json": "d033501f6e08aa477f31200ae2c98ba10f28e72d5618ac89aeaa46745274ad59",
+        "reachable_unsupported_before.json": "815dbadc1cfd7a4e22d990808cdafaa5e9688103b451769671089e694d29c7ad",
+        "semantic_implementations.json": "235105953bbcfe3ee8e61d418995a3cf80a1d2706b5636721ba84b88a02573a3",
+        "semantic_negative_results.json": "c4698ad07e9b83bcdfa2b561c71c65e1eb28fc456576dce120acd2d82fc98455",
+        "semantic_reference_vectors.json": "89b6328c8c6161d351b0ffa8d5b1f00cf75a49962a9a31f830df94dab85d3417",
+        "semantic_site_coverage.json": "6272f8eccf537980406c548418019053dde19ff42c1f92f2ec121d28c352a27d",
+        "source_integrity.txt": "da5a44374409a33964c1c8fc174cda3b7b758593751ee7cfe7c8c95937112839"
+      },
+      "reachability_sha256": "c62d54838cbc5fcc7b0ff83cdc9b2f0f47b8851c5e4023ae2ca6d629c8f76edf",
+      "source_sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669",
+      "vector_count": 459
+    },
+    "exception_frontier": {
+      "conditions_proven_false": 6,
+      "unresolved_runtime_requirements": 0
+    },
+    "fixture": {
+      "path": ".openrecomp-phase3/build/P3-01/candidate-a/coremark_mips32_O1.elf",
+      "sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669",
+      "size": 31184
+    },
+    "hi_lo_dependency": {
+      "classifications": [
+        "DEFINED_BY_MULTU",
+        "DEFINED_BY_MULTU",
+        "DEFINED_BY_DIVU",
+        "DEFINED_BY_DIVU",
+        "DEFINED_BY_DIVU",
+        "DEFINED_BY_MULTU"
+      ],
+      "read_sites": [
+        "0x00001a4c",
+        "0x00001b5c",
+        "0x00001f68",
+        "0x0000204c",
+        "0x00002378",
+        "0x00004530"
+      ],
+      "unresolved": []
+    },
+    "implementations": {
+      "audited_frontier_classes": [
+        "divu",
+        "jalr",
+        "movn",
+        "movz",
+        "mul",
+        "swl",
+        "swr",
+        "teq"
+      ],
+      "classes": [
+        "divu",
+        "jalr",
+        "movn",
+        "movz",
+        "mul",
+        "swl",
+        "swr",
+        "teq"
+      ]
+    },
+    "input": {
+      "entry": "0x00004650",
+      "text_size": 13948,
+      "text_slice_sha256": "c7b48c7c01772f179193ac123560b1f2ae16da116e2c2c69d5b53c96e0f98f6f",
+      "text_vaddr": "0x00001000",
+      "text_words": 3487
+    },
+    "negatives": {
+      "count": 18,
+      "failed": 0
+    },
+    "p3_03_cross_check": {
+      "control_frontier_sha256": "2e4f1fd1bf1cdeb25e73890267360783817d8215b066cd5dcff39e6988fedf36",
+      "inventory_sha256": "dc83fb0595db5710379e5091f31a3cb457d3eb74703df3bfb51643aab32741f5",
+      "reachability_sha256": "c62d54838cbc5fcc7b0ff83cdc9b2f0f47b8851c5e4023ae2ca6d629c8f76edf",
+      "reachable_map_sha256": "abf032e267e36677aa81ad09715367f9f6bcb172ad5477956b614aa44b37c831",
+      "unsupported_frontier_sha256": "f5e3ff1fabf8a4f075c3fe97f274ea11089af799a6340b85d0bebb3e7025be79"
+    },
+    "rerun": {
+      "reachability_sha256": "c62d54838cbc5fcc7b0ff83cdc9b2f0f47b8851c5e4023ae2ca6d629c8f76edf",
+      "totals": {
+        "decoded_words": 3479,
+        "invalid_words": 8,
+        "reachable_invalid_words": 0,
+        "reachable_supported_words": 2123,
+        "reachable_unsupported_words": 55,
+        "reachable_words": 2178,
+        "recognized_unsupported_words": 82,
+        "reserved_encoding_words": 8,
+        "supported_words": 3397,
+        "total_words": 3487,
+        "unknown_encoding_words": 0,
+        "unreachable_words": 1309
+      }
+    },
+    "source_integrity": {
+      "phase3_files": [
+        ".openrecomp-phase3/src/p3_code_frontier_v1.py",
+        ".openrecomp-phase3/src/p3_decode_mips32_v1.py",
+        ".openrecomp-phase3/src/p3_elf_image_v1.py",
+        ".openrecomp-phase3/src/p3_semantics_mips32_v1.py",
+        ".openrecomp-phase3/src/p3_structure_v1.py",
+        ".openrecomp-phase3/src/p3_target_mips32_v1.py",
+        "tools/test_phase3_boundary_v1.py",
+        "tools/test_phase3_coremark_fixture_v1.py",
+        "tools/test_phase3_decode_frontier_v1.py",
+        "tools/test_phase3_elf_ingestion_v1.py",
+        "tools/test_phase3_reachable_semantics_v1.py",
+        "tools/test_phase3_structure_v1.py"
+      ],
+      "phase3_manifest_entries": 12,
+      "phase3_manifest_mismatched": [],
+      "phase3_manifest_sha256": "90aba19d12394aff9eb2ae7e5512d582cee1e1dd5a57c870ff33b4c88f044c93",
+      "root_manifest_entries": 134,
+      "root_manifest_mismatched": [],
+      "root_manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"
+    },
+    "vectors": {
+      "classes": [
+        "divu",
+        "jalr",
+        "movn",
+        "movz",
+        "mul",
+        "swl",
+        "swl+swr",
+        "swr",
+        "teq"
+      ],
+      "count": 459,
+      "fail_closed": [
+        "DIVIDE_BY_ZERO",
+        "TRAP_TAKEN",
+        "UNALIGNED_TARGET"
+      ],
+      "failed": 0,
+      "swl_swr_idiom_checks": 24
+    }
+  },
+  "markers": {
+    "gate": "OPENRECOMP_PHASE3_COREMARK_REACHABLE_SEMANTICS_V1=PASS tests=126",
+    "stage": "OPENRECOMP_P3_04=PASS",
+    "terminal": "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
+  },
+  "passed": 126,
+  "stage": "P3-04",
+  "stage_name": "OPENRECOMP_PHASE3_COREMARK_REACHABLE_SEMANTICS_V1",
+  "status": "PASS",
+  "tests": 126
+}

@@ -1,0 +1,165 @@
+{
+  "fixture_constants": {
+    "seed_globals": {
+      "seed1_volatile": "0x00005600",
+      "seed2_volatile": "0x00005604",
+      "seed3_volatile": "0x00004e10",
+      "seed4_volatile": "0x00004e14",
+      "seed5_volatile": "0x00005608"
+    },
+    "seed_table_address": "0x00004c50",
+    "seed_table_pointers": [
+      "0x00005600",
+      "0x00005604",
+      "0x00004e10",
+      "0x00004e14",
+      "0x00005608"
+    ],
+    "seed_values": {
+      "seed1_volatile": "0x00000000",
+      "seed2_volatile": "0x00000000",
+      "seed3_volatile": "0x00000066",
+      "seed4_volatile": "0x000003e8",
+      "seed5_volatile": "0x00000000"
+    }
+  },
+  "policy": "architecturally UNPREDICTABLE exceptional states fail closed in the semantics model; this table states whether the deterministic fixture can reach the exceptional condition and on what evidence",
+  "seed_materialisation_scan": {
+    "bound": "bounded to the audited image and reachable instructions: direct 16-bit immediates and lui halves of the seed addresses",
+    "finding": "no reachable instruction references a seed address",
+    "matches": []
+  },
+  "sites": [
+    {
+      "classification": "CONDITION_PROVEN_FALSE_FOR_FIXTURE",
+      "containing_function": "main",
+      "evidence": [
+        "seed5_volatile (0x5608) initial image value is 0",
+        "get_seed_32(5) reads the seed-table pointer at 0x4c60 -> 0x5608",
+        "0x1ee0 addiu $1=$0+7 and 0x1ee4 movz $2,$1,$2 set execs=7 when 0",
+        "0x1f40..0x1f58 compute popcount(execs & 7) as ((x&1)+((x&2)>>1)+((x&4)>>2)); for execs=7 the divisor is 3",
+        "no reachable instruction materialises a seed address, so the image value is the value read",
+        "no control-flow target enters 0x1f40..0x1f60 and no instruction there writes $2"
+      ],
+      "exceptional_condition": "divisor ($1) == 0",
+      "op": "divu",
+      "operands": {
+        "rs": 4,
+        "rt": 1
+      },
+      "reachability": "REACHABLE",
+      "runtime_requirement": "divisor is nonzero; LO/HI are defined and match the reference model",
+      "semantics_status": "IMPLEMENTED_FAIL_CLOSED",
+      "site": "0x00001f60",
+      "word": "0x0081001b"
+    },
+    {
+      "classification": "CONDITION_PROVEN_FALSE_FOR_FIXTURE",
+      "containing_function": "main",
+      "evidence": [
+        "same divisor derivation as 0x1f60: $1 = popcount(7) = 3",
+        "teq is only taken when $1 == $0, which is false for the fixture"
+      ],
+      "exceptional_condition": "($1) == 0 (divisor zero trap guard)",
+      "op": "teq",
+      "operands": {
+        "code": 7,
+        "rs": 1,
+        "rt": 0
+      },
+      "reachability": "REACHABLE",
+      "runtime_requirement": "trap condition false; execution continues with the defined quotient",
+      "semantics_status": "IMPLEMENTED_FAIL_CLOSED",
+      "site": "0x00001f64",
+      "word": "0x002001f4"
+    },
+    {
+      "classification": "CONDITION_PROVEN_FALSE_ON_EVERY_REACHING_PATH",
+      "containing_function": "main",
+      "evidence": [
+        "0x2038 beq $2,$0,0x2000 is the only guard: the fall-through path continues only when the seconds value is nonzero",
+        "0x203c is a nop delay slot and 0x2040 writes only $1",
+        "no control-flow target enters 0x203c..0x2048, so every execution reaching 0x2044 passed the $2 != 0 test",
+        "the containing auto-calibration block is additionally not entered for the fixture: seed4_volatile (0x4e14) is 0x3e8 and 0x1fec bne $1,$0,0x2060 skips the block when iterations != 0"
+      ],
+      "exceptional_condition": "divisor ($2) == 0",
+      "op": "divu",
+      "operands": {
+        "rs": 1,
+        "rt": 2
+      },
+      "reachability": "REACHABLE",
+      "runtime_requirement": "divisor is nonzero on every path that reaches the site",
+      "semantics_status": "IMPLEMENTED_FAIL_CLOSED",
+      "site": "0x00002044",
+      "word": "0x0022001b"
+    },
+    {
+      "classification": "CONDITION_PROVEN_FALSE_ON_EVERY_REACHING_PATH",
+      "containing_function": "main",
+      "evidence": [
+        "the same 0x2038 beq guard proves $2 != 0 on the fall-through path",
+        "no path enters the site without passing that guard"
+      ],
+      "exceptional_condition": "($2) == 0 (divisor zero trap guard)",
+      "op": "teq",
+      "operands": {
+        "code": 7,
+        "rs": 2,
+        "rt": 0
+      },
+      "reachability": "REACHABLE",
+      "runtime_requirement": "trap condition false; execution continues with the defined quotient",
+      "semantics_status": "IMPLEMENTED_FAIL_CLOSED",
+      "site": "0x00002048",
+      "word": "0x004001f4"
+    },
+    {
+      "classification": "CONDITION_PROVEN_FALSE_ON_EVERY_REACHING_PATH",
+      "containing_function": "main",
+      "evidence": [
+        "0x2348 calls time_in_secs($17) and 0x2350 beq $2,$0,0x2388 skips the block when that result is zero",
+        "0x2368 calls time_in_secs($17) again; both delay slots load the same argument $17 and no instruction between them writes $17",
+        "time_in_secs (0x4524..0x4538) is a pure function of $4: lui/ori/multu/mfhi/srl, no memory access, no call, no branch",
+        "equal input therefore yields an equal nonzero result, so the divisor at 0x2370 equals the value proven nonzero at 0x2350",
+        "no control-flow target enters 0x2350..0x2370"
+      ],
+      "exceptional_condition": "divisor ($2) == 0 (second time_in_secs result)",
+      "op": "divu",
+      "operands": {
+        "rs": 16,
+        "rt": 2
+      },
+      "reachability": "REACHABLE",
+      "runtime_requirement": "divisor is nonzero; the quotient in LO is well defined",
+      "semantics_status": "IMPLEMENTED_FAIL_CLOSED",
+      "site": "0x00002370",
+      "word": "0x0202001b"
+    },
+    {
+      "classification": "CONDITION_PROVEN_FALSE_ON_EVERY_REACHING_PATH",
+      "containing_function": "main",
+      "evidence": [
+        "same pure-callee, same-argument reasoning as the 0x2370 divu",
+        "the divisor tested is the value proven nonzero at 0x2350"
+      ],
+      "exceptional_condition": "($2) == 0 (divisor zero trap guard)",
+      "op": "teq",
+      "operands": {
+        "code": 7,
+        "rs": 2,
+        "rt": 0
+      },
+      "reachability": "REACHABLE",
+      "runtime_requirement": "trap condition false; execution continues with the defined quotient",
+      "semantics_status": "IMPLEMENTED_FAIL_CLOSED",
+      "site": "0x00002374",
+      "word": "0x004001f4"
+    }
+  ],
+  "stage": "P3-04",
+  "summary": {
+    "conditions_proven_false": 6,
+    "unresolved_runtime_requirements": 0
+  }
+}

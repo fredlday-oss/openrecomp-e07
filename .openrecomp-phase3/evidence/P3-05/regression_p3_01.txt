@@ -1,0 +1,90 @@
+=== P3-01 CoreMark MIPS32 Fixture Gate ===
+
+--- provenance ---
+PASS: provenance:upstream-dir
+PASS: provenance:upstream-exists:coremark.h
+PASS: provenance:upstream-sha256:coremark.h
+PASS: provenance:upstream-exists:core_list_join.c
+PASS: provenance:upstream-sha256:core_list_join.c
+PASS: provenance:upstream-exists:core_main.c
+PASS: provenance:upstream-sha256:core_main.c
+PASS: provenance:upstream-exists:core_matrix.c
+PASS: provenance:upstream-sha256:core_matrix.c
+PASS: provenance:upstream-exists:core_state.c
+PASS: provenance:upstream-sha256:core_state.c
+PASS: provenance:upstream-exists:core_util.c
+PASS: provenance:upstream-sha256:core_util.c
+PASS: provenance:upstream-exists:coremark.md5
+PASS: provenance:upstream-sha256:coremark.md5
+PASS: provenance:upstream-exists:LICENSE.md
+PASS: provenance:upstream-sha256:LICENSE.md
+PASS: provenance:upstream-exists:README.md
+PASS: provenance:upstream-sha256:README.md
+PASS: provenance:upstream-exists:barebones/core_portme.h
+PASS: provenance:upstream-sha256:barebones/core_portme.h
+PASS: provenance:upstream-exists:barebones/ee_printf.c
+PASS: provenance:upstream-sha256:barebones/ee_printf.c
+PASS: provenance:upstream-md5-file
+PASS: provenance:upstream-md5:core_list_join.c
+PASS: provenance:upstream-md5:core_main.c
+PASS: provenance:upstream-md5:core_matrix.c
+PASS: provenance:upstream-md5:core_state.c
+PASS: provenance:upstream-md5:core_util.c
+PASS: provenance:upstream-md5-stale-recorded
+PASS: provenance:upstream-md5-entry-count
+PASS: provenance:port-file:p3_ee_printf.c
+PASS: provenance:port-file:p3_port_support.c
+PASS: provenance:port-file:p3_start.S
+PASS: provenance:port-file:p3_mips32.ld
+PASS: provenance:license-recorded
+
+--- toolchain ---
+PASS: toolchain:zig-exists
+PASS: toolchain:zig-sha256
+PASS: toolchain:zig-version
+PASS: toolchain:archive-recorded
+PASS: toolchain:lld-pinned
+
+--- build ---
+PASS: build:elf-exists
+PASS: build:independent-roots
+PASS: build:byte-identical
+PASS: build:expected-elf-sha256
+PASS: build:expected-elf-size
+
+--- characterisation ---
+PASS: elf:class-32
+PASS: elf:little-endian
+PASS: elf:machine-mips
+PASS: elf:type-executable
+PASS: elf:flags-o32-arch32
+PASS: elf:flags-non-pic
+PASS: elf:entry-expected
+PASS: elf:entry-is-_start
+PASS: elf:section:.text
+PASS: elf:section:.rodata
+PASS: elf:section:.data
+PASS: elf:section:.bss
+PASS: elf:section:.MIPS.abiflags
+PASS: elf:section:.reginfo
+PASS: elf:text-address
+PASS: elf:no-dynamic-section
+PASS: elf:no-dynamic-program-header
+PASS: elf:no-relocations
+PASS: elf:no-undefined-symbols
+PASS: elf:single-executable-segment
+PASS: elf:instruction-word-count
+PASS: inventory:supported-count
+PASS: inventory:unsupported-count
+PASS: inventory:unsupported-histogram
+PASS: inventory:divu-teq-pairs
+PASS: inventory:padding-encodings
+PASS: inventory:indirect-jalr
+PASS: inventory:unaligned-stores
+PASS: inventory:conditional-moves
+PASS: inventory:mul
+
+=== RESULT ===
+OPENRECOMP_P3_01=PASS
+OPENRECOMP_PHASE3_COREMARK_MIPS32_FIXTURE_V1=PASS tests=76
+OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN

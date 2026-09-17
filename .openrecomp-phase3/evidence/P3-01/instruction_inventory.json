@@ -1,0 +1,253 @@
+{
+  "supported": {
+    "addiu": 654,
+    "addu": 171,
+    "and": 11,
+    "andi": 161,
+    "beq": 170,
+    "bgez": 2,
+    "bgtz": 13,
+    "blez": 17,
+    "bltz": 4,
+    "bne": 135,
+    "j": 125,
+    "jal": 101,
+    "jr": 52,
+    "lbu": 74,
+    "lh": 28,
+    "lhu": 43,
+    "lui": 73,
+    "lw": 275,
+    "mfhi": 4,
+    "mflo": 4,
+    "multu": 3,
+    "nop": 224,
+    "nor": 2,
+    "or": 345,
+    "ori": 17,
+    "sb": 79,
+    "sh": 32,
+    "sll": 106,
+    "slt": 24,
+    "slti": 8,
+    "sltiu": 33,
+    "sltu": 19,
+    "sra": 13,
+    "srl": 81,
+    "subu": 35,
+    "sw": 205,
+    "xor": 52,
+    "xori": 2
+  },
+  "unsupported": {
+    "alignment-padding (0x04170001)": 8,
+    "divu": 4,
+    "jalr": 1,
+    "movn": 12,
+    "movz": 35,
+    "mul (SPECIAL2 funct 0x02)": 22,
+    "swl": 2,
+    "swr": 2,
+    "teq": 4
+  },
+  "unsupported_sites": {
+    "alignment-padding (0x04170001)": [
+      {
+        "address": 7564,
+        "word": 68616193
+      },
+      {
+        "address": 9676,
+        "word": 68616193
+      },
+      {
+        "address": 13256,
+        "word": 68616193
+      },
+      {
+        "address": 13260,
+        "word": 68616193
+      },
+      {
+        "address": 14076,
+        "word": 68616193
+      },
+      {
+        "address": 17988,
+        "word": 68616193
+      },
+      {
+        "address": 17992,
+        "word": 68616193
+      },
+      {
+        "address": 17996,
+        "word": 68616193
+      }
+    ],
+    "divu": [
+      {
+        "address": 8032,
+        "word": 8454171
+      },
+      {
+        "address": 8260,
+        "word": 2228251
+      },
+      {
+        "address": 9072,
+        "word": 33685531
+      },
+      {
+        "address": 17160,
+        "word": 10879003
+      }
+    ],
+    "jalr": [
+      {
+        "address": 6488,
+        "word": 52492297
+      }
+    ],
+    "movn": [
+      {
+        "address": 10008,
+        "word": 6883339
+      },
+      {
+        "address": 10020,
+        "word": 602123
+      },
+      {
+        "address": 10200,
+        "word": 6948875
+      },
+      {
+        "address": 10212,
+        "word": 669707
+      },
+      {
+        "address": 10424,
+        "word": 6948875
+      },
+      {
+        "address": 10436,
+        "word": 669707
+      },
+      {
+        "address": 10664,
+        "word": 6883339
+      },
+      {
+        "address": 10676,
+        "word": 602123
+      }
+    ],
+    "movz": [
+      {
+        "address": 4212,
+        "word": 10622986
+      },
+      {
+        "address": 7908,
+        "word": 2232330
+      },
+      {
+        "address": 9592,
+        "word": 2236426
+      },
+      {
+        "address": 9612,
+        "word": 4268042
+      },
+      {
+        "address": 11656,
+        "word": 12654602
+      },
+      {
+        "address": 13332,
+        "word": 2430986
+      },
+      {
+        "address": 13360,
+        "word": 2304010
+      },
+      {
+        "address": 13408,
+        "word": 19157002
+      }
+    ],
+    "mul (SPECIAL2 funct 0x02)": [
+      {
+        "address": 8280,
+        "word": 1883310082
+      },
+      {
+        "address": 8460,
+        "word": 1896089602
+      },
+      {
+        "address": 8492,
+        "word": 1896089602
+      },
+      {
+        "address": 9060,
+        "word": 1883340802
+      },
+      {
+        "address": 9168,
+        "word": 1883318274
+      },
+      {
+        "address": 9920,
+        "word": 1882458114
+      },
+      {
+        "address": 10104,
+        "word": 1895892994
+      },
+      {
+        "address": 10272,
+        "word": 1884358658
+      }
+    ],
+    "swl": [
+      {
+        "address": 6776,
+        "word": 2833317891
+      },
+      {
+        "address": 6812,
+        "word": 2833317895
+      }
+    ],
+    "swr": [
+      {
+        "address": 6780,
+        "word": 3101753344
+      },
+      {
+        "address": 6816,
+        "word": 3101753348
+      }
+    ],
+    "teq": [
+      {
+        "address": 8036,
+        "word": 2097652
+      },
+      {
+        "address": 8264,
+        "word": 4194804
+      },
+      {
+        "address": 9076,
+        "word": 4194804
+      },
+      {
+        "address": 17164,
+        "word": 12583412
+      }
+    ]
+  }
+}

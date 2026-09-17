@@ -1,0 +1,33 @@
+P3-00 boundary gate determinism record
+======================================
+
+Official runs (identical command: python tools/test_phase3_boundary_v1.py):
+
+  run 1: returncode 0, stdout 2675 bytes
+         raw sha256 a039bbffa55afd786e7b44427c5aafe0b09aff6f8309e1e6c643ad812b5b7c73
+         lf  sha256 02664e80d78ae03d66767c472fcc8a2cc65b0fb90cf2efdb3cbbf3c6b5efff7c
+         stderr empty
+  run 2: returncode 0, stdout 2675 bytes
+         raw sha256 a039bbffa55afd786e7b44427c5aafe0b09aff6f8309e1e6c643ad812b5b7c73
+         lf  sha256 02664e80d78ae03d66767c472fcc8a2cc65b0fb90cf2efdb3cbbf3c6b5efff7c
+         stderr empty
+
+  byte-identical stdout: YES
+  markers (both runs):
+    OPENRECOMP_P3_00=PASS
+    OPENRECOMP_PHASE3_BOUNDARY_V1=PASS tests=61
+    OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN
+
+Nested re-verification inside every run:
+
+  python tools/test_phase2_final_verdict_v1.py (verify-only)
+  returncode 0, stderr empty, 7799 bytes
+  raw sha256 66913e5752a9e2b7e399513710b4dce05efce9a714335c3b9908c0e30ea38c28
+  byte-identical to the four recorded official P2-99 terminal runs: YES
+
+Phase-1 host gate suite (run once on the frozen tree):
+  OPENRECOMP_PHASE1_HOST_GATES_PASS=44 FAIL=0 SKIPPED=2
+  OPENRECOMP_PHASE1_HOST_GATES_V1=PASS
+
+No timestamp, host path, random value or process identity appears in this
+file or in the P3-00 stdout.

@@ -1,0 +1,160 @@
+=== P3-04 CoreMark Reachable Semantics Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest-exists
+PASS: source:root-manifest-frozen-sha256
+PASS: source:root-manifest-entry-count
+PASS: source:root-manifest-entries-verified
+PASS: source:phase3-manifest-exists
+PASS: source:phase3-manifest-entry-set
+PASS: source:phase3-manifest-entries-verified
+
+--- fixture ---
+PASS: fixture:exists
+PASS: fixture:sha256
+PASS: fixture:size
+
+--- input integrity ---
+PASS: input:text-section
+PASS: input:text-identity
+PASS: input:entry
+PASS: input:guest-image-equals-file-slice
+
+--- p3_03 cross-check ---
+PASS: p3-03:instruction_inventory.json:exists
+PASS: p3-03:reachable_code_map.json:exists
+PASS: p3-03:control_flow_frontier.json:exists
+PASS: p3-03:unsupported_frontier.json:exists
+PASS: p3-03:inventory:decoded_words
+PASS: p3-03:inventory:invalid_words
+PASS: p3-03:inventory:reachable_invalid_words
+PASS: p3-03:inventory:reachable_supported_words
+PASS: p3-03:inventory:reachable_unsupported_words
+PASS: p3-03:inventory:reachable_words
+PASS: p3-03:inventory:recognized_unsupported_words
+PASS: p3-03:inventory:reserved_encoding_words
+PASS: p3-03:inventory:supported_words
+PASS: p3-03:inventory:total_words
+PASS: p3-03:inventory:unknown_encoding_words
+PASS: p3-03:inventory:unreachable_words
+PASS: p3-03:inventory-supported-histogram
+PASS: p3-03:inventory-unsupported-classes
+PASS: p3-03:inventory-recorded-sites
+PASS: p3-03:reachability-sha256
+PASS: p3-03:reachability-sha256-frozen
+PASS: p3-03:reachable-words
+PASS: p3-03:unreachable-words
+PASS: p3-03:padding-addresses
+PASS: p3-03:control-flow-counts
+PASS: p3-03:exception-sites
+PASS: p3-03:indirect-sites
+PASS: p3-03:frontier-unsupported-total
+PASS: p3-03:frontier-jalr
+
+--- before table ---
+PASS: before:total:total_words
+PASS: before:total:decoded_words
+PASS: before:total:supported_words
+PASS: before:total:recognized_unsupported_words
+PASS: before:total:reserved_encoding_words
+PASS: before:total:unknown_encoding_words
+PASS: before:total:invalid_words
+PASS: before:total:reachable_words
+PASS: before:total:unreachable_words
+PASS: before:total:reachable_supported_words
+PASS: before:total:reachable_unsupported_words
+PASS: before:total:reachable_invalid_words
+PASS: before:unsupported-histogram
+PASS: before:unsupported-reachable-histogram
+PASS: before:unsupported-unreachable-histogram
+PASS: before:control-flow-counts
+PASS: before:unresolved-counts
+PASS: before:site-count
+PASS: before:reachable-count
+PASS: before:unreachable-count
+PASS: before:all-sites-in-function-ranges
+PASS: before:exception-sites
+PASS: before:reachable-jr-at-frontier
+PASS: before:jalr-frontier
+
+--- implementations ---
+PASS: implementations:class-set
+PASS: implementations:classes-cover-audited-frontier
+PASS: implementations:status-per-op
+PASS: implementations:unsupported-op-fails-closed
+
+--- reference vectors ---
+PASS: vectors:count
+PASS: vectors:all-match-independent-reference
+PASS: vectors:class-coverage
+PASS: vectors:fail-closed-covered
+PASS: vectors:swl-swr-idiom-covered
+
+--- site coverage ---
+PASS: coverage:all-sites-executed
+PASS: coverage:no-site-unsupported
+PASS: coverage:all-match-independent-reference
+PASS: coverage:classes
+
+--- hi/lo dependency ---
+PASS: hi-lo:reachable-read-sites
+PASS: hi-lo:no-unpredictable-dependency
+PASS: hi-lo:no-mul-crossed
+
+--- exception frontier ---
+PASS: exception:seed-values
+PASS: exception:seed-table
+PASS: exception:no-reachable-seed-materialisation
+PASS: exception:popcount-model
+PASS: exception:pair1-divisor-nonzero
+PASS: exception:pair1-no-target-in-popcount
+PASS: exception:pair1-execs-stable
+PASS: exception:pair1-divisor-stable
+PASS: exception:pair2-guard
+PASS: exception:pair2-delay-slot-inert
+PASS: exception:pair2-predecessor-writes-only-1
+PASS: exception:pair2-no-target-into-site
+PASS: exception:pair2-iterations-nonzero
+PASS: exception:pair2-stack-slot-stable
+PASS: exception:pair3-guard
+PASS: exception:pair3-callees
+PASS: exception:pair3-delay-slots
+PASS: exception:pair3-argument-stable
+PASS: exception:pair3-no-target-into-block
+PASS: exception:pair3-callee-pure
+PASS: exception:site-count
+PASS: exception:all-conditions-proven-false
+PASS: exception:site:0x00001f60
+PASS: exception:site:0x00001f64
+PASS: exception:site:0x00002044
+PASS: exception:site:0x00002048
+PASS: exception:site:0x00002370
+PASS: exception:site:0x00002374
+
+--- after table ---
+PASS: after:site-count
+PASS: after:reachable-sites
+PASS: after:unreachable-sites
+PASS: after:all-sites-semantically-implemented
+PASS: after:all-sites-covered
+PASS: after:reachable-path-fully-covered
+
+--- frontier rerun ---
+PASS: rerun:identical-summary
+PASS: rerun:identical-records
+PASS: rerun:identical-control-flow
+PASS: rerun:identical-unresolved
+
+--- negatives ---
+PASS: negatives:no-failures
+PASS: negatives:count
+
+--- determinism ---
+PASS: determinism:frontier-stable
+PASS: determinism:control-flow-stable
+PASS: determinism:vectors-stable
+
+=== RESULT ===
+OPENRECOMP_P3_04=PASS
+OPENRECOMP_PHASE3_COREMARK_REACHABLE_SEMANTICS_V1=PASS tests=126
+OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN

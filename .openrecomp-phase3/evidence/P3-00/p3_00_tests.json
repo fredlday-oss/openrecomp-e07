@@ -1,0 +1,370 @@
+{
+  "checks": [
+    {
+      "check": "branch:ahead-count-readable",
+      "status": "PASS"
+    },
+    {
+      "check": "branch:descends-from-boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "branch:merge-base-is-boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "branch:phase3-branch",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:coremark-not-proven",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:current-stage",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:CONTROL_POLICY.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:HANDOFF.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:SCOPE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:STAGE_QUEUE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:STATE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:last-passed-stage",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:policy-boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue-p3-00",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue-p3-01",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:scope-target",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:state:BASELINE_COMMIT",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:state:BASELINE_TAG",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:state:BASELINE_TREE",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:state:COREMARK_STATUS",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:state:FINAL_VERDICT",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:state:PHASE",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:status",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:p2-90-frozen-capture",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:p2-90-preservation-restored",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:p2-99-gate",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:p2-99-result-json",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:p2-99-run1",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:p2-99-run2",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:p2-99-terminal-capture",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:phase2-handoff:OPENRECOMP_P2_99",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:phase2-handoff:OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:phase2-handoff:OPENRECOMP_PHASE2_FINAL_VERDICT_V1",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:phase2-state:OPENRECOMP_P2_99",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:phase2-state:OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:phase2-state:OPENRECOMP_PHASE2_FINAL_VERDICT_V1",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:source-sums",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:source-sums-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "legal:no-console-magics",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-99:marker:OPENRECOMP_P2_99",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-99:marker:OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-99:marker:OPENRECOMP_PHASE2_FINAL_VERDICT_V1",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-99:no-failures",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-99:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-99:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "p2-99:stdout-byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "phase1:tag-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "phase2:commit-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "phase2:tag-annotated",
+      "status": "PASS"
+    },
+    {
+      "check": "phase2:tag-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "phase2:tag-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "verification-context:files-present",
+      "status": "PASS"
+    },
+    {
+      "check": "verification-context:files-untracked",
+      "status": "PASS"
+    },
+    {
+      "check": "verification-context:manifest-digest",
+      "status": "PASS"
+    },
+    {
+      "check": "verification-context:tracked-set-readable",
+      "status": "PASS"
+    },
+    {
+      "check": "worktree:no-unexpected-untracked",
+      "status": "PASS"
+    },
+    {
+      "check": "worktree:residue-documented",
+      "status": "PASS"
+    },
+    {
+      "check": "worktree:status-readable",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "boundary": {
+      "branch": "phase3/mips32-real-elf-v1",
+      "commit": "01b1d7cba8c931fca95d041389cfb1902b7c89fe",
+      "commits_since_boundary": 1,
+      "tag": "openrecomp-phase2-pass",
+      "tree": "6513eefa5ef59b7d0e127f0179c6fc6c21fdac78"
+    },
+    "control_plane": {
+      "coremark_claim_findings": [],
+      "digest_sha256": "ab1d919d16d617df8115ccff1be1b0a7f283571d028ba125be23bc876b3bc88f",
+      "files": 5,
+      "offending": []
+    },
+    "frozen_evidence": {
+      "p2_99_result_json_sha256": "880d25961949b0dc9aedaca78ca60d2dac54bbffeb6fd61e63045acd6394d8df",
+      "p2_99_terminal_capture_sha256_lf": "ac9c0b8abcdd7c0d0c3d271f0276f2e4a923cf32e3103a8322757ec96824a7f2",
+      "source_sums_entries": 134,
+      "source_sums_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"
+    },
+    "legal": {
+      "console_magics": []
+    },
+    "p2_99_reverify": {
+      "returncode": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 7799,
+      "stdout_sha256": "66913e5752a9e2b7e399513710b4dce05efce9a714335c3b9908c0e30ea38c28",
+      "stdout_sha256_lf": "563d33bf2cf0dc00d1f00ebb4921277064f4119640d781cfd41f8ae397a60ecf"
+    },
+    "verification_context": {
+      "files": 28,
+      "manifest_sha256": "40e4f23a35f40c5d25da630467d46f5e8ad8409a40efff8412892217447a8349",
+      "missing": [],
+      "tracked_again": []
+    },
+    "worktree": {
+      "residue_files": 275,
+      "residue_manifest_sha256": "7405a9521ad948f22f2f27d5e07936abfbe212f2ac0e2a8b3f7686880bdd157f",
+      "unexpected": [],
+      "untracked_top_level": [
+        ".openrecomp-phase2/backups/",
+        ".openrecomp-phase2/evidence/P2-21/p2_21_gate.txt",
+        ".openrecomp-phase2/evidence/P2-21/phase1_host_gates.txt",
+        ".openrecomp-phase2/evidence/P2-21/source_integrity.txt",
+        ".openrecomp-phase2/evidence/P2-22/p2_22_run1.txt",
+        ".openrecomp-phase2/evidence/P2-22/p2_22_run2.txt",
+        ".openrecomp-phase2/evidence/P2-22/p2_22_run_final.txt",
+        ".openrecomp-phase2/evidence/P2-22/regression_p2_01_program_model.txt",
+        ".openrecomp-phase2/evidence/P2-22/regression_p2_02_cfg.txt",
+        ".openrecomp-phase2/evidence/P2-22/regression_p2_03_functions.txt",
+        ".openrecomp-phase2/evidence/P2-22/regression_p2_04_call_graph.txt",
+        ".openrecomp-phase2/evidence/P2-22/regression_p2_05_translation_units.txt",
+        ".openrecomp-phase2/evidence/P2-22/regression_p2_06_indirect_control_flow.txt",
+        ".openrecomp-phase2/evidence/P2-22/regression_p2_07_host_emitter.txt",
+        ".openrecomp-phase2/evidence/P2-22/regression_p2_08_runtime_abi.txt",
+        ".openrecomp-phase2/evidence/P2-22/regression_p2_09_deterministic_build.txt",
+        ".openrecomp-phase2/evidence/P2-22/regression_p2_10_mips32_end_to_end.txt",
+        ".openrecomp-phase2/evidence/P2-22/regression_p2_11_mips32_calls_memory.txt",
+        ".openrecomp-phase2/evidence/P2-22/regression_p2_12_mips32_direct_cfg.txt",
+        ".openrecomp-phase2/evidence/P2-22/regression_p2_13_runtime_host_boundary.txt",
+        ".openrecomp-phase2/evidence/P2-22/regression_p2_14_mips32_larger_fixture.txt",
+        ".openrecomp-phase2/evidence/P2-22/regression_p2_20_nes6502_program_bridge.txt",
+        ".openrecomp-phase2/evidence/P2-22/regression_phase1_source_integrity.txt",
+        ".openrecomp-phase2/evidence/P2-22/source_integrity.txt",
+        ".openrecomp-phase2/evidence/P2-30/run1.txt",
+        ".openrecomp-phase2/evidence/P2-30/run2.txt",
+        ".openrecomp-phase2/evidence/P2-50/p2_50_run1.txt",
+        ".openrecomp-phase2/evidence/P2-50/p2_50_run2.txt",
+        ".openrecomp-phase2/scratch/",
+        ".openrecomp-phase3/evidence/P3-00/p2_99_reverify_stdout.txt",
+        ".openrecomp-phase3/evidence/P3-00/run1.txt",
+        ".openrecomp-phase3/evidence/P3-00/run2.txt",
+        ".openrecomp-phase3/evidence/P3-01/run1.txt",
+        ".openrecomp-phase3/evidence/P3-01/run2.txt",
+        ".openrecomp-phase3/evidence/P3-02/regression_p2_99.txt",
+        ".openrecomp-phase3/evidence/P3-02/regression_p3_00.txt",
+        ".openrecomp-phase3/evidence/P3-02/regression_p3_01.txt",
+        ".openrecomp-phase3/evidence/P3-02/regression_phase1_host_gates.txt",
+        ".openrecomp-phase3/evidence/P3-02/regression_public_safety.txt",
+        ".openrecomp-phase3/evidence/P3-02/run1.txt",
+        ".openrecomp-phase3/evidence/P3-02/run2.txt",
+        ".openrecomp-phase3/evidence/P3-03/RESULT.md",
+        ".openrecomp-phase3/evidence/P3-03/changed_files.txt",
+        ".openrecomp-phase3/evidence/P3-03/regression_p2_99.txt",
+        ".openrecomp-phase3/evidence/P3-03/regression_p3_00.txt",
+        ".openrecomp-phase3/evidence/P3-03/regression_p3_01.txt",
+        ".openrecomp-phase3/evidence/P3-03/regression_p3_02.txt",
+        ".openrecomp-phase3/evidence/P3-03/regression_phase1_host_gates.txt",
+        ".openrecomp-phase3/evidence/P3-03/regression_public_safety.txt",
+        ".openrecomp-phase3/evidence/P3-03/run1.txt",
+        ".openrecomp-phase3/evidence/P3-03/run2.txt",
+        ".openrecomp-phase3/evidence/P3-04/changed_files.txt",
+        ".openrecomp-phase3/evidence/P3-04/regression_p2_99.txt",
+        ".openrecomp-phase3/evidence/P3-04/regression_p3_00.txt",
+        ".openrecomp-phase3/evidence/P3-04/regression_p3_01.txt",
+        ".openrecomp-phase3/evidence/P3-04/regression_p3_02.txt",
+        ".openrecomp-phase3/evidence/P3-04/regression_p3_03.txt",
+        ".openrecomp-phase3/evidence/P3-04/regression_phase1_host_gates.txt",
+        ".openrecomp-phase3/evidence/P3-04/regression_public_safety.txt",
+        ".openrecomp-phase3/evidence/P3-04/run1.txt",
+        ".openrecomp-phase3/evidence/P3-04/run2.txt",
+        ".openrecomp-phase3/external/",
+        ".openrecomp-phase3/tools/",
+        "artifacts/mips32_translation_evidence_closure_v1/",
+        "artifacts/mips32_translation_v1/",
+        "tools/test_build_package_reproducibility_v1.py"
+      ]
+    }
+  },
+  "markers": {
+    "gate": "OPENRECOMP_PHASE3_BOUNDARY_V1=PASS tests=61",
+    "stage": "OPENRECOMP_P3_00=PASS",
+    "terminal": "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
+  },
+  "passed": 61,
+  "stage": "P3-00",
+  "stage_name": "OPENRECOMP_PHASE3_BOUNDARY_V1",
+  "status": "PASS",
+  "tests": 61
+}

@@ -1,0 +1,1290 @@
+{
+  "counts": {
+    "reachable": 55,
+    "total": 82,
+    "unreachable": 27
+  },
+  "exception_sites": [
+    {
+      "containing_function": "main",
+      "op": "divu",
+      "operands": {
+        "rs": 4,
+        "rt": 1
+      },
+      "reachability": "REACHABLE",
+      "site": "0x00001f60",
+      "word": "0x0081001b"
+    },
+    {
+      "containing_function": "main",
+      "op": "teq",
+      "operands": {
+        "code": 7,
+        "rs": 1,
+        "rt": 0
+      },
+      "reachability": "REACHABLE",
+      "site": "0x00001f64",
+      "word": "0x002001f4"
+    },
+    {
+      "containing_function": "main",
+      "op": "divu",
+      "operands": {
+        "rs": 1,
+        "rt": 2
+      },
+      "reachability": "REACHABLE",
+      "site": "0x00002044",
+      "word": "0x0022001b"
+    },
+    {
+      "containing_function": "main",
+      "op": "teq",
+      "operands": {
+        "code": 7,
+        "rs": 2,
+        "rt": 0
+      },
+      "reachability": "REACHABLE",
+      "site": "0x00002048",
+      "word": "0x004001f4"
+    },
+    {
+      "containing_function": "main",
+      "op": "divu",
+      "operands": {
+        "rs": 16,
+        "rt": 2
+      },
+      "reachability": "REACHABLE",
+      "site": "0x00002370",
+      "word": "0x0202001b"
+    },
+    {
+      "containing_function": "main",
+      "op": "teq",
+      "operands": {
+        "code": 7,
+        "rs": 2,
+        "rt": 0
+      },
+      "reachability": "REACHABLE",
+      "site": "0x00002374",
+      "word": "0x004001f4"
+    }
+  ],
+  "histogram": {
+    "divu": 4,
+    "jalr": 1,
+    "movn": 12,
+    "movz": 35,
+    "mul": 22,
+    "swl": 2,
+    "swr": 2,
+    "teq": 4
+  },
+  "indirect_control_flow_frontier": {
+    "jalr": {
+      "operands": {
+        "rd": 31,
+        "rs": 25
+      },
+      "reachability": "UNREACHABLE",
+      "site": "0x00001958",
+      "target_resolution": "not statically resolved; no target invented"
+    },
+    "jr_at_jump_tables": [
+      {
+        "reachability": "REACHABLE",
+        "site": "0x00003130",
+        "target_resolution": "not statically resolved; no target invented"
+      },
+      {
+        "reachability": "REACHABLE",
+        "site": "0x00003830",
+        "target_resolution": "not statically resolved; no target invented"
+      },
+      {
+        "reachability": "REACHABLE",
+        "site": "0x000039a0",
+        "target_resolution": "not statically resolved; no target invented"
+      }
+    ]
+  },
+  "reachable_histogram": {
+    "divu": 3,
+    "movn": 9,
+    "movz": 21,
+    "mul": 15,
+    "swl": 2,
+    "swr": 2,
+    "teq": 3
+  },
+  "semantics_support": "UNSUPPORTED before this stage: the P3-01/P3-03 classes decode with exact operands but have no execution semantics",
+  "site_table": [
+    {
+      "address": "0x00001074",
+      "containing_function": "calc_func",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 3,
+        "rs": 5,
+        "rt": 2
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x00a2180a"
+    },
+    {
+      "address": "0x00001958",
+      "containing_function": "core_list_mergesort",
+      "control_flow_status": "N/A",
+      "mnemonic": "jalr",
+      "operands": {
+        "rd": 31,
+        "rs": 25
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "terminator": "indirect-call",
+      "word": "0x0320f809"
+    },
+    {
+      "address": "0x00001a78",
+      "containing_function": "core_list_init",
+      "control_flow_status": "N/A",
+      "mnemonic": "swl",
+      "operands": {
+        "imm": 3,
+        "rs": 7,
+        "rt": 1
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0xa8e10003"
+    },
+    {
+      "address": "0x00001a7c",
+      "containing_function": "core_list_init",
+      "control_flow_status": "N/A",
+      "mnemonic": "swr",
+      "operands": {
+        "imm": 0,
+        "rs": 7,
+        "rt": 1
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0xb8e10000"
+    },
+    {
+      "address": "0x00001a9c",
+      "containing_function": "core_list_init",
+      "control_flow_status": "N/A",
+      "mnemonic": "swl",
+      "operands": {
+        "imm": 7,
+        "rs": 7,
+        "rt": 1
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0xa8e10007"
+    },
+    {
+      "address": "0x00001aa0",
+      "containing_function": "core_list_init",
+      "control_flow_status": "N/A",
+      "mnemonic": "swr",
+      "operands": {
+        "imm": 4,
+        "rs": 7,
+        "rt": 1
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0xb8e10004"
+    },
+    {
+      "address": "0x00001ee4",
+      "containing_function": "main",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 2,
+        "rs": 1,
+        "rt": 2
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0022100a"
+    },
+    {
+      "address": "0x00001f60",
+      "containing_function": "main",
+      "control_flow_status": "N/A",
+      "mnemonic": "divu",
+      "operands": {
+        "rs": 4,
+        "rt": 1
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0081001b"
+    },
+    {
+      "address": "0x00001f64",
+      "containing_function": "main",
+      "control_flow_status": "N/A",
+      "mnemonic": "teq",
+      "operands": {
+        "code": 7,
+        "rs": 1,
+        "rt": 0
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x002001f4"
+    },
+    {
+      "address": "0x00002044",
+      "containing_function": "main",
+      "control_flow_status": "N/A",
+      "mnemonic": "divu",
+      "operands": {
+        "rs": 1,
+        "rt": 2
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0022001b"
+    },
+    {
+      "address": "0x00002048",
+      "containing_function": "main",
+      "control_flow_status": "N/A",
+      "mnemonic": "teq",
+      "operands": {
+        "code": 7,
+        "rs": 2,
+        "rt": 0
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x004001f4"
+    },
+    {
+      "address": "0x00002058",
+      "containing_function": "main",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 1,
+        "rs": 2,
+        "rt": 1
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x70410802"
+    },
+    {
+      "address": "0x0000210c",
+      "containing_function": "main",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 1,
+        "rs": 8,
+        "rt": 4
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x71040802"
+    },
+    {
+      "address": "0x0000212c",
+      "containing_function": "main",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 1,
+        "rs": 8,
+        "rt": 4
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x71040802"
+    },
+    {
+      "address": "0x00002364",
+      "containing_function": "main",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 16,
+        "rs": 2,
+        "rt": 1
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x70418002"
+    },
+    {
+      "address": "0x00002370",
+      "containing_function": "main",
+      "control_flow_status": "N/A",
+      "mnemonic": "divu",
+      "operands": {
+        "rs": 16,
+        "rt": 2
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0202001b"
+    },
+    {
+      "address": "0x00002374",
+      "containing_function": "main",
+      "control_flow_status": "N/A",
+      "mnemonic": "teq",
+      "operands": {
+        "code": 7,
+        "rs": 2,
+        "rt": 0
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x004001f4"
+    },
+    {
+      "address": "0x000023d0",
+      "containing_function": "main",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 5,
+        "rs": 2,
+        "rt": 1
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x70412802"
+    },
+    {
+      "address": "0x00002578",
+      "containing_function": "main",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 4,
+        "rs": 1,
+        "rt": 2
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0022200a"
+    },
+    {
+      "address": "0x0000258c",
+      "containing_function": "main",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 4,
+        "rs": 2,
+        "rt": 1
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0041200a"
+    },
+    {
+      "address": "0x000026c0",
+      "containing_function": "matrix_test",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 1,
+        "rs": 1,
+        "rt": 20
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x70340802"
+    },
+    {
+      "address": "0x00002718",
+      "containing_function": "matrix_test",
+      "control_flow_status": "N/A",
+      "mnemonic": "movn",
+      "operands": {
+        "rd": 1,
+        "rs": 3,
+        "rt": 9
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0069080b"
+    },
+    {
+      "address": "0x00002724",
+      "containing_function": "matrix_test",
+      "control_flow_status": "N/A",
+      "mnemonic": "movn",
+      "operands": {
+        "rd": 6,
+        "rs": 0,
+        "rt": 9
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0009300b"
+    },
+    {
+      "address": "0x00002778",
+      "containing_function": "matrix_test",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 1,
+        "rs": 8,
+        "rt": 1
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x71010802"
+    },
+    {
+      "address": "0x000027d8",
+      "containing_function": "matrix_test",
+      "control_flow_status": "N/A",
+      "mnemonic": "movn",
+      "operands": {
+        "rd": 1,
+        "rs": 3,
+        "rt": 10
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x006a080b"
+    },
+    {
+      "address": "0x000027e4",
+      "containing_function": "matrix_test",
+      "control_flow_status": "N/A",
+      "mnemonic": "movn",
+      "operands": {
+        "rd": 7,
+        "rs": 0,
+        "rt": 10
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x000a380b"
+    },
+    {
+      "address": "0x00002820",
+      "containing_function": "matrix_test",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 1,
+        "rs": 2,
+        "rt": 17
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x70510802"
+    },
+    {
+      "address": "0x00002850",
+      "containing_function": "matrix_test",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 1,
+        "rs": 12,
+        "rt": 1
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x71810802"
+    },
+    {
+      "address": "0x000028b8",
+      "containing_function": "matrix_test",
+      "control_flow_status": "N/A",
+      "mnemonic": "movn",
+      "operands": {
+        "rd": 1,
+        "rs": 3,
+        "rt": 10
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x006a080b"
+    },
+    {
+      "address": "0x000028c4",
+      "containing_function": "matrix_test",
+      "control_flow_status": "N/A",
+      "mnemonic": "movn",
+      "operands": {
+        "rd": 7,
+        "rs": 0,
+        "rt": 10
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x000a380b"
+    },
+    {
+      "address": "0x00002900",
+      "containing_function": "matrix_test",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 1,
+        "rs": 2,
+        "rt": 17
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x70510802"
+    },
+    {
+      "address": "0x0000292c",
+      "containing_function": "matrix_test",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 1,
+        "rs": 12,
+        "rt": 1
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x71810802"
+    },
+    {
+      "address": "0x00002940",
+      "containing_function": "matrix_test",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 1,
+        "rs": 1,
+        "rt": 12
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x702c0802"
+    },
+    {
+      "address": "0x000029a8",
+      "containing_function": "matrix_test",
+      "control_flow_status": "N/A",
+      "mnemonic": "movn",
+      "operands": {
+        "rd": 1,
+        "rs": 3,
+        "rt": 9
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0069080b"
+    },
+    {
+      "address": "0x000029b4",
+      "containing_function": "matrix_test",
+      "control_flow_status": "N/A",
+      "mnemonic": "movn",
+      "operands": {
+        "rd": 6,
+        "rs": 0,
+        "rt": 9
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0009300b"
+    },
+    {
+      "address": "0x00002aec",
+      "containing_function": "matrix_mul_const",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 1,
+        "rs": 1,
+        "rt": 7
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x70270802"
+    },
+    {
+      "address": "0x00002b54",
+      "containing_function": "matrix_sum",
+      "control_flow_status": "N/A",
+      "mnemonic": "movn",
+      "operands": {
+        "rd": 1,
+        "rs": 8,
+        "rt": 11
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x010b080b"
+    },
+    {
+      "address": "0x00002b58",
+      "containing_function": "matrix_sum",
+      "control_flow_status": "N/A",
+      "mnemonic": "movn",
+      "operands": {
+        "rd": 9,
+        "rs": 0,
+        "rt": 11
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x000b480b"
+    },
+    {
+      "address": "0x00002bc8",
+      "containing_function": "matrix_mul_vect",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 1,
+        "rs": 13,
+        "rt": 1
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x71a10802"
+    },
+    {
+      "address": "0x00002c08",
+      "containing_function": "matrix_mul_matrix",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 1,
+        "rs": 3,
+        "rt": 4
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x70640802"
+    },
+    {
+      "address": "0x00002c40",
+      "containing_function": "matrix_mul_matrix",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 1,
+        "rs": 24,
+        "rt": 1
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x73010802"
+    },
+    {
+      "address": "0x00002c88",
+      "containing_function": "matrix_mul_matrix_bitextract",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 1,
+        "rs": 3,
+        "rt": 4
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x70640802"
+    },
+    {
+      "address": "0x00002cbc",
+      "containing_function": "matrix_mul_matrix_bitextract",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 1,
+        "rs": 24,
+        "rt": 1
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x73010802"
+    },
+    {
+      "address": "0x00002cd0",
+      "containing_function": "matrix_mul_matrix_bitextract",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 1,
+        "rs": 1,
+        "rt": 24
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x70380802"
+    },
+    {
+      "address": "0x00002d20",
+      "containing_function": "core_init_matrix",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 1,
+        "rs": 8,
+        "rt": 1
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x71010802"
+    },
+    {
+      "address": "0x00002d44",
+      "containing_function": "core_init_matrix",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 8,
+        "rs": 2,
+        "rt": 2
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x70424002"
+    },
+    {
+      "address": "0x00002d88",
+      "containing_function": "core_init_matrix",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 3,
+        "rs": 6,
+        "rt": 1
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x00c1180a"
+    },
+    {
+      "address": "0x00002db0",
+      "containing_function": "core_init_matrix",
+      "control_flow_status": "N/A",
+      "mnemonic": "mul",
+      "operands": {
+        "rd": 3,
+        "rs": 3,
+        "rt": 1
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x70611802"
+    },
+    {
+      "address": "0x00003414",
+      "containing_function": "crcu8",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 3,
+        "rs": 1,
+        "rt": 5
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0025180a"
+    },
+    {
+      "address": "0x00003430",
+      "containing_function": "crcu8",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 5,
+        "rs": 1,
+        "rt": 3
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0023280a"
+    },
+    {
+      "address": "0x00003460",
+      "containing_function": "crcu8",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 10,
+        "rs": 9,
+        "rt": 4
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0124500a"
+    },
+    {
+      "address": "0x00003478",
+      "containing_function": "crcu8",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 5,
+        "rs": 4,
+        "rt": 8
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0088280a"
+    },
+    {
+      "address": "0x00003490",
+      "containing_function": "crcu8",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 8,
+        "rs": 4,
+        "rt": 5
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0085400a"
+    },
+    {
+      "address": "0x000034a8",
+      "containing_function": "crcu8",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 5,
+        "rs": 4,
+        "rt": 6
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0086280a"
+    },
+    {
+      "address": "0x000034c0",
+      "containing_function": "crcu8",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 2,
+        "rs": 4,
+        "rt": 3
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0083100a"
+    },
+    {
+      "address": "0x000034dc",
+      "containing_function": "crcu8",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 2,
+        "rs": 3,
+        "rt": 1
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0061100a"
+    },
+    {
+      "address": "0x000034f4",
+      "containing_function": "crcu16",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 3,
+        "rs": 2,
+        "rt": 5
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0045180a"
+    },
+    {
+      "address": "0x00003514",
+      "containing_function": "crcu16",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 9,
+        "rs": 2,
+        "rt": 3
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0043480a"
+    },
+    {
+      "address": "0x00003564",
+      "containing_function": "crcu16",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 28,
+        "rs": 25,
+        "rt": 9
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0329e00a"
+    },
+    {
+      "address": "0x0000357c",
+      "containing_function": "crcu16",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 15,
+        "rs": 9,
+        "rt": 14
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x012e780a"
+    },
+    {
+      "address": "0x00003594",
+      "containing_function": "crcu16",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 14,
+        "rs": 9,
+        "rt": 13
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x012d700a"
+    },
+    {
+      "address": "0x000035ac",
+      "containing_function": "crcu16",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 13,
+        "rs": 9,
+        "rt": 12
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x012c680a"
+    },
+    {
+      "address": "0x000035c4",
+      "containing_function": "crcu16",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 12,
+        "rs": 9,
+        "rt": 11
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x012b600a"
+    },
+    {
+      "address": "0x000035dc",
+      "containing_function": "crcu16",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 11,
+        "rs": 10,
+        "rt": 9
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0149580a"
+    },
+    {
+      "address": "0x000035f4",
+      "containing_function": "crcu16",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 10,
+        "rs": 9,
+        "rt": 4
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0124500a"
+    },
+    {
+      "address": "0x0000360c",
+      "containing_function": "crcu16",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 9,
+        "rs": 4,
+        "rt": 10
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x008a480a"
+    },
+    {
+      "address": "0x00003624",
+      "containing_function": "crcu16",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 10,
+        "rs": 4,
+        "rt": 8
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0088500a"
+    },
+    {
+      "address": "0x0000363c",
+      "containing_function": "crcu16",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 8,
+        "rs": 4,
+        "rt": 7
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0087400a"
+    },
+    {
+      "address": "0x00003654",
+      "containing_function": "crcu16",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 7,
+        "rs": 4,
+        "rt": 6
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0086380a"
+    },
+    {
+      "address": "0x0000366c",
+      "containing_function": "crcu16",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 6,
+        "rs": 4,
+        "rt": 5
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0085300a"
+    },
+    {
+      "address": "0x00003684",
+      "containing_function": "crcu16",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 1,
+        "rs": 4,
+        "rt": 3
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0083080a"
+    },
+    {
+      "address": "0x000036a0",
+      "containing_function": "crcu16",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 2,
+        "rs": 1,
+        "rt": 3
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0023100a"
+    },
+    {
+      "address": "0x00003958",
+      "containing_function": "ee_printf",
+      "control_flow_status": "N/A",
+      "mnemonic": "movn",
+      "operands": {
+        "rd": 8,
+        "rs": 0,
+        "rt": 1
+      },
+      "reachability": "REACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0001400b"
+    },
+    {
+      "address": "0x000039b8",
+      "containing_function": "ee_printf",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 2,
+        "rs": 1,
+        "rt": 2
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0022100a"
+    },
+    {
+      "address": "0x00003a90",
+      "containing_function": "ee_printf",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 6,
+        "rs": 2,
+        "rt": 1
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0041300a"
+    },
+    {
+      "address": "0x00003c80",
+      "containing_function": "ee_printf",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 7,
+        "rs": 3,
+        "rt": 1
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0061380a"
+    },
+    {
+      "address": "0x00004238",
+      "containing_function": "number",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 2,
+        "rs": 9,
+        "rt": 1
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0121100a"
+    },
+    {
+      "address": "0x00004300",
+      "containing_function": "number",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 12,
+        "rs": 9,
+        "rt": 1
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0121600a"
+    },
+    {
+      "address": "0x00004308",
+      "containing_function": "number",
+      "control_flow_status": "N/A",
+      "mnemonic": "divu",
+      "operands": {
+        "rs": 5,
+        "rt": 6
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x00a6001b"
+    },
+    {
+      "address": "0x0000430c",
+      "containing_function": "number",
+      "control_flow_status": "N/A",
+      "mnemonic": "teq",
+      "operands": {
+        "code": 7,
+        "rs": 6,
+        "rt": 0
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x00c001f4"
+    },
+    {
+      "address": "0x00004354",
+      "containing_function": "number",
+      "control_flow_status": "N/A",
+      "mnemonic": "movn",
+      "operands": {
+        "rd": 12,
+        "rs": 9,
+        "rt": 1
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x0121600b"
+    },
+    {
+      "address": "0x00004404",
+      "containing_function": "number",
+      "control_flow_status": "N/A",
+      "mnemonic": "movz",
+      "operands": {
+        "rd": 2,
+        "rs": 6,
+        "rt": 1
+      },
+      "reachability": "UNREACHABLE",
+      "semantic_implementation_status": "UNSUPPORTED",
+      "word": "0x00c1100a"
+    }
+  ],
+  "site_table_sha256": "4b03b3ac7a11bdb73424a95628c4383a7e61b1d1ed554e4e80d3e1aeddbc21a4",
+  "source": {
+    "elf_sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669",
+    "elf_size": 31184,
+    "entry": "0x00004650",
+    "text_vaddr": "0x00001000",
+    "text_words": 3487
+  },
+  "stage": "P3-04",
+  "symbol_usage": "containing_function is symbol-assisted diagnostic only",
+  "unreachable_histogram": {
+    "divu": 1,
+    "jalr": 1,
+    "movn": 3,
+    "movz": 14,
+    "mul": 7,
+    "teq": 1
+  }
+}

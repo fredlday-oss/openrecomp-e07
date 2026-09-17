@@ -1,0 +1,1873 @@
+{
+  "checks": [
+    {
+      "check": "control:boundary-successor",
+      "status": "PASS"
+    },
+    {
+      "check": "control:branch-targets-inside-region",
+      "status": "PASS"
+    },
+    {
+      "check": "control:call-targets-inside-region",
+      "status": "PASS"
+    },
+    {
+      "check": "control:counts",
+      "status": "PASS"
+    },
+    {
+      "check": "control:delay-slots",
+      "status": "PASS"
+    },
+    {
+      "check": "control:exception-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "control:indirect-sites-all-count",
+      "status": "PASS"
+    },
+    {
+      "check": "control:jalr-site",
+      "status": "PASS"
+    },
+    {
+      "check": "control:no-delay-slot-fallthrough",
+      "status": "PASS"
+    },
+    {
+      "check": "control:no-target-into-delay-slot",
+      "status": "PASS"
+    },
+    {
+      "check": "control:reachable-indirect-jr",
+      "status": "PASS"
+    },
+    {
+      "check": "control:unresolved-counts",
+      "status": "PASS"
+    },
+    {
+      "check": "control:unresolved-sites-are-known",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:frontier-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:reachable-set-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:records-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:summary-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:branch-count",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:branch-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:control-in-delay-slot-fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:delay-slot-no-fallthrough",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:delay-slot-reachable",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:direct-call-count",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:direct-call-discovers-callee",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:external-trap-fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:indirect-call-continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:indirect-call-count",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:indirect-call-unresolved",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:indirect-jump-count",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:indirect-jump-unresolved",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:linear-reachable",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:linear-return-count",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:reachable-reserved-fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:reachable-unknown-fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:return-stops-flow",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:successor-outside-image",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:unreachable-classification",
+      "status": "PASS"
+    },
+    {
+      "check": "engine:unsupported-control-fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:exists",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:p3-01-inventory-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:size",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:jalr",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:unsupported-histogram",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:unsupported-total",
+      "status": "PASS"
+    },
+    {
+      "check": "functions:dead-uart-send-char",
+      "status": "PASS"
+    },
+    {
+      "check": "functions:expected-dead-set",
+      "status": "PASS"
+    },
+    {
+      "check": "functions:fully-reachable-set",
+      "status": "PASS"
+    },
+    {
+      "check": "functions:partial-set",
+      "status": "PASS"
+    },
+    {
+      "check": "input:entry",
+      "status": "PASS"
+    },
+    {
+      "check": "input:entry-inside-text",
+      "status": "PASS"
+    },
+    {
+      "check": "input:guest-image-equals-file-slice",
+      "status": "PASS"
+    },
+    {
+      "check": "input:text-file-slice-size",
+      "status": "PASS"
+    },
+    {
+      "check": "input:text-section",
+      "status": "PASS"
+    },
+    {
+      "check": "input:text-size",
+      "status": "PASS"
+    },
+    {
+      "check": "input:text-vaddr",
+      "status": "PASS"
+    },
+    {
+      "check": "input:word-count",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:p3-01-padding-cross-check",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:p3-01-padding-sites-cross-check",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:p3-01-recorded-sites-cross-check",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:p3-01-supported-histogram-cross-check",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:p3-01-unsupported-cross-check",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:record-addresses",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:record-count",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:rejected-by-adapter-partition",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:reserved-addresses",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:reserved-histogram",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:supported-count",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:supported-equals-bounded-adapter",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:supported-histogram",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:total:decoded_words",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:total:exception_site_count",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:total:invalid_words",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:total:reachable_invalid_words",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:total:reachable_supported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:total:reachable_unsupported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:total:reachable_words",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:total:recognized_unsupported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:total:reserved_encoding_words",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:total:supported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:total:total_words",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:total:unknown_encoding_words",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:total:unreachable_words",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:unknown-count",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:unsupported-histogram",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:unsupported-reachable-histogram",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:unsupported-unreachable-histogram",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:empty-region",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:entry-outside-region",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:malformed-branch-rt-nonzero",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:malformed-divu-rd-nonzero",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:malformed-jalr-rt-nonzero",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:malformed-jr-rt-nonzero",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:malformed-lui-rs-nonzero",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:malformed-mfhi-rs-nonzero",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:malformed-movn-shamt-nonzero",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:malformed-movz-shamt-nonzero",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:malformed-mul-shamt-nonzero",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:malformed-mult-rd-nonzero",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:malformed-sll-rs-nonzero",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:misaligned-address",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:misaligned-region",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:negative-address",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:positive-divu",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:positive-jalr",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:positive-movn",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:positive-movz",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:positive-mul",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:positive-swl",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:positive-swr",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:positive-teq",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:reader-out-of-range",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:reserved-regimm-rt-0x0d",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:reserved-regimm-rt-0x17",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:reserved-regimm-rt-0x1e",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:reserved-special-funct-0x05",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:reserved-special-funct-0x0e",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:reserved-special-funct-0x17",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:reserved-special2-funct-0x03",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:reserved-special2-funct-0x3f",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unknown-opcode-0x1e",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unknown-opcode-0x3f",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:word-negative",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:word-too-large",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:following-function:_start",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:following-function:core_bench_matrix",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:following-function:get_seed_32",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:following-function:iterate",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:following-function:uart_send_char",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:function-ranges-disjoint",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:no-reachable-reserved-encoding",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:non-function-words-are-padding",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:preceding-delay-slot:0x1d88",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:preceding-delay-slot:0x25c8",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:preceding-delay-slot:0x33c4",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:preceding-delay-slot:0x36f8",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:preceding-delay-slot:0x4640",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:preceding-return:0x1d84",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:preceding-return:0x25c4",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:preceding-return:0x33c0",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:preceding-return:0x36f4",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:preceding-return:0x463c",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:reserved:0x1d8c",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:reserved:0x25cc",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:reserved:0x33c8",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:reserved:0x33cc",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:reserved:0x36fc",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:reserved:0x4644",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:reserved:0x4648",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:reserved:0x464c",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:run-count",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:run-end:0x1d90",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:run-end:0x25d0",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:run-end:0x33d0",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:run-end:0x3700",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:run-end:0x4650",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:run-start:0x1d8c",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:run-start:0x25cc",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:run-start:0x33c8",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:run-start:0x36fc",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:run-start:0x4644",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:unreachable-classification-addresses",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:unreachable-classification-count",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:unreachable-decoded-code-count",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:unreachable:0x1d8c",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:unreachable:0x25cc",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:unreachable:0x33c8",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:unreachable:0x33cc",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:unreachable:0x36fc",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:unreachable:0x4644",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:unreachable:0x4648",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:unreachable:0x464c",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:word:0x1d8c",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:word:0x25cc",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:word:0x33c8",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:word:0x33cc",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:word:0x36fc",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:word:0x4644",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:word:0x4648",
+      "status": "PASS"
+    },
+    {
+      "check": "padding:word:0x464c",
+      "status": "PASS"
+    },
+    {
+      "check": "reachability:total:decoded_words",
+      "status": "PASS"
+    },
+    {
+      "check": "reachability:total:exception_site_count",
+      "status": "PASS"
+    },
+    {
+      "check": "reachability:total:invalid_words",
+      "status": "PASS"
+    },
+    {
+      "check": "reachability:total:reachable_invalid_words",
+      "status": "PASS"
+    },
+    {
+      "check": "reachability:total:reachable_supported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "reachability:total:reachable_unsupported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "reachability:total:reachable_words",
+      "status": "PASS"
+    },
+    {
+      "check": "reachability:total:recognized_unsupported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "reachability:total:reserved_encoding_words",
+      "status": "PASS"
+    },
+    {
+      "check": "reachability:total:supported_words",
+      "status": "PASS"
+    },
+    {
+      "check": "reachability:total:total_words",
+      "status": "PASS"
+    },
+    {
+      "check": "reachability:total:unknown_encoding_words",
+      "status": "PASS"
+    },
+    {
+      "check": "reachability:total:unreachable_words",
+      "status": "PASS"
+    },
+    {
+      "check": "reachability:unreachable-partition",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entry-set",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entry-count",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-frozen-sha256",
+      "status": "PASS"
+    }
+  ],
+  "claim_boundary": "P3-03 proves that OpenRecomp can deterministically decode and classify the executable instruction frontier of the audited CoreMark MIPS32 ELF and identify the exact remaining semantic/control-flow gaps. It does not prove that the unsupported instructions execute correctly, that CoreMark translates successfully, that CoreMark runs, or any arbitrary MIPS32/console compatibility.",
+  "evidence_files": {
+    "control_flow_frontier.json": "2e4f1fd1bf1cdeb25e73890267360783817d8215b066cd5dcff39e6988fedf36",
+    "determinism.json": "e158ad05aa189fff8a3e1dc92f25ed8a6d16a3c9d23d3d0375c401a8a44e2c80",
+    "instruction_inventory.json": "dc83fb0595db5710379e5091f31a3cb457d3eb74703df3bfb51643aab32741f5",
+    "invalid_padding_analysis.json": "5b900bc2a89b29fb82c0d5e4d2b45f5be46988734052db1b30389eebb409d26b",
+    "negative_results.json": "ea1d738559987c77322788c394602338f965b70275896356df0fbc3870c8d02a",
+    "reachable_code_map.json": "abf032e267e36677aa81ad09715367f9f6bcb172ad5477956b614aa44b37c831",
+    "source_integrity.txt": "da5a44374409a33964c1c8fc174cda3b7b758593751ee7cfe7c8c95937112839",
+    "unsupported_frontier.json": "f5e3ff1fabf8a4f075c3fe97f274ea11089af799a6340b85d0bebb3e7025be79"
+  },
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "determinism": {
+      "artifact_sha256": {
+        "control_flow_frontier.json": "2e4f1fd1bf1cdeb25e73890267360783817d8215b066cd5dcff39e6988fedf36",
+        "instruction_inventory.json": "dc83fb0595db5710379e5091f31a3cb457d3eb74703df3bfb51643aab32741f5",
+        "invalid_padding_analysis.json": "5b900bc2a89b29fb82c0d5e4d2b45f5be46988734052db1b30389eebb409d26b",
+        "negative_results.json": "ea1d738559987c77322788c394602338f965b70275896356df0fbc3870c8d02a",
+        "reachable_code_map.json": "abf032e267e36677aa81ad09715367f9f6bcb172ad5477956b614aa44b37c831",
+        "source_integrity.txt": "da5a44374409a33964c1c8fc174cda3b7b758593751ee7cfe7c8c95937112839",
+        "unsupported_frontier.json": "f5e3ff1fabf8a4f075c3fe97f274ea11089af799a6340b85d0bebb3e7025be79"
+      },
+      "repeated_classification_identical": true,
+      "rows_sha256": "27a5db07879c7a224c843a51021217f7dbc39e68212b1ed75f5c50c24ff9fcc9",
+      "source_sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669"
+    },
+    "fixture": {
+      "p3_01_inventory": ".openrecomp-phase3/evidence/P3-01/instruction_inventory.json",
+      "p3_01_inventory_sha256": "e27e09974fa57b8ae10f1fa2c76d99e8d149999a20f937caa5ed955cd8d47620",
+      "path": ".openrecomp-phase3/build/P3-01/candidate-a/coremark_mips32_O1.elf",
+      "sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669",
+      "size": 31184
+    },
+    "input": {
+      "entry": "0x00004650",
+      "guest_image_file_slice_mismatches": [],
+      "text_size": 13948,
+      "text_slice_sha256": "c7b48c7c01772f179193ac123560b1f2ae16da116e2c2c69d5b53c96e0f98f6f",
+      "text_vaddr": "0x00001000",
+      "text_words": 3487
+    },
+    "inventory": {
+      "rows_sha256": "27a5db07879c7a224c843a51021217f7dbc39e68212b1ed75f5c50c24ff9fcc9",
+      "supported_histogram": {
+        "addiu": 654,
+        "addu": 171,
+        "and": 11,
+        "andi": 161,
+        "beq": 170,
+        "bgez": 2,
+        "bgtz": 13,
+        "blez": 17,
+        "bltz": 4,
+        "bne": 135,
+        "j": 125,
+        "jal": 101,
+        "jr": 52,
+        "lbu": 74,
+        "lh": 28,
+        "lhu": 43,
+        "lui": 73,
+        "lw": 275,
+        "mfhi": 4,
+        "mflo": 4,
+        "multu": 3,
+        "nop": 224,
+        "nor": 2,
+        "or": 345,
+        "ori": 17,
+        "sb": 79,
+        "sh": 32,
+        "sll": 106,
+        "slt": 24,
+        "slti": 8,
+        "sltiu": 33,
+        "sltu": 19,
+        "sra": 13,
+        "srl": 81,
+        "subu": 35,
+        "sw": 205,
+        "xor": 52,
+        "xori": 2
+      },
+      "totals": {
+        "decoded_words": 3479,
+        "invalid_words": 8,
+        "reachable_invalid_words": 0,
+        "reachable_supported_words": 2123,
+        "reachable_unsupported_words": 55,
+        "reachable_words": 2178,
+        "recognized_unsupported_words": 82,
+        "reserved_encoding_words": 8,
+        "supported_words": 3397,
+        "total_words": 3487,
+        "unknown_encoding_words": 0,
+        "unreachable_words": 1309
+      },
+      "unsupported_histogram": {
+        "divu": 4,
+        "jalr": 1,
+        "movn": 12,
+        "movz": 35,
+        "mul": 22,
+        "swl": 2,
+        "swr": 2,
+        "teq": 4
+      },
+      "unsupported_reachable_histogram": {
+        "divu": 3,
+        "movn": 9,
+        "movz": 21,
+        "mul": 15,
+        "swl": 2,
+        "swr": 2,
+        "teq": 3
+      },
+      "unsupported_unreachable_histogram": {
+        "divu": 1,
+        "jalr": 1,
+        "movn": 3,
+        "movz": 14,
+        "mul": 7,
+        "teq": 1
+      }
+    },
+    "negative_cases": {
+      "cases": [
+        {
+          "actual_class": "RESERVED_ENCODING",
+          "expected_class": "RESERVED_ENCODING",
+          "fixture": "reserved-regimm-rt-0x17",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0x04170001"
+        },
+        {
+          "actual_class": "RESERVED_ENCODING",
+          "expected_class": "RESERVED_ENCODING",
+          "fixture": "reserved-regimm-rt-0x0d",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0x040d0001"
+        },
+        {
+          "actual_class": "RESERVED_ENCODING",
+          "expected_class": "RESERVED_ENCODING",
+          "fixture": "reserved-regimm-rt-0x1e",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0x041e0001"
+        },
+        {
+          "actual_class": "RESERVED_ENCODING",
+          "expected_class": "RESERVED_ENCODING",
+          "fixture": "reserved-special-funct-0x05",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0x00000005"
+        },
+        {
+          "actual_class": "RESERVED_ENCODING",
+          "expected_class": "RESERVED_ENCODING",
+          "fixture": "reserved-special-funct-0x0e",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0x0000000e"
+        },
+        {
+          "actual_class": "RESERVED_ENCODING",
+          "expected_class": "RESERVED_ENCODING",
+          "fixture": "reserved-special-funct-0x17",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0x00000017"
+        },
+        {
+          "actual_class": "RESERVED_ENCODING",
+          "expected_class": "RESERVED_ENCODING",
+          "fixture": "reserved-special2-funct-0x03",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0x70000003"
+        },
+        {
+          "actual_class": "RESERVED_ENCODING",
+          "expected_class": "RESERVED_ENCODING",
+          "fixture": "reserved-special2-funct-0x3f",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0x7000003f"
+        },
+        {
+          "actual_class": "UNKNOWN_ENCODING",
+          "expected_class": "UNKNOWN_ENCODING",
+          "fixture": "unknown-opcode-0x1e",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0x78000000"
+        },
+        {
+          "actual_class": "UNKNOWN_ENCODING",
+          "expected_class": "UNKNOWN_ENCODING",
+          "fixture": "unknown-opcode-0x3f",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0xfc000000"
+        },
+        {
+          "actual_class": "UNKNOWN_ENCODING",
+          "expected_class": "UNKNOWN_ENCODING",
+          "fixture": "malformed-sll-rs-nonzero",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0x00200800"
+        },
+        {
+          "actual_class": "UNKNOWN_ENCODING",
+          "expected_class": "UNKNOWN_ENCODING",
+          "fixture": "malformed-jr-rt-nonzero",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0x03e10008"
+        },
+        {
+          "actual_class": "UNKNOWN_ENCODING",
+          "expected_class": "UNKNOWN_ENCODING",
+          "fixture": "malformed-mfhi-rs-nonzero",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0x00200810"
+        },
+        {
+          "actual_class": "UNKNOWN_ENCODING",
+          "expected_class": "UNKNOWN_ENCODING",
+          "fixture": "malformed-mult-rd-nonzero",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0x00221818"
+        },
+        {
+          "actual_class": "UNKNOWN_ENCODING",
+          "expected_class": "UNKNOWN_ENCODING",
+          "fixture": "malformed-branch-rt-nonzero",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0x19010000"
+        },
+        {
+          "actual_class": "UNKNOWN_ENCODING",
+          "expected_class": "UNKNOWN_ENCODING",
+          "fixture": "malformed-lui-rs-nonzero",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0x3c210000"
+        },
+        {
+          "actual_class": "UNKNOWN_ENCODING",
+          "expected_class": "UNKNOWN_ENCODING",
+          "fixture": "malformed-movz-shamt-nonzero",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0x0043214a"
+        },
+        {
+          "actual_class": "UNKNOWN_ENCODING",
+          "expected_class": "UNKNOWN_ENCODING",
+          "fixture": "malformed-movn-shamt-nonzero",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0x0043214b"
+        },
+        {
+          "actual_class": "UNKNOWN_ENCODING",
+          "expected_class": "UNKNOWN_ENCODING",
+          "fixture": "malformed-divu-rd-nonzero",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0x0081101b"
+        },
+        {
+          "actual_class": "UNKNOWN_ENCODING",
+          "expected_class": "UNKNOWN_ENCODING",
+          "fixture": "malformed-jalr-rt-nonzero",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0x0321f809"
+        },
+        {
+          "actual_class": "UNKNOWN_ENCODING",
+          "expected_class": "UNKNOWN_ENCODING",
+          "fixture": "malformed-mul-shamt-nonzero",
+          "kind": "decode-classification",
+          "status": "PASS",
+          "word": "0x704108c2"
+        },
+        {
+          "actual_class": "RECOGNIZED_UNSUPPORTED",
+          "actual_operands": {
+            "rd": 3,
+            "rs": 5,
+            "rt": 2
+          },
+          "expected_class": "RECOGNIZED_UNSUPPORTED",
+          "expected_operands": {
+            "rd": 3,
+            "rs": 5,
+            "rt": 2
+          },
+          "fixture": "positive-movz",
+          "kind": "decode-operands",
+          "semantics": "UNSUPPORTED",
+          "status": "PASS",
+          "word": "0x00a2180a"
+        },
+        {
+          "actual_class": "RECOGNIZED_UNSUPPORTED",
+          "actual_operands": {
+            "rd": 1,
+            "rs": 3,
+            "rt": 9
+          },
+          "expected_class": "RECOGNIZED_UNSUPPORTED",
+          "expected_operands": {
+            "rd": 1,
+            "rs": 3,
+            "rt": 9
+          },
+          "fixture": "positive-movn",
+          "kind": "decode-operands",
+          "semantics": "UNSUPPORTED",
+          "status": "PASS",
+          "word": "0x0069080b"
+        },
+        {
+          "actual_class": "RECOGNIZED_UNSUPPORTED",
+          "actual_operands": {
+            "rd": 1,
+            "rs": 2,
+            "rt": 1
+          },
+          "expected_class": "RECOGNIZED_UNSUPPORTED",
+          "expected_operands": {
+            "rd": 1,
+            "rs": 2,
+            "rt": 1
+          },
+          "fixture": "positive-mul",
+          "kind": "decode-operands",
+          "semantics": "UNSUPPORTED",
+          "status": "PASS",
+          "word": "0x70410802"
+        },
+        {
+          "actual_class": "RECOGNIZED_UNSUPPORTED",
+          "actual_operands": {
+            "rs": 4,
+            "rt": 1
+          },
+          "expected_class": "RECOGNIZED_UNSUPPORTED",
+          "expected_operands": {
+            "rs": 4,
+            "rt": 1
+          },
+          "fixture": "positive-divu",
+          "kind": "decode-operands",
+          "semantics": "UNSUPPORTED",
+          "status": "PASS",
+          "word": "0x0081001b"
+        },
+        {
+          "actual_class": "RECOGNIZED_UNSUPPORTED",
+          "actual_operands": {
+            "code": 7,
+            "rs": 1,
+            "rt": 0
+          },
+          "expected_class": "RECOGNIZED_UNSUPPORTED",
+          "expected_operands": {
+            "code": 7,
+            "rs": 1,
+            "rt": 0
+          },
+          "fixture": "positive-teq",
+          "kind": "decode-operands",
+          "semantics": "UNSUPPORTED",
+          "status": "PASS",
+          "word": "0x002001f4"
+        },
+        {
+          "actual_class": "RECOGNIZED_UNSUPPORTED",
+          "actual_operands": {
+            "imm": 3,
+            "rs": 7,
+            "rt": 1
+          },
+          "expected_class": "RECOGNIZED_UNSUPPORTED",
+          "expected_operands": {
+            "imm": 3,
+            "rs": 7,
+            "rt": 1
+          },
+          "fixture": "positive-swl",
+          "kind": "decode-operands",
+          "semantics": "UNSUPPORTED",
+          "status": "PASS",
+          "word": "0xa8e10003"
+        },
+        {
+          "actual_class": "RECOGNIZED_UNSUPPORTED",
+          "actual_operands": {
+            "imm": 0,
+            "rs": 7,
+            "rt": 1
+          },
+          "expected_class": "RECOGNIZED_UNSUPPORTED",
+          "expected_operands": {
+            "imm": 0,
+            "rs": 7,
+            "rt": 1
+          },
+          "fixture": "positive-swr",
+          "kind": "decode-operands",
+          "semantics": "UNSUPPORTED",
+          "status": "PASS",
+          "word": "0xb8e10000"
+        },
+        {
+          "actual_class": "RECOGNIZED_UNSUPPORTED",
+          "actual_operands": {
+            "rd": 31,
+            "rs": 25
+          },
+          "expected_class": "RECOGNIZED_UNSUPPORTED",
+          "expected_operands": {
+            "rd": 31,
+            "rs": 25
+          },
+          "fixture": "positive-jalr",
+          "kind": "decode-operands",
+          "semantics": "UNSUPPORTED",
+          "status": "PASS",
+          "word": "0x0320f809"
+        },
+        {
+          "actual_class": "INVALID_ADDRESS",
+          "expected_class": "INVALID_ADDRESS",
+          "fixture": "misaligned-address",
+          "kind": "input-validation",
+          "status": "PASS"
+        },
+        {
+          "actual_class": "INVALID_ADDRESS",
+          "expected_class": "INVALID_ADDRESS",
+          "fixture": "negative-address",
+          "kind": "input-validation",
+          "status": "PASS"
+        },
+        {
+          "actual_class": "INVALID_WORD",
+          "expected_class": "INVALID_WORD",
+          "fixture": "word-too-large",
+          "kind": "input-validation",
+          "status": "PASS"
+        },
+        {
+          "actual_class": "INVALID_WORD",
+          "expected_class": "INVALID_WORD",
+          "fixture": "word-negative",
+          "kind": "input-validation",
+          "status": "PASS"
+        },
+        {
+          "actual_class": "EMPTY_REGION",
+          "expected_class": "EMPTY_REGION",
+          "fixture": "empty-region",
+          "kind": "input-validation",
+          "status": "PASS"
+        },
+        {
+          "actual_class": "INVALID_REGION",
+          "expected_class": "INVALID_REGION",
+          "fixture": "misaligned-region",
+          "kind": "input-validation",
+          "status": "PASS"
+        },
+        {
+          "actual_class": "INVALID_ENTRY",
+          "expected_class": "INVALID_ENTRY",
+          "fixture": "entry-outside-region",
+          "kind": "input-validation",
+          "status": "PASS"
+        },
+        {
+          "actual_class": "INVALID_WORD",
+          "expected_class": "INVALID_WORD",
+          "fixture": "reader-out-of-range",
+          "kind": "input-validation",
+          "status": "PASS"
+        }
+      ],
+      "failed": 0,
+      "total": 37
+    },
+    "reachability": {
+      "control_flow_counts": {
+        "conditional-branches": 198,
+        "direct-calls": 96,
+        "indirect-calls": 0,
+        "indirect-jumps": 3,
+        "jumps": 70,
+        "returns": 24,
+        "unsupported-control-transfers": 0
+      },
+      "dead_function_count": 22,
+      "dead_functions": [
+        "barebones_clock",
+        "cmp_complex",
+        "cmp_idx",
+        "copy_info",
+        "core_list_find",
+        "core_list_insert_new",
+        "core_list_mergesort",
+        "core_list_remove",
+        "core_list_reverse",
+        "core_list_undo_remove",
+        "crcu8",
+        "matrix_add_const",
+        "matrix_mul_const",
+        "matrix_mul_matrix",
+        "matrix_mul_matrix_bitextract",
+        "matrix_mul_vect",
+        "matrix_sum",
+        "memcpy",
+        "memmove",
+        "memset",
+        "number",
+        "uart_send_char"
+      ],
+      "entry": "0x00004650",
+      "exception_site_count": 6,
+      "function_diagnostics": [
+        {
+          "address": "0x00001000",
+          "classification": "FULLY_REACHABLE",
+          "name": "calc_func",
+          "reachable_words": 63,
+          "size": 252,
+          "words": 63
+        },
+        {
+          "address": "0x000010fc",
+          "name": "cmp_complex",
+          "reachable_words": 0,
+          "size": 88,
+          "words": 22
+        },
+        {
+          "address": "0x00001154",
+          "name": "cmp_idx",
+          "reachable_words": 0,
+          "size": 40,
+          "words": 10
+        },
+        {
+          "address": "0x0000117c",
+          "name": "copy_info",
+          "reachable_words": 0,
+          "size": 20,
+          "words": 5
+        },
+        {
+          "address": "0x00001190",
+          "classification": "FULLY_REACHABLE",
+          "name": "core_bench_list",
+          "reachable_words": 378,
+          "size": 1512,
+          "words": 378
+        },
+        {
+          "address": "0x00001778",
+          "name": "core_list_find",
+          "reachable_words": 0,
+          "size": 128,
+          "words": 32
+        },
+        {
+          "address": "0x000017f8",
+          "name": "core_list_reverse",
+          "reachable_words": 0,
+          "size": 48,
+          "words": 12
+        },
+        {
+          "address": "0x00001828",
+          "name": "core_list_mergesort",
+          "reachable_words": 0,
+          "size": 464,
+          "words": 116
+        },
+        {
+          "address": "0x000019f8",
+          "name": "core_list_remove",
+          "reachable_words": 0,
+          "size": 36,
+          "words": 9
+        },
+        {
+          "address": "0x00001a1c",
+          "name": "core_list_undo_remove",
+          "reachable_words": 0,
+          "size": 36,
+          "words": 9
+        },
+        {
+          "address": "0x00001a40",
+          "classification": "FULLY_REACHABLE",
+          "name": "core_list_init",
+          "reachable_words": 183,
+          "size": 732,
+          "words": 183
+        },
+        {
+          "address": "0x00001d1c",
+          "name": "core_list_insert_new",
+          "reachable_words": 0,
+          "size": 112,
+          "words": 28
+        },
+        {
+          "address": "0x00001d90",
+          "classification": "FULLY_REACHABLE",
+          "name": "iterate",
+          "reachable_words": 51,
+          "size": 204,
+          "words": 51
+        },
+        {
+          "address": "0x00001e5c",
+          "classification": "FULLY_REACHABLE",
+          "name": "main",
+          "reachable_words": 476,
+          "size": 1904,
+          "words": 476
+        },
+        {
+          "address": "0x000025d0",
+          "classification": "FULLY_REACHABLE",
+          "name": "core_bench_matrix",
+          "reachable_words": 18,
+          "size": 72,
+          "words": 18
+        },
+        {
+          "address": "0x00002618",
+          "classification": "FULLY_REACHABLE",
+          "name": "matrix_test",
+          "reachable_words": 283,
+          "size": 1132,
+          "words": 283
+        },
+        {
+          "address": "0x00002a84",
+          "name": "matrix_add_const",
+          "reachable_words": 0,
+          "size": 68,
+          "words": 17
+        },
+        {
+          "address": "0x00002ac8",
+          "name": "matrix_mul_const",
+          "reachable_words": 0,
+          "size": 84,
+          "words": 21
+        },
+        {
+          "address": "0x00002b1c",
+          "name": "matrix_sum",
+          "reachable_words": 0,
+          "size": 124,
+          "words": 31
+        },
+        {
+          "address": "0x00002b98",
+          "name": "matrix_mul_vect",
+          "reachable_words": 0,
+          "size": 96,
+          "words": 24
+        },
+        {
+          "address": "0x00002bf8",
+          "name": "matrix_mul_matrix",
+          "reachable_words": 0,
+          "size": 128,
+          "words": 32
+        },
+        {
+          "address": "0x00002c78",
+          "name": "matrix_mul_matrix_bitextract",
+          "reachable_words": 0,
+          "size": 148,
+          "words": 37
+        },
+        {
+          "address": "0x00002d0c",
+          "classification": "FULLY_REACHABLE",
+          "name": "core_init_matrix",
+          "reachable_words": 77,
+          "size": 308,
+          "words": 77
+        },
+        {
+          "address": "0x00002e40",
+          "classification": "FULLY_REACHABLE",
+          "name": "core_bench_state",
+          "reachable_words": 156,
+          "size": 624,
+          "words": 156
+        },
+        {
+          "address": "0x000030b0",
+          "classification": "PARTIAL_INDIRECT_OR_UNRESOLVED",
+          "name": "core_state_transition",
+          "reachable_words": 49,
+          "size": 568,
+          "words": 142
+        },
+        {
+          "address": "0x000032e8",
+          "classification": "FULLY_REACHABLE",
+          "name": "core_init_state",
+          "reachable_words": 56,
+          "size": 224,
+          "words": 56
+        },
+        {
+          "address": "0x000033d0",
+          "classification": "FULLY_REACHABLE",
+          "name": "get_seed_32",
+          "reachable_words": 12,
+          "size": 48,
+          "words": 12
+        },
+        {
+          "address": "0x00003400",
+          "name": "crcu8",
+          "reachable_words": 0,
+          "size": 224,
+          "words": 56
+        },
+        {
+          "address": "0x000034e0",
+          "classification": "FULLY_REACHABLE",
+          "name": "crcu16",
+          "reachable_words": 113,
+          "size": 452,
+          "words": 113
+        },
+        {
+          "address": "0x000036a4",
+          "classification": "FULLY_REACHABLE",
+          "name": "crcu32",
+          "reachable_words": 13,
+          "size": 52,
+          "words": 13
+        },
+        {
+          "address": "0x000036d8",
+          "classification": "FULLY_REACHABLE",
+          "name": "crc16",
+          "reachable_words": 7,
+          "size": 28,
+          "words": 7
+        },
+        {
+          "address": "0x000036f4",
+          "classification": "FULLY_REACHABLE",
+          "name": "check_data_types",
+          "reachable_words": 2,
+          "size": 8,
+          "words": 2
+        },
+        {
+          "address": "0x00003700",
+          "name": "uart_send_char",
+          "reachable_words": 0,
+          "size": 28,
+          "words": 7
+        },
+        {
+          "address": "0x0000371c",
+          "classification": "PARTIAL_INDIRECT_OR_UNRESOLVED",
+          "name": "ee_printf",
+          "reachable_words": 187,
+          "size": 2832,
+          "words": 708
+        },
+        {
+          "address": "0x0000422c",
+          "name": "number",
+          "reachable_words": 0,
+          "size": 660,
+          "words": 165
+        },
+        {
+          "address": "0x000044c0",
+          "name": "barebones_clock",
+          "reachable_words": 0,
+          "size": 20,
+          "words": 5
+        },
+        {
+          "address": "0x000044d4",
+          "classification": "FULLY_REACHABLE",
+          "name": "start_time",
+          "reachable_words": 7,
+          "size": 28,
+          "words": 7
+        },
+        {
+          "address": "0x000044f0",
+          "classification": "FULLY_REACHABLE",
+          "name": "stop_time",
+          "reachable_words": 7,
+          "size": 28,
+          "words": 7
+        },
+        {
+          "address": "0x0000450c",
+          "classification": "FULLY_REACHABLE",
+          "name": "get_time",
+          "reachable_words": 6,
+          "size": 24,
+          "words": 6
+        },
+        {
+          "address": "0x00004524",
+          "classification": "FULLY_REACHABLE",
+          "name": "time_in_secs",
+          "reachable_words": 6,
+          "size": 24,
+          "words": 6
+        },
+        {
+          "address": "0x0000453c",
+          "classification": "FULLY_REACHABLE",
+          "name": "p3_uart_send_char",
+          "reachable_words": 7,
+          "size": 28,
+          "words": 7
+        },
+        {
+          "address": "0x00004558",
+          "classification": "FULLY_REACHABLE",
+          "name": "p3_exit",
+          "reachable_words": 5,
+          "size": 20,
+          "words": 5
+        },
+        {
+          "address": "0x0000456c",
+          "classification": "FULLY_REACHABLE",
+          "name": "portable_init",
+          "reachable_words": 3,
+          "size": 12,
+          "words": 3
+        },
+        {
+          "address": "0x00004578",
+          "classification": "FULLY_REACHABLE",
+          "name": "portable_fini",
+          "reachable_words": 2,
+          "size": 8,
+          "words": 2
+        },
+        {
+          "address": "0x00004580",
+          "name": "memcpy",
+          "reachable_words": 0,
+          "size": 44,
+          "words": 11
+        },
+        {
+          "address": "0x000045ac",
+          "name": "memmove",
+          "reachable_words": 0,
+          "size": 116,
+          "words": 29
+        },
+        {
+          "address": "0x00004620",
+          "name": "memset",
+          "reachable_words": 0,
+          "size": 36,
+          "words": 9
+        },
+        {
+          "address": "0x00004650",
+          "classification": "FULLY_REACHABLE",
+          "name": "_start",
+          "reachable_words": 11,
+          "size": 44,
+          "words": 11
+        }
+      ],
+      "indirect_sites_all": [
+        {
+          "address": "0x00001958",
+          "op": "jalr",
+          "operands": {
+            "rd": 31,
+            "rs": 25
+          },
+          "reachability": "UNREACHABLE",
+          "target_resolution": "not statically resolved",
+          "terminator": "indirect-call",
+          "word": "0x0320f809"
+        },
+        {
+          "address": "0x00003130",
+          "op": "jr",
+          "operands": {
+            "rs": 1
+          },
+          "reachability": "REACHABLE",
+          "target_resolution": "not statically resolved",
+          "terminator": "indirect-jump",
+          "word": "0x00200008"
+        },
+        {
+          "address": "0x00003830",
+          "op": "jr",
+          "operands": {
+            "rs": 1
+          },
+          "reachability": "REACHABLE",
+          "target_resolution": "not statically resolved",
+          "terminator": "indirect-jump",
+          "word": "0x00200008"
+        },
+        {
+          "address": "0x000039a0",
+          "op": "jr",
+          "operands": {
+            "rs": 1
+          },
+          "reachability": "REACHABLE",
+          "target_resolution": "not statically resolved",
+          "terminator": "indirect-jump",
+          "word": "0x00200008"
+        }
+      ],
+      "padding": [
+        {
+          "addresses": [
+            "0x00001d8c"
+          ],
+          "end": "0x00001d90",
+          "following_function_address": "0x00001d90",
+          "following_function_symbol": "iterate",
+          "preceding_delay_slot": "0x00001d88",
+          "preceding_return_site": "0x00001d84",
+          "start": "0x00001d8c"
+        },
+        {
+          "addresses": [
+            "0x000025cc"
+          ],
+          "end": "0x000025d0",
+          "following_function_address": "0x000025d0",
+          "following_function_symbol": "core_bench_matrix",
+          "preceding_delay_slot": "0x000025c8",
+          "preceding_return_site": "0x000025c4",
+          "start": "0x000025cc"
+        },
+        {
+          "addresses": [
+            "0x000033c8",
+            "0x000033cc"
+          ],
+          "end": "0x000033d0",
+          "following_function_address": "0x000033d0",
+          "following_function_symbol": "get_seed_32",
+          "preceding_delay_slot": "0x000033c4",
+          "preceding_return_site": "0x000033c0",
+          "start": "0x000033c8"
+        },
+        {
+          "addresses": [
+            "0x000036fc"
+          ],
+          "end": "0x00003700",
+          "following_function_address": "0x00003700",
+          "following_function_symbol": "uart_send_char",
+          "preceding_delay_slot": "0x000036f8",
+          "preceding_return_site": "0x000036f4",
+          "start": "0x000036fc"
+        },
+        {
+          "addresses": [
+            "0x00004644",
+            "0x00004648",
+            "0x0000464c"
+          ],
+          "end": "0x00004650",
+          "following_function_address": "0x00004650",
+          "following_function_symbol": "_start",
+          "preceding_delay_slot": "0x00004640",
+          "preceding_return_site": "0x0000463c",
+          "start": "0x00004644"
+        }
+      ],
+      "padding_words": 8,
+      "partial_functions": {
+        "core_state_transition": [
+          49,
+          142
+        ],
+        "ee_printf": [
+          187,
+          708
+        ]
+      },
+      "reachable_words": 2178,
+      "unreachable_words": 1309,
+      "unreached_code_words": 1301,
+      "unresolved_counts": {
+        "indirect-jump": 3,
+        "successor-outside-image": 1
+      }
+    },
+    "source_integrity": {
+      "phase3_files": [
+        ".openrecomp-phase3/src/p3_code_frontier_v1.py",
+        ".openrecomp-phase3/src/p3_decode_mips32_v1.py",
+        ".openrecomp-phase3/src/p3_elf_image_v1.py",
+        ".openrecomp-phase3/src/p3_semantics_mips32_v1.py",
+        ".openrecomp-phase3/src/p3_structure_v1.py",
+        ".openrecomp-phase3/src/p3_target_mips32_v1.py",
+        "tools/test_phase3_boundary_v1.py",
+        "tools/test_phase3_coremark_fixture_v1.py",
+        "tools/test_phase3_decode_frontier_v1.py",
+        "tools/test_phase3_elf_ingestion_v1.py",
+        "tools/test_phase3_reachable_semantics_v1.py",
+        "tools/test_phase3_structure_v1.py"
+      ],
+      "phase3_manifest_entries": 12,
+      "phase3_manifest_mismatched": [],
+      "phase3_manifest_sha256": "90aba19d12394aff9eb2ae7e5512d582cee1e1dd5a57c870ff33b4c88f044c93",
+      "root_manifest_entries": 134,
+      "root_manifest_mismatched": [],
+      "root_manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"
+    }
+  },
+  "markers": {
+    "gate": "OPENRECOMP_PHASE3_COREMARK_DECODE_FRONTIER_V1=PASS tests=201",
+    "stage": "OPENRECOMP_P3_03=PASS",
+    "terminal": "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
+  },
+  "passed": 201,
+  "stage": "P3-03",
+  "stage_name": "OPENRECOMP_PHASE3_COREMARK_DECODE_FRONTIER_V1",
+  "status": "PASS",
+  "tests": 201
+}

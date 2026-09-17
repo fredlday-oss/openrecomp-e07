@@ -1,0 +1,167 @@
+{
+  "audited_frontier_classes": [
+    "divu",
+    "jalr",
+    "movn",
+    "movz",
+    "mul",
+    "swl",
+    "swr",
+    "teq"
+  ],
+  "classes": {
+    "divu": {
+      "class": "unsigned divide",
+      "control_effect": "fallthrough",
+      "edge_cases": [
+        "unsigned interpretation of both operands",
+        "quotient/remainder pair defines both HI and LO"
+      ],
+      "encoding": "SPECIAL funct 0x1b, rd 0, shamt 0 (SPECIAL opcode 0x00)",
+      "fail_closed": [
+        "divisor zero is architecturally UNPREDICTABLE and fails closed with DIVIDE_BY_ZERO before any HI/LO write"
+      ],
+      "form": "divu rs, rt",
+      "hi_lo_effect": "DEFINED",
+      "memory_effect": "none",
+      "registers": "no GPR write; rs/rt read",
+      "semantics": "LO = GPR[rs] // GPR[rt]; HI = GPR[rs] % GPR[rt] (unsigned)"
+    },
+    "jalr": {
+      "class": "jump and link register (indirect call)",
+      "control_effect": "indirect transfer with one delay slot",
+      "edge_cases": [
+        "link value is the instruction after the delay slot (address + 8)",
+        "target is latched before the delay slot executes",
+        "rd = rs keeps the pre-write register value as the target"
+      ],
+      "encoding": "SPECIAL funct 0x09, rt 0",
+      "fail_closed": [
+        "unaligned target fails closed with UNALIGNED_TARGET",
+        "the static target is never resolved by this module"
+      ],
+      "form": "jalr rd, rs",
+      "hi_lo_effect": "UNCHANGED",
+      "memory_effect": "none",
+      "registers": "rd write-only, rs read; rd=0 stores no link",
+      "semantics": "target = GPR[rs] latched before the delay slot; if rd != 0 then GPR[rd] = address + 8; PC = target"
+    },
+    "movn": {
+      "class": "conditional move",
+      "control_effect": "fallthrough",
+      "edge_cases": [
+        "condition on the full 32-bit rt value",
+        "no write when rt == 0",
+        "rd = 0 discards the write architected"
+      ],
+      "encoding": "SPECIAL funct 0x0b, shamt 0 (SPECIAL opcode 0x00)",
+      "fail_closed": [],
+      "form": "movn rd, rs, rt",
+      "hi_lo_effect": "UNCHANGED",
+      "memory_effect": "none",
+      "registers": "rd write-only, rs/rt read; rd=0 write discarded",
+      "semantics": "if GPR[rt] != 0 then GPR[rd] = GPR[rs] else unchanged"
+    },
+    "movz": {
+      "class": "conditional move",
+      "control_effect": "fallthrough",
+      "edge_cases": [
+        "condition on the full 32-bit rt value",
+        "no write when rt != 0",
+        "rd = 0 discards the write architected"
+      ],
+      "encoding": "SPECIAL funct 0x0a, shamt 0 (SPECIAL opcode 0x00)",
+      "fail_closed": [],
+      "form": "movz rd, rs, rt",
+      "hi_lo_effect": "UNCHANGED",
+      "memory_effect": "none",
+      "registers": "rd write-only, rs/rt read; rd=0 write discarded",
+      "semantics": "if GPR[rt] == 0 then GPR[rd] = GPR[rs] else unchanged"
+    },
+    "mul": {
+      "architectural_note": "MIPS32 leaves HI/LO UNPREDICTABLE after MUL; this model does not invent a value, marks them undefined and never depends on them",
+      "class": "integer multiply (SPECIAL2)",
+      "control_effect": "fallthrough",
+      "edge_cases": [
+        "32x32 signed product truncated to the low 32 bits",
+        "result is not the same as the SHIFT/MULT HI/LO pair",
+        "rd = 0 discards the write architected"
+      ],
+      "encoding": "SPECIAL2 opcode 0x1c, funct 0x02, shamt 0",
+      "fail_closed": [
+        "reading HI/LO before a defining operation fails closed with HI_LO_UNPREDICTABLE"
+      ],
+      "form": "mul rd, rs, rt",
+      "hi_lo_effect": "UNPREDICTABLE",
+      "memory_effect": "none",
+      "registers": "rd write-only, rs/rt read; rd=0 write discarded",
+      "semantics": "signed(GPR[rs]) * signed(GPR[rt]) modulo 2**32 placed in GPR[rd]"
+    },
+    "swl": {
+      "class": "store word left (partial store)",
+      "control_effect": "fallthrough",
+      "edge_cases": [
+        "no alignment exception for the unaligned effective address",
+        "effective address wraps modulo 2**32 before the alignment mask",
+        "byte count selected by the two low address bits"
+      ],
+      "encoding": "opcode 0x2a",
+      "fail_closed": [
+        "unaligned or unmapped aligned word fails closed with MEMORY_FAULT",
+        "read-only target fails closed with WRITE_PROTECTED",
+        "big-endian targets fail closed with ENDIANNESS_UNSUPPORTED"
+      ],
+      "form": "swl rt, offset(base)",
+      "hi_lo_effect": "UNCHANGED",
+      "memory_effect": "1-4 bytes of the aligned word, never crossing word boundaries",
+      "registers": "rt read; rs read; no GPR write",
+      "semantics": "little-endian partial store into the aligned word at (GPR[base] + sign_extend(offset)) & ~3"
+    },
+    "swr": {
+      "class": "store word right (partial store)",
+      "control_effect": "fallthrough",
+      "edge_cases": [
+        "no alignment exception for the unaligned effective address",
+        "effective address wraps modulo 2**32 before the alignment mask",
+        "byte count selected by the two low address bits"
+      ],
+      "encoding": "opcode 0x2e",
+      "fail_closed": [
+        "unaligned or unmapped aligned word fails closed with MEMORY_FAULT",
+        "read-only target fails closed with WRITE_PROTECTED",
+        "big-endian targets fail closed with ENDIANNESS_UNSUPPORTED"
+      ],
+      "form": "swr rt, offset(base)",
+      "hi_lo_effect": "UNCHANGED",
+      "memory_effect": "1-4 bytes of the aligned word, never crossing word boundaries",
+      "registers": "rt read; rs read; no GPR write",
+      "semantics": "little-endian partial store into the aligned word at (GPR[base] + sign_extend(offset)) & ~3"
+    },
+    "teq": {
+      "class": "trap-if-equal",
+      "control_effect": "fallthrough when not taken",
+      "edge_cases": [
+        "equality on full 32-bit values",
+        "non-taken trap has no architected effect"
+      ],
+      "encoding": "SPECIAL funct 0x34 (code in bits 15:6)",
+      "fail_closed": [
+        "taken trap fails closed with TRAP_TAKEN (exception delivery is not modelled); the encoded trap code is preserved"
+      ],
+      "form": "teq rs, rt",
+      "hi_lo_effect": "UNCHANGED",
+      "memory_effect": "none",
+      "registers": "rs/rt read; no GPR write",
+      "semantics": "if GPR[rs] == GPR[rt] then Trap exception else no effect"
+    }
+  },
+  "reference_basis": [
+    "MIPS32 integer semantics as audited: conditional moves, 32x32 signed multiply low half, unsigned divide quotient/remainder, trap-if-equal, little-endian partial word stores, jump-and-link register",
+    "fail-closed policy: architecturally UNPREDICTABLE states (divisor zero, taken trap, HI/LO after mul, unaligned jalr target) are refused instead of guessed"
+  ],
+  "semantics_model": {
+    "IMPLEMENTED": "exact MIPS32 behaviour implemented and reference-checked",
+    "UNSUPPORTED": "no execution semantics; fails closed"
+  },
+  "stage": "P3-04"
+}

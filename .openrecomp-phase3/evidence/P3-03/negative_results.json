@@ -1,0 +1,381 @@
+{
+  "cases": [
+    {
+      "actual_class": "RESERVED_ENCODING",
+      "expected_class": "RESERVED_ENCODING",
+      "fixture": "reserved-regimm-rt-0x17",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0x04170001"
+    },
+    {
+      "actual_class": "RESERVED_ENCODING",
+      "expected_class": "RESERVED_ENCODING",
+      "fixture": "reserved-regimm-rt-0x0d",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0x040d0001"
+    },
+    {
+      "actual_class": "RESERVED_ENCODING",
+      "expected_class": "RESERVED_ENCODING",
+      "fixture": "reserved-regimm-rt-0x1e",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0x041e0001"
+    },
+    {
+      "actual_class": "RESERVED_ENCODING",
+      "expected_class": "RESERVED_ENCODING",
+      "fixture": "reserved-special-funct-0x05",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0x00000005"
+    },
+    {
+      "actual_class": "RESERVED_ENCODING",
+      "expected_class": "RESERVED_ENCODING",
+      "fixture": "reserved-special-funct-0x0e",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0x0000000e"
+    },
+    {
+      "actual_class": "RESERVED_ENCODING",
+      "expected_class": "RESERVED_ENCODING",
+      "fixture": "reserved-special-funct-0x17",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0x00000017"
+    },
+    {
+      "actual_class": "RESERVED_ENCODING",
+      "expected_class": "RESERVED_ENCODING",
+      "fixture": "reserved-special2-funct-0x03",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0x70000003"
+    },
+    {
+      "actual_class": "RESERVED_ENCODING",
+      "expected_class": "RESERVED_ENCODING",
+      "fixture": "reserved-special2-funct-0x3f",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0x7000003f"
+    },
+    {
+      "actual_class": "UNKNOWN_ENCODING",
+      "expected_class": "UNKNOWN_ENCODING",
+      "fixture": "unknown-opcode-0x1e",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0x78000000"
+    },
+    {
+      "actual_class": "UNKNOWN_ENCODING",
+      "expected_class": "UNKNOWN_ENCODING",
+      "fixture": "unknown-opcode-0x3f",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0xfc000000"
+    },
+    {
+      "actual_class": "UNKNOWN_ENCODING",
+      "expected_class": "UNKNOWN_ENCODING",
+      "fixture": "malformed-sll-rs-nonzero",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0x00200800"
+    },
+    {
+      "actual_class": "UNKNOWN_ENCODING",
+      "expected_class": "UNKNOWN_ENCODING",
+      "fixture": "malformed-jr-rt-nonzero",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0x03e10008"
+    },
+    {
+      "actual_class": "UNKNOWN_ENCODING",
+      "expected_class": "UNKNOWN_ENCODING",
+      "fixture": "malformed-mfhi-rs-nonzero",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0x00200810"
+    },
+    {
+      "actual_class": "UNKNOWN_ENCODING",
+      "expected_class": "UNKNOWN_ENCODING",
+      "fixture": "malformed-mult-rd-nonzero",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0x00221818"
+    },
+    {
+      "actual_class": "UNKNOWN_ENCODING",
+      "expected_class": "UNKNOWN_ENCODING",
+      "fixture": "malformed-branch-rt-nonzero",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0x19010000"
+    },
+    {
+      "actual_class": "UNKNOWN_ENCODING",
+      "expected_class": "UNKNOWN_ENCODING",
+      "fixture": "malformed-lui-rs-nonzero",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0x3c210000"
+    },
+    {
+      "actual_class": "UNKNOWN_ENCODING",
+      "expected_class": "UNKNOWN_ENCODING",
+      "fixture": "malformed-movz-shamt-nonzero",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0x0043214a"
+    },
+    {
+      "actual_class": "UNKNOWN_ENCODING",
+      "expected_class": "UNKNOWN_ENCODING",
+      "fixture": "malformed-movn-shamt-nonzero",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0x0043214b"
+    },
+    {
+      "actual_class": "UNKNOWN_ENCODING",
+      "expected_class": "UNKNOWN_ENCODING",
+      "fixture": "malformed-divu-rd-nonzero",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0x0081101b"
+    },
+    {
+      "actual_class": "UNKNOWN_ENCODING",
+      "expected_class": "UNKNOWN_ENCODING",
+      "fixture": "malformed-jalr-rt-nonzero",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0x0321f809"
+    },
+    {
+      "actual_class": "UNKNOWN_ENCODING",
+      "expected_class": "UNKNOWN_ENCODING",
+      "fixture": "malformed-mul-shamt-nonzero",
+      "kind": "decode-classification",
+      "status": "PASS",
+      "word": "0x704108c2"
+    },
+    {
+      "actual_class": "RECOGNIZED_UNSUPPORTED",
+      "actual_operands": {
+        "rd": 3,
+        "rs": 5,
+        "rt": 2
+      },
+      "expected_class": "RECOGNIZED_UNSUPPORTED",
+      "expected_operands": {
+        "rd": 3,
+        "rs": 5,
+        "rt": 2
+      },
+      "fixture": "positive-movz",
+      "kind": "decode-operands",
+      "semantics": "UNSUPPORTED",
+      "status": "PASS",
+      "word": "0x00a2180a"
+    },
+    {
+      "actual_class": "RECOGNIZED_UNSUPPORTED",
+      "actual_operands": {
+        "rd": 1,
+        "rs": 3,
+        "rt": 9
+      },
+      "expected_class": "RECOGNIZED_UNSUPPORTED",
+      "expected_operands": {
+        "rd": 1,
+        "rs": 3,
+        "rt": 9
+      },
+      "fixture": "positive-movn",
+      "kind": "decode-operands",
+      "semantics": "UNSUPPORTED",
+      "status": "PASS",
+      "word": "0x0069080b"
+    },
+    {
+      "actual_class": "RECOGNIZED_UNSUPPORTED",
+      "actual_operands": {
+        "rd": 1,
+        "rs": 2,
+        "rt": 1
+      },
+      "expected_class": "RECOGNIZED_UNSUPPORTED",
+      "expected_operands": {
+        "rd": 1,
+        "rs": 2,
+        "rt": 1
+      },
+      "fixture": "positive-mul",
+      "kind": "decode-operands",
+      "semantics": "UNSUPPORTED",
+      "status": "PASS",
+      "word": "0x70410802"
+    },
+    {
+      "actual_class": "RECOGNIZED_UNSUPPORTED",
+      "actual_operands": {
+        "rs": 4,
+        "rt": 1
+      },
+      "expected_class": "RECOGNIZED_UNSUPPORTED",
+      "expected_operands": {
+        "rs": 4,
+        "rt": 1
+      },
+      "fixture": "positive-divu",
+      "kind": "decode-operands",
+      "semantics": "UNSUPPORTED",
+      "status": "PASS",
+      "word": "0x0081001b"
+    },
+    {
+      "actual_class": "RECOGNIZED_UNSUPPORTED",
+      "actual_operands": {
+        "code": 7,
+        "rs": 1,
+        "rt": 0
+      },
+      "expected_class": "RECOGNIZED_UNSUPPORTED",
+      "expected_operands": {
+        "code": 7,
+        "rs": 1,
+        "rt": 0
+      },
+      "fixture": "positive-teq",
+      "kind": "decode-operands",
+      "semantics": "UNSUPPORTED",
+      "status": "PASS",
+      "word": "0x002001f4"
+    },
+    {
+      "actual_class": "RECOGNIZED_UNSUPPORTED",
+      "actual_operands": {
+        "imm": 3,
+        "rs": 7,
+        "rt": 1
+      },
+      "expected_class": "RECOGNIZED_UNSUPPORTED",
+      "expected_operands": {
+        "imm": 3,
+        "rs": 7,
+        "rt": 1
+      },
+      "fixture": "positive-swl",
+      "kind": "decode-operands",
+      "semantics": "UNSUPPORTED",
+      "status": "PASS",
+      "word": "0xa8e10003"
+    },
+    {
+      "actual_class": "RECOGNIZED_UNSUPPORTED",
+      "actual_operands": {
+        "imm": 0,
+        "rs": 7,
+        "rt": 1
+      },
+      "expected_class": "RECOGNIZED_UNSUPPORTED",
+      "expected_operands": {
+        "imm": 0,
+        "rs": 7,
+        "rt": 1
+      },
+      "fixture": "positive-swr",
+      "kind": "decode-operands",
+      "semantics": "UNSUPPORTED",
+      "status": "PASS",
+      "word": "0xb8e10000"
+    },
+    {
+      "actual_class": "RECOGNIZED_UNSUPPORTED",
+      "actual_operands": {
+        "rd": 31,
+        "rs": 25
+      },
+      "expected_class": "RECOGNIZED_UNSUPPORTED",
+      "expected_operands": {
+        "rd": 31,
+        "rs": 25
+      },
+      "fixture": "positive-jalr",
+      "kind": "decode-operands",
+      "semantics": "UNSUPPORTED",
+      "status": "PASS",
+      "word": "0x0320f809"
+    },
+    {
+      "actual_class": "INVALID_ADDRESS",
+      "expected_class": "INVALID_ADDRESS",
+      "fixture": "misaligned-address",
+      "kind": "input-validation",
+      "status": "PASS"
+    },
+    {
+      "actual_class": "INVALID_ADDRESS",
+      "expected_class": "INVALID_ADDRESS",
+      "fixture": "negative-address",
+      "kind": "input-validation",
+      "status": "PASS"
+    },
+    {
+      "actual_class": "INVALID_WORD",
+      "expected_class": "INVALID_WORD",
+      "fixture": "word-too-large",
+      "kind": "input-validation",
+      "status": "PASS"
+    },
+    {
+      "actual_class": "INVALID_WORD",
+      "expected_class": "INVALID_WORD",
+      "fixture": "word-negative",
+      "kind": "input-validation",
+      "status": "PASS"
+    },
+    {
+      "actual_class": "EMPTY_REGION",
+      "expected_class": "EMPTY_REGION",
+      "fixture": "empty-region",
+      "kind": "input-validation",
+      "status": "PASS"
+    },
+    {
+      "actual_class": "INVALID_REGION",
+      "expected_class": "INVALID_REGION",
+      "fixture": "misaligned-region",
+      "kind": "input-validation",
+      "status": "PASS"
+    },
+    {
+      "actual_class": "INVALID_ENTRY",
+      "expected_class": "INVALID_ENTRY",
+      "fixture": "entry-outside-region",
+      "kind": "input-validation",
+      "status": "PASS"
+    },
+    {
+      "actual_class": "INVALID_WORD",
+      "expected_class": "INVALID_WORD",
+      "fixture": "reader-out-of-range",
+      "kind": "input-validation",
+      "status": "PASS"
+    }
+  ],
+  "decode_classification_cases": 21,
+  "engine_cases": 14,
+  "failed": 0,
+  "input_validation_cases": 8,
+  "positive_decode_cases": 8
+}

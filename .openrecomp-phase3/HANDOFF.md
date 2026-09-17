@@ -4,8 +4,9 @@ STATUS: Phase 3 `ACTIVE` — P3-00 (Phase-3 boundary) `PASS`; P3-01 (CoreMark
 MIPS32 fixture acquisition/build) `PASS`; P3-02 (ELF ingestion + section/data
 image) `PASS`; P3-03 (MIPS32 decode expansion) `PASS`; P3-04 (CoreMark
 reachable MIPS32 semantics) `PASS`; P3-05
-(ProgramModel/CFG/functions/call graph/translation units, reconciled queue row)
-is `ACTIVE`. The remaining Phase-3 queue (`P3-05` .. `P3-99`) was frozen at the
+(ProgramModel/CFG/functions/call graph/translation units on the real ELF)
+`PASS`; P3-06 (static data/global reconstruction) is `ACTIVE`. The remaining
+Phase-3 queue (`P3-05` .. `P3-99`) was frozen at the
 P3-04 `PASS` boundary before any P3-05 implementation work; the frozen contract
 is `STAGE_QUEUE.md` `## Queue freeze` (no renumber/insert/merge/split/silent
 redefinition; a change requires a genuine technical dependency, fails closed
@@ -17,6 +18,56 @@ and is documented). The Phase-2 terminal state is frozen at tag
 `OPENRECOMP_P2_99=PASS`,
 `OPENRECOMP_PHASE2_FINAL_VERDICT_V1=PASS tests=202` and
 `OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS`.
+
+## P3-05 outcome (PASS)
+
+Markers: `OPENRECOMP_P3_05=PASS`,
+`OPENRECOMP_PHASE3_PROGRAM_STRUCTURE_V1=PASS tests=202`; terminal marker
+reserved as `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`.
+
+- New Phase-3 files only; no shared layer, frozen adapter, Phase-1/Phase-2
+  file, gate or frozen manifest was modified.
+- `.openrecomp-phase3/src/p3_structure_v1.py`: fail-closed bridge from the
+  frozen P3-03 frontier records into the shared Phase-2 neutral types. Only
+  `REACHABLE` words become instructions; flow is a pure function of the frozen
+  record; invalid encodings, unsupported control transfers, missing/forbidden
+  targets, missing delay slots, inconsistent traps, duplicate records and
+  non-tiling regions fail closed with stable codes. `PROVEN` is the shared
+  model's structural classification (exact decode plus reachability from the
+  proven entry through resolved direct edges), not a runtime or semantics
+  claim.
+- `tools/test_phase3_structure_v1.py`: the P3-05 gate (202 checks).
+- `.openrecomp-phase3/SOURCE_SHA256SUMS.txt`: grown additively to twelve
+  entries; the P3-02/P3-03/P3-04 gates' expected entry set grew 10 -> 12
+  additively and their stdout is unchanged.
+- Structure (fixture `16a0a0aa...`, entry `0x4650`): 2178 neutral
+  instructions (NORMAL 1787, BRANCH 198, CALL 96, JUMP 70, RETURN 24,
+  INDIRECT_JUMP 3); 615 blocks; 770 edges (198 `BRANCH_TAKEN`, 198
+  `BRANCH_NOT_TAKEN`, 96 `CALL_RETURN`, 205 `FALLTHROUGH`, 70 `JUMP`, 3
+  unresolved `INDIRECT`); 26 PROVEN functions; 96-edge all-internal direct
+  call graph; 26 translation units (entry `tu_fn_4650`); three reachable
+  `jr $at` jump tables stay unresolved, the dead `jalr` at `0x1958` and the
+  eight padding words stay outside the model.
+- Delay-slot policy: the shared layers have no delay-slot concept, so delay
+  slots are NORMAL instructions with the relationship recorded separately;
+  call delay slots are the `CALL_RETURN` continuation, branch delay slots the
+  `BRANCH_NOT_TAKEN` successor, and the 97 jump/return/indirect-jump delay
+  slots are explicit orphan blocks (never attributed, never given an invented
+  predecessor). The `ProgramModel` covers 2081 owned instructions; the CFG
+  covers all 2178.
+- Determinism: two consecutive official runs byte-identical (7819 bytes, raw
+  sha256 `12bf87d7b5ec57dcf637c940bfb0bfc483cd03c548291cbed21b9af9cbe29573`,
+  LF sha256
+  `f8948ea8ab651267d22c624bbb950fa0973c7fe82dd4f5f93606754ac60f7e39`, empty
+  stderr, exit 0); a second isolated ingestion/frontier/structure build
+  reproduces every fingerprint and artifact hash.
+- Regressions re-run and unchanged: P2-99 `PASS tests=202` (`66913e57...`),
+  P3-00 `PASS tests=61` (`a039bbff...`), P3-01 `PASS tests=76`
+  (`81eede03...`), P3-02 `PASS tests=197` (`f24f4cef...`), P3-03
+  `PASS tests=201` (`15e20a2c...`), P3-04 `PASS tests=126` (`412544a4...`),
+  Phase-1 host gates `PASS=44 FAIL=0 SKIPPED=2` (`2a9d1bba...`), public safety
+  `PASS` (`ad022ff1...`). Evidence under `.openrecomp-phase3/evidence/P3-05/`.
+- CoreMark remains `NOT_PROVEN`; nothing is translated or executed.
 
 ## P3-04 outcome (PASS)
 
@@ -294,6 +345,16 @@ implementation work began.
 ## Documented untracked sets
 
 - Frozen verification-context files (28, must stay untracked; see above).
+- Phase-3 verification captures that must stay untracked (32): the
+  platform-CRLF stdout captures (`run1.txt`, `run2.txt`,
+  `p2_99_reverify_stdout.txt`, the earlier-stage `regression_*.txt` captures
+  and P3-03's `RESULT.md`) in the `P3-00` .. `P3-04` evidence directories. `.gitattributes` pins `*.txt`
+  and `*.md` to LF, so tracking them would change their bytes relative to the
+  raw stdout hashes recorded in their `RESULT.json` / control-plane records.
+  Their bytes are preserved on disk and hash-pinned by the stage evidence and
+  regression captures. The P3-05 boundary onward writes LF-normalized captures
+  and records both raw and LF hashes in `official_runs.json` /
+  `regression_summary.json`, so those captures are tracked.
 - Frozen verification checks re-run after P3-02:
   - `python tools/test_phase2_final_verdict_v1.py` -> `PASS tests=202`,
     stdout byte-identical (`66913e57...`), empty stderr;
@@ -312,48 +373,55 @@ implementation work began.
   `artifacts/mips32_translation_evidence_closure_v1/`;
   residue manifest sha256
   `18e503bf3425c44e72ffc0303d8c71a9f0b2a3ad85062f548519f730919c1f8a`.
-- Phase-3 working sets (all untracked; no Phase-3 commit was requested):
-  - `.openrecomp-phase3/` control plane, evidence, external CoreMark
-    sources, P3 port files, toolchain copy
-    (`.openrecomp-phase3/tools/zig/`, 0.13.0 distribution), build roots
-    (`.openrecomp-phase3/build/P3-01/`), P3 source modules
+- Phase-3 working sets:
+  - tracked at the P3-05 boundary: `.openrecomp-phase3/` control plane,
+    evidence (`P3-00` .. `P3-05`), P3 port files, P3 source modules
     (`.openrecomp-phase3/src/`: `p3_elf_image_v1.py`,
     `p3_target_mips32_v1.py`, `p3_decode_mips32_v1.py`,
-    `p3_code_frontier_v1.py`, `p3_semantics_mips32_v1.py`) and the Phase-3
-    source manifest (`.openrecomp-phase3/SOURCE_SHA256SUMS.txt`, 10 entries,
-    sha256 `e4db427b...`);
-  - `tools/test_phase3_boundary_v1.py`,
+    `p3_code_frontier_v1.py`, `p3_semantics_mips32_v1.py`,
+    `p3_structure_v1.py`), the Phase-3 source manifest
+    (`.openrecomp-phase3/SOURCE_SHA256SUMS.txt`, 12 entries) and
+    `tools/test_phase3_boundary_v1.py`,
     `tools/test_phase3_coremark_fixture_v1.py`,
     `tools/test_phase3_elf_ingestion_v1.py` (documented expected manifest
-    entry-set growth 5 -> 8 -> 10, additive),
-    `tools/test_phase3_decode_frontier_v1.py` (same documented growth
-    8 -> 10), `tools/test_phase3_reachable_semantics_v1.py`.
+    entry-set growth 5 -> 8 -> 10 -> 12, additive),
+    `tools/test_phase3_decode_frontier_v1.py` (same documented growth),
+    `tools/test_phase3_reachable_semantics_v1.py`,
+    `tools/test_phase3_structure_v1.py`;
+  - intentionally untracked (bytes preserved, hash-pinned by evidence):
+    external CoreMark sources (`.openrecomp-phase3/external/coremark/`),
+    the toolchain copy (`.openrecomp-phase3/tools/zig/`, 0.13.0
+    distribution), build roots (`.openrecomp-phase3/build/`, also
+    gitignored), and the platform-line-ending shell captures of the earlier
+    evidence directories (`run*.txt`, `regression_*.txt`, `changed_files.txt`
+    with CRLF), whose recorded raw hashes only match their on-disk bytes.
 
 ## Exact next action
 
-Execute P3-05 (ProgramModel/CFG/functions/call graph/translation units on the
-real ELF, reconciled queue row):
+Execute P3-06 (static data/global reconstruction, frozen queue row):
 
-1. Consume the P3-03/P3-04 evidence
-   (`.openrecomp-phase3/evidence/P3-03/instruction_inventory.json`,
-   `control_flow_frontier.json`; `.openrecomp-phase3/evidence/P3-04/`): the
-   reachable semantic frontier is closed; 3 unresolved `jr $at` jump tables,
-   the dead `jalr` at `0x1958` and 27 unreachable recognized-unsupported words
-   stay explicit and must not be guessed.
-2. Exercise the shared Phase-2 layers (`openrecomp.program_model`,
-   `openrecomp.cfg`, `openrecomp.functions`, `openrecomp.call_graph`,
-   `openrecomp.translation_units`) against the real ELF through the existing
-   architecture-neutral interfaces, preserving layer neutrality and not
-   modifying frozen Phase-2 behaviour.
-3. Carry PROVEN vs CANDIDATE classification forward.
-4. Record evidence under `.openrecomp-phase3/evidence/P3-05/`, update
+1. Consume the P3-02 guest image
+   (`.openrecomp-phase3/evidence/P3-02/load_image_map.json`,
+   `region_hashes.json`) and the P3-05 structure
+   (`.openrecomp-phase3/evidence/P3-05/neutral_instructions.json`,
+   `cfg_structure.json`): `.rodata` is `0x4680` + 1912, `.data` is `0x4e00`
+   filesz 40, `.bss` is `0x4e30` + 18416 zero-fill (the `.data` segment is
+   filesz 40 / memsz 18464).
+2. Reconstruct the static data/global image explicitly and verifiably: exact
+   section bytes, initialized data, zero-fill, and the reachable absolute /
+   GP-relative global access evidence from the audited instruction set (no
+   guessed address, no invented pointer).
+3. Carry PROVEN vs CANDIDATE classification forward and keep the unresolved
+   frontier explicit.
+4. Record evidence under `.openrecomp-phase3/evidence/P3-06/`, update
    `.openrecomp-phase3/SOURCE_SHA256SUMS.txt` for any new Phase-3 source/gate
    file, and update the control plane. Do not begin host emission (P3-07) or
-   runtime work (P3-08) in P3-05.
+   runtime work (P3-08) in P3-06.
 
 ## Constraints
 
 Do not modify or rewrite Phase-2 evidence, gates, control plane or the P2-99
 verdict. Do not treat CoreMark as supported before its stages pass. Do not
-commit the CoreMark build output unless the recorded license/provenance policy
-allows it; otherwise regenerate it reproducibly and retain hashes/evidence.
+commit the CoreMark build output, the CoreMark upstream sources or the
+toolchain distribution; they stay untracked, reproducibly regenerated and
+hash-pinned by evidence.

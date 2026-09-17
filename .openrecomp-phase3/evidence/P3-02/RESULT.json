@@ -1,0 +1,6855 @@
+{
+  "checks": [
+    {
+      "check": "bss:declared-bytes-nonzero",
+      "status": "PASS"
+    },
+    {
+      "check": "bss:declared-in-file-range",
+      "status": "PASS"
+    },
+    {
+      "check": "bss:declared-range-crosses-eof",
+      "status": "PASS"
+    },
+    {
+      "check": "bss:file-size-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "bss:image-all-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "bss:tail-containment",
+      "status": "PASS"
+    },
+    {
+      "check": "bss:zeros-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:image-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:image-serialization",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:metadata-artifact-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:metadata-structures",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:exists",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:p3-01-evidence-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:size",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:class-32",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:entry",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:entry-section",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:entry-word-aligned",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:flags",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:ident-version",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:little-endian",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:machine-em-mips",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:target-abi-o32",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:target-arch-32",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:target-non-pic",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:target-policy",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:type-exec",
+      "status": "PASS"
+    },
+    {
+      "check": "image:bss-all-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "image:overflow-read-rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "image:pristine-identity-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "image:read-boundary-span",
+      "status": "PASS"
+    },
+    {
+      "check": "image:read-first-word",
+      "status": "PASS"
+    },
+    {
+      "check": "image:read-header-region",
+      "status": "PASS"
+    },
+    {
+      "check": "image:readonly-write-rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "image:rodata-write-rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "image:unmapped-read-rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "image:unmapped:0x00000134",
+      "status": "PASS"
+    },
+    {
+      "check": "image:unmapped:0x00000200",
+      "status": "PASS"
+    },
+    {
+      "check": "image:unmapped:0x0000467c",
+      "status": "PASS"
+    },
+    {
+      "check": "image:unmapped:0x0000467f",
+      "status": "PASS"
+    },
+    {
+      "check": "image:unmapped:0x00004df8",
+      "status": "PASS"
+    },
+    {
+      "check": "image:unmapped:0x00004dff",
+      "status": "PASS"
+    },
+    {
+      "check": "image:unmapped:0x00009620",
+      "status": "PASS"
+    },
+    {
+      "check": "image:unmapped:0x00020000",
+      "status": "PASS"
+    },
+    {
+      "check": "image:writable-write-applied",
+      "status": "PASS"
+    },
+    {
+      "check": "image:zero-fill-ranges",
+      "status": "PASS"
+    },
+    {
+      "check": "image:zero-fill-write-applied",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-01:class",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-01:endianness",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-01:entry",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-01:flags",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-01:function-symbol-count",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-01:imported-none",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-01:instruction-words",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-01:machine",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-01:no-dynamic-section",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-01:program-headers",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-01:relocations",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-01:sections",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-01:sizes",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-01:symbol-count",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-01:type",
+      "status": "PASS"
+    },
+    {
+      "check": "p3-01:undefined",
+      "status": "PASS"
+    },
+    {
+      "check": "reconstruct:data-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "reconstruct:data-file-offset",
+      "status": "PASS"
+    },
+    {
+      "check": "reconstruct:rodata-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "reconstruct:rodata-file-offset",
+      "status": "PASS"
+    },
+    {
+      "check": "reconstruct:text-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "reconstruct:text-file-offset",
+      "status": "PASS"
+    },
+    {
+      "check": "region:content:0",
+      "status": "PASS"
+    },
+    {
+      "check": "region:content:1",
+      "status": "PASS"
+    },
+    {
+      "check": "region:content:2",
+      "status": "PASS"
+    },
+    {
+      "check": "region:content:3",
+      "status": "PASS"
+    },
+    {
+      "check": "region:data-writable",
+      "status": "PASS"
+    },
+    {
+      "check": "region:executable-count",
+      "status": "PASS"
+    },
+    {
+      "check": "region:file-slice:0",
+      "status": "PASS"
+    },
+    {
+      "check": "region:file-slice:1",
+      "status": "PASS"
+    },
+    {
+      "check": "region:file-slice:2",
+      "status": "PASS"
+    },
+    {
+      "check": "region:file-slice:3",
+      "status": "PASS"
+    },
+    {
+      "check": "region:identity:0",
+      "status": "PASS"
+    },
+    {
+      "check": "region:identity:1",
+      "status": "PASS"
+    },
+    {
+      "check": "region:identity:2",
+      "status": "PASS"
+    },
+    {
+      "check": "region:identity:3",
+      "status": "PASS"
+    },
+    {
+      "check": "region:independent-load-map",
+      "status": "PASS"
+    },
+    {
+      "check": "region:rodata-readonly",
+      "status": "PASS"
+    },
+    {
+      "check": "region:text-executable",
+      "status": "PASS"
+    },
+    {
+      "check": "section:attributes:.MIPS.abiflags",
+      "status": "PASS"
+    },
+    {
+      "check": "section:attributes:.bss",
+      "status": "PASS"
+    },
+    {
+      "check": "section:attributes:.data",
+      "status": "PASS"
+    },
+    {
+      "check": "section:attributes:.reginfo",
+      "status": "PASS"
+    },
+    {
+      "check": "section:attributes:.rodata",
+      "status": "PASS"
+    },
+    {
+      "check": "section:attributes:.text",
+      "status": "PASS"
+    },
+    {
+      "check": "section:bss-address-size",
+      "status": "PASS"
+    },
+    {
+      "check": "section:bss-flags",
+      "status": "PASS"
+    },
+    {
+      "check": "section:bss-nobits",
+      "status": "PASS"
+    },
+    {
+      "check": "section:bss-zero-fill-placement",
+      "status": "PASS"
+    },
+    {
+      "check": "section:data-file-backed-placement",
+      "status": "PASS"
+    },
+    {
+      "check": "section:data-flags",
+      "status": "PASS"
+    },
+    {
+      "check": "section:names",
+      "status": "PASS"
+    },
+    {
+      "check": "section:placement-count",
+      "status": "PASS"
+    },
+    {
+      "check": "section:present:.MIPS.abiflags",
+      "status": "PASS"
+    },
+    {
+      "check": "section:present:.bss",
+      "status": "PASS"
+    },
+    {
+      "check": "section:present:.data",
+      "status": "PASS"
+    },
+    {
+      "check": "section:present:.reginfo",
+      "status": "PASS"
+    },
+    {
+      "check": "section:present:.rodata",
+      "status": "PASS"
+    },
+    {
+      "check": "section:present:.text",
+      "status": "PASS"
+    },
+    {
+      "check": "section:rodata-flags",
+      "status": "PASS"
+    },
+    {
+      "check": "section:rodata-readonly-placement",
+      "status": "PASS"
+    },
+    {
+      "check": "section:size:.MIPS.abiflags",
+      "status": "PASS"
+    },
+    {
+      "check": "section:size:.bss",
+      "status": "PASS"
+    },
+    {
+      "check": "section:size:.data",
+      "status": "PASS"
+    },
+    {
+      "check": "section:size:.reginfo",
+      "status": "PASS"
+    },
+    {
+      "check": "section:size:.rodata",
+      "status": "PASS"
+    },
+    {
+      "check": "section:size:.text",
+      "status": "PASS"
+    },
+    {
+      "check": "section:text-address",
+      "status": "PASS"
+    },
+    {
+      "check": "section:text-flags",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entry-set",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entry-count",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-frozen-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "symbols:count",
+      "status": "PASS"
+    },
+    {
+      "check": "symbols:entry-symbol-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "symbols:function-count",
+      "status": "PASS"
+    },
+    {
+      "check": "symbols:undefined-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:baseline-bss-kind",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:baseline-bss-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:baseline-data",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:baseline-first-word",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:baseline-ingested",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:baseline-regions",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:baseline-text",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:entry-misaligned",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:entry-outside-executable",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:filesz-greater-than-memsz",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:impossible-section-alignment",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:impossible-segment-alignment",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:incongruent-segment-alignment",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:invalid-phentsize",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:invalid-shentsize",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:malformed-section-name-offset",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:malformed-section-name-unterminated",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:malformed-section-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:malformed-shstrndx",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:malformed-shstrndx-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:missing-executable-section",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:missing-section-table",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:no-loadable-segments",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:nobits-exec-trap",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:nobits-outside-zero-fill",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:overlapping-alloc-sections",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:overlapping-load-file-ranges",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:overlapping-load-ranges",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:program-table-out-of-bounds",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:program-table-overflow",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:section-content-out-of-bounds",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:section-file-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:section-outside-load",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:section-range-overflow",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:section-table-out-of-bounds",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:section-table-overflow",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:segment-file-range-out-of-bounds",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:segment-memory-overflow",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:truncated-elf-header",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:truncated-magic",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:unsupported-abi",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:unsupported-dynamic-program-header",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:unsupported-dynamic-section",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:unsupported-header-size",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:unsupported-interp",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:unsupported-pic",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:unsupported-relocation-rel",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:unsupported-relocation-rela",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:unsupported-type",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:unsupported-version",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:wrong-class",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:wrong-endianness",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:wrong-ident-version",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:negative:wrong-machine",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:nobits-declared-beyond-eof-is-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:nobits-declared-inside-text-is-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "tables:counts",
+      "status": "PASS"
+    },
+    {
+      "check": "tables:independent-phentsize",
+      "status": "PASS"
+    },
+    {
+      "check": "tables:independent-raw-view",
+      "status": "PASS"
+    },
+    {
+      "check": "tables:independent-shentsize",
+      "status": "PASS"
+    },
+    {
+      "check": "tables:independent-shstrndx",
+      "status": "PASS"
+    },
+    {
+      "check": "tables:no-dynamic-program-header",
+      "status": "PASS"
+    },
+    {
+      "check": "tables:no-dynamic-sections",
+      "status": "PASS"
+    },
+    {
+      "check": "tables:no-interp-program-header",
+      "status": "PASS"
+    },
+    {
+      "check": "tables:no-relocation-sections",
+      "status": "PASS"
+    },
+    {
+      "check": "tables:program-header-entry-size",
+      "status": "PASS"
+    },
+    {
+      "check": "tables:program-table-within-file",
+      "status": "PASS"
+    },
+    {
+      "check": "tables:section-header-entry-size",
+      "status": "PASS"
+    },
+    {
+      "check": "tables:section-table-within-file",
+      "status": "PASS"
+    }
+  ],
+  "claim_boundary": "P3-02 proves that OpenRecomp can safely and deterministically ingest the audited CoreMark MIPS32 ELF and construct its guest section/data image. It does not prove that all CoreMark instructions are supported, that CoreMark can yet be translated or run, or any arbitrary ELF/MIPS32/console compatibility.",
+  "evidence_files": {
+    "bss_proof.json": "6b3c582e21cd6d91756af9b3e3ac181db308b309ad8fb2b4f69613cc98e436ae",
+    "determinism.json": "d347df42e549af0b3516d8aa6ee0cfe45ff38a35fc73c57760fafe8dd0b5ef70",
+    "elf_parsed_metadata.json": "865ab85b1502e25d707d399096486a183705e9fb608b95c180998ec487aeacda",
+    "load_image_map.json": "58c00fadf3b1068d98dfd32b384ed6d30872ee61998e92fbd2eb51baa34987e7",
+    "malformed_fixture_results.json": "031a2d169a7364e4f559ffc27a11865ab62f17b35ba314282040d972e3679827",
+    "region_hashes.json": "9f770204daf4a6e24f2f90c4c3be9d7ed1d803a68a8861f50158a61a5169fdb4",
+    "section_table.json": "83a175880a20867f76ba62aefd4da732e37e84e34258641e7aca40f256a6a061",
+    "source_integrity.txt": "da5a44374409a33964c1c8fc174cda3b7b758593751ee7cfe7c8c95937112839"
+  },
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "determinism": {
+      "artifact_sha256": {
+        "bss_proof.json": "6b3c582e21cd6d91756af9b3e3ac181db308b309ad8fb2b4f69613cc98e436ae",
+        "elf_parsed_metadata.json": "865ab85b1502e25d707d399096486a183705e9fb608b95c180998ec487aeacda",
+        "load_image_map.json": "58c00fadf3b1068d98dfd32b384ed6d30872ee61998e92fbd2eb51baa34987e7",
+        "region_hashes.json": "9f770204daf4a6e24f2f90c4c3be9d7ed1d803a68a8861f50158a61a5169fdb4",
+        "section_table.json": "83a175880a20867f76ba62aefd4da732e37e84e34258641e7aca40f256a6a061",
+        "source_integrity.txt": "da5a44374409a33964c1c8fc174cda3b7b758593751ee7cfe7c8c95937112839"
+      },
+      "image_sha256": "e072b38dd1404a243fa61c4dd7d17b7d7d50f268650318756a4ef9629c1d88d4",
+      "repeated_ingestion_identical": true,
+      "source_sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669"
+    },
+    "fixture": {
+      "p3_01_evidence": ".openrecomp-phase3/evidence/P3-01/elf_characterisation.json",
+      "p3_01_evidence_sha256": "409d3ebe8e3dcd43bbfd4acbfcff916a89cb6a423714d9d43f66be92fa592482",
+      "path": ".openrecomp-phase3/build/P3-01/candidate-a/coremark_mips32_O1.elf",
+      "sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669",
+      "size": 31184
+    },
+    "ingestion": {
+      "bss_proof": {
+        "bytes_read_from_file": 0,
+        "declared_file_range_end": 38424,
+        "declared_file_range_exceeds_file": true,
+        "declared_size": 18416,
+        "file_bytes_at_declared_offset_all_zero": false,
+        "file_bytes_at_declared_offset_sample": "4c696e6b65723a204c4c442031382e31",
+        "file_bytes_at_declared_offset_sha256": "952db9951b11ceb50ce9dc5e4382e07bacd7cdc20c5954eac155a8bd98ea2a66",
+        "file_size": 31184,
+        "image_region_filesz": 40,
+        "image_region_index": 3,
+        "image_region_memsz": 18464,
+        "image_region_vaddr": "0x00004e00",
+        "image_sha256": "c7d9a61211afaf5d6daf6f796219e56bd345ec160378ce97d0cd5d9d8c3aea81",
+        "placement_file_size": 0,
+        "placement_kind": "ZERO_FILL",
+        "section": ".bss",
+        "section_flags": 3,
+        "section_type": 8,
+        "segment_zero_fill_size": 18424,
+        "segment_zero_fill_start": "0x00004e28",
+        "vaddr": "0x00004e30",
+        "zero_bytes_verified": 18416,
+        "zeros_sha256": "c7d9a61211afaf5d6daf6f796219e56bd345ec160378ce97d0cd5d9d8c3aea81"
+      },
+      "identity": {
+        "abi": "O32",
+        "dynamic": false,
+        "elf_class": "ELF32",
+        "endianness": "little",
+        "entry": "0x00004650",
+        "entry_region": 2,
+        "entry_section": ".text",
+        "executable_section": ".text",
+        "flags": "0x50001001",
+        "flags_interpretation": "EF_MIPS_ABI_O32 | EF_MIPS_ARCH_32 | EF_MIPS_NOREORDER (non-PIC)",
+        "isa": "MIPS32 (EF_MIPS_ARCH_32)",
+        "machine": 8,
+        "machine_name": "EM_MIPS",
+        "pic": false,
+        "relocations": false,
+        "required_sections": [
+          ".text",
+          ".rodata",
+          ".data",
+          ".bss"
+        ],
+        "static": true,
+        "target": "mips32-o32-soft-float-static",
+        "type": 2,
+        "type_name": "ET_EXEC"
+      },
+      "image_hashes": {
+        "bss_description_sha256": "a2b9b978010bdde3458be6ee18213a4cd80fdee286a53c3dd7bc050deae67d45",
+        "bss_zero_fill_sha256": "c7d9a61211afaf5d6daf6f796219e56bd345ec160378ce97d0cd5d9d8c3aea81",
+        "executable_sha256": "c7b48c7c01772f179193ac123560b1f2ae16da116e2c2c69d5b53c96e0f98f6f",
+        "file_backed_sha256": "3f0e928f6a01312e2c68577b982c3ec0aa1b5bb57802d0c444e235167dcee0cf",
+        "readonly_sha256": "a862ec4169b4d103ca8a58c5db60c491fba2804654a8d4ce27f61a9ff81b73e9",
+        "writable_initialized_sha256": "89a1e02aacc300ae9f52752ea428e09fcd43bf9855601d2092eedb9f030db7aa",
+        "zero_extended_sha256": "941421e80952177e14d004f2ede7e4cfe2368d861df156fa6591c48b8821500c",
+        "zero_fill_sha256": "26c816a346efedd3f5f55c16ac7fec1d5bf8449e0f5e69925fc2b0a51d893c66"
+      },
+      "image_sha256": "e072b38dd1404a243fa61c4dd7d17b7d7d50f268650318756a4ef9629c1d88d4",
+      "metadata": {
+        "counts": {
+          "allocated_sections": 6,
+          "dynamic_sections": 0,
+          "file_backed_allocated_sections": 5,
+          "load_segments": 4,
+          "program_headers": 8,
+          "relocation_sections": 0,
+          "sections": 12,
+          "symbols": 563,
+          "undefined_symbols": 0,
+          "zero_fill_allocated_sections": 1
+        },
+        "header": {
+          "ehsize": 52,
+          "entry": "0x00004650",
+          "flags": "0x50001001",
+          "machine": 8,
+          "phentsize": 32,
+          "phnum": 8,
+          "phoff": 52,
+          "shentsize": 40,
+          "shnum": 12,
+          "shoff": 30704,
+          "shstrndx": 10,
+          "type": 2,
+          "type_name": "ET_EXEC",
+          "version": 1
+        },
+        "identification": {
+          "abi_version": 0,
+          "class_name": "ELF32",
+          "data_encoding": 1,
+          "elf_class": 1,
+          "endianness": "little",
+          "ident_version": 1,
+          "osabi": 0
+        },
+        "independent_raw_facts": {
+          "entry": "0x00004650",
+          "flags": "0x50001001",
+          "phnum": 8,
+          "phoff": 52,
+          "shnum": 12,
+          "shoff": 30704
+        },
+        "load_map": [
+          {
+            "align": 65536,
+            "file_offset": 0,
+            "filesz": 308,
+            "memsz": 308,
+            "permissions": "r--",
+            "segment_index": 1,
+            "vaddr": "0x00000000",
+            "zero_fill_size": 0
+          },
+          {
+            "align": 65536,
+            "file_offset": 4096,
+            "filesz": 13948,
+            "memsz": 13948,
+            "permissions": "r-x",
+            "segment_index": 2,
+            "vaddr": "0x00001000",
+            "zero_fill_size": 0
+          },
+          {
+            "align": 65536,
+            "file_offset": 18048,
+            "filesz": 1912,
+            "memsz": 1912,
+            "permissions": "r--",
+            "segment_index": 3,
+            "vaddr": "0x00004680",
+            "zero_fill_size": 0
+          },
+          {
+            "align": 65536,
+            "file_offset": 19968,
+            "filesz": 40,
+            "memsz": 18464,
+            "permissions": "rw-",
+            "segment_index": 4,
+            "vaddr": "0x00004e00",
+            "zero_fill_size": 18424
+          }
+        ],
+        "program_headers": [
+          {
+            "align": 4,
+            "filesz": 256,
+            "flags": 4,
+            "index": 0,
+            "memsz": 256,
+            "offset": 52,
+            "paddr": "0x00000034",
+            "permissions": "r--",
+            "type": 6,
+            "type_name": "PT_PHDR",
+            "vaddr": "0x00000034"
+          },
+          {
+            "align": 65536,
+            "filesz": 308,
+            "flags": 4,
+            "index": 1,
+            "memsz": 308,
+            "offset": 0,
+            "paddr": "0x00000000",
+            "permissions": "r--",
+            "type": 1,
+            "type_name": "PT_LOAD",
+            "vaddr": "0x00000000"
+          },
+          {
+            "align": 65536,
+            "filesz": 13948,
+            "flags": 5,
+            "index": 2,
+            "memsz": 13948,
+            "offset": 4096,
+            "paddr": "0x00001000",
+            "permissions": "r-x",
+            "type": 1,
+            "type_name": "PT_LOAD",
+            "vaddr": "0x00001000"
+          },
+          {
+            "align": 65536,
+            "filesz": 1912,
+            "flags": 4,
+            "index": 3,
+            "memsz": 1912,
+            "offset": 18048,
+            "paddr": "0x00004680",
+            "permissions": "r--",
+            "type": 1,
+            "type_name": "PT_LOAD",
+            "vaddr": "0x00004680"
+          },
+          {
+            "align": 65536,
+            "filesz": 40,
+            "flags": 6,
+            "index": 4,
+            "memsz": 18464,
+            "offset": 19968,
+            "paddr": "0x00004e00",
+            "permissions": "rw-",
+            "type": 1,
+            "type_name": "PT_LOAD",
+            "vaddr": "0x00004e00"
+          },
+          {
+            "align": 0,
+            "filesz": 0,
+            "flags": 6,
+            "index": 5,
+            "memsz": 0,
+            "offset": 0,
+            "paddr": "0x00000000",
+            "permissions": "rw-",
+            "type": 1685382481,
+            "type_name": "PT_GNU_STACK",
+            "vaddr": "0x00000000"
+          },
+          {
+            "align": 4,
+            "filesz": 24,
+            "flags": 4,
+            "index": 6,
+            "memsz": 24,
+            "offset": 18072,
+            "paddr": "0x00004698",
+            "permissions": "r--",
+            "type": 1879048192,
+            "type_name": "PT_MIPS_REGINFO",
+            "vaddr": "0x00004698"
+          },
+          {
+            "align": 8,
+            "filesz": 24,
+            "flags": 4,
+            "index": 7,
+            "memsz": 24,
+            "offset": 18048,
+            "paddr": "0x00004680",
+            "permissions": "r--",
+            "type": 1879048195,
+            "type_name": "PT_MIPS_ABIFLAGS",
+            "vaddr": "0x00004680"
+          }
+        ],
+        "sections": [
+          {
+            "addr": "0x00000000",
+            "addralign": 0,
+            "alloc": false,
+            "entsize": 0,
+            "execute": false,
+            "file_backed": true,
+            "flags": 0,
+            "index": 0,
+            "info": 0,
+            "link": 0,
+            "name": "",
+            "name_offset": 0,
+            "offset": 0,
+            "permissions": "---",
+            "size": 0,
+            "type": 0,
+            "type_name": "SHT_NULL",
+            "write": false
+          },
+          {
+            "addr": "0x00001000",
+            "addralign": 16,
+            "alloc": true,
+            "entsize": 0,
+            "execute": true,
+            "file_backed": true,
+            "flags": 6,
+            "index": 1,
+            "info": 0,
+            "link": 0,
+            "name": ".text",
+            "name_offset": 1,
+            "offset": 4096,
+            "permissions": "r-x",
+            "size": 13948,
+            "type": 1,
+            "type_name": "SHT_PROGBITS",
+            "write": false
+          },
+          {
+            "addr": "0x00004680",
+            "addralign": 8,
+            "alloc": true,
+            "entsize": 24,
+            "execute": false,
+            "file_backed": true,
+            "flags": 2,
+            "index": 2,
+            "info": 0,
+            "link": 0,
+            "name": ".MIPS.abiflags",
+            "name_offset": 7,
+            "offset": 18048,
+            "permissions": "r--",
+            "size": 24,
+            "type": 1879048234,
+            "type_name": "SHT_MIPS_ABIFLAGS",
+            "write": false
+          },
+          {
+            "addr": "0x00004698",
+            "addralign": 4,
+            "alloc": true,
+            "entsize": 24,
+            "execute": false,
+            "file_backed": true,
+            "flags": 2,
+            "index": 3,
+            "info": 0,
+            "link": 0,
+            "name": ".reginfo",
+            "name_offset": 22,
+            "offset": 18072,
+            "permissions": "r--",
+            "size": 24,
+            "type": 1879048198,
+            "type_name": "SHT_MIPS_REGINFO",
+            "write": false
+          },
+          {
+            "addr": "0x000046b0",
+            "addralign": 16,
+            "alloc": true,
+            "entsize": 0,
+            "execute": false,
+            "file_backed": true,
+            "flags": 50,
+            "index": 4,
+            "info": 0,
+            "link": 0,
+            "name": ".rodata",
+            "name_offset": 31,
+            "offset": 18096,
+            "permissions": "r--",
+            "size": 1864,
+            "type": 1,
+            "type_name": "SHT_PROGBITS",
+            "write": false
+          },
+          {
+            "addr": "0x00004e00",
+            "addralign": 16,
+            "alloc": true,
+            "entsize": 0,
+            "execute": false,
+            "file_backed": true,
+            "flags": 268435459,
+            "index": 5,
+            "info": 0,
+            "link": 0,
+            "name": ".data",
+            "name_offset": 39,
+            "offset": 19968,
+            "permissions": "rw-",
+            "size": 40,
+            "type": 1,
+            "type_name": "SHT_PROGBITS",
+            "write": true
+          },
+          {
+            "addr": "0x00004e30",
+            "addralign": 16,
+            "alloc": true,
+            "entsize": 0,
+            "execute": false,
+            "file_backed": false,
+            "flags": 3,
+            "index": 6,
+            "info": 0,
+            "link": 0,
+            "name": ".bss",
+            "name_offset": 45,
+            "offset": 20008,
+            "permissions": "rw-",
+            "size": 18416,
+            "type": 8,
+            "type_name": "SHT_NOBITS",
+            "write": true
+          },
+          {
+            "addr": "0x00000000",
+            "addralign": 1,
+            "alloc": false,
+            "entsize": 0,
+            "execute": false,
+            "file_backed": true,
+            "flags": 0,
+            "index": 7,
+            "info": 0,
+            "link": 0,
+            "name": ".mdebug.abi32",
+            "name_offset": 50,
+            "offset": 20008,
+            "permissions": "---",
+            "size": 0,
+            "type": 1,
+            "type_name": "SHT_PROGBITS",
+            "write": false
+          },
+          {
+            "addr": "0x00000000",
+            "addralign": 1,
+            "alloc": false,
+            "entsize": 1,
+            "execute": false,
+            "file_backed": true,
+            "flags": 48,
+            "index": 8,
+            "info": 0,
+            "link": 0,
+            "name": ".comment",
+            "name_offset": 64,
+            "offset": 20008,
+            "permissions": "---",
+            "size": 124,
+            "type": 1,
+            "type_name": "SHT_PROGBITS",
+            "write": false
+          },
+          {
+            "addr": "0x00000000",
+            "addralign": 4,
+            "alloc": false,
+            "entsize": 16,
+            "execute": false,
+            "file_backed": true,
+            "flags": 0,
+            "index": 9,
+            "info": 506,
+            "link": 11,
+            "name": ".symtab",
+            "name_offset": 73,
+            "offset": 20132,
+            "permissions": "---",
+            "size": 9008,
+            "type": 2,
+            "type_name": "SHT_SYMTAB",
+            "write": false
+          },
+          {
+            "addr": "0x00000000",
+            "addralign": 1,
+            "alloc": false,
+            "entsize": 0,
+            "execute": false,
+            "file_backed": true,
+            "flags": 0,
+            "index": 10,
+            "info": 0,
+            "link": 0,
+            "name": ".shstrtab",
+            "name_offset": 81,
+            "offset": 29140,
+            "permissions": "---",
+            "size": 99,
+            "type": 3,
+            "type_name": "SHT_STRTAB",
+            "write": false
+          },
+          {
+            "addr": "0x00000000",
+            "addralign": 1,
+            "alloc": false,
+            "entsize": 0,
+            "execute": false,
+            "file_backed": true,
+            "flags": 0,
+            "index": 11,
+            "info": 0,
+            "link": 0,
+            "name": ".strtab",
+            "name_offset": 91,
+            "offset": 29239,
+            "permissions": "---",
+            "size": 1463,
+            "type": 3,
+            "type_name": "SHT_STRTAB",
+            "write": false
+          }
+        ],
+        "symbols": [
+          {
+            "bind": 0,
+            "index": 0,
+            "name": "",
+            "shndx": 0,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 1,
+            "name": "core_list_join.c",
+            "shndx": 65521,
+            "size": 0,
+            "type": 4,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 2,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 3,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 4,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 5,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 6,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 7,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 8,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000004"
+          },
+          {
+            "bind": 0,
+            "index": 9,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 10,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000009"
+          },
+          {
+            "bind": 0,
+            "index": 11,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 12,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 13,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 14,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 15,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 16,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 17,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000005"
+          },
+          {
+            "bind": 0,
+            "index": 18,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 19,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 20,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 21,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 22,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 23,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 24,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 25,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 26,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 27,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 28,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 29,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 30,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 31,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 32,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 33,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000009"
+          },
+          {
+            "bind": 0,
+            "index": 34,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 35,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 36,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 37,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 38,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 39,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x0000000b"
+          },
+          {
+            "bind": 0,
+            "index": 40,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000005"
+          },
+          {
+            "bind": 0,
+            "index": 41,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 42,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 43,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 44,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 45,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 46,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 47,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000005"
+          },
+          {
+            "bind": 0,
+            "index": 48,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 49,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 50,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 51,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 52,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000007"
+          },
+          {
+            "bind": 0,
+            "index": 53,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 54,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 55,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 56,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000026"
+          },
+          {
+            "bind": 0,
+            "index": 57,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 58,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 59,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 60,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 61,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 62,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 63,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 64,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000003"
+          },
+          {
+            "bind": 0,
+            "index": 65,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 66,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 67,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 68,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 69,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 70,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 71,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 72,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 73,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 74,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 75,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 76,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 77,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 78,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 79,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000008"
+          },
+          {
+            "bind": 0,
+            "index": 80,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 81,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 82,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 83,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 84,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000004"
+          },
+          {
+            "bind": 0,
+            "index": 85,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 86,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 87,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 88,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 89,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 90,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 91,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 92,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 93,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 94,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 95,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 96,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 97,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 98,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 99,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 100,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 101,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 102,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 103,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 104,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 105,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 106,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 107,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 108,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 109,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 110,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 111,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 112,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 113,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 114,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000003"
+          },
+          {
+            "bind": 0,
+            "index": 115,
+            "name": "core_main.c",
+            "shndx": 65521,
+            "size": 0,
+            "type": 4,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 116,
+            "name": "$.str.4",
+            "shndx": 4,
+            "size": 44,
+            "type": 1,
+            "value": "0x000048e9"
+          },
+          {
+            "bind": 0,
+            "index": 117,
+            "name": "$.str.5",
+            "shndx": 4,
+            "size": 49,
+            "type": 1,
+            "value": "0x00004989"
+          },
+          {
+            "bind": 0,
+            "index": 118,
+            "name": "$.str.6",
+            "shndx": 4,
+            "size": 45,
+            "type": 1,
+            "value": "0x00004957"
+          },
+          {
+            "bind": 0,
+            "index": 119,
+            "name": "$.str.3",
+            "shndx": 4,
+            "size": 45,
+            "type": 1,
+            "value": "0x00004758"
+          },
+          {
+            "bind": 0,
+            "index": 120,
+            "name": "$.str.7",
+            "shndx": 4,
+            "size": 44,
+            "type": 1,
+            "value": "0x00004b63"
+          },
+          {
+            "bind": 0,
+            "index": 121,
+            "name": "matrix_known_crc",
+            "shndx": 4,
+            "size": 10,
+            "type": 1,
+            "value": "0x00004b9a"
+          },
+          {
+            "bind": 0,
+            "index": 122,
+            "name": "state_known_crc",
+            "shndx": 4,
+            "size": 10,
+            "type": 1,
+            "value": "0x00004ba4"
+          },
+          {
+            "bind": 0,
+            "index": 123,
+            "name": "list_known_crc",
+            "shndx": 4,
+            "size": 10,
+            "type": 1,
+            "value": "0x00004b90"
+          },
+          {
+            "bind": 0,
+            "index": 124,
+            "name": "$.str.10",
+            "shndx": 4,
+            "size": 48,
+            "type": 1,
+            "value": "0x000046f6"
+          },
+          {
+            "bind": 0,
+            "index": 125,
+            "name": "$.str.9",
+            "shndx": 4,
+            "size": 49,
+            "type": 1,
+            "value": "0x0000486d"
+          },
+          {
+            "bind": 0,
+            "index": 126,
+            "name": "$.str.8",
+            "shndx": 4,
+            "size": 47,
+            "type": 1,
+            "value": "0x000048a3"
+          },
+          {
+            "bind": 0,
+            "index": 127,
+            "name": "$.str.11",
+            "shndx": 4,
+            "size": 24,
+            "type": 1,
+            "value": "0x000046c2"
+          },
+          {
+            "bind": 0,
+            "index": 128,
+            "name": "$.str.12",
+            "shndx": 4,
+            "size": 24,
+            "type": 1,
+            "value": "0x00004ae0"
+          },
+          {
+            "bind": 0,
+            "index": 129,
+            "name": "$.str.13",
+            "shndx": 4,
+            "size": 23,
+            "type": 1,
+            "value": "0x00004741"
+          },
+          {
+            "bind": 0,
+            "index": 130,
+            "name": "$.str.14",
+            "shndx": 4,
+            "size": 23,
+            "type": 1,
+            "value": "0x0000493a"
+          },
+          {
+            "bind": 0,
+            "index": 131,
+            "name": "$.str.15",
+            "shndx": 4,
+            "size": 62,
+            "type": 1,
+            "value": "0x00004826"
+          },
+          {
+            "bind": 0,
+            "index": 132,
+            "name": "$.str.16",
+            "shndx": 4,
+            "size": 24,
+            "type": 1,
+            "value": "0x00004a0b"
+          },
+          {
+            "bind": 0,
+            "index": 133,
+            "name": "$.str.17",
+            "shndx": 4,
+            "size": 23,
+            "type": 1,
+            "value": "0x000048d2"
+          },
+          {
+            "bind": 0,
+            "index": 134,
+            "name": "$.str.18",
+            "shndx": 4,
+            "size": 27,
+            "type": 1,
+            "value": "0x00004af8"
+          },
+          {
+            "bind": 0,
+            "index": 135,
+            "name": "$.str.19",
+            "shndx": 4,
+            "size": 23,
+            "type": 1,
+            "value": "0x000049f4"
+          },
+          {
+            "bind": 0,
+            "index": 136,
+            "name": "$.str.20",
+            "shndx": 4,
+            "size": 45,
+            "type": 1,
+            "value": "0x000047f9"
+          },
+          {
+            "bind": 0,
+            "index": 137,
+            "name": "$.str.21",
+            "shndx": 4,
+            "size": 23,
+            "type": 1,
+            "value": "0x000047d4"
+          },
+          {
+            "bind": 0,
+            "index": 138,
+            "name": "$.str",
+            "shndx": 4,
+            "size": 7,
+            "type": 1,
+            "value": "0x00004b5c"
+          },
+          {
+            "bind": 0,
+            "index": 139,
+            "name": "$.str.22",
+            "shndx": 4,
+            "size": 27,
+            "type": 1,
+            "value": "0x00004726"
+          },
+          {
+            "bind": 0,
+            "index": 140,
+            "name": "$.str.23",
+            "shndx": 4,
+            "size": 28,
+            "type": 1,
+            "value": "0x000046da"
+          },
+          {
+            "bind": 0,
+            "index": 141,
+            "name": "$.str.24",
+            "shndx": 4,
+            "size": 28,
+            "type": 1,
+            "value": "0x00004915"
+          },
+          {
+            "bind": 0,
+            "index": 142,
+            "name": "$.str.25",
+            "shndx": 4,
+            "size": 28,
+            "type": 1,
+            "value": "0x000049cf"
+          },
+          {
+            "bind": 0,
+            "index": 143,
+            "name": "$.str.26",
+            "shndx": 4,
+            "size": 28,
+            "type": 1,
+            "value": "0x00004793"
+          },
+          {
+            "bind": 0,
+            "index": 144,
+            "name": "$.str.29",
+            "shndx": 4,
+            "size": 99,
+            "type": 1,
+            "value": "0x00004a62"
+          },
+          {
+            "bind": 0,
+            "index": 145,
+            "name": "$.str.28",
+            "shndx": 4,
+            "size": 17,
+            "type": 1,
+            "value": "0x00004a23"
+          },
+          {
+            "bind": 0,
+            "index": 146,
+            "name": "$.str.27",
+            "shndx": 4,
+            "size": 73,
+            "type": 1,
+            "value": "0x00004b13"
+          },
+          {
+            "bind": 0,
+            "index": 147,
+            "name": "$.str.1",
+            "shndx": 4,
+            "size": 5,
+            "type": 1,
+            "value": "0x00004984"
+          },
+          {
+            "bind": 0,
+            "index": 148,
+            "name": "$.str.2",
+            "shndx": 4,
+            "size": 6,
+            "type": 1,
+            "value": "0x00004951"
+          },
+          {
+            "bind": 0,
+            "index": 149,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 150,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 151,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 152,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000009"
+          },
+          {
+            "bind": 0,
+            "index": 153,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 154,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 155,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 156,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 157,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 158,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 159,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 160,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 161,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 162,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 163,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 164,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 165,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 166,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 167,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 168,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 169,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 170,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 171,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 172,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x0000000b"
+          },
+          {
+            "bind": 0,
+            "index": 173,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 174,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x0000000c"
+          },
+          {
+            "bind": 0,
+            "index": 175,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 176,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 177,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 178,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 179,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 180,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 181,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000009"
+          },
+          {
+            "bind": 0,
+            "index": 182,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 183,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 184,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 185,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 186,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 187,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 188,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 189,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 190,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 191,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 192,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 193,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 194,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 195,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 196,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000009"
+          },
+          {
+            "bind": 0,
+            "index": 197,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 198,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 199,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 200,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 201,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 202,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 203,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 204,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 205,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 206,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 207,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000001"
+          },
+          {
+            "bind": 0,
+            "index": 208,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x0000000c"
+          },
+          {
+            "bind": 0,
+            "index": 209,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 210,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 211,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 212,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 213,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 214,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000005"
+          },
+          {
+            "bind": 0,
+            "index": 215,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 216,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 217,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 218,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 219,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 220,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 221,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 222,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 223,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 224,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 225,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 226,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 227,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 228,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 229,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 230,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 231,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 232,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 233,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 234,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 235,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 236,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 237,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 238,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 239,
+            "name": "core_matrix.c",
+            "shndx": 65521,
+            "size": 0,
+            "type": 4,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 240,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 241,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 242,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 243,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 244,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 245,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000009"
+          },
+          {
+            "bind": 0,
+            "index": 246,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 247,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 248,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 249,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 250,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 251,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000009"
+          },
+          {
+            "bind": 0,
+            "index": 252,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 253,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000002"
+          },
+          {
+            "bind": 0,
+            "index": 254,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 255,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 256,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 257,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 258,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 259,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 260,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000004"
+          },
+          {
+            "bind": 0,
+            "index": 261,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 262,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 263,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 264,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 265,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 266,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 267,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 268,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 269,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 270,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 271,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 272,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 273,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 274,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 275,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 276,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 277,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000005"
+          },
+          {
+            "bind": 0,
+            "index": 278,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 279,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 280,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 281,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 282,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 283,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 284,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 285,
+            "name": "core_state.c",
+            "shndx": 65521,
+            "size": 0,
+            "type": 4,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 286,
+            "name": "$switch.table.core_init_state.16",
+            "shndx": 4,
+            "size": 32,
+            "type": 1,
+            "value": "0x00004c30"
+          },
+          {
+            "bind": 0,
+            "index": 287,
+            "name": "intpat",
+            "shndx": 4,
+            "size": 16,
+            "type": 1,
+            "value": "0x00004bd0"
+          },
+          {
+            "bind": 0,
+            "index": 288,
+            "name": "$.str",
+            "shndx": 4,
+            "size": 5,
+            "type": 1,
+            "value": "0x0000489e"
+          },
+          {
+            "bind": 0,
+            "index": 289,
+            "name": "$.str.1",
+            "shndx": 4,
+            "size": 5,
+            "type": 1,
+            "value": "0x000049ba"
+          },
+          {
+            "bind": 0,
+            "index": 290,
+            "name": "$.str.2",
+            "shndx": 4,
+            "size": 5,
+            "type": 1,
+            "value": "0x000047eb"
+          },
+          {
+            "bind": 0,
+            "index": 291,
+            "name": "$.str.3",
+            "shndx": 4,
+            "size": 5,
+            "type": 1,
+            "value": "0x0000478e"
+          },
+          {
+            "bind": 0,
+            "index": 292,
+            "name": "floatpat",
+            "shndx": 4,
+            "size": 16,
+            "type": 1,
+            "value": "0x00004be0"
+          },
+          {
+            "bind": 0,
+            "index": 293,
+            "name": "$.str.4",
+            "shndx": 4,
+            "size": 9,
+            "type": 1,
+            "value": "0x00004864"
+          },
+          {
+            "bind": 0,
+            "index": 294,
+            "name": "$.str.5",
+            "shndx": 4,
+            "size": 9,
+            "type": 1,
+            "value": "0x000049bf"
+          },
+          {
+            "bind": 0,
+            "index": 295,
+            "name": "$.str.6",
+            "shndx": 4,
+            "size": 9,
+            "type": 1,
+            "value": "0x000047f0"
+          },
+          {
+            "bind": 0,
+            "index": 296,
+            "name": "$.str.7",
+            "shndx": 4,
+            "size": 9,
+            "type": 1,
+            "value": "0x00004ace"
+          },
+          {
+            "bind": 0,
+            "index": 297,
+            "name": "scipat",
+            "shndx": 4,
+            "size": 16,
+            "type": 1,
+            "value": "0x00004bf0"
+          },
+          {
+            "bind": 0,
+            "index": 298,
+            "name": "$.str.8",
+            "shndx": 4,
+            "size": 9,
+            "type": 1,
+            "value": "0x00004931"
+          },
+          {
+            "bind": 0,
+            "index": 299,
+            "name": "$.str.9",
+            "shndx": 4,
+            "size": 9,
+            "type": 1,
+            "value": "0x000049eb"
+          },
+          {
+            "bind": 0,
+            "index": 300,
+            "name": "$.str.10",
+            "shndx": 4,
+            "size": 9,
+            "type": 1,
+            "value": "0x00004a34"
+          },
+          {
+            "bind": 0,
+            "index": 301,
+            "name": "$.str.11",
+            "shndx": 4,
+            "size": 9,
+            "type": 1,
+            "value": "0x00004ac5"
+          },
+          {
+            "bind": 0,
+            "index": 302,
+            "name": "errpat",
+            "shndx": 4,
+            "size": 16,
+            "type": 1,
+            "value": "0x00004c00"
+          },
+          {
+            "bind": 0,
+            "index": 303,
+            "name": "$.str.12",
+            "shndx": 4,
+            "size": 9,
+            "type": 1,
+            "value": "0x00004ad7"
+          },
+          {
+            "bind": 0,
+            "index": 304,
+            "name": "$.str.13",
+            "shndx": 4,
+            "size": 9,
+            "type": 1,
+            "value": "0x00004785"
+          },
+          {
+            "bind": 0,
+            "index": 305,
+            "name": "$.str.14",
+            "shndx": 4,
+            "size": 9,
+            "type": 1,
+            "value": "0x000046b9"
+          },
+          {
+            "bind": 0,
+            "index": 306,
+            "name": "$.str.15",
+            "shndx": 4,
+            "size": 9,
+            "type": 1,
+            "value": "0x000046b0"
+          },
+          {
+            "bind": 0,
+            "index": 307,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 308,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 309,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 310,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000009"
+          },
+          {
+            "bind": 0,
+            "index": 311,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 312,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 313,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 314,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 315,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 316,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 317,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 318,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 319,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 320,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 321,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 322,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 323,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 324,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 325,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 326,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 327,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 328,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 329,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 330,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 331,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 332,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 333,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 334,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 335,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 336,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 337,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 338,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000003"
+          },
+          {
+            "bind": 0,
+            "index": 339,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 340,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 341,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 342,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 343,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 344,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x0000000b"
+          },
+          {
+            "bind": 0,
+            "index": 345,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000002"
+          },
+          {
+            "bind": 0,
+            "index": 346,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 347,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 348,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 349,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 350,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 351,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 352,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000030"
+          },
+          {
+            "bind": 0,
+            "index": 353,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 354,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 355,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000003"
+          },
+          {
+            "bind": 0,
+            "index": 356,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 357,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 358,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 359,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 360,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 361,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000009"
+          },
+          {
+            "bind": 0,
+            "index": 362,
+            "name": "core_util.c",
+            "shndx": 65521,
+            "size": 0,
+            "type": 4,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 363,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 364,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 365,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 366,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000009"
+          },
+          {
+            "bind": 0,
+            "index": 367,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 368,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 369,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 370,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 371,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000009"
+          },
+          {
+            "bind": 0,
+            "index": 372,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 373,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 374,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 375,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 376,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 377,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 378,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 379,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 380,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 381,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 382,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 383,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 384,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 385,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 386,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 387,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 388,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000009"
+          },
+          {
+            "bind": 0,
+            "index": 389,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 390,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 391,
+            "name": "p3_ee_printf.c",
+            "shndx": 65521,
+            "size": 0,
+            "type": 4,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 392,
+            "name": "$.str.2",
+            "shndx": 4,
+            "size": 37,
+            "type": 1,
+            "value": "0x000047af"
+          },
+          {
+            "bind": 0,
+            "index": 393,
+            "name": "$.str.1",
+            "shndx": 4,
+            "size": 37,
+            "type": 1,
+            "value": "0x00004a3d"
+          },
+          {
+            "bind": 0,
+            "index": 394,
+            "name": "$.str",
+            "shndx": 4,
+            "size": 7,
+            "type": 1,
+            "value": "0x000049c8"
+          },
+          {
+            "bind": 0,
+            "index": 395,
+            "name": "number",
+            "shndx": 1,
+            "size": 660,
+            "type": 2,
+            "value": "0x0000422c"
+          },
+          {
+            "bind": 0,
+            "index": 396,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 397,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 398,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 399,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000009"
+          },
+          {
+            "bind": 0,
+            "index": 400,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 401,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000006"
+          },
+          {
+            "bind": 0,
+            "index": 402,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 403,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 404,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 405,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 406,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 407,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 408,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 409,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 410,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 411,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 412,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 413,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 414,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 415,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 416,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 417,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 418,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000004"
+          },
+          {
+            "bind": 0,
+            "index": 419,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000004"
+          },
+          {
+            "bind": 0,
+            "index": 420,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000008"
+          },
+          {
+            "bind": 0,
+            "index": 421,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 422,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000009"
+          },
+          {
+            "bind": 0,
+            "index": 423,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x0000000a"
+          },
+          {
+            "bind": 0,
+            "index": 424,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 425,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 426,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 427,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 428,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 429,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 430,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000003"
+          },
+          {
+            "bind": 0,
+            "index": 431,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 432,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000001"
+          },
+          {
+            "bind": 0,
+            "index": 433,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 434,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 435,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 436,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 437,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 438,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000006"
+          },
+          {
+            "bind": 0,
+            "index": 439,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000003"
+          },
+          {
+            "bind": 0,
+            "index": 440,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000036"
+          },
+          {
+            "bind": 0,
+            "index": 441,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 442,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000002"
+          },
+          {
+            "bind": 0,
+            "index": 443,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 444,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 445,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000009"
+          },
+          {
+            "bind": 0,
+            "index": 446,
+            "name": "p3_port_support.c",
+            "shndx": 65521,
+            "size": 0,
+            "type": 4,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 447,
+            "name": "p3_tick",
+            "shndx": 6,
+            "size": 4,
+            "type": 1,
+            "value": "0x0000560c"
+          },
+          {
+            "bind": 0,
+            "index": 448,
+            "name": "p3_start_time_val",
+            "shndx": 6,
+            "size": 4,
+            "type": 1,
+            "value": "0x00005610"
+          },
+          {
+            "bind": 0,
+            "index": 449,
+            "name": "p3_stop_time_val",
+            "shndx": 6,
+            "size": 4,
+            "type": 1,
+            "value": "0x00005614"
+          },
+          {
+            "bind": 0,
+            "index": 450,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 451,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 452,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 453,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 454,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 455,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000009"
+          },
+          {
+            "bind": 0,
+            "index": 456,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 457,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 458,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 459,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 460,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 461,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 462,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 463,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 464,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 465,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 466,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 467,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 468,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 469,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 470,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 471,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 472,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 473,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 474,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 475,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 476,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 477,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 478,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 479,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 480,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 481,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 482,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000039"
+          },
+          {
+            "bind": 0,
+            "index": 483,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 484,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000023"
+          },
+          {
+            "bind": 0,
+            "index": 485,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 486,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 487,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 488,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 489,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 490,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 491,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 492,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 493,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 494,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000006"
+          },
+          {
+            "bind": 0,
+            "index": 495,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x0000000b"
+          },
+          {
+            "bind": 0,
+            "index": 496,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 497,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 498,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 499,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000009"
+          },
+          {
+            "bind": 0,
+            "index": 500,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 501,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 502,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 503,
+            "name": "",
+            "shndx": 65521,
+            "size": 0,
+            "type": 0,
+            "value": "0x00000000"
+          },
+          {
+            "bind": 0,
+            "index": 504,
+            "name": "p3_halt",
+            "shndx": 1,
+            "size": 0,
+            "type": 0,
+            "value": "0x00004674"
+          },
+          {
+            "bind": 0,
+            "index": 505,
+            "name": "_gp",
+            "shndx": 5,
+            "size": 0,
+            "type": 0,
+            "value": "0x0000cdf0"
+          },
+          {
+            "bind": 1,
+            "index": 506,
+            "name": "calc_func",
+            "shndx": 1,
+            "size": 252,
+            "type": 2,
+            "value": "0x00001000"
+          },
+          {
+            "bind": 1,
+            "index": 507,
+            "name": "core_bench_state",
+            "shndx": 1,
+            "size": 624,
+            "type": 2,
+            "value": "0x00002e40"
+          },
+          {
+            "bind": 1,
+            "index": 508,
+            "name": "core_bench_matrix",
+            "shndx": 1,
+            "size": 72,
+            "type": 2,
+            "value": "0x000025d0"
+          },
+          {
+            "bind": 1,
+            "index": 509,
+            "name": "crcu16",
+            "shndx": 1,
+            "size": 452,
+            "type": 2,
+            "value": "0x000034e0"
+          },
+          {
+            "bind": 1,
+            "index": 510,
+            "name": "cmp_complex",
+            "shndx": 1,
+            "size": 88,
+            "type": 2,
+            "value": "0x000010fc"
+          },
+          {
+            "bind": 1,
+            "index": 511,
+            "name": "cmp_idx",
+            "shndx": 1,
+            "size": 40,
+            "type": 2,
+            "value": "0x00001154"
+          },
+          {
+            "bind": 1,
+            "index": 512,
+            "name": "copy_info",
+            "shndx": 1,
+            "size": 20,
+            "type": 2,
+            "value": "0x0000117c"
+          },
+          {
+            "bind": 1,
+            "index": 513,
+            "name": "core_bench_list",
+            "shndx": 1,
+            "size": 1512,
+            "type": 2,
+            "value": "0x00001190"
+          },
+          {
+            "bind": 1,
+            "index": 514,
+            "name": "crc16",
+            "shndx": 1,
+            "size": 28,
+            "type": 2,
+            "value": "0x000036d8"
+          },
+          {
+            "bind": 1,
+            "index": 515,
+            "name": "core_list_find",
+            "shndx": 1,
+            "size": 128,
+            "type": 2,
+            "value": "0x00001778"
+          },
+          {
+            "bind": 1,
+            "index": 516,
+            "name": "core_list_reverse",
+            "shndx": 1,
+            "size": 48,
+            "type": 2,
+            "value": "0x000017f8"
+          },
+          {
+            "bind": 1,
+            "index": 517,
+            "name": "core_list_mergesort",
+            "shndx": 1,
+            "size": 464,
+            "type": 2,
+            "value": "0x00001828"
+          },
+          {
+            "bind": 1,
+            "index": 518,
+            "name": "core_list_remove",
+            "shndx": 1,
+            "size": 36,
+            "type": 2,
+            "value": "0x000019f8"
+          },
+          {
+            "bind": 1,
+            "index": 519,
+            "name": "core_list_undo_remove",
+            "shndx": 1,
+            "size": 36,
+            "type": 2,
+            "value": "0x00001a1c"
+          },
+          {
+            "bind": 1,
+            "index": 520,
+            "name": "core_list_init",
+            "shndx": 1,
+            "size": 732,
+            "type": 2,
+            "value": "0x00001a40"
+          },
+          {
+            "bind": 1,
+            "index": 521,
+            "name": "core_list_insert_new",
+            "shndx": 1,
+            "size": 112,
+            "type": 2,
+            "value": "0x00001d1c"
+          },
+          {
+            "bind": 1,
+            "index": 522,
+            "name": "iterate",
+            "shndx": 1,
+            "size": 204,
+            "type": 2,
+            "value": "0x00001d90"
+          },
+          {
+            "bind": 1,
+            "index": 523,
+            "name": "main",
+            "shndx": 1,
+            "size": 1904,
+            "type": 2,
+            "value": "0x00001e5c"
+          },
+          {
+            "bind": 1,
+            "index": 524,
+            "name": "portable_init",
+            "shndx": 1,
+            "size": 12,
+            "type": 2,
+            "value": "0x0000456c"
+          },
+          {
+            "bind": 1,
+            "index": 525,
+            "name": "get_seed_32",
+            "shndx": 1,
+            "size": 48,
+            "type": 2,
+            "value": "0x000033d0"
+          },
+          {
+            "bind": 1,
+            "index": 526,
+            "name": "static_memblk",
+            "shndx": 6,
+            "size": 2000,
+            "type": 1,
+            "value": "0x00004e30"
+          },
+          {
+            "bind": 1,
+            "index": 527,
+            "name": "core_init_matrix",
+            "shndx": 1,
+            "size": 308,
+            "type": 2,
+            "value": "0x00002d0c"
+          },
+          {
+            "bind": 1,
+            "index": 528,
+            "name": "core_init_state",
+            "shndx": 1,
+            "size": 224,
+            "type": 2,
+            "value": "0x000032e8"
+          },
+          {
+            "bind": 1,
+            "index": 529,
+            "name": "start_time",
+            "shndx": 1,
+            "size": 28,
+            "type": 2,
+            "value": "0x000044d4"
+          },
+          {
+            "bind": 1,
+            "index": 530,
+            "name": "stop_time",
+            "shndx": 1,
+            "size": 28,
+            "type": 2,
+            "value": "0x000044f0"
+          },
+          {
+            "bind": 1,
+            "index": 531,
+            "name": "get_time",
+            "shndx": 1,
+            "size": 24,
+            "type": 2,
+            "value": "0x0000450c"
+          },
+          {
+            "bind": 1,
+            "index": 532,
+            "name": "time_in_secs",
+            "shndx": 1,
+            "size": 24,
+            "type": 2,
+            "value": "0x00004524"
+          },
+          {
+            "bind": 1,
+            "index": 533,
+            "name": "ee_printf",
+            "shndx": 1,
+            "size": 2832,
+            "type": 2,
+            "value": "0x0000371c"
+          },
+          {
+            "bind": 1,
+            "index": 534,
+            "name": "default_num_contexts",
+            "shndx": 5,
+            "size": 4,
+            "type": 1,
+            "value": "0x00004e18"
+          },
+          {
+            "bind": 1,
+            "index": 535,
+            "name": "check_data_types",
+            "shndx": 1,
+            "size": 8,
+            "type": 2,
+            "value": "0x000036f4"
+          },
+          {
+            "bind": 1,
+            "index": 536,
+            "name": "portable_fini",
+            "shndx": 1,
+            "size": 8,
+            "type": 2,
+            "value": "0x00004578"
+          },
+          {
+            "bind": 1,
+            "index": 537,
+            "name": "mem_name",
+            "shndx": 5,
+            "size": 12,
+            "type": 1,
+            "value": "0x00004e00"
+          },
+          {
+            "bind": 1,
+            "index": 538,
+            "name": "matrix_test",
+            "shndx": 1,
+            "size": 1132,
+            "type": 2,
+            "value": "0x00002618"
+          },
+          {
+            "bind": 1,
+            "index": 539,
+            "name": "matrix_add_const",
+            "shndx": 1,
+            "size": 68,
+            "type": 2,
+            "value": "0x00002a84"
+          },
+          {
+            "bind": 1,
+            "index": 540,
+            "name": "matrix_mul_const",
+            "shndx": 1,
+            "size": 84,
+            "type": 2,
+            "value": "0x00002ac8"
+          },
+          {
+            "bind": 1,
+            "index": 541,
+            "name": "matrix_sum",
+            "shndx": 1,
+            "size": 124,
+            "type": 2,
+            "value": "0x00002b1c"
+          },
+          {
+            "bind": 1,
+            "index": 542,
+            "name": "matrix_mul_vect",
+            "shndx": 1,
+            "size": 96,
+            "type": 2,
+            "value": "0x00002b98"
+          },
+          {
+            "bind": 1,
+            "index": 543,
+            "name": "matrix_mul_matrix",
+            "shndx": 1,
+            "size": 128,
+            "type": 2,
+            "value": "0x00002bf8"
+          },
+          {
+            "bind": 1,
+            "index": 544,
+            "name": "matrix_mul_matrix_bitextract",
+            "shndx": 1,
+            "size": 148,
+            "type": 2,
+            "value": "0x00002c78"
+          },
+          {
+            "bind": 1,
+            "index": 545,
+            "name": "core_state_transition",
+            "shndx": 1,
+            "size": 568,
+            "type": 2,
+            "value": "0x000030b0"
+          },
+          {
+            "bind": 1,
+            "index": 546,
+            "name": "crcu32",
+            "shndx": 1,
+            "size": 52,
+            "type": 2,
+            "value": "0x000036a4"
+          },
+          {
+            "bind": 1,
+            "index": 547,
+            "name": "crcu8",
+            "shndx": 1,
+            "size": 224,
+            "type": 2,
+            "value": "0x00003400"
+          },
+          {
+            "bind": 1,
+            "index": 548,
+            "name": "seed1_volatile",
+            "shndx": 6,
+            "size": 4,
+            "type": 1,
+            "value": "0x00005600"
+          },
+          {
+            "bind": 1,
+            "index": 549,
+            "name": "seed2_volatile",
+            "shndx": 6,
+            "size": 4,
+            "type": 1,
+            "value": "0x00005604"
+          },
+          {
+            "bind": 1,
+            "index": 550,
+            "name": "seed3_volatile",
+            "shndx": 5,
+            "size": 4,
+            "type": 1,
+            "value": "0x00004e10"
+          },
+          {
+            "bind": 1,
+            "index": 551,
+            "name": "seed4_volatile",
+            "shndx": 5,
+            "size": 4,
+            "type": 1,
+            "value": "0x00004e14"
+          },
+          {
+            "bind": 1,
+            "index": 552,
+            "name": "seed5_volatile",
+            "shndx": 6,
+            "size": 4,
+            "type": 1,
+            "value": "0x00005608"
+          },
+          {
+            "bind": 1,
+            "index": 553,
+            "name": "uart_send_char",
+            "shndx": 1,
+            "size": 28,
+            "type": 2,
+            "value": "0x00003700"
+          },
+          {
+            "bind": 1,
+            "index": 554,
+            "name": "p3_uart_send_char",
+            "shndx": 1,
+            "size": 28,
+            "type": 2,
+            "value": "0x0000453c"
+          },
+          {
+            "bind": 1,
+            "index": 555,
+            "name": "barebones_clock",
+            "shndx": 1,
+            "size": 20,
+            "type": 2,
+            "value": "0x000044c0"
+          },
+          {
+            "bind": 1,
+            "index": 556,
+            "name": "p3_uart_byte_count",
+            "shndx": 6,
+            "size": 4,
+            "type": 1,
+            "value": "0x00005618"
+          },
+          {
+            "bind": 1,
+            "index": 557,
+            "name": "p3_exit",
+            "shndx": 1,
+            "size": 20,
+            "type": 2,
+            "value": "0x00004558"
+          },
+          {
+            "bind": 1,
+            "index": 558,
+            "name": "memcpy",
+            "shndx": 1,
+            "size": 44,
+            "type": 2,
+            "value": "0x00004580"
+          },
+          {
+            "bind": 1,
+            "index": 559,
+            "name": "memmove",
+            "shndx": 1,
+            "size": 116,
+            "type": 2,
+            "value": "0x000045ac"
+          },
+          {
+            "bind": 1,
+            "index": 560,
+            "name": "memset",
+            "shndx": 1,
+            "size": 36,
+            "type": 2,
+            "value": "0x00004620"
+          },
+          {
+            "bind": 1,
+            "index": 561,
+            "name": "p3_stack",
+            "shndx": 6,
+            "size": 16384,
+            "type": 1,
+            "value": "0x00005620"
+          },
+          {
+            "bind": 1,
+            "index": 562,
+            "name": "_start",
+            "shndx": 1,
+            "size": 44,
+            "type": 2,
+            "value": "0x00004650"
+          }
+        ],
+        "table_bounds": {
+          "file_size": 31184,
+          "header_size": 52,
+          "program_table_end": 308,
+          "program_table_offset": 52,
+          "program_table_size": 256,
+          "program_table_within_file": true,
+          "section_table_end": 31184,
+          "section_table_offset": 30704,
+          "section_table_size": 480,
+          "section_table_within_file": true
+        },
+        "target_identity": {
+          "abi": "O32",
+          "dynamic": false,
+          "elf_class": "ELF32",
+          "endianness": "little",
+          "entry": "0x00004650",
+          "entry_region": 2,
+          "entry_section": ".text",
+          "executable_section": ".text",
+          "flags": "0x50001001",
+          "flags_interpretation": "EF_MIPS_ABI_O32 | EF_MIPS_ARCH_32 | EF_MIPS_NOREORDER (non-PIC)",
+          "isa": "MIPS32 (EF_MIPS_ARCH_32)",
+          "machine": 8,
+          "machine_name": "EM_MIPS",
+          "pic": false,
+          "relocations": false,
+          "required_sections": [
+            ".text",
+            ".rodata",
+            ".data",
+            ".bss"
+          ],
+          "static": true,
+          "target": "mips32-o32-soft-float-static",
+          "type": 2,
+          "type_name": "ET_EXEC"
+        }
+      },
+      "section_hashes": {
+        ".MIPS.abiflags": {
+          "bytes_equal": true,
+          "file_offset": 18048,
+          "file_slice_sha256": "e1e6189012e650c4982a94f7150cb9c652e8225e06e5d87086273ce9d6cd56d9",
+          "image_sha256": "e1e6189012e650c4982a94f7150cb9c652e8225e06e5d87086273ce9d6cd56d9",
+          "size": 24
+        },
+        ".bss": {
+          "declared_file_offset": 20008,
+          "file_backed": false,
+          "image_sha256": "c7d9a61211afaf5d6daf6f796219e56bd345ec160378ce97d0cd5d9d8c3aea81",
+          "size": 18416,
+          "zero_verified": true,
+          "zeros_sha256": "c7d9a61211afaf5d6daf6f796219e56bd345ec160378ce97d0cd5d9d8c3aea81"
+        },
+        ".data": {
+          "bytes_equal": true,
+          "file_offset": 19968,
+          "file_slice_sha256": "89a1e02aacc300ae9f52752ea428e09fcd43bf9855601d2092eedb9f030db7aa",
+          "image_sha256": "89a1e02aacc300ae9f52752ea428e09fcd43bf9855601d2092eedb9f030db7aa",
+          "size": 40
+        },
+        ".reginfo": {
+          "bytes_equal": true,
+          "file_offset": 18072,
+          "file_slice_sha256": "46530814a13bba83c4eb0930bbe8e7d896fd5bbdbc53c268ed0e06f9f92641f6",
+          "image_sha256": "46530814a13bba83c4eb0930bbe8e7d896fd5bbdbc53c268ed0e06f9f92641f6",
+          "size": 24
+        },
+        ".rodata": {
+          "bytes_equal": true,
+          "file_offset": 18096,
+          "file_slice_sha256": "0fa7bd674dea65827c6e23cca2627254fd4a07e85a5fe45777f06f572157dab4",
+          "image_sha256": "0fa7bd674dea65827c6e23cca2627254fd4a07e85a5fe45777f06f572157dab4",
+          "size": 1864
+        },
+        ".text": {
+          "bytes_equal": true,
+          "file_offset": 4096,
+          "file_slice_sha256": "c7b48c7c01772f179193ac123560b1f2ae16da116e2c2c69d5b53c96e0f98f6f",
+          "image_sha256": "c7b48c7c01772f179193ac123560b1f2ae16da116e2c2c69d5b53c96e0f98f6f",
+          "size": 13948
+        }
+      },
+      "symbols": {
+        "count": 563,
+        "functions": 48,
+        "undefined": 0
+      }
+    },
+    "source_integrity": {
+      "phase3_files": [
+        ".openrecomp-phase3/src/p3_code_frontier_v1.py",
+        ".openrecomp-phase3/src/p3_decode_mips32_v1.py",
+        ".openrecomp-phase3/src/p3_elf_image_v1.py",
+        ".openrecomp-phase3/src/p3_semantics_mips32_v1.py",
+        ".openrecomp-phase3/src/p3_structure_v1.py",
+        ".openrecomp-phase3/src/p3_target_mips32_v1.py",
+        "tools/test_phase3_boundary_v1.py",
+        "tools/test_phase3_coremark_fixture_v1.py",
+        "tools/test_phase3_decode_frontier_v1.py",
+        "tools/test_phase3_elf_ingestion_v1.py",
+        "tools/test_phase3_reachable_semantics_v1.py",
+        "tools/test_phase3_structure_v1.py"
+      ],
+      "phase3_manifest_entries": 12,
+      "phase3_manifest_mismatched": [],
+      "phase3_manifest_sha256": "90aba19d12394aff9eb2ae7e5512d582cee1e1dd5a57c870ff33b4c88f044c93",
+      "root_manifest_entries": 134,
+      "root_manifest_mismatched": [],
+      "root_manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"
+    },
+    "synthetic_fixtures": {
+      "baseline_sha256": "d95a85f246d3530d60195dd6570ba5f0bc1691b97ad704a728623d93e13e1950",
+      "cases": [
+        {
+          "actual_code": "INVALID_MAGIC",
+          "detail": "size=4",
+          "expected_code": "INVALID_MAGIC",
+          "fixture": "truncated-magic",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "TRUNCATED_ELF_HEADER",
+          "detail": "size=40",
+          "expected_code": "TRUNCATED_ELF_HEADER",
+          "fixture": "truncated-elf-header",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "UNSUPPORTED_CLASS",
+          "detail": "class=2",
+          "expected_code": "UNSUPPORTED_CLASS",
+          "fixture": "wrong-class",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "UNSUPPORTED_ENDIANNESS",
+          "detail": "data_encoding=2",
+          "expected_code": "UNSUPPORTED_ENDIANNESS",
+          "fixture": "wrong-endianness",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "UNSUPPORTED_IDENT_VERSION",
+          "detail": "ident_version=0",
+          "expected_code": "UNSUPPORTED_IDENT_VERSION",
+          "fixture": "wrong-ident-version",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "UNSUPPORTED_MACHINE",
+          "detail": "e_machine=243 expected=8",
+          "expected_code": "UNSUPPORTED_MACHINE",
+          "fixture": "wrong-machine",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "UNSUPPORTED_TYPE",
+          "detail": "e_type=3 expected=2",
+          "expected_code": "UNSUPPORTED_TYPE",
+          "fixture": "unsupported-type",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "UNSUPPORTED_HEADER_SIZE",
+          "detail": "e_ehsize=64",
+          "expected_code": "UNSUPPORTED_HEADER_SIZE",
+          "fixture": "unsupported-header-size",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "UNSUPPORTED_VERSION",
+          "detail": "e_version=0",
+          "expected_code": "UNSUPPORTED_VERSION",
+          "fixture": "unsupported-version",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "UNSUPPORTED_ABI",
+          "detail": "ef_mips_abi=0x00000000",
+          "expected_code": "UNSUPPORTED_ABI",
+          "fixture": "unsupported-abi",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "UNSUPPORTED_PIC",
+          "detail": "ef_mips_pic_bits=0x00000002",
+          "expected_code": "UNSUPPORTED_PIC",
+          "fixture": "unsupported-pic",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "INVALID_PROGRAM_TABLE_SIZE",
+          "detail": "e_phentsize=16",
+          "expected_code": "INVALID_PROGRAM_TABLE_SIZE",
+          "fixture": "invalid-phentsize",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "INVALID_SECTION_TABLE_SIZE",
+          "detail": "e_shentsize=20",
+          "expected_code": "INVALID_SECTION_TABLE_SIZE",
+          "fixture": "invalid-shentsize",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "PROGRAM_TABLE_OUT_OF_BOUNDS",
+          "detail": "phoff=372 size=64 file=380",
+          "expected_code": "PROGRAM_TABLE_OUT_OF_BOUNDS",
+          "fixture": "program-table-out-of-bounds",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "PROGRAM_TABLE_OVERFLOW",
+          "detail": "phoff=4294967280 phnum=2",
+          "expected_code": "PROGRAM_TABLE_OVERFLOW",
+          "fixture": "program-table-overflow",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "SECTION_TABLE_OUT_OF_BOUNDS",
+          "detail": "shoff=372 size=200 file=380",
+          "expected_code": "SECTION_TABLE_OUT_OF_BOUNDS",
+          "fixture": "section-table-out-of-bounds",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "SECTION_TABLE_OVERFLOW",
+          "detail": "shoff=4294967280 shnum=5",
+          "expected_code": "SECTION_TABLE_OVERFLOW",
+          "fixture": "section-table-overflow",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "MISSING_SECTION_TABLE",
+          "detail": "no section header table",
+          "expected_code": "MISSING_SECTION_TABLE",
+          "fixture": "missing-section-table",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "MALFORMED_SECTION_ZERO",
+          "detail": "section 0 must be SHT_NULL with size 0",
+          "expected_code": "MALFORMED_SECTION_ZERO",
+          "fixture": "malformed-section-zero",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "MALFORMED_SECTION_NAME_TABLE",
+          "detail": "e_shstrndx=99 shnum=5",
+          "expected_code": "MALFORMED_SECTION_NAME_TABLE",
+          "fixture": "malformed-shstrndx",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "MALFORMED_SECTION_NAME_TABLE",
+          "detail": "e_shstrndx=0 shnum=5",
+          "expected_code": "MALFORMED_SECTION_NAME_TABLE",
+          "fixture": "malformed-shstrndx-zero",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "MALFORMED_SECTION_NAME_TABLE",
+          "detail": "section=1 name_offset=65535",
+          "expected_code": "MALFORMED_SECTION_NAME_TABLE",
+          "fixture": "malformed-section-name-offset",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "MALFORMED_SECTION_NAME_TABLE",
+          "detail": "section=4 unterminated name",
+          "expected_code": "MALFORMED_SECTION_NAME_TABLE",
+          "fixture": "malformed-section-name-unterminated",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "SECTION_OUT_OF_BOUNDS",
+          "detail": "section=1",
+          "expected_code": "SECTION_OUT_OF_BOUNDS",
+          "fixture": "section-content-out-of-bounds",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "SECTION_RANGE_OVERFLOW",
+          "detail": "section=1",
+          "expected_code": "SECTION_RANGE_OVERFLOW",
+          "fixture": "section-range-overflow",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "SEGMENT_FILE_RANGE_OUT_OF_BOUNDS",
+          "detail": "program_header=0",
+          "expected_code": "SEGMENT_FILE_RANGE_OUT_OF_BOUNDS",
+          "fixture": "segment-file-range-out-of-bounds",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "SEGMENT_MEMORY_OVERFLOW",
+          "detail": "program_header=1",
+          "expected_code": "SEGMENT_MEMORY_OVERFLOW",
+          "fixture": "segment-memory-overflow",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "INVALID_SEGMENT_SIZE",
+          "detail": "program_header=1 filesz=32 memsz=24",
+          "expected_code": "INVALID_SEGMENT_SIZE",
+          "fixture": "filesz-greater-than-memsz",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "NOBITS_EXEC_TRAP",
+          "detail": "program_header=0",
+          "expected_code": "NOBITS_EXEC_TRAP",
+          "fixture": "nobits-exec-trap",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "IMPOSSIBLE_SEGMENT_ALIGNMENT",
+          "detail": "program_header=0 align=3",
+          "expected_code": "IMPOSSIBLE_SEGMENT_ALIGNMENT",
+          "fixture": "impossible-segment-alignment",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "IMPOSSIBLE_SEGMENT_ALIGNMENT",
+          "detail": "program_header=1 vaddr-offset-congruence",
+          "expected_code": "IMPOSSIBLE_SEGMENT_ALIGNMENT",
+          "fixture": "incongruent-segment-alignment",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "IMPOSSIBLE_SECTION_ALIGNMENT",
+          "detail": "section=.text align=3",
+          "expected_code": "IMPOSSIBLE_SECTION_ALIGNMENT",
+          "fixture": "impossible-section-alignment",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "NO_LOADABLE_SEGMENTS",
+          "detail": "no non-empty PT_LOAD segments",
+          "expected_code": "NO_LOADABLE_SEGMENTS",
+          "fixture": "no-loadable-segments",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "OVERLAPPING_LOAD_RANGES",
+          "detail": "program_header=0 program_header=1",
+          "expected_code": "OVERLAPPING_LOAD_RANGES",
+          "fixture": "overlapping-load-ranges",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "OVERLAPPING_LOAD_FILE_RANGES",
+          "detail": "program_header=0 program_header=1",
+          "expected_code": "OVERLAPPING_LOAD_FILE_RANGES",
+          "fixture": "overlapping-load-file-ranges",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "OVERLAPPING_ALLOC_SECTIONS",
+          "detail": ".text@0x1000+16 .data@0x1008",
+          "expected_code": "OVERLAPPING_ALLOC_SECTIONS",
+          "fixture": "overlapping-alloc-sections",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "SECTION_LOAD_MISMATCH",
+          "detail": "section=.text vaddr=0x3000",
+          "expected_code": "SECTION_LOAD_MISMATCH",
+          "fixture": "section-outside-load",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "SECTION_LOAD_MISMATCH",
+          "detail": "section=.text file-range",
+          "expected_code": "SECTION_LOAD_MISMATCH",
+          "fixture": "section-file-mismatch",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "NOBITS_OUTSIDE_ZERO_FILL",
+          "detail": "section=.bss",
+          "expected_code": "NOBITS_OUTSIDE_ZERO_FILL",
+          "fixture": "nobits-outside-zero-fill",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "UNSUPPORTED_DYNAMIC",
+          "detail": "section=1",
+          "expected_code": "UNSUPPORTED_DYNAMIC",
+          "fixture": "unsupported-dynamic-section",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "UNSUPPORTED_DYNAMIC",
+          "detail": "program_header=0",
+          "expected_code": "UNSUPPORTED_DYNAMIC",
+          "fixture": "unsupported-dynamic-program-header",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "UNSUPPORTED_RELOCATION",
+          "detail": "section=1",
+          "expected_code": "UNSUPPORTED_RELOCATION",
+          "fixture": "unsupported-relocation-rel",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "UNSUPPORTED_RELOCATION",
+          "detail": "section=1",
+          "expected_code": "UNSUPPORTED_RELOCATION",
+          "fixture": "unsupported-relocation-rela",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "UNSUPPORTED_INTERP",
+          "detail": "program_header=0",
+          "expected_code": "UNSUPPORTED_INTERP",
+          "fixture": "unsupported-interp",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "MISSING_EXECUTABLE_SECTION",
+          "detail": "executable_alloc_sections=[]",
+          "expected_code": "MISSING_EXECUTABLE_SECTION",
+          "fixture": "missing-executable-section",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "ENTRY_OUTSIDE_EXECUTABLE",
+          "detail": "entry=0x00002000 executable_filesz_regions=[('0x1000', 16)]",
+          "expected_code": "ENTRY_OUTSIDE_EXECUTABLE",
+          "fixture": "entry-outside-executable",
+          "status": "PASS"
+        },
+        {
+          "actual_code": "ENTRY_MISALIGNED",
+          "detail": "entry=0x00001002",
+          "expected_code": "ENTRY_MISALIGNED",
+          "fixture": "entry-misaligned",
+          "status": "PASS"
+        }
+      ],
+      "negative_cases": 47,
+      "positive_cases": 3
+    }
+  },
+  "markers": {
+    "gate": "OPENRECOMP_PHASE3_MIPS32_ELF_INGESTION_V1=PASS tests=197",
+    "stage": "OPENRECOMP_P3_02=PASS",
+    "terminal": "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
+  },
+  "passed": 197,
+  "stage": "P3-02",
+  "stage_name": "OPENRECOMP_PHASE3_MIPS32_ELF_INGESTION_V1",
+  "status": "PASS",
+  "tests": 197
+}

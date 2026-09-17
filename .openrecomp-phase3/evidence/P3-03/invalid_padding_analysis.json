@@ -1,0 +1,76 @@
+{
+  "classification": "PADDING_NON_CODE",
+  "encoding_interpretation": "opcode 0x01 (REGIMM) with rt=0x17; rt=0x17 is unassigned in the MIPS32 REGIMM encoding space, so the word is a reserved encoding and is never interpreted as an instruction",
+  "evidence_elements": [
+    "not reachable from the ELF entry point through direct control-flow discovery",
+    "reserved encoding (REGIMM rt=0x17 unassigned)",
+    "outside every function symbol range; each run starts immediately after a function's return and its delay slot and ends exactly at the next function symbol start"
+  ],
+  "padding_word_count": 8,
+  "reachable_reserved_count": 0,
+  "runs": [
+    {
+      "addresses": [
+        "0x00001d8c"
+      ],
+      "end": "0x00001d90",
+      "following_function_address": "0x00001d90",
+      "following_function_symbol": "iterate",
+      "preceding_delay_slot": "0x00001d88",
+      "preceding_return_site": "0x00001d84",
+      "start": "0x00001d8c"
+    },
+    {
+      "addresses": [
+        "0x000025cc"
+      ],
+      "end": "0x000025d0",
+      "following_function_address": "0x000025d0",
+      "following_function_symbol": "core_bench_matrix",
+      "preceding_delay_slot": "0x000025c8",
+      "preceding_return_site": "0x000025c4",
+      "start": "0x000025cc"
+    },
+    {
+      "addresses": [
+        "0x000033c8",
+        "0x000033cc"
+      ],
+      "end": "0x000033d0",
+      "following_function_address": "0x000033d0",
+      "following_function_symbol": "get_seed_32",
+      "preceding_delay_slot": "0x000033c4",
+      "preceding_return_site": "0x000033c0",
+      "start": "0x000033c8"
+    },
+    {
+      "addresses": [
+        "0x000036fc"
+      ],
+      "end": "0x00003700",
+      "following_function_address": "0x00003700",
+      "following_function_symbol": "uart_send_char",
+      "preceding_delay_slot": "0x000036f8",
+      "preceding_return_site": "0x000036f4",
+      "start": "0x000036fc"
+    },
+    {
+      "addresses": [
+        "0x00004644",
+        "0x00004648",
+        "0x0000464c"
+      ],
+      "end": "0x00004650",
+      "following_function_address": "0x00004650",
+      "following_function_symbol": "_start",
+      "preceding_delay_slot": "0x00004640",
+      "preceding_return_site": "0x0000463c",
+      "start": "0x00004644"
+    }
+  ],
+  "stage": "P3-03",
+  "symbol_assisted": true,
+  "symbol_usage": "cross-check only; reachability and decoding do not depend on symbols",
+  "unreached_code_words": 1301,
+  "word_encoding": "0x04170001"
+}

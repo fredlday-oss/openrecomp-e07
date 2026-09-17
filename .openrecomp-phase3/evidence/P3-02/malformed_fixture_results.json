@@ -1,0 +1,351 @@
+{
+  "baseline_sha256": "d95a85f246d3530d60195dd6570ba5f0bc1691b97ad704a728623d93e13e1950",
+  "baseline_size": 380,
+  "negative_cases": [
+    {
+      "actual_code": "INVALID_MAGIC",
+      "detail": "size=4",
+      "expected_code": "INVALID_MAGIC",
+      "fixture": "truncated-magic",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "TRUNCATED_ELF_HEADER",
+      "detail": "size=40",
+      "expected_code": "TRUNCATED_ELF_HEADER",
+      "fixture": "truncated-elf-header",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNSUPPORTED_CLASS",
+      "detail": "class=2",
+      "expected_code": "UNSUPPORTED_CLASS",
+      "fixture": "wrong-class",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNSUPPORTED_ENDIANNESS",
+      "detail": "data_encoding=2",
+      "expected_code": "UNSUPPORTED_ENDIANNESS",
+      "fixture": "wrong-endianness",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNSUPPORTED_IDENT_VERSION",
+      "detail": "ident_version=0",
+      "expected_code": "UNSUPPORTED_IDENT_VERSION",
+      "fixture": "wrong-ident-version",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNSUPPORTED_MACHINE",
+      "detail": "e_machine=243 expected=8",
+      "expected_code": "UNSUPPORTED_MACHINE",
+      "fixture": "wrong-machine",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNSUPPORTED_TYPE",
+      "detail": "e_type=3 expected=2",
+      "expected_code": "UNSUPPORTED_TYPE",
+      "fixture": "unsupported-type",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNSUPPORTED_HEADER_SIZE",
+      "detail": "e_ehsize=64",
+      "expected_code": "UNSUPPORTED_HEADER_SIZE",
+      "fixture": "unsupported-header-size",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNSUPPORTED_VERSION",
+      "detail": "e_version=0",
+      "expected_code": "UNSUPPORTED_VERSION",
+      "fixture": "unsupported-version",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNSUPPORTED_ABI",
+      "detail": "ef_mips_abi=0x00000000",
+      "expected_code": "UNSUPPORTED_ABI",
+      "fixture": "unsupported-abi",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNSUPPORTED_PIC",
+      "detail": "ef_mips_pic_bits=0x00000002",
+      "expected_code": "UNSUPPORTED_PIC",
+      "fixture": "unsupported-pic",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INVALID_PROGRAM_TABLE_SIZE",
+      "detail": "e_phentsize=16",
+      "expected_code": "INVALID_PROGRAM_TABLE_SIZE",
+      "fixture": "invalid-phentsize",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INVALID_SECTION_TABLE_SIZE",
+      "detail": "e_shentsize=20",
+      "expected_code": "INVALID_SECTION_TABLE_SIZE",
+      "fixture": "invalid-shentsize",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "PROGRAM_TABLE_OUT_OF_BOUNDS",
+      "detail": "phoff=372 size=64 file=380",
+      "expected_code": "PROGRAM_TABLE_OUT_OF_BOUNDS",
+      "fixture": "program-table-out-of-bounds",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "PROGRAM_TABLE_OVERFLOW",
+      "detail": "phoff=4294967280 phnum=2",
+      "expected_code": "PROGRAM_TABLE_OVERFLOW",
+      "fixture": "program-table-overflow",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "SECTION_TABLE_OUT_OF_BOUNDS",
+      "detail": "shoff=372 size=200 file=380",
+      "expected_code": "SECTION_TABLE_OUT_OF_BOUNDS",
+      "fixture": "section-table-out-of-bounds",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "SECTION_TABLE_OVERFLOW",
+      "detail": "shoff=4294967280 shnum=5",
+      "expected_code": "SECTION_TABLE_OVERFLOW",
+      "fixture": "section-table-overflow",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "MISSING_SECTION_TABLE",
+      "detail": "no section header table",
+      "expected_code": "MISSING_SECTION_TABLE",
+      "fixture": "missing-section-table",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "MALFORMED_SECTION_ZERO",
+      "detail": "section 0 must be SHT_NULL with size 0",
+      "expected_code": "MALFORMED_SECTION_ZERO",
+      "fixture": "malformed-section-zero",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "MALFORMED_SECTION_NAME_TABLE",
+      "detail": "e_shstrndx=99 shnum=5",
+      "expected_code": "MALFORMED_SECTION_NAME_TABLE",
+      "fixture": "malformed-shstrndx",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "MALFORMED_SECTION_NAME_TABLE",
+      "detail": "e_shstrndx=0 shnum=5",
+      "expected_code": "MALFORMED_SECTION_NAME_TABLE",
+      "fixture": "malformed-shstrndx-zero",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "MALFORMED_SECTION_NAME_TABLE",
+      "detail": "section=1 name_offset=65535",
+      "expected_code": "MALFORMED_SECTION_NAME_TABLE",
+      "fixture": "malformed-section-name-offset",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "MALFORMED_SECTION_NAME_TABLE",
+      "detail": "section=4 unterminated name",
+      "expected_code": "MALFORMED_SECTION_NAME_TABLE",
+      "fixture": "malformed-section-name-unterminated",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "SECTION_OUT_OF_BOUNDS",
+      "detail": "section=1",
+      "expected_code": "SECTION_OUT_OF_BOUNDS",
+      "fixture": "section-content-out-of-bounds",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "SECTION_RANGE_OVERFLOW",
+      "detail": "section=1",
+      "expected_code": "SECTION_RANGE_OVERFLOW",
+      "fixture": "section-range-overflow",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "SEGMENT_FILE_RANGE_OUT_OF_BOUNDS",
+      "detail": "program_header=0",
+      "expected_code": "SEGMENT_FILE_RANGE_OUT_OF_BOUNDS",
+      "fixture": "segment-file-range-out-of-bounds",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "SEGMENT_MEMORY_OVERFLOW",
+      "detail": "program_header=1",
+      "expected_code": "SEGMENT_MEMORY_OVERFLOW",
+      "fixture": "segment-memory-overflow",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INVALID_SEGMENT_SIZE",
+      "detail": "program_header=1 filesz=32 memsz=24",
+      "expected_code": "INVALID_SEGMENT_SIZE",
+      "fixture": "filesz-greater-than-memsz",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "NOBITS_EXEC_TRAP",
+      "detail": "program_header=0",
+      "expected_code": "NOBITS_EXEC_TRAP",
+      "fixture": "nobits-exec-trap",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "IMPOSSIBLE_SEGMENT_ALIGNMENT",
+      "detail": "program_header=0 align=3",
+      "expected_code": "IMPOSSIBLE_SEGMENT_ALIGNMENT",
+      "fixture": "impossible-segment-alignment",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "IMPOSSIBLE_SEGMENT_ALIGNMENT",
+      "detail": "program_header=1 vaddr-offset-congruence",
+      "expected_code": "IMPOSSIBLE_SEGMENT_ALIGNMENT",
+      "fixture": "incongruent-segment-alignment",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "IMPOSSIBLE_SECTION_ALIGNMENT",
+      "detail": "section=.text align=3",
+      "expected_code": "IMPOSSIBLE_SECTION_ALIGNMENT",
+      "fixture": "impossible-section-alignment",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "NO_LOADABLE_SEGMENTS",
+      "detail": "no non-empty PT_LOAD segments",
+      "expected_code": "NO_LOADABLE_SEGMENTS",
+      "fixture": "no-loadable-segments",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "OVERLAPPING_LOAD_RANGES",
+      "detail": "program_header=0 program_header=1",
+      "expected_code": "OVERLAPPING_LOAD_RANGES",
+      "fixture": "overlapping-load-ranges",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "OVERLAPPING_LOAD_FILE_RANGES",
+      "detail": "program_header=0 program_header=1",
+      "expected_code": "OVERLAPPING_LOAD_FILE_RANGES",
+      "fixture": "overlapping-load-file-ranges",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "OVERLAPPING_ALLOC_SECTIONS",
+      "detail": ".text@0x1000+16 .data@0x1008",
+      "expected_code": "OVERLAPPING_ALLOC_SECTIONS",
+      "fixture": "overlapping-alloc-sections",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "SECTION_LOAD_MISMATCH",
+      "detail": "section=.text vaddr=0x3000",
+      "expected_code": "SECTION_LOAD_MISMATCH",
+      "fixture": "section-outside-load",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "SECTION_LOAD_MISMATCH",
+      "detail": "section=.text file-range",
+      "expected_code": "SECTION_LOAD_MISMATCH",
+      "fixture": "section-file-mismatch",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "NOBITS_OUTSIDE_ZERO_FILL",
+      "detail": "section=.bss",
+      "expected_code": "NOBITS_OUTSIDE_ZERO_FILL",
+      "fixture": "nobits-outside-zero-fill",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNSUPPORTED_DYNAMIC",
+      "detail": "section=1",
+      "expected_code": "UNSUPPORTED_DYNAMIC",
+      "fixture": "unsupported-dynamic-section",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNSUPPORTED_DYNAMIC",
+      "detail": "program_header=0",
+      "expected_code": "UNSUPPORTED_DYNAMIC",
+      "fixture": "unsupported-dynamic-program-header",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNSUPPORTED_RELOCATION",
+      "detail": "section=1",
+      "expected_code": "UNSUPPORTED_RELOCATION",
+      "fixture": "unsupported-relocation-rel",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNSUPPORTED_RELOCATION",
+      "detail": "section=1",
+      "expected_code": "UNSUPPORTED_RELOCATION",
+      "fixture": "unsupported-relocation-rela",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNSUPPORTED_INTERP",
+      "detail": "program_header=0",
+      "expected_code": "UNSUPPORTED_INTERP",
+      "fixture": "unsupported-interp",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "MISSING_EXECUTABLE_SECTION",
+      "detail": "executable_alloc_sections=[]",
+      "expected_code": "MISSING_EXECUTABLE_SECTION",
+      "fixture": "missing-executable-section",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "ENTRY_OUTSIDE_EXECUTABLE",
+      "detail": "entry=0x00002000 executable_filesz_regions=[('0x1000', 16)]",
+      "expected_code": "ENTRY_OUTSIDE_EXECUTABLE",
+      "fixture": "entry-outside-executable",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "ENTRY_MISALIGNED",
+      "detail": "entry=0x00001002",
+      "expected_code": "ENTRY_MISALIGNED",
+      "fixture": "entry-misaligned",
+      "status": "PASS"
+    }
+  ],
+  "negative_cases_passed": 47,
+  "positive_cases": [
+    {
+      "fixture": "baseline",
+      "image_sha256": "ff276b53b6552a2ca1f6e4b1eefa4ffe5ccd2c26cd5d2b9e01cc23d205ff4bb6",
+      "status": "INGESTED"
+    },
+    {
+      "fixture": "nobits-declared-inside-text",
+      "status": "INGESTED"
+    },
+    {
+      "fixture": "nobits-declared-beyond-eof",
+      "status": "INGESTED"
+    }
+  ]
+}

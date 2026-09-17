@@ -1,0 +1,52 @@
+{
+  "archive": {
+    "file": "zig-windows-x86_64-0.13.0.zip",
+    "sha256": "d859994725ef9402381e557c60bb57497215682e355204d754ee3df75ee3c158",
+    "size": 79163968,
+    "url": "https://ziglang.org/download/0.13.0/zig-windows-x86_64-0.13.0.zip"
+  },
+  "compiler": "zig cc 0.13.0 (clang 18.1.5, mipsel-linux-musl target)",
+  "flags": [
+    "--target=mipsel-linux-musl",
+    "-march=mips32",
+    "-mabi=32",
+    "-msoft-float",
+    "-mno-abicalls",
+    "-G0",
+    "-ffreestanding",
+    "-fno-builtin",
+    "-fno-stack-protector",
+    "-fomit-frame-pointer",
+    "-fno-pic",
+    "-O1",
+    "-nostdlib",
+    "-static",
+    "-DTOTAL_DATA_SIZE=2000",
+    "-DITERATIONS=1000",
+    "-DHAS_FLOAT=0",
+    "-DHAS_TIME_H=0",
+    "-DUSE_CLOCK=0",
+    "-DHAS_STDIO=0",
+    "-DHAS_PRINTF=0",
+    "-DMEM_METHOD=0",
+    "-DMAIN_HAS_NOARGC=1",
+    "-DCOMPILER_VERSION=\"zig-cc-0.13.0-clang-18.1.5\"",
+    "-DFLAGS_STR=\"-O1-march=mips32-mabi=32-msoft-float-fno-pic\"",
+    "-DMEM_LOCATION=\"Static\"",
+    "-include stddef.h",
+    ".openrecomp-phase3/external/coremark",
+    ".openrecomp-phase3/external/coremark/barebones",
+    ".openrecomp-phase3/ports/coremark_mips32"
+  ],
+  "link": [
+    "ld.lld",
+    "-m",
+    "elf32ltsmip",
+    "-T",
+    ".openrecomp-phase3/ports/coremark_mips32/p3_mips32.ld",
+    "--strip-debug",
+    "--build-id=none"
+  ],
+  "linker": "LLD 18.1.6 (compatible with GNU linkers)",
+  "zig_executable_sha256": "2e44af5bbf7a72ef8cbdae370284687c95d65a19affa469d2ad0364d905b8e84"
+}

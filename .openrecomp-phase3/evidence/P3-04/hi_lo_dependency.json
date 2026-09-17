@@ -1,0 +1,61 @@
+{
+  "analysis": "backwards scan from each reachable mfhi/mflo to the nearest HI/LO writer within the same straight-line region (stopping at control flow and at any branch/jump/call target); mul writers are architecturally UNPREDICTABLE and would be reported as unresolved",
+  "read_sites": [
+    {
+      "classification": "DEFINED_BY_MULTU",
+      "intervening_instructions": [],
+      "nearest_hilo_writer": "multu",
+      "op": "mfhi",
+      "read_site": "0x00001a4c",
+      "writer_address": "0x00001a48"
+    },
+    {
+      "classification": "DEFINED_BY_MULTU",
+      "intervening_instructions": [],
+      "nearest_hilo_writer": "multu",
+      "op": "mfhi",
+      "read_site": "0x00001b5c",
+      "writer_address": "0x00001b58"
+    },
+    {
+      "classification": "DEFINED_BY_DIVU",
+      "intervening_instructions": [
+        "0x00001f64"
+      ],
+      "nearest_hilo_writer": "divu",
+      "op": "mflo",
+      "read_site": "0x00001f68",
+      "writer_address": "0x00001f60"
+    },
+    {
+      "classification": "DEFINED_BY_DIVU",
+      "intervening_instructions": [
+        "0x00002048"
+      ],
+      "nearest_hilo_writer": "divu",
+      "op": "mflo",
+      "read_site": "0x0000204c",
+      "writer_address": "0x00002044"
+    },
+    {
+      "classification": "DEFINED_BY_DIVU",
+      "intervening_instructions": [
+        "0x00002374"
+      ],
+      "nearest_hilo_writer": "divu",
+      "op": "mflo",
+      "read_site": "0x00002378",
+      "writer_address": "0x00002370"
+    },
+    {
+      "classification": "DEFINED_BY_MULTU",
+      "intervening_instructions": [],
+      "nearest_hilo_writer": "multu",
+      "op": "mfhi",
+      "read_site": "0x00004530",
+      "writer_address": "0x0000452c"
+    }
+  ],
+  "stage": "P3-04",
+  "unresolved": []
+}
