@@ -508,7 +508,7 @@
   "claim_boundary": "P3-04 proves only that the audited reachable MIPS32 semantic frontier in the P3-01 recognized-unsupported classes is implemented and verified for the CoreMark path: exact, fail-closed semantics for movz, movn, mul, divu, teq, swl, swr and jalr, reference-checked against an independent model and applied to every audited site. It does not prove complete CoreMark translation, does not prove CoreMark execution, does not recover the unresolved jr $at jump tables or the dead jalr target, and claims no arbitrary MIPS32, PS1 or PS2 compatibility.",
   "evidence_files": {
     "coremark_frontier_rerun.json": "9a54e0212404cbe05fc0ac956a3922392eec0a1bf305ae88543a1d74383ccca9",
-    "determinism.json": "647d5faacb3c8fcaec848186f626a21bd2a8772acaa4340b37bffa773a21b589",
+    "determinism.json": "d05bf2506b3ebf2baec7304492df31a75d134f808b9488507b8c8b311f46864f",
     "exception_frontier.json": "eeb04eb73f6c7737b326a67af7c1e7d0a20dfa6f6252209d8a3688079a8b2eda",
     "hi_lo_dependency.json": "2291518ba64ea7ec4f5c6651ecd6b1870aa70d5d583616f1f00fbca08d27f3e2",
     "reachable_unsupported_after.json": "d033501f6e08aa477f31200ae2c98ba10f28e72d5618ac89aeaa46745274ad59",
@@ -517,7 +517,7 @@
     "semantic_negative_results.json": "c4698ad07e9b83bcdfa2b561c71c65e1eb28fc456576dce120acd2d82fc98455",
     "semantic_reference_vectors.json": "89b6328c8c6161d351b0ffa8d5b1f00cf75a49962a9a31f830df94dab85d3417",
     "semantic_site_coverage.json": "6272f8eccf537980406c548418019053dde19ff42c1f92f2ec121d28c352a27d",
-    "source_integrity.txt": "0267dffe8fcdabefe34c8e147bcfc420f466fa768802ae589dacf43b3b13b5dd"
+    "source_integrity.txt": "ca26d325b1beacbb158edbfc096c181357e0ff558a08ca40e93a530387975af5"
   },
   "failed": 0,
   "failure": null,
@@ -709,7 +709,7 @@
         "semantic_negative_results.json": "c4698ad07e9b83bcdfa2b561c71c65e1eb28fc456576dce120acd2d82fc98455",
         "semantic_reference_vectors.json": "89b6328c8c6161d351b0ffa8d5b1f00cf75a49962a9a31f830df94dab85d3417",
         "semantic_site_coverage.json": "6272f8eccf537980406c548418019053dde19ff42c1f92f2ec121d28c352a27d",
-        "source_integrity.txt": "0267dffe8fcdabefe34c8e147bcfc420f466fa768802ae589dacf43b3b13b5dd"
+        "source_integrity.txt": "ca26d325b1beacbb158edbfc096c181357e0ff558a08ca40e93a530387975af5"
       },
       "reachability_sha256": "c62d54838cbc5fcc7b0ff83cdc9b2f0f47b8851c5e4023ae2ca6d629c8f76edf",
       "source_sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669",
@@ -815,13 +815,14 @@
         "tools/test_phase3_decode_frontier_v1.py",
         "tools/test_phase3_elf_ingestion_v1.py",
         "tools/test_phase3_host_emit_v1.py",
+        "tools/test_phase3_native_runtime_v1.py",
         "tools/test_phase3_reachable_semantics_v1.py",
         "tools/test_phase3_static_data_v1.py",
         "tools/test_phase3_structure_v1.py"
       ],
-      "phase3_manifest_entries": 16,
+      "phase3_manifest_entries": 17,
       "phase3_manifest_mismatched": [],
-      "phase3_manifest_sha256": "44a2b15ca4ada8cf08d2e3a5faca84c141fecba72325ed9ad556495520e4b5aa",
+      "phase3_manifest_sha256": "406ec4c081d68711e5b5f724b0dc50a17151c25b2dcd7129cbbc5d5640ad8c6d",
       "root_manifest_entries": 134,
       "root_manifest_mismatched": [],
       "root_manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"

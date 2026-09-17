@@ -4,8 +4,8 @@ PHASE=3
 BASELINE_TAG=openrecomp-phase2-pass
 BASELINE_COMMIT=01b1d7cba8c931fca95d041389cfb1902b7c89fe
 BASELINE_TREE=6513eefa5ef59b7d0e127f0179c6fc6c21fdac78
-CURRENT_STAGE=P3-08
-LAST_PASSED_STAGE=P3-07
+CURRENT_STAGE=P3-09
+LAST_PASSED_STAGE=P3-08
 STATUS=ACTIVE
 FINAL_VERDICT=NOT_PROVEN
 COREMARK_STATUS=NOT_PROVEN
@@ -81,8 +81,8 @@ QUEUE_FREEZE_STAGES=P3-05..P3-99
 | P3-05 | ProgramModel/CFG/functions/call graph/translation units | `PASS` | `.openrecomp-phase3/evidence/P3-05/` |
 | P3-06 | Static data/global reconstruction | `PASS` | `.openrecomp-phase3/evidence/P3-06/` |
 | P3-07 | Host emission for CoreMark semantics | `PASS` | `.openrecomp-phase3/evidence/P3-07/` |
-| P3-08 | Native build + generic runtime execution | `ACTIVE` | - |
-| P3-09 | Independent MIPS32 reference + equivalence | `QUEUED` | - |
+| P3-08 | Native build + generic runtime execution | `PASS` | `.openrecomp-phase3/evidence/P3-08/` |
+| P3-09 | Independent MIPS32 reference + equivalence | `ACTIVE` | - |
 | P3-10 | Reproducible package + whole regression | `QUEUED` | - |
 | P3-90 | Phase-3 whole regression | `QUEUED` | - |
 | P3-91 | Evidence index + limitations | `QUEUED` | - |
@@ -618,6 +618,61 @@ audited image. Nothing is built or executed yet (P3-08), equivalence is not yet
 proven (P3-09), and no arbitrary MIPS32/PS1/PS2 compatibility is claimed.
 `COREMARK_STATUS=NOT_PROVEN`.
 
+## P3-08 result (PASS)
+
+Stage: `OPENRECOMP_PHASE3_NATIVE_RUNTIME_V1`. Evidence:
+`.openrecomp-phase3/evidence/P3-08/`. Gate:
+`tools/test_phase3_native_runtime_v1.py` (54 checks).
+
+Markers issued:
+
+- Stage marker: `OPENRECOMP_P3_08=PASS`
+- Gate marker: `OPENRECOMP_PHASE3_NATIVE_RUNTIME_V1=PASS tests=54`
+- Terminal marker (reserved): `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`
+
+Implementation (new Phase-3 gate only; no shared layer, frozen adapter,
+Phase-1/Phase-2 file, gate or frozen manifest was modified):
+
+- `tools/test_phase3_native_runtime_v1.py` — re-emits and pins the P3-07
+  translation, builds it with the Phase-2 deterministic build pipeline
+  (`clang-cl.exe` LLVM 22.1.8 + `lld-link.exe`, `/Brepro`, two isolated runs),
+  executes it repeatedly through the P2-08 generic runtime ABI, checks
+  CoreMark's published validation CRCs and runs four fail-closed runtime
+  negatives.
+- `.openrecomp-phase3/SOURCE_SHA256SUMS.txt` — grown additively from sixteen
+  to seventeen entries; the earlier gates expect seventeen entries and still
+  emit byte-identical stdout.
+
+Build: `EXECUTABLE_REPRODUCIBLE`; `program.exe` sha256
+`9b36d6df3a3715f98a7ba41f00b63617af755fc29f42e1dc5d744b5e728445af`; manifest
+`ca3c6b21...`; no host path or identity leakage.
+
+Execution: `exit_status=0`, `steps=394997250`, `pc=0x00004564`,
+`hi=0x0000000d`, `lo=0x00000000`, `uart_bytes=499`,
+`state_fnv1a64=0x5eef5d92fab65dad`, `failed=0`; three replays byte-identical
+(stdout sha256 `7ea6c469...`). The UART stream contains CoreMark's
+`Correct operation validated.` line with the published validation CRCs
+(`seedcrc 0xe9f5`, `crclist 0xe714`, `crcmatrix 0x1fd7`, `crcstate 0x8e3a`,
+`crcfinal 0xd340`).
+
+Runtime negatives: divide by zero, taken `teq` (code preserved), unaligned
+indirect target and an out-of-region write each produced the exact expected
+deterministic failure with `failed=1`.
+
+Verification: 54 checks. Official runs: two consecutive runs byte-identical
+(raw sha256 `5ac6d2ca2c9f630dda7ab11259d000098c0d819da43e84e494f04400f7ddc3cd`,
+empty stderr, exit 0). Regressions all exit 0 with empty stderr and
+byte-identical stdout: P2-99 (`66913e57...`), P3-00 (`a039bbff...`), P3-01
+(`81eede03...`), P3-02 (`f24f4cef...`), P3-03 (`15e20a2c...`), P3-04
+(`412544a4...`), P3-05 (`12bf87d7...`), P3-06 (`23d2f1c2...`), P3-07
+(`d7986967...`), Phase-1 host gates (`2a9d1bba...`), public safety
+(`ad022ff1...`).
+
+Claim boundary: P3-08 proves reproducible native build and deterministic
+execution with CoreMark's own validation, not equivalence against an
+independent reference (P3-09); no arbitrary MIPS32/PS1/PS2 compatibility is
+claimed. `COREMARK_STATUS=NOT_PROVEN`.
+
 ## Claim boundary
 
 Phase 3 adds no Phase-2 claim. Phase 2 remains the proven bounded
@@ -628,10 +683,11 @@ independent evidence.
 
 ## Next exact action
 
-P3-07 is `PASS`. Advance to P3-08 (native build + generic runtime execution,
-frozen queue row): build the P3-07 generated program and support with the
-Phase-2 deterministic build pipeline (recorded toolchain identity, byte-
-reproducible executable), execute it repeatedly through the P2-08 runtime ABI,
-and record the deterministic observable (exit status, step count, UART stream,
-state digest) under `.openrecomp-phase3/evidence/P3-08/`. Do not introduce the
-independent reference comparison in P3-08 (that is P3-09).
+P3-08 is `PASS`. Advance to P3-09 (independent MIPS32 reference + equivalence,
+frozen queue row): implement an independent MIPS32 reference execution (its own
+decoder and interpreter, not derived from the emitter or the P3-04 semantics
+module), execute the same ELF from the same documented initial state, and prove
+deterministic observable equivalence against the P3-08 native observable
+(exit status, step count, UART stream and state digest). Record evidence under
+`.openrecomp-phase3/evidence/P3-09/`. Do not build the reproducible package or
+run the whole regression (that is P3-10).

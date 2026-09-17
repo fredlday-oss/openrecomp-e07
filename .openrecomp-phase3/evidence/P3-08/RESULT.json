@@ -1,0 +1,339 @@
+{
+  "checks": [
+    {
+      "check": "build:brepro-flags",
+      "status": "PASS"
+    },
+    {
+      "check": "build:classification",
+      "status": "PASS"
+    },
+    {
+      "check": "build:executable-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build:manifest-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "build:manifest-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build:no-host-path-leak",
+      "status": "PASS"
+    },
+    {
+      "check": "build:no-identity-leak",
+      "status": "PASS"
+    },
+    {
+      "check": "build:object-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build:source-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build:status-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "build:toolchain-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:artifact-hashes-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:exists",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:size",
+      "status": "PASS"
+    },
+    {
+      "check": "native:coremark-line:CoreMark Size    ",
+      "status": "PASS"
+    },
+    {
+      "check": "native:coremark-line:Correct operation validated.",
+      "status": "PASS"
+    },
+    {
+      "check": "native:coremark-line:Iterations       ",
+      "status": "PASS"
+    },
+    {
+      "check": "native:coremark-line:Total ticks      ",
+      "status": "PASS"
+    },
+    {
+      "check": "native:coremark-line:[0]crcfinal      ",
+      "status": "PASS"
+    },
+    {
+      "check": "native:coremark-line:[0]crclist       ",
+      "status": "PASS"
+    },
+    {
+      "check": "native:coremark-line:[0]crcmatrix     ",
+      "status": "PASS"
+    },
+    {
+      "check": "native:coremark-line:[0]crcstate      ",
+      "status": "PASS"
+    },
+    {
+      "check": "native:coremark-line:seedcrc          ",
+      "status": "PASS"
+    },
+    {
+      "check": "native:coremark-validated",
+      "status": "PASS"
+    },
+    {
+      "check": "native:executable-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "native:executable-hash-matches-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "native:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "native:observable:exit_status",
+      "status": "PASS"
+    },
+    {
+      "check": "native:observable:failed",
+      "status": "PASS"
+    },
+    {
+      "check": "native:observable:failure",
+      "status": "PASS"
+    },
+    {
+      "check": "native:observable:hi",
+      "status": "PASS"
+    },
+    {
+      "check": "native:observable:lo",
+      "status": "PASS"
+    },
+    {
+      "check": "native:observable:pc",
+      "status": "PASS"
+    },
+    {
+      "check": "native:observable:uart_bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "native:replay-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "native:returncode-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "native:state-hash-format",
+      "status": "PASS"
+    },
+    {
+      "check": "native:steps-positive",
+      "status": "PASS"
+    },
+    {
+      "check": "native:uart-length",
+      "status": "PASS"
+    },
+    {
+      "check": "negatives:count",
+      "status": "PASS"
+    },
+    {
+      "check": "negatives:no-failures",
+      "status": "PASS"
+    },
+    {
+      "check": "pin:evidence-program-sha",
+      "status": "PASS"
+    },
+    {
+      "check": "pin:program-constant",
+      "status": "PASS"
+    },
+    {
+      "check": "pin:program-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "pin:support-constant",
+      "status": "PASS"
+    },
+    {
+      "check": "pin:support-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entry-set",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entry-count",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-frozen-sha256",
+      "status": "PASS"
+    }
+  ],
+  "claim_boundary": "P3-08 proves only that the P3-07 generated translation builds into a byte-reproducible native program and executes deterministically through the P2-08 generic runtime ABI, with CoreMark's own validation CRCs and fail-closed runtime boundaries demonstrated. It does not yet prove equivalence against an independent MIPS32 reference (P3-09) and claims no arbitrary MIPS32, PS1 or PS2 compatibility.",
+  "evidence_files": {
+    "build_report.json": "d9f1cf09cbe6b4390d7db86cfa74c5a8aca4757918ae7f7ec1d1f72697a0ea0d",
+    "build_run_1.txt": "db9b406acb04d2d211c464548075f95ae0cfd31d41f45945a3c0f7049ee65242",
+    "build_run_2.txt": "d57b8aa45dcfb5f11e588ce2909756f579f7f8c636196eba0968519d94fd761e",
+    "determinism.json": "1bf1494809ec3bf1f7f1c94888c388f5b62286c24eee3ab3068fe0504c8893c9",
+    "emission_pin.json": "585dc9e32f645c1bfc4c64fa55495f28cb2629d034a6d2f5f645c995a84d1623",
+    "native_execution.json": "30cafebd5dcb9ecdb19fc38635a68e9ca036dae7ec5afd552da961dc9c9a8017",
+    "native_execution.txt": "9215e0d90481b322011c58debd6c3f7c6210fa9b4130a2bf221226d11e6c8869",
+    "runtime_negatives.json": "4744254f37d1cb462714867758e7df6a42a1c405bfdce76eb1c23f76170ca6bb",
+    "source_integrity.txt": "ca26d325b1beacbb158edbfc096c181357e0ff558a08ca40e93a530387975af5"
+  },
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "build": {
+      "artifacts": [
+        {
+          "name": "coremark_support.obj",
+          "sha256": "feaf60b19f5cbf5da75119b660416882e73855af2c5e4df8453d93c35d93a654"
+        },
+        {
+          "name": "generated.obj",
+          "sha256": "8312f07842da1bf625633018945560b9b9a14ef7fe2cc36c8f9a989a3b5f99d2"
+        },
+        {
+          "name": "program.exe",
+          "sha256": "9b36d6df3a3715f98a7ba41f00b63617af755fc29f42e1dc5d744b5e728445af"
+        }
+      ],
+      "classification": "EXECUTABLE_REPRODUCIBLE",
+      "executable_reproducible": true,
+      "manifest_sha256": "ca3c6b219dcd1f1318ce0155605e29527005f4221c5ab55d859cee3567262394"
+    },
+    "determinism": {
+      "artifact_sha256": {
+        "build_report.json": "d9f1cf09cbe6b4390d7db86cfa74c5a8aca4757918ae7f7ec1d1f72697a0ea0d",
+        "build_run_1.txt": "db9b406acb04d2d211c464548075f95ae0cfd31d41f45945a3c0f7049ee65242",
+        "build_run_2.txt": "d57b8aa45dcfb5f11e588ce2909756f579f7f8c636196eba0968519d94fd761e",
+        "emission_pin.json": "585dc9e32f645c1bfc4c64fa55495f28cb2629d034a6d2f5f645c995a84d1623",
+        "native_execution.json": "30cafebd5dcb9ecdb19fc38635a68e9ca036dae7ec5afd552da961dc9c9a8017",
+        "native_execution.txt": "9215e0d90481b322011c58debd6c3f7c6210fa9b4130a2bf221226d11e6c8869",
+        "runtime_negatives.json": "4744254f37d1cb462714867758e7df6a42a1c405bfdce76eb1c23f76170ca6bb",
+        "source_integrity.txt": "ca26d325b1beacbb158edbfc096c181357e0ff558a08ca40e93a530387975af5"
+      },
+      "source_sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669"
+    },
+    "emission_pin": {
+      "case_count": 3479,
+      "p3_07_program_fingerprint": "898fae38ab421f005d46b48fcdcd7cfd9b11ee4a18d4831493643ada1479fed1",
+      "p3_07_support_fingerprint": "4afa8c0ea3a827a074342b801a24815e3366808dc290568bfbedfcc506915fa4",
+      "program_fingerprint": "898fae38ab421f005d46b48fcdcd7cfd9b11ee4a18d4831493643ada1479fed1",
+      "source": "re-emitted from the frozen P3-03/P3-05/P3-06 inputs",
+      "stage": "P3-08",
+      "support_fingerprint": "4afa8c0ea3a827a074342b801a24815e3366808dc290568bfbedfcc506915fa4"
+    },
+    "native": {
+      "executable_sha256": "9b36d6df3a3715f98a7ba41f00b63617af755fc29f42e1dc5d744b5e728445af",
+      "observable": {
+        "exit_status": "0",
+        "failed": "0",
+        "failure": "",
+        "hi": "0x0000000d",
+        "lo": "0x00000000",
+        "pc": "0x00004564",
+        "state_fnv1a64": "0x5eef5d92fab65dad",
+        "steps": "394997250",
+        "uart_bytes": "499",
+        "uart_hex": "324b20706572666f726d616e63652072756e20706172616d657465727320666f7220636f72656d61726b2e0a436f72654d61726b2053697a65202020203a203636360a546f74616c207469636b732020202020203a2031303030300a546f74616c2074696d65202873656373293a2031300a497465726174696f6e732f5365632020203a203130300a497465726174696f6e73202020202020203a20313030300a436f6d70696c65722076657273696f6e203a207a69672d63632d302e31332e302d636c616e672d31382e312e350a436f6d70696c657220666c6167732020203a202d4f312d6d617263683d6d69707333322d6d6162693d33322d6d736f66742d666c6f61742d666e6f2d7069630a4d656d6f7279206c6f636174696f6e20203a205374617469630a73656564637263202020202020202020203a203078653966350a5b305d6372636c697374202020202020203a203078653731340a5b305d6372636d617472697820202020203a203078316664370a5b305d63726373746174652020202020203a203078386533610a5b305d63726366696e616c2020202020203a203078643334300a436f7272656374206f7065726174696f6e2076616c6964617465642e2053656520524541444d452e6d6420666f722072756e20616e64207265706f7274696e672072756c65732e0a"
+      },
+      "stdout_sha256": "7ea6c4697495e756feb886df1b166efdbf9727437ac190b4893480657b1a7e49",
+      "uart_text_sha256": "7745bb8852778e9f91b2ccf91c293918b9b52ae2c111f3b6a923678551c1fa26"
+    },
+    "runtime_negatives": [
+      {
+        "expected_failure": "divide by zero",
+        "fixture": "div-by-zero",
+        "observed_failed": "1",
+        "observed_failure": "divide by zero",
+        "status": "PASS"
+      },
+      {
+        "expected_failure": "teq trap code=0x0",
+        "fixture": "teq-trap",
+        "observed_failed": "1",
+        "observed_failure": "teq trap code=0x0",
+        "status": "PASS"
+      },
+      {
+        "expected_failure": "unaligned indirect jump target",
+        "fixture": "unaligned-jr",
+        "observed_failed": "1",
+        "observed_failure": "unaligned indirect jump target",
+        "status": "PASS"
+      },
+      {
+        "expected_failure": "MEMORY_OUT_OF_RANGE",
+        "fixture": "memory-out-of-range",
+        "observed_failed": "1",
+        "observed_failure": "MEMORY_OUT_OF_RANGE",
+        "status": "PASS"
+      }
+    ],
+    "source_integrity": {
+      "phase3_manifest_entries": 17,
+      "phase3_manifest_sha256": "406ec4c081d68711e5b5f724b0dc50a17151c25b2dcd7129cbbc5d5640ad8c6d",
+      "root_manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"
+    }
+  },
+  "markers": {
+    "gate": "OPENRECOMP_PHASE3_NATIVE_RUNTIME_V1=PASS tests=54",
+    "stage": "OPENRECOMP_P3_08=PASS",
+    "terminal": "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
+  },
+  "passed": 54,
+  "stage": "P3-08",
+  "stage_name": "OPENRECOMP_PHASE3_NATIVE_RUNTIME_V1",
+  "status": "PASS",
+  "tests": 54
+}

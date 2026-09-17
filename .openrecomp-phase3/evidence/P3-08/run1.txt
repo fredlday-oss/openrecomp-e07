@@ -1,0 +1,72 @@
+=== P3-08 Native Build + Runtime Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest-exists
+PASS: source:root-manifest-frozen-sha256
+PASS: source:root-manifest-entry-count
+PASS: source:root-manifest-entries-verified
+PASS: source:phase3-manifest-exists
+PASS: source:phase3-manifest-entry-set
+PASS: source:phase3-manifest-entries-verified
+
+--- re-emission pin ---
+PASS: fixture:exists
+PASS: fixture:sha256
+PASS: fixture:size
+PASS: pin:program-fingerprint
+PASS: pin:support-fingerprint
+PASS: pin:program-constant
+PASS: pin:support-constant
+PASS: pin:evidence-program-sha
+
+--- build ---
+PASS: build:status-ok
+PASS: build:classification
+PASS: build:source-reproducible
+PASS: build:manifest-reproducible
+PASS: build:object-reproducible
+PASS: build:executable-reproducible
+PASS: build:toolchain-identity
+PASS: build:brepro-flags
+PASS: build:manifest-deterministic
+PASS: build:no-host-path-leak
+PASS: build:no-identity-leak
+
+--- native execution ---
+PASS: native:executable-exists
+PASS: native:executable-hash-matches-manifest
+PASS: native:returncode-zero
+PASS: native:replay-identical
+PASS: native:observable:exit_status
+PASS: native:observable:pc
+PASS: native:observable:hi
+PASS: native:observable:lo
+PASS: native:observable:uart_bytes
+PASS: native:observable:failed
+PASS: native:observable:failure
+PASS: native:steps-positive
+PASS: native:state-hash-format
+PASS: native:uart-length
+PASS: native:coremark-line:CoreMark Size    
+PASS: native:coremark-line:Total ticks      
+PASS: native:coremark-line:Iterations       
+PASS: native:coremark-line:seedcrc          
+PASS: native:coremark-line:[0]crclist       
+PASS: native:coremark-line:[0]crcmatrix     
+PASS: native:coremark-line:[0]crcstate      
+PASS: native:coremark-line:[0]crcfinal      
+PASS: native:coremark-line:Correct operation validated.
+PASS: native:coremark-validated
+PASS: native:no-failure
+
+--- runtime negatives ---
+PASS: negatives:no-failures
+PASS: negatives:count
+
+--- determinism ---
+PASS: determinism:artifact-hashes-recorded
+
+=== RESULT ===
+OPENRECOMP_P3_08=PASS
+OPENRECOMP_PHASE3_NATIVE_RUNTIME_V1=PASS tests=54
+OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN

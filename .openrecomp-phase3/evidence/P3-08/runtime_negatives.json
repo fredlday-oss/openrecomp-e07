@@ -1,0 +1,34 @@
+{
+  "cases": [
+    {
+      "expected_failure": "divide by zero",
+      "fixture": "div-by-zero",
+      "observed_failed": "1",
+      "observed_failure": "divide by zero",
+      "status": "PASS"
+    },
+    {
+      "expected_failure": "teq trap code=0x0",
+      "fixture": "teq-trap",
+      "observed_failed": "1",
+      "observed_failure": "teq trap code=0x0",
+      "status": "PASS"
+    },
+    {
+      "expected_failure": "unaligned indirect jump target",
+      "fixture": "unaligned-jr",
+      "observed_failed": "1",
+      "observed_failure": "unaligned indirect jump target",
+      "status": "PASS"
+    },
+    {
+      "expected_failure": "MEMORY_OUT_OF_RANGE",
+      "fixture": "memory-out-of-range",
+      "observed_failed": "1",
+      "observed_failure": "MEMORY_OUT_OF_RANGE",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "stage": "P3-08"
+}

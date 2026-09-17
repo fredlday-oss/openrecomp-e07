@@ -19,8 +19,8 @@ P3-05 implementation work.
 | P3-05 | ProgramModel/CFG/functions/call graph/translation units on the real ELF | COMPLETE | Shared Phase-2 layers exercised on the real program with unchanged shared-layer neutrality; indirect targets never guessed |
 | P3-06 | Static data/global reconstruction | COMPLETE | `.rodata`/`.data`/`.bss` and GP-relative/absolute global access modelled explicitly and verifiably |
 | P3-07 | Host emission for CoreMark semantics | COMPLETE | Deterministic generated host code for the proven subset; unsupported or external behaviour fails closed or is explicitly runtime-mediated |
-| P3-08 | Native build + generic runtime execution | ACTIVE | Deterministic native host build of the generated program; execution through the generic runtime ABI with bounded I/O and deterministic benchmark inputs |
-| P3-09 | Independent MIPS32 reference + equivalence | QUEUED | Independent MIPS32 reference execution and deterministic observable equivalence against the native host executable |
+| P3-08 | Native build + generic runtime execution | COMPLETE | Deterministic native host build of the generated program; execution through the generic runtime ABI with bounded I/O and deterministic benchmark inputs |
+| P3-09 | Independent MIPS32 reference + equivalence | ACTIVE | Independent MIPS32 reference execution and deterministic observable equivalence against the native host executable |
 | P3-10 | Reproducible package + whole regression | QUEUED | Byte-reproducible package for the Phase-3 path; Phase-1, Phase-2 and Phase-3 gates pass together |
 | P3-90 | Phase-3 whole regression | QUEUED | Deterministic whole-project regression audit of the completed Phase-3 stages plus preserved Phase-1/Phase-2 gates |
 | P3-91 | Evidence index + limitations | QUEUED | Complete Phase-3 evidence index and explicit bounded/unproven claim record |
@@ -58,6 +58,9 @@ Frozen-queue rules:
   ProgramModel/CFG/functions/call graph/translation-unit stage passed as the
   frozen row specifies, so no reconciliation, renumbering or redefinition was
   required or performed.
+- P3-08 completed with the frozen contract unchanged: the native build +
+  generic-runtime-execution stage passed as the frozen row specifies, so no
+  reconciliation, renumbering or redefinition was required or performed.
 - P3-07 completed with the frozen contract unchanged: the host-emission
   stage passed as the frozen row specifies (deterministic generated host
   code, runtime-mediated external behaviour), so no reconciliation,
@@ -91,6 +94,8 @@ Frozen-queue rules:
 - `OPENRECOMP_PHASE3_STATIC_DATA_V1=PASS tests=123`
 - `OPENRECOMP_P3_07=PASS`
 - `OPENRECOMP_PHASE3_HOST_EMISSION_V1=PASS tests=67`
+- `OPENRECOMP_P3_08=PASS`
+- `OPENRECOMP_PHASE3_NATIVE_RUNTIME_V1=PASS tests=54`
 - terminal Phase-3 marker: reserved, value `NOT_PROVEN`
 
 ## Failure values (not issued)

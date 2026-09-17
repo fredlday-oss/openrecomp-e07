@@ -808,12 +808,12 @@
   "claim_boundary": "P3-03 proves that OpenRecomp can deterministically decode and classify the executable instruction frontier of the audited CoreMark MIPS32 ELF and identify the exact remaining semantic/control-flow gaps. It does not prove that the unsupported instructions execute correctly, that CoreMark translates successfully, that CoreMark runs, or any arbitrary MIPS32/console compatibility.",
   "evidence_files": {
     "control_flow_frontier.json": "2e4f1fd1bf1cdeb25e73890267360783817d8215b066cd5dcff39e6988fedf36",
-    "determinism.json": "04972d196f77c3338d0119779a40e01745fae9d7560d66adf47bb5fd9a0a2466",
+    "determinism.json": "74cc1f5dc4858ee83a858d747380fbd30ed229a40f07074c019908be5f42a63d",
     "instruction_inventory.json": "dc83fb0595db5710379e5091f31a3cb457d3eb74703df3bfb51643aab32741f5",
     "invalid_padding_analysis.json": "5b900bc2a89b29fb82c0d5e4d2b45f5be46988734052db1b30389eebb409d26b",
     "negative_results.json": "ea1d738559987c77322788c394602338f965b70275896356df0fbc3870c8d02a",
     "reachable_code_map.json": "abf032e267e36677aa81ad09715367f9f6bcb172ad5477956b614aa44b37c831",
-    "source_integrity.txt": "0267dffe8fcdabefe34c8e147bcfc420f466fa768802ae589dacf43b3b13b5dd",
+    "source_integrity.txt": "ca26d325b1beacbb158edbfc096c181357e0ff558a08ca40e93a530387975af5",
     "unsupported_frontier.json": "f5e3ff1fabf8a4f075c3fe97f274ea11089af799a6340b85d0bebb3e7025be79"
   },
   "failed": 0,
@@ -826,7 +826,7 @@
         "invalid_padding_analysis.json": "5b900bc2a89b29fb82c0d5e4d2b45f5be46988734052db1b30389eebb409d26b",
         "negative_results.json": "ea1d738559987c77322788c394602338f965b70275896356df0fbc3870c8d02a",
         "reachable_code_map.json": "abf032e267e36677aa81ad09715367f9f6bcb172ad5477956b614aa44b37c831",
-        "source_integrity.txt": "0267dffe8fcdabefe34c8e147bcfc420f466fa768802ae589dacf43b3b13b5dd",
+        "source_integrity.txt": "ca26d325b1beacbb158edbfc096c181357e0ff558a08ca40e93a530387975af5",
         "unsupported_frontier.json": "f5e3ff1fabf8a4f075c3fe97f274ea11089af799a6340b85d0bebb3e7025be79"
       },
       "repeated_classification_identical": true,
@@ -1852,13 +1852,14 @@
         "tools/test_phase3_decode_frontier_v1.py",
         "tools/test_phase3_elf_ingestion_v1.py",
         "tools/test_phase3_host_emit_v1.py",
+        "tools/test_phase3_native_runtime_v1.py",
         "tools/test_phase3_reachable_semantics_v1.py",
         "tools/test_phase3_static_data_v1.py",
         "tools/test_phase3_structure_v1.py"
       ],
-      "phase3_manifest_entries": 16,
+      "phase3_manifest_entries": 17,
       "phase3_manifest_mismatched": [],
-      "phase3_manifest_sha256": "44a2b15ca4ada8cf08d2e3a5faca84c141fecba72325ed9ad556495520e4b5aa",
+      "phase3_manifest_sha256": "406ec4c081d68711e5b5f724b0dc50a17151c25b2dcd7129cbbc5d5640ad8c6d",
       "root_manifest_entries": 134,
       "root_manifest_mismatched": [],
       "root_manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"

@@ -1,0 +1,11 @@
+P3-08 deterministic build run 2
+==================================
+build_status: OK
+inputs:
+  RUNTIME_SUPPORT_SOURCE coremark_support.c 4afa8c0ea3a827a074342b801a24815e3366808dc290568bfbedfcc506915fa4
+  GENERATED_SOURCE generated.c 898fae38ab421f005d46b48fcdcd7cfd9b11ee4a18d4831493643ada1479fed1
+outputs:
+  OBJECT coremark_support.obj feaf60b19f5cbf5da75119b660416882e73855af2c5e4df8453d93c35d93a654  sha256=feaf60b19f5cbf5da75119b660416882e73855af2c5e4df8453d93c35d93a654
+  OBJECT generated.obj 8312f07842da1bf625633018945560b9b9a14ef7fe2cc36c8f9a989a3b5f99d2  sha256=8312f07842da1bf625633018945560b9b9a14ef7fe2cc36c8f9a989a3b5f99d2
+  EXECUTABLE program.exe 9b36d6df3a3715f98a7ba41f00b63617af755fc29f42e1dc5d744b5e728445af  sha256=9b36d6df3a3715f98a7ba41f00b63617af755fc29f42e1dc5d744b5e728445af
+manifest_sha256: ca3c6b219dcd1f1318ce0155605e29527005f4221c5ab55d859cee3567262394

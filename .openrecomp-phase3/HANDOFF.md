@@ -7,7 +7,8 @@ reachable MIPS32 semantics) `PASS`; P3-05
 (ProgramModel/CFG/functions/call graph/translation units on the real ELF)
 `PASS`; P3-06 (static data/global reconstruction) `PASS`; P3-07 (host emission
 for CoreMark semantics) `PASS`; P3-08 (native build + generic runtime
-execution) is `ACTIVE`. The remaining
+execution) `PASS`; P3-09 (independent MIPS32 reference + equivalence) is
+`ACTIVE`. The remaining
 Phase-3 queue (`P3-05` .. `P3-99`) was frozen at the
 P3-04 `PASS` boundary before any P3-05 implementation work; the frozen contract
 is `STAGE_QUEUE.md` `## Queue freeze` (no renumber/insert/merge/split/silent
@@ -20,6 +21,38 @@ and is documented). The Phase-2 terminal state is frozen at tag
 `OPENRECOMP_P2_99=PASS`,
 `OPENRECOMP_PHASE2_FINAL_VERDICT_V1=PASS tests=202` and
 `OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS`.
+
+## P3-08 outcome (PASS)
+
+Markers: `OPENRECOMP_P3_08=PASS`,
+`OPENRECOMP_PHASE3_NATIVE_RUNTIME_V1=PASS tests=54`; terminal marker reserved
+as `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`.
+
+- New Phase-3 gate only; no shared layer, frozen adapter, Phase-1/Phase-2
+  file, gate or frozen manifest was modified.
+- `tools/test_phase3_native_runtime_v1.py` re-emits and pins the P3-07
+  translation, builds it with the Phase-2 deterministic build pipeline
+  (`clang-cl.exe` LLVM 22.1.8 + `lld-link.exe`, `/Brepro`, two isolated runs,
+  `EXECUTABLE_REPRODUCIBLE`), executes the native program three times with
+  byte-identical stdout and checks CoreMark's published validation CRCs.
+- `.openrecomp-phase3/SOURCE_SHA256SUMS.txt`: grown additively to seventeen
+  entries; the earlier gates expect 17 entries and keep byte-identical stdout.
+- Native observable: `exit_status=0`, `steps=394997250`, `pc=0x00004564`,
+  `hi=0x0000000d`, `lo=0x00000000`, `uart_bytes=499`,
+  `state_fnv1a64=0x5eef5d92fab65dad`, `failed=0`; executable sha256
+  `9b36d6df3a3715f98a7ba41f00b63617af755fc29f42e1dc5d744b5e728445af`.
+  UART contains `Correct operation validated.` with `seedcrc 0xe9f5`,
+  `crclist 0xe714`, `crcmatrix 0x1fd7`, `crcstate 0x8e3a`, `crcfinal 0xd340`.
+- Runtime negatives: divide by zero, taken `teq` (code preserved), unaligned
+  indirect target, out-of-region write: all failed closed with the exact
+  expected deterministic message.
+- Official runs byte-identical (raw sha256
+  `5ac6d2ca2c9f630dda7ab11259d000098c0d819da43e84e494f04400f7ddc3cd`); all
+  regressions (P2-99, P3-00..P3-07, Phase-1 host gates, public safety) exit 0
+  with empty stderr and unchanged stdout. Evidence under
+  `.openrecomp-phase3/evidence/P3-08/`.
+- CoreMark is executed natively with its own validation CRCs, but equivalence
+  against an independent reference is not yet proven (P3-09).
 
 ## P3-07 outcome (PASS)
 
@@ -482,19 +515,18 @@ implementation work began.
 
 ## Exact next action
 
-Execute P3-08 (native build + generic runtime execution, frozen queue row):
+Execute P3-09 (independent MIPS32 reference + equivalence, frozen queue row):
 
-1. Build `.openrecomp-phase3/evidence/P3-07/coremark_program.c` and
-   `coremark_support.c` (or their freshly re-emitted equivalents) with the
-   Phase-2 deterministic build pipeline, recording toolchain identity and
-   byte-reproducible artifacts.
-2. Execute the native program repeatedly; capture the deterministic observable
-   (exit status, step count, PC, HI/LO, UART bytes, state digest) and prove
-   replay determinism.
-3. Record evidence under `.openrecomp-phase3/evidence/P3-08/`, update
-   `.openrecomp-phase3/SOURCE_SHA256SUMS.txt` for any new Phase-3 source/gate
-   file, and update the control plane. Do not perform the independent-reference
-   equivalence check in P3-08 (that is P3-09).
+1. Implement an independent MIPS32 reference execution under
+   `.openrecomp-phase3/src/` (its own decoder/interpreter, written separately
+   from the P3-07 emitter and the P3-04 semantics module) that executes the
+   audited ELF from the documented flat-image initial state with the same
+   memory/MMIO/observable contract.
+2. Prove deterministic observable equivalence with the P3-08 native observable
+   (exit status, step count, PC, HI/LO, UART stream, state digest) and record
+   the evidence under `.openrecomp-phase3/evidence/P3-09/`.
+3. Update `.openrecomp-phase3/SOURCE_SHA256SUMS.txt` for the new Phase-3
+   source/gate files and update the control plane.
 
 ## Constraints
 

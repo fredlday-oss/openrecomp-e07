@@ -1,0 +1,162 @@
+{
+  "classification": "EXECUTABLE_REPRODUCIBLE",
+  "executable_reproducible": true,
+  "manifest_reproducible": true,
+  "object_reproducible": true,
+  "runs": [
+    {
+      "build_status": "OK",
+      "compile_commands": [
+        [
+          "clang-cl.exe",
+          "/c",
+          "/Brepro",
+          "/Od",
+          "/std:c11",
+          "/nologo",
+          "/Fo:coremark_support.obj",
+          "coremark_support.c"
+        ],
+        [
+          "clang-cl.exe",
+          "/c",
+          "/Brepro",
+          "/Od",
+          "/std:c11",
+          "/nologo",
+          "/Fo:generated.obj",
+          "generated.c"
+        ]
+      ],
+      "index": 0,
+      "inputs": [
+        {
+          "kind": "RUNTIME_SUPPORT_SOURCE",
+          "name": "coremark_support.c",
+          "sha256": "4afa8c0ea3a827a074342b801a24815e3366808dc290568bfbedfcc506915fa4"
+        },
+        {
+          "kind": "GENERATED_SOURCE",
+          "name": "generated.c",
+          "sha256": "898fae38ab421f005d46b48fcdcd7cfd9b11ee4a18d4831493643ada1479fed1"
+        }
+      ],
+      "link_command": [
+        "lld-link.exe",
+        "/Brepro",
+        "/nologo",
+        "/OUT:program.exe",
+        "coremark_support.obj",
+        "generated.obj"
+      ],
+      "manifest_sha256": "ca3c6b219dcd1f1318ce0155605e29527005f4221c5ab55d859cee3567262394",
+      "outputs": [
+        {
+          "kind": "OBJECT",
+          "name": "coremark_support.obj",
+          "sha256": "feaf60b19f5cbf5da75119b660416882e73855af2c5e4df8453d93c35d93a654"
+        },
+        {
+          "kind": "OBJECT",
+          "name": "generated.obj",
+          "sha256": "8312f07842da1bf625633018945560b9b9a14ef7fe2cc36c8f9a989a3b5f99d2"
+        },
+        {
+          "kind": "EXECUTABLE",
+          "name": "program.exe",
+          "sha256": "9b36d6df3a3715f98a7ba41f00b63617af755fc29f42e1dc5d744b5e728445af"
+        }
+      ],
+      "toolchain": {
+        "compiler": {
+          "identity": "clang-cl.exe",
+          "target": "x86_64-pc-windows-msvc",
+          "version": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"
+        },
+        "linker": {
+          "identity": "lld-link.exe",
+          "target": "x86_64-pc-windows-msvc",
+          "version": "LLD 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"
+        }
+      }
+    },
+    {
+      "build_status": "OK",
+      "compile_commands": [
+        [
+          "clang-cl.exe",
+          "/c",
+          "/Brepro",
+          "/Od",
+          "/std:c11",
+          "/nologo",
+          "/Fo:coremark_support.obj",
+          "coremark_support.c"
+        ],
+        [
+          "clang-cl.exe",
+          "/c",
+          "/Brepro",
+          "/Od",
+          "/std:c11",
+          "/nologo",
+          "/Fo:generated.obj",
+          "generated.c"
+        ]
+      ],
+      "index": 1,
+      "inputs": [
+        {
+          "kind": "RUNTIME_SUPPORT_SOURCE",
+          "name": "coremark_support.c",
+          "sha256": "4afa8c0ea3a827a074342b801a24815e3366808dc290568bfbedfcc506915fa4"
+        },
+        {
+          "kind": "GENERATED_SOURCE",
+          "name": "generated.c",
+          "sha256": "898fae38ab421f005d46b48fcdcd7cfd9b11ee4a18d4831493643ada1479fed1"
+        }
+      ],
+      "link_command": [
+        "lld-link.exe",
+        "/Brepro",
+        "/nologo",
+        "/OUT:program.exe",
+        "coremark_support.obj",
+        "generated.obj"
+      ],
+      "manifest_sha256": "ca3c6b219dcd1f1318ce0155605e29527005f4221c5ab55d859cee3567262394",
+      "outputs": [
+        {
+          "kind": "OBJECT",
+          "name": "coremark_support.obj",
+          "sha256": "feaf60b19f5cbf5da75119b660416882e73855af2c5e4df8453d93c35d93a654"
+        },
+        {
+          "kind": "OBJECT",
+          "name": "generated.obj",
+          "sha256": "8312f07842da1bf625633018945560b9b9a14ef7fe2cc36c8f9a989a3b5f99d2"
+        },
+        {
+          "kind": "EXECUTABLE",
+          "name": "program.exe",
+          "sha256": "9b36d6df3a3715f98a7ba41f00b63617af755fc29f42e1dc5d744b5e728445af"
+        }
+      ],
+      "toolchain": {
+        "compiler": {
+          "identity": "clang-cl.exe",
+          "target": "x86_64-pc-windows-msvc",
+          "version": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"
+        },
+        "linker": {
+          "identity": "lld-link.exe",
+          "target": "x86_64-pc-windows-msvc",
+          "version": "LLD 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"
+        }
+      }
+    }
+  ],
+  "source_reproducible": true,
+  "stage": "P3-08"
+}
