@@ -1,0 +1,77 @@
+{
+  "claim_boundary": "the bounded Phase-3 claim is deterministic observable equivalence for the single audited CoreMark MIPS32 -O1 fixture between the native host execution and an independent reference; nothing broader is claimed",
+  "coremark_status": "NOT_PROVEN",
+  "limitations": [
+    {
+      "evidence": "P3-05 delay-slot policy: call delay slots are the CALL_RETURN continuation, branch delay slots the BRANCH_NOT_TAKEN successor and 97 jump/return/indirect delay slots are explicit orphan blocks",
+      "id": "L1",
+      "impact": "the shared-layer CFG is a structural approximation; true delay-slot execution is provided by the P3-07 emitter and the P3-09 reference, not by the shared layers",
+      "limitation": "the shared Phase-2 structural layers have no MIPS32 delay-slot concept"
+    },
+    {
+      "evidence": "P3-03/P3-04 frontier and P3-05 unresolved inventory",
+      "id": "L2",
+      "impact": "targets are never guessed; the P3-07 emitter resolves them at run time through validated dispatch over the emitted image, and the P3-09 reference executes them natively",
+      "limitation": "three reachable jr $at jump tables and the dead jalr target are unresolved at the shared-layer boundary"
+    },
+    {
+      "evidence": "P3-06 access model",
+      "id": "L3",
+      "impact": "no alias analysis is performed; those accesses are never assumed to hit or miss any object",
+      "limitation": "493 of 505 reachable memory accesses have runtime base registers with no static alias information"
+    },
+    {
+      "evidence": "P3-04 semantics and P3-07/P3-08 runtime boundaries",
+      "id": "L4",
+      "impact": "divide by zero, taken trap, unaligned indirect target and mul-defined HI/LO reads are refused rather than guessed; the audited run never reaches them",
+      "limitation": "architecturally UNPREDICTABLE states fail closed"
+    },
+    {
+      "evidence": "P3-08 build manifest and toolchain identity",
+      "id": "L5",
+      "impact": "the build is byte-reproducible for that toolchain; a different toolchain may produce different bytes",
+      "limitation": "native reproducibility is bound to the recorded clang-cl/lld-link toolchain and host platform"
+    },
+    {
+      "evidence": "P3-01 build profile; SCOPE -O2 is a later stress target",
+      "id": "L6",
+      "impact": "no arbitrary MIPS32, PS1, PS2 or commercial binary or game compatibility is proven",
+      "limitation": "one audited -O1 non-PIC soft-float MIPS32 fixture only"
+    },
+    {
+      "evidence": "COREMARK_STATUS=NOT_PROVEN in the control plane",
+      "id": "L7",
+      "impact": "the bounded real-ELF recompilation proof does not claim general CoreMark support",
+      "limitation": "CoreMark is not a supported target"
+    },
+    {
+      "evidence": "P3-10 package report and P3-90 package audit",
+      "id": "L8",
+      "impact": "later tracked additions are not retroactively included in the committed archive",
+      "limitation": "the committed P3-10 package is the boundary snapshot of the tracked Phase-3 path"
+    }
+  ],
+  "proven": [
+    "the CoreMark MIPS32 ELF is reproducible from pinned open sources and a recorded toolchain (P3-01)",
+    "the ELF is ingested fail-closed into a deterministic guest image (P3-02)",
+    "the audited executable frontier is decoded and classified exactly, with the unsupported encodings enumerated (P3-03) and the reachable semantic frontier implemented and reference-checked (P3-04)",
+    "the frozen Phase-2 structural layers recover the direct structure on the real ELF with unchanged neutrality (P3-05)",
+    "the static data image and the reachable global access model are reconstructed explicitly (P3-06)",
+    "the whole audited image is translated deterministically to host C with runtime-mediated indirect dispatch and MMIO (P3-07)",
+    "the native program builds byte-reproducibly and executes deterministically with CoreMark's own validation CRCs (P3-08)",
+    "an independently written MIPS32 reference produces an identical observable for the full run (P3-09)",
+    "the tracked Phase-3 path packages byte-reproducibly and the whole Phase-1/Phase-2/Phase-3 gate set passes together (P3-10, P3-90)"
+  ],
+  "stage": "P3-91",
+  "terminal_marker": "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN",
+  "unproven": [
+    "arbitrary MIPS32 ELF support",
+    "PS1 compatibility",
+    "PS2 compatibility",
+    "game or commercial binary compatibility",
+    "cycle accuracy, hardware/console emulation",
+    "self-modifying code",
+    "the -O2 stress profile",
+    "runtime equivalence beyond the audited deterministic observable"
+  ]
+}

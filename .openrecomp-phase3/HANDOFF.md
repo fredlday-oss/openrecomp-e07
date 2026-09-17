@@ -9,7 +9,8 @@ reachable MIPS32 semantics) `PASS`; P3-05
 for CoreMark semantics) `PASS`; P3-08 (native build + generic runtime
 execution) `PASS`; P3-09 (independent MIPS32 reference + equivalence) `PASS`;
 P3-10 (reproducible package + whole regression) `PASS`; P3-90 (Phase-3 whole
-regression) `PASS`; P3-91 (evidence index + limitations) is `ACTIVE`. The remaining
+regression) `PASS`; P3-91 (evidence index + limitations) `PASS`; P3-99
+(final verdict) is `ACTIVE`. The remaining
 Phase-3 queue (`P3-05` .. `P3-99`) was frozen at the
 P3-04 `PASS` boundary before any P3-05 implementation work; the frozen contract
 is `STAGE_QUEUE.md` `## Queue freeze` (no renumber/insert/merge/split/silent
@@ -22,6 +23,28 @@ and is documented). The Phase-2 terminal state is frozen at tag
 `OPENRECOMP_P2_99=PASS`,
 `OPENRECOMP_PHASE2_FINAL_VERDICT_V1=PASS tests=202` and
 `OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS`.
+
+## P3-91 outcome (PASS)
+
+Markers: `OPENRECOMP_P3_91=PASS`,
+`OPENRECOMP_PHASE3_EVIDENCE_INDEX_V1=PASS tests=50`; terminal marker reserved
+as `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`.
+
+- New Phase-3 gate only (`tools/test_phase3_evidence_index_v1.py`); the
+  manifest grew additively to twenty-three entries.
+- `evidence_index.json`: 346 evidence files (10495633 bytes; 314 tracked, 32
+  untracked captures), each with stage/path/size/sha256/tracked, plus the
+  control-plane hashes, the frozen boundary identities and the package
+  identity; every stage P3-00..P3-90 has its result record; every JSON
+  evidence file is tracked.
+- `claim_record.json`: reserved terminal marker, `COREMARK_STATUS=NOT_PROVEN`,
+  nine bounded proven statements, eight unproven areas and eight explicit
+  limitations with evidence and impact.
+- Official runs byte-identical (raw sha256
+  `98a4b3dffd5959eadf8fb25241c84f0777ca646ebcfe8471ba7ad71b3e13d8c2`, 2046
+  bytes); boundary regressions unchanged. Evidence under
+  `.openrecomp-phase3/evidence/P3-91/`.
+- The terminal verdict remains reserved for P3-99.
 
 ## P3-90 outcome (PASS)
 
@@ -594,20 +617,19 @@ implementation work began.
 
 ## Exact next action
 
-Execute P3-91 (evidence index + limitations, frozen queue row):
+Execute P3-99 (final verdict, frozen queue row):
 
-1. Produce the complete Phase-3 evidence index: every stage artifact under
-   `.openrecomp-phase3/evidence/` with stage, name, size and sha256, plus the
-   control-plane file hashes, the frozen boundary identities and the package
-   identity.
-2. Record the explicit bounded/unproven claim record and the limitations list
-   (shared-layer delay-slot approximation, unresolved indirect sites at the
-   shared-layer boundary, runtime-base access unknowns, fail-closed
-   UNPREDICTABLE states, host/toolchain dependence, bounded audited fixture
-   only, no PS1/PS2/game/arbitrary-MIPS32 compatibility).
-3. Record evidence under `.openrecomp-phase3/evidence/P3-91/`, update
-   `.openrecomp-phase3/SOURCE_SHA256SUMS.txt` for any new Phase-3 source/gate
-   file, and update the control plane.
+1. Re-verify the complete audited tree: source integrity, frozen Phase-1/
+   Phase-2 boundary identities, the P3-10 package, the whole-regression audit,
+   the P3-91 index and claim record, and the control-plane consistency.
+2. Issue the terminal verdict for the bounded claim if and only if every check
+   passes: record `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=PASS` for the
+   bounded audited CoreMark MIPS32 recompilation claim, with the explicit
+   limitations carried from P3-91. On any failure the marker stays
+   `NOT_PROVEN` and P3-99 fails closed.
+3. Preserve `COREMARK_STATUS=NOT_PROVEN` (the bounded proof is not general
+   CoreMark support) and update the control plane and evidence under
+   `.openrecomp-phase3/evidence/P3-99/`.
 
 ## Constraints
 

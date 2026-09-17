@@ -23,8 +23,8 @@ P3-05 implementation work.
 | P3-09 | Independent MIPS32 reference + equivalence | COMPLETE | Independent MIPS32 reference execution and deterministic observable equivalence against the native host executable |
 | P3-10 | Reproducible package + whole regression | COMPLETE | Byte-reproducible package for the Phase-3 path; Phase-1, Phase-2 and Phase-3 gates pass together |
 | P3-90 | Phase-3 whole regression | COMPLETE | Deterministic whole-project regression audit of the completed Phase-3 stages plus preserved Phase-1/Phase-2 gates |
-| P3-91 | Evidence index + limitations | ACTIVE | Complete Phase-3 evidence index and explicit bounded/unproven claim record |
-| P3-99 | Final verdict | QUEUED | Phase-3 verdict issued only if the bounded end-to-end real-ELF claim is proven on the audited tree |
+| P3-91 | Evidence index + limitations | COMPLETE | Complete Phase-3 evidence index and explicit bounded/unproven claim record |
+| P3-99 | Final verdict | ACTIVE | Phase-3 verdict issued only if the bounded end-to-end real-ELF claim is proven on the audited tree |
 
 ## Queue freeze
 
@@ -58,6 +58,9 @@ Frozen-queue rules:
   ProgramModel/CFG/functions/call graph/translation-unit stage passed as the
   frozen row specifies, so no reconciliation, renumbering or redefinition was
   required or performed.
+- P3-91 completed with the frozen contract unchanged: the evidence-index +
+  limitations stage passed as the frozen row specifies, so no
+  reconciliation, renumbering or redefinition was required or performed.
 - P3-90 completed with the frozen contract unchanged: the whole-regression
   audit passed as the frozen row specifies, so no reconciliation,
   renumbering or redefinition was required or performed.
@@ -116,6 +119,8 @@ Frozen-queue rules:
 - `OPENRECOMP_PHASE3_PACKAGE_REGRESSION_V1=PASS tests=20`
 - `OPENRECOMP_P3_90=PASS`
 - `OPENRECOMP_PHASE3_WHOLE_REGRESSION_V1=PASS tests=30`
+- `OPENRECOMP_P3_91=PASS`
+- `OPENRECOMP_PHASE3_EVIDENCE_INDEX_V1=PASS tests=50`
 - terminal Phase-3 marker: reserved, value `NOT_PROVEN`
 
 ## Failure values (not issued)

@@ -4,8 +4,8 @@ PHASE=3
 BASELINE_TAG=openrecomp-phase2-pass
 BASELINE_COMMIT=01b1d7cba8c931fca95d041389cfb1902b7c89fe
 BASELINE_TREE=6513eefa5ef59b7d0e127f0179c6fc6c21fdac78
-CURRENT_STAGE=P3-91
-LAST_PASSED_STAGE=P3-90
+CURRENT_STAGE=P3-99
+LAST_PASSED_STAGE=P3-91
 STATUS=ACTIVE
 FINAL_VERDICT=NOT_PROVEN
 COREMARK_STATUS=NOT_PROVEN
@@ -85,8 +85,8 @@ QUEUE_FREEZE_STAGES=P3-05..P3-99
 | P3-09 | Independent MIPS32 reference + equivalence | `PASS` | `.openrecomp-phase3/evidence/P3-09/` |
 | P3-10 | Reproducible package + whole regression | `PASS` | `.openrecomp-phase3/evidence/P3-10/` |
 | P3-90 | Phase-3 whole regression | `PASS` | `.openrecomp-phase3/evidence/P3-90/` |
-| P3-91 | Evidence index + limitations | `ACTIVE` | - |
-| P3-99 | Final verdict | `QUEUED` | - |
+| P3-91 | Evidence index + limitations | `PASS` | `.openrecomp-phase3/evidence/P3-91/` |
+| P3-99 | Final verdict | `ACTIVE` | - |
 
 ## P3-00 acceptance criteria
 
@@ -800,6 +800,44 @@ empty stderr). The terminal marker remains reserved and `NOT_PROVEN`.
 Claim boundary: P3-90 adds no capability claim; the terminal verdict is issued
 only by P3-99 after P3-91 records limitations. `COREMARK_STATUS=NOT_PROVEN`.
 
+## P3-91 result (PASS)
+
+Stage: `OPENRECOMP_PHASE3_EVIDENCE_INDEX_V1`. Evidence:
+`.openrecomp-phase3/evidence/P3-91/`. Gate:
+`tools/test_phase3_evidence_index_v1.py` (50 checks).
+
+Markers issued:
+
+- Stage marker: `OPENRECOMP_P3_91=PASS`
+- Gate marker: `OPENRECOMP_PHASE3_EVIDENCE_INDEX_V1=PASS tests=50`
+- Terminal marker (reserved): `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`
+
+New Phase-3 gate only (`tools/test_phase3_evidence_index_v1.py`); the manifest
+grew additively from twenty-two to twenty-three entries and the earlier gates
+still emit byte-identical stdout.
+
+Index: 346 evidence files (10495633 bytes; 314 tracked, 32 untracked
+platform-line-ending/current-stage captures), each with stage, path, size,
+sha256 and tracked status; the six control-plane file hashes; the frozen
+Phase-1/Phase-2 boundary identities; the P3-10 package identity. Every stage
+`P3-00 .. P3-90` carries its result record and every JSON evidence file is
+tracked.
+
+Claim record: the reserved terminal marker and `COREMARK_STATUS=NOT_PROVEN`,
+nine bounded proven statements, eight explicit unproven areas (arbitrary
+MIPS32, PS1, PS2, game/commercial compatibility, cycle accuracy/console
+emulation, self-modifying code, `-O2`, runtime equivalence beyond the audited
+observable) and eight limitations with evidence and impact (shared-layer
+delay-slot approximation, unresolved indirect sites at the shared-layer
+boundary, runtime-base alias unknowns, fail-closed UNPREDICTABLE states,
+recorded-toolchain dependence, single audited fixture, CoreMark not supported,
+package boundary snapshot).
+
+Determinism: two consecutive official runs byte-identical (raw sha256
+`98a4b3dffd5959eadf8fb25241c84f0777ca646ebcfe8471ba7ad71b3e13d8c2`, 2046 bytes,
+empty stderr); boundary regressions unchanged. The terminal verdict remains
+reserved for P3-99. `COREMARK_STATUS=NOT_PROVEN`.
+
 ## P3-09 image-fidelity correction record
 
 The P3-09 independent ELF loader compared its flat load image with the host
@@ -831,9 +869,11 @@ independent evidence.
 
 ## Next exact action
 
-P3-90 is `PASS`. Advance to P3-91 (evidence index + limitations, frozen queue
-row): produce the complete Phase-3 evidence index (every stage artifact with
-its sha256 and size), record the explicit bounded/unproven claim record and the
-limitations list, and verify the index against the on-disk evidence. Record
-evidence under `.openrecomp-phase3/evidence/P3-91/`. Do not issue the terminal
-verdict in P3-91 (that is P3-99).
+P3-91 is `PASS`. Advance to P3-99 (final verdict, frozen queue row): re-verify
+the complete audited tree (source integrity, frozen boundary, package,
+whole-regression audit and the P3-91 index/claim record) and issue the terminal
+Phase-3 verdict for the bounded claim on this tree. The verdict is issued only
+if every check passes; otherwise the terminal marker stays `NOT_PROVEN` and
+P3-99 fails closed. Record evidence under `.openrecomp-phase3/evidence/P3-99/`
+and update the control plane, preserving `COREMARK_STATUS=NOT_PROVEN` (the
+bounded proof is not general CoreMark support).

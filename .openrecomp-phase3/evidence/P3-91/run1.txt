@@ -1,0 +1,64 @@
+=== P3-91 Evidence Index + Limitations Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest-exists
+PASS: source:root-manifest-frozen-sha256
+PASS: source:root-manifest-entry-count
+PASS: source:root-manifest-entries-verified
+PASS: source:phase3-manifest-exists
+PASS: source:phase3-manifest-entry-set
+PASS: source:phase3-manifest-entries-verified
+
+--- evidence index ---
+PASS: index:non-empty
+PASS: index:untracked-outside-control-plane
+PASS: index:stage-set
+PASS: index:stage:P3-00:has-result
+PASS: index:stage:P3-00:tracked
+PASS: index:stage:P3-01:has-result
+PASS: index:stage:P3-01:tracked
+PASS: index:stage:P3-02:has-result
+PASS: index:stage:P3-02:tracked
+PASS: index:stage:P3-03:has-result
+PASS: index:stage:P3-03:tracked
+PASS: index:stage:P3-04:has-result
+PASS: index:stage:P3-04:tracked
+PASS: index:stage:P3-05:has-result
+PASS: index:stage:P3-05:tracked
+PASS: index:stage:P3-06:has-result
+PASS: index:stage:P3-06:tracked
+PASS: index:stage:P3-07:has-result
+PASS: index:stage:P3-07:tracked
+PASS: index:stage:P3-08:has-result
+PASS: index:stage:P3-08:tracked
+PASS: index:stage:P3-09:has-result
+PASS: index:stage:P3-09:tracked
+PASS: index:stage:P3-10:has-result
+PASS: index:stage:P3-10:tracked
+PASS: index:stage:P3-90:has-result
+PASS: index:stage:P3-90:tracked
+PASS: index:control:CONTROL_POLICY.md
+PASS: index:control:SCOPE.md
+PASS: index:control:STAGE_QUEUE.md
+PASS: index:control:STATE.md
+PASS: index:control:HANDOFF.md
+PASS: index:control:SOURCE_SHA256SUMS.txt
+PASS: index:control-plane-set
+
+--- claim record ---
+PASS: claim:terminal-reserved-state
+PASS: claim:coremark-not-proven
+PASS: claim:limitations-non-empty
+PASS: claim:limitation-ids-unique
+PASS: claim:proven-statements
+PASS: claim:limitations-have-evidence
+PASS: claim:p3-90-audit
+PASS: claim:p3-10-package
+
+--- determinism ---
+PASS: determinism:artifact-hashes-recorded
+
+=== RESULT ===
+OPENRECOMP_P3_91=PASS
+OPENRECOMP_PHASE3_EVIDENCE_INDEX_V1=PASS tests=50
+OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN

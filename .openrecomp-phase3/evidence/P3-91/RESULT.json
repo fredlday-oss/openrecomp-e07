@@ -1,0 +1,258 @@
+{
+  "checks": [
+    {
+      "check": "claim:coremark-not-proven",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:limitation-ids-unique",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:limitations-have-evidence",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:limitations-non-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:p3-10-package",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:p3-90-audit",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:proven-statements",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:terminal-reserved-state",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:artifact-hashes-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "index:control-plane-set",
+      "status": "PASS"
+    },
+    {
+      "check": "index:control:CONTROL_POLICY.md",
+      "status": "PASS"
+    },
+    {
+      "check": "index:control:HANDOFF.md",
+      "status": "PASS"
+    },
+    {
+      "check": "index:control:SCOPE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "index:control:SOURCE_SHA256SUMS.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "index:control:STAGE_QUEUE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "index:control:STATE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "index:non-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage-set",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-00:has-result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-00:tracked",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-01:has-result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-01:tracked",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-02:has-result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-02:tracked",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-03:has-result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-03:tracked",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-04:has-result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-04:tracked",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-05:has-result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-05:tracked",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-06:has-result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-06:tracked",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-07:has-result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-07:tracked",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-08:has-result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-08:tracked",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-09:has-result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-09:tracked",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-10:has-result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-10:tracked",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-90:has-result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P3-90:tracked",
+      "status": "PASS"
+    },
+    {
+      "check": "index:untracked-outside-control-plane",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entry-set",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entry-count",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-frozen-sha256",
+      "status": "PASS"
+    }
+  ],
+  "claim_boundary": "P3-91 indexes the evidence and records the bounded proven statements and the explicit limitations. It neither adds capability nor issues the terminal verdict.",
+  "evidence_files": {
+    "claim_record.json": "7e88a1323147010f8dc998e6ede68e63d357f79745bcff5b22708351c255833d",
+    "determinism.json": "d8d30a5b33381388b97d0dd2fc26d72737fa02c7b59b550f453bcdacec9753a5",
+    "evidence_index.json": "34de386f494dd16170ec35a2ca3d2a22023451e039e6b26142b51beab0c92f44"
+  },
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "claim_record": {
+      "limitation_count": 8,
+      "proven_count": 9,
+      "terminal_marker": "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN",
+      "unproven_count": 8
+    },
+    "determinism": {
+      "artifact_count": 2
+    },
+    "index": {
+      "file_count": 346,
+      "stages": [
+        "P3-00",
+        "P3-01",
+        "P3-02",
+        "P3-03",
+        "P3-04",
+        "P3-05",
+        "P3-06",
+        "P3-07",
+        "P3-08",
+        "P3-09",
+        "P3-10",
+        "P3-90"
+      ],
+      "total_bytes": 10495633,
+      "tracked": 314,
+      "untracked": 32
+    },
+    "source_integrity": {
+      "phase3_manifest_entries": 23,
+      "phase3_manifest_sha256": "3c34c039e78fd9ec5426abe06b9ae8a405d123e24038694daf613783d5e20b36",
+      "root_manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"
+    }
+  },
+  "markers": {
+    "gate": "OPENRECOMP_PHASE3_EVIDENCE_INDEX_V1=PASS tests=50",
+    "stage": "OPENRECOMP_P3_91=PASS",
+    "terminal": "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
+  },
+  "passed": 50,
+  "stage": "P3-91",
+  "stage_name": "OPENRECOMP_PHASE3_EVIDENCE_INDEX_V1",
+  "status": "PASS",
+  "tests": 50
+}

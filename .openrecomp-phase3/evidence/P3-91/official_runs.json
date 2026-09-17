@@ -1,0 +1,48 @@
+{
+  "identical_lf": true,
+  "identical_raw": true,
+  "newline_policy": "captures are stored and compared LF-normalized; the raw-hash is recorded as well because this host emits CRLF through the stdout pipe",
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "command": [
+        "C:\\Users\\fredd\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "tools/test_phase3_evidence_index_v1.py"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P3_91=PASS",
+        "OPENRECOMP_PHASE3_EVIDENCE_INDEX_V1=PASS tests=50",
+        "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2046,
+      "stdout_sha256_lf": "bfe3f92c2f41392e6bf6829acaf7630a47bb08673111b33109419a5c0a426d2b",
+      "stdout_sha256_raw": "98a4b3dffd5959eadf8fb25241c84f0777ca646ebcfe8471ba7ad71b3e13d8c2"
+    },
+    {
+      "command": [
+        "C:\\Users\\fredd\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "tools/test_phase3_evidence_index_v1.py"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P3_91=PASS",
+        "OPENRECOMP_PHASE3_EVIDENCE_INDEX_V1=PASS tests=50",
+        "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2046,
+      "stdout_sha256_lf": "bfe3f92c2f41392e6bf6829acaf7630a47bb08673111b33109419a5c0a426d2b",
+      "stdout_sha256_raw": "98a4b3dffd5959eadf8fb25241c84f0777ca646ebcfe8471ba7ad71b3e13d8c2"
+    }
+  ],
+  "stage": "P3-91",
+  "stderr_empty_both": true
+}
