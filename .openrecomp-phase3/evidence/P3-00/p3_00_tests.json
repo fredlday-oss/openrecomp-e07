@@ -251,13 +251,13 @@
     "boundary": {
       "branch": "phase3/mips32-real-elf-v1",
       "commit": "01b1d7cba8c931fca95d041389cfb1902b7c89fe",
-      "commits_since_boundary": 2,
+      "commits_since_boundary": 3,
       "tag": "openrecomp-phase2-pass",
       "tree": "6513eefa5ef59b7d0e127f0179c6fc6c21fdac78"
     },
     "control_plane": {
       "coremark_claim_findings": [],
-      "digest_sha256": "65da60b7507d56c9e25c9e6ffd4c95aa345286a1e0bb1a447168d47f38010f63",
+      "digest_sha256": "6a9432285f47b38352d058b19af7b55354df9f603d33150a6679e6d6dd92383d",
       "files": 5,
       "offending": []
     },
@@ -285,7 +285,7 @@
     },
     "worktree": {
       "residue_files": 275,
-      "residue_manifest_sha256": "921ef29b8fdc81db77c4c735d6493c4001ad1b1d7d6f4af34a725244a1c2bc27",
+      "residue_manifest_sha256": "0cb9b86ce044920fdce216adeedf5b7ec63b3a0a5e2657ad7e095dcec2862ca5",
       "unexpected": [],
       "untracked_top_level": [
         ".openrecomp-phase2/backups/",
@@ -349,14 +349,14 @@
         ".openrecomp-phase3/evidence/P3-04/regression_public_safety.txt",
         ".openrecomp-phase3/evidence/P3-04/run1.txt",
         ".openrecomp-phase3/evidence/P3-04/run2.txt",
-        ".openrecomp-phase3/evidence/P3-06/",
+        ".openrecomp-phase3/evidence/P3-07/",
         ".openrecomp-phase3/external/",
-        ".openrecomp-phase3/src/p3_static_data_v1.py",
+        ".openrecomp-phase3/src/p3_host_emit_v1.py",
         ".openrecomp-phase3/tools/",
         "artifacts/mips32_translation_evidence_closure_v1/",
         "artifacts/mips32_translation_v1/",
         "tools/test_build_package_reproducibility_v1.py",
-        "tools/test_phase3_static_data_v1.py"
+        "tools/test_phase3_host_emit_v1.py"
       ]
     }
   },

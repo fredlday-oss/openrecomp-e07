@@ -6,7 +6,8 @@ image) `PASS`; P3-03 (MIPS32 decode expansion) `PASS`; P3-04 (CoreMark
 reachable MIPS32 semantics) `PASS`; P3-05
 (ProgramModel/CFG/functions/call graph/translation units on the real ELF)
 `PASS`; P3-06 (static data/global reconstruction) `PASS`; P3-07 (host emission
-for CoreMark semantics) is `ACTIVE`. The remaining
+for CoreMark semantics) `PASS`; P3-08 (native build + generic runtime
+execution) is `ACTIVE`. The remaining
 Phase-3 queue (`P3-05` .. `P3-99`) was frozen at the
 P3-04 `PASS` boundary before any P3-05 implementation work; the frozen contract
 is `STAGE_QUEUE.md` `## Queue freeze` (no renumber/insert/merge/split/silent
@@ -19,6 +20,41 @@ and is documented). The Phase-2 terminal state is frozen at tag
 `OPENRECOMP_P2_99=PASS`,
 `OPENRECOMP_PHASE2_FINAL_VERDICT_V1=PASS tests=202` and
 `OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS`.
+
+## P3-07 outcome (PASS)
+
+Markers: `OPENRECOMP_P3_07=PASS`,
+`OPENRECOMP_PHASE3_HOST_EMISSION_V1=PASS tests=67`; terminal marker reserved as
+`OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`.
+
+- New Phase-3 files only; no shared layer, frozen adapter, Phase-1/Phase-2
+  file, gate or frozen manifest was modified.
+- `.openrecomp-phase3/src/p3_host_emit_v1.py`: deterministic whole-image
+  translation. 3479 emitted cases (one per decodable word), 620 delay slots,
+  567 direct targets, 4 runtime-mediated indirect sites (`0x1958`, `0x3130`,
+  `0x3830`, `0x39a0`), exact semantics for all 46 ops present, true delay-slot
+  protocol, P2-08 ABI memory access, host calls for the UART/exit windows, and
+  fail-closed UNPREDICTABLE states.
+- `tools/test_phase3_host_emit_v1.py`: the P3-07 gate (67 checks).
+- `.openrecomp-phase3/SOURCE_SHA256SUMS.txt`: grown additively to sixteen
+  entries; P3-02..P3-06 expected 16 entries additively with unchanged stdout.
+- Evidence carries the generated `coremark_program.c` and
+  `coremark_support.c`; the emitted `g_image` initializer and region table are
+  parsed back and equal the P3-02 guest image window and segment permissions.
+- Emission determinism: two independent emissions byte-identical; official
+  runs byte-identical (raw sha256
+  `d7986967dbf9fb2021e86dab7902c18d294a6b52e606a0cabad13907bd317746`, empty
+  stderr, exit 0).
+- Regressions re-run and unchanged: P2-99 `PASS tests=202` (`66913e57...`),
+  P3-00 `PASS tests=61` (`a039bbff...`), P3-01 `PASS tests=76`
+  (`81eede03...`), P3-02 `PASS tests=197` (`f24f4cef...`), P3-03
+  `PASS tests=201` (`15e20a2c...`), P3-04 `PASS tests=126` (`412544a4...`),
+  P3-05 `PASS tests=202` (`12bf87d7...`), P3-06 `PASS tests=123`
+  (`23d2f1c2...`), Phase-1 host gates `PASS=44 FAIL=0 SKIPPED=2`
+  (`2a9d1bba...`), public safety `PASS` (`ad022ff1...`). Evidence under
+  `.openrecomp-phase3/evidence/P3-07/`.
+- CoreMark remains `NOT_PROVEN`; the generated code has not been built or
+  executed yet.
 
 ## P3-06 outcome (PASS)
 
@@ -446,24 +482,19 @@ implementation work began.
 
 ## Exact next action
 
-Execute P3-07 (host emission for CoreMark semantics, frozen queue row):
+Execute P3-08 (native build + generic runtime execution, frozen queue row):
 
-1. Consume the P3-04 semantic overlay
-   (`.openrecomp-phase3/evidence/P3-04/semantic_implementations.json`,
-   `reachable_unsupported_after.json`), the P3-05 structure
-   (`.openrecomp-phase3/evidence/P3-05/`), and the P3-06 static-data model
-   (`.openrecomp-phase3/evidence/P3-06/`).
-2. Emit deterministic host code for the proven subset through the existing
-   Phase-2 host-emission layers/contracts; unsupported or external behaviour
-   must fail closed or be explicitly runtime-mediated (the two UART MMIO
-   stores are outside the guest image and the three `jr $at` jump tables stay
-   unresolved: neither may be invented).
-3. Carry PROVEN vs CANDIDATE classification forward; transport the static data
-   image and the resolved global accesses exactly.
-4. Record evidence under `.openrecomp-phase3/evidence/P3-07/`, update
+1. Build `.openrecomp-phase3/evidence/P3-07/coremark_program.c` and
+   `coremark_support.c` (or their freshly re-emitted equivalents) with the
+   Phase-2 deterministic build pipeline, recording toolchain identity and
+   byte-reproducible artifacts.
+2. Execute the native program repeatedly; capture the deterministic observable
+   (exit status, step count, PC, HI/LO, UART bytes, state digest) and prove
+   replay determinism.
+3. Record evidence under `.openrecomp-phase3/evidence/P3-08/`, update
    `.openrecomp-phase3/SOURCE_SHA256SUMS.txt` for any new Phase-3 source/gate
-   file, and update the control plane. Do not begin native build/runtime
-   execution (P3-08) in P3-07.
+   file, and update the control plane. Do not perform the independent-reference
+   equivalence check in P3-08 (that is P3-09).
 
 ## Constraints
 

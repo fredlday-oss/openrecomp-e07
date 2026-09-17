@@ -1,0 +1,85 @@
+=== P3-07 Host Emission Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest-exists
+PASS: source:root-manifest-frozen-sha256
+PASS: source:root-manifest-entry-count
+PASS: source:root-manifest-entries-verified
+PASS: source:phase3-manifest-exists
+PASS: source:phase3-manifest-entry-set
+PASS: source:phase3-manifest-entries-verified
+
+--- inputs ---
+PASS: fixture:exists
+PASS: fixture:sha256
+PASS: fixture:size
+PASS: fixture:entry
+PASS: frontier:total_words
+PASS: frontier:reachable_words
+PASS: frontier:unreachable_words
+PASS: model:regions
+
+--- emission ---
+PASS: emission:case-count
+PASS: emission:op-histogram
+PASS: emission:op-set-covers-image
+PASS: emission:delay-slots
+PASS: emission:direct-targets
+PASS: emission:link-histogram
+PASS: emission:indirect-sites
+PASS: emission:indirect-never-static
+PASS: emission:padding-invalid-set
+PASS: emission:padding-not-emitted
+PASS: emission:all-decodable-emitted
+PASS: emission:no-host-path
+PASS: emission:no-timestamp
+PASS: emission:no-uuid
+PASS: emission:ascii-lf
+PASS: emission:case-labels
+PASS: emission:break-per-case
+PASS: emission:default-fails-closed
+PASS: emission:delay-slot-protocol
+PASS: emission:step-limit
+PASS: emission:uart-capacity
+PASS: emission:mmio-addresses
+PASS: emission:abi-memory-boundary
+PASS: emission:abi-host-call
+PASS: emission:service-macros
+PASS: emission:fail-closed-unpredictable
+PASS: emission:no-forbidden-casts
+PASS: emission:image-sha
+PASS: emission:image-initializer-present
+PASS: emission:image-initializer-length
+PASS: emission:image-initializer-equals-guest-image
+PASS: emission:region-table
+PASS: support:no-host-path
+PASS: support:no-timestamp
+PASS: support:no-uuid
+PASS: support:observable-contract
+PASS: support:hash-order
+PASS: support:region-checked
+PASS: support:service-dispatch
+PASS: support:failure-reasons
+
+--- coverage ---
+PASS: coverage:emitted-op-count
+PASS: coverage:emitted-ops
+PASS: coverage:all-ops-emitted
+PASS: coverage:unused-op-set
+
+--- negatives ---
+PASS: negatives:no-failures
+PASS: negatives:count
+
+--- determinism ---
+PASS: determinism:program-source
+PASS: determinism:support-source
+PASS: determinism:program-fingerprint
+PASS: determinism:support-fingerprint
+PASS: determinism:counts
+PASS: determinism:artifact-hashes-recorded
+
+=== RESULT ===
+OPENRECOMP_P3_07=PASS
+OPENRECOMP_PHASE3_HOST_EMISSION_V1=PASS tests=67
+OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN

@@ -1,0 +1,72 @@
+{
+  "cases": [
+    {
+      "actual_code": "UNSUPPORTED_OP",
+      "expected_code": "UNSUPPORTED_OP",
+      "fixture": "unknown-op",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "CONTROL_IN_DELAY_SLOT",
+      "expected_code": "CONTROL_IN_DELAY_SLOT",
+      "fixture": "control-in-delay-slot",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "DIRECT_TARGET_NOT_EMITTED",
+      "expected_code": "DIRECT_TARGET_NOT_EMITTED",
+      "fixture": "direct-target-not-emitted",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INDIRECT_WITH_TARGET",
+      "expected_code": "INDIRECT_WITH_TARGET",
+      "fixture": "indirect-with-target",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "UNSUPPORTED_CONTROL",
+      "expected_code": "UNSUPPORTED_CONTROL",
+      "fixture": "unsupported-control",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "EXTERNAL_TRAP_OP",
+      "expected_code": "EXTERNAL_TRAP_OP",
+      "fixture": "external-trap",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "DELAY_SLOT_NOT_EMITTED",
+      "expected_code": "DELAY_SLOT_NOT_EMITTED",
+      "fixture": "delay-slot-not-emitted",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "EMPTY_IMAGE",
+      "expected_code": "EMPTY_IMAGE",
+      "fixture": "empty-image",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "MISSING_OPERAND",
+      "expected_code": "MISSING_OPERAND",
+      "fixture": "missing-target-operand",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "INVALID_SHAMT",
+      "expected_code": "INVALID_SHAMT",
+      "fixture": "invalid-shamt",
+      "status": "PASS"
+    },
+    {
+      "actual_code": "REGION_WITHOUT_ACCESS",
+      "expected_code": "REGION_WITHOUT_ACCESS",
+      "fixture": "region-without-access",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "stage": "P3-07"
+}

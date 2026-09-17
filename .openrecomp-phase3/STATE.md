@@ -4,8 +4,8 @@ PHASE=3
 BASELINE_TAG=openrecomp-phase2-pass
 BASELINE_COMMIT=01b1d7cba8c931fca95d041389cfb1902b7c89fe
 BASELINE_TREE=6513eefa5ef59b7d0e127f0179c6fc6c21fdac78
-CURRENT_STAGE=P3-07
-LAST_PASSED_STAGE=P3-06
+CURRENT_STAGE=P3-08
+LAST_PASSED_STAGE=P3-07
 STATUS=ACTIVE
 FINAL_VERDICT=NOT_PROVEN
 COREMARK_STATUS=NOT_PROVEN
@@ -80,8 +80,8 @@ QUEUE_FREEZE_STAGES=P3-05..P3-99
 | P3-04 | CoreMark reachable MIPS32 semantics | `PASS` | `.openrecomp-phase3/evidence/P3-04/` |
 | P3-05 | ProgramModel/CFG/functions/call graph/translation units | `PASS` | `.openrecomp-phase3/evidence/P3-05/` |
 | P3-06 | Static data/global reconstruction | `PASS` | `.openrecomp-phase3/evidence/P3-06/` |
-| P3-07 | Host emission for CoreMark semantics | `ACTIVE` | - |
-| P3-08 | Native build + generic runtime execution | `QUEUED` | - |
+| P3-07 | Host emission for CoreMark semantics | `PASS` | `.openrecomp-phase3/evidence/P3-07/` |
+| P3-08 | Native build + generic runtime execution | `ACTIVE` | - |
 | P3-09 | Independent MIPS32 reference + equivalence | `QUEUED` | - |
 | P3-10 | Reproducible package + whole regression | `QUEUED` | - |
 | P3-90 | Phase-3 whole regression | `QUEUED` | - |
@@ -564,6 +564,60 @@ translated or executed, the 493 runtime-base accesses stay unresolved, no
 alias analysis is performed, and no arbitrary MIPS32/PS1/PS2 compatibility
 is claimed. `COREMARK_STATUS=NOT_PROVEN`.
 
+## P3-07 result (PASS)
+
+Stage: `OPENRECOMP_PHASE3_HOST_EMISSION_V1`. Evidence:
+`.openrecomp-phase3/evidence/P3-07/`. Gate:
+`tools/test_phase3_host_emit_v1.py` (67 checks).
+
+Markers issued:
+
+- Stage marker: `OPENRECOMP_P3_07=PASS`
+- Gate marker: `OPENRECOMP_PHASE3_HOST_EMISSION_V1=PASS tests=67`
+- Terminal marker (reserved): `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`
+
+Implementation (new Phase-3 files only; no shared layer, frozen adapter,
+Phase-1/Phase-2 file, gate or frozen manifest was modified):
+
+- `.openrecomp-phase3/src/p3_host_emit_v1.py` — deterministic whole-image
+  emitter: one case per decodable word (3479), exact semantics for all 46 ops
+  present, true delay-slot protocol, runtime-mediated indirect dispatch, P2-08
+  ABI memory access and host calls for the two external windows, fail-closed
+  UNPREDICTABLE states, and the host support with the FNV-1a 64 observable.
+- `tools/test_phase3_host_emit_v1.py` — the P3-07 gate.
+- `.openrecomp-phase3/SOURCE_SHA256SUMS.txt` — grown additively from fourteen
+  to sixteen entries; the P3-02..P3-06 gates now expect sixteen entries
+  (additive) and still emit byte-identical stdout.
+- Evidence includes the generated `coremark_program.c` (1073923 bytes,
+  fingerprint `898fae38...` at the boundary emission) and `coremark_support.c`
+  (7946 bytes), plus the emission model, coverage, negatives and determinism
+  records.
+
+Emission facts: 3479 cases (eight reserved padding words excluded), 620 control
+transfers each with an emitted non-control delay slot, 567 direct targets all
+emitted, 4 indirect sites (`0x1958`, `0x3130`, `0x3830`, `0x39a0`)
+runtime-mediated with no static target. The emitted `g_image` initializer and
+region table equal the P3-02 guest image window and segment permissions
+byte-for-byte.
+
+Verification: 67 checks including 11 fail-closed negatives and emission
+determinism (two independent emissions byte-identical). Official runs: two
+consecutive runs byte-identical (raw sha256
+`d7986967dbf9fb2021e86dab7902c18d294a6b52e606a0cabad13907bd317746`, empty
+stderr, exit 0). Regressions all exit 0 with empty stderr and byte-identical
+stdout: P2-99 `PASS tests=202` (`66913e57...`), P3-00 `PASS tests=61`
+(`a039bbff...`), P3-01 `PASS tests=76` (`81eede03...`), P3-02
+`PASS tests=197` (`f24f4cef...`), P3-03 `PASS tests=201` (`15e20a2c...`),
+P3-04 `PASS tests=126` (`412544a4...`), P3-05 `PASS tests=202`
+(`12bf87d7...`), P3-06 `PASS tests=123` (`23d2f1c2...`), Phase-1 host gates
+`PASS=44 FAIL=0 SKIPPED=2` (`2a9d1bba...`), public safety `PASS`
+(`ad022ff1...`).
+
+Claim boundary: P3-07 proves only deterministic host-code generation for the
+audited image. Nothing is built or executed yet (P3-08), equivalence is not yet
+proven (P3-09), and no arbitrary MIPS32/PS1/PS2 compatibility is claimed.
+`COREMARK_STATUS=NOT_PROVEN`.
+
 ## Claim boundary
 
 Phase 3 adds no Phase-2 claim. Phase 2 remains the proven bounded
@@ -574,10 +628,10 @@ independent evidence.
 
 ## Next exact action
 
-P3-06 is `PASS`. Advance to P3-07 (host emission for CoreMark semantics,
-frozen queue row): emit deterministic host code for the proven subset from the
-P3-04 semantic overlay, the P3-05 structure and the P3-06 static-data model,
-with unsupported or external behaviour failing closed or explicitly
-runtime-mediated; never resolve an indirect target and never invent
-semantics. Record evidence under `.openrecomp-phase3/evidence/P3-07/`. Do not
-begin native build/runtime execution (P3-08) in P3-07.
+P3-07 is `PASS`. Advance to P3-08 (native build + generic runtime execution,
+frozen queue row): build the P3-07 generated program and support with the
+Phase-2 deterministic build pipeline (recorded toolchain identity, byte-
+reproducible executable), execute it repeatedly through the P2-08 runtime ABI,
+and record the deterministic observable (exit status, step count, UART stream,
+state digest) under `.openrecomp-phase3/evidence/P3-08/`. Do not introduce the
+independent reference comparison in P3-08 (that is P3-09).

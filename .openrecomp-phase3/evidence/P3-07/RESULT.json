@@ -1,0 +1,374 @@
+{
+  "checks": [
+    {
+      "check": "coverage:all-ops-emitted",
+      "status": "PASS"
+    },
+    {
+      "check": "coverage:emitted-op-count",
+      "status": "PASS"
+    },
+    {
+      "check": "coverage:emitted-ops",
+      "status": "PASS"
+    },
+    {
+      "check": "coverage:unused-op-set",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:artifact-hashes-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:counts",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:program-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:program-source",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:support-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:support-source",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:abi-host-call",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:abi-memory-boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:all-decodable-emitted",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:ascii-lf",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:break-per-case",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:case-count",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:case-labels",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:default-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:delay-slot-protocol",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:delay-slots",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:direct-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:fail-closed-unpredictable",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:image-initializer-equals-guest-image",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:image-initializer-length",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:image-initializer-present",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:image-sha",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:indirect-never-static",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:indirect-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:link-histogram",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:mmio-addresses",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-forbidden-casts",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-host-path",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-timestamp",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-uuid",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:op-histogram",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:op-set-covers-image",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:padding-invalid-set",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:padding-not-emitted",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:region-table",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:service-macros",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:step-limit",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:uart-capacity",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:entry",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:exists",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:size",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:reachable_words",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:total_words",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:unreachable_words",
+      "status": "PASS"
+    },
+    {
+      "check": "model:regions",
+      "status": "PASS"
+    },
+    {
+      "check": "negatives:count",
+      "status": "PASS"
+    },
+    {
+      "check": "negatives:no-failures",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entry-set",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entry-count",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-frozen-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "support:failure-reasons",
+      "status": "PASS"
+    },
+    {
+      "check": "support:hash-order",
+      "status": "PASS"
+    },
+    {
+      "check": "support:no-host-path",
+      "status": "PASS"
+    },
+    {
+      "check": "support:no-timestamp",
+      "status": "PASS"
+    },
+    {
+      "check": "support:no-uuid",
+      "status": "PASS"
+    },
+    {
+      "check": "support:observable-contract",
+      "status": "PASS"
+    },
+    {
+      "check": "support:region-checked",
+      "status": "PASS"
+    },
+    {
+      "check": "support:service-dispatch",
+      "status": "PASS"
+    }
+  ],
+  "claim_boundary": "P3-07 proves only that the audited CoreMark MIPS32 executable image is translated deterministically to portable host C with exact audited semantics, true delay-slot behaviour, runtime-mediated indirect dispatch, runtime-mediated MMIO and P2-08 ABI memory access. It does not build or execute the native program (P3-08) and does not yet prove equivalence against an independent reference (P3-09); it claims no arbitrary MIPS32, PS1 or PS2 compatibility.",
+  "evidence_files": {
+    "coremark_program.c": "898fae38ab421f005d46b48fcdcd7cfd9b11ee4a18d4831493643ada1479fed1",
+    "coremark_support.c": "4afa8c0ea3a827a074342b801a24815e3366808dc290568bfbedfcc506915fa4",
+    "coverage.json": "35102e38e33cc9fe596555511cfcbcb07638562624cf9efc8caf7e1625f7519e",
+    "determinism.json": "212c0b02ebaa2e0131085c3dbb7d886366db1682b7d24ffb165785f8156a2a12",
+    "emission.json": "9353b65c4b623cf0aa4428615a92967ac6fa107b67f11ec593812a474ea167f9",
+    "fixture.json": "4ba02b332e8f8c7ed8a5d98bf1913dedcc7f8bc7f38d8ba5c0ed8309b16ad79e",
+    "negatives.json": "72717f74b32046420b3b712c45779a0a7fd1ad7e8487466958ff31cb9159b333",
+    "source_integrity.txt": "0267dffe8fcdabefe34c8e147bcfc420f466fa768802ae589dacf43b3b13b5dd"
+  },
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "coverage": {
+      "ops": 46,
+      "unused_op_set": [
+        "div",
+        "lb",
+        "mult"
+      ]
+    },
+    "determinism": {
+      "artifact_sha256": {
+        "coremark_program.c": "898fae38ab421f005d46b48fcdcd7cfd9b11ee4a18d4831493643ada1479fed1",
+        "coremark_support.c": "4afa8c0ea3a827a074342b801a24815e3366808dc290568bfbedfcc506915fa4",
+        "coverage.json": "35102e38e33cc9fe596555511cfcbcb07638562624cf9efc8caf7e1625f7519e",
+        "emission.json": "9353b65c4b623cf0aa4428615a92967ac6fa107b67f11ec593812a474ea167f9",
+        "fixture.json": "4ba02b332e8f8c7ed8a5d98bf1913dedcc7f8bc7f38d8ba5c0ed8309b16ad79e",
+        "negatives.json": "72717f74b32046420b3b712c45779a0a7fd1ad7e8487466958ff31cb9159b333",
+        "source_integrity.txt": "0267dffe8fcdabefe34c8e147bcfc420f466fa768802ae589dacf43b3b13b5dd"
+      },
+      "program_fingerprint": "898fae38ab421f005d46b48fcdcd7cfd9b11ee4a18d4831493643ada1479fed1",
+      "source_sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669",
+      "support_fingerprint": "4afa8c0ea3a827a074342b801a24815e3366808dc290568bfbedfcc506915fa4"
+    },
+    "emission": {
+      "case_count": 3479,
+      "delay_slots": 620,
+      "direct_targets": 567,
+      "indirect_sites": [
+        "0x00001958",
+        "0x00003130",
+        "0x00003830",
+        "0x000039a0"
+      ],
+      "program_fingerprint": "898fae38ab421f005d46b48fcdcd7cfd9b11ee4a18d4831493643ada1479fed1",
+      "support_fingerprint": "4afa8c0ea3a827a074342b801a24815e3366808dc290568bfbedfcc506915fa4"
+    },
+    "inputs": {
+      "decodable_words": 3479,
+      "elf_sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669",
+      "elf_size": 31184,
+      "entry": "0x00004650",
+      "reachable_words": 2178,
+      "regions": [
+        {
+          "end": "0x00000134",
+          "flags": "OR_REGION_READABLE",
+          "start": "0x00000000"
+        },
+        {
+          "end": "0x0000467c",
+          "flags": "OR_REGION_READABLE",
+          "start": "0x00001000"
+        },
+        {
+          "end": "0x00004df8",
+          "flags": "OR_REGION_READABLE",
+          "start": "0x00004680"
+        },
+        {
+          "end": "0x00009620",
+          "flags": "OR_REGION_READABLE | OR_REGION_WRITABLE",
+          "start": "0x00004e00"
+        }
+      ],
+      "stage": "P3-07",
+      "unreachable_words": 1309
+    },
+    "negatives": {
+      "count": 11,
+      "failed": 0
+    },
+    "source_integrity": {
+      "phase3_manifest_entries": 16,
+      "phase3_manifest_mismatched": [],
+      "phase3_manifest_sha256": "44a2b15ca4ada8cf08d2e3a5faca84c141fecba72325ed9ad556495520e4b5aa",
+      "root_manifest_entries": 134,
+      "root_manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"
+    }
+  },
+  "markers": {
+    "gate": "OPENRECOMP_PHASE3_HOST_EMISSION_V1=PASS tests=67",
+    "stage": "OPENRECOMP_P3_07=PASS",
+    "terminal": "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
+  },
+  "passed": 67,
+  "stage": "P3-07",
+  "stage_name": "OPENRECOMP_PHASE3_HOST_EMISSION_V1",
+  "status": "PASS",
+  "tests": 67
+}

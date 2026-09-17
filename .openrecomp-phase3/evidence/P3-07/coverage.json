@@ -1,0 +1,292 @@
+{
+  "op_set": [
+    "addiu",
+    "addu",
+    "and",
+    "andi",
+    "beq",
+    "bgez",
+    "bgtz",
+    "blez",
+    "bltz",
+    "bne",
+    "div",
+    "divu",
+    "j",
+    "jal",
+    "jalr",
+    "jr",
+    "lb",
+    "lbu",
+    "lh",
+    "lhu",
+    "lui",
+    "lw",
+    "mfhi",
+    "mflo",
+    "movn",
+    "movz",
+    "mul",
+    "mult",
+    "multu",
+    "nop",
+    "nor",
+    "or",
+    "ori",
+    "sb",
+    "sh",
+    "sll",
+    "slt",
+    "slti",
+    "sltiu",
+    "sltu",
+    "sra",
+    "srl",
+    "subu",
+    "sw",
+    "swl",
+    "swr",
+    "teq",
+    "xor",
+    "xori"
+  ],
+  "ops": [
+    {
+      "op": "addiu",
+      "sites": 654,
+      "status": "EMITTED"
+    },
+    {
+      "op": "addu",
+      "sites": 171,
+      "status": "EMITTED"
+    },
+    {
+      "op": "and",
+      "sites": 11,
+      "status": "EMITTED"
+    },
+    {
+      "op": "andi",
+      "sites": 161,
+      "status": "EMITTED"
+    },
+    {
+      "op": "beq",
+      "sites": 170,
+      "status": "EMITTED"
+    },
+    {
+      "op": "bgez",
+      "sites": 2,
+      "status": "EMITTED"
+    },
+    {
+      "op": "bgtz",
+      "sites": 13,
+      "status": "EMITTED"
+    },
+    {
+      "op": "blez",
+      "sites": 17,
+      "status": "EMITTED"
+    },
+    {
+      "op": "bltz",
+      "sites": 4,
+      "status": "EMITTED"
+    },
+    {
+      "op": "bne",
+      "sites": 135,
+      "status": "EMITTED"
+    },
+    {
+      "op": "divu",
+      "sites": 4,
+      "status": "EMITTED"
+    },
+    {
+      "op": "j",
+      "sites": 125,
+      "status": "EMITTED"
+    },
+    {
+      "op": "jal",
+      "sites": 101,
+      "status": "EMITTED"
+    },
+    {
+      "op": "jalr",
+      "sites": 1,
+      "status": "EMITTED"
+    },
+    {
+      "op": "jr",
+      "sites": 52,
+      "status": "EMITTED"
+    },
+    {
+      "op": "lbu",
+      "sites": 74,
+      "status": "EMITTED"
+    },
+    {
+      "op": "lh",
+      "sites": 28,
+      "status": "EMITTED"
+    },
+    {
+      "op": "lhu",
+      "sites": 43,
+      "status": "EMITTED"
+    },
+    {
+      "op": "lui",
+      "sites": 73,
+      "status": "EMITTED"
+    },
+    {
+      "op": "lw",
+      "sites": 275,
+      "status": "EMITTED"
+    },
+    {
+      "op": "mfhi",
+      "sites": 4,
+      "status": "EMITTED"
+    },
+    {
+      "op": "mflo",
+      "sites": 4,
+      "status": "EMITTED"
+    },
+    {
+      "op": "movn",
+      "sites": 12,
+      "status": "EMITTED"
+    },
+    {
+      "op": "movz",
+      "sites": 35,
+      "status": "EMITTED"
+    },
+    {
+      "op": "mul",
+      "sites": 22,
+      "status": "EMITTED"
+    },
+    {
+      "op": "multu",
+      "sites": 3,
+      "status": "EMITTED"
+    },
+    {
+      "op": "nop",
+      "sites": 224,
+      "status": "EMITTED"
+    },
+    {
+      "op": "nor",
+      "sites": 2,
+      "status": "EMITTED"
+    },
+    {
+      "op": "or",
+      "sites": 345,
+      "status": "EMITTED"
+    },
+    {
+      "op": "ori",
+      "sites": 17,
+      "status": "EMITTED"
+    },
+    {
+      "op": "sb",
+      "sites": 79,
+      "status": "EMITTED"
+    },
+    {
+      "op": "sh",
+      "sites": 32,
+      "status": "EMITTED"
+    },
+    {
+      "op": "sll",
+      "sites": 106,
+      "status": "EMITTED"
+    },
+    {
+      "op": "slt",
+      "sites": 24,
+      "status": "EMITTED"
+    },
+    {
+      "op": "slti",
+      "sites": 8,
+      "status": "EMITTED"
+    },
+    {
+      "op": "sltiu",
+      "sites": 33,
+      "status": "EMITTED"
+    },
+    {
+      "op": "sltu",
+      "sites": 19,
+      "status": "EMITTED"
+    },
+    {
+      "op": "sra",
+      "sites": 13,
+      "status": "EMITTED"
+    },
+    {
+      "op": "srl",
+      "sites": 81,
+      "status": "EMITTED"
+    },
+    {
+      "op": "subu",
+      "sites": 35,
+      "status": "EMITTED"
+    },
+    {
+      "op": "sw",
+      "sites": 205,
+      "status": "EMITTED"
+    },
+    {
+      "op": "swl",
+      "sites": 2,
+      "status": "EMITTED"
+    },
+    {
+      "op": "swr",
+      "sites": 2,
+      "status": "EMITTED"
+    },
+    {
+      "op": "teq",
+      "sites": 4,
+      "status": "EMITTED"
+    },
+    {
+      "op": "xor",
+      "sites": 52,
+      "status": "EMITTED"
+    },
+    {
+      "op": "xori",
+      "sites": 2,
+      "status": "EMITTED"
+    }
+  ],
+  "policy": "every op present in the audited image has an explicit emission rule; OP_SET also carries rules for the audited instruction classes that are absent from this image (mult, div, lb) so a future image cannot silently fall through",
+  "stage": "P3-07",
+  "unused_op_set": [
+    "div",
+    "lb",
+    "mult"
+  ]
+}
