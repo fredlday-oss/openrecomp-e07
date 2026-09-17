@@ -792,13 +792,13 @@
   "claim_boundary": "P3-02 proves that OpenRecomp can safely and deterministically ingest the audited CoreMark MIPS32 ELF and construct its guest section/data image. It does not prove that all CoreMark instructions are supported, that CoreMark can yet be translated or run, or any arbitrary ELF/MIPS32/console compatibility.",
   "evidence_files": {
     "bss_proof.json": "6b3c582e21cd6d91756af9b3e3ac181db308b309ad8fb2b4f69613cc98e436ae",
-    "determinism.json": "7d0884dd608e987e073b1afa260f3258d85b04459847745252ad3f31946ec6bc",
+    "determinism.json": "59003e3e119030bc460c074dcd1fab716f82aae09ef8ba0cc5e39349361a76e1",
     "elf_parsed_metadata.json": "865ab85b1502e25d707d399096486a183705e9fb608b95c180998ec487aeacda",
     "load_image_map.json": "58c00fadf3b1068d98dfd32b384ed6d30872ee61998e92fbd2eb51baa34987e7",
     "malformed_fixture_results.json": "031a2d169a7364e4f559ffc27a11865ab62f17b35ba314282040d972e3679827",
     "region_hashes.json": "9f770204daf4a6e24f2f90c4c3be9d7ed1d803a68a8861f50158a61a5169fdb4",
     "section_table.json": "83a175880a20867f76ba62aefd4da732e37e84e34258641e7aca40f256a6a061",
-    "source_integrity.txt": "719ce3d02ea753dede91a36900f5affeccaec91152a261eb3eaf509c72089d74"
+    "source_integrity.txt": "a5d56e342bc383834755e4e08c4781a8548a8907856d6c08d84434132be90ec1"
   },
   "failed": 0,
   "failure": null,
@@ -810,7 +810,7 @@
         "load_image_map.json": "58c00fadf3b1068d98dfd32b384ed6d30872ee61998e92fbd2eb51baa34987e7",
         "region_hashes.json": "9f770204daf4a6e24f2f90c4c3be9d7ed1d803a68a8861f50158a61a5169fdb4",
         "section_table.json": "83a175880a20867f76ba62aefd4da732e37e84e34258641e7aca40f256a6a061",
-        "source_integrity.txt": "719ce3d02ea753dede91a36900f5affeccaec91152a261eb3eaf509c72089d74"
+        "source_integrity.txt": "a5d56e342bc383834755e4e08c4781a8548a8907856d6c08d84434132be90ec1"
       },
       "image_sha256": "e072b38dd1404a243fa61c4dd7d17b7d7d50f268650318756a4ef9629c1d88d4",
       "repeated_ingestion_identical": true,
@@ -6505,11 +6505,12 @@
         "tools/test_phase3_reachable_semantics_v1.py",
         "tools/test_phase3_reference_equivalence_v1.py",
         "tools/test_phase3_static_data_v1.py",
-        "tools/test_phase3_structure_v1.py"
+        "tools/test_phase3_structure_v1.py",
+        "tools/test_phase3_whole_regression_v1.py"
       ],
-      "phase3_manifest_entries": 21,
+      "phase3_manifest_entries": 22,
       "phase3_manifest_mismatched": [],
-      "phase3_manifest_sha256": "abc6ea3eefcb4b110bb4173492b94aec2453c31b410154a5186a1089d0bd51c2",
+      "phase3_manifest_sha256": "b9dfc0cc14c789b07abfc9e7652383f5b18cef78c7a7cab2d5f3e81f72a5076c",
       "root_manifest_entries": 134,
       "root_manifest_mismatched": [],
       "root_manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"

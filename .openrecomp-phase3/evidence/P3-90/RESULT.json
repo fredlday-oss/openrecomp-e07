@@ -1,0 +1,193 @@
+{
+  "checks": [
+    {
+      "check": "boundary:branch-descends",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:control-plane-stage",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:fixture-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:fixture-size",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:p2-90-capture",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:p2-99-gate",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:p2-99-result-json",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:phase1-tag-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:phase2-tag-annotated",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:phase2-tag-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:phase2-tag-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:unsupported-histogram",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:artifact-hashes-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "package:boundary-capture",
+      "status": "PASS"
+    },
+    {
+      "check": "package:boundary-record",
+      "status": "PASS"
+    },
+    {
+      "check": "package:entry-count",
+      "status": "PASS"
+    },
+    {
+      "check": "package:fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "package:regression-summary",
+      "status": "PASS"
+    },
+    {
+      "check": "package:sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "package:terminal-marker-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:all-gates-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:gate-count",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entry-set",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entry-count",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-frozen-sha256",
+      "status": "PASS"
+    }
+  ],
+  "claim_boundary": "P3-90 audits the completed Phase-3 path and the preserved Phase-1/Phase-2 gates. It adds no capability claim and does not issue the terminal verdict (P3-91 records limitations; P3-99 issues the verdict).",
+  "evidence_files": {
+    "determinism.json": "d21ae2f2cbe8eef4ba8877f6562654316003c4f08701395d22940f61b550f7ea",
+    "frozen_boundary.json": "06be45888093d38f2d7d572179f211e343e4d3af4ef8fb5fca19296ea5164f62",
+    "package_audit.json": "e42320b906cf8d1286e0bc31485951eb8e2d83336605cd2ffa10dccd474980cf",
+    "source_integrity.txt": "a5d56e342bc383834755e4e08c4781a8548a8907856d6c08d84434132be90ec1",
+    "whole_regression.json": "000108983811eb790187cd9c0ecfe26137751469362c34b4c83d5e17b21235e1"
+  },
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "determinism": {
+      "artifact_count": 4
+    },
+    "frozen_boundary": {
+      "fixture_sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669",
+      "p2_99_result_sha256": "880d25961949b0dc9aedaca78ca60d2dac54bbffeb6fd61e63045acd6394d8df",
+      "p2_99_stdout_sha256": "66913e5752a9e2b7e399513710b4dce05efce9a714335c3b9908c0e30ea38c28",
+      "phase1": {
+        "commit": "46c2f971e1a42cf49bd936bad94697b81bf31002",
+        "tag": "openrecomp-phase1-pass"
+      },
+      "phase2": {
+        "commit": "01b1d7cba8c931fca95d041389cfb1902b7c89fe",
+        "tag": "openrecomp-phase2-pass",
+        "tree": "6513eefa5ef59b7d0e127f0179c6fc6c21fdac78"
+      },
+      "stage": "P3-90",
+      "unsupported_histogram": {
+        "divu": 4,
+        "jalr": 1,
+        "movn": 12,
+        "movz": 35,
+        "mul": 22,
+        "swl": 2,
+        "swr": 2,
+        "teq": 4
+      }
+    },
+    "package": {
+      "archive_sha256": "cf9ab795b8b900b098e0c067b0694a2c16ed400ee25e134b23f045dde3a86350",
+      "boundary_capture_sha256": "4347491026d13fcaaa8f1ebab976291e3338ab8ec3d21ce0fb01959fd33cfba4",
+      "entry_count": 287,
+      "package_fingerprint": "9050a1175b5914b0c571b49b33d3b2dc280f51e16f160b1230aeed217bf94078",
+      "stage": "P3-90",
+      "total_bytes": 5376636,
+      "verified": true
+    },
+    "source_integrity": {
+      "phase3_manifest_entries": 22,
+      "phase3_manifest_sha256": "b9dfc0cc14c789b07abfc9e7652383f5b18cef78c7a7cab2d5f3e81f72a5076c",
+      "root_manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"
+    },
+    "whole_regression": {
+      "failed": 0,
+      "passed": 13,
+      "total": 13
+    }
+  },
+  "markers": {
+    "gate": "OPENRECOMP_PHASE3_WHOLE_REGRESSION_V1=PASS tests=30",
+    "stage": "OPENRECOMP_P3_90=PASS",
+    "terminal": "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
+  },
+  "passed": 30,
+  "stage": "P3-90",
+  "stage_name": "OPENRECOMP_PHASE3_WHOLE_REGRESSION_V1",
+  "status": "PASS",
+  "tests": 30
+}

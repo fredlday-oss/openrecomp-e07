@@ -124,6 +124,7 @@ P3_SOURCE_FILES = (
     "tools/test_phase3_reference_equivalence_v1.py",
     "tools/test_phase3_static_data_v1.py",
     "tools/test_phase3_structure_v1.py",
+    "tools/test_phase3_whole_regression_v1.py",
 )
 ROOT_MANIFEST = ROOT / "SOURCE_SHA256SUMS.txt"
 ROOT_MANIFEST_SHA256 = "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"

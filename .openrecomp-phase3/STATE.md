@@ -4,8 +4,8 @@ PHASE=3
 BASELINE_TAG=openrecomp-phase2-pass
 BASELINE_COMMIT=01b1d7cba8c931fca95d041389cfb1902b7c89fe
 BASELINE_TREE=6513eefa5ef59b7d0e127f0179c6fc6c21fdac78
-CURRENT_STAGE=P3-90
-LAST_PASSED_STAGE=P3-10
+CURRENT_STAGE=P3-91
+LAST_PASSED_STAGE=P3-90
 STATUS=ACTIVE
 FINAL_VERDICT=NOT_PROVEN
 COREMARK_STATUS=NOT_PROVEN
@@ -84,8 +84,8 @@ QUEUE_FREEZE_STAGES=P3-05..P3-99
 | P3-08 | Native build + generic runtime execution | `PASS` | `.openrecomp-phase3/evidence/P3-08/` |
 | P3-09 | Independent MIPS32 reference + equivalence | `PASS` | `.openrecomp-phase3/evidence/P3-09/` |
 | P3-10 | Reproducible package + whole regression | `PASS` | `.openrecomp-phase3/evidence/P3-10/` |
-| P3-90 | Phase-3 whole regression | `ACTIVE` | - |
-| P3-91 | Evidence index + limitations | `QUEUED` | - |
+| P3-90 | Phase-3 whole regression | `PASS` | `.openrecomp-phase3/evidence/P3-90/` |
+| P3-91 | Evidence index + limitations | `ACTIVE` | - |
 | P3-99 | Final verdict | `QUEUED` | - |
 
 ## P3-00 acceptance criteria
@@ -767,6 +767,39 @@ Claim boundary: P3-10 proves reproducible packaging and whole-regression
 coherence. It adds no new capability claim and does not promote the terminal
 marker. `COREMARK_STATUS=NOT_PROVEN`.
 
+## P3-90 result (PASS)
+
+Stage: `OPENRECOMP_PHASE3_WHOLE_REGRESSION_V1`. Evidence:
+`.openrecomp-phase3/evidence/P3-90/`. Gate:
+`tools/test_phase3_whole_regression_v1.py` (30 checks).
+
+Markers issued:
+
+- Stage marker: `OPENRECOMP_P3_90=PASS`
+- Gate marker: `OPENRECOMP_PHASE3_WHOLE_REGRESSION_V1=PASS tests=30`
+- Terminal marker (reserved): `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`
+
+New Phase-3 file only (`tools/test_phase3_whole_regression_v1.py`); the
+manifest grew additively from twenty-one to twenty-two entries and the earlier
+gates still emit byte-identical stdout.
+
+Audit results: the frozen Phase-2 boundary identities (tag/commit/tree, P2-99
+result/gate/capture hashes, Phase-1 tag) and the fixture/inventory identities
+re-verified; the committed P3-10 package verifies (sha256 `cf9ab795...`,
+fingerprint `9050a117...`, 287 entries) against its boundary record; all
+thirteen gates (P2-99, P3-00..P3-09, Phase-1 host gates, public safety) pass
+with empty stderr and stdout byte-identical to their recorded captures,
+including the full P3-09 independent reference re-execution. The P3-10 gate is
+verified by its committed boundary capture/package record instead of being
+re-run (it performs this audit by design).
+
+Determinism: two consecutive official runs byte-identical (raw sha256
+`5d86ba0564a30e28d8fdffc890e9e93afb17481c03991a5c4a10e6e054697bea`, 2052 bytes,
+empty stderr). The terminal marker remains reserved and `NOT_PROVEN`.
+
+Claim boundary: P3-90 adds no capability claim; the terminal verdict is issued
+only by P3-99 after P3-91 records limitations. `COREMARK_STATUS=NOT_PROVEN`.
+
 ## P3-09 image-fidelity correction record
 
 The P3-09 independent ELF loader compared its flat load image with the host
@@ -798,9 +831,9 @@ independent evidence.
 
 ## Next exact action
 
-P3-10 is `PASS`. Advance to P3-90 (Phase-3 whole regression audit, frozen queue
-row): perform the deterministic whole-project regression audit of the completed
-Phase-3 stages plus the preserved Phase-1/Phase-2 gates, re-verify the frozen
-boundaries, the Phase-3 package and the control plane, and record evidence under
-`.openrecomp-phase3/evidence/P3-90/`. Do not issue the terminal verdict in
-P3-90 (P3-91 records limitations; P3-99 issues the verdict).
+P3-90 is `PASS`. Advance to P3-91 (evidence index + limitations, frozen queue
+row): produce the complete Phase-3 evidence index (every stage artifact with
+its sha256 and size), record the explicit bounded/unproven claim record and the
+limitations list, and verify the index against the on-disk evidence. Record
+evidence under `.openrecomp-phase3/evidence/P3-91/`. Do not issue the terminal
+verdict in P3-91 (that is P3-99).
