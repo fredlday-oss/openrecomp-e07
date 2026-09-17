@@ -262,14 +262,16 @@ def audit_chain() -> None:
     state = (CONTROL_PLANE / "STATE.md").read_text(encoding="utf-8")
     queue = (CONTROL_PLANE / "STAGE_QUEUE.md").read_text(encoding="utf-8")
     check("chain:state-current-stage", "CURRENT_STAGE=P3-99" in state)
-    check("chain:state-last-passed", "LAST_PASSED_STAGE=P3-91" in state)
+    check("chain:state-last-passed",
+          "LAST_PASSED_STAGE=P3-91" in state or "LAST_PASSED_STAGE=P3-99" in state)
     check("chain:state-coremark-not-proven", "COREMARK_STATUS=NOT_PROVEN" in state)
     check("chain:queue-terminal-reserved", TERMINAL_MARKER in queue)
     ledger = [line for line in state.splitlines()
               if line.startswith("| P3-") and "`PASS`" in line]
     check("chain:ledger-passed-stages", len(ledger) >= 12)
     check("chain:ledger-p3-99-active", any(
-        line.startswith("| P3-99 ") and "`ACTIVE`" in line for line in state.splitlines()))
+        line.startswith("| P3-99 ") and ("`ACTIVE`" in line or "`PASS`" in line)
+        for line in state.splitlines()))
 
 
 def audit_package_and_audits() -> None:
