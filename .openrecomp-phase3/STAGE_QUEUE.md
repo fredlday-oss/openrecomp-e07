@@ -24,7 +24,7 @@ P3-05 implementation work.
 | P3-10 | Reproducible package + whole regression | COMPLETE | Byte-reproducible package for the Phase-3 path; Phase-1, Phase-2 and Phase-3 gates pass together |
 | P3-90 | Phase-3 whole regression | COMPLETE | Deterministic whole-project regression audit of the completed Phase-3 stages plus preserved Phase-1/Phase-2 gates |
 | P3-91 | Evidence index + limitations | COMPLETE | Complete Phase-3 evidence index and explicit bounded/unproven claim record |
-| P3-99 | Final verdict | ACTIVE | Phase-3 verdict issued only if the bounded end-to-end real-ELF claim is proven on the audited tree |
+| P3-99 | Final verdict | COMPLETE | Phase-3 verdict issued only if the bounded end-to-end real-ELF claim is proven on the audited tree |
 
 ## Queue freeze
 
@@ -58,6 +58,10 @@ Frozen-queue rules:
   ProgramModel/CFG/functions/call graph/translation-unit stage passed as the
   frozen row specifies, so no reconciliation, renumbering or redefinition was
   required or performed.
+- P3-99 completed with the frozen contract unchanged: the final-verdict
+  stage passed as the frozen row specifies and issued the terminal marker
+  for the bounded audited claim; no reconciliation, renumbering or
+  redefinition was required or performed.
 - P3-91 completed with the frozen contract unchanged: the evidence-index +
   limitations stage passed as the frozen row specifies, so no
   reconciliation, renumbering or redefinition was required or performed.
@@ -121,8 +125,17 @@ Frozen-queue rules:
 - `OPENRECOMP_PHASE3_WHOLE_REGRESSION_V1=PASS tests=30`
 - `OPENRECOMP_P3_91=PASS`
 - `OPENRECOMP_PHASE3_EVIDENCE_INDEX_V1=PASS tests=50`
-- terminal Phase-3 marker: reserved, value `NOT_PROVEN`
+- `OPENRECOMP_P3_99=PASS`
+- `OPENRECOMP_PHASE3_FINAL_VERDICT_V1=PASS tests=46`
+- terminal Phase-3 marker: `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=PASS`
+  (issued by P3-99 for the bounded audited claim; the reserved
+  pre-verdict value recorded throughout P3-00 .. P3-91 was `NOT_PROVEN`)
 
-## Failure values (not issued)
+## Terminal state
 
-- `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN` (current terminal state)
+- Issued at P3-99: `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=PASS` for the
+  bounded audited claim, with the P3-91 limitations and the explicit unproven
+  areas. `COREMARK_STATUS=NOT_PROVEN` (CoreMark is not a supported target).
+- Historical pre-verdict value (P3-00 .. P3-91, and the frozen value each of
+  those stage gates still emits in its recorded stdout):
+  `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`.

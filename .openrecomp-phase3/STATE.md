@@ -5,9 +5,10 @@ BASELINE_TAG=openrecomp-phase2-pass
 BASELINE_COMMIT=01b1d7cba8c931fca95d041389cfb1902b7c89fe
 BASELINE_TREE=6513eefa5ef59b7d0e127f0179c6fc6c21fdac78
 CURRENT_STAGE=P3-99
-LAST_PASSED_STAGE=P3-91
-STATUS=ACTIVE
+LAST_PASSED_STAGE=P3-99
+STATUS=COMPLETE
 FINAL_VERDICT=NOT_PROVEN
+PHASE3_PROOF=PASS
 COREMARK_STATUS=NOT_PROVEN
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P3-05..P3-99
@@ -86,7 +87,7 @@ QUEUE_FREEZE_STAGES=P3-05..P3-99
 | P3-10 | Reproducible package + whole regression | `PASS` | `.openrecomp-phase3/evidence/P3-10/` |
 | P3-90 | Phase-3 whole regression | `PASS` | `.openrecomp-phase3/evidence/P3-90/` |
 | P3-91 | Evidence index + limitations | `PASS` | `.openrecomp-phase3/evidence/P3-91/` |
-| P3-99 | Final verdict | `ACTIVE` | - |
+| P3-99 | Final verdict | `PASS` | `.openrecomp-phase3/evidence/P3-99/` |
 
 ## P3-00 acceptance criteria
 
@@ -838,6 +839,42 @@ Determinism: two consecutive official runs byte-identical (raw sha256
 empty stderr); boundary regressions unchanged. The terminal verdict remains
 reserved for P3-99. `COREMARK_STATUS=NOT_PROVEN`.
 
+## P3-99 result (FINAL VERDICT: PASS for the bounded audited claim)
+
+Stage: `OPENRECOMP_PHASE3_FINAL_VERDICT_V1`. Evidence:
+`.openrecomp-phase3/evidence/P3-99/`. Gate:
+`tools/test_phase3_final_verdict_v1.py` (46 checks).
+
+Markers issued:
+
+- Stage marker: `OPENRECOMP_P3_99=PASS`
+- Gate marker: `OPENRECOMP_PHASE3_FINAL_VERDICT_V1=PASS tests=46`
+- Terminal marker: `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=PASS` (issued for
+  the bounded audited claim; each earlier stage gate keeps emitting the frozen
+  reserved `NOT_PROVEN` string in its recorded stdout)
+
+The verdict was issued only after every precondition passed on the audited
+tree: source integrity (root 134 entries, Phase-3 24 entries), the frozen
+Phase-1/Phase-2 chain, the complete `P3-00 .. P3-91` ledger, the P3-10 package
+(`cf9ab795...`, 287 entries), the P3-90 whole regression (`13/13`), the P3-91
+index (346 files) and claim record (8 limitations), the ten-field native vs
+independent-reference equivalence (`steps=394997250`,
+`state_fnv1a64=0x78651c29dd149ab1`, CoreMark validation CRCs in the UART
+stream) and a fresh whole-regression run with byte-identical stdout.
+
+New Phase-3 gate only (`tools/test_phase3_final_verdict_v1.py`); the manifest
+grew additively from twenty-three to twenty-four entries and the earlier gates
+still emit byte-identical stdout.
+
+Determinism: two consecutive official runs byte-identical (raw sha256
+`953ec70c312c7203022ba98f763aabf270409e2f39a9a7fa2ac90d887ae087bc`, 2498 bytes,
+empty stderr); boundary regressions unchanged.
+
+Verdict boundary: the terminal marker is `PASS` for this bounded claim only.
+`FINAL_VERDICT` (arbitrary MIPS32/commercial/game compatibility) remains
+`NOT_PROVEN` and `COREMARK_STATUS=NOT_PROVEN`; the P3-91 limitations and
+unproven areas apply unchanged.
+
 ## P3-09 image-fidelity correction record
 
 The P3-09 independent ELF loader compared its flat load image with the host
@@ -869,11 +906,8 @@ independent evidence.
 
 ## Next exact action
 
-P3-91 is `PASS`. Advance to P3-99 (final verdict, frozen queue row): re-verify
-the complete audited tree (source integrity, frozen boundary, package,
-whole-regression audit and the P3-91 index/claim record) and issue the terminal
-Phase-3 verdict for the bounded claim on this tree. The verdict is issued only
-if every check passes; otherwise the terminal marker stays `NOT_PROVEN` and
-P3-99 fails closed. Record evidence under `.openrecomp-phase3/evidence/P3-99/`
-and update the control plane, preserving `COREMARK_STATUS=NOT_PROVEN` (the
-bounded proof is not general CoreMark support).
+Phase 3 is complete: the frozen queue is finished and the terminal verdict was
+issued at P3-99 for the bounded audited claim. No further Phase-3 stage is
+queued. Any future work starts a new scoped effort (for example the `-O2`
+stress profile named in `SCOPE.md`) and must not weaken the frozen Phase-1/
+Phase-2/Phase-3 evidence.

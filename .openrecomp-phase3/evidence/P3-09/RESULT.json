@@ -159,12 +159,12 @@
   ],
   "claim_boundary": "P3-09 proves deterministic observable equivalence between the P3-08 native host execution and an independently written MIPS32 reference execution of the audited CoreMark ELF: identical exit status, step count, PC, HI/LO, UART byte stream and FNV-1a 64 state digest over the final guest image and register file. It proves this bounded audited program only and claims no arbitrary MIPS32, PS1 or PS2 compatibility.",
   "evidence_files": {
-    "determinism.json": "539051dc0bdc733bc8be151516df3f6ff23bc53e7924c06fc210990704bb1367",
+    "determinism.json": "0c2349eccfbc2e60273a5d11e29bc5d8ad3ef06e72c7fd2aa56e51ed0a2ad0ac",
     "equivalence.json": "362ea49d072b7a174e644b984552df70fd1443258aac120a01deee3cc06b807e",
     "loader_cross_check.json": "188976db2713f3b443aa63f343f42828206e06822d78fdaf86c2caae8cf53614",
     "reference_observable.json": "9e321f559de7f1a1d9e2b4ec6fc39eea1f65fc99fd428e34248a6bfe942cee81",
     "runtime_negatives.json": "512595e0d822e9f6b9f530c6926b6ef28f71d359e56952b1f831ea3ac15bba99",
-    "source_integrity.txt": "a5d56e342bc383834755e4e08c4781a8548a8907856d6c08d84434132be90ec1"
+    "source_integrity.txt": "4c4f03e569f9031495e0c8d47223492ac76d0b8e016f4591d0459a80f5c443d3"
   },
   "failed": 0,
   "failure": null,
@@ -175,7 +175,7 @@
         "loader_cross_check.json": "188976db2713f3b443aa63f343f42828206e06822d78fdaf86c2caae8cf53614",
         "reference_observable.json": "9e321f559de7f1a1d9e2b4ec6fc39eea1f65fc99fd428e34248a6bfe942cee81",
         "runtime_negatives.json": "512595e0d822e9f6b9f530c6926b6ef28f71d359e56952b1f831ea3ac15bba99",
-        "source_integrity.txt": "a5d56e342bc383834755e4e08c4781a8548a8907856d6c08d84434132be90ec1"
+        "source_integrity.txt": "4c4f03e569f9031495e0c8d47223492ac76d0b8e016f4591d0459a80f5c443d3"
       },
       "source_sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669"
     },
@@ -242,8 +242,8 @@
       }
     ],
     "source_integrity": {
-      "phase3_manifest_entries": 22,
-      "phase3_manifest_sha256": "b9dfc0cc14c789b07abfc9e7652383f5b18cef78c7a7cab2d5f3e81f72a5076c",
+      "phase3_manifest_entries": 24,
+      "phase3_manifest_sha256": "d20067f06fe1ea0ad7e28cf7da508b69bf512a91d9b2ff1f6f4c7a81ffa21a6c",
       "root_manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"
     }
   },

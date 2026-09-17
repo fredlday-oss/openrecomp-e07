@@ -10,7 +10,8 @@ for CoreMark semantics) `PASS`; P3-08 (native build + generic runtime
 execution) `PASS`; P3-09 (independent MIPS32 reference + equivalence) `PASS`;
 P3-10 (reproducible package + whole regression) `PASS`; P3-90 (Phase-3 whole
 regression) `PASS`; P3-91 (evidence index + limitations) `PASS`; P3-99
-(final verdict) is `ACTIVE`. The remaining
+(final verdict) `PASS`; the frozen Phase-3 queue is COMPLETE and the
+transitional terminal marker was issued for the bounded audited claim. The remaining
 Phase-3 queue (`P3-05` .. `P3-99`) was frozen at the
 P3-04 `PASS` boundary before any P3-05 implementation work; the frozen contract
 is `STAGE_QUEUE.md` `## Queue freeze` (no renumber/insert/merge/split/silent
@@ -23,6 +24,29 @@ and is documented). The Phase-2 terminal state is frozen at tag
 `OPENRECOMP_P2_99=PASS`,
 `OPENRECOMP_PHASE2_FINAL_VERDICT_V1=PASS tests=202` and
 `OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS`.
+
+## P3-99 outcome (FINAL VERDICT: PASS for the bounded audited claim)
+
+Markers: `OPENRECOMP_P3_99=PASS`,
+`OPENRECOMP_PHASE3_FINAL_VERDICT_V1=PASS tests=46`,
+`OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=PASS`.
+
+- New Phase-3 gate only (`tools/test_phase3_final_verdict_v1.py`); the
+  manifest grew additively to twenty-four entries.
+- The verdict was issued only after re-verifying the whole chain: source
+  integrity, frozen Phase-1/Phase-2 identities, the `P3-00 .. P3-91` ledger,
+  the P3-10 package, the P3-90 whole regression (`13/13`), the P3-91 index and
+  claim record, the ten-field native/reference equivalence and a fresh
+  whole-regression run with byte-identical stdout.
+- Official runs byte-identical (raw sha256
+  `953ec70c312c7203022ba98f763aabf270409e2f39a9a7fa2ac90d887ae087bc`, 2498
+  bytes); boundary regressions unchanged. Evidence under
+  `.openrecomp-phase3/evidence/P3-99/`.
+- Verdict boundary: `PASS` for the bounded audited CoreMark MIPS32 `-O1`
+  recompilation claim only. `FINAL_VERDICT` (arbitrary MIPS32 / commercial /
+  game compatibility) remains `NOT_PROVEN`; `COREMARK_STATUS=NOT_PROVEN`; the
+  P3-91 limitations and unproven areas apply unchanged.
+- Phase 3 is complete; the frozen queue has no remaining stage.
 
 ## P3-91 outcome (PASS)
 
@@ -617,24 +641,15 @@ implementation work began.
 
 ## Exact next action
 
-Execute P3-99 (final verdict, frozen queue row):
-
-1. Re-verify the complete audited tree: source integrity, frozen Phase-1/
-   Phase-2 boundary identities, the P3-10 package, the whole-regression audit,
-   the P3-91 index and claim record, and the control-plane consistency.
-2. Issue the terminal verdict for the bounded claim if and only if every check
-   passes: record `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=PASS` for the
-   bounded audited CoreMark MIPS32 recompilation claim, with the explicit
-   limitations carried from P3-91. On any failure the marker stays
-   `NOT_PROVEN` and P3-99 fails closed.
-3. Preserve `COREMARK_STATUS=NOT_PROVEN` (the bounded proof is not general
-   CoreMark support) and update the control plane and evidence under
-   `.openrecomp-phase3/evidence/P3-99/`.
+None. The frozen Phase-3 queue is complete and the terminal verdict was issued
+at P3-99 for the bounded audited claim. Future work (for example the `-O2`
+stress profile named in `SCOPE.md`) starts a new scoped effort and must not
+weaken the frozen Phase-1/Phase-2/Phase-3 evidence.
 
 ## Constraints
 
 Do not modify or rewrite Phase-2 evidence, gates, control plane or the P2-99
-verdict. Do not treat CoreMark as supported before its stages pass. Do not
-commit the CoreMark build output, the CoreMark upstream sources or the
-toolchain distribution; they stay untracked, reproducibly regenerated and
-hash-pinned by evidence.
+verdict. Do not treat CoreMark as supported; the bounded proof is not general
+CoreMark support. Do not commit the CoreMark build output, the CoreMark
+upstream sources or the toolchain distribution; they stay untracked,
+reproducibly regenerated and hash-pinned by evidence.

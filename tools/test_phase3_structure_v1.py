@@ -122,6 +122,7 @@ P3_SOURCE_FILES = (
     "tools/test_phase3_decode_frontier_v1.py",
     "tools/test_phase3_elf_ingestion_v1.py",
     "tools/test_phase3_evidence_index_v1.py",
+    "tools/test_phase3_final_verdict_v1.py",
     "tools/test_phase3_host_emit_v1.py",
     "tools/test_phase3_native_runtime_v1.py",
     "tools/test_phase3_package_regression_v1.py",

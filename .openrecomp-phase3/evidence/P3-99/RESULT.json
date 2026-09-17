@@ -1,0 +1,250 @@
+{
+  "checks": [
+    {
+      "check": "chain:descends",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:fixture-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:fixture-size",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:ledger-p3-99-active",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:ledger-passed-stages",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:p2-90-capture",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:p2-99-result",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase1-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase2-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase2-tag-annotated",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase2-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:queue-terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:state-coremark-not-proven",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:state-current-stage",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:state-last-passed",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:artifact-hashes-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:native-fields",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:native-record",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:record",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:reference-fields",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:reference-record",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:state-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:steps",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:uart",
+      "status": "PASS"
+    },
+    {
+      "check": "package:claim-coremark",
+      "status": "PASS"
+    },
+    {
+      "check": "package:claim-limitations",
+      "status": "PASS"
+    },
+    {
+      "check": "package:claim-terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "package:claim-unproven",
+      "status": "PASS"
+    },
+    {
+      "check": "package:entries",
+      "status": "PASS"
+    },
+    {
+      "check": "package:fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "package:p3-90-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "package:p3-90-regression",
+      "status": "PASS"
+    },
+    {
+      "check": "package:p3-91-index",
+      "status": "PASS"
+    },
+    {
+      "check": "package:p3-91-limitations",
+      "status": "PASS"
+    },
+    {
+      "check": "package:p3-91-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "package:sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:all-gates-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:gate-count",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entry-set",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entry-count",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-frozen-sha256",
+      "status": "PASS"
+    }
+  ],
+  "claim_boundary": "P3-99 issues the terminal Phase-3 verdict for the bounded audited claim: a legally clean, compiler-produced CoreMark MIPS32 -O1 ELF is statically recompiled to a native host executable whose deterministic observable is identical to an independently written MIPS32 reference execution, with a byte-reproducible package and whole-regression coherence. No arbitrary MIPS32, PS1, PS2, game or commercial binary compatibility is claimed and CoreMark is not a supported target.",
+  "coremark_status": "NOT_PROVEN",
+  "evidence_files": {
+    "determinism.json": "d2735176462efe834fd09d79a012101e0a79de487a57b530258aef9a214788e6",
+    "equivalence_verification.json": "fe877a590beab4b2542c00db3c70f36fcfe3824b23de20ecf1e7d97b9c0301ce",
+    "source_integrity.txt": "4c4f03e569f9031495e0c8d47223492ac76d0b8e016f4591d0459a80f5c443d3",
+    "whole_regression.json": "082852ac6fc246abd55c4602b0fe203948fec4d51ff578886f4878cedca5f4bc"
+  },
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "chain_audits": {
+      "p3_90_regression": {
+        "failed": 0,
+        "passed": 13,
+        "total": 13
+      },
+      "p3_91_index_files": 346,
+      "p3_91_limitations": 8,
+      "package_sha256": "cf9ab795b8b900b098e0c067b0694a2c16ed400ee25e134b23f045dde3a86350"
+    },
+    "determinism": {
+      "artifact_count": 3
+    },
+    "equivalence": {
+      "fields": [
+        "exit_status",
+        "steps",
+        "pc",
+        "hi",
+        "lo",
+        "uart_bytes",
+        "uart_hex",
+        "state_fnv1a64",
+        "failed",
+        "failure"
+      ],
+      "state_fnv1a64": "0x78651c29dd149ab1",
+      "steps": "394997250"
+    },
+    "source_integrity": {
+      "phase3_manifest_entries": 24,
+      "phase3_manifest_sha256": "d20067f06fe1ea0ad7e28cf7da508b69bf512a91d9b2ff1f6f4c7a81ffa21a6c",
+      "root_manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"
+    },
+    "whole_regression": {
+      "failed": 0,
+      "passed": 13,
+      "total": 13
+    }
+  },
+  "markers": {
+    "gate": "OPENRECOMP_PHASE3_FINAL_VERDICT_V1=PASS tests=46",
+    "stage": "OPENRECOMP_P3_99=PASS",
+    "terminal": "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=PASS"
+  },
+  "passed": 46,
+  "stage": "P3-99",
+  "stage_name": "OPENRECOMP_PHASE3_FINAL_VERDICT_V1",
+  "status": "PASS",
+  "terminal_verdict": "PASS",
+  "tests": 46
+}
