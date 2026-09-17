@@ -1,0 +1,437 @@
+# OpenRecomp Phase 3 State
+
+PHASE=3
+BASELINE_TAG=openrecomp-phase2-pass
+BASELINE_COMMIT=01b1d7cba8c931fca95d041389cfb1902b7c89fe
+BASELINE_TREE=6513eefa5ef59b7d0e127f0179c6fc6c21fdac78
+CURRENT_STAGE=P3-05
+LAST_PASSED_STAGE=P3-04
+STATUS=ACTIVE
+FINAL_VERDICT=NOT_PROVEN
+COREMARK_STATUS=NOT_PROVEN
+QUEUE_FREEZE=FROZEN
+QUEUE_FREEZE_STAGES=P3-05..P3-99
+
+## Phase-2 frozen boundary identities
+
+- Tag `openrecomp-phase2-pass` (annotated, object
+  `1a7f241b69d9500095fe84db16520ec1001db1aa`) resolves to commit
+  `01b1d7cba8c931fca95d041389cfb1902b7c89fe`, tree
+  `6513eefa5ef59b7d0e127f0179c6fc6c21fdac78`.
+- Freeze commits: `b935699991bdcbea518e5f6fbbd69ecb45bc12cf` (close) and
+  `01b1d7cba8c931fca95d041389cfb1902b7c89fe` (verification-context
+  correction, untracks 28 context files while keeping their bytes on disk).
+- Phase-2 terminal markers on the frozen tree:
+  `OPENRECOMP_P2_99=PASS`,
+  `OPENRECOMP_PHASE2_FINAL_VERDICT_V1=PASS tests=202`,
+  `OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS`.
+- Frozen integrity identities:
+  - `SOURCE_SHA256SUMS.txt` sha256
+    `76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095`
+    (134 manifest entries)
+  - `.openrecomp-phase2/evidence/P2-99/RESULT.json` sha256
+    `880d25961949b0dc9aedaca78ca60d2dac54bbffeb6fd61e63045acd6394d8df`
+  - `tools/test_phase2_final_verdict_v1.py` sha256
+    `8d6a42d5e335fb7d7612bb222adca19be0e5290a26a8cc65e63b8be0b9e64e21`
+  - terminal P2-99 gate stdout sha256
+    `66913e5752a9e2b7e399513710b4dce05efce9a714335c3b9908c0e30ea38c28`
+  - frozen P2-90 capture
+    `.openrecomp-phase2/evidence/P2-90/p2_90_run1.txt` sha256
+    `74e9eadaf0e17ca4a97790e4239f40883cc745cd9817c172f7fa6e2663ce1ee7`
+- Frozen verification-context files (28, present on disk, intentionally
+  untracked): canonical manifest sha256
+  `40e4f23a35f40c5d25da630467d46f5e8ad8409a40efff8412892217447a8349`.
+  27 are UTF-16LE stdout/regression captures rejected by the strict-UTF-8
+  Phase-1 public-safety-scan gate when tracked; one is
+  `tools/test_build_package_reproducibility_v1.py`, whose package content
+  policy test contains the literal private-key rejection needle. The official
+  Phase-2 verification was performed with these files untracked; the freeze
+  preserves that condition.
+- Phase-1 boundary remains `openrecomp-phase1-pass` =
+  `46c2f971e1a42cf49bd936bad94697b81bf31002`.
+- Documented pre-existing untracked residue intentionally outside the frozen
+  tree: `.openrecomp-phase2/backups/`, `.openrecomp-phase2/scratch/`,
+  `artifacts/mips32_translation_v1/`,
+  `artifacts/mips32_translation_evidence_closure_v1/` (275 files, manifest
+  sha256 `18e503bf3425c44e72ffc0303d8c71a9f0b2a3ad85062f548519f730919c1f8a`).
+
+## Queue freeze record (P3-04 boundary)
+
+- Frozen contract: `.openrecomp-phase3/STAGE_QUEUE.md` `## Queue freeze`, rows
+  `P3-05` .. `P3-99` exactly as listed, effective before any P3-05
+  implementation work.
+- Rules (see the queue section): no renumber/insert/merge/split/silent
+  redefinition; a change requires a genuine technical dependency, must fail
+  closed with an explicit blocker record, and must be documented in the
+  reconciliation log with the forcing evidence.
+- No stage status changed at the freeze: `P3-05` is the executing stage and
+  `P3-06` .. `P3-99` stay `QUEUED` until their own gates pass.
+- The freeze is a control-plane record only: no capability claim, no change to
+  the frozen Phase-1/Phase-2 boundaries and no promotion of CoreMark.
+
+## Stage ledger
+
+| ID | Stage | Status | Evidence |
+| --- | --- | --- | --- |
+| P3-00 | Phase-3 boundary | `PASS` | `.openrecomp-phase3/evidence/P3-00/` |
+| P3-01 | CoreMark MIPS32 fixture acquisition/build | `PASS` | `.openrecomp-phase3/evidence/P3-01/` |
+| P3-02 | ELF ingestion + section/data image | `PASS` | `.openrecomp-phase3/evidence/P3-02/` |
+| P3-03 | MIPS32 decode expansion | `PASS` | `.openrecomp-phase3/evidence/P3-03/` |
+| P3-04 | CoreMark reachable MIPS32 semantics | `PASS` | `.openrecomp-phase3/evidence/P3-04/` |
+| P3-05 | ProgramModel/CFG/functions/call graph/translation units | `ACTIVE` | - |
+| P3-06 | Static data/global reconstruction | `QUEUED` | - |
+| P3-07 | Host emission for CoreMark semantics | `QUEUED` | - |
+| P3-08 | Native build + generic runtime execution | `QUEUED` | - |
+| P3-09 | Independent MIPS32 reference + equivalence | `QUEUED` | - |
+| P3-10 | Reproducible package + whole regression | `QUEUED` | - |
+| P3-90 | Phase-3 whole regression | `QUEUED` | - |
+| P3-91 | Evidence index + limitations | `QUEUED` | - |
+| P3-99 | Final verdict | `QUEUED` | - |
+
+## P3-00 acceptance criteria
+
+1. Phase-2 frozen tag `openrecomp-phase2-pass` resolves to the recorded commit
+   and tree, and the Phase-3 branch descends from that boundary.
+2. Phase-2 final evidence is unchanged: the frozen integrity identities above
+   re-verify on disk and in Git.
+3. `python tools/test_phase2_final_verdict_v1.py` (verify-only) still passes
+   with `OPENRECOMP_P2_99=PASS` and
+   `OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS`, byte-identical to the
+   recorded terminal stdout.
+4. The Phase-3 control plane exists (STATE, HANDOFF, STAGE_QUEUE, SCOPE,
+   CONTROL_POLICY, evidence/) and is deterministic.
+5. CoreMark has not been treated as proven or supported:
+   `COREMARK_STATUS=NOT_PROVEN`.
+
+## P3-00 result (PASS)
+
+Stage: `OPENRECOMP_PHASE3_BOUNDARY_V1`. Evidence:
+`.openrecomp-phase3/evidence/P3-00/`. Gate:
+`tools/test_phase3_boundary_v1.py`.
+
+Markers issued:
+
+- Stage marker: `OPENRECOMP_P3_00=PASS`
+- Gate marker: `OPENRECOMP_PHASE3_BOUNDARY_V1=PASS tests=61`
+- Terminal marker (reserved): `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`
+
+Verified on the frozen tree (commit
+`01b1d7cba8c931fca95d041389cfb1902b7c89fe`):
+
+- Tag `openrecomp-phase2-pass` (annotated) resolves to the recorded
+  commit/tree; branch `phase3/mips32-real-elf-v1` descends from that boundary
+  (`merge-base` is the boundary commit).
+- Frozen Phase-2 evidence re-verified byte-for-byte on disk:
+  `SOURCE_SHA256SUMS.txt` (134 entries), `P2-99/RESULT.json`, the P2-99 gate,
+  `P2-99/run1.txt` and `run2.txt`, the frozen P2-90 capture, the LF-normalized
+  terminal P2-99 capture, and the six restored P2-90 capture files.
+- `python tools/test_phase2_final_verdict_v1.py` (verify-only) still passes:
+  exit 0, empty stderr, stdout byte-identical to the four recorded official
+  terminal runs (raw sha256
+  `66913e5752a9e2b7e399513710b4dce05efce9a714335c3b9908c0e30ea38c28`).
+- Frozen verification context preserved: the 28 recorded context files exist
+  on disk with manifest sha256
+  `40e4f23a35f40c5d25da630467d46f5e8ad8409a40efff8412892217447a8349` and
+  remain untracked.
+- Phase-3 control plane complete and deterministic (no host paths, timestamps
+  or process identity); CoreMark `NOT_PROVEN`; queue reserves the terminal
+  marker.
+- Worktree has no unexpected untracked paths: only the documented Phase-2
+  residue, the frozen verification-context files and the Phase-3 control
+  plane.
+- Two consecutive official gate runs produced byte-identical stdout
+  (2675 bytes, raw sha256
+  `a039bbffa55afd786e7b44427c5aafe0b09aff6f8309e1e6c643ad812b5b7c73`,
+  LF sha256
+  `02664e80d78ae03d66767c472fcc8a2cc65b0fb90cf2efdb3cbbf3c6b5efff7c`) with
+  empty stderr.
+
+## P3-01 result (PASS)
+
+Stage: `OPENRECOMP_PHASE3_COREMARK_MIPS32_FIXTURE_V1`. Evidence:
+`.openrecomp-phase3/evidence/P3-01/`. Gate:
+`tools/test_phase3_coremark_fixture_v1.py` (76 checks).
+
+Markers issued:
+
+- Stage marker: `OPENRECOMP_P3_01=PASS`
+- Gate marker: `OPENRECOMP_PHASE3_COREMARK_MIPS32_FIXTURE_V1=PASS tests=76`
+- Terminal marker (reserved): `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`
+
+CoreMark source pinned at `eembc/coremark`
+`1f483d5b8316753a742cbf5590caf5bd0a4e4777` (Apache-2.0 code; upstream
+`LICENSE.md` is the EEMBC acceptable-use agreement; no public score). Built
+with `zig cc` 0.13.0 (clang 18.1.5, LLD 18.1.6) targeting
+`mipsel-linux-musl`, soft-float, non-PIC, `-O1`, static freestanding. Two
+isolated builds are byte-identical: ELF sha256
+`16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669`,
+31184 bytes, `EXECUTABLE_REPRODUCIBLE`.
+
+Characterisation: ELF32 little-endian `EM_MIPS` `ET_EXEC`, O32 ABI,
+MIPS32 ISA, entry `0x4650` = `_start`; `.text` 13948, `.rodata` 1864,
+`.data` 40, `.bss` 18416; 3487 instruction words; no dynamic section, zero
+relocations, zero undefined symbols.
+
+Unsupported-encoding inventory (90 words, exact): `movz` 35, `movn` 12,
+`mul` 22, `divu` 4, `teq` 4, `swl` 2, `swr` 2, `jalr` 1, alignment
+padding `0x04170001` 8. This defines the evidence-supported later stages;
+OpenRecomp was not modified to make the ELF pass.
+
+Determinism: two consecutive official gate runs byte-identical (stdout raw
+sha256 `81eede03...`, empty stderr).
+
+## P3-02 result (PASS)
+
+Stage: `OPENRECOMP_PHASE3_MIPS32_ELF_INGESTION_V1`. Evidence:
+`.openrecomp-phase3/evidence/P3-02/`. Gate:
+`tools/test_phase3_elf_ingestion_v1.py` (197 checks).
+
+Markers issued:
+
+- Stage marker: `OPENRECOMP_P3_02=PASS`
+- Gate marker: `OPENRECOMP_PHASE3_MIPS32_ELF_INGESTION_V1=PASS tests=197`
+- Terminal marker (reserved): `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`
+
+Implementation (new files only; no tracked file, Phase-2 file or frozen
+manifest was modified):
+
+- `.openrecomp-phase3/src/p3_elf_image_v1.py` — architecture-neutral fail-closed
+  ELF32 ingestion (identification/header/program/section tables, section-name
+  tables, bounds, integer overflow, alignment, load-range overlap, allocated
+  section containment, `SHT_NOBITS` handling, dynamic/relocation rejection) and
+  the sparse deterministic `GuestImage` with bounds-checked read/write.
+- `.openrecomp-phase3/src/p3_target_mips32_v1.py` — MIPS32 O32 target policy
+  (machine/type/ABI/ISA/non-PIC/text/entry); MIPS-specific validation stays out
+  of the neutral parser.
+- `tools/test_phase3_elf_ingestion_v1.py` — the P3-02 gate.
+- `.openrecomp-phase3/SOURCE_SHA256SUMS.txt` — Phase-3 source manifest
+  registering the Phase-3 gates and P3-02 sources; root
+  `SOURCE_SHA256SUMS.txt` (sha256 `76f77bbc...`, 134 entries) stays frozen and
+  fully verified.
+
+CoreMark ingestion proof (fixture sha256 `16a0a0aa...`, 31184 bytes):
+parsed identity exactly matches P3-01 (ELF32 LE `EM_MIPS` `ET_EXEC`, flags
+`0x50001001`, entry `0x4650`, 8 program headers, 12 sections, 4 `PT_LOAD`
+segments, 563 symbols, 0 undefined, 0 relocations, no dynamic/interp);
+`.text`/`.rodata`/`.data` reconstructed bytes equal direct file slices; the
+sparse load map is `0x0`+308 `r--`, `0x1000`+13948 `r-x`, `0x4680`+1912 `r--`,
+`0x4e00` filesz 40 / memsz 18464 `rw-` with a 18424-byte zero-fill tail;
+loaded-image identity `e072b38d...`.
+
+BSS/NOBITS proof: `.bss` (`0x4e30`, 18416) is `SHT_NOBITS` with
+`file_size=0`; its declared file range (offset 20008, end 38424) crosses the
+31184-byte EOF and the file bytes at that offset are non-zero, yet the image is
+exactly 18416 zeros (`c7d9a612...`), identical to `zeros_sha256`.
+
+Fail-closed proof: 47 synthetic malformed fixtures (truncated header, wrong
+class/endian/machine, out-of-bounds/overflowing tables and ranges, malformed
+section-name tables, overlapping load ranges, `NOBITS` misuse, dynamic/
+relocation/interpreter forms, alignment and entry failures) each rejected with
+the exact expected deterministic classification; 3 positive synthetic cases
+including `NOBITS` whose declared offset points at non-zero file bytes
+(ingested as zeros) and `NOBITS` beyond EOF.
+
+Determinism: two consecutive official gate runs byte-identical (stdout raw
+sha256 `f24f4cef...`, 7344 bytes, empty stderr); two isolated evidence runs
+produced byte-identical artifact sets including `RESULT.json`.
+
+Regressions: P3-00 `PASS tests=61` (stdout unchanged `a039bbff...`); P3-01
+`PASS tests=76` (stdout unchanged `81eede03...`); P2-99 `PASS tests=202`
+(stdout unchanged `66913e57...`); Phase-1 host gates `PASS=44 FAIL=0
+SKIPPED=2`; public safety `PASS`; source integrity verified 134 root manifest
+entries plus the Phase-3 manifest.
+
+Claim boundary: P3-02 proves safe deterministic ingestion and guest image
+construction only. Instruction support, translation, execution and any
+arbitrary ELF/MIPS32/console compatibility remain unproven; the P3-01
+unsupported-encoding inventory is still assigned to P3-03/P3-04 and
+`COREMARK_STATUS=NOT_PROVEN`.
+
+## P3-03 result (PASS)
+
+Stage: `OPENRECOMP_PHASE3_COREMARK_DECODE_FRONTIER_V1`. Evidence:
+`.openrecomp-phase3/evidence/P3-03/`. Gate:
+`tools/test_phase3_decode_frontier_v1.py` (201 checks).
+
+Markers issued:
+
+- Stage marker: `OPENRECOMP_P3_03=PASS`
+- Gate marker: `OPENRECOMP_PHASE3_COREMARK_DECODE_FRONTIER_V1=PASS tests=201`
+- Terminal marker (reserved): `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`
+
+Implementation (no tracked file, Phase-2 file, root manifest or frozen
+evidence was modified):
+
+- `.openrecomp-phase3/src/p3_decode_mips32_v1.py` — additive fail-closed
+  decode/classification layer. The bounded adapter (`adapters/mips32.py`) stays
+  untouched because it is hash-pinned by the root manifest and the P3-01
+  inventory gate; the Phase-3 layer decodes the P3-01 unsupported classes
+  (`movz`, `movn`, `mul`, `div`/`divu`, trap family incl. `teq`, `swl`, `swr`,
+  `jalr` and same-family forms) with exact operands while keeping their
+  execution/translation semantics explicitly unsupported. Reserved encodings
+  in REGIMM/SPECIAL/SPECIAL2 spaces are `RESERVED_ENCODING`, everything
+  unnamed is fail-closed `UNKNOWN_ENCODING`.
+- `.openrecomp-phase3/src/p3_code_frontier_v1.py` — deterministic reachability
+  and frontier engine: direct control flow with delay slots from the ELF entry
+  point, never treating every word as reachable code, never inventing indirect
+  targets, stopping flow at invalid encodings and unresolvable delay slots.
+- `tools/test_phase3_decode_frontier_v1.py` — the P3-03 gate.
+- `.openrecomp-phase3/SOURCE_SHA256SUMS.txt` — extended to the eight Phase-3
+  source/gate files (manifest sha256 `79bc827d...`).
+- Documented contract growth: `tools/test_phase3_elf_ingestion_v1.py`'s
+  expected Phase-3 manifest entry set was extended from five to those eight
+  files (additive; stdout still byte-identical to the recorded P3-02 capture
+  `f24f4cef...`, all entries still verified).
+
+CoreMark decode frontier (fixture `16a0a0aa...`, 31184 bytes; `.text` 3487
+words, entry `0x4650`): all 3487 words classified and reachability discovered
+from the entry. Totals: decoded 3479 (supported 3397, recognized-unsupported
+82), reserved 8, unknown 0; reachable 2178 (supported 2123, unsupported 55,
+invalid 0); unreachable 1309 = 8 non-code padding + 1301 unreached code (687
+words in 22 dead standalone functions, 614 words behind three unresolved
+`jr $at` jump-table sites in `core_state_transition`/`ee_printf`). Unsupported
+histogram (total/reachable/unreachable): `movz` 35/21/14, `movn` 12/9/3,
+`mul` 22/15/7, `divu` 4/3/1, `teq` 4/3/1, `swl` 2/2/0, `swr` 2/2/0,
+`jalr` 1/0/1. Control flow: 96 direct calls, 198 conditional branches, 70
+jumps, 24 returns, 391 delay slots; indirect sites 4 (three reachable
+`jr $at` jump tables plus the single `jalr $ra,$t9` at `0x1958`, which is in
+dead code) with no target invented.
+
+Padding re-evaluation: the eight `0x04170001` words are proven unreachable
+non-code alignment padding from three independent evidence elements
+(reachability, reserved REGIMM `rt=0x17` encoding, exact function-symbol gap
+position), not inherited from P3-01; see
+`.openrecomp-phase3/evidence/P3-03/padding_invalid_classification.md`.
+
+Negative coverage: 21 reserved/unknown/malformed decode panels, 8 exact
+operand panels, 8 input-validation panels and 13 synthetic reachability
+fixtures (delay-slot fall-through suppression, direct/indirect calls,
+branches, returns, boundary successors, fail-closed invalid encodings and
+control-transfer-in-delay-slot).
+
+Determinism: two consecutive official gate runs byte-identical (stdout raw
+sha256 `15e20a2c...`, 7910 bytes, empty stderr); an isolated evidence-directory
+run produced byte-identical artifacts for all 9 gate-produced files including
+`RESULT.json` (`deterministic_run.json`).
+
+Regressions: P3-00 `PASS tests=61` (`a039bbff...`); P3-01 `PASS tests=76`
+(`81eede03...`); P3-02 `PASS tests=197` (`f24f4cef...` after the documented
+manifest-set extension); P2-99 `PASS tests=202` (`66913e57...`); Phase-1 host
+gates `PASS=44 FAIL=0 SKIPPED=2` (`2a9d1bba...`); public safety `PASS`
+(`ad022ff1...`); root manifest verified (134 entries) and Phase-3 manifest
+verified (8 entries).
+
+Claim boundary: P3-03 proves deterministic decode/classification of the
+audited CoreMark executable frontier and identifies the exact semantic and
+control-flow gaps only. No unsupported instruction executes correctly, CoreMark
+does not translate or run, and no arbitrary MIPS32/console compatibility is
+claimed. `COREMARK_STATUS=NOT_PROVEN`.
+
+## P3-04 result (PASS)
+
+Stage: `OPENRECOMP_PHASE3_COREMARK_REACHABLE_SEMANTICS_V1`. Evidence:
+`.openrecomp-phase3/evidence/P3-04/`. Gate:
+`tools/test_phase3_reachable_semantics_v1.py` (126 checks).
+
+Control-plane reconciliation (documented in `STAGE_QUEUE.md`): the pre-P3-04
+queue assigned P3-04 to the ProgramModel/CFG/functions/call
+graph/translation-units stage; the P3-03 frontier evidence made the reachable
+semantic frontier the next bounded stage, so P3-04 is the reachable-semantics
+stage and the structure stage moved to P3-05 with the later provisional stage
+IDs shifted by one. No completed stage evidence is affected.
+
+Markers issued:
+
+- Stage marker: `OPENRECOMP_P3_04=PASS`
+- Gate marker: `OPENRECOMP_PHASE3_COREMARK_REACHABLE_SEMANTICS_V1=PASS tests=126`
+- Terminal marker (reserved): `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`
+
+Implementation (new Phase-3 files only; no tracked file, Phase-2 file, gate or
+frozen manifest was modified; `git diff` and `git diff --cached` are empty):
+
+- `.openrecomp-phase3/src/p3_semantics_mips32_v1.py` — exact fail-closed
+  MIPS32 semantics for the P3-01 bounded class (`movz`, `movn`, `mul`,
+  `divu`, `teq`, `swl`, `swr`, `jalr`): `$zero` writes discarded, signed
+  32x32 product low half, unsigned quotient/remainder with divide-by-zero
+  refusal, taken-trap refusal with the encoded trap code preserved,
+  little-endian partial-word store merging within the aligned word, `jalr`
+  target latched from `GPR[rs]` with link `address + 8` and unaligned-target
+  refusal, HI/LO marked architecturally UNPREDICTABLE after `mul`. The frozen
+  decode layer (`p3_decode_mips32_v1`) and the frontier engine
+  (`p3_code_frontier_v1`) are untouched: the 82 words remain
+  `RECOGNIZED_UNSUPPORTED` and semantic support is an explicit overlay, never
+  inferred from decoding.
+- `tools/test_phase3_reachable_semantics_v1.py` — the P3-04 gate.
+- `.openrecomp-phase3/SOURCE_SHA256SUMS.txt` — grown additively from eight to
+  ten entries (new semantics module and gate registered).
+- Documented contract growth: the P3-02 and P3-03 gates now expect the
+  ten-entry registry (8 -> 10, additive); both still pass with stdout
+  byte-identical to their recorded captures.
+
+Frontier result (fixture `16a0a0aa...`, `.text` 3487 words, entry `0x4650`):
+82 recognized-unsupported words = 55 reachable + 27 unreachable; the exact
+per-site table (address, raw encoding, mnemonic, operands, reachability,
+containing function, implementation status) is
+`reachable_unsupported_before.json` / `reachable_unsupported_after.json`. All
+82 sites are semantically implemented and covered; the reachable semantic gap
+is zero (2178/2178 reachable words semantically supported). The recomputed
+reachability hash is unchanged (`c62d54838cbc5fcc7b0ff83cdc9b2f0f47b8851c5e4023ae2ca6d629c8f76edf`),
+the three `jr $at` jump tables and the dead `jalr` at `0x1958` stay
+unresolved with no target invented, and the eight `0x04170001` words stay
+reserved non-code padding.
+
+Verification: 459 differential vectors (boundary, fixture-derived and
+deterministic pseudo-random operands) plus 24 compiler-idiom `swl`+`swr`
+composition checks against an independently written in-gate model; all 82
+audited sites executed on both models with no `UNSUPPORTED_INSTRUCTION`
+result; 16 fail-closed negatives (unsupported op, divide-by-zero, taken trap,
+unaligned `jalr` target, unpredictable HI/LO read, memory faults, unsupported
+endianness, malformed records); the HI/LO dependency analysis proves all six
+reachable `mfhi`/`mflo` reads are defined by `multu`/`divu` and none depends
+on `mul`.
+
+Exception frontier: the six reachable div/trap sites are each classified with
+explicit evidence instead of assumption — `0x1f60`/`0x1f64` (fixture seeds
+`0, 0, 0x66, 0x3e8, 0`; `execs = 7` through the `movz` at `0x1ee4`; popcount
+divisor 3), `0x2044`/`0x2048` (the `beq $2,$0` at `0x2038` dominates the
+fall-through path, and the auto-calibration block is not entered because
+`iterations = 0x3e8`), `0x2370`/`0x2374` (the pure `time_in_secs` callee
+returns the same nonzero value proven at `0x2350`). No site is left as an
+unresolved runtime requirement, and the model still fails closed if any
+condition were ever true.
+
+Determinism: two consecutive official runs byte-identical (stdout raw sha256
+`412544a413bbe3e55e688bc45e379dccfe4e8b4ebdc299211ccba2a832e39b36`, 5202
+bytes, empty stderr); every evidence artifact is byte-identical across the
+two runs.
+
+Regressions: P3-00 `PASS tests=61` (`a039bbff...` unchanged), P3-01
+`PASS tests=76` (`81eede03...`), P3-02 `PASS tests=197` (`f24f4cef...`),
+P3-03 `PASS tests=201` (`15e20a2c...`), P2-99 `PASS tests=202`
+(`66913e57...`), Phase-1 host gates `PASS=44 FAIL=0 SKIPPED=2`
+(`2a9d1bba...`), public safety `PASS`; root manifest verified (134 entries)
+and frozen Phase-2 tracked tree unchanged.
+
+Claim boundary: P3-04 proves only that the audited reachable MIPS32 semantic
+frontier in the P3-01 classes is implemented and verified for the CoreMark
+path. CoreMark is not translated or executed, the unresolved jump tables are
+not recovered, and no arbitrary MIPS32/PS1/PS2 compatibility is claimed.
+`COREMARK_STATUS=NOT_PROVEN`.
+
+## Claim boundary
+
+Phase 3 adds no Phase-2 claim. Phase 2 remains the proven bounded
+end-to-end framework result. The Phase-3 terminal marker is reserved and
+currently `NOT_PROVEN`; no arbitrary MIPS32/commercial/console compatibility
+is claimed at any Phase-3 stage until the bounded real-ELF claim is proven with
+independent evidence.
+
+## Next exact action
+
+P3-04 is `PASS`. Advance to P3-05 (ProgramModel/CFG/functions/call
+graph/translation units on the real ELF, the reconciled queue row): exercise
+the shared Phase-2 layers against the P3-03/P3-04 frontier without changing
+shared-layer neutrality, carry the exact semantic and indirect-control-flow
+frontier forward (never guess indirect targets), and record evidence under
+`.openrecomp-phase3/evidence/P3-05/`. Do not begin host emission (P3-07) or
+runtime work (P3-08) in P3-05.
