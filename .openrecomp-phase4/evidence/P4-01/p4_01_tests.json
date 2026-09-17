@@ -1,0 +1,718 @@
+{
+  "checks": [
+    {
+      "check": "artifact:contract-json-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "artifact:contract-json-roundtrip",
+      "status": "PASS"
+    },
+    {
+      "check": "artifact:header-has-guard",
+      "status": "PASS"
+    },
+    {
+      "check": "artifact:header-has-version",
+      "status": "PASS"
+    },
+    {
+      "check": "artifact:header-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "artifact:profile-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "artifact:two-emissions-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:core-exit-terminates",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:core-exit-typed",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:core-exit-version",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:core-service-set",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:endianness-equal-p2-08",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:entry-return-policy",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:failure-code-values",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:failure-codes-equal-p2-08",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:generated-symbol-set",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:max-address",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:name",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:no-host-pointers",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:observable-digest",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:observable-fields",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:return-types-bounded",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:runtime-abi-name",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:runtime-symbol-set",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:signature:openrecomp_error",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:signature:openrecomp_failed",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:signature:openrecomp_image",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:signature:openrecomp_image_size",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:signature:openrecomp_pc",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:signature:openrecomp_region",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:signature:openrecomp_region_count",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:signature:openrecomp_register_count",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:signature:openrecomp_register_value",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:signature:openrecomp_run",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:signature:openrecomp_steps",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:signature:or_rt_failure_reason",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:signature:or_rt_host_call",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:signature:or_rt_memory_read",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:signature:or_rt_memory_write",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:types-bounded",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:version-matches-p2-08",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:widths-equal-p2-08",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:accessors-defined",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:aux-accessors-defined",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:extern-set",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:extern-signatures",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:failure-enum-codes",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:failure-enum-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:profile-artifacts",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:program-compliant",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:program-includes",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:program-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:service-macros",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:service-uses",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:support-compliant",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:support-defines-main",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:support-defines-no-accessors",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:support-defines-runtime-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:support-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "instance:support-unknown-service-fallback",
+      "status": "PASS"
+    },
+    {
+      "check": "model:address-overflow",
+      "status": "PASS"
+    },
+    {
+      "check": "model:arity",
+      "status": "PASS"
+    },
+    {
+      "check": "model:baseline-active",
+      "status": "PASS"
+    },
+    {
+      "check": "model:entry-return-fault",
+      "status": "PASS"
+    },
+    {
+      "check": "model:exit-result",
+      "status": "PASS"
+    },
+    {
+      "check": "model:exit-status",
+      "status": "PASS"
+    },
+    {
+      "check": "model:first-failure-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "model:handler-exception",
+      "status": "PASS"
+    },
+    {
+      "check": "model:latch-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "model:little-endian-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "model:observable-digest-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "model:observable-digest-format",
+      "status": "PASS"
+    },
+    {
+      "check": "model:observable-document-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "model:observable-document-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "model:observable-restored-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "model:observable-sensitive-exit",
+      "status": "PASS"
+    },
+    {
+      "check": "model:observable-sensitive-memory",
+      "status": "PASS"
+    },
+    {
+      "check": "model:observable-sensitive-output",
+      "status": "PASS"
+    },
+    {
+      "check": "model:observable-sensitive-pc",
+      "status": "PASS"
+    },
+    {
+      "check": "model:observable-sensitive-register",
+      "status": "PASS"
+    },
+    {
+      "check": "model:observable-sensitive-steps",
+      "status": "PASS"
+    },
+    {
+      "check": "model:oob-read",
+      "status": "PASS"
+    },
+    {
+      "check": "model:oob-write",
+      "status": "PASS"
+    },
+    {
+      "check": "model:operation-after-termination",
+      "status": "PASS"
+    },
+    {
+      "check": "model:output-accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "model:output-capacity",
+      "status": "PASS"
+    },
+    {
+      "check": "model:terminated",
+      "status": "PASS"
+    },
+    {
+      "check": "model:typed-argument-overflow",
+      "status": "PASS"
+    },
+    {
+      "check": "model:unknown-service",
+      "status": "PASS"
+    },
+    {
+      "check": "model:version-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "model:width-64-unsupported-by-profile",
+      "status": "PASS"
+    },
+    {
+      "check": "model:write-read-16",
+      "status": "PASS"
+    },
+    {
+      "check": "model:write-read-32",
+      "status": "PASS"
+    },
+    {
+      "check": "model:write-read-8",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:changed-accessor-signature",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:extra-extern",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:foreign-include",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:missing-accessor",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:support-changed-signature",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:support-foreign-include",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:support-missing-fallback",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:undeclared-macro",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:core-namespace-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:core-surface-clean:coremark",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:core-surface-clean:ee_",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:core-surface-clean:emotion",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:core-surface-clean:mips",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:core-surface-clean:n64",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:core-surface-clean:p3.",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:core-surface-clean:p3_",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:core-surface-clean:ps1",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:core-surface-clean:ps2",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:core-surface-clean:psp",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:core-surface-clean:r5900",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:core-surface-clean:uart",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:fixture-declared-in-profile",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:generated-include-set",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:no-nondeterminism:datetime.now",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:no-nondeterminism:import datetime",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:no-nondeterminism:import os",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:no-nondeterminism:import random",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:no-nondeterminism:import secrets",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:no-nondeterminism:import subprocess",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:no-nondeterminism:import time",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:no-nondeterminism:import uuid",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:no-nondeterminism:os.environ",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:no-nondeterminism:random.",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:no-nondeterminism:time.time(",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:no-nondeterminism:uuid.uuid4",
+      "status": "PASS"
+    },
+    {
+      "check": "neutrality:platform-tokens-declared",
+      "status": "PASS"
+    },
+    {
+      "check": "profile:artifacts",
+      "status": "PASS"
+    },
+    {
+      "check": "profile:aux-registers",
+      "status": "PASS"
+    },
+    {
+      "check": "profile:endianness",
+      "status": "PASS"
+    },
+    {
+      "check": "profile:macro-matches-p2-08-canonical",
+      "status": "PASS"
+    },
+    {
+      "check": "profile:name",
+      "status": "PASS"
+    },
+    {
+      "check": "profile:numeric-matches-p2-08-canonical",
+      "status": "PASS"
+    },
+    {
+      "check": "profile:register-count",
+      "status": "PASS"
+    },
+    {
+      "check": "profile:service-macros",
+      "status": "PASS"
+    },
+    {
+      "check": "profile:terminating-service",
+      "status": "PASS"
+    },
+    {
+      "check": "profile:valid",
+      "status": "PASS"
+    },
+    {
+      "check": "profile:widths-exact",
+      "status": "PASS"
+    },
+    {
+      "check": "profile:widths-subset",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:core-service-fixture-namespace",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:core-service-incompatible-version",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:core-service-unbounded-type",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:profile-unknown-width",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:profile-v1-service-version",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:symbol-unbounded-type",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:symbol-wrong-namespace",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase4-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase4-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-verified",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "artifacts": {
+      "contract_json_sha256": "d0517ef7ae22b1005e1a59636619c8fcc5549d120e2722475295fe4b4ed00c4a",
+      "header_sha256": "23ad77e3514be7ceca61fd839130a7b2706ccdb54a0f85c2f24b1f6b666750c5",
+      "profile_sha256": "66b5bd026d6db612dd3052e297e3916bfd149871bd06011ec8beb913bf128b8c"
+    },
+    "contract": {
+      "core_services": [
+        "or.runtime.exit"
+      ],
+      "generated_symbols": [
+        "openrecomp_error",
+        "openrecomp_failed",
+        "openrecomp_image",
+        "openrecomp_image_size",
+        "openrecomp_pc",
+        "openrecomp_region",
+        "openrecomp_region_count",
+        "openrecomp_register_count",
+        "openrecomp_register_value",
+        "openrecomp_run",
+        "openrecomp_steps"
+      ],
+      "name": "openrecomp-generated-runtime-abi",
+      "profile": "phase3-coremark-mips32-o32",
+      "runtime_symbols": [
+        "or_rt_failure_reason",
+        "or_rt_host_call",
+        "or_rt_memory_read",
+        "or_rt_memory_write"
+      ],
+      "version": "1.0.0"
+    },
+    "frozen_instance": {
+      "program_problems": [],
+      "program_sha256": "5199e2f0a11974847966bd7ea6b855e0147c6e762d002ede3f14bc3ee8d9649a",
+      "support_problems": [],
+      "support_sha256": "c5c69054cbbcd4e6ea9259f2e3d80e4bfada6fc12fec1cfe3fe9224b9f861580"
+    },
+    "model": {
+      "digest": "0x99f96e3dc47d392a",
+      "document_fields": [
+        "abi",
+        "aux_registers",
+        "exit_status",
+        "external_output_length",
+        "external_output_sha256",
+        "failure",
+        "image_sha256",
+        "pc",
+        "profile",
+        "registers",
+        "steps"
+      ]
+    },
+    "neutrality": {
+      "forbidden_tokens": [
+        "coremark",
+        "mips",
+        "ps1",
+        "ps2",
+        "psp",
+        "n64",
+        "p3_",
+        "p3.",
+        "r5900",
+        "uart",
+        "ee_",
+        "emotion"
+      ]
+    },
+    "source_integrity": {
+      "phase3_entries": 24,
+      "phase4_entries": 6,
+      "root_entries": 134
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE4_RUNTIME_ABI_V1=PASS tests=156",
+    "stage": "OPENRECOMP_P4_01=PASS",
+    "terminal": "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN"
+  },
+  "passed": 156,
+  "stage": "P4-01",
+  "stage_name": "OPENRECOMP_PHASE4_RUNTIME_ABI_V1",
+  "status": "PASS",
+  "tests": 156
+}

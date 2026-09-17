@@ -1,7 +1,8 @@
 # OpenRecomp Phase 4 Handoff
 
 STATUS: Phase 4 `ACTIVE` — P4-00 (Phase-4 boundary) `PASS`; P4-01 (Generic
-Runtime ABI V1) is the executing stage. The frozen
+Runtime ABI V1) `PASS`; P4-02 (Guest memory/runtime model) is the executing
+stage. The frozen
 Phase-4 queue (`P4-01` .. `P4-99`) is frozen by `.openrecomp-phase4/STAGE_QUEUE.md`
 (`## Queue freeze`) at the P4-00 `PASS` boundary, before any P4-01
 implementation work. Phase 3 is complete and frozen at annotated tag
@@ -26,6 +27,37 @@ Reserved markers:
 - `OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN` (P4-99 may issue PASS
   for the bounded claim only)
 - `OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN` (never promoted)
+
+## P4-01 outcome (PASS)
+
+Markers: `OPENRECOMP_P4_01=PASS`,
+`OPENRECOMP_PHASE4_RUNTIME_ABI_V1=PASS tests=156`; terminal and general
+compatibility markers reserved as `NOT_PROVEN`.
+
+- New files: `.openrecomp-phase4/src/p4_runtime_abi_v1.py` (executable
+  generated-code <-> runtime ABI V1 contract, extending the frozen P2-08
+  `openrecomp.runtime_abi`), deterministic
+  `.openrecomp-phase4/contracts/generated_runtime_abi_v1.json`,
+  `.openrecomp-phase4/ports/generated_runtime_abi_v1.h`, the declared
+  instance profile
+  `.openrecomp-phase4/ports/generated_runtime_abi_v1_profile_mips32_o32.json`,
+  and `tools/test_phase4_runtime_abi_v1.py`; the Phase-4 manifest grew
+  additively to six entries.
+- The contract covers execution state, calls, returns/exits, faults, memory
+  service boundaries, typed/versioned services and deterministic observable
+  state; the frozen Phase-3 generated instance is verified compliant
+  (`coremark_program.c` `5199e2f0...`, `coremark_support.c` `c5c69054...`);
+  negative sources are rejected; the core surface has no fixture/platform
+  tokens.
+- Two official runs byte-identical raw (`81c96314...`, 6199 bytes) and LF,
+  empty stderr, exit 0; `p4_01_tests.json` identical across runs
+  (`64da953d...`).
+- Regressions: P2-08 `PASS tests=169`, Phase-1 host gates
+  `PASS=44 FAIL=0 SKIPPED=2`, public safety `PASS`, P4-00 boundary
+  `PASS tests=74` with byte-identical stdout (`953312d0...`) using the
+  documented frozen-gate boundary-context hygiene
+  (`evidence/P4-01/regression_hygiene.json`).
+- Evidence: `.openrecomp-phase4/evidence/P4-01/`.
 
 ## P4-00 outcome (PASS)
 
@@ -76,15 +108,16 @@ compatibility markers reserved as `NOT_PROVEN`.
 
 ## Exact next action
 
-Execute P4-01 (Generic Runtime ABI V1): define and verify the
-architecture-neutral generated-code <-> runtime ABI, add its sources and gate
-to `.openrecomp-phase4/SOURCE_SHA256SUMS.txt`, run the official gate twice
-with deterministic evidence, run the required regressions, update the control
-plane and commit the P4-01 boundary. When re-running the frozen Phase-3
-regression set from this branch, use the documented P4-00 context
-reconstruction (temporary `phase3/`-named verification branch and held-out
-untracked Phase-4 material) or verify the frozen gate by its committed
-boundary record.
+Execute P4-02 (Guest memory/runtime model): implement and verify explicit
+guest memory regions and access semantics (code/data/BSS/stack/heap where
+applicable, permissions, bounds, alignment, endian handling and deterministic
+fault behaviour) on top of the P4-01 ABI boundary, with invalid/unmapped
+accesses failing closed. Add its sources and gate to
+`.openrecomp-phase4/SOURCE_SHA256SUMS.txt`, run the official gate twice with
+deterministic evidence, run the required regressions (P2-08, Phase-1 host
+gates, public safety, and P4-00/P4-01 using the documented frozen-gate
+boundary-context hygiene), update the control plane and commit the P4-02
+boundary.
 
 ## Constraints
 

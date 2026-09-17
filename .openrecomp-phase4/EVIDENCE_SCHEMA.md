@@ -55,6 +55,27 @@ machine-readable sidecars.
    sidecars in the working tree; this is recorded as a re-run artifact and
    never as a history change.
 
+## Frozen-gate re-run hygiene
+
+Frozen gates verify a committed boundary, so they must be re-run with the
+tracked context at that boundary. When a frozen Phase-4 gate is re-run as a
+regression from a later stage:
+
+1. temporarily restore the committed bytes (from HEAD) of the tracked files
+   that later stages legitimately modify - the Phase-4 source manifest and the
+   frozen gate's own evidence sidecars that its re-runs rewrite;
+2. run the frozen gate and capture stdout/stderr;
+3. re-apply the current working-tree manifest and restore the frozen gate's
+   sidecars to the committed record.
+
+Untracked material of the executing stage is already permitted by the frozen
+gate's allowlist. The restore/re-apply procedure and the exact hashes are
+recorded in the stage evidence (for example
+`.openrecomp-phase4/evidence/P4-01/regression_hygiene.json`). Frozen Phase-3
+gates additionally require the P4-00 context reconstruction (temporary
+`phase3/`-named verification branch and held-out untracked Phase-4 material).
+No frozen file may be modified in place and no history may be rewritten.
+
 ## Claim ledger vocabulary
 
 - `PROVEN`: supported by deterministic audited evidence on the frozen tree.

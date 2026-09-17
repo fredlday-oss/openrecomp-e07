@@ -1,0 +1,175 @@
+=== P4-01 Generic Runtime ABI Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest
+PASS: source:root-manifest-entries
+PASS: source:root-manifest-verified
+PASS: source:phase3-manifest
+PASS: source:phase3-manifest-entries
+PASS: source:phase4-manifest-exists
+PASS: source:phase4-manifest-verified
+
+--- contract ---
+PASS: contract:name
+PASS: contract:version-matches-p2-08
+PASS: contract:runtime-abi-name
+PASS: contract:failure-codes-equal-p2-08
+PASS: contract:failure-code-values
+PASS: contract:widths-equal-p2-08
+PASS: contract:endianness-equal-p2-08
+PASS: contract:max-address
+PASS: contract:no-host-pointers
+PASS: contract:runtime-symbol-set
+PASS: contract:generated-symbol-set
+PASS: contract:signature:or_rt_failure_reason
+PASS: contract:signature:or_rt_host_call
+PASS: contract:signature:or_rt_memory_read
+PASS: contract:signature:or_rt_memory_write
+PASS: contract:signature:openrecomp_error
+PASS: contract:signature:openrecomp_failed
+PASS: contract:signature:openrecomp_image
+PASS: contract:signature:openrecomp_image_size
+PASS: contract:signature:openrecomp_pc
+PASS: contract:signature:openrecomp_region
+PASS: contract:signature:openrecomp_region_count
+PASS: contract:signature:openrecomp_register_count
+PASS: contract:signature:openrecomp_register_value
+PASS: contract:signature:openrecomp_run
+PASS: contract:signature:openrecomp_steps
+PASS: contract:types-bounded
+PASS: contract:return-types-bounded
+PASS: contract:core-service-set
+PASS: contract:core-exit-terminates
+PASS: contract:core-exit-typed
+PASS: contract:core-exit-version
+PASS: contract:entry-return-policy
+PASS: contract:observable-fields
+PASS: contract:observable-digest
+PASS: profile:valid
+PASS: profile:name
+PASS: profile:widths-subset
+PASS: profile:widths-exact
+PASS: profile:endianness
+PASS: profile:register-count
+PASS: profile:aux-registers
+PASS: profile:service-macros
+PASS: profile:macro-matches-p2-08-canonical
+PASS: profile:numeric-matches-p2-08-canonical
+PASS: profile:terminating-service
+PASS: profile:artifacts
+PASS: reject:core-service-fixture-namespace
+PASS: reject:core-service-unbounded-type
+PASS: reject:core-service-incompatible-version
+PASS: reject:symbol-unbounded-type
+PASS: reject:symbol-wrong-namespace
+PASS: reject:profile-unknown-width
+PASS: reject:profile-v1-service-version
+
+--- artifacts ---
+PASS: artifact:contract-json-identical
+PASS: artifact:header-identical
+PASS: artifact:profile-identical
+PASS: artifact:contract-json-roundtrip
+PASS: artifact:two-emissions-identical
+PASS: artifact:header-has-version
+PASS: artifact:header-has-guard
+
+--- frozen_instance ---
+PASS: instance:program-sha256
+PASS: instance:support-sha256
+PASS: instance:profile-artifacts
+PASS: instance:program-compliant
+PASS: instance:support-compliant
+PASS: instance:program-includes
+PASS: instance:extern-set
+PASS: instance:extern-signatures
+PASS: instance:service-macros
+PASS: instance:service-uses
+PASS: instance:failure-enum-ok
+PASS: instance:failure-enum-codes
+PASS: instance:accessors-defined
+PASS: instance:aux-accessors-defined
+PASS: instance:support-defines-runtime-entries
+PASS: instance:support-defines-no-accessors
+PASS: instance:support-defines-main
+PASS: instance:support-unknown-service-fallback
+PASS: negative:extra-extern
+PASS: negative:undeclared-macro
+PASS: negative:foreign-include
+PASS: negative:changed-accessor-signature
+PASS: negative:missing-accessor
+PASS: negative:support-foreign-include
+PASS: negative:support-changed-signature
+PASS: negative:support-missing-fallback
+
+--- model ---
+PASS: model:write-read-8
+PASS: model:write-read-16
+PASS: model:write-read-32
+PASS: model:little-endian-bytes
+PASS: model:width-64-unsupported-by-profile
+PASS: model:oob-read
+PASS: model:oob-write
+PASS: model:address-overflow
+PASS: model:unknown-service
+PASS: model:arity
+PASS: model:typed-argument-overflow
+PASS: model:version-mismatch
+PASS: model:handler-exception
+PASS: model:exit-result
+PASS: model:exit-status
+PASS: model:terminated
+PASS: model:operation-after-termination
+PASS: model:first-failure-preserved
+PASS: model:latch-stable
+PASS: model:entry-return-fault
+PASS: model:output-accepted
+PASS: model:output-capacity
+PASS: model:observable-digest-format
+PASS: model:observable-digest-deterministic
+PASS: model:observable-document-deterministic
+PASS: model:baseline-active
+PASS: model:observable-sensitive-register
+PASS: model:observable-sensitive-pc
+PASS: model:observable-sensitive-steps
+PASS: model:observable-restored-identity
+PASS: model:observable-sensitive-memory
+PASS: model:observable-sensitive-output
+PASS: model:observable-sensitive-exit
+PASS: model:observable-document-failure
+
+--- neutrality ---
+PASS: neutrality:no-nondeterminism:import time
+PASS: neutrality:no-nondeterminism:import random
+PASS: neutrality:no-nondeterminism:import secrets
+PASS: neutrality:no-nondeterminism:import os
+PASS: neutrality:no-nondeterminism:import uuid
+PASS: neutrality:no-nondeterminism:import datetime
+PASS: neutrality:no-nondeterminism:import subprocess
+PASS: neutrality:no-nondeterminism:time.time(
+PASS: neutrality:no-nondeterminism:random.
+PASS: neutrality:no-nondeterminism:os.environ
+PASS: neutrality:no-nondeterminism:uuid.uuid4
+PASS: neutrality:no-nondeterminism:datetime.now
+PASS: neutrality:core-surface-clean:coremark
+PASS: neutrality:core-surface-clean:mips
+PASS: neutrality:core-surface-clean:ps1
+PASS: neutrality:core-surface-clean:ps2
+PASS: neutrality:core-surface-clean:psp
+PASS: neutrality:core-surface-clean:n64
+PASS: neutrality:core-surface-clean:p3_
+PASS: neutrality:core-surface-clean:p3.
+PASS: neutrality:core-surface-clean:r5900
+PASS: neutrality:core-surface-clean:uart
+PASS: neutrality:core-surface-clean:ee_
+PASS: neutrality:core-surface-clean:emotion
+PASS: neutrality:fixture-declared-in-profile
+PASS: neutrality:core-namespace-reserved
+PASS: neutrality:platform-tokens-declared
+PASS: neutrality:generated-include-set
+
+=== RESULT ===
+OPENRECOMP_P4_01=PASS
+OPENRECOMP_PHASE4_RUNTIME_ABI_V1=PASS tests=156
+OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN

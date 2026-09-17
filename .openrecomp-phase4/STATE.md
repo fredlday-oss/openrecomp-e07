@@ -4,8 +4,8 @@ PHASE=4
 BASELINE_TAG=openrecomp-phase3-pass
 BASELINE_COMMIT=e16e4b29b90f379615f1af97e47747cd1d531796
 BASELINE_TREE=a940f0d84a32adaf191f7ff2bebfb24cc855cde0
-CURRENT_STAGE=P4-01
-LAST_PASSED_STAGE=P4-00
+CURRENT_STAGE=P4-02
+LAST_PASSED_STAGE=P4-01
 STATUS=ACTIVE
 GENERIC_RUNTIME_STATUS=NOT_PROVEN
 FINAL_VERDICT=NOT_PROVEN
@@ -71,7 +71,7 @@ QUEUE_FREEZE_STAGES=P4-01..P4-99
 | ID | Stage | Status | Evidence |
 | --- | --- | --- | --- |
 | P4-00 | Phase-4 boundary | PASS | `.openrecomp-phase4/evidence/P4-00/` |
-| P4-01 | Generic Runtime ABI V1 | QUEUED | `.openrecomp-phase4/evidence/P4-01/` |
+| P4-01 | Generic Runtime ABI V1 | PASS | `.openrecomp-phase4/evidence/P4-01/` |
 | P4-02 | Guest memory/runtime model | QUEUED | `.openrecomp-phase4/evidence/P4-02/` |
 | P4-03 | Runtime service mediation | QUEUED | `.openrecomp-phase4/evidence/P4-03/` |
 | P4-04 | Deterministic I/O, timing and input | QUEUED | `.openrecomp-phase4/evidence/P4-04/` |
@@ -102,6 +102,54 @@ QUEUE_FREEZE_STAGES=P4-01..P4-99
    terminal/general compatibility markers stay reserved as `NOT_PROVEN`.
 6. The working tree has no unexpected untracked paths beyond the documented
    Phase-2/Phase-3 sets and the Phase-4 control plane itself.
+
+## P4-01 result (PASS)
+
+Stage: \OPENRECOMP_PHASE4_RUNTIME_ABI_V1\. Evidence:
+\.openrecomp-phase4/evidence/P4-01/\. Gate:
+\	ools/test_phase4_runtime_abi_v1.py\ (156 checks, sha256 \9f2c996...\).
+
+Markers issued:
+
+- Stage marker: \OPENRECOMP_P4_01=PASS- Gate marker: \OPENRECOMP_PHASE4_RUNTIME_ABI_V1=PASS tests=156- Terminal marker (reserved): \OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN- General compatibility marker (never promoted):
+  \OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN
+Delivered (additive Phase-4 files only; no frozen file modified):
+
+- \.openrecomp-phase4/src/p4_runtime_abi_v1.py\: executable
+  architecture-neutral generated-code <-> runtime ABI V1 contract, reusing
+  the frozen P2-08 \openrecomp.runtime_abi\ as the single source of truth
+  for the ABI name/version, failure codes, widths, endianness and canonical
+  sorted service numeric ids.
+- \.openrecomp-phase4/contracts/generated_runtime_abi_v1.json\ (machine
+  contract), \.openrecomp-phase4/ports/generated_runtime_abi_v1.h\ (C
+  boundary header) and the declared instance profile
+  \.openrecomp-phase4/ports/generated_runtime_abi_v1_profile_mips32_o32.json  (frozen Phase-3 instance: widths {8,16,32}, 32 registers, \hi\/\lo  aux accessors, services \p3.exit\=1 and \p3.uart_write\=2, pinned
+  generated artifacts).
+- \	ools/test_phase4_runtime_abi_v1.py\; Phase-4 manifest grown additively
+  to six entries.
+
+Verified: runtime entries (\or_rt_memory_read/write/host_call/
+failure_reason\) and generated accessors (\openrecomp_*\) with exact
+signatures; typed, versioned service descriptors; reserved core namespace
+\or.runtime.*\ with a terminating \or.runtime.exit\; 14 P2-08 failure
+codes with first-failure latching; fail-closed reference model semantics
+(memory, arity, typed arguments, version, handler failure, termination,
+entry-return fault, output capacity); deterministic observable state
+(document + FNV-1a 64 digest, sensitive to every covered field); the frozen
+\coremark_program.c\ ()99e2f0...\) and \coremark_support.c(\c5c69054...\) are compliant instances; negative sources are rejected;
+the contract core surface has no fixture or platform tokens. Two official
+runs byte-identical (6199 bytes raw \81c96314...\, empty stderr, exit 0)
+with \p4_01_tests.json\ identical across runs (4da953d...\).
+
+Regressions: P2-08 \PASS tests=169\, Phase-1 host gates
+\PASS=44 FAIL=0 SKIPPED=2\, public safety \PASS\, P4-00 boundary
+\PASS tests=74\ (byte-identical stdout \953312d0...\) re-run with the
+documented frozen-gate boundary-context hygiene.
+
+Limitations: the ABI is defined and verified but not yet implemented as a
+new execution path; the fixture-specific service set is declared profile data
+and is replaced by generic services in P4-03; no observable equivalence claim
+is made; \GENERIC_RUNTIME_STATUS=NOT_PROVEN\.
 
 ## P4-00 result (PASS)
 

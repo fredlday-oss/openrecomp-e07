@@ -1,0 +1,371 @@
+{
+  "checks": [
+    {
+      "check": "branch:descends-from-boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "branch:merge-base-is-boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "branch:phase4-branch",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:complete-set-matches-ledger",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:current-stage",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:CONTROL_POLICY.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:EVIDENCE_SCHEMA.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:HANDOFF.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:SCOPE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:STAGE_QUEUE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:STATE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:last-passed-stage",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger-ids-frozen",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger-statuses-valid",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:no-premature-claims",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:policy-boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue-at-most-one-active",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue-freeze-section",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue-ids-frozen",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue-names-frozen",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue-statuses-valid",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:scope-target",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:state:BASELINE_COMMIT",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:state:BASELINE_TAG",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:state:BASELINE_TREE",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:state:FINAL_VERDICT",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:state:GENERIC_RUNTIME_STATUS",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:state:PHASE",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:state:QUEUE_FREEZE",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:status",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:fixture-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:fixture-size",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:p3-99-gate",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:p3-99-result-json",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:phase3-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:phase3-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:root-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:root-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "legal:no-console-magics",
+      "status": "PASS"
+    },
+    {
+      "check": "phase1:tag-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "phase2:tag-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3-gate:frozen-verdict-pre-run",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3-gate:frozen-verdict-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3-gate:marker:OPENRECOMP_P3_99",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3-gate:marker:OPENRECOMP_PHASE3_FINAL_VERDICT_V1",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3-gate:marker:OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3-gate:no-failures",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3-gate:original-branch-restored",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3-gate:phase4-branch-context",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3-gate:phase4-context-restored",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3-gate:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3-gate:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3-gate:stdout-lf-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3-gate:stdout-raw-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3-gate:stdout-size",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3-gate:verification-branch-created",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3-gate:verification-branch-deleted",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3-gate:verification-branch-name-free",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3:commit-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3:tag-annotated",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3:tag-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3:tag-object",
+      "status": "PASS"
+    },
+    {
+      "check": "phase3:tag-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase4-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase4-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase4-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "worktree:modified-tracked-scope",
+      "status": "PASS"
+    },
+    {
+      "check": "worktree:no-deleted-or-staged-paths",
+      "status": "PASS"
+    },
+    {
+      "check": "worktree:no-unexpected-untracked",
+      "status": "PASS"
+    },
+    {
+      "check": "worktree:residue-documented",
+      "status": "PASS"
+    },
+    {
+      "check": "worktree:status-readable",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "boundary": {
+      "branch": "phase4/generic-runtime-v1",
+      "commit": "e16e4b29b90f379615f1af97e47747cd1d531796",
+      "tag": "openrecomp-phase3-pass",
+      "tag_object": "ac31524504b1b5cc63aabcfd5132a3eb4275e8e9",
+      "tree": "a940f0d84a32adaf191f7ff2bebfb24cc855cde0"
+    },
+    "control_plane": {
+      "digest_sha256": "c2177cebdad90e0ab4adc61830b7690d74107ff4268afa0dde8198c8fb121ae2",
+      "files": 6,
+      "ledger_pass": [
+        "P4-00"
+      ],
+      "offending": [],
+      "premature_claims": [],
+      "queue_complete": [
+        "P4-00"
+      ]
+    },
+    "frozen_evidence": {
+      "fixture_sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669",
+      "phase3_manifest_entries": 24,
+      "phase3_manifest_sha256": "a7d0953c0f02276ad233db50e326d9e71a3136542648bb04a95de9d3e05e2488",
+      "root_manifest_entries": 134,
+      "root_manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"
+    },
+    "legal": {
+      "console_magics": []
+    },
+    "phase3_final_gate": {
+      "original_branch": "phase4/generic-runtime-v1",
+      "phase4_context_entries_held": 0,
+      "phase4_context_entries_restored": 0,
+      "returncode": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2498,
+      "stdout_sha256_lf": "4974d03fdd02ef76e1fa6506d230cd2c9be9e1cfe55bb9d5d4851f7525c72dd5",
+      "stdout_sha256_raw": "953ec70c312c7203022ba98f763aabf270409e2f39a9a7fa2ac90d887ae087bc",
+      "verdict_record_restored_post_run": false,
+      "verdict_record_restored_pre_run": false,
+      "verification_branch": "phase3/p4-00-verification-context"
+    },
+    "phase4_manifest": {
+      "bad": [],
+      "entries": 1
+    },
+    "worktree": {
+      "modified_tracked": [
+        ".openrecomp-phase3/evidence/P3-00/p3_00_tests.json",
+        ".openrecomp-phase3/evidence/P3-00/residue_manifest.txt"
+      ],
+      "residue_files": 275,
+      "unexpected_codes": [],
+      "unexpected_untracked": [],
+      "untracked_entries": 66
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE4_BOUNDARY_V1=PASS tests=74",
+    "stage": "OPENRECOMP_P4_00=PASS",
+    "terminal": "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN"
+  },
+  "passed": 74,
+  "stage": "P4-00",
+  "stage_name": "OPENRECOMP_PHASE4_BOUNDARY_V1",
+  "status": "PASS",
+  "tests": 74
+}

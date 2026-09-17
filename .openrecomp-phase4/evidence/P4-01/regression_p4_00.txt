@@ -1,0 +1,93 @@
+=== P4-00 Phase-4 Boundary Gate ===
+
+--- control_plane ---
+PASS: control-plane:exists:CONTROL_POLICY.md
+PASS: control-plane:exists:EVIDENCE_SCHEMA.md
+PASS: control-plane:exists:SCOPE.md
+PASS: control-plane:exists:STAGE_QUEUE.md
+PASS: control-plane:exists:STATE.md
+PASS: control-plane:exists:HANDOFF.md
+PASS: control-plane:evidence-dir
+PASS: control-plane:state:PHASE
+PASS: control-plane:state:BASELINE_TAG
+PASS: control-plane:state:BASELINE_COMMIT
+PASS: control-plane:state:BASELINE_TREE
+PASS: control-plane:state:FINAL_VERDICT
+PASS: control-plane:state:GENERIC_RUNTIME_STATUS
+PASS: control-plane:state:QUEUE_FREEZE
+PASS: control-plane:current-stage
+PASS: control-plane:last-passed-stage
+PASS: control-plane:status
+PASS: control-plane:queue-ids-frozen
+PASS: control-plane:queue-names-frozen
+PASS: control-plane:queue-statuses-valid
+PASS: control-plane:queue-at-most-one-active
+PASS: control-plane:queue-freeze-section
+PASS: control-plane:ledger-ids-frozen
+PASS: control-plane:ledger-statuses-valid
+PASS: control-plane:complete-set-matches-ledger
+PASS: control-plane:terminal-reserved
+PASS: control-plane:scope-target
+PASS: control-plane:policy-boundary
+PASS: control-plane:deterministic
+PASS: control-plane:no-premature-claims
+
+--- frozen_boundary ---
+PASS: phase3:tag-annotated
+PASS: phase3:tag-object
+PASS: phase3:tag-commit
+PASS: phase3:tag-tree
+PASS: phase3:commit-tree
+PASS: phase2:tag-commit
+PASS: phase1:tag-commit
+PASS: branch:descends-from-boundary
+PASS: branch:merge-base-is-boundary
+PASS: branch:phase4-branch
+
+--- phase3_final_gate ---
+PASS: phase3-gate:phase4-branch-context
+PASS: phase3-gate:verification-branch-name-free
+PASS: phase3-gate:frozen-verdict-pre-run
+PASS: phase3-gate:verification-branch-created
+PASS: phase3-gate:phase4-context-restored
+PASS: phase3-gate:original-branch-restored
+PASS: phase3-gate:verification-branch-deleted
+PASS: phase3-gate:frozen-verdict-preserved
+PASS: phase3-gate:returncode
+PASS: phase3-gate:stderr-empty
+PASS: phase3-gate:no-failures
+PASS: phase3-gate:marker:OPENRECOMP_P3_99
+PASS: phase3-gate:marker:OPENRECOMP_PHASE3_FINAL_VERDICT_V1
+PASS: phase3-gate:marker:OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF
+PASS: phase3-gate:stdout-size
+PASS: phase3-gate:stdout-raw-sha256
+PASS: phase3-gate:stdout-lf-sha256
+
+--- frozen_evidence ---
+PASS: evidence:root-manifest
+PASS: evidence:root-manifest-entries
+PASS: evidence:phase3-manifest
+PASS: evidence:phase3-manifest-entries
+PASS: evidence:p3-99-result-json
+PASS: evidence:p3-99-gate
+PASS: evidence:fixture-sha256
+PASS: evidence:fixture-size
+
+--- phase4_manifest ---
+PASS: source:phase4-manifest-exists
+PASS: source:phase4-manifest-entries
+PASS: source:phase4-manifest-entries-verified
+
+--- worktree ---
+PASS: worktree:status-readable
+PASS: worktree:no-unexpected-untracked
+PASS: worktree:modified-tracked-scope
+PASS: worktree:no-deleted-or-staged-paths
+PASS: worktree:residue-documented
+PASS: legal:no-console-magics
+
+=== RESULT ===
+OPENRECOMP_P4_00=PASS
+OPENRECOMP_PHASE4_BOUNDARY_V1=PASS tests=74
+OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN
