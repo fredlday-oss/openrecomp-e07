@@ -1,0 +1,126 @@
+{
+  "checks": [
+    {
+      "check": "determinism:artifact-hashes-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "package:content-policy",
+      "status": "PASS"
+    },
+    {
+      "check": "package:entry-count",
+      "status": "PASS"
+    },
+    {
+      "check": "package:fingerprint-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "package:has-control-plane",
+      "status": "PASS"
+    },
+    {
+      "check": "package:has-equivalence-record",
+      "status": "PASS"
+    },
+    {
+      "check": "package:has-generated-host-code",
+      "status": "PASS"
+    },
+    {
+      "check": "package:has-native-record",
+      "status": "PASS"
+    },
+    {
+      "check": "package:manifest-name",
+      "status": "PASS"
+    },
+    {
+      "check": "package:manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "package:reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:all-gates-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:gate-count",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entry-set",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entry-count",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-frozen-sha256",
+      "status": "PASS"
+    }
+  ],
+  "claim_boundary": "P3-10 proves that the tracked Phase-3 path packages into a byte-identical archive across independent builds and that the whole Phase-1/Phase-2/Phase-3 gate set passes together with byte-identical stdout. It does not by itself promote the terminal claim: the Phase-3 verdict remains NOT_PROVEN until P3-90/P3-91/P3-99 audit and issue it.",
+  "evidence_files": {
+    "determinism.json": "8020cd572e0a52105e46a53534793aba36b85b35a34085ec13037ef2ef12e30a",
+    "package_report.json": "dedb788453c1a9da1c8dce2aa76043766142da5de76c2c6afa6daae19da16524",
+    "phase3_package_v1.zip": "cf9ab795b8b900b098e0c067b0694a2c16ed400ee25e134b23f045dde3a86350",
+    "source_integrity.txt": "719ce3d02ea753dede91a36900f5affeccaec91152a261eb3eaf509c72089d74",
+    "whole_regression.json": "a57d16b95e1133e6d19fa1a2a2f00e74fffeae010ad8233f10264c33226d48c6"
+  },
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "determinism": {
+      "artifact_count": 4
+    },
+    "package": {
+      "archive_bytes": 5482951,
+      "archive_sha256": "cf9ab795b8b900b098e0c067b0694a2c16ed400ee25e134b23f045dde3a86350",
+      "entry_count": 287,
+      "package_fingerprint": "9050a1175b5914b0c571b49b33d3b2dc280f51e16f160b1230aeed217bf94078",
+      "total_bytes": 5376636
+    },
+    "source_integrity": {
+      "phase3_manifest_entries": 21,
+      "phase3_manifest_sha256": "abc6ea3eefcb4b110bb4173492b94aec2453c31b410154a5186a1089d0bd51c2",
+      "root_manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"
+    },
+    "whole_regression": {
+      "failed": 0,
+      "passed": 13,
+      "total": 13
+    }
+  },
+  "markers": {
+    "gate": "OPENRECOMP_PHASE3_PACKAGE_REGRESSION_V1=PASS tests=20",
+    "stage": "OPENRECOMP_P3_10=PASS",
+    "terminal": "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
+  },
+  "passed": 20,
+  "stage": "P3-10",
+  "stage_name": "OPENRECOMP_PHASE3_PACKAGE_REGRESSION_V1",
+  "status": "PASS",
+  "tests": 20
+}

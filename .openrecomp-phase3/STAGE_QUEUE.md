@@ -21,8 +21,8 @@ P3-05 implementation work.
 | P3-07 | Host emission for CoreMark semantics | COMPLETE | Deterministic generated host code for the proven subset; unsupported or external behaviour fails closed or is explicitly runtime-mediated |
 | P3-08 | Native build + generic runtime execution | COMPLETE | Deterministic native host build of the generated program; execution through the generic runtime ABI with bounded I/O and deterministic benchmark inputs |
 | P3-09 | Independent MIPS32 reference + equivalence | COMPLETE | Independent MIPS32 reference execution and deterministic observable equivalence against the native host executable |
-| P3-10 | Reproducible package + whole regression | ACTIVE | Byte-reproducible package for the Phase-3 path; Phase-1, Phase-2 and Phase-3 gates pass together |
-| P3-90 | Phase-3 whole regression | QUEUED | Deterministic whole-project regression audit of the completed Phase-3 stages plus preserved Phase-1/Phase-2 gates |
+| P3-10 | Reproducible package + whole regression | COMPLETE | Byte-reproducible package for the Phase-3 path; Phase-1, Phase-2 and Phase-3 gates pass together |
+| P3-90 | Phase-3 whole regression | ACTIVE | Deterministic whole-project regression audit of the completed Phase-3 stages plus preserved Phase-1/Phase-2 gates |
 | P3-91 | Evidence index + limitations | QUEUED | Complete Phase-3 evidence index and explicit bounded/unproven claim record |
 | P3-99 | Final verdict | QUEUED | Phase-3 verdict issued only if the bounded end-to-end real-ELF claim is proven on the audited tree |
 
@@ -58,6 +58,9 @@ Frozen-queue rules:
   ProgramModel/CFG/functions/call graph/translation-unit stage passed as the
   frozen row specifies, so no reconciliation, renumbering or redefinition was
   required or performed.
+- P3-10 completed with the frozen contract unchanged: the reproducible
+  package + whole-regression stage passed as the frozen row specifies, so no
+  reconciliation, renumbering or redefinition was required or performed.
 - P3-09 completed with the frozen contract unchanged: the independent
   reference + equivalence stage passed as the frozen row specifies, so no
   reconciliation, renumbering or redefinition was required or performed.
@@ -106,6 +109,8 @@ Frozen-queue rules:
 - `OPENRECOMP_PHASE3_NATIVE_RUNTIME_V1=PASS tests=55`
 - `OPENRECOMP_P3_09=PASS`
 - `OPENRECOMP_PHASE3_REFERENCE_EQUIVALENCE_V1=PASS tests=39`
+- `OPENRECOMP_P3_10=PASS`
+- `OPENRECOMP_PHASE3_PACKAGE_REGRESSION_V1=PASS tests=20`
 - terminal Phase-3 marker: reserved, value `NOT_PROVEN`
 
 ## Failure values (not issued)

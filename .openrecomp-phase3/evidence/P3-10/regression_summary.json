@@ -1,0 +1,81 @@
+{
+  "all_stderr_empty": true,
+  "all_zero": true,
+  "no_fail_lines": true,
+  "regressions": [
+    {
+      "command": [
+        "C:\\Users\\fredd\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "tools/test_phase2_final_verdict_v1.py"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P2_99=PASS",
+        "OPENRECOMP_PHASE2_FINAL_VERDICT_V1=PASS tests=202",
+        "OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS"
+      ],
+      "name": "regression_p2_99",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 7799,
+      "stdout_sha256_lf": "563d33bf2cf0dc00d1f00ebb4921277064f4119640d781cfd41f8ae397a60ecf",
+      "stdout_sha256_raw": "66913e5752a9e2b7e399513710b4dce05efce9a714335c3b9908c0e30ea38c28"
+    },
+    {
+      "command": [
+        "C:\\Users\\fredd\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "tools/test_phase3_boundary_v1.py"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P3_00=PASS",
+        "OPENRECOMP_PHASE3_BOUNDARY_V1=PASS tests=61",
+        "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
+      ],
+      "name": "regression_p3_00",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2675,
+      "stdout_sha256_lf": "02664e80d78ae03d66767c472fcc8a2cc65b0fb90cf2efdb3cbbf3c6b5efff7c",
+      "stdout_sha256_raw": "a039bbffa55afd786e7b44427c5aafe0b09aff6f8309e1e6c643ad812b5b7c73"
+    },
+    {
+      "command": [
+        "C:\\Users\\fredd\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "tools/phase1_host_gates_v1.py"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_PHASE1_HOST_GATES_PASS=44 FAIL=0 SKIPPED=2",
+        "OPENRECOMP_PHASE1_HOST_GATES_V1=PASS"
+      ],
+      "name": "regression_phase1_host_gates",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 5417,
+      "stdout_sha256_lf": "0371f7ef9bd63a81d2fced42238d0a1e6fbb1731d719f4b277e4a4dc5a11de38",
+      "stdout_sha256_raw": "2a9d1bba538b91605d61c3c47d8208cc7012cdfe49042f088c409dc54729cc35"
+    },
+    {
+      "command": [
+        "C:\\Users\\fredd\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "tools/public_safety_scan.py"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_PUBLIC_SAFETY=PASS"
+      ],
+      "name": "regression_public_safety",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 31,
+      "stdout_sha256_lf": "0793ee2cf2ad7a19dbe2fe7f98d2e08a272db9653837c73bc9558fc33de5e5a2",
+      "stdout_sha256_raw": "ad022ff195be230e31115124d48b7f6d8ccaae58d97eab2779b8b1ad694dbb2e"
+    }
+  ],
+  "stage": "P3-10"
+}

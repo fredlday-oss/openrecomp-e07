@@ -1,0 +1,141 @@
+{
+  "gates": [
+    {
+      "expected_stdout_sha256_lf": "563d33bf2cf0dc00d1f00ebb4921277064f4119640d781cfd41f8ae397a60ecf",
+      "gate": "tools/test_phase2_final_verdict_v1.py",
+      "match": true,
+      "returncode": 0,
+      "stage": "P2-99",
+      "stderr_empty": true,
+      "stdout_bytes": 7799,
+      "stdout_sha256_lf": "563d33bf2cf0dc00d1f00ebb4921277064f4119640d781cfd41f8ae397a60ecf"
+    },
+    {
+      "expected_stdout_sha256_lf": "02664e80d78ae03d66767c472fcc8a2cc65b0fb90cf2efdb3cbbf3c6b5efff7c",
+      "gate": "tools/test_phase3_boundary_v1.py",
+      "match": true,
+      "returncode": 0,
+      "stage": "P3-00",
+      "stderr_empty": true,
+      "stdout_bytes": 2675,
+      "stdout_sha256_lf": "02664e80d78ae03d66767c472fcc8a2cc65b0fb90cf2efdb3cbbf3c6b5efff7c"
+    },
+    {
+      "expected_stdout_sha256_lf": "6560923f68cd5d3ac71a2b368557745024b10ca41646a2df290527e0f2e8395e",
+      "gate": "tools/test_phase3_coremark_fixture_v1.py",
+      "match": true,
+      "returncode": 0,
+      "stage": "P3-01",
+      "stderr_empty": true,
+      "stdout_bytes": 3108,
+      "stdout_sha256_lf": "6560923f68cd5d3ac71a2b368557745024b10ca41646a2df290527e0f2e8395e"
+    },
+    {
+      "expected_stdout_sha256_lf": "4fdb2e9fce920bca592e9ab2491da754c349e22d90e0ec5f9036eb59617a3f96",
+      "gate": "tools/test_phase3_elf_ingestion_v1.py",
+      "match": true,
+      "returncode": 0,
+      "stage": "P3-02",
+      "stderr_empty": true,
+      "stdout_bytes": 7344,
+      "stdout_sha256_lf": "4fdb2e9fce920bca592e9ab2491da754c349e22d90e0ec5f9036eb59617a3f96"
+    },
+    {
+      "expected_stdout_sha256_lf": "ee1495a9aac09613f3ec155e6c41cfb60cb733a9e436020dd8df77771b82d8bf",
+      "gate": "tools/test_phase3_decode_frontier_v1.py",
+      "match": true,
+      "returncode": 0,
+      "stage": "P3-03",
+      "stderr_empty": true,
+      "stdout_bytes": 7910,
+      "stdout_sha256_lf": "ee1495a9aac09613f3ec155e6c41cfb60cb733a9e436020dd8df77771b82d8bf"
+    },
+    {
+      "expected_stdout_sha256_lf": "9219922d34beeccc085fdc46eff3f81043c8ffe4aca79de9b31983792d0c4648",
+      "gate": "tools/test_phase3_reachable_semantics_v1.py",
+      "match": true,
+      "returncode": 0,
+      "stage": "P3-04",
+      "stderr_empty": true,
+      "stdout_bytes": 5202,
+      "stdout_sha256_lf": "9219922d34beeccc085fdc46eff3f81043c8ffe4aca79de9b31983792d0c4648"
+    },
+    {
+      "expected_stdout_sha256_lf": "f8948ea8ab651267d22c624bbb950fa0973c7fe82dd4f5f93606754ac60f7e39",
+      "gate": "tools/test_phase3_structure_v1.py",
+      "match": true,
+      "returncode": 0,
+      "stage": "P3-05",
+      "stderr_empty": true,
+      "stdout_bytes": 7819,
+      "stdout_sha256_lf": "f8948ea8ab651267d22c624bbb950fa0973c7fe82dd4f5f93606754ac60f7e39"
+    },
+    {
+      "expected_stdout_sha256_lf": "c4a1d4ff9a0b4fc96266188c0e0422837274b2d5218d8239278c4d0c9e5521ad",
+      "gate": "tools/test_phase3_static_data_v1.py",
+      "match": true,
+      "returncode": 0,
+      "stage": "P3-06",
+      "stderr_empty": true,
+      "stdout_bytes": 4294,
+      "stdout_sha256_lf": "c4a1d4ff9a0b4fc96266188c0e0422837274b2d5218d8239278c4d0c9e5521ad"
+    },
+    {
+      "expected_stdout_sha256_lf": "bbda74356513f41ba6baed2eb003337f4cc33bb07c623edf07ba3bd9da184061",
+      "gate": "tools/test_phase3_host_emit_v1.py",
+      "match": true,
+      "returncode": 0,
+      "stage": "P3-07",
+      "stderr_empty": true,
+      "stdout_bytes": 2510,
+      "stdout_sha256_lf": "bbda74356513f41ba6baed2eb003337f4cc33bb07c623edf07ba3bd9da184061"
+    },
+    {
+      "expected_stdout_sha256_lf": "50c645ac890b4e29ef0377b65cd97c7a25d633024a280e6dda22182bb6e5148b",
+      "gate": "tools/test_phase3_native_runtime_v1.py",
+      "match": true,
+      "returncode": 0,
+      "stage": "P3-08",
+      "stderr_empty": true,
+      "stdout_bytes": 2250,
+      "stdout_sha256_lf": "50c645ac890b4e29ef0377b65cd97c7a25d633024a280e6dda22182bb6e5148b"
+    },
+    {
+      "expected_stdout_sha256_lf": "e628f5653191d31f41d6cb67d56569d2d158abef7ed1d870ba146304b7e6f2e3",
+      "gate": "tools/test_phase3_reference_equivalence_v1.py",
+      "match": true,
+      "returncode": 0,
+      "stage": "P3-09",
+      "stderr_empty": true,
+      "stdout_bytes": 1742,
+      "stdout_sha256_lf": "e628f5653191d31f41d6cb67d56569d2d158abef7ed1d870ba146304b7e6f2e3"
+    },
+    {
+      "expected_stdout_sha256_lf": "0371f7ef9bd63a81d2fced42238d0a1e6fbb1731d719f4b277e4a4dc5a11de38",
+      "gate": "tools/phase1_host_gates_v1.py",
+      "match": true,
+      "returncode": 0,
+      "stage": "PHASE1",
+      "stderr_empty": true,
+      "stdout_bytes": 5417,
+      "stdout_sha256_lf": "0371f7ef9bd63a81d2fced42238d0a1e6fbb1731d719f4b277e4a4dc5a11de38"
+    },
+    {
+      "expected_stdout_sha256_lf": "0793ee2cf2ad7a19dbe2fe7f98d2e08a272db9653837c73bc9558fc33de5e5a2",
+      "gate": "tools/public_safety_scan.py",
+      "match": true,
+      "returncode": 0,
+      "stage": "SAFETY",
+      "stderr_empty": true,
+      "stdout_bytes": 31,
+      "stdout_sha256_lf": "0793ee2cf2ad7a19dbe2fe7f98d2e08a272db9653837c73bc9558fc33de5e5a2"
+    }
+  ],
+  "policy": "every gate must exit 0 with empty stderr and stdout byte-identical (LF-normalized) to its recorded capture; P3-09 re-executes the full independent reference run as part of the audit",
+  "stage": "P3-10",
+  "summary": {
+    "failed": 0,
+    "passed": 13,
+    "total": 13
+  }
+}

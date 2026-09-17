@@ -1,0 +1,47 @@
+=== P3-10 Reproducible Package + Whole Regression Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest-exists
+PASS: source:root-manifest-frozen-sha256
+PASS: source:root-manifest-entry-count
+PASS: source:root-manifest-entries-verified
+PASS: source:phase3-manifest-exists
+PASS: source:phase3-manifest-entry-set
+PASS: source:phase3-manifest-entries-verified
+
+--- package ---
+PASS: package:has-control-plane
+PASS: package:has-generated-host-code
+PASS: package:has-equivalence-record
+PASS: package:has-native-record
+PASS: package:content-policy
+PASS: package:reproducible
+PASS: package:fingerprint-stable
+PASS: package:manifest-verified
+PASS: package:entry-count
+PASS: package:manifest-name
+
+--- whole regression ---
+running P2-99: tools/test_phase2_final_verdict_v1.py
+running P3-00: tools/test_phase3_boundary_v1.py
+running P3-01: tools/test_phase3_coremark_fixture_v1.py
+running P3-02: tools/test_phase3_elf_ingestion_v1.py
+running P3-03: tools/test_phase3_decode_frontier_v1.py
+running P3-04: tools/test_phase3_reachable_semantics_v1.py
+running P3-05: tools/test_phase3_structure_v1.py
+running P3-06: tools/test_phase3_static_data_v1.py
+running P3-07: tools/test_phase3_host_emit_v1.py
+running P3-08: tools/test_phase3_native_runtime_v1.py
+running P3-09: tools/test_phase3_reference_equivalence_v1.py
+running PHASE1: tools/phase1_host_gates_v1.py
+running SAFETY: tools/public_safety_scan.py
+PASS: regression:all-gates-pass
+PASS: regression:gate-count
+
+--- determinism ---
+PASS: determinism:artifact-hashes-recorded
+
+=== RESULT ===
+OPENRECOMP_P3_10=PASS
+OPENRECOMP_PHASE3_PACKAGE_REGRESSION_V1=PASS tests=20
+OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN

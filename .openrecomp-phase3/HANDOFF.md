@@ -8,7 +8,8 @@ reachable MIPS32 semantics) `PASS`; P3-05
 `PASS`; P3-06 (static data/global reconstruction) `PASS`; P3-07 (host emission
 for CoreMark semantics) `PASS`; P3-08 (native build + generic runtime
 execution) `PASS`; P3-09 (independent MIPS32 reference + equivalence) `PASS`;
-P3-10 (reproducible package + whole regression) is `ACTIVE`. The remaining
+P3-10 (reproducible package + whole regression) `PASS`; P3-90 (Phase-3 whole
+regression) is `ACTIVE`. The remaining
 Phase-3 queue (`P3-05` .. `P3-99`) was frozen at the
 P3-04 `PASS` boundary before any P3-05 implementation work; the frozen contract
 is `STAGE_QUEUE.md` `## Queue freeze` (no renumber/insert/merge/split/silent
@@ -21,6 +22,30 @@ and is documented). The Phase-2 terminal state is frozen at tag
 `OPENRECOMP_P2_99=PASS`,
 `OPENRECOMP_PHASE2_FINAL_VERDICT_V1=PASS tests=202` and
 `OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS`.
+
+## P3-10 outcome (PASS)
+
+Markers: `OPENRECOMP_P3_10=PASS`,
+`OPENRECOMP_PHASE3_PACKAGE_REGRESSION_V1=PASS tests=20`; terminal marker
+reserved as `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`.
+
+- New Phase-3 files only: `.openrecomp-phase3/src/p3_package_v1.py` and
+  `tools/test_phase3_package_regression_v1.py`; the manifest grew additively to
+  twenty-one entries.
+- Package `phase3_package_v1.zip`: 5482951 bytes, sha256 `cf9ab795...`,
+  manifest fingerprint `9050a117...`, 287 tracked files covering the control
+  plane, sources, gates, ports, generated host code and tracked evidence
+  through P3-09. Two builds byte-identical; manifest verified member-by-member;
+  content policy clean.
+- Whole regression: all thirteen gates (P2-99, P3-00..P3-09, Phase-1 host
+  gates, public safety) pass with empty stderr and stdout byte-identical to
+  their recorded captures, including a full P3-09 independent reference
+  re-execution.
+- Official runs byte-identical (raw sha256
+  `84dcd13981007d77d12811018eb7ea375f1e907391fa32ac2ebc8703febf2b1e`); the
+  boundary regressions (P2-99, P3-00, Phase-1 host gates, public safety) also
+  re-passed unchanged. Evidence under `.openrecomp-phase3/evidence/P3-10/`.
+- The terminal marker remains `NOT_PROVEN`.
 
 ## P3-09 outcome (PASS)
 
@@ -545,17 +570,18 @@ implementation work began.
 
 ## Exact next action
 
-Execute P3-10 (reproducible package + whole regression, frozen queue row):
+Execute P3-90 (Phase-3 whole regression audit, frozen queue row):
 
-1. Produce a deterministic, byte-reproducible package of the Phase-3 path
-   (control plane, Phase-3 sources and gates, generated host program/support,
-   key evidence and the recorded native/reference observables) with an explicit
-   content policy and reproducible hashes.
-2. Run the whole Phase-1, Phase-2 and Phase-3 gate set together and record the
-   results.
-3. Record evidence under `.openrecomp-phase3/evidence/P3-10/`, update
+1. Run the deterministic whole-project regression audit of the completed
+   Phase-3 stages plus the preserved Phase-1/Phase-2 gates (the same gate set
+   as P3-10, independently audited) and re-verify the frozen boundary
+   identities.
+2. Re-verify the P3-10 package against its recorded manifest and the control
+   plane consistency.
+3. Record evidence under `.openrecomp-phase3/evidence/P3-90/`, update
    `.openrecomp-phase3/SOURCE_SHA256SUMS.txt` for any new Phase-3 source/gate
-   file, and update the control plane.
+   file, and update the control plane. P3-90 audits; it does not issue the
+   terminal verdict.
 
 ## Constraints
 

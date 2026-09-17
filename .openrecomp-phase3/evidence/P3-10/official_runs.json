@@ -1,0 +1,48 @@
+{
+  "identical_lf": true,
+  "identical_raw": true,
+  "newline_policy": "captures are stored and compared LF-normalized; the raw-hash is recorded as well because this host emits CRLF through the stdout pipe",
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "command": [
+        "C:\\Users\\fredd\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "tools/test_phase3_package_regression_v1.py"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P3_10=PASS",
+        "OPENRECOMP_PHASE3_PACKAGE_REGRESSION_V1=PASS tests=20",
+        "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1713,
+      "stdout_sha256_lf": "4347491026d13fcaaa8f1ebab976291e3338ab8ec3d21ce0fb01959fd33cfba4",
+      "stdout_sha256_raw": "84dcd13981007d77d12811018eb7ea375f1e907391fa32ac2ebc8703febf2b1e"
+    },
+    {
+      "command": [
+        "C:\\Users\\fredd\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "tools/test_phase3_package_regression_v1.py"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P3_10=PASS",
+        "OPENRECOMP_PHASE3_PACKAGE_REGRESSION_V1=PASS tests=20",
+        "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1713,
+      "stdout_sha256_lf": "4347491026d13fcaaa8f1ebab976291e3338ab8ec3d21ce0fb01959fd33cfba4",
+      "stdout_sha256_raw": "84dcd13981007d77d12811018eb7ea375f1e907391fa32ac2ebc8703febf2b1e"
+    }
+  ],
+  "stage": "P3-10",
+  "stderr_empty_both": true
+}
