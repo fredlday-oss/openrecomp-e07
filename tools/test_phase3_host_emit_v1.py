@@ -107,6 +107,7 @@ P3_SOURCE_FILES = (
     ".openrecomp-phase3/src/p3_decode_mips32_v1.py",
     ".openrecomp-phase3/src/p3_elf_image_v1.py",
     ".openrecomp-phase3/src/p3_host_emit_v1.py",
+    ".openrecomp-phase3/src/p3_reference_mips32_v1.py",
     ".openrecomp-phase3/src/p3_semantics_mips32_v1.py",
     ".openrecomp-phase3/src/p3_static_data_v1.py",
     ".openrecomp-phase3/src/p3_structure_v1.py",
@@ -118,6 +119,7 @@ P3_SOURCE_FILES = (
     "tools/test_phase3_host_emit_v1.py",
     "tools/test_phase3_native_runtime_v1.py",
     "tools/test_phase3_reachable_semantics_v1.py",
+    "tools/test_phase3_reference_equivalence_v1.py",
     "tools/test_phase3_static_data_v1.py",
     "tools/test_phase3_structure_v1.py",
 )
@@ -322,7 +324,7 @@ def emit(analysis, model):
     return emit_program(analysis, model, source_sha256=ELF_SHA256)
 
 
-def audit_emission(program, analysis, model) -> None:
+def audit_emission(program, analysis, model, ingested) -> None:
     check("emission:case-count", program.case_count == EXPECTED_CASE_COUNT)
     check("emission:op-histogram", program.op_histogram == EXPECTED_OP_HISTOGRAM)
     check("emission:op-set-covers-image",
@@ -377,10 +379,13 @@ def audit_emission(program, analysis, model) -> None:
           "*(uint32_t *)" not in text and "memcpy" not in text)
 
     expected_image = bytearray(IMAGE_WINDOW)
-    for section in model.sections:
-        expected_image[section.vaddr:section.vaddr + section.size] = section.content
+    for region in ingested.image.regions:
+        expected_image[region.vaddr:region.vaddr + region.memsz] = region.initial_bytes
     expected_sha = sha256_bytes(bytes(expected_image))
     check("emission:image-sha", program.image_sha256 == expected_sha)
+    check("emission:image-equals-load-image",
+          program.image_sha256
+          == sha256_bytes(bytes(expected_image)))
 
     match = re.search(r"static const uint8_t g_image\[OR_IMAGE_WINDOW\] = \{\n(.*?)\n\};",
                       text, re.S)
@@ -677,7 +682,7 @@ def main() -> int:
         data, ingested, analysis, model = audit_inputs(elf_path)
         banner("emission")
         program = emit(analysis, model)
-        audit_emission(program, analysis, model)
+        audit_emission(program, analysis, model, ingested)
         banner("coverage")
         audit_coverage(analysis, program)
         banner("negatives")

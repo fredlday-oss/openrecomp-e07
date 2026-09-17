@@ -1,0 +1,260 @@
+{
+  "checks": [
+    {
+      "check": "determinism:artifact-hashes-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:exit_status",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:failed",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:failure",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:hi",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:lo",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:pc",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:state_fnv1a64",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:steps",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:uart_bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:uart_hex",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:size",
+      "status": "PASS"
+    },
+    {
+      "check": "loader:decoded-words",
+      "status": "PASS"
+    },
+    {
+      "check": "loader:entry",
+      "status": "PASS"
+    },
+    {
+      "check": "loader:image-matches-host-image",
+      "status": "PASS"
+    },
+    {
+      "check": "loader:image-sha",
+      "status": "PASS"
+    },
+    {
+      "check": "loader:op-histogram",
+      "status": "PASS"
+    },
+    {
+      "check": "loader:regions",
+      "status": "PASS"
+    },
+    {
+      "check": "native:recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "negatives:count",
+      "status": "PASS"
+    },
+    {
+      "check": "negatives:malformed-rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negatives:no-failures",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:coremark-line:CoreMark Size    ",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:coremark-line:Correct operation validated.",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:coremark-line:Iterations       ",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:coremark-line:[0]crcfinal      ",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:coremark-line:[0]crclist       ",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:coremark-line:[0]crcmatrix     ",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:coremark-line:[0]crcstate      ",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:coremark-line:seedcrc          ",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entry-set",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entry-count",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-frozen-sha256",
+      "status": "PASS"
+    }
+  ],
+  "claim_boundary": "P3-09 proves deterministic observable equivalence between the P3-08 native host execution and an independently written MIPS32 reference execution of the audited CoreMark ELF: identical exit status, step count, PC, HI/LO, UART byte stream and FNV-1a 64 state digest over the final guest image and register file. It proves this bounded audited program only and claims no arbitrary MIPS32, PS1 or PS2 compatibility.",
+  "evidence_files": {
+    "determinism.json": "8e740441535fb2626b638ce849f3ea2caa67872b972f66a9f81f1179fafd8197",
+    "equivalence.json": "362ea49d072b7a174e644b984552df70fd1443258aac120a01deee3cc06b807e",
+    "loader_cross_check.json": "188976db2713f3b443aa63f343f42828206e06822d78fdaf86c2caae8cf53614",
+    "reference_observable.json": "9e321f559de7f1a1d9e2b4ec6fc39eea1f65fc99fd428e34248a6bfe942cee81",
+    "runtime_negatives.json": "512595e0d822e9f6b9f530c6926b6ef28f71d359e56952b1f831ea3ac15bba99",
+    "source_integrity.txt": "6f0be1865b6da591db7607e2de7bd3b081bb78fa84a16a778167f99788bd48cc"
+  },
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "determinism": {
+      "artifact_sha256": {
+        "equivalence.json": "362ea49d072b7a174e644b984552df70fd1443258aac120a01deee3cc06b807e",
+        "loader_cross_check.json": "188976db2713f3b443aa63f343f42828206e06822d78fdaf86c2caae8cf53614",
+        "reference_observable.json": "9e321f559de7f1a1d9e2b4ec6fc39eea1f65fc99fd428e34248a6bfe942cee81",
+        "runtime_negatives.json": "512595e0d822e9f6b9f530c6926b6ef28f71d359e56952b1f831ea3ac15bba99",
+        "source_integrity.txt": "6f0be1865b6da591db7607e2de7bd3b081bb78fa84a16a778167f99788bd48cc"
+      },
+      "source_sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669"
+    },
+    "equivalence": {
+      "native_sha256": "00e091c144d7ea4590a99aaa54f7759f7ba6bfe521fe73645d74e7570006f71b",
+      "result": "DETERMINISTIC_OBSERVABLE_EQUIVALENCE"
+    },
+    "loader": {
+      "decoded_words": 3479,
+      "image_sha256": "3eecfc957c4ed147544d2aa98c6e4f4d7aac41957e531cdfe01c2555ff0a91ae",
+      "op_histogram_sha256": "29554773b2d3d9389fd807cee278605d9fc3eea6d2e1e01d9fa399d22c8d9b41"
+    },
+    "reference": {
+      "final_image_sha256": "67a149380bcb963c53d1a8c43f1237439a38e79cf75fe5d6a70c341c3938e8dd",
+      "final_register_dump_sha256": "21cd49e77466978c1ab9ad3914a3820963b2142e42f99599f5ad67370689b3b7",
+      "observable": {
+        "exit_status": "0",
+        "failed": "0",
+        "failure": "",
+        "hi": "0x0000000d",
+        "lo": "0x00000000",
+        "pc": "0x00004564",
+        "state_fnv1a64": "0x78651c29dd149ab1",
+        "steps": "394997250",
+        "uart_bytes": "499",
+        "uart_hex": "324b20706572666f726d616e63652072756e20706172616d657465727320666f7220636f72656d61726b2e0a436f72654d61726b2053697a65202020203a203636360a546f74616c207469636b732020202020203a2031303030300a546f74616c2074696d65202873656373293a2031300a497465726174696f6e732f5365632020203a203130300a497465726174696f6e73202020202020203a20313030300a436f6d70696c65722076657273696f6e203a207a69672d63632d302e31332e302d636c616e672d31382e312e350a436f6d70696c657220666c6167732020203a202d4f312d6d617263683d6d69707333322d6d6162693d33322d6d736f66742d666c6f61742d666e6f2d7069630a4d656d6f7279206c6f636174696f6e20203a205374617469630a73656564637263202020202020202020203a203078653966350a5b305d6372636c697374202020202020203a203078653731340a5b305d6372636d617472697820202020203a203078316664370a5b305d63726373746174652020202020203a203078386533610a5b305d63726366696e616c2020202020203a203078643334300a436f7272656374206f7065726174696f6e2076616c6964617465642e2053656520524541444d452e6d6420666f722072756e20616e64207265706f7274696e672072756c65732e0a"
+      }
+    },
+    "runtime_negatives": [
+      {
+        "expected_failure": "divide by zero",
+        "fixture": "div-by-zero",
+        "observed_failed": "1",
+        "observed_failure": "divide by zero",
+        "status": "PASS"
+      },
+      {
+        "expected_failure": "teq trap code=0x0",
+        "fixture": "teq-trap",
+        "observed_failed": "1",
+        "observed_failure": "teq trap code=0x0",
+        "status": "PASS"
+      },
+      {
+        "expected_failure": "unaligned indirect jump target",
+        "fixture": "unaligned-jr",
+        "observed_failed": "1",
+        "observed_failure": "unaligned indirect jump target",
+        "status": "PASS"
+      },
+      {
+        "expected_failure": "MEMORY_OUT_OF_RANGE",
+        "fixture": "memory-out-of-range",
+        "observed_failed": "1",
+        "observed_failure": "MEMORY_OUT_OF_RANGE",
+        "status": "PASS"
+      },
+      {
+        "expected_failure": "pc outside the emitted image",
+        "fixture": "pc-outside-image",
+        "observed_failed": "1",
+        "observed_failure": "pc outside the emitted image",
+        "status": "PASS"
+      }
+    ],
+    "source_integrity": {
+      "phase3_manifest_entries": 19,
+      "phase3_manifest_sha256": "519e1c6f45cff0661a0f9615dbc03b67acdc8af0629f8f68b20191848a761078",
+      "root_manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"
+    }
+  },
+  "markers": {
+    "gate": "OPENRECOMP_PHASE3_REFERENCE_EQUIVALENCE_V1=PASS tests=39",
+    "stage": "OPENRECOMP_P3_09=PASS",
+    "terminal": "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
+  },
+  "passed": 39,
+  "stage": "P3-09",
+  "stage_name": "OPENRECOMP_PHASE3_REFERENCE_EQUIVALENCE_V1",
+  "status": "PASS",
+  "tests": 39
+}

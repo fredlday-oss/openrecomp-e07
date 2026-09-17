@@ -158,6 +158,25 @@
     {
       "command": [
         "C:\\Users\\fredd\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "tools/test_phase3_native_runtime_v1.py"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P3_08=PASS",
+        "OPENRECOMP_PHASE3_NATIVE_RUNTIME_V1=PASS tests=55",
+        "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
+      ],
+      "name": "regression_p3_08",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2250,
+      "stdout_sha256_lf": "50c645ac890b4e29ef0377b65cd97c7a25d633024a280e6dda22182bb6e5148b",
+      "stdout_sha256_raw": "cdc7abbfc3d12d02f197fb0b99e1c7f4ef55f1dc62debb288387ff121225bb9d"
+    },
+    {
+      "command": [
+        "C:\\Users\\fredd\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
         "tools/phase1_host_gates_v1.py"
       ],
       "fail_lines": [],

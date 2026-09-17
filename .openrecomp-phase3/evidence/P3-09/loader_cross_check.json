@@ -1,0 +1,78 @@
+{
+  "decoded_words": 3479,
+  "entry": "0x00004650",
+  "host_image_sha256": "3eecfc957c4ed147544d2aa98c6e4f4d7aac41957e531cdfe01c2555ff0a91ae",
+  "image_sha256": "3eecfc957c4ed147544d2aa98c6e4f4d7aac41957e531cdfe01c2555ff0a91ae",
+  "op_histogram": {
+    "addiu": 654,
+    "addu": 171,
+    "and": 11,
+    "andi": 161,
+    "beq": 170,
+    "bgez": 2,
+    "bgtz": 13,
+    "blez": 17,
+    "bltz": 4,
+    "bne": 135,
+    "divu": 4,
+    "j": 125,
+    "jal": 101,
+    "jalr": 1,
+    "jr": 52,
+    "lbu": 74,
+    "lh": 28,
+    "lhu": 43,
+    "lui": 73,
+    "lw": 275,
+    "mfhi": 4,
+    "mflo": 4,
+    "movn": 12,
+    "movz": 35,
+    "mul": 22,
+    "multu": 3,
+    "nop": 224,
+    "nor": 2,
+    "or": 345,
+    "ori": 17,
+    "sb": 79,
+    "sh": 32,
+    "sll": 106,
+    "slt": 24,
+    "slti": 8,
+    "sltiu": 33,
+    "sltu": 19,
+    "sra": 13,
+    "srl": 81,
+    "subu": 35,
+    "sw": 205,
+    "swl": 2,
+    "swr": 2,
+    "teq": 4,
+    "xor": 52,
+    "xori": 2
+  },
+  "policy": "the reference loader and decoder are independent of the host emitter and of the P3-03/P3-04 decode layers; equality with the host image and the frozen op histogram is the cross-check",
+  "regions": [
+    {
+      "end": "0x00000134",
+      "permissions": "r--",
+      "start": "0x00000000"
+    },
+    {
+      "end": "0x0000467c",
+      "permissions": "r-x",
+      "start": "0x00001000"
+    },
+    {
+      "end": "0x00004df8",
+      "permissions": "r--",
+      "start": "0x00004680"
+    },
+    {
+      "end": "0x00009620",
+      "permissions": "rw-",
+      "start": "0x00004e00"
+    }
+  ],
+  "stage": "P3-09"
+}

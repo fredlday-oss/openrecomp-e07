@@ -42,6 +42,7 @@ PASS: native:observable:pc
 PASS: native:observable:hi
 PASS: native:observable:lo
 PASS: native:observable:uart_bytes
+PASS: native:observable:state_fnv1a64
 PASS: native:observable:failed
 PASS: native:observable:failure
 PASS: native:steps-positive
@@ -68,5 +69,5 @@ PASS: determinism:artifact-hashes-recorded
 
 === RESULT ===
 OPENRECOMP_P3_08=PASS
-OPENRECOMP_PHASE3_NATIVE_RUNTIME_V1=PASS tests=54
+OPENRECOMP_PHASE3_NATIVE_RUNTIME_V1=PASS tests=55
 OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN

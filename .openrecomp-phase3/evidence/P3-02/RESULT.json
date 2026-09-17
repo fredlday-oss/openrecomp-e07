@@ -792,13 +792,13 @@
   "claim_boundary": "P3-02 proves that OpenRecomp can safely and deterministically ingest the audited CoreMark MIPS32 ELF and construct its guest section/data image. It does not prove that all CoreMark instructions are supported, that CoreMark can yet be translated or run, or any arbitrary ELF/MIPS32/console compatibility.",
   "evidence_files": {
     "bss_proof.json": "6b3c582e21cd6d91756af9b3e3ac181db308b309ad8fb2b4f69613cc98e436ae",
-    "determinism.json": "5f4e052ea1d785a55696a87b6ebf24e0b99c9041d7fccd752269c4d1b0bcef13",
+    "determinism.json": "2ed04467904ac9df008499e29c0e4b240199498d3518f3e9f17b9dbc5b693a0f",
     "elf_parsed_metadata.json": "865ab85b1502e25d707d399096486a183705e9fb608b95c180998ec487aeacda",
     "load_image_map.json": "58c00fadf3b1068d98dfd32b384ed6d30872ee61998e92fbd2eb51baa34987e7",
     "malformed_fixture_results.json": "031a2d169a7364e4f559ffc27a11865ab62f17b35ba314282040d972e3679827",
     "region_hashes.json": "9f770204daf4a6e24f2f90c4c3be9d7ed1d803a68a8861f50158a61a5169fdb4",
     "section_table.json": "83a175880a20867f76ba62aefd4da732e37e84e34258641e7aca40f256a6a061",
-    "source_integrity.txt": "ca26d325b1beacbb158edbfc096c181357e0ff558a08ca40e93a530387975af5"
+    "source_integrity.txt": "65d40177e776edff17ddafc6c2acc105fb85f21b49dcf7bc60caaeff5738a651"
   },
   "failed": 0,
   "failure": null,
@@ -810,7 +810,7 @@
         "load_image_map.json": "58c00fadf3b1068d98dfd32b384ed6d30872ee61998e92fbd2eb51baa34987e7",
         "region_hashes.json": "9f770204daf4a6e24f2f90c4c3be9d7ed1d803a68a8861f50158a61a5169fdb4",
         "section_table.json": "83a175880a20867f76ba62aefd4da732e37e84e34258641e7aca40f256a6a061",
-        "source_integrity.txt": "ca26d325b1beacbb158edbfc096c181357e0ff558a08ca40e93a530387975af5"
+        "source_integrity.txt": "65d40177e776edff17ddafc6c2acc105fb85f21b49dcf7bc60caaeff5738a651"
       },
       "image_sha256": "e072b38dd1404a243fa61c4dd7d17b7d7d50f268650318756a4ef9629c1d88d4",
       "repeated_ingestion_identical": true,
@@ -6489,6 +6489,7 @@
         ".openrecomp-phase3/src/p3_decode_mips32_v1.py",
         ".openrecomp-phase3/src/p3_elf_image_v1.py",
         ".openrecomp-phase3/src/p3_host_emit_v1.py",
+        ".openrecomp-phase3/src/p3_reference_mips32_v1.py",
         ".openrecomp-phase3/src/p3_semantics_mips32_v1.py",
         ".openrecomp-phase3/src/p3_static_data_v1.py",
         ".openrecomp-phase3/src/p3_structure_v1.py",
@@ -6500,12 +6501,13 @@
         "tools/test_phase3_host_emit_v1.py",
         "tools/test_phase3_native_runtime_v1.py",
         "tools/test_phase3_reachable_semantics_v1.py",
+        "tools/test_phase3_reference_equivalence_v1.py",
         "tools/test_phase3_static_data_v1.py",
         "tools/test_phase3_structure_v1.py"
       ],
-      "phase3_manifest_entries": 17,
+      "phase3_manifest_entries": 19,
       "phase3_manifest_mismatched": [],
-      "phase3_manifest_sha256": "406ec4c081d68711e5b5f724b0dc50a17151c25b2dcd7129cbbc5d5640ad8c6d",
+      "phase3_manifest_sha256": "000400235c671c05f5f75434c7dfcea0d1a619b9bfa0ee2b55f0e790d53d3ad4",
       "root_manifest_entries": 134,
       "root_manifest_mismatched": [],
       "root_manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"

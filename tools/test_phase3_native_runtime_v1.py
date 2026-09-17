@@ -83,6 +83,7 @@ P3_SOURCE_FILES = (
     ".openrecomp-phase3/src/p3_decode_mips32_v1.py",
     ".openrecomp-phase3/src/p3_elf_image_v1.py",
     ".openrecomp-phase3/src/p3_host_emit_v1.py",
+    ".openrecomp-phase3/src/p3_reference_mips32_v1.py",
     ".openrecomp-phase3/src/p3_semantics_mips32_v1.py",
     ".openrecomp-phase3/src/p3_static_data_v1.py",
     ".openrecomp-phase3/src/p3_structure_v1.py",
@@ -94,6 +95,7 @@ P3_SOURCE_FILES = (
     "tools/test_phase3_host_emit_v1.py",
     "tools/test_phase3_native_runtime_v1.py",
     "tools/test_phase3_reachable_semantics_v1.py",
+    "tools/test_phase3_reference_equivalence_v1.py",
     "tools/test_phase3_static_data_v1.py",
     "tools/test_phase3_structure_v1.py",
 )
@@ -113,10 +115,10 @@ TEXT_SIZE = 13948
 ENTRY = 0x4650
 
 EXPECTED_PROGRAM_FINGERPRINT = (
-    "898fae38ab421f005d46b48fcdcd7cfd9b11ee4a18d4831493643ada1479fed1"
+    "5199e2f0a11974847966bd7ea6b855e0147c6e762d002ede3f14bc3ee8d9649a"
 )
 EXPECTED_SUPPORT_FINGERPRINT = (
-    "4afa8c0ea3a827a074342b801a24815e3366808dc290568bfbedfcc506915fa4"
+    "c5c69054cbbcd4e6ea9259f2e3d80e4bfada6fc12fec1cfe3fe9224b9f861580"
 )
 EXPECTED_OBSERVABLE = {
     "exit_status": "0",
@@ -124,6 +126,7 @@ EXPECTED_OBSERVABLE = {
     "hi": "0x0000000d",
     "lo": "0x00000000",
     "uart_bytes": "499",
+    "state_fnv1a64": "0x78651c29dd149ab1",
     "failed": "0",
     "failure": "",
 }

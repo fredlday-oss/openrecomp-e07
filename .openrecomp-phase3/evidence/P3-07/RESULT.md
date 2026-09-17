@@ -1,13 +1,13 @@
 # P3-07 result (PASS)
 
 Stage: `P3-07` host emission for CoreMark semantics (frozen queue row).
-Gate: `tools/test_phase3_host_emit_v1.py` (67 checks).
+Gate: `tools/test_phase3_host_emit_v1.py` (68 checks).
 Evidence: `.openrecomp-phase3/evidence/P3-07/`.
 
 Markers issued:
 
 - Stage marker: `OPENRECOMP_P3_07=PASS`
-- Gate marker: `OPENRECOMP_PHASE3_HOST_EMISSION_V1=PASS tests=67`
+- Gate marker: `OPENRECOMP_PHASE3_HOST_EMISSION_V1=PASS tests=68`
 - Terminal marker (reserved): `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`
 
 ## Scope
@@ -80,7 +80,7 @@ the P3-09 reference.
 - Emission determinism: two independent ingest/frontier/model/emission runs
   produce byte-identical program and support text.
 - Official runs: two consecutive runs byte-identical (raw sha256
-  `d7986967dbf9fb2021e86dab7902c18d294a6b52e606a0cabad13907bd317746`, empty
+  `26b871bfe1f4b6dec0fcc1d2c7d9b058ed2bb4939c93a40f90103253a76a41a6`, empty
   stderr, exit 0); no native build or execution is performed in P3-07.
 - Regressions all exit 0 with empty stderr and byte-identical stdout: P2-99
   `PASS tests=202` (`66913e57...`), P3-00 `PASS tests=61` (`a039bbff...`),
@@ -97,3 +97,15 @@ P3-07 proves only deterministic generation of exact host code for the audited
 image. It does not build or execute the native program (P3-08) and does not yet
 prove equivalence against an independent reference (P3-09); it claims no
 arbitrary MIPS32, PS1 or PS2 compatibility. `COREMARK_STATUS=NOT_PROVEN`.
+
+## Image-fidelity correction (P3-09 boundary)
+
+The P3-09 independent loader exposed that the emitted `g_image` was built from
+the allocated sections rather than the PT_LOAD region bytes, zeroing the
+308-byte read-only ELF header region (`0x0..0x134`) that is never read by the
+audited guest but is part of the load image. The emitter was repaired within
+P3-09 to embed the exact P3-02 load image (region bytes plus zero-fill); this
+gate was re-run and re-passed (68 checks) with the corrected fingerprints
+`5199e2f0...` / `c5c69054...` and image sha256
+`3eecfc957c4ed147544d2aa98c6e4f4d7aac41957e531cdfe01c2555ff0a91ae`, which now
+equals the independent reference loader image exactly.

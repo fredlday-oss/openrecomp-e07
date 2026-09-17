@@ -1,0 +1,53 @@
+{
+  "cases": [
+    {
+      "expected_failure": "divide by zero",
+      "fixture": "div-by-zero",
+      "observed_failed": "1",
+      "observed_failure": "divide by zero",
+      "status": "PASS"
+    },
+    {
+      "expected_failure": "teq trap code=0x0",
+      "fixture": "teq-trap",
+      "observed_failed": "1",
+      "observed_failure": "teq trap code=0x0",
+      "status": "PASS"
+    },
+    {
+      "expected_failure": "unaligned indirect jump target",
+      "fixture": "unaligned-jr",
+      "observed_failed": "1",
+      "observed_failure": "unaligned indirect jump target",
+      "status": "PASS"
+    },
+    {
+      "expected_failure": "MEMORY_OUT_OF_RANGE",
+      "fixture": "memory-out-of-range",
+      "observed_failed": "1",
+      "observed_failure": "MEMORY_OUT_OF_RANGE",
+      "status": "PASS"
+    },
+    {
+      "expected_failure": "pc outside the emitted image",
+      "fixture": "pc-outside-image",
+      "observed_failed": "1",
+      "observed_failure": "pc outside the emitted image",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "malformed": [
+    {
+      "error": "INVALID_ELF_MAGIC",
+      "fixture": "bad-magic",
+      "status": "PASS"
+    },
+    {
+      "error": "INVALID_ELF_MAGIC",
+      "fixture": "short-file",
+      "status": "PASS"
+    }
+  ],
+  "stage": "P3-09"
+}

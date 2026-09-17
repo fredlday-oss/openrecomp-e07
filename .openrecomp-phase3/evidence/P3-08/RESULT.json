@@ -137,6 +137,10 @@
       "status": "PASS"
     },
     {
+      "check": "native:observable:state_fnv1a64",
+      "status": "PASS"
+    },
+    {
       "check": "native:observable:uart_bytes",
       "status": "PASS"
     },
@@ -219,15 +223,15 @@
   ],
   "claim_boundary": "P3-08 proves only that the P3-07 generated translation builds into a byte-reproducible native program and executes deterministically through the P2-08 generic runtime ABI, with CoreMark's own validation CRCs and fail-closed runtime boundaries demonstrated. It does not yet prove equivalence against an independent MIPS32 reference (P3-09) and claims no arbitrary MIPS32, PS1 or PS2 compatibility.",
   "evidence_files": {
-    "build_report.json": "d9f1cf09cbe6b4390d7db86cfa74c5a8aca4757918ae7f7ec1d1f72697a0ea0d",
-    "build_run_1.txt": "db9b406acb04d2d211c464548075f95ae0cfd31d41f45945a3c0f7049ee65242",
-    "build_run_2.txt": "d57b8aa45dcfb5f11e588ce2909756f579f7f8c636196eba0968519d94fd761e",
-    "determinism.json": "1bf1494809ec3bf1f7f1c94888c388f5b62286c24eee3ab3068fe0504c8893c9",
-    "emission_pin.json": "585dc9e32f645c1bfc4c64fa55495f28cb2629d034a6d2f5f645c995a84d1623",
-    "native_execution.json": "30cafebd5dcb9ecdb19fc38635a68e9ca036dae7ec5afd552da961dc9c9a8017",
-    "native_execution.txt": "9215e0d90481b322011c58debd6c3f7c6210fa9b4130a2bf221226d11e6c8869",
+    "build_report.json": "283544ebd497829eec5def15af382a5e4a37145eed1f729ff3fc42c82d114258",
+    "build_run_1.txt": "d3536b1ff47c34f72615fbc04e3e958d91262ddd6606d5ba43e53bd518ca3b07",
+    "build_run_2.txt": "db65b6ca1c8d41c3c1cda0a8bb092c5bdeb0caf4c36912b36dc1c525a795d7c2",
+    "determinism.json": "c993747493a3ffe7bbee56ad2b4b084790941ffb6743ba6406255c7b8e8f97e5",
+    "emission_pin.json": "2813e3dc74d5b51130a57cba6b96582c55a1b6dd11c3a10a6835371645482c6d",
+    "native_execution.json": "b0363cb9d658507f76d4b485d83bee2467cae7d0b714cdab15b9a7af09495420",
+    "native_execution.txt": "085e6da834065d40609784e15b8caa81ca693d7542c274e6efabdc2b71ac1e51",
     "runtime_negatives.json": "4744254f37d1cb462714867758e7df6a42a1c405bfdce76eb1c23f76170ca6bb",
-    "source_integrity.txt": "ca26d325b1beacbb158edbfc096c181357e0ff558a08ca40e93a530387975af5"
+    "source_integrity.txt": "65d40177e776edff17ddafc6c2acc105fb85f21b49dcf7bc60caaeff5738a651"
   },
   "failed": 0,
   "failure": null,
@@ -240,41 +244,41 @@
         },
         {
           "name": "generated.obj",
-          "sha256": "8312f07842da1bf625633018945560b9b9a14ef7fe2cc36c8f9a989a3b5f99d2"
+          "sha256": "c9a3debf8479d16d4e2e87594c6cfb5ddceb874b6b8079565737d10776c48ee9"
         },
         {
           "name": "program.exe",
-          "sha256": "9b36d6df3a3715f98a7ba41f00b63617af755fc29f42e1dc5d744b5e728445af"
+          "sha256": "c80ecc4b88c09aa05e913c935d18834373a0920910ee781fa51d3764ef3dd1b6"
         }
       ],
       "classification": "EXECUTABLE_REPRODUCIBLE",
       "executable_reproducible": true,
-      "manifest_sha256": "ca3c6b219dcd1f1318ce0155605e29527005f4221c5ab55d859cee3567262394"
+      "manifest_sha256": "e3eb9651c79f0ee2a298ab1e988cd98bdbfd5ec2b38f9ae273ce9039a4b1265a"
     },
     "determinism": {
       "artifact_sha256": {
-        "build_report.json": "d9f1cf09cbe6b4390d7db86cfa74c5a8aca4757918ae7f7ec1d1f72697a0ea0d",
-        "build_run_1.txt": "db9b406acb04d2d211c464548075f95ae0cfd31d41f45945a3c0f7049ee65242",
-        "build_run_2.txt": "d57b8aa45dcfb5f11e588ce2909756f579f7f8c636196eba0968519d94fd761e",
-        "emission_pin.json": "585dc9e32f645c1bfc4c64fa55495f28cb2629d034a6d2f5f645c995a84d1623",
-        "native_execution.json": "30cafebd5dcb9ecdb19fc38635a68e9ca036dae7ec5afd552da961dc9c9a8017",
-        "native_execution.txt": "9215e0d90481b322011c58debd6c3f7c6210fa9b4130a2bf221226d11e6c8869",
+        "build_report.json": "283544ebd497829eec5def15af382a5e4a37145eed1f729ff3fc42c82d114258",
+        "build_run_1.txt": "d3536b1ff47c34f72615fbc04e3e958d91262ddd6606d5ba43e53bd518ca3b07",
+        "build_run_2.txt": "db65b6ca1c8d41c3c1cda0a8bb092c5bdeb0caf4c36912b36dc1c525a795d7c2",
+        "emission_pin.json": "2813e3dc74d5b51130a57cba6b96582c55a1b6dd11c3a10a6835371645482c6d",
+        "native_execution.json": "b0363cb9d658507f76d4b485d83bee2467cae7d0b714cdab15b9a7af09495420",
+        "native_execution.txt": "085e6da834065d40609784e15b8caa81ca693d7542c274e6efabdc2b71ac1e51",
         "runtime_negatives.json": "4744254f37d1cb462714867758e7df6a42a1c405bfdce76eb1c23f76170ca6bb",
-        "source_integrity.txt": "ca26d325b1beacbb158edbfc096c181357e0ff558a08ca40e93a530387975af5"
+        "source_integrity.txt": "65d40177e776edff17ddafc6c2acc105fb85f21b49dcf7bc60caaeff5738a651"
       },
       "source_sha256": "16a0a0aa0f62344d8c0f309b755450f09c330e7c5a7c355785662d7a141f7669"
     },
     "emission_pin": {
       "case_count": 3479,
-      "p3_07_program_fingerprint": "898fae38ab421f005d46b48fcdcd7cfd9b11ee4a18d4831493643ada1479fed1",
-      "p3_07_support_fingerprint": "4afa8c0ea3a827a074342b801a24815e3366808dc290568bfbedfcc506915fa4",
-      "program_fingerprint": "898fae38ab421f005d46b48fcdcd7cfd9b11ee4a18d4831493643ada1479fed1",
+      "p3_07_program_fingerprint": "5199e2f0a11974847966bd7ea6b855e0147c6e762d002ede3f14bc3ee8d9649a",
+      "p3_07_support_fingerprint": "c5c69054cbbcd4e6ea9259f2e3d80e4bfada6fc12fec1cfe3fe9224b9f861580",
+      "program_fingerprint": "5199e2f0a11974847966bd7ea6b855e0147c6e762d002ede3f14bc3ee8d9649a",
       "source": "re-emitted from the frozen P3-03/P3-05/P3-06 inputs",
       "stage": "P3-08",
-      "support_fingerprint": "4afa8c0ea3a827a074342b801a24815e3366808dc290568bfbedfcc506915fa4"
+      "support_fingerprint": "c5c69054cbbcd4e6ea9259f2e3d80e4bfada6fc12fec1cfe3fe9224b9f861580"
     },
     "native": {
-      "executable_sha256": "9b36d6df3a3715f98a7ba41f00b63617af755fc29f42e1dc5d744b5e728445af",
+      "executable_sha256": "c80ecc4b88c09aa05e913c935d18834373a0920910ee781fa51d3764ef3dd1b6",
       "observable": {
         "exit_status": "0",
         "failed": "0",
@@ -282,12 +286,12 @@
         "hi": "0x0000000d",
         "lo": "0x00000000",
         "pc": "0x00004564",
-        "state_fnv1a64": "0x5eef5d92fab65dad",
+        "state_fnv1a64": "0x78651c29dd149ab1",
         "steps": "394997250",
         "uart_bytes": "499",
         "uart_hex": "324b20706572666f726d616e63652072756e20706172616d657465727320666f7220636f72656d61726b2e0a436f72654d61726b2053697a65202020203a203636360a546f74616c207469636b732020202020203a2031303030300a546f74616c2074696d65202873656373293a2031300a497465726174696f6e732f5365632020203a203130300a497465726174696f6e73202020202020203a20313030300a436f6d70696c65722076657273696f6e203a207a69672d63632d302e31332e302d636c616e672d31382e312e350a436f6d70696c657220666c6167732020203a202d4f312d6d617263683d6d69707333322d6d6162693d33322d6d736f66742d666c6f61742d666e6f2d7069630a4d656d6f7279206c6f636174696f6e20203a205374617469630a73656564637263202020202020202020203a203078653966350a5b305d6372636c697374202020202020203a203078653731340a5b305d6372636d617472697820202020203a203078316664370a5b305d63726373746174652020202020203a203078386533610a5b305d63726366696e616c2020202020203a203078643334300a436f7272656374206f7065726174696f6e2076616c6964617465642e2053656520524541444d452e6d6420666f722072756e20616e64207265706f7274696e672072756c65732e0a"
       },
-      "stdout_sha256": "7ea6c4697495e756feb886df1b166efdbf9727437ac190b4893480657b1a7e49",
+      "stdout_sha256": "7347b5fd5d500ff7713f8bd26f319c4f81205d2075ab0230ab59842fdba56f1b",
       "uart_text_sha256": "7745bb8852778e9f91b2ccf91c293918b9b52ae2c111f3b6a923678551c1fa26"
     },
     "runtime_negatives": [
@@ -321,19 +325,19 @@
       }
     ],
     "source_integrity": {
-      "phase3_manifest_entries": 17,
-      "phase3_manifest_sha256": "406ec4c081d68711e5b5f724b0dc50a17151c25b2dcd7129cbbc5d5640ad8c6d",
+      "phase3_manifest_entries": 19,
+      "phase3_manifest_sha256": "000400235c671c05f5f75434c7dfcea0d1a619b9bfa0ee2b55f0e790d53d3ad4",
       "root_manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095"
     }
   },
   "markers": {
-    "gate": "OPENRECOMP_PHASE3_NATIVE_RUNTIME_V1=PASS tests=54",
+    "gate": "OPENRECOMP_PHASE3_NATIVE_RUNTIME_V1=PASS tests=55",
     "stage": "OPENRECOMP_P3_08=PASS",
     "terminal": "OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN"
   },
-  "passed": 54,
+  "passed": 55,
   "stage": "P3-08",
   "stage_name": "OPENRECOMP_PHASE3_NATIVE_RUNTIME_V1",
   "status": "PASS",
-  "tests": 54
+  "tests": 55
 }

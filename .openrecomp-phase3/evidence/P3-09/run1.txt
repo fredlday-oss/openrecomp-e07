@@ -1,0 +1,59 @@
+=== P3-09 Independent Reference Equivalence Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest-exists
+PASS: source:root-manifest-frozen-sha256
+PASS: source:root-manifest-entry-count
+PASS: source:root-manifest-entries-verified
+PASS: source:phase3-manifest-exists
+PASS: source:phase3-manifest-entry-set
+PASS: source:phase3-manifest-entries-verified
+
+--- fixture / loader ---
+PASS: fixture:sha256
+PASS: fixture:size
+PASS: loader:entry
+PASS: loader:image-sha
+PASS: loader:image-matches-host-image
+PASS: loader:regions
+PASS: loader:decoded-words
+PASS: loader:op-histogram
+
+--- native observable pin ---
+PASS: native:recorded
+
+--- reference execution ---
+PASS: reference:coremark-line:CoreMark Size    
+PASS: reference:coremark-line:Iterations       
+PASS: reference:coremark-line:seedcrc          
+PASS: reference:coremark-line:[0]crclist       
+PASS: reference:coremark-line:[0]crcmatrix     
+PASS: reference:coremark-line:[0]crcstate      
+PASS: reference:coremark-line:[0]crcfinal      
+PASS: reference:coremark-line:Correct operation validated.
+PASS: reference:no-failure
+
+--- equivalence ---
+PASS: equivalence:exit_status
+PASS: equivalence:steps
+PASS: equivalence:pc
+PASS: equivalence:hi
+PASS: equivalence:lo
+PASS: equivalence:uart_bytes
+PASS: equivalence:uart_hex
+PASS: equivalence:state_fnv1a64
+PASS: equivalence:failed
+PASS: equivalence:failure
+
+--- reference negatives ---
+PASS: negatives:malformed-rejected
+PASS: negatives:no-failures
+PASS: negatives:count
+
+--- determinism ---
+PASS: determinism:artifact-hashes-recorded
+
+=== RESULT ===
+OPENRECOMP_P3_09=PASS
+OPENRECOMP_PHASE3_REFERENCE_EQUIVALENCE_V1=PASS tests=39
+OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN

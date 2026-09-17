@@ -48,6 +48,7 @@ PASS: emission:service-macros
 PASS: emission:fail-closed-unpredictable
 PASS: emission:no-forbidden-casts
 PASS: emission:image-sha
+PASS: emission:image-equals-load-image
 PASS: emission:image-initializer-present
 PASS: emission:image-initializer-length
 PASS: emission:image-initializer-equals-guest-image
@@ -81,5 +82,5 @@ PASS: determinism:artifact-hashes-recorded
 
 === RESULT ===
 OPENRECOMP_P3_07=PASS
-OPENRECOMP_PHASE3_HOST_EMISSION_V1=PASS tests=67
+OPENRECOMP_PHASE3_HOST_EMISSION_V1=PASS tests=68
 OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN

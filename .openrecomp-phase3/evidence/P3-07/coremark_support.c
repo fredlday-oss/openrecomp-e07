@@ -1,6 +1,6 @@
 /* OpenRecomp Phase-3 CoreMark host runtime support (P3-07/P3-08). */
 /* host_emit_version: 1.0.0 */
-/* guest_image_sha256: db5967f4f14fd9befc33c9d82e1cfc44b1409a4e2dfa2053e4fb1a4c7923b845 */
+/* guest_image_sha256: 3eecfc957c4ed147544d2aa98c6e4f4d7aac41957e531cdfe01c2555ff0a91ae */
 /* Observable contract (re-implemented independently by the P3-09
    reference): after openrecomp_run(), report exit_status, steps, pc, hi,
    lo, uart_bytes, uart_hex and state_fnv1a64 (FNV-1a 64 over the flat

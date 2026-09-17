@@ -727,8 +727,14 @@ def emit_program(
             (region.vaddr, region.vaddr + region.size, " | ".join(flags)))
 
     image_bytes = bytearray(IMAGE_WINDOW)
-    for section in model.sections:
-        image_bytes[section.vaddr:section.vaddr + section.size] = section.content
+    for region in sorted(model.regions, key=lambda item: item.vaddr):
+        if not region.content:
+            continue
+        if len(region.content) != region.size:
+            raise HostEmitError(
+                "REGION_CONTENT_SIZE",
+                f"0x{region.vaddr:08x} declared={region.size} content={len(region.content)}")
+        image_bytes[region.vaddr:region.vaddr + region.size] = region.content
     image_sha256 = hashlib.sha256(bytes(image_bytes)).hexdigest()
 
     services = runtime_services()

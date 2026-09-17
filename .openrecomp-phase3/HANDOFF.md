@@ -7,8 +7,8 @@ reachable MIPS32 semantics) `PASS`; P3-05
 (ProgramModel/CFG/functions/call graph/translation units on the real ELF)
 `PASS`; P3-06 (static data/global reconstruction) `PASS`; P3-07 (host emission
 for CoreMark semantics) `PASS`; P3-08 (native build + generic runtime
-execution) `PASS`; P3-09 (independent MIPS32 reference + equivalence) is
-`ACTIVE`. The remaining
+execution) `PASS`; P3-09 (independent MIPS32 reference + equivalence) `PASS`;
+P3-10 (reproducible package + whole regression) is `ACTIVE`. The remaining
 Phase-3 queue (`P3-05` .. `P3-99`) was frozen at the
 P3-04 `PASS` boundary before any P3-05 implementation work; the frozen contract
 is `STAGE_QUEUE.md` `## Queue freeze` (no renumber/insert/merge/split/silent
@@ -22,10 +22,40 @@ and is documented). The Phase-2 terminal state is frozen at tag
 `OPENRECOMP_PHASE2_FINAL_VERDICT_V1=PASS tests=202` and
 `OPENRECOMP_PHASE2_END_TO_END_RECOMP_PROOF=PASS`.
 
+## P3-09 outcome (PASS)
+
+Markers: `OPENRECOMP_P3_09=PASS`,
+`OPENRECOMP_PHASE3_REFERENCE_EQUIVALENCE_V1=PASS tests=39`; terminal marker
+reserved as `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`.
+
+- New Phase-3 files only: `.openrecomp-phase3/src/p3_reference_mips32_v1.py`
+  (independent loader/decoder/interpreter) and
+  `tools/test_phase3_reference_equivalence_v1.py` (the gate). The Phase-3
+  manifest grew additively to nineteen entries.
+- Independent loader: image sha256 `3eecfc95...` equals the P3-07 host image;
+  regions and the 3479-word op histogram equal the frozen evidence.
+- Full-run equivalence: all ten observable fields equal the P3-08 native
+  values (`steps=394997250`, `pc=0x00004564`, `hi=0x0000000d`, `lo=0`,
+  `uart_bytes=499`, `state_fnv1a64=0x78651c29dd149ab1`, no failure); UART
+  carries CoreMark's validation CRCs and `Correct operation validated.`.
+- Reference negatives: divide by zero, taken `teq`, unaligned indirect target,
+  out-of-image memory access, PC outside the image and malformed ELF
+  rejection all fail closed with the expected deterministic messages.
+- The independent loader also exposed the P3-07 image-fidelity defect
+  (section-built image vs PT_LOAD image); repaired at the source within P3-09
+  and the P3-07/P3-08 gates re-ran and re-passed (see the correction record
+  above).
+- Official runs byte-identical (raw sha256
+  `722a4cd87bc6eb0fa6ef513aadfe3b7e1198156fd54314b8df1838c158a0a4d2`); all
+  regressions (P2-99, P3-00..P3-08, Phase-1 host gates, public safety) exit 0
+  with empty stderr and unchanged stdout. Evidence under
+  `.openrecomp-phase3/evidence/P3-09/`.
+- CoreMark remains `NOT_PROVEN` until the remaining frozen stages pass.
+
 ## P3-08 outcome (PASS)
 
 Markers: `OPENRECOMP_P3_08=PASS`,
-`OPENRECOMP_PHASE3_NATIVE_RUNTIME_V1=PASS tests=54`; terminal marker reserved
+`OPENRECOMP_PHASE3_NATIVE_RUNTIME_V1=PASS tests=55`; terminal marker reserved
 as `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`.
 
 - New Phase-3 gate only; no shared layer, frozen adapter, Phase-1/Phase-2
@@ -39,15 +69,15 @@ as `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`.
   entries; the earlier gates expect 17 entries and keep byte-identical stdout.
 - Native observable: `exit_status=0`, `steps=394997250`, `pc=0x00004564`,
   `hi=0x0000000d`, `lo=0x00000000`, `uart_bytes=499`,
-  `state_fnv1a64=0x5eef5d92fab65dad`, `failed=0`; executable sha256
-  `9b36d6df3a3715f98a7ba41f00b63617af755fc29f42e1dc5d744b5e728445af`.
+  `state_fnv1a64=0x78651c29dd149ab1`, `failed=0`; executable sha256
+  `c80ecc4b88c09aa05e913c935d18834373a0920910ee781fa51d3764ef3dd1b6`.
   UART contains `Correct operation validated.` with `seedcrc 0xe9f5`,
   `crclist 0xe714`, `crcmatrix 0x1fd7`, `crcstate 0x8e3a`, `crcfinal 0xd340`.
 - Runtime negatives: divide by zero, taken `teq` (code preserved), unaligned
   indirect target, out-of-region write: all failed closed with the exact
   expected deterministic message.
 - Official runs byte-identical (raw sha256
-  `5ac6d2ca2c9f630dda7ab11259d000098c0d819da43e84e494f04400f7ddc3cd`); all
+  `cdc7abbfc3d12d02f197fb0b99e1c7f4ef55f1dc62debb288387ff121225bb9d`); all
   regressions (P2-99, P3-00..P3-07, Phase-1 host gates, public safety) exit 0
   with empty stderr and unchanged stdout. Evidence under
   `.openrecomp-phase3/evidence/P3-08/`.
@@ -57,7 +87,7 @@ as `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`.
 ## P3-07 outcome (PASS)
 
 Markers: `OPENRECOMP_P3_07=PASS`,
-`OPENRECOMP_PHASE3_HOST_EMISSION_V1=PASS tests=67`; terminal marker reserved as
+`OPENRECOMP_PHASE3_HOST_EMISSION_V1=PASS tests=68`; terminal marker reserved as
 `OPENRECOMP_PHASE3_REAL_ELF_RECOMP_PROOF=NOT_PROVEN`.
 
 - New Phase-3 files only; no shared layer, frozen adapter, Phase-1/Phase-2
@@ -68,7 +98,7 @@ Markers: `OPENRECOMP_P3_07=PASS`,
   `0x3830`, `0x39a0`), exact semantics for all 46 ops present, true delay-slot
   protocol, P2-08 ABI memory access, host calls for the UART/exit windows, and
   fail-closed UNPREDICTABLE states.
-- `tools/test_phase3_host_emit_v1.py`: the P3-07 gate (67 checks).
+- `tools/test_phase3_host_emit_v1.py`: the P3-07 gate (68 checks).
 - `.openrecomp-phase3/SOURCE_SHA256SUMS.txt`: grown additively to sixteen
   entries; P3-02..P3-06 expected 16 entries additively with unchanged stdout.
 - Evidence carries the generated `coremark_program.c` and
@@ -76,7 +106,7 @@ Markers: `OPENRECOMP_P3_07=PASS`,
   parsed back and equal the P3-02 guest image window and segment permissions.
 - Emission determinism: two independent emissions byte-identical; official
   runs byte-identical (raw sha256
-  `d7986967dbf9fb2021e86dab7902c18d294a6b52e606a0cabad13907bd317746`, empty
+  `26b871bfe1f4b6dec0fcc1d2c7d9b058ed2bb4939c93a40f90103253a76a41a6`, empty
   stderr, exit 0).
 - Regressions re-run and unchanged: P2-99 `PASS tests=202` (`66913e57...`),
   P3-00 `PASS tests=61` (`a039bbff...`), P3-01 `PASS tests=76`
@@ -515,18 +545,17 @@ implementation work began.
 
 ## Exact next action
 
-Execute P3-09 (independent MIPS32 reference + equivalence, frozen queue row):
+Execute P3-10 (reproducible package + whole regression, frozen queue row):
 
-1. Implement an independent MIPS32 reference execution under
-   `.openrecomp-phase3/src/` (its own decoder/interpreter, written separately
-   from the P3-07 emitter and the P3-04 semantics module) that executes the
-   audited ELF from the documented flat-image initial state with the same
-   memory/MMIO/observable contract.
-2. Prove deterministic observable equivalence with the P3-08 native observable
-   (exit status, step count, PC, HI/LO, UART stream, state digest) and record
-   the evidence under `.openrecomp-phase3/evidence/P3-09/`.
-3. Update `.openrecomp-phase3/SOURCE_SHA256SUMS.txt` for the new Phase-3
-   source/gate files and update the control plane.
+1. Produce a deterministic, byte-reproducible package of the Phase-3 path
+   (control plane, Phase-3 sources and gates, generated host program/support,
+   key evidence and the recorded native/reference observables) with an explicit
+   content policy and reproducible hashes.
+2. Run the whole Phase-1, Phase-2 and Phase-3 gate set together and record the
+   results.
+3. Record evidence under `.openrecomp-phase3/evidence/P3-10/`, update
+   `.openrecomp-phase3/SOURCE_SHA256SUMS.txt` for any new Phase-3 source/gate
+   file, and update the control plane.
 
 ## Constraints
 

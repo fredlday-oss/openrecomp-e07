@@ -151,6 +151,7 @@ class MappedRegion:
     vaddr: int
     size: int
     permissions: str
+    content: bytes = b""
 
     @property
     def memory_end(self) -> int:
@@ -331,7 +332,8 @@ def build_static_data_model(ingested) -> StaticDataModel:
             offset=(symbol.value - section.vaddr) if section is not None else None,
         ))
     regions = tuple(
-        MappedRegion(region.vaddr, region.memsz, region.permissions)
+        MappedRegion(region.vaddr, region.memsz, region.permissions,
+                     region.initial_bytes)
         for region in sorted(ingested.image.regions, key=lambda item: item.vaddr))
     return StaticDataModel(
         ordered,
