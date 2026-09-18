@@ -1,0 +1,55 @@
+=== P5-04 Neutral Program Structure Gate ===
+
+--- structure ---
+PASS: structure:deterministic
+PASS: structure:instructions
+PASS: structure:blocks
+PASS: structure:functions
+PASS: structure:translation-units
+PASS: structure:call-edges
+PASS: structure:fingerprints
+PASS: structure:region-sha256
+
+--- roots ---
+PASS: root:reset:address
+PASS: root:reset:basis
+PASS: root:nmi:address
+PASS: root:nmi:basis
+PASS: root:irq:address
+PASS: root:irq:basis
+PASS: root:brk_continuation:address
+PASS: root:brk_continuation:basis
+PASS: roots:entry-set
+PASS: roots:function-entries
+
+--- boundaries ---
+PASS: boundaries:no-violations
+PASS: boundaries:call-sites
+PASS: boundaries:unowned-control-flow
+PASS: boundaries:trap-site
+
+--- indirect ---
+PASS: indirect:single-site
+PASS: indirect:site
+PASS: indirect:no-fabricated-targets
+
+--- reachable_relationship ---
+PASS: reachable:neutral-superset
+PASS: reachable:extra-instructions
+
+--- regressions ---
+PASS: regression:tools/test_nes6502_program_bridge_v1.py:exit
+PASS: regression:tools/test_nes6502_program_bridge_v1.py:stderr
+PASS: regression:tools/test_indirect_control_flow_v1.py:exit
+PASS: regression:tools/test_indirect_control_flow_v1.py:stderr
+
+--- evidence ---
+PASS: hygiene:no-public-rom-bytes:structure.json
+PASS: hygiene:no-public-rom-bytes:boundaries.json
+PASS: hygiene:no-public-rom-bytes:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P5_04=PASS
+OPENRECOMP_PHASE5_NEUTRAL_STRUCTURE_V1=PASS tests=34
+OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

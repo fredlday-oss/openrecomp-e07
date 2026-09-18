@@ -1,0 +1,180 @@
+{
+  "checks": [
+    {
+      "check": "boundaries:call-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "boundaries:no-violations",
+      "status": "PASS"
+    },
+    {
+      "check": "boundaries:trap-site",
+      "status": "PASS"
+    },
+    {
+      "check": "boundaries:unowned-control-flow",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:boundaries.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:structure.json",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect:no-fabricated-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect:single-site",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect:site",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable:extra-instructions",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable:neutral-superset",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_indirect_control_flow_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_indirect_control_flow_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes6502_program_bridge_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes6502_program_bridge_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "root:brk_continuation:address",
+      "status": "PASS"
+    },
+    {
+      "check": "root:brk_continuation:basis",
+      "status": "PASS"
+    },
+    {
+      "check": "root:irq:address",
+      "status": "PASS"
+    },
+    {
+      "check": "root:irq:basis",
+      "status": "PASS"
+    },
+    {
+      "check": "root:nmi:address",
+      "status": "PASS"
+    },
+    {
+      "check": "root:nmi:basis",
+      "status": "PASS"
+    },
+    {
+      "check": "root:reset:address",
+      "status": "PASS"
+    },
+    {
+      "check": "root:reset:basis",
+      "status": "PASS"
+    },
+    {
+      "check": "roots:entry-set",
+      "status": "PASS"
+    },
+    {
+      "check": "roots:function-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:blocks",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:call-edges",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:fingerprints",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:functions",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:instructions",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:region-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:translation-units",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "evidence_files": [
+      "boundaries.json",
+      "regressions.json",
+      "structure.json"
+    ],
+    "regressions": [
+      {
+        "returncode": 0,
+        "script": "tools/test_nes6502_program_bridge_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2632,
+        "stdout_sha256_lf": "65b7d3acd2fd76c6327d7ddabf6a4338cd6d137e4632af620ec7535317d2784a",
+        "stdout_sha256_raw": "d104147c5bbc176af44499aed94320e095350f8e9e7f6fafbab8667d33025f03"
+      },
+      {
+        "returncode": 0,
+        "script": "tools/test_indirect_control_flow_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 4591,
+        "stdout_sha256_lf": "b2f40c6a683768c0ac96222064a37f897670f972a0503757e5c759ada2a9758b",
+        "stdout_sha256_raw": "866d290a59228e5bd01f5bc026d2a2b1ca5558e28e9165b2dea42e00464d72a2"
+      }
+    ]
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE5_NEUTRAL_STRUCTURE_V1=PASS tests=34",
+    "stage": "OPENRECOMP_P5_04=PASS",
+    "terminal": "OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN"
+  },
+  "passed": 34,
+  "stage": "P5-04",
+  "stage_name": "OPENRECOMP_PHASE5_NEUTRAL_STRUCTURE_V1",
+  "status": "PASS",
+  "tests": 34
+}

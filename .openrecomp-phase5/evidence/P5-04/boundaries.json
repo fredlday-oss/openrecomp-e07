@@ -1,0 +1,85 @@
+{
+  "boundary_violations": [],
+  "call_sites": [
+    {
+      "address": 49193,
+      "target": 49408
+    },
+    {
+      "address": 49196,
+      "target": 49422
+    },
+    {
+      "address": 49199,
+      "target": 49446
+    },
+    {
+      "address": 49202,
+      "target": 49470
+    },
+    {
+      "address": 49297,
+      "target": 49552
+    },
+    {
+      "address": 49357,
+      "target": 49539
+    },
+    {
+      "address": 49573,
+      "target": 49521
+    }
+  ],
+  "extra_instructions": [
+    49319
+  ],
+  "function_entries": [
+    49152,
+    49320,
+    49408,
+    49422,
+    49446,
+    49470,
+    49521,
+    49539,
+    49552,
+    49558,
+    49655
+  ],
+  "indirect_classifications": [
+    {
+      "address": 49405,
+      "basis": "NONE",
+      "entry_address": 49320,
+      "kind": "INDIRECT_JUMP",
+      "op": "jmp",
+      "status": "UNRESOLVED_INDIRECT_JUMP",
+      "target_functions": [],
+      "targets": [],
+      "unit_id": "tu_fn_c0a8"
+    }
+  ],
+  "missing_instructions": [],
+  "roots": {
+    "brk_continuation": {
+      "address": 49320,
+      "basis": "BRK at 0xC0A6 pushes PC+2 (documented); the IRQ handler RTI returns to 0xC0A8"
+    },
+    "irq": {
+      "address": 49655,
+      "basis": "IRQ/BRK vector 0xFFFE/0xFFFF"
+    },
+    "nmi": {
+      "address": 49558,
+      "basis": "NMI vector 0xFFFA/0xFFFB"
+    },
+    "reset": {
+      "address": 49152,
+      "basis": "reset vector 0xFFFC/0xFFFD"
+    }
+  },
+  "stage": "P5-04",
+  "trap_sites": [
+    49318
+  ]
+}

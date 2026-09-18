@@ -127,10 +127,33 @@ markers reserved as `NOT_PROVEN`.
   (`aa46976f...`).
 - Evidence: `.openrecomp-phase5/evidence/P5-03/`.
 
+## P5-04 outcome (PASS)
+
+Markers: `OPENRECOMP_P5_04=PASS`,
+`OPENRECOMP_PHASE5_NEUTRAL_STRUCTURE_V1=PASS tests=34`; terminal and general
+markers reserved as `NOT_PROVEN`.
+
+- Real fixture bridged into the shared neutral layers: 231 instructions /
+  48 blocks / 11 functions / 11 translation units / 7 resolved internal direct
+  call edges; pinned fingerprints (`cfg d6dfe7a8...`, `discovery 2839d54f...`,
+  `call_graph f0a4381e...`, `units 5523eae9...`, `classification 6bc9b98f...`).
+- Explicit roots: RESET `$C000`, NMI `$C196`, IRQ `$C1F7`, documented BRK
+  continuation `$C0A8`; every root maps to a neutral function.
+- No fabricated boundaries (`boundary_violations` empty; function entries are
+  roots plus direct JSR targets) and no fabricated indirect targets (single
+  `$C0FD jmp ($02FF)` site stays unresolved with empty targets).
+- Reachable relationship to P5-02 exact: all 230 reachable instructions are
+  covered plus the one dead padding NOP at `$C0A7`.
+- Two official runs byte-identical raw (`937e3c2c...`, 1598 bytes) and LF
+  (`bed9d7a5...`), empty stderr, exit 0; `p5_04_tests.json` identical
+  (`9d3e924c...`).
+- Evidence: `.openrecomp-phase5/evidence/P5-04/`.
+
 ## Exact next action
 
-Execute P5-04 (ProgramModel / CFG / functions / translation units): bridge the
-real public fixture into the shared architecture-neutral layers from its
-reset/NMI/IRQ roots, represent interrupt/reset roots explicitly, fabricate no
-function boundaries or indirect targets, and record the neutral structure
-fingerprints. Then proceed to P5-05.
+Execute P5-05 (NES CPU memory map + mapper model): implement the bounded
+platform memory model for the public NROM fixture (2 KiB RAM + mirrors, PPU
+register window, APU/IO window, controller ports, cartridge PRG mapping,
+mapper-0 behaviour and absent PRG-RAM), with unknown mappings failing closed,
+and reconcile it with the frozen independent platform contract. Then proceed
+to P5-06.
