@@ -1,0 +1,52 @@
+=== P5-11 Private TMNT Compatibility Gate ===
+
+--- analysis ---
+PASS: analysis:deterministic
+PASS: private:path
+PASS: private:sha256
+PASS: private:size
+PASS: private:container
+PASS: private:mapper
+PASS: private:mirroring
+PASS: private:prg-chr
+PASS: private:hashes
+PASS: private:classification
+PASS: private:blocked
+
+--- fail_closed ---
+PASS: fail-closed:mapper
+PASS: fail-closed:p5-cartridge
+
+--- candidate_frame ---
+PASS: candidate:claim
+PASS: candidate:vectors
+PASS: candidate:basis
+
+--- candidate_frontier ---
+PASS: frontier:claim
+PASS: frontier:instructions
+PASS: frontier:forms
+PASS: frontier:outside-targets
+PASS: frontier:stopped
+
+--- blockers ---
+PASS: blockers:codes
+PASS: blockers:banking
+PASS: blockers:out-of-bank
+PASS: blockers:public-none
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:tools/test_phase5_ingestion_v1.py:exit
+PASS: regression:tools/test_phase5_ingestion_v1.py:stderr
+
+--- evidence ---
+PASS: hygiene:no-private-rom-in-evidence
+PASS: hygiene:no-private-bank-in-evidence
+
+=== RESULT ===
+OPENRECOMP_P5_11=PASS
+OPENRECOMP_PHASE5_PRIVATE_COMPAT_V1=PASS tests=31
+OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

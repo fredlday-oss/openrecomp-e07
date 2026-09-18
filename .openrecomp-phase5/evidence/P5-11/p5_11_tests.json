@@ -1,0 +1,168 @@
+{
+  "checks": [
+    {
+      "check": "analysis:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "blockers:banking",
+      "status": "PASS"
+    },
+    {
+      "check": "blockers:codes",
+      "status": "PASS"
+    },
+    {
+      "check": "blockers:out-of-bank",
+      "status": "PASS"
+    },
+    {
+      "check": "blockers:public-none",
+      "status": "PASS"
+    },
+    {
+      "check": "candidate:basis",
+      "status": "PASS"
+    },
+    {
+      "check": "candidate:claim",
+      "status": "PASS"
+    },
+    {
+      "check": "candidate:vectors",
+      "status": "PASS"
+    },
+    {
+      "check": "fail-closed:mapper",
+      "status": "PASS"
+    },
+    {
+      "check": "fail-closed:p5-cartridge",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:claim",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:forms",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:instructions",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:outside-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:stopped",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-bank-in-evidence",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-in-evidence",
+      "status": "PASS"
+    },
+    {
+      "check": "private:blocked",
+      "status": "PASS"
+    },
+    {
+      "check": "private:classification",
+      "status": "PASS"
+    },
+    {
+      "check": "private:container",
+      "status": "PASS"
+    },
+    {
+      "check": "private:hashes",
+      "status": "PASS"
+    },
+    {
+      "check": "private:mapper",
+      "status": "PASS"
+    },
+    {
+      "check": "private:mirroring",
+      "status": "PASS"
+    },
+    {
+      "check": "private:path",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prg-chr",
+      "status": "PASS"
+    },
+    {
+      "check": "private:sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "private:size",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase5_ingestion_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase5_ingestion_v1.py:stderr",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "evidence_files": [
+      "blockers.json",
+      "regressions.json",
+      "tmnt_analysis.json"
+    ],
+    "regressions": [
+      {
+        "returncode": 0,
+        "script": "tools/test_nes_rom_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 959,
+        "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+        "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+      },
+      {
+        "returncode": 0,
+        "script": "tools/test_phase5_ingestion_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2074,
+        "stdout_sha256_lf": "89a396952443ec2639231b37c924af2f5dad53cb4bc9142e612cbc86908cff43",
+        "stdout_sha256_raw": "6a895e0bce6015cc6086413245fddce1e27ffdc0433c745b1216228e2c3e4c98"
+      }
+    ]
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE5_PRIVATE_COMPAT_V1=PASS tests=31",
+    "stage": "OPENRECOMP_P5_11=PASS",
+    "terminal": "OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN"
+  },
+  "passed": 31,
+  "stage": "P5-11",
+  "stage_name": "OPENRECOMP_PHASE5_PRIVATE_COMPAT_V1",
+  "status": "PASS",
+  "tests": 31
+}

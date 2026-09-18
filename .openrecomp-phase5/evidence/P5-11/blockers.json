@@ -1,0 +1,19 @@
+{
+  "blockers": [
+    {
+      "code": "BLOCKED_UNSUPPORTED_MAPPER",
+      "detail": "mapper 1 (MMC1/SxROM) banking is not implemented; PRG bank modes, CHR banking and mirroring control are unresolved"
+    },
+    {
+      "code": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+      "detail": "control-flow targets outside the fixed bank need an MMC1 bank-switch model: 0x864c, 0x901e"
+    },
+    {
+      "code": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+      "detail": "candidate frontier stopped at decode: 0xc570: 0xc570: undocumented 6502 opcode 0x7c"
+    }
+  ],
+  "execution_status": "BLOCKED_UNSUPPORTED_MAPPER",
+  "public_claim": "none; this analysis must not enter the public package",
+  "stage": "P5-11"
+}

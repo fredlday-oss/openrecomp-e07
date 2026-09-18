@@ -1,0 +1,23 @@
+{
+  "regressions": [
+    {
+      "returncode": 0,
+      "script": "tools/test_nes_rom_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 959,
+      "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+      "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+    },
+    {
+      "returncode": 0,
+      "script": "tools/test_phase5_ingestion_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2074,
+      "stdout_sha256_lf": "89a396952443ec2639231b37c924af2f5dad53cb4bc9142e612cbc86908cff43",
+      "stdout_sha256_raw": "6a895e0bce6015cc6086413245fddce1e27ffdc0433c745b1216228e2c3e4c98"
+    }
+  ],
+  "stage": "P5-11"
+}

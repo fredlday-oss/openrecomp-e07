@@ -1,0 +1,431 @@
+{
+  "battery": false,
+  "blockers": [
+    {
+      "code": "BLOCKED_UNSUPPORTED_MAPPER",
+      "detail": "mapper 1 (MMC1/SxROM) banking is not implemented; PRG bank modes, CHR banking and mirroring control are unresolved"
+    },
+    {
+      "code": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+      "detail": "control-flow targets outside the fixed bank need an MMC1 bank-switch model: 0x864c, 0x901e"
+    },
+    {
+      "code": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+      "detail": "candidate frontier stopped at decode: 0xc570: 0xc570: undocumented 6502 opcode 0x7c"
+    }
+  ],
+  "candidate_frame": {
+    "bank_sha256": "6d032deaad66d37a28cd0a475d2ba6c6f4f89c168de9ef03347718c2c3d1abd8",
+    "basis": "documented SxROM power-on fixed-bank frame: last PRG bank at $C000-$FFFF; the $8000-$BFFF switchable bank and all MMC1 banking are unresolved without a mapper model",
+    "claim": "CANDIDATE / NOT PROVEN",
+    "vectors": {
+      "irq": 50194,
+      "nmi": 50083,
+      "reset": 65496
+    }
+  },
+  "candidate_frontier": {
+    "claim": "CANDIDATE / NOT PROVEN",
+    "distinct_opcode_forms": 59,
+    "instructions": 351,
+    "opcode_histogram": [
+      {
+        "count": 1,
+        "kind": "read",
+        "mnemonic": "adc",
+        "mode": "zp"
+      },
+      {
+        "count": 6,
+        "kind": "read",
+        "mnemonic": "and",
+        "mode": "imm"
+      },
+      {
+        "count": 1,
+        "kind": "read",
+        "mnemonic": "and",
+        "mode": "zpx"
+      },
+      {
+        "count": 4,
+        "kind": "rmw",
+        "mnemonic": "asl",
+        "mode": "zp"
+      },
+      {
+        "count": 1,
+        "kind": "ctrl",
+        "mnemonic": "bcs",
+        "mode": "rel"
+      },
+      {
+        "count": 4,
+        "kind": "ctrl",
+        "mnemonic": "beq",
+        "mode": "rel"
+      },
+      {
+        "count": 4,
+        "kind": "ctrl",
+        "mnemonic": "bmi",
+        "mode": "rel"
+      },
+      {
+        "count": 8,
+        "kind": "ctrl",
+        "mnemonic": "bne",
+        "mode": "rel"
+      },
+      {
+        "count": 2,
+        "kind": "ctrl",
+        "mnemonic": "bpl",
+        "mode": "rel"
+      },
+      {
+        "count": 1,
+        "kind": "impl",
+        "mnemonic": "clc",
+        "mode": "impl"
+      },
+      {
+        "count": 1,
+        "kind": "impl",
+        "mnemonic": "cld",
+        "mode": "impl"
+      },
+      {
+        "count": 1,
+        "kind": "read",
+        "mnemonic": "cmp",
+        "mode": "imm"
+      },
+      {
+        "count": 2,
+        "kind": "read",
+        "mnemonic": "cmp",
+        "mode": "zp"
+      },
+      {
+        "count": 1,
+        "kind": "read",
+        "mnemonic": "cpx",
+        "mode": "zp"
+      },
+      {
+        "count": 1,
+        "kind": "rmw",
+        "mnemonic": "dec",
+        "mode": "zp"
+      },
+      {
+        "count": 7,
+        "kind": "impl",
+        "mnemonic": "dey",
+        "mode": "impl"
+      },
+      {
+        "count": 1,
+        "kind": "read",
+        "mnemonic": "eor",
+        "mode": "zp"
+      },
+      {
+        "count": 1,
+        "kind": "read",
+        "mnemonic": "eor",
+        "mode": "zpx"
+      },
+      {
+        "count": 1,
+        "kind": "rmw",
+        "mnemonic": "inc",
+        "mode": "abs"
+      },
+      {
+        "count": 7,
+        "kind": "rmw",
+        "mnemonic": "inc",
+        "mode": "zp"
+      },
+      {
+        "count": 2,
+        "kind": "impl",
+        "mnemonic": "inx",
+        "mode": "impl"
+      },
+      {
+        "count": 1,
+        "kind": "impl",
+        "mnemonic": "iny",
+        "mode": "impl"
+      },
+      {
+        "count": 9,
+        "kind": "ctrl",
+        "mnemonic": "jmp",
+        "mode": "abs"
+      },
+      {
+        "count": 31,
+        "kind": "ctrl",
+        "mnemonic": "jsr",
+        "mode": "abs"
+      },
+      {
+        "count": 17,
+        "kind": "read",
+        "mnemonic": "lda",
+        "mode": "abs"
+      },
+      {
+        "count": 23,
+        "kind": "read",
+        "mnemonic": "lda",
+        "mode": "imm"
+      },
+      {
+        "count": 26,
+        "kind": "read",
+        "mnemonic": "lda",
+        "mode": "zp"
+      },
+      {
+        "count": 1,
+        "kind": "read",
+        "mnemonic": "lda",
+        "mode": "zpx"
+      },
+      {
+        "count": 6,
+        "kind": "read",
+        "mnemonic": "ldx",
+        "mode": "imm"
+      },
+      {
+        "count": 2,
+        "kind": "read",
+        "mnemonic": "ldx",
+        "mode": "zp"
+      },
+      {
+        "count": 1,
+        "kind": "read",
+        "mnemonic": "ldy",
+        "mode": "abs"
+      },
+      {
+        "count": 5,
+        "kind": "read",
+        "mnemonic": "ldy",
+        "mode": "imm"
+      },
+      {
+        "count": 1,
+        "kind": "read",
+        "mnemonic": "ldy",
+        "mode": "zp"
+      },
+      {
+        "count": 28,
+        "kind": "acc",
+        "mnemonic": "lsr",
+        "mode": "acc"
+      },
+      {
+        "count": 1,
+        "kind": "read",
+        "mnemonic": "ora",
+        "mode": "abs"
+      },
+      {
+        "count": 1,
+        "kind": "read",
+        "mnemonic": "ora",
+        "mode": "imm"
+      },
+      {
+        "count": 4,
+        "kind": "read",
+        "mnemonic": "ora",
+        "mode": "zp"
+      },
+      {
+        "count": 4,
+        "kind": "impl",
+        "mnemonic": "pha",
+        "mode": "impl"
+      },
+      {
+        "count": 4,
+        "kind": "impl",
+        "mnemonic": "pla",
+        "mode": "impl"
+      },
+      {
+        "count": 2,
+        "kind": "rmw",
+        "mnemonic": "rol",
+        "mode": "zpx"
+      },
+      {
+        "count": 4,
+        "kind": "rmw",
+        "mnemonic": "ror",
+        "mode": "zp"
+      },
+      {
+        "count": 1,
+        "kind": "ctrl",
+        "mnemonic": "rti",
+        "mode": "impl"
+      },
+      {
+        "count": 15,
+        "kind": "ctrl",
+        "mnemonic": "rts",
+        "mode": "impl"
+      },
+      {
+        "count": 4,
+        "kind": "impl",
+        "mnemonic": "sec",
+        "mode": "impl"
+      },
+      {
+        "count": 1,
+        "kind": "impl",
+        "mnemonic": "sei",
+        "mode": "impl"
+      },
+      {
+        "count": 52,
+        "kind": "write",
+        "mnemonic": "sta",
+        "mode": "abs"
+      },
+      {
+        "count": 1,
+        "kind": "write",
+        "mnemonic": "sta",
+        "mode": "absx"
+      },
+      {
+        "count": 2,
+        "kind": "write",
+        "mnemonic": "sta",
+        "mode": "indy"
+      },
+      {
+        "count": 30,
+        "kind": "write",
+        "mnemonic": "sta",
+        "mode": "zp"
+      },
+      {
+        "count": 2,
+        "kind": "write",
+        "mnemonic": "sta",
+        "mode": "zpx"
+      },
+      {
+        "count": 1,
+        "kind": "write",
+        "mnemonic": "stx",
+        "mode": "abs"
+      },
+      {
+        "count": 1,
+        "kind": "write",
+        "mnemonic": "stx",
+        "mode": "zp"
+      },
+      {
+        "count": 4,
+        "kind": "write",
+        "mnemonic": "sty",
+        "mode": "abs"
+      },
+      {
+        "count": 2,
+        "kind": "write",
+        "mnemonic": "sty",
+        "mode": "zpx"
+      },
+      {
+        "count": 1,
+        "kind": "impl",
+        "mnemonic": "tax",
+        "mode": "impl"
+      },
+      {
+        "count": 2,
+        "kind": "impl",
+        "mnemonic": "tay",
+        "mode": "impl"
+      },
+      {
+        "count": 2,
+        "kind": "impl",
+        "mnemonic": "txa",
+        "mode": "impl"
+      },
+      {
+        "count": 1,
+        "kind": "impl",
+        "mnemonic": "txs",
+        "mode": "impl"
+      },
+      {
+        "count": 1,
+        "kind": "impl",
+        "mnemonic": "tya",
+        "mode": "impl"
+      }
+    ],
+    "outside_bank_targets": [
+      34380,
+      36894
+    ],
+    "stop_reason": "decode: 0xc570: 0xc570: undocumented 6502 opcode 0x7c",
+    "truncated": false
+  },
+  "chr_bytes": 131072,
+  "chr_is_ram": false,
+  "chr_sha256": "f9e354d57423f5d883663ed56801066ce38ab1a64065a735db88d42aee6eac29",
+  "classification": "PRIVATE_LOCAL_COMPATIBILITY_FIXTURE",
+  "container": "nes2.0",
+  "execution_status": "BLOCKED_UNSUPPORTED_MAPPER",
+  "image_sha256": "2a9345e608ec0c57470dc6658ce8199ddea9c18076134d9ef2a56f91b0a066d1",
+  "image_size": 262160,
+  "mapper": 1,
+  "mapper_error": "mapper 1 (unsupported) is classified but not implemented; fail closed instead of guessing banking behaviour",
+  "mapper_fail_closed": true,
+  "mirroring": "horizontal",
+  "nes2_fields": {
+    "chr_ram_nibble": 0,
+    "chr_rom_size_msb": 0,
+    "cpu_ppu_timing": 1,
+    "flags10": 0,
+    "flags11": 0,
+    "flags12": 1,
+    "flags13": 0,
+    "flags14": 0,
+    "flags15": 1,
+    "flags8": 0,
+    "flags9": 0,
+    "prg_nvram_nibble": 0,
+    "prg_ram_nibble": 0,
+    "prg_rom_size_msb": 0,
+    "submapper": 0
+  },
+  "p5_cartridge_fail_closed": true,
+  "prg_bytes": 131072,
+  "prg_sha256": "2fbc367a453504f01d7dec9fcc52c59b249fd8633ee8e5de6c7ec04abe0131bc",
+  "public_claim": "none; this analysis must not enter the public package",
+  "source_path": "D:\\OpenRecomp\\Roms\\phase1\\nes\\primary\\tmnt.nes",
+  "stage": "P5-11",
+  "submapper": 0,
+  "trainer_bytes": 0
+}

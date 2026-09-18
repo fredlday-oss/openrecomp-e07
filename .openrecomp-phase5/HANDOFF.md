@@ -258,12 +258,31 @@ general markers reserved as `NOT_PROVEN`.
   (`2fb08384...`).
 - Evidence: `.openrecomp-phase5/evidence/P5-10/`.
 
+## P5-11 outcome (PASS, private analysis only)
+
+Markers: `OPENRECOMP_P5_11=PASS`,
+`OPENRECOMP_PHASE5_PRIVATE_COMPAT_V1=PASS tests=31`; terminal and general
+markers reserved as `NOT_PROVEN`.
+
+- Private `PRIVATE_LOCAL_COMPATIBILITY_FIXTURE` analysed by metadata/hash
+  only: 262160 bytes, SHA-256 `2a9345e6...`, mapper 1 (MMC1), 128 KiB
+  PRG/CHR, horizontal mirroring.
+- Fail-closed classification: frozen mapper and P5 cartridge both block
+  mapper 1; no banking behaviour guessed.
+- Candidate fixed-bank frame (`CANDIDATE / NOT PROVEN`): vectors NMI `$C3A3`,
+  RESET `$FFD8`, IRQ `$C412`; bounded candidate frontier 351 instructions,
+  59 opcode forms, stop at `0xc570` undocumented 0x7C, out-of-bank targets
+  `$864C`/`$901E` requiring MMC1 banking.
+- Two official runs byte-identical raw (`24a1bad9...`, 1328 bytes) and LF
+  (`5f604ff4...`), empty stderr, exit 0; `p5_11_tests.json` identical
+  (`8ab307ad...`).
+- Evidence: `.openrecomp-phase5/evidence/P5-11/`; no ROM bytes in evidence.
+
 ## Exact next action
 
-Execute P5-11 (private TMNT compatibility run): analyse the private local
-`tmnt.nes` image (hashes and derived metadata only), decode a bounded
-reachable frontier from the documented last-bank reset/vector frame where
-defensible, record the precise fail-closed blockers (mapper-1/MMC1 banking,
-CHR banking, absent mapper model) and how far the static-recompilation
-pipeline gets, without committing or packaging any ROM bytes. Then proceed to
-P5-12.
+Execute P5-12 (reproducible NES package): build a deterministic public ZIP
+containing only redistributable artifacts (Phase-5 control plane, sources,
+fixture assembly + assembler, gates, native translation sources regenerated
+from the public fixture, evidence through P5-11), with a per-member manifest
+and an explicit exclusion scan proving the private TMNT image, its bytes and
+its hashes-as-content never appear. Then proceed to P5-90.
