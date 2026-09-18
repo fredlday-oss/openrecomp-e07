@@ -1,0 +1,9319 @@
+{
+  "covered_pairs": [
+    [
+      "adc",
+      "abs"
+    ],
+    [
+      "adc",
+      "absx"
+    ],
+    [
+      "adc",
+      "absy"
+    ],
+    [
+      "adc",
+      "imm"
+    ],
+    [
+      "adc",
+      "indx"
+    ],
+    [
+      "adc",
+      "indy"
+    ],
+    [
+      "adc",
+      "zp"
+    ],
+    [
+      "adc",
+      "zpx"
+    ],
+    [
+      "and",
+      "abs"
+    ],
+    [
+      "and",
+      "absx"
+    ],
+    [
+      "and",
+      "absy"
+    ],
+    [
+      "and",
+      "imm"
+    ],
+    [
+      "and",
+      "indx"
+    ],
+    [
+      "and",
+      "indy"
+    ],
+    [
+      "and",
+      "zp"
+    ],
+    [
+      "and",
+      "zpx"
+    ],
+    [
+      "asl",
+      "abs"
+    ],
+    [
+      "asl",
+      "absx"
+    ],
+    [
+      "asl",
+      "acc"
+    ],
+    [
+      "asl",
+      "zp"
+    ],
+    [
+      "asl",
+      "zpx"
+    ],
+    [
+      "bcc",
+      "rel"
+    ],
+    [
+      "bcs",
+      "rel"
+    ],
+    [
+      "beq",
+      "rel"
+    ],
+    [
+      "bit",
+      "abs"
+    ],
+    [
+      "bit",
+      "zp"
+    ],
+    [
+      "bmi",
+      "rel"
+    ],
+    [
+      "bne",
+      "rel"
+    ],
+    [
+      "bpl",
+      "rel"
+    ],
+    [
+      "brk",
+      "impl"
+    ],
+    [
+      "bvc",
+      "rel"
+    ],
+    [
+      "bvs",
+      "rel"
+    ],
+    [
+      "clc",
+      "impl"
+    ],
+    [
+      "cld",
+      "impl"
+    ],
+    [
+      "cli",
+      "impl"
+    ],
+    [
+      "clv",
+      "impl"
+    ],
+    [
+      "cmp",
+      "abs"
+    ],
+    [
+      "cmp",
+      "absx"
+    ],
+    [
+      "cmp",
+      "absy"
+    ],
+    [
+      "cmp",
+      "imm"
+    ],
+    [
+      "cmp",
+      "indx"
+    ],
+    [
+      "cmp",
+      "indy"
+    ],
+    [
+      "cmp",
+      "zp"
+    ],
+    [
+      "cmp",
+      "zpx"
+    ],
+    [
+      "cpx",
+      "abs"
+    ],
+    [
+      "cpx",
+      "imm"
+    ],
+    [
+      "cpx",
+      "zp"
+    ],
+    [
+      "cpy",
+      "abs"
+    ],
+    [
+      "cpy",
+      "imm"
+    ],
+    [
+      "cpy",
+      "zp"
+    ],
+    [
+      "dec",
+      "abs"
+    ],
+    [
+      "dec",
+      "absx"
+    ],
+    [
+      "dec",
+      "zp"
+    ],
+    [
+      "dec",
+      "zpx"
+    ],
+    [
+      "dex",
+      "impl"
+    ],
+    [
+      "dey",
+      "impl"
+    ],
+    [
+      "eor",
+      "abs"
+    ],
+    [
+      "eor",
+      "absx"
+    ],
+    [
+      "eor",
+      "absy"
+    ],
+    [
+      "eor",
+      "imm"
+    ],
+    [
+      "eor",
+      "indx"
+    ],
+    [
+      "eor",
+      "indy"
+    ],
+    [
+      "eor",
+      "zp"
+    ],
+    [
+      "eor",
+      "zpx"
+    ],
+    [
+      "inc",
+      "abs"
+    ],
+    [
+      "inc",
+      "absx"
+    ],
+    [
+      "inc",
+      "zp"
+    ],
+    [
+      "inc",
+      "zpx"
+    ],
+    [
+      "inx",
+      "impl"
+    ],
+    [
+      "iny",
+      "impl"
+    ],
+    [
+      "jmp",
+      "abs"
+    ],
+    [
+      "jmp",
+      "ind"
+    ],
+    [
+      "jsr",
+      "abs"
+    ],
+    [
+      "lda",
+      "abs"
+    ],
+    [
+      "lda",
+      "absx"
+    ],
+    [
+      "lda",
+      "absy"
+    ],
+    [
+      "lda",
+      "imm"
+    ],
+    [
+      "lda",
+      "indx"
+    ],
+    [
+      "lda",
+      "indy"
+    ],
+    [
+      "lda",
+      "zp"
+    ],
+    [
+      "lda",
+      "zpx"
+    ],
+    [
+      "ldx",
+      "abs"
+    ],
+    [
+      "ldx",
+      "absy"
+    ],
+    [
+      "ldx",
+      "imm"
+    ],
+    [
+      "ldx",
+      "zp"
+    ],
+    [
+      "ldx",
+      "zpy"
+    ],
+    [
+      "ldy",
+      "abs"
+    ],
+    [
+      "ldy",
+      "absx"
+    ],
+    [
+      "ldy",
+      "imm"
+    ],
+    [
+      "ldy",
+      "zp"
+    ],
+    [
+      "ldy",
+      "zpx"
+    ],
+    [
+      "lsr",
+      "abs"
+    ],
+    [
+      "lsr",
+      "absx"
+    ],
+    [
+      "lsr",
+      "acc"
+    ],
+    [
+      "lsr",
+      "zp"
+    ],
+    [
+      "lsr",
+      "zpx"
+    ],
+    [
+      "nop",
+      "impl"
+    ],
+    [
+      "ora",
+      "abs"
+    ],
+    [
+      "ora",
+      "absx"
+    ],
+    [
+      "ora",
+      "absy"
+    ],
+    [
+      "ora",
+      "imm"
+    ],
+    [
+      "ora",
+      "indx"
+    ],
+    [
+      "ora",
+      "indy"
+    ],
+    [
+      "ora",
+      "zp"
+    ],
+    [
+      "ora",
+      "zpx"
+    ],
+    [
+      "pha",
+      "impl"
+    ],
+    [
+      "php",
+      "impl"
+    ],
+    [
+      "pla",
+      "impl"
+    ],
+    [
+      "plp",
+      "impl"
+    ],
+    [
+      "rol",
+      "abs"
+    ],
+    [
+      "rol",
+      "absx"
+    ],
+    [
+      "rol",
+      "acc"
+    ],
+    [
+      "rol",
+      "zp"
+    ],
+    [
+      "rol",
+      "zpx"
+    ],
+    [
+      "ror",
+      "abs"
+    ],
+    [
+      "ror",
+      "absx"
+    ],
+    [
+      "ror",
+      "acc"
+    ],
+    [
+      "ror",
+      "zp"
+    ],
+    [
+      "ror",
+      "zpx"
+    ],
+    [
+      "rti",
+      "impl"
+    ],
+    [
+      "rts",
+      "impl"
+    ],
+    [
+      "sbc",
+      "abs"
+    ],
+    [
+      "sbc",
+      "absx"
+    ],
+    [
+      "sbc",
+      "absy"
+    ],
+    [
+      "sbc",
+      "imm"
+    ],
+    [
+      "sbc",
+      "indx"
+    ],
+    [
+      "sbc",
+      "indy"
+    ],
+    [
+      "sbc",
+      "zp"
+    ],
+    [
+      "sbc",
+      "zpx"
+    ],
+    [
+      "sec",
+      "impl"
+    ],
+    [
+      "sed",
+      "impl"
+    ],
+    [
+      "sei",
+      "impl"
+    ],
+    [
+      "sta",
+      "abs"
+    ],
+    [
+      "sta",
+      "absx"
+    ],
+    [
+      "sta",
+      "absy"
+    ],
+    [
+      "sta",
+      "indx"
+    ],
+    [
+      "sta",
+      "indy"
+    ],
+    [
+      "sta",
+      "zp"
+    ],
+    [
+      "sta",
+      "zpx"
+    ],
+    [
+      "stx",
+      "abs"
+    ],
+    [
+      "stx",
+      "zp"
+    ],
+    [
+      "stx",
+      "zpy"
+    ],
+    [
+      "sty",
+      "abs"
+    ],
+    [
+      "sty",
+      "zp"
+    ],
+    [
+      "sty",
+      "zpx"
+    ],
+    [
+      "tax",
+      "impl"
+    ],
+    [
+      "tay",
+      "impl"
+    ],
+    [
+      "tsx",
+      "impl"
+    ],
+    [
+      "txa",
+      "impl"
+    ],
+    [
+      "txs",
+      "impl"
+    ],
+    [
+      "tya",
+      "impl"
+    ]
+  ],
+  "failed": [],
+  "results": [
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "ora",
+          "indx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "9c02f303bdc3faa5b4df915c4007862222bdb33d55babff472eadd01d930ac05",
+      "instructions": 18,
+      "memory_sha256": "fabb20794821bb5066dbee8f8134b1ef228bb0023f9b390077bd05bb7e086c30",
+      "mismatches": [],
+      "name": "op_01_ora_indx",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        289
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ora",
+            "indx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_01_ora_indx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "ora",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "2db5f0257b26f6ba7819e342b80f1960fb887c7923c23e456481fde2a350f2b0",
+      "instructions": 14,
+      "memory_sha256": "faee962291c5119da438c722690f40395f7fd8462bbb5f87c05e8e987bb91ead",
+      "mismatches": [],
+      "name": "op_05_ora_zp",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ora",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_05_ora_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "asl",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "ea0a2cf6f3020f121580ce8cb20a9626c14328844df63cbf78bcf21b04a7d3af",
+      "instructions": 14,
+      "memory_sha256": "b1c37f73f6a97ff370fedc04ef9a9983fd5a85c71362c67d771db0840ea3c285",
+      "mismatches": [],
+      "name": "op_06_asl_zp",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "asl",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_06_asl_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "ora",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "413d6de8a0a2b947865d9c8bf36312609a7976bece466fad24039c55820195a9",
+      "instructions": 12,
+      "memory_sha256": "7f9cc68bbc6c0838683fac72ce36d8957961a3ec71a3eb288bec826a5c38cb9c",
+      "mismatches": [],
+      "name": "op_09_ora_imm",
+      "reference_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ora",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_09_ora_imm"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 180,
+        "halted": 1,
+        "p": 164,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "asl",
+          "acc"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "bcf4a1ac6470af26cb2b129f6b6fb56cdc64a686c6f2438bcad877ce38275a41",
+      "instructions": 12,
+      "memory_sha256": "730471bdb0f9c24e48a58d95b23faeeebda56554503b01122be3051a9a330791",
+      "mismatches": [],
+      "name": "op_0a_asl_acc",
+      "reference_state": {
+        "a": 180,
+        "halted": 1,
+        "p": 164,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "asl",
+            "acc"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_0a_asl_acc"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "ora",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "b0612709055711a7b0dcf56f1ef207227324db05f7c025207c3c49e23449c89e",
+      "instructions": 14,
+      "memory_sha256": "04306c0244de8426973ea25701426d94e51c91be33d140c1b95f2838e1cbed3a",
+      "mismatches": [],
+      "name": "op_0d_ora_abs",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ora",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_0d_ora_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "asl",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "a5dd5c82041f5a1a8b29bcfde067d7a555840186f732742fb85a600382c09e30",
+      "instructions": 14,
+      "memory_sha256": "efe263564927270a3f0bc15b2b5088bbdc7d0d8e92423dd475e4a1be56dbbd72",
+      "mismatches": [],
+      "name": "op_0e_asl_abs",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "asl",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_0e_asl_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "ora",
+          "indy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "d244ce9367248f9025d15d24dce052905e43b68c2f9f9b4b4b194c0e4bf0229b",
+      "instructions": 18,
+      "memory_sha256": "adaf5adbf42c2591fb88e3fe128825dc5db8f6952236ff6bb9dcacd58a8288fb",
+      "mismatches": [],
+      "name": "op_11_ora_indy",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        289
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ora",
+            "indy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_11_ora_indy"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "ora",
+          "zpx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "866555b6e920cff3d659b12e4d5f35cbc975aba351436cabc0db8ca26a8fbf2c",
+      "instructions": 14,
+      "memory_sha256": "669076ba842004a95f443a6c1035f2f09fffbbbf7355411dc5366c64b4e90ee6",
+      "mismatches": [],
+      "name": "op_15_ora_zpx",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ora",
+            "zpx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_15_ora_zpx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "asl",
+          "zpx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "d679d2af5db42f394b42684f7a1ef02bb6ed59408dcc5beba633e8f6b0046ace",
+      "instructions": 14,
+      "memory_sha256": "ae20918c52e24f4ebecd3e4fd30f3d1a3c549470bb4ad7c6b4e93994bc515210",
+      "mismatches": [],
+      "name": "op_16_asl_zpx",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "asl",
+            "zpx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_16_asl_zpx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "clc",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "36639bbb4c553612a179c4510f1dc80793160f3c8432ddaff3dfbc544d5f793d",
+      "instructions": 12,
+      "memory_sha256": "a42b9e08179495057aaad925dcd27bc0687eb8b076a974927182016e2a31280a",
+      "mismatches": [],
+      "name": "op_18_clc_impl",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "clc",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_18_clc_impl"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "ora",
+          "absy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "5e0758aacf58a6a2746f625501e29a6b78843875fe2d12d8d70afca028bc388a",
+      "instructions": 14,
+      "memory_sha256": "c7d0b49bbf2c20b2305689013df5db490bce0b1224ee5aacda1f6f252f7d6366",
+      "mismatches": [],
+      "name": "op_19_ora_absy",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ora",
+            "absy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_19_ora_absy"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "ora",
+          "absx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "e8d0becb9452c10a6f6ed10142abd3e36dd365da8a53bc1ff331a2eaf51382ce",
+      "instructions": 14,
+      "memory_sha256": "b1dea069a9a2a0f6354c15b7b6ff0e225d459a41cb62abb2c246d0e4ab58bb81",
+      "mismatches": [],
+      "name": "op_1d_ora_absx",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ora",
+            "absx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_1d_ora_absx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "asl",
+          "absx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "94826e1ba1cd62939947700cfb1c61590af7131f2339cde7ea71228b1bf5188e",
+      "instructions": 14,
+      "memory_sha256": "583da8f4e501b729e198add650ad01ce40aeb9ecb39ea260693d2425d4039103",
+      "mismatches": [],
+      "name": "op_1e_asl_absx",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "asl",
+            "absx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_1e_asl_absx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "and",
+          "indx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "bf29658feb67fca44e7e6691904d82c881078a7276d0a240881461abc36d9987",
+      "instructions": 18,
+      "memory_sha256": "7e71f7d5e5f9ae3a411599f8bff9b3cee7546eec53a3119384374b1b49cc3938",
+      "mismatches": [],
+      "name": "op_21_and_indx",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        289
+      ],
+      "vector": {
+        "covers": [
+          [
+            "and",
+            "indx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_21_and_indx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "bit",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "2cf1b07c50655a9d808247d0c806e3842a0f9b9b9f545d9a704ab99df0ad213d",
+      "instructions": 14,
+      "memory_sha256": "103a56f4230bb08e93bf129854861b3c6cb06c7850335767ea6a2fa31ad7ee25",
+      "mismatches": [],
+      "name": "op_24_bit_zp",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "bit",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_24_bit_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "and",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "94090e507e607f9ab0be2c6bce2d2da30a8f876ba76b89ad2d5263e71900608d",
+      "instructions": 14,
+      "memory_sha256": "5cecadce8f64d3915caf4421f2121a6fc4f52878f08009703c3a4e23a78d2f11",
+      "mismatches": [],
+      "name": "op_25_and_zp",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "and",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_25_and_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "rol",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "11b8206bc8efacfe5473290cfc06f8181328dae86cb270f3f197443323d5b992",
+      "instructions": 14,
+      "memory_sha256": "3cbe2e9dc44d30b601353147b000908d98db628a6ce4db444f753c0c983daa29",
+      "mismatches": [],
+      "name": "op_26_rol_zp",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "rol",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_26_rol_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 38,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "and",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "32b5d50a5607763479a3a35b0a07d913d69c9aec74246a94e2929b5bdb452db7",
+      "instructions": 12,
+      "memory_sha256": "eac12330acbb877a808f098b27bb725b069b3694d13c1726389e1a5a249eb114",
+      "mismatches": [],
+      "name": "op_29_and_imm",
+      "reference_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 38,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "and",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_29_and_imm"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 181,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "rol",
+          "acc"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "a1b67ea0e5bfb629cf9989083cbeef39d8fa4dcd923a46b1a1c13ae96bfa378f",
+      "instructions": 13,
+      "memory_sha256": "68e1a6397b610331dde9dec5e0a319caa3e6260f0f591fff027abbbca2b96f02",
+      "mismatches": [],
+      "name": "op_2a_rol_acc",
+      "reference_state": {
+        "a": 181,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "rol",
+            "acc"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_2a_rol_acc"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "bit",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "41db14312b7f36812f84a27550cca968951bbb812e5f60e0bd0f851aef1b1c63",
+      "instructions": 14,
+      "memory_sha256": "43fe7d51183339d86fef8f85d3fb76dc61cb6feb4aafb69a4751241838695b17",
+      "mismatches": [],
+      "name": "op_2c_bit_abs",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "bit",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_2c_bit_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "and",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "046bf22c261c4041085bcca8b8a549033c811c0f23ceb14f3164c13c5ef5f82a",
+      "instructions": 14,
+      "memory_sha256": "536fcdd96c4ad2317846248097bb8153976916d96f06e47ac471d2bca6cfa444",
+      "mismatches": [],
+      "name": "op_2d_and_abs",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "and",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_2d_and_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "rol",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "1524bedd5dc1fa80006273615210e859473070565dd6e4a95ba8a952ab7da557",
+      "instructions": 14,
+      "memory_sha256": "53cd1bbe7f20be73772f19faa3bfef82d7181aa48964fde1383cff1a526fef65",
+      "mismatches": [],
+      "name": "op_2e_rol_abs",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "rol",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_2e_rol_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "and",
+          "indy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "b5f74aa0f501e1bbd2f85f653384b5c2d511b83549bfca819069a131b564758c",
+      "instructions": 18,
+      "memory_sha256": "05f4879e4a598060c3d68eb4de9b13695df4ff769bfae2be0c3540052c1a926c",
+      "mismatches": [],
+      "name": "op_31_and_indy",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        289
+      ],
+      "vector": {
+        "covers": [
+          [
+            "and",
+            "indy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_31_and_indy"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "and",
+          "zpx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "52f7aef99221b354fe2d26f79e6b821dc1f699e0d01ed632b50855c424acee10",
+      "instructions": 14,
+      "memory_sha256": "4fc3b01e81fcca4f9dc5aa060da4219d7da804101789de9552bb991fc8a7ddf4",
+      "mismatches": [],
+      "name": "op_35_and_zpx",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "and",
+            "zpx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_35_and_zpx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "rol",
+          "zpx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "0b2c4589d1ef76f2b963d5190cd6fd980a1f8cae405491e799b657139063952c",
+      "instructions": 14,
+      "memory_sha256": "101e569d0791fa0f203020dd7261fc1a4b993d1adcc750390aa67624a5fcf1b3",
+      "mismatches": [],
+      "name": "op_36_rol_zpx",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "rol",
+            "zpx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_36_rol_zpx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 37,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sec",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "78a9ebcdb520e060ea8aea97ca8b8ec3bbd1fc396b788a7b4164865111149de8",
+      "instructions": 12,
+      "memory_sha256": "2199f021c62df4924c6874a3798521fd7b00d2e1ea08d3cbfbceceeba22774eb",
+      "mismatches": [],
+      "name": "op_38_sec_impl",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 37,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sec",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_38_sec_impl"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "and",
+          "absy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "313a8b050564144ea53df2979bbbee7ebf219739cf1f57553ce0443cbb554967",
+      "instructions": 14,
+      "memory_sha256": "b23a26d5c9336a942e9aba5ba19978db977daa258bc7ade4899d07ea6504b774",
+      "mismatches": [],
+      "name": "op_39_and_absy",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "and",
+            "absy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_39_and_absy"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "and",
+          "absx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "e9b99ec9450efb187ca4a51bfdda20addeb739f165ff3f53946b2bdff13327d1",
+      "instructions": 14,
+      "memory_sha256": "e340e1d24a7587f98579fa207f0607ea395dab288c6b187717683ceeaa92c31f",
+      "mismatches": [],
+      "name": "op_3d_and_absx",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "and",
+            "absx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_3d_and_absx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "rol",
+          "absx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "33424a6fad5ef0d1c34ff15b501288c678828ed895961185328f48862e4085c2",
+      "instructions": 14,
+      "memory_sha256": "05ddd9782362f95b9f1ed1f5e268f381eaf9b4583e189a785d476eb356e0f0b3",
+      "mismatches": [],
+      "name": "op_3e_rol_absx",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "rol",
+            "absx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_3e_rol_absx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 38,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "eor",
+          "indx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "089091294f47e231917b736a2a2047a61d1592d4553c3f0335af86179964dde1",
+      "instructions": 18,
+      "memory_sha256": "c8d663f63eeb0366e17b97ced7f8e26e9dea436ea535bfaf8722962da291f2f2",
+      "mismatches": [],
+      "name": "op_41_eor_indx",
+      "reference_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 38,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        289
+      ],
+      "vector": {
+        "covers": [
+          [
+            "eor",
+            "indx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_41_eor_indx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 38,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "eor",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "0fd79f111bef9f64aa414e78cc262404d55c8648ee7c7e56359b0ded67271d03",
+      "instructions": 14,
+      "memory_sha256": "49f87f9e52529f8bd57f267e5d7e7a8d502def0f5eee62eb49c83a7d7db7824b",
+      "mismatches": [],
+      "name": "op_45_eor_zp",
+      "reference_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 38,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "eor",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_45_eor_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "lsr",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "08f9af894805d83ed7aa95eab8ab0d1fdab99b7e089a9172e1df70ced417168a",
+      "instructions": 14,
+      "memory_sha256": "bc52ef18a2608aa485d2e1900d44f02134b63f94636cc4f341b476dd12e042fc",
+      "mismatches": [],
+      "name": "op_46_lsr_zp",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "lsr",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_46_lsr_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "eor",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "764ae7092b3ebb1e605387ab4f3891a9297e0443218aba42b6f9e3cf030df768",
+      "instructions": 12,
+      "memory_sha256": "d119ab58853158a5c3fb85caac9b922e2dc2490747d4ec33b6fe8276f9fe49d3",
+      "mismatches": [],
+      "name": "op_49_eor_imm",
+      "reference_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "eor",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_49_eor_imm"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 45,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "lsr",
+          "acc"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "d8c914b1c686f5392c7db97473c5baf683eeca5792c758ad633be4b74efd8e99",
+      "instructions": 12,
+      "memory_sha256": "d706c83e5f72b95387305dc271ed0b5d5ddc6c67832bb656d174000cdd5d0cec",
+      "mismatches": [],
+      "name": "op_4a_lsr_acc",
+      "reference_state": {
+        "a": 45,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "lsr",
+            "acc"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_4a_lsr_acc"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 38,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "eor",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "78b3dabc85e73e598d202fc4e32dc96cdc5e58418b86aba1839b832a4ac195e1",
+      "instructions": 14,
+      "memory_sha256": "fbd5e340782799ea85b91ad2e96b9fae0d1577f82268b9efa6b7bdc6ed5e7022",
+      "mismatches": [],
+      "name": "op_4d_eor_abs",
+      "reference_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 38,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "eor",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_4d_eor_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "lsr",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "c3ecacf21fef82971cf101f1aa13d48a50a0bf10d359cf8865ee74d069de9450",
+      "instructions": 14,
+      "memory_sha256": "aaf419f10a7feb57e3f229afd0ed2f079eda582a6ebb968e11561da00f82d47a",
+      "mismatches": [],
+      "name": "op_4e_lsr_abs",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "lsr",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_4e_lsr_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 38,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "eor",
+          "indy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "c52d078a88d3d602784283c05c7ee0ff902e1d319f02fdff296ba497de9da922",
+      "instructions": 18,
+      "memory_sha256": "88df30a83a639776be413e7e7215a0c19ba6c11954b655483afe4aa696e42867",
+      "mismatches": [],
+      "name": "op_51_eor_indy",
+      "reference_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 38,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        289
+      ],
+      "vector": {
+        "covers": [
+          [
+            "eor",
+            "indy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_51_eor_indy"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 38,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "eor",
+          "zpx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "bca69e362bc3d54c35a6b1c6d7197ad57c8de032777b48ef931ea1e22ae4cc1b",
+      "instructions": 14,
+      "memory_sha256": "a69a25721749e64b256013b6026a289c8f8de582190fa465c8c5eaad7fd3dce8",
+      "mismatches": [],
+      "name": "op_55_eor_zpx",
+      "reference_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 38,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "eor",
+            "zpx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_55_eor_zpx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "lsr",
+          "zpx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "ad01d8d2d1d7c20cbba5e4bc047cb72beefa2badf9d628ccf3953058f638f711",
+      "instructions": 14,
+      "memory_sha256": "1822950d57acb4bddd8eff9e777eeadd65f3fa866991b34795a05fc61f2a1e4c",
+      "mismatches": [],
+      "name": "op_56_lsr_zpx",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "lsr",
+            "zpx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_56_lsr_zpx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 32,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "cli",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "d340816fcaba2404bf452e99326adad1d068288490efe3f202a016fb177eafee",
+      "instructions": 12,
+      "memory_sha256": "eee451a95e2dd693e60dd4d6becbf12b72d13e6bdfff5880e81f931608cf4cd4",
+      "mismatches": [],
+      "name": "op_58_cli_impl",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 32,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "cli",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_58_cli_impl"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 38,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "eor",
+          "absy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "d77f5aff3c1acbc26695cfb4d736cb23c22e2d90c03e469e8f4715c24f35246a",
+      "instructions": 14,
+      "memory_sha256": "973ffceec60a6526190898f30e311d95f44880e935e34328df1ce3a518089a99",
+      "mismatches": [],
+      "name": "op_59_eor_absy",
+      "reference_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 38,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "eor",
+            "absy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_59_eor_absy"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 38,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "eor",
+          "absx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "798d4e7c3706e6c6d914b9a63131cbd952f46b8460c74b35670b96d50e18ac87",
+      "instructions": 14,
+      "memory_sha256": "218395b2add0be6dff071506fc4caef15aaf814be20e943d7ffb73734bdbf48c",
+      "mismatches": [],
+      "name": "op_5d_eor_absx",
+      "reference_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 38,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "eor",
+            "absx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_5d_eor_absx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "lsr",
+          "absx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "e19353307e169abefc64088631292ec7a997774e334c3411635eddb6671bb79e",
+      "instructions": 14,
+      "memory_sha256": "e059b2e4f1fff73e01cef5f1b1e1a18ba8114e69ed318504dae420f68c7c0eb4",
+      "mismatches": [],
+      "name": "op_5e_lsr_absx",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "lsr",
+            "absx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_5e_lsr_absx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 74,
+        "halted": 1,
+        "p": 101,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "adc",
+          "indx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "620b215f40c936ddd60df5808b821ae5bb8d1a4ff2f0045342065453dd70dc04",
+      "instructions": 18,
+      "memory_sha256": "6db08bb5dc7e9de4aabe6d3e42f3b533c988fac3a81dd1ef0453975bbae236af",
+      "mismatches": [],
+      "name": "op_61_adc_indx",
+      "reference_state": {
+        "a": 74,
+        "halted": 1,
+        "p": 101,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        289
+      ],
+      "vector": {
+        "covers": [
+          [
+            "adc",
+            "indx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_61_adc_indx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 74,
+        "halted": 1,
+        "p": 101,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "adc",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "4b07e09edb75c4f71f8c8f79956b984b5149de4ed51962411dacb17c0b0565dc",
+      "instructions": 14,
+      "memory_sha256": "7334c2fcc9ab8a39968602fe9acd4903d6d2701c70b4d52945795a65947a26a1",
+      "mismatches": [],
+      "name": "op_65_adc_zp",
+      "reference_state": {
+        "a": 74,
+        "halted": 1,
+        "p": 101,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "adc",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_65_adc_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "ror",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "3ad93c0268b9e2365b82393076055f87406047ceac42bd6df172a4143c55861a",
+      "instructions": 14,
+      "memory_sha256": "375d307db5b1a67b475a9bbdf800531fe39afc36719b8c2087cacd688b610709",
+      "mismatches": [],
+      "name": "op_66_ror_zp",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ror",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_66_ror_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "adc",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "d17ca56b7b37e24ae71ef4a410d53fd9e2dd95382e1ffddbbf525578464fa3b8",
+      "instructions": 12,
+      "memory_sha256": "e5b73ce6454b8000005fc1458634a699daaa9fed8b7bf7f02cd241d89e5909c2",
+      "mismatches": [],
+      "name": "op_69_adc_imm",
+      "reference_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "adc",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_69_adc_imm"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 173,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "ror",
+          "acc"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "a35ca0790bcffbad31209cc6ba1e92d78f5195afdeb28cd2f3a314fe348af372",
+      "instructions": 13,
+      "memory_sha256": "98999c915477b147c7378f151459acfd5b8345273bd7a40f4c3df2ce82bb947e",
+      "mismatches": [],
+      "name": "op_6a_ror_acc",
+      "reference_state": {
+        "a": 173,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ror",
+            "acc"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_6a_ror_acc"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 74,
+        "halted": 1,
+        "p": 101,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "adc",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "c9c201ce69f80b5f4bc22dea184af1ec73b2bf93a0d3a9f7034f158b99e6576d",
+      "instructions": 14,
+      "memory_sha256": "085b7b4db951eadc74b048b21a8048b5b6c0156a15e2511e4e01868ad4428241",
+      "mismatches": [],
+      "name": "op_6d_adc_abs",
+      "reference_state": {
+        "a": 74,
+        "halted": 1,
+        "p": 101,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "adc",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_6d_adc_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "ror",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "e3a8616ea06373e29681a635a1f3ba460a90bb1a70da7380865a7482228de568",
+      "instructions": 14,
+      "memory_sha256": "31f8c83a6a3f5bf7b0357ae7f97bc6547d5157d9e25749a7627bd7b6a8b527e0",
+      "mismatches": [],
+      "name": "op_6e_ror_abs",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ror",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_6e_ror_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 74,
+        "halted": 1,
+        "p": 101,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "adc",
+          "indy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "c942e8c3cb87e5f027ecbe63842ff075ba9a9779a89091b0f394da655c8496d8",
+      "instructions": 18,
+      "memory_sha256": "531620ea83dc9f15c519c324db24af47e4b481bb8816632629d98273908bd836",
+      "mismatches": [],
+      "name": "op_71_adc_indy",
+      "reference_state": {
+        "a": 74,
+        "halted": 1,
+        "p": 101,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        289
+      ],
+      "vector": {
+        "covers": [
+          [
+            "adc",
+            "indy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_71_adc_indy"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 74,
+        "halted": 1,
+        "p": 101,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "adc",
+          "zpx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "2199ecb88860358f1fff4b7259463bbb9355dc06f08a38e34aef31d19070c5c6",
+      "instructions": 14,
+      "memory_sha256": "4eb12f7f100b61559451869cfa48404a2f99deae9b08e02611b3b7f693cf3053",
+      "mismatches": [],
+      "name": "op_75_adc_zpx",
+      "reference_state": {
+        "a": 74,
+        "halted": 1,
+        "p": 101,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "adc",
+            "zpx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_75_adc_zpx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "ror",
+          "zpx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "2182602ea315d9517ce9d6692df9e1703fb761161d94d520c351fa5471fb1ec6",
+      "instructions": 14,
+      "memory_sha256": "3452eca0a9f636e5af8ea598ebd10bbc0fc9132bebcc3e111314336e38bdf379",
+      "mismatches": [],
+      "name": "op_76_ror_zpx",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ror",
+            "zpx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_76_ror_zpx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sei",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "2d0d30cfe03f5cec29aec047282d701eb9d2a4911a4fed52aa25c8b5873f721e",
+      "instructions": 12,
+      "memory_sha256": "5ff07dc18cb394b973f0f38aa353f773209af5eef3f87dbe8946be3e1a178635",
+      "mismatches": [],
+      "name": "op_78_sei_impl",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sei",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_78_sei_impl"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 74,
+        "halted": 1,
+        "p": 101,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "adc",
+          "absy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "3fd1affce269f2bc50efb8af03111a5945c65994fcacf00fa3afe23bc77d58bd",
+      "instructions": 14,
+      "memory_sha256": "ab5f61bc85959b74a0d7099a8a353bba19759e66df426a0c32c394738c816ae8",
+      "mismatches": [],
+      "name": "op_79_adc_absy",
+      "reference_state": {
+        "a": 74,
+        "halted": 1,
+        "p": 101,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "adc",
+            "absy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_79_adc_absy"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 74,
+        "halted": 1,
+        "p": 101,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "adc",
+          "absx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "5f92242d2f634dd3a49264ee2e86595ec9d7d97f50f2b1a23de8fc94d130643b",
+      "instructions": 14,
+      "memory_sha256": "f9d8e663132b6a937ab0a591c88711d7fff97a5002cfa8a7577b452935e2b80f",
+      "mismatches": [],
+      "name": "op_7d_adc_absx",
+      "reference_state": {
+        "a": 74,
+        "halted": 1,
+        "p": 101,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "adc",
+            "absx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_7d_adc_absx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "ror",
+          "absx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "34e583dd3cf0a9457a82e2b42dbc5a28ba397e47ef12334db24136b41e5d3dbf",
+      "instructions": 14,
+      "memory_sha256": "a631664d6b9b46ca92fd71c4488c79c2e3c38961a9023972277ac9552acaee75",
+      "mismatches": [],
+      "name": "op_7e_ror_absx",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 37,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ror",
+            "absx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_7e_ror_absx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sta",
+          "indx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "3a85d52af97c36ed79389935740b3031e8b9faa83160940b8f84d0b8b05dceb1",
+      "instructions": 18,
+      "memory_sha256": "8c4f742287fae914e0cd1066b77f09de4c39665ac1930845a253d4a469fa56ca",
+      "mismatches": [],
+      "name": "op_81_sta_indx",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        289
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sta",
+            "indx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_81_sta_indx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sty",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "3d899a66ec418471fec6888766347f9f12656191397c5487f83a62312b11a830",
+      "instructions": 14,
+      "memory_sha256": "a71915ac46c286d5194327e71976f1ec52c954f737d6cbc1c3baa517a2999a97",
+      "mismatches": [],
+      "name": "op_84_sty_zp",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sty",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_84_sty_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sta",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "a05170989f55cd56957fd2aa4bb2822c7ea520180952893967f7ddf8d8ffed2b",
+      "instructions": 14,
+      "memory_sha256": "a8acbdc7aebf6d519dcb07c66599f301a96a161d1b373a39dceb60a9f03f6daa",
+      "mismatches": [],
+      "name": "op_85_sta_zp",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sta",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_85_sta_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "stx",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "7ea94bd0fb0eb3513c0a7e2f74ec6aa3343dab93bcdf213b3f4522539f73944f",
+      "instructions": 14,
+      "memory_sha256": "94daaf601677e2cd91dc2a30cb47c21fe2f57ae01b1f51e21bd54e2e3653fc69",
+      "mismatches": [],
+      "name": "op_86_stx_zp",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "stx",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_86_stx_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 6
+      },
+      "covers": [
+        [
+          "dey",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "7125bf7789cfbee4c93797f7f1285563230132131b201f332c96573de2f8bdaa",
+      "instructions": 12,
+      "memory_sha256": "60b6cc03a01f1a15ae26b87ea18f358728be60a41066c66223baebc512e7c9bb",
+      "mismatches": [],
+      "name": "op_88_dey_impl",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 6
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "dey",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_88_dey_impl"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 3,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "txa",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "28df91429d5ddd18060fad4706f7498fb81f28e3d9cdce5abbf4d5ec24284d87",
+      "instructions": 12,
+      "memory_sha256": "f33122de2a97b71048a974970b912b3148fe7598f51dff4e88c9aea3d354153c",
+      "mismatches": [],
+      "name": "op_8a_txa_impl",
+      "reference_state": {
+        "a": 3,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "txa",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_8a_txa_impl"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sty",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "42038d0b71dd3d97285b27f6fc80bd6ba0da941bd547861a51aee028cf2f46b8",
+      "instructions": 14,
+      "memory_sha256": "641f24204db56224ed9ae1210d0284c1f44e96ca51c545780eb716d7f87a858e",
+      "mismatches": [],
+      "name": "op_8c_sty_abs",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sty",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_8c_sty_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sta",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "ef5c860cf65a848e8e9ded5b172c8033e9b361749910765945ffb1e6d2282957",
+      "instructions": 14,
+      "memory_sha256": "08c1ecae71e4648b77acde984661a4aa89468c8d551edba4a7f6ce4722d96a95",
+      "mismatches": [],
+      "name": "op_8d_sta_abs",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sta",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_8d_sta_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "stx",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "3ec384a7e25a89c20e32b4d54265996b3f2881149007d37c27e1f7514ba32f36",
+      "instructions": 14,
+      "memory_sha256": "5628feafb804077fe0bfac0dbbd2862bec9b5eeb38a5b32d6ea4ad00f9cecf2a",
+      "mismatches": [],
+      "name": "op_8e_stx_abs",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "stx",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_8e_stx_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sta",
+          "indy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "0ce0c639c5fcc20afa5f6e3bffeaf007d8ab2854adb05b4f654c4c5bd1da2014",
+      "instructions": 18,
+      "memory_sha256": "be3060fc6894a2e01c734cc271ff58507b9235ef3c7b89e7d1544b6f85456595",
+      "mismatches": [],
+      "name": "op_91_sta_indy",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        289
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sta",
+            "indy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_91_sta_indy"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sty",
+          "zpx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "0a9cd35f17795c3565179500e6f20c2a07dd443ffab312f555f0c2556f9d4d85",
+      "instructions": 14,
+      "memory_sha256": "249e2427d03e37e9323de124f98daa797bdf7735cb99cba3caeb59c8de0b7ada",
+      "mismatches": [],
+      "name": "op_94_sty_zpx",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sty",
+            "zpx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_94_sty_zpx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sta",
+          "zpx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "87da4be5baf4f5d5545747b519ab0ecefede71bffb3849848351153078f56ad0",
+      "instructions": 14,
+      "memory_sha256": "592debf872c6949795658620957effef837e97cb706f017acfdb2172f85c5990",
+      "mismatches": [],
+      "name": "op_95_sta_zpx",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sta",
+            "zpx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_95_sta_zpx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "stx",
+          "zpy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "9462c33148136a043b35dee5f3dbd3217795bc992b686d1df8d56e4dab41d763",
+      "instructions": 14,
+      "memory_sha256": "cde68dbef60e9ee9f093d98a3539c25d85efb68a61af2f5659e65a69c3ddaea0",
+      "mismatches": [],
+      "name": "op_96_stx_zpy",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "stx",
+            "zpy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_96_stx_zpy"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 7,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "tya",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "376cd0c0d87a5d25f4900de6c52d0732cf2a511df2ebde854570affbb7ca906c",
+      "instructions": 12,
+      "memory_sha256": "33462855a6d64cd99e5604ac7eb6f3d023c20efd52125054e9daa44a8fe7675f",
+      "mismatches": [],
+      "name": "op_98_tya_impl",
+      "reference_state": {
+        "a": 7,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "tya",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_98_tya_impl"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sta",
+          "absy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "6fdbf1e9980698a87dbf75e0f79ab8dd001397645e7474af536511f500e25ee5",
+      "instructions": 14,
+      "memory_sha256": "fea724b1abc4aefb6a6d3038439471d6b9f6b710198d32d3cff4e76d8b5c5087",
+      "mismatches": [],
+      "name": "op_99_sta_absy",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sta",
+            "absy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_99_sta_absy"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 3,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "txs",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "235f73d212d8e9027442a1ece3fda2004d62e9868f4702637abbe942abaa6c27",
+      "instructions": 12,
+      "memory_sha256": "9630c86cdb824ba72deb3dcbf54fa9f7d522a556796dca708906ce4375ada26e",
+      "mismatches": [],
+      "name": "op_9a_txs_impl",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 3,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "txs",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_9a_txs_impl"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sta",
+          "absx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "4b0988e48ad2497237b610d239e13d8bda3995c46609acf0e53f9cc688048c96",
+      "instructions": 14,
+      "memory_sha256": "8b2bd0781eea92120993849e9e2f2754740b146dc55720d34cb41974e0d247e8",
+      "mismatches": [],
+      "name": "op_9d_sta_absx",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sta",
+            "absx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_9d_sta_absx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 165
+      },
+      "covers": [
+        [
+          "ldy",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "e2a94881fe6332d0f601cd1b80c607178cdc66b3691c6a89fa28344f0d97d555",
+      "instructions": 12,
+      "memory_sha256": "0dbddb9e8a02f6b2793308141b5db1c248bf2a186c7bc9a97348392f778b0d5a",
+      "mismatches": [],
+      "name": "op_a0_ldy_imm",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 165
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ldy",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_a0_ldy_imm"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "lda",
+          "indx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "8c912c72f1c6bdba54ff4ae833ece06789d2f570a82b360a6784145da009eba3",
+      "instructions": 18,
+      "memory_sha256": "486b1b1372c7ce184ac256d165617120c14477e725ce5e8e3e7ada06c123af3a",
+      "mismatches": [],
+      "name": "op_a1_lda_indx",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        289
+      ],
+      "vector": {
+        "covers": [
+          [
+            "lda",
+            "indx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_a1_lda_indx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 165,
+        "y": 7
+      },
+      "covers": [
+        [
+          "ldx",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "c41f30a3e864c3583512d9501b1c21e3706a1385b00a1e3066ea35e8755fdc33",
+      "instructions": 12,
+      "memory_sha256": "a3c902ce7463e57598af619a543035a32b67c735b7759d7daee38ad291ad19e6",
+      "mismatches": [],
+      "name": "op_a2_ldx_imm",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 165,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ldx",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_a2_ldx_imm"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 165
+      },
+      "covers": [
+        [
+          "ldy",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "e589b38bc8e0608d2b2c6f4dbd91dad623b6ad87b04dcd382b31ecad6d1389f6",
+      "instructions": 14,
+      "memory_sha256": "41460218c5ad99b14cc4187590f3da07bf663344893c67b4928ef70c10ede32e",
+      "mismatches": [],
+      "name": "op_a4_ldy_zp",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 165
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ldy",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_a4_ldy_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "lda",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "5b673476d3134beb833843eced20dcc49cf41e2d94ee8ad404dd4d1290c41194",
+      "instructions": 14,
+      "memory_sha256": "0b7d8490d6cd3eb3ed607765fa4657c08bf734f47ecf2902d5df8da995890753",
+      "mismatches": [],
+      "name": "op_a5_lda_zp",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "lda",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_a5_lda_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 165,
+        "y": 7
+      },
+      "covers": [
+        [
+          "ldx",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "32c04b8ac1d96ce7c768d33d825d73813e789608e106c3924b8c2a557dc4db56",
+      "instructions": 14,
+      "memory_sha256": "8e2350409b748da6da138d176917f3c5d464ea7514ecc8f5960b8bf785158c61",
+      "mismatches": [],
+      "name": "op_a6_ldx_zp",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 165,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ldx",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_a6_ldx_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 90
+      },
+      "covers": [
+        [
+          "tay",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "f408314db26447cc2164bb00ac8fb470739bdfa142680e0b2f04c611d07e02c5",
+      "instructions": 12,
+      "memory_sha256": "53ec8419f51b67cf448de1e998a90c894f802db671161eaf52d7a10ae45074fc",
+      "mismatches": [],
+      "name": "op_a8_tay_impl",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 90
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "tay",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_a8_tay_impl"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "lda",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "a0d970a60f5797870a153232e9eadc5f14aba5252193ce4b81b6fcb21346ccd9",
+      "instructions": 12,
+      "memory_sha256": "5a2dc92120366a856f0bb17c5b4b15b28cb7bd3ceaf9c8b41a6e7e7057d46f13",
+      "mismatches": [],
+      "name": "op_a9_lda_imm",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "lda",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_a9_lda_imm"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 90,
+        "y": 7
+      },
+      "covers": [
+        [
+          "tax",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "70c7aa32050fa891253546c8d3261a279000cd19ee934abc9cb11f6ddaf5c38d",
+      "instructions": 12,
+      "memory_sha256": "2a88d3abf63914c2b2eb4896158ff6330da72eb30bd3af0bf9cdafcf33134467",
+      "mismatches": [],
+      "name": "op_aa_tax_impl",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 90,
+        "y": 7
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "tax",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_aa_tax_impl"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 165
+      },
+      "covers": [
+        [
+          "ldy",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "896cd11be9c3ccab6dc54ec7e5bb752ab5e0ca0d7bca4fd97ec707607b64681c",
+      "instructions": 14,
+      "memory_sha256": "61000eaf9a2df630c22035747d3b7c561812cf0281e6ac15b20c96833d204a00",
+      "mismatches": [],
+      "name": "op_ac_ldy_abs",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 165
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ldy",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_ac_ldy_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "lda",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "b8cf0c2b75a063b22e27ca6904330a3ba43d08d74aa10c2ae91a5a675b3a25d8",
+      "instructions": 14,
+      "memory_sha256": "26e7781db95d13346bf1bc50658fa1b140e38db1262ac711bc311f0b6c55ab98",
+      "mismatches": [],
+      "name": "op_ad_lda_abs",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "lda",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_ad_lda_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 165,
+        "y": 7
+      },
+      "covers": [
+        [
+          "ldx",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "9767bc51af79195ea706d4186c8e3320b450bcd9260d0ffa5b6c130935c4dc56",
+      "instructions": 14,
+      "memory_sha256": "01e423d569e6a524beb6a07f1162a282bf34d252e9fdfb8fc51028c38cde3735",
+      "mismatches": [],
+      "name": "op_ae_ldx_abs",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 165,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ldx",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_ae_ldx_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "lda",
+          "indy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "15659e5644300172626f08e67b3b57a1656cec6b602ecd5c6fe1520600eab23c",
+      "instructions": 18,
+      "memory_sha256": "03406df50b871867cac74e32b8d5e51fe215e500e0b07be961036a58d43505ee",
+      "mismatches": [],
+      "name": "op_b1_lda_indy",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        289
+      ],
+      "vector": {
+        "covers": [
+          [
+            "lda",
+            "indy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_b1_lda_indy"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 165
+      },
+      "covers": [
+        [
+          "ldy",
+          "zpx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "7cad4ff93cf7415c90a8b8acfaf7ac697f6c12993e96765c93d1d2065caf5620",
+      "instructions": 14,
+      "memory_sha256": "d6fef16d38465e4254cec8e0c1c2a157a6e1dbb15a0ae1d734e35de7c75583ce",
+      "mismatches": [],
+      "name": "op_b4_ldy_zpx",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 165
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ldy",
+            "zpx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_b4_ldy_zpx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "lda",
+          "zpx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "cc4c351f6982417e2feba8c46bf3ee3d6a7c94d526062cad7c1a16d47a25a479",
+      "instructions": 14,
+      "memory_sha256": "2b1d089f759c4918c42e7bb2de206e73ade4844d95f916a3bf48fafd8fc07d34",
+      "mismatches": [],
+      "name": "op_b5_lda_zpx",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "lda",
+            "zpx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_b5_lda_zpx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 165,
+        "y": 7
+      },
+      "covers": [
+        [
+          "ldx",
+          "zpy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "ac1c6467ed21412e7eb735cbf204ee0938d5e572cb8c4034f8241b66c49511ec",
+      "instructions": 14,
+      "memory_sha256": "fdc8101d32af30e5c5042bc159d739c30b8bceb320767d0dde917114338b7f98",
+      "mismatches": [],
+      "name": "op_b6_ldx_zpy",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 165,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ldx",
+            "zpy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_b6_ldx_zpy"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "clv",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "acce8acacd2664702f344630334d71f6830c4ba039a5e60dbfe5400ff66fcc99",
+      "instructions": 12,
+      "memory_sha256": "ab7e9f6bb6603afa2b6fcdee975fe36b111bc493ba7941e39909ac8a79527a21",
+      "mismatches": [],
+      "name": "op_b8_clv_impl",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "clv",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_b8_clv_impl"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "lda",
+          "absy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "60a4f5b0f18366092a3405d31a6102d518beda6626fa9c0bc683c77b5c7e572b",
+      "instructions": 14,
+      "memory_sha256": "ddd39b9cb60569a1136ae063905888c67266863b6e9844bd64e8a87e63671bdb",
+      "mismatches": [],
+      "name": "op_b9_lda_absy",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "lda",
+            "absy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_b9_lda_absy"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 164,
+        "pc": 272,
+        "sp": 253,
+        "x": 253,
+        "y": 7
+      },
+      "covers": [
+        [
+          "tsx",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "a73c7500c342d4732fd9aa60218c50c2d37e6713d2baf4d219c231c0fcc9344d",
+      "instructions": 12,
+      "memory_sha256": "c601892eadb6ca5c81d19063ba72e42108da5f67ef3a6ebc60bb9f8c88945a39",
+      "mismatches": [],
+      "name": "op_ba_tsx_impl",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 164,
+        "pc": 272,
+        "sp": 253,
+        "x": 253,
+        "y": 7
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "tsx",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_ba_tsx_impl"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 165
+      },
+      "covers": [
+        [
+          "ldy",
+          "absx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "3d60ecf38f6fe5980817c07eeec9b23d41dabbb072d34accc07e7046c38d8747",
+      "instructions": 14,
+      "memory_sha256": "522bada179d2e9085aba696f1d12fd9bd3250d4b9c4bd266cadc3c6f7dc6d1ee",
+      "mismatches": [],
+      "name": "op_bc_ldy_absx",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 165
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ldy",
+            "absx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_bc_ldy_absx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "lda",
+          "absx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "f824d4dd41dfcbdd87295bc0f5597139e3e2bdd832c094382cd71c1f40ce5b07",
+      "instructions": 14,
+      "memory_sha256": "b99804adc0df60b20f62bfa6394a70649444cef3d86060e9837b824f8de7bc09",
+      "mismatches": [],
+      "name": "op_bd_lda_absx",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "lda",
+            "absx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_bd_lda_absx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 165,
+        "y": 7
+      },
+      "covers": [
+        [
+          "ldx",
+          "absy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "95c91b48b6d9f5d9d74b7639b5198b34ebce2f92a211e88363433af361237400",
+      "instructions": 14,
+      "memory_sha256": "f72891de04c658985eea9a68d9deb165faaba538f9ae854cd8beadb998583aa4",
+      "mismatches": [],
+      "name": "op_be_ldx_absy",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 165,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "ldx",
+            "absy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_be_ldx_absy"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "cpy",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "6c6cf0c5a1878f7e38fdf115d4bd83b66218458bd10ad8274314ee2fd06de94b",
+      "instructions": 12,
+      "memory_sha256": "d953fbf5e50d479b3c617921a189f12e50d8f54ff4b021464ae4f2d44698ee7a",
+      "mismatches": [],
+      "name": "op_c0_cpy_imm",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "cpy",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_c0_cpy_imm"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 39,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "cmp",
+          "indx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "d8f9efe8e9c70fc83f37de4f8f81771273dc634ca130995aeb67dc1249e8ac9a",
+      "instructions": 18,
+      "memory_sha256": "0bcddfd26389ed7e298f2a144ef69d91142c254bad7490f34347c4aad7321feb",
+      "mismatches": [],
+      "name": "op_c1_cmp_indx",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 39,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        289
+      ],
+      "vector": {
+        "covers": [
+          [
+            "cmp",
+            "indx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_c1_cmp_indx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 36,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "cpy",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "e480353bea3453fb4c5ded129834d0c16c2a73372e57f6a2124ca01cde0b5809",
+      "instructions": 14,
+      "memory_sha256": "f7266858a9c98673955d9e7067c60cbb7be7c674c4cbd8c4e1d2f92dbe2c4d8d",
+      "mismatches": [],
+      "name": "op_c4_cpy_zp",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 36,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "cpy",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_c4_cpy_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 39,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "cmp",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "c46a4d4b854f0928e4815f66c29470fec9c35f9174715a91d9d332cc58e4071d",
+      "instructions": 14,
+      "memory_sha256": "c5290632ed6a9664fe4d62ee8421779611e83a3115b343443d6d0703bae9d4a3",
+      "mismatches": [],
+      "name": "op_c5_cmp_zp",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 39,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "cmp",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_c5_cmp_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "dec",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "9c12db0d337510aa90e4b6a737789f264dd00672459110c13e8a350445c1a9e4",
+      "instructions": 14,
+      "memory_sha256": "ecc6313ceab2c1531d7eebd2cc2ed1eadfb587c90b9f39a26aaeb9a8f4b4f890",
+      "mismatches": [],
+      "name": "op_c6_dec_zp",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "dec",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_c6_dec_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 8
+      },
+      "covers": [
+        [
+          "iny",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "b57e37361c0aaf964bc7e464906e0f0b8b0a88f9b2048823126bb1394a89d3ed",
+      "instructions": 12,
+      "memory_sha256": "1b13762bb85a036e67c535747503a8dd373bf1881ab4b7646b40989d95b51eca",
+      "mismatches": [],
+      "name": "op_c8_iny_impl",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 8
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "iny",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_c8_iny_impl"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "cmp",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "df998cc3bb278269a616d98f29b63bf8af982389f34db0db9d77c9bca0626768",
+      "instructions": 12,
+      "memory_sha256": "e73fab3ab4e795e131bdaf07aba6580bbb75af8db759aced1b89be436a1a22e5",
+      "mismatches": [],
+      "name": "op_c9_cmp_imm",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "cmp",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_c9_cmp_imm"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 2,
+        "y": 7
+      },
+      "covers": [
+        [
+          "dex",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "704477ed714ea54f9994dc0c4f90f2e56d4fd67ed73b5a7f7627f674712af53d",
+      "instructions": 12,
+      "memory_sha256": "dcd9d2837811d8a2b8fe1731ccbc07f977563978f88cd73f10d2cd3ce599549b",
+      "mismatches": [],
+      "name": "op_ca_dex_impl",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 2,
+        "y": 7
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "dex",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_ca_dex_impl"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 36,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "cpy",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "8d0bf778397f0d535940686cadb02dcbecef67c1f3bc174ec1e952e15d019817",
+      "instructions": 14,
+      "memory_sha256": "6986187638ad1bc45d7f76028a84c03217c70d5a19afe904066900e947ed9f67",
+      "mismatches": [],
+      "name": "op_cc_cpy_abs",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 36,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "cpy",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_cc_cpy_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 39,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "cmp",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "5626d84ff18b42e02de6246541e9fa1e69ab170fe83c6f95bf4b925b00846715",
+      "instructions": 14,
+      "memory_sha256": "bfe13c3260abb273f7fcc1c50c80bbae665a785f90c3bc724d66bd7aaae477eb",
+      "mismatches": [],
+      "name": "op_cd_cmp_abs",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 39,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "cmp",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_cd_cmp_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "dec",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "cdd0482e91191ba94c218dc3ad298b067b0fb25613f2c16f4e6202e76fea5043",
+      "instructions": 14,
+      "memory_sha256": "40d6e3816e58a36f65ec6af2c7d1d3f4954fe3c302e569ce5eb8fc09651eb8a9",
+      "mismatches": [],
+      "name": "op_ce_dec_abs",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "dec",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_ce_dec_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 39,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "cmp",
+          "indy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "fa59dc10b99f7d9cff2106e916b864cd07baf7c21766ee4c71d2bc8b4cdf336d",
+      "instructions": 18,
+      "memory_sha256": "c4e9c614d7d1105cf885cfadb64d1743dde82d2c5a8b96fca18d4e3b48587ff9",
+      "mismatches": [],
+      "name": "op_d1_cmp_indy",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 39,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        289
+      ],
+      "vector": {
+        "covers": [
+          [
+            "cmp",
+            "indy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_d1_cmp_indy"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 39,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "cmp",
+          "zpx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "8fc19eff26f77b2a4a33720c776a29fd65f4ac4f3b3b9e7147cf9cca45ffab94",
+      "instructions": 14,
+      "memory_sha256": "f2403d1f2bda135ead9ac0a2e757699b583397d783d3994dff7c3e26679aae63",
+      "mismatches": [],
+      "name": "op_d5_cmp_zpx",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 39,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "cmp",
+            "zpx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_d5_cmp_zpx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "dec",
+          "zpx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "05fe6df73d02a9984a4fbd47dfb87f78e18640cc2b38081cfe658c63e2455b78",
+      "instructions": 14,
+      "memory_sha256": "a156318c0a11a7718f404bffd89371aa2d0b2700fa3a4936dc45511c059133a4",
+      "mismatches": [],
+      "name": "op_d6_dec_zpx",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "dec",
+            "zpx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_d6_dec_zpx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "cld",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "bfe7a45dbfc3662d633c994c7221f614dc0e138f9cba011ee07dfdf0eabaa795",
+      "instructions": 12,
+      "memory_sha256": "dd48e6835baa9074e9b48bceffadfc62f6c9b7089230ba77552781bbda05abba",
+      "mismatches": [],
+      "name": "op_d8_cld_impl",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "cld",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_d8_cld_impl"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 39,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "cmp",
+          "absy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "bb265e3afee96e8207aa04447a10de3233108a4dba07668a8cdd4e4e8116b86a",
+      "instructions": 14,
+      "memory_sha256": "879436107194a3e94c9b4a21b47fcdc63f946ca862885576438a302517a885d3",
+      "mismatches": [],
+      "name": "op_d9_cmp_absy",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 39,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "cmp",
+            "absy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_d9_cmp_absy"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 39,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "cmp",
+          "absx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "d709be84149fda91a0ea13b69d55e3c3ed297bc9fafb2a33fbb47432a78cb663",
+      "instructions": 14,
+      "memory_sha256": "336fe434e0a37b437c6ac51bca9ed5c6bb2b548133885372a5a9d31b1aa462aa",
+      "mismatches": [],
+      "name": "op_dd_cmp_absx",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 39,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "cmp",
+            "absx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_dd_cmp_absx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "dec",
+          "absx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "0b0825209aa6f61069e391bd43dbaf0e772aca07b34daf0414ed5316d36f42b3",
+      "instructions": 14,
+      "memory_sha256": "19dffd52148642b9bd35242ceaed7137199be0f3a763b3596a22cc624580fa78",
+      "mismatches": [],
+      "name": "op_de_dec_absx",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "dec",
+            "absx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_de_dec_absx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "cpx",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "7d8b29b5f375a9303c1ad18816333e461a92777f6ced76d91f1e0e5ad01abd93",
+      "instructions": 12,
+      "memory_sha256": "a1e9f55d0cbc09d3ac7e989e1b4b9830b72e19b4ec8b3ec2ebff5f46c3163659",
+      "mismatches": [],
+      "name": "op_e0_cpx_imm",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "cpx",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_e0_cpx_imm"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sbc",
+          "indx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "ff0f36203ae92965fa7808dc12052b24b0a86b3c3ccec0780cd7241e94650d42",
+      "instructions": 18,
+      "memory_sha256": "32b607af3988dd4e7ffdde6e0191067ca908f5949aab6f9ee1690f7302435e59",
+      "mismatches": [],
+      "name": "op_e1_sbc_indx",
+      "reference_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        289
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sbc",
+            "indx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_e1_sbc_indx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 36,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "cpx",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "da076a2b43ab8ff40021ad811a819b4626c6f2e001f36f37d859f645659fc87e",
+      "instructions": 14,
+      "memory_sha256": "929e827e96b1b043ca9a4dff8d2cb6e3ee552dc6d2212aabd634240f06b7201e",
+      "mismatches": [],
+      "name": "op_e4_cpx_zp",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 36,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "cpx",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_e4_cpx_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sbc",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "9f9b02f65c379cd7dbefaba0788ac9d975f8dd5d90c343a1e18e8b8d47cc636e",
+      "instructions": 14,
+      "memory_sha256": "da48a94e206c519966711013d4ff2e05103842e76a3fa661b153a6530b47f487",
+      "mismatches": [],
+      "name": "op_e5_sbc_zp",
+      "reference_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sbc",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_e5_sbc_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "inc",
+          "zp"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "93ac9468fb66b0107b99a9cfdd9089a0de28682c7e5c9df1336c31795e12842e",
+      "instructions": 14,
+      "memory_sha256": "bfedcae9c093fbc5163335b5089778fcc2eadaec3cdf504562677ad984122f70",
+      "mismatches": [],
+      "name": "op_e6_inc_zp",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "inc",
+            "zp"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_e6_inc_zp"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 4,
+        "y": 7
+      },
+      "covers": [
+        [
+          "inx",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "294747d84abb1dab8cb87bc66219cb6a52238d47845726c0770acf9768b5756c",
+      "instructions": 12,
+      "memory_sha256": "13f0af38c28142eb098b615615458dd190793a0db4140cc238a4f725b0d6ba6e",
+      "mismatches": [],
+      "name": "op_e8_inx_impl",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 4,
+        "y": 7
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "inx",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_e8_inx_impl"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 180,
+        "halted": 1,
+        "p": 228,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sbc",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "c4a0a406c96d3d0076c68311a14e128aa3086c04b0394ed046b99766cc5bc5df",
+      "instructions": 12,
+      "memory_sha256": "5eec8cbd541343eb3b4649a0328e33dea23a19282d25a60e9c350633adcb3ae9",
+      "mismatches": [],
+      "name": "op_e9_sbc_imm",
+      "reference_state": {
+        "a": 180,
+        "halted": 1,
+        "p": 228,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sbc",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_e9_sbc_imm"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "nop",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "8d5d8d42aff621fc132644a6b0163ef6f86ac38cf2c9c9037b49ab8813149340",
+      "instructions": 12,
+      "memory_sha256": "a7d925dc161e579cff70544d8a677e592ccc9942f275544576b859f749397c87",
+      "mismatches": [],
+      "name": "op_ea_nop_impl",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "nop",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_ea_nop_impl"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 36,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "cpx",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "79153d908a0b923fc217eff307cda46fc104412fb7e3c417d18f1bdffa757dd5",
+      "instructions": 14,
+      "memory_sha256": "ed0723a89fc3e5fc331d9aa15a1139af10019256feacfe1401a07d9be717689a",
+      "mismatches": [],
+      "name": "op_ec_cpx_abs",
+      "reference_state": {
+        "a": 165,
+        "halted": 1,
+        "p": 36,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "cpx",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_ec_cpx_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sbc",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "fbddfc4dbe66df656262acdb082fe628ca6947be404673e615b235d44846d97e",
+      "instructions": 14,
+      "memory_sha256": "8eb3a0127f0b67c1eb8b1249dbe4a8f69b2a59d68d2a950ac770f7c626f246a6",
+      "mismatches": [],
+      "name": "op_ed_sbc_abs",
+      "reference_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sbc",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_ed_sbc_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "inc",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "2f5aff441c078ab09131af7f929741abaf404414dc06d1eb2974fea56fb596dc",
+      "instructions": 14,
+      "memory_sha256": "92a2418fb0d1069b1932ce4c5974f88245da29a283ba9b6120f416f8cceca36d",
+      "mismatches": [],
+      "name": "op_ee_inc_abs",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "inc",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_ee_inc_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sbc",
+          "indy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "516bf8da8723177fdb71b107a54947d72d5a9fcfce5822fc8969097b319ec215",
+      "instructions": 18,
+      "memory_sha256": "f97fa15d8a367620d3c69656eb42f414430df43bb37796b794b74a5ecdecc977",
+      "mismatches": [],
+      "name": "op_f1_sbc_indy",
+      "reference_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        289
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sbc",
+            "indy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_f1_sbc_indy"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sbc",
+          "zpx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "47d25d4a0fad2cc6aa9fd533c7869182ed4b32b752ad0a31cd29d3c5383a1b80",
+      "instructions": 14,
+      "memory_sha256": "49f10e94d4344034ac702929c8902adc85e4af4ab4fa39a6bc29712c02e20dc7",
+      "mismatches": [],
+      "name": "op_f5_sbc_zpx",
+      "reference_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sbc",
+            "zpx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_f5_sbc_zpx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "inc",
+          "zpx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "035380d7ff00f7d40aaf2ccf379348d1aa2d139aea0cbd7b886912ed60ec7edc",
+      "instructions": 14,
+      "memory_sha256": "9d73d6c38215ca14fb1e1f051d23bb85f0f003571cfabf33b05811261bbee9bb",
+      "mismatches": [],
+      "name": "op_f6_inc_zpx",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 164,
+        "pc": 278,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "inc",
+            "zpx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_f6_inc_zpx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 44,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sed",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "c60b4b10b73fb6d7e02eed4a589c0a50b34c54909fb7ca68ebd76d630dcbe303",
+      "instructions": 12,
+      "memory_sha256": "110baedeb6032fe80241d877d30d87dd3659b1ccb23d21e7334513b95cbadc6b",
+      "mismatches": [],
+      "name": "op_f8_sed_impl",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 44,
+        "pc": 272,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sed",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_f8_sed_impl"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sbc",
+          "absy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "306027637aff6a3d732faee574d031eaec6d8cf25712c1bfaf483ff8082a217e",
+      "instructions": 14,
+      "memory_sha256": "161bd06ca3fe5a115771a6d7d4ff75ff4f3a45dccb0cff7700d8423ded4b55cd",
+      "mismatches": [],
+      "name": "op_f9_sbc_absy",
+      "reference_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sbc",
+            "absy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_f9_sbc_absy"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sbc",
+          "absx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "d66f42c7fa0bd5b6afbf4b2afcce073db108c068c9b20485a4e7705be2a751fc",
+      "instructions": 14,
+      "memory_sha256": "6cab1b943b7f790e6c7fb0b5492490617faf3c12b8e9546f7e8123c8a4eab3b9",
+      "mismatches": [],
+      "name": "op_fd_sbc_absx",
+      "reference_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sbc",
+            "absx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_fd_sbc_absx"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "inc",
+          "absx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "e49d72a6ef089f6060bb0ae8d4c147951b9bb9afc2d93dfac718a86a0f5f33a0",
+      "instructions": 14,
+      "memory_sha256": "ab0d55b0f519e926f02cd4d5ff616f1a0a7743927f3c6e0de376e21eb181eaf6",
+      "mismatches": [],
+      "name": "op_fe_inc_absx",
+      "reference_state": {
+        "a": 129,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "inc",
+            "absx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_fe_inc_absx"
+      }
+    },
+    {
+      "blocks": 3,
+      "core_state": {
+        "a": 34,
+        "halted": 1,
+        "p": 36,
+        "pc": 280,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "bpl",
+          "rel"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "e42f587b3a5f6c67c94da4bde02b8cd66def0cea8bfb7afb8d5fb20b25832dd0",
+      "instructions": 16,
+      "memory_sha256": "780c8ce80a2cc4dcd91f1a138641b5c854a0128fa65169f7e64ee6b0f6cc8206",
+      "mismatches": [],
+      "name": "op_10_bpl_taken",
+      "reference_state": {
+        "a": 34,
+        "halted": 1,
+        "p": 36,
+        "pc": 280,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        281
+      ],
+      "vector": {
+        "covers": [
+          [
+            "bpl",
+            "rel"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_10_bpl_taken"
+      }
+    },
+    {
+      "blocks": 3,
+      "core_state": {
+        "a": 17,
+        "halted": 1,
+        "p": 36,
+        "pc": 277,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "bpl",
+          "rel"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "457dd3bce4b0e7499e4f9247ee2b65657d017939bdfdda6e7afbbbefa0d26ef9",
+      "instructions": 16,
+      "memory_sha256": "24a92188360f9a6b4ecb561e218bcaec3fa9f9bd2f9817d6c5b49c01a76bbde4",
+      "mismatches": [],
+      "name": "op_10_bpl_not_taken",
+      "reference_state": {
+        "a": 17,
+        "halted": 1,
+        "p": 36,
+        "pc": 277,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        281
+      ],
+      "vector": {
+        "covers": [
+          [
+            "bpl",
+            "rel"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_10_bpl_not_taken"
+      }
+    },
+    {
+      "blocks": 3,
+      "core_state": {
+        "a": 34,
+        "halted": 1,
+        "p": 36,
+        "pc": 280,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "bmi",
+          "rel"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "c991abc3a2dee4eacb8aeb537ece9543a3f4c0596f86dacb60ebc50d93419f68",
+      "instructions": 16,
+      "memory_sha256": "0d54f164615323a9a3517cb0e4811f16650a67127c8297f8c43db4f596be2aba",
+      "mismatches": [],
+      "name": "op_30_bmi_taken",
+      "reference_state": {
+        "a": 34,
+        "halted": 1,
+        "p": 36,
+        "pc": 280,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        281
+      ],
+      "vector": {
+        "covers": [
+          [
+            "bmi",
+            "rel"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_30_bmi_taken"
+      }
+    },
+    {
+      "blocks": 3,
+      "core_state": {
+        "a": 17,
+        "halted": 1,
+        "p": 36,
+        "pc": 277,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "bmi",
+          "rel"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "45a2b7e90d7876f9b656ee0ca56e545d7fb579954376697f876065252929a720",
+      "instructions": 16,
+      "memory_sha256": "a66c4d44caf48d611e55bd6f49be05c046e091b5cd86e6232bf528362d5293f8",
+      "mismatches": [],
+      "name": "op_30_bmi_not_taken",
+      "reference_state": {
+        "a": 17,
+        "halted": 1,
+        "p": 36,
+        "pc": 277,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        281
+      ],
+      "vector": {
+        "covers": [
+          [
+            "bmi",
+            "rel"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_30_bmi_not_taken"
+      }
+    },
+    {
+      "blocks": 3,
+      "core_state": {
+        "a": 34,
+        "halted": 1,
+        "p": 36,
+        "pc": 284,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "bvc",
+          "rel"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "83689f0db4574c63477294da821dd69c5f25c3cd045197b8d9df74af6e2b2c8a",
+      "instructions": 18,
+      "memory_sha256": "3eb839603ea645dc279476a8a1dd60cd1ef6d8f2382534d3fbca83bcdf7856f5",
+      "mismatches": [],
+      "name": "op_50_bvc_taken",
+      "reference_state": {
+        "a": 34,
+        "halted": 1,
+        "p": 36,
+        "pc": 284,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        285
+      ],
+      "vector": {
+        "covers": [
+          [
+            "bvc",
+            "rel"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_50_bvc_taken"
+      }
+    },
+    {
+      "blocks": 3,
+      "core_state": {
+        "a": 17,
+        "halted": 1,
+        "p": 100,
+        "pc": 283,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "bvc",
+          "rel"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "f360c577e057fb47348a887d549cc4775427ce0b0e8f2762e89bff5e1d4f0136",
+      "instructions": 18,
+      "memory_sha256": "f1759a89884519c0818c56cbda06edd2e172eff3c2c35fd012fb5643396b0d7c",
+      "mismatches": [],
+      "name": "op_50_bvc_not_taken",
+      "reference_state": {
+        "a": 17,
+        "halted": 1,
+        "p": 100,
+        "pc": 283,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        287
+      ],
+      "vector": {
+        "covers": [
+          [
+            "bvc",
+            "rel"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_50_bvc_not_taken"
+      }
+    },
+    {
+      "blocks": 3,
+      "core_state": {
+        "a": 34,
+        "halted": 1,
+        "p": 100,
+        "pc": 286,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "bvs",
+          "rel"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "ccaf57a51240349c0589bb14d25bdd8f28ca9c20848217e94bf96a8ef5c5f524",
+      "instructions": 18,
+      "memory_sha256": "1ab1dd3e804b27a8a45973367bb838f5bd41dd0a2f448e1094cc9571fdc25a84",
+      "mismatches": [],
+      "name": "op_70_bvs_taken",
+      "reference_state": {
+        "a": 34,
+        "halted": 1,
+        "p": 100,
+        "pc": 286,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        287
+      ],
+      "vector": {
+        "covers": [
+          [
+            "bvs",
+            "rel"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_70_bvs_taken"
+      }
+    },
+    {
+      "blocks": 3,
+      "core_state": {
+        "a": 17,
+        "halted": 1,
+        "p": 36,
+        "pc": 281,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "bvs",
+          "rel"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "632c0eaeeca4d46fcd3f80905a0ce6755384a8f0c8c5dbb1b0d543358474a10c",
+      "instructions": 18,
+      "memory_sha256": "7b143bbea475a7f62ff77679b7935539a347f53423c5725fd3338877b5235544",
+      "mismatches": [],
+      "name": "op_70_bvs_not_taken",
+      "reference_state": {
+        "a": 17,
+        "halted": 1,
+        "p": 36,
+        "pc": 281,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        285
+      ],
+      "vector": {
+        "covers": [
+          [
+            "bvs",
+            "rel"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_70_bvs_not_taken"
+      }
+    },
+    {
+      "blocks": 3,
+      "core_state": {
+        "a": 34,
+        "halted": 1,
+        "p": 36,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "bcc",
+          "rel"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "2c6f854f4767e653e434a52741e4b3ebef14d095d9bab32e54e59fca244e3882",
+      "instructions": 16,
+      "memory_sha256": "7d93759343d1195f657ef01941d1aec7d53bbe8faea0f312e1c36f69a6e47d58",
+      "mismatches": [],
+      "name": "op_90_bcc_taken",
+      "reference_state": {
+        "a": 34,
+        "halted": 1,
+        "p": 36,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "bcc",
+            "rel"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_90_bcc_taken"
+      }
+    },
+    {
+      "blocks": 3,
+      "core_state": {
+        "a": 17,
+        "halted": 1,
+        "p": 37,
+        "pc": 276,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "bcc",
+          "rel"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "38d30dbdd1aab1df3e0f724afe937ec4b70c55c5526e7e99d8f5d87993a79b09",
+      "instructions": 16,
+      "memory_sha256": "5ff0edb89ac978e30478fbcf20b2db47499aebb41035549ca1b0a78cb1c8b5d8",
+      "mismatches": [],
+      "name": "op_90_bcc_not_taken",
+      "reference_state": {
+        "a": 17,
+        "halted": 1,
+        "p": 37,
+        "pc": 276,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "bcc",
+            "rel"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_90_bcc_not_taken"
+      }
+    },
+    {
+      "blocks": 3,
+      "core_state": {
+        "a": 34,
+        "halted": 1,
+        "p": 37,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "bcs",
+          "rel"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "cf713f2b06a83406506adf466803b6dddd81e22eae67dae7691d3417d4a79cd3",
+      "instructions": 16,
+      "memory_sha256": "1acb84d35fa66322832d22c475ad8112eefe8cbdf43d5556a0f30fe9860fc19b",
+      "mismatches": [],
+      "name": "op_b0_bcs_taken",
+      "reference_state": {
+        "a": 34,
+        "halted": 1,
+        "p": 37,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "bcs",
+            "rel"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_b0_bcs_taken"
+      }
+    },
+    {
+      "blocks": 3,
+      "core_state": {
+        "a": 17,
+        "halted": 1,
+        "p": 36,
+        "pc": 276,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "bcs",
+          "rel"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "25543adcaf94aada4d63ec03cd66e9feb77731e90907234f3cefbf355c6ff991",
+      "instructions": 16,
+      "memory_sha256": "593e32a6b38dd6d25664a9d5d14de1e40770cbad3027aca45533245178cf56b3",
+      "mismatches": [],
+      "name": "op_b0_bcs_not_taken",
+      "reference_state": {
+        "a": 17,
+        "halted": 1,
+        "p": 36,
+        "pc": 276,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "bcs",
+            "rel"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_b0_bcs_not_taken"
+      }
+    },
+    {
+      "blocks": 3,
+      "core_state": {
+        "a": 34,
+        "halted": 1,
+        "p": 36,
+        "pc": 280,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "bne",
+          "rel"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "feaf2ed743b3d0106541441e8bcf26b9c75cf477e3f5a2cf0bbd486da655cc5f",
+      "instructions": 16,
+      "memory_sha256": "636fec04a900adda0d5de93dd4e64312c0bd24a2e6c33e940b7f9334878af4bb",
+      "mismatches": [],
+      "name": "op_d0_bne_taken",
+      "reference_state": {
+        "a": 34,
+        "halted": 1,
+        "p": 36,
+        "pc": 280,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        281
+      ],
+      "vector": {
+        "covers": [
+          [
+            "bne",
+            "rel"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_d0_bne_taken"
+      }
+    },
+    {
+      "blocks": 3,
+      "core_state": {
+        "a": 17,
+        "halted": 1,
+        "p": 36,
+        "pc": 277,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "bne",
+          "rel"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "0acac9f915bdd3041899c6e271c873435c19ea8858f6b879daead2f6e01180ac",
+      "instructions": 16,
+      "memory_sha256": "0a4b43efaa80214e2255838aea899e77b580eedba4b2299d1090904a8a15f916",
+      "mismatches": [],
+      "name": "op_d0_bne_not_taken",
+      "reference_state": {
+        "a": 17,
+        "halted": 1,
+        "p": 36,
+        "pc": 277,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        281
+      ],
+      "vector": {
+        "covers": [
+          [
+            "bne",
+            "rel"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_d0_bne_not_taken"
+      }
+    },
+    {
+      "blocks": 3,
+      "core_state": {
+        "a": 34,
+        "halted": 1,
+        "p": 36,
+        "pc": 280,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "beq",
+          "rel"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "3698ea55b6e6b792556843573d9e4129c19fd70b99aa82d9acc4e3c841b156f5",
+      "instructions": 16,
+      "memory_sha256": "dbdfa6dc743db19f8f09c433b7c7e183b5c787c22fa263c07d7e715d886660c8",
+      "mismatches": [],
+      "name": "op_f0_beq_taken",
+      "reference_state": {
+        "a": 34,
+        "halted": 1,
+        "p": 36,
+        "pc": 280,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        281
+      ],
+      "vector": {
+        "covers": [
+          [
+            "beq",
+            "rel"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_f0_beq_taken"
+      }
+    },
+    {
+      "blocks": 3,
+      "core_state": {
+        "a": 17,
+        "halted": 1,
+        "p": 36,
+        "pc": 277,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "beq",
+          "rel"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "627bb234e703a4ada0cc5c0235ed1aa56a7fa6601f7bdd3d7397975ed63eccd6",
+      "instructions": 16,
+      "memory_sha256": "ee1cdea0e2b842dd0d5ae271561a100e268ae3ecd04efbbf18d2d8a06cfea018",
+      "mismatches": [],
+      "name": "op_f0_beq_not_taken",
+      "reference_state": {
+        "a": 17,
+        "halted": 1,
+        "p": 36,
+        "pc": 277,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        281
+      ],
+      "vector": {
+        "covers": [
+          [
+            "beq",
+            "rel"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_f0_beq_not_taken"
+      }
+    },
+    {
+      "blocks": 3,
+      "core_state": {
+        "a": 68,
+        "halted": 1,
+        "p": 36,
+        "pc": 275,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "brk",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "a9557e8dc42e89888a70e8d2d082bd9b41637dafc46e0c12765c050513c8219f",
+      "instructions": 252,
+      "memory_sha256": "ba5b33fc0cef6cf6a2805a917797d95b558ca143a3bdba2366f0af642e044888",
+      "mismatches": [],
+      "name": "op_00_brk_impl",
+      "reference_state": {
+        "a": 68,
+        "halted": 1,
+        "p": 36,
+        "pc": 275,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        515
+      ],
+      "vector": {
+        "covers": [
+          [
+            "brk",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [
+          512
+        ],
+        "name": "op_00_brk_impl"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 252,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "php",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "988b661c232f235c9167fc16c5bb68409d5d2aa102dfef6e9b7e23d0b3e93e47",
+      "instructions": 12,
+      "memory_sha256": "c1994afc37e63f03f063c1fbe8b335873963a1eb803d51d8161159ef40c4d776",
+      "mismatches": [],
+      "name": "op_08_php_impl",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 252,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "php",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_08_php_impl"
+      }
+    },
+    {
+      "blocks": 3,
+      "core_state": {
+        "a": 17,
+        "halted": 1,
+        "p": 36,
+        "pc": 276,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "jsr",
+          "abs"
+        ],
+        [
+          "rts",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "66ec0bc27edc4a639b8d28399257db88861f79affb7812d0ffb9de87d2b45cd3",
+      "instructions": 15,
+      "memory_sha256": "896e9d2b47ec9dab3b796e90b3cee8c9e5e0cd0a7e883565e7868a9c60f1afe7",
+      "mismatches": [],
+      "name": "op_20_jsr_abs",
+      "reference_state": {
+        "a": 17,
+        "halted": 1,
+        "p": 36,
+        "pc": 276,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "jsr",
+            "abs"
+          ],
+          [
+            "rts",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_20_jsr_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 274,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "plp",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "bccfe544373a2390bb0504b50dac9171bfa231ca90875af67dbc81f4b36b8894",
+      "instructions": 14,
+      "memory_sha256": "693fc0779b829f8f9aa3912e1400d9a87eef8096802883307a61b807dc2ffa03",
+      "mismatches": [],
+      "name": "op_28_plp_impl",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 274,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        275
+      ],
+      "vector": {
+        "covers": [
+          [
+            "plp",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_28_plp_impl"
+      }
+    },
+    {
+      "blocks": 3,
+      "core_state": {
+        "a": 68,
+        "halted": 1,
+        "p": 36,
+        "pc": 275,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "rti",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "a9557e8dc42e89888a70e8d2d082bd9b41637dafc46e0c12765c050513c8219f",
+      "instructions": 252,
+      "memory_sha256": "ba5b33fc0cef6cf6a2805a917797d95b558ca143a3bdba2366f0af642e044888",
+      "mismatches": [],
+      "name": "op_40_rti_impl",
+      "reference_state": {
+        "a": 68,
+        "halted": 1,
+        "p": 36,
+        "pc": 275,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        515
+      ],
+      "vector": {
+        "covers": [
+          [
+            "rti",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [
+          512
+        ],
+        "name": "op_40_rti_impl"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 252,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "pha",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "87c8bdea26812d5bdc51a8f275ab3418dae93ebe714acce87060b24cae382f6b",
+      "instructions": 12,
+      "memory_sha256": "2bfed485cbbc2ba7445aa87f6fc399666fb941396b9fba74e22d904b8787909c",
+      "mismatches": [],
+      "name": "op_48_pha_impl",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 272,
+        "sp": 252,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        273
+      ],
+      "vector": {
+        "covers": [
+          [
+            "pha",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_48_pha_impl"
+      }
+    },
+    {
+      "blocks": 2,
+      "core_state": {
+        "a": 119,
+        "halted": 1,
+        "p": 36,
+        "pc": 277,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "jmp",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "b5c6180ae2adbe49f813666377fbc31c6863bd79415d149f4624fa47e48940b0",
+      "instructions": 14,
+      "memory_sha256": "a12e947a8f40e756ea40a0864eb51e23d4a1605b623888ffec68db1367c25252",
+      "mismatches": [],
+      "name": "op_4c_jmp_abs",
+      "reference_state": {
+        "a": 119,
+        "halted": 1,
+        "p": 36,
+        "pc": 277,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        278
+      ],
+      "vector": {
+        "covers": [
+          [
+            "jmp",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_4c_jmp_abs"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 275,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "pla",
+          "impl"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "aa44edef9f22052d4c7448efd25b9b0d58b4b27dcb86dcb8ede4e62706634608",
+      "instructions": 14,
+      "memory_sha256": "3dac9f9265e149e8771f6e4955f2e06d85a7735fc6bfdab9e6add5a69340b7fa",
+      "mismatches": [],
+      "name": "op_68_pla_impl",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 36,
+        "pc": 275,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        276
+      ],
+      "vector": {
+        "covers": [
+          [
+            "pla",
+            "impl"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "op_68_pla_impl"
+      }
+    },
+    {
+      "blocks": 2,
+      "core_state": {
+        "a": 119,
+        "halted": 1,
+        "p": 36,
+        "pc": 770,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "jmp",
+          "ind"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "fbf794584995408ea7c998a8dda70852429d11467953e21c35441cbbc5ec5664",
+      "instructions": 250,
+      "memory_sha256": "38791ece3b4e08e1bbdacf10185b0ee7b5d17d2149a71988717e916615730513",
+      "mismatches": [],
+      "name": "op_6c_jmp_ind",
+      "reference_state": {
+        "a": 119,
+        "halted": 1,
+        "p": 36,
+        "pc": 770,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        771
+      ],
+      "vector": {
+        "covers": [
+          [
+            "jmp",
+            "ind"
+          ]
+        ],
+        "data_ranges": [
+          [
+            512,
+            768
+          ]
+        ],
+        "extra_leaders": [
+          768
+        ],
+        "name": "op_6c_jmp_ind"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 128,
+        "halted": 1,
+        "p": 228,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "adc",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "465e65629c46781b84bd8e4cfc5853260d6ed29e63090246762ae54540b9f76b",
+      "instructions": 12,
+      "memory_sha256": "cce1192fb4e4cc16d0582c953aa236d236bc4d292e0d21b26ad8afff040b5a31",
+      "mismatches": [],
+      "name": "edge_adc_imm_7f_01",
+      "reference_state": {
+        "a": 128,
+        "halted": 1,
+        "p": 228,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "adc",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_adc_imm_7f_01"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 39,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "adc",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "b2b6bab4a350b4ad106b642ec8b38b579859e78f99ff68529b0239919caa5f34",
+      "instructions": 12,
+      "memory_sha256": "60b9267b21cf0fe75aa4aa3c5c0732f58a9d8277bceb80fae686bd2f6fd75cdd",
+      "mismatches": [],
+      "name": "edge_adc_imm_ff_01",
+      "reference_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 39,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "adc",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_adc_imm_ff_01"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 103,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "adc",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "19f9af8e6497c42f202bb63b90b31f2589df36d84173c4aebe58d049d3b05c8b",
+      "instructions": 12,
+      "memory_sha256": "9807bf9eea528120e011395ec5d1e9d59c4e95a5b00c3bb8680907006c463fee",
+      "mismatches": [],
+      "name": "edge_adc_imm_80_80",
+      "reference_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 103,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "adc",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_adc_imm_80_80"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 39,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "adc",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "d10729871eff3a9e6da4421b01a0f02f9fb1df5b6775c52b0d62f180a458f33f",
+      "instructions": 12,
+      "memory_sha256": "aafda3603adba89c8fb0ec31e957498d733dca28e5588248fc3d44cf06052a11",
+      "mismatches": [],
+      "name": "edge_adc_imm_00_ff_c",
+      "reference_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 39,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "adc",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_adc_imm_00_ff_c"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 161,
+        "halted": 1,
+        "p": 228,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "adc",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "d09b4136d8656f4af40812ec8fe7095e4706393707dbbb3bd960c42d812b555d",
+      "instructions": 14,
+      "memory_sha256": "6be40040d327541da1401746f781412a0b8394396965d7ac98dc82c1f7f1a893",
+      "mismatches": [],
+      "name": "edge_adc_abs_50_50_c",
+      "reference_state": {
+        "a": 161,
+        "halted": 1,
+        "p": 228,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "adc",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_adc_abs_50_50_c"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sbc",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "a7f39d652a55dce3d0c7bf417609603aef844cfc9bc8b395808997932338a4e0",
+      "instructions": 12,
+      "memory_sha256": "29f5d66de9426c63ee36a8ba08c6ad51d2a52feaad7491d05b5b01152a855186",
+      "mismatches": [],
+      "name": "edge_sbc_imm_00_01_c",
+      "reference_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sbc",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_sbc_imm_00_01_c"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 127,
+        "halted": 1,
+        "p": 101,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sbc",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "5340435aa1ccbf2eb353769c46362860de84e8adff225416d5db104447c2650d",
+      "instructions": 12,
+      "memory_sha256": "d30db3482970ce2abe25641f8f66195f3d665d71589a0450afa80f9199329a28",
+      "mismatches": [],
+      "name": "edge_sbc_imm_80_01_c",
+      "reference_state": {
+        "a": 127,
+        "halted": 1,
+        "p": 101,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sbc",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_sbc_imm_80_01_c"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 96,
+        "halted": 1,
+        "p": 36,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sbc",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "8c7e4d9742af28f7deca1312fa2e74c3fc014722eb27ed472cbdbefe47cadded",
+      "instructions": 12,
+      "memory_sha256": "1deed09decc048b335a25733b046e062be36c59565d2557827c6bc2fb721f05b",
+      "mismatches": [],
+      "name": "edge_sbc_imm_50_f0_c",
+      "reference_state": {
+        "a": 96,
+        "halted": 1,
+        "p": 36,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sbc",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_sbc_imm_50_f0_c"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sbc",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "95b4052454781366760db149cdc774eea7dca2ae4a32ed4643eadb5d2fc228e9",
+      "instructions": 12,
+      "memory_sha256": "be4db13dc62cc172bfe298e999850a2a6ad6d76eaffee76f8f3c6932e466fda8",
+      "mismatches": [],
+      "name": "edge_sbc_imm_00_00",
+      "reference_state": {
+        "a": 255,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sbc",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_sbc_imm_00_00"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 64,
+        "halted": 1,
+        "p": 100,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "bit",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "4ddcd3ffd4af8000976023c18000ac971c48e55ab4f70b6c019f3df261eacdaf",
+      "instructions": 14,
+      "memory_sha256": "1e941610fa05f37e2809d97b79a01ca1d2c02cfda62cdf10b0ce6ec476500c49",
+      "mismatches": [],
+      "name": "edge_bit_abs_40",
+      "reference_state": {
+        "a": 64,
+        "halted": 1,
+        "p": 100,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "bit",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_bit_abs_40"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 127,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "inc",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "d22817f116a68da54538d66aeb8e92fad70f35f778d79896b64506ff8041bcef",
+      "instructions": 14,
+      "memory_sha256": "1a588c552f63b4455ddb872add295b91bb62ace33a73ec77c0c682350d8764b6",
+      "mismatches": [],
+      "name": "edge_inc_abs_7f",
+      "reference_state": {
+        "a": 127,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "inc",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_inc_abs_7f"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "dec",
+          "abs"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "d08abf1ecdbafe3174a2003cacc7fbcd007287c3a531026139f1bd51b270af82",
+      "instructions": 14,
+      "memory_sha256": "66bc464d6fa54403b3eb909583c5c9d823f7a28e07e1ab638106756e8e0b8b6e",
+      "mismatches": [],
+      "name": "edge_dec_abs_00",
+      "reference_state": {
+        "a": 0,
+        "halted": 1,
+        "p": 164,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "dec",
+            "abs"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_dec_abs_00"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 108,
+        "halted": 1,
+        "p": 36,
+        "pc": 278,
+        "sp": 253,
+        "x": 2,
+        "y": 7
+      },
+      "covers": [
+        [
+          "lda",
+          "zpx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "e3ffdc117e6d65c40c6d2c6cc462f23e38b99be9825c23193dd7b55359035518",
+      "instructions": 14,
+      "memory_sha256": "afd9926b40b8c72732b3c57e1ecd7c93ed5e158600425245411465f606e21ba1",
+      "mismatches": [],
+      "name": "edge_lda_zpx_wrap",
+      "reference_state": {
+        "a": 108,
+        "halted": 1,
+        "p": 36,
+        "pc": 278,
+        "sp": 253,
+        "x": 2,
+        "y": 7
+      },
+      "region": [
+        256,
+        279
+      ],
+      "vector": {
+        "covers": [
+          [
+            "lda",
+            "zpx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_lda_zpx_wrap"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 109,
+        "halted": 1,
+        "p": 36,
+        "pc": 279,
+        "sp": 253,
+        "x": 4,
+        "y": 7
+      },
+      "covers": [
+        [
+          "lda",
+          "absx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "82c67644fc377b130c1ccc581c7de983a2a2df6d3f4ba1573eb438e8cdafd389",
+      "instructions": 14,
+      "memory_sha256": "fb3d98fce1db63d9b54a5aec32345893a2dce19bfa759b288af78671927569be",
+      "mismatches": [],
+      "name": "edge_lda_absx_page_cross",
+      "reference_state": {
+        "a": 109,
+        "halted": 1,
+        "p": 36,
+        "pc": 279,
+        "sp": 253,
+        "x": 4,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "lda",
+            "absx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_lda_absx_page_cross"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 110,
+        "halted": 1,
+        "p": 36,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 4
+      },
+      "covers": [
+        [
+          "lda",
+          "absy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "6a6041cb6ff82490a1ac7fd50a79eb879e941851d00eae4ab36d7020ce94b51c",
+      "instructions": 14,
+      "memory_sha256": "984339ff5a7192c368d3105df16afffe06c00eed3f8b56db1bcf2f92124ea8f8",
+      "mismatches": [],
+      "name": "edge_lda_absy_page_cross",
+      "reference_state": {
+        "a": 110,
+        "halted": 1,
+        "p": 36,
+        "pc": 279,
+        "sp": 253,
+        "x": 3,
+        "y": 4
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "lda",
+            "absy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_lda_absy_page_cross"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 111,
+        "halted": 1,
+        "p": 36,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "lda",
+          "indy"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "f6eec3101011f03755f90cbfaf22c7e7feb0087e34e9b2af64ea1f06404dae07",
+      "instructions": 18,
+      "memory_sha256": "8340c01cc90d9db9b10b8e2baca0ebbfacf9caa41443397fcbfe28a1128c6964",
+      "mismatches": [],
+      "name": "edge_lda_indy_page_cross",
+      "reference_state": {
+        "a": 111,
+        "halted": 1,
+        "p": 36,
+        "pc": 288,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        289
+      ],
+      "vector": {
+        "covers": [
+          [
+            "lda",
+            "indy"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_lda_indy_page_cross"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 126,
+        "halted": 1,
+        "p": 36,
+        "pc": 279,
+        "sp": 253,
+        "x": 4,
+        "y": 7
+      },
+      "covers": [
+        [
+          "inc",
+          "absx"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "a57b13da55b7533feb90d8fc65773d1889a7a15fd48520dff231c726307854ba",
+      "instructions": 14,
+      "memory_sha256": "ef9feea7c416964db9158f5bfe543ec17f39853cc151e71d5b0593591ac021a4",
+      "mismatches": [],
+      "name": "edge_rmw_inc_absx_page_cross",
+      "reference_state": {
+        "a": 126,
+        "halted": 1,
+        "p": 36,
+        "pc": 279,
+        "sp": 253,
+        "x": 4,
+        "y": 7
+      },
+      "region": [
+        256,
+        280
+      ],
+      "vector": {
+        "covers": [
+          [
+            "inc",
+            "absx"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_rmw_inc_absx_page_cross"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 39,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "cmp",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "1e36e2a9caf2ad786c87ad7725086438d5c183a8d505e89ea53b3e67b38fe2be",
+      "instructions": 12,
+      "memory_sha256": "c9dbd169a6e42226e6bc79a858758af7f221c725b159f39f1af712c268a5c8c9",
+      "mismatches": [],
+      "name": "edge_cmp_imm_equal",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 39,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "cmp",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_cmp_imm_equal"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "cmp",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "1ce979aa3b98d5c4cad43b5e22d018c3a11a45905c44435aa4d52a8e44e2e413",
+      "instructions": 12,
+      "memory_sha256": "7752c113a7126598afdd7fc8466f63fc37e92d0d5b750458650acfaae80f54c1",
+      "mismatches": [],
+      "name": "edge_cmp_imm_less",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 164,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "cmp",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_cmp_imm_less"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 37,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "cpx",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "2b096a684d87083a31c3db7dc4a08a1a82d794150923c924b27ca7707e51fb63",
+      "instructions": 12,
+      "memory_sha256": "762affd4a020cc22ff9d7c66fcda6d49ca60a37c3b1e2af1d6ecffd2e433251a",
+      "mismatches": [],
+      "name": "edge_cpx_imm_greater",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 37,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "cpx",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_cpx_imm_greater"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 39,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "cpy",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "5909629d7f2026492d823b1efe848a294ef8ed5e912483066a32840c3bd8e87f",
+      "instructions": 12,
+      "memory_sha256": "3d83add03d28b133508e6784c08c149b566dfb3aa9caa8c1af9d65828bdb979c",
+      "mismatches": [],
+      "name": "edge_cpy_imm_equal",
+      "reference_state": {
+        "a": 90,
+        "halted": 1,
+        "p": 39,
+        "pc": 273,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        274
+      ],
+      "vector": {
+        "covers": [
+          [
+            "cpy",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_cpy_imm_equal"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 11,
+        "halted": 1,
+        "p": 44,
+        "pc": 276,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "adc",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "68500b914205dd5d2b13daede449ae3435307ea2d9b4e006d7f3701cc9f26a45",
+      "instructions": 14,
+      "memory_sha256": "1b2ac9ecf0b964460bb5b13d7660bdce5b5d69438ed871197a521f5cb81a8e79",
+      "mismatches": [],
+      "name": "edge_2a03_sed_adc_binary",
+      "reference_state": {
+        "a": 11,
+        "halted": 1,
+        "p": 44,
+        "pc": 276,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        277
+      ],
+      "vector": {
+        "covers": [
+          [
+            "adc",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_2a03_sed_adc_binary"
+      }
+    },
+    {
+      "blocks": 1,
+      "core_state": {
+        "a": 9,
+        "halted": 1,
+        "p": 45,
+        "pc": 276,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "covers": [
+        [
+          "sbc",
+          "imm"
+        ]
+      ],
+      "equivalent": true,
+      "image_sha256": "74401d229a7d7a037bb7487e951b698412d7ea2f45257835062779f9d21431ee",
+      "instructions": 14,
+      "memory_sha256": "bbad3180ccd8e7cf16a95eaf4360cf23192886fef9f9e4fe5ac0d61e03f66aa2",
+      "mismatches": [],
+      "name": "edge_2a03_sed_sbc_binary",
+      "reference_state": {
+        "a": 9,
+        "halted": 1,
+        "p": 45,
+        "pc": 276,
+        "sp": 253,
+        "x": 3,
+        "y": 7
+      },
+      "region": [
+        256,
+        277
+      ],
+      "vector": {
+        "covers": [
+          [
+            "sbc",
+            "imm"
+          ]
+        ],
+        "data_ranges": [],
+        "extra_leaders": [],
+        "name": "edge_2a03_sed_sbc_binary"
+      }
+    }
+  ],
+  "vectors": 181
+}

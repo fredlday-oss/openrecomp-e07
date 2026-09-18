@@ -1,0 +1,50 @@
+{
+  "irq": {
+    "p": 36,
+    "pc": 33280,
+    "sp": 250,
+    "stack_p": 32,
+    "stack_pch": 1,
+    "stack_pcl": 0,
+    "taken": true
+  },
+  "irq_expected": {
+    "p": 36,
+    "pc": 33280,
+    "sp": 250,
+    "stack_p": 32,
+    "stack_pch": 1,
+    "stack_pcl": 0,
+    "taken": true
+  },
+  "nmi": {
+    "p": 36,
+    "pc": 33024,
+    "sp": 250,
+    "stack_p": 36,
+    "stack_pch": 1,
+    "stack_pcl": 0,
+    "taken": true
+  },
+  "nmi_expected": {
+    "p": 36,
+    "pc": 33024,
+    "sp": 250,
+    "stack_p": 36,
+    "stack_pch": 1,
+    "stack_pcl": 0,
+    "taken": true
+  },
+  "reset": {
+    "p": 36,
+    "pc": 32768,
+    "sp": 253,
+    "vector_source": "0xFFFC/0xFFFD"
+  },
+  "reset_expected": {
+    "p": 36,
+    "pc": 32768,
+    "sp": 253,
+    "vector_source": "0xFFFC/0xFFFD"
+  }
+}

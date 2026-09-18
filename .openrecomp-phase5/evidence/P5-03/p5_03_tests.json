@@ -1,0 +1,536 @@
+{
+  "checks": [
+    {
+      "check": "edge:edge_2a03_sed_adc_binary:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_2a03_sed_sbc_binary:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_adc_abs_50_50_c:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_adc_imm_00_ff_c:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_adc_imm_7f_01:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_adc_imm_80_80:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_adc_imm_ff_01:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_bit_abs_40:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_cmp_imm_equal:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_cmp_imm_less:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_cpx_imm_greater:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_cpy_imm_equal:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_dec_abs_00:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_inc_abs_7f:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_lda_absx_page_cross:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_lda_absy_page_cross:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_lda_indy_page_cross:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_lda_zpx_wrap:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_rmw_inc_absx_page_cross:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_sbc_imm_00_00:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_sbc_imm_00_01_c:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_sbc_imm_50_f0_c:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:edge_sbc_imm_80_01_c:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:op_00_brk_impl:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:op_20_jsr_abs:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:op_40_rti_impl:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:op_6c_jmp_ind:present-and-passing",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:coverage.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:interrupt.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:semantics.json",
+      "status": "PASS"
+    },
+    {
+      "check": "interrupt:irq",
+      "status": "PASS"
+    },
+    {
+      "check": "interrupt:nmi",
+      "status": "PASS"
+    },
+    {
+      "check": "interrupt:reset",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable:subset-of-covered",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes6502_semantics_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes6502_semantics_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes6502_state_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes6502_state_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:assembly-error",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:missing-terminator",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:undocumented-opcode",
+      "status": "PASS"
+    },
+    {
+      "check": "suite:covered-pairs",
+      "status": "PASS"
+    },
+    {
+      "check": "suite:no-failed",
+      "status": "PASS"
+    },
+    {
+      "check": "suite:official-coverage",
+      "status": "PASS"
+    },
+    {
+      "check": "suite:vector-count",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "evidence_files": [
+      "coverage.json",
+      "interrupt.json",
+      "regressions.json",
+      "semantics.json"
+    ],
+    "interrupt": {
+      "irq": {
+        "p": 36,
+        "pc": 33280,
+        "sp": 250,
+        "stack_p": 32,
+        "stack_pch": 1,
+        "stack_pcl": 0,
+        "taken": true
+      },
+      "irq_expected": {
+        "p": 36,
+        "pc": 33280,
+        "sp": 250,
+        "stack_p": 32,
+        "stack_pch": 1,
+        "stack_pcl": 0,
+        "taken": true
+      },
+      "nmi": {
+        "p": 36,
+        "pc": 33024,
+        "sp": 250,
+        "stack_p": 36,
+        "stack_pch": 1,
+        "stack_pcl": 0,
+        "taken": true
+      },
+      "nmi_expected": {
+        "p": 36,
+        "pc": 33024,
+        "sp": 250,
+        "stack_p": 36,
+        "stack_pch": 1,
+        "stack_pcl": 0,
+        "taken": true
+      },
+      "reset": {
+        "p": 36,
+        "pc": 32768,
+        "sp": 253,
+        "vector_source": "0xFFFC/0xFFFD"
+      },
+      "reset_expected": {
+        "p": 36,
+        "pc": 32768,
+        "sp": 253,
+        "vector_source": "0xFFFC/0xFFFD"
+      }
+    },
+    "reachable_count": 63,
+    "reachable_pairs": [
+      [
+        "adc",
+        "abs"
+      ],
+      [
+        "adc",
+        "imm"
+      ],
+      [
+        "and",
+        "imm"
+      ],
+      [
+        "asl",
+        "acc"
+      ],
+      [
+        "bcs",
+        "rel"
+      ],
+      [
+        "beq",
+        "rel"
+      ],
+      [
+        "bit",
+        "abs"
+      ],
+      [
+        "bne",
+        "rel"
+      ],
+      [
+        "bpl",
+        "rel"
+      ],
+      [
+        "brk",
+        "impl"
+      ],
+      [
+        "bvc",
+        "rel"
+      ],
+      [
+        "clc",
+        "impl"
+      ],
+      [
+        "cld",
+        "impl"
+      ],
+      [
+        "clv",
+        "impl"
+      ],
+      [
+        "cmp",
+        "imm"
+      ],
+      [
+        "cpx",
+        "imm"
+      ],
+      [
+        "cpy",
+        "imm"
+      ],
+      [
+        "dec",
+        "abs"
+      ],
+      [
+        "dex",
+        "impl"
+      ],
+      [
+        "dey",
+        "impl"
+      ],
+      [
+        "eor",
+        "imm"
+      ],
+      [
+        "inc",
+        "abs"
+      ],
+      [
+        "inx",
+        "impl"
+      ],
+      [
+        "iny",
+        "impl"
+      ],
+      [
+        "jmp",
+        "abs"
+      ],
+      [
+        "jmp",
+        "ind"
+      ],
+      [
+        "jsr",
+        "abs"
+      ],
+      [
+        "lda",
+        "abs"
+      ],
+      [
+        "lda",
+        "absx"
+      ],
+      [
+        "lda",
+        "absy"
+      ],
+      [
+        "lda",
+        "imm"
+      ],
+      [
+        "lda",
+        "indx"
+      ],
+      [
+        "lda",
+        "indy"
+      ],
+      [
+        "lda",
+        "zpx"
+      ],
+      [
+        "ldx",
+        "abs"
+      ],
+      [
+        "ldx",
+        "imm"
+      ],
+      [
+        "ldx",
+        "zpy"
+      ],
+      [
+        "ldy",
+        "imm"
+      ],
+      [
+        "ldy",
+        "zpx"
+      ],
+      [
+        "lsr",
+        "acc"
+      ],
+      [
+        "ora",
+        "abs"
+      ],
+      [
+        "pha",
+        "impl"
+      ],
+      [
+        "php",
+        "impl"
+      ],
+      [
+        "pla",
+        "impl"
+      ],
+      [
+        "plp",
+        "impl"
+      ],
+      [
+        "rol",
+        "abs"
+      ],
+      [
+        "rti",
+        "impl"
+      ],
+      [
+        "rts",
+        "impl"
+      ],
+      [
+        "sbc",
+        "imm"
+      ],
+      [
+        "sec",
+        "impl"
+      ],
+      [
+        "sed",
+        "impl"
+      ],
+      [
+        "sei",
+        "impl"
+      ],
+      [
+        "sta",
+        "abs"
+      ],
+      [
+        "sta",
+        "absx"
+      ],
+      [
+        "sta",
+        "indx"
+      ],
+      [
+        "stx",
+        "abs"
+      ],
+      [
+        "stx",
+        "zpy"
+      ],
+      [
+        "sty",
+        "zpx"
+      ],
+      [
+        "tax",
+        "impl"
+      ],
+      [
+        "tay",
+        "impl"
+      ],
+      [
+        "txa",
+        "impl"
+      ],
+      [
+        "txs",
+        "impl"
+      ],
+      [
+        "tya",
+        "impl"
+      ]
+    ],
+    "regressions": [
+      {
+        "returncode": 0,
+        "script": "tools/test_nes6502_semantics_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 1858,
+        "stdout_sha256_lf": "4ac7a4766c679af2bc29ad5c7f185d000a10310af92033ff6a1a19759f14b4ee",
+        "stdout_sha256_raw": "2bd64c77f23322668aba9e496792e6794ee4ec78ae400e38ca398fb8ec6b98c6"
+      },
+      {
+        "returncode": 0,
+        "script": "tools/test_nes6502_state_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 544,
+        "stdout_sha256_lf": "0670baf6397c1002b02c00927c77348d9127ae897b81ec524367ce7891f33e00",
+        "stdout_sha256_raw": "a7a4ba6960e1c3ae286c26fbcd94cc2da1cd0db218a353c4615469269c1d35e6"
+      }
+    ],
+    "suite_sha256": "f04b8449dd118d2348b530740e259e7b04ed95ee53e95ce607a35ee6ee8a3b78",
+    "vectors": 181
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE5_CPU_SEMANTICS_V1=PASS tests=46",
+    "stage": "OPENRECOMP_P5_03=PASS",
+    "terminal": "OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN"
+  },
+  "passed": 46,
+  "stage": "P5-03",
+  "stage_name": "OPENRECOMP_PHASE5_CPU_SEMANTICS_V1",
+  "status": "PASS",
+  "tests": 46
+}

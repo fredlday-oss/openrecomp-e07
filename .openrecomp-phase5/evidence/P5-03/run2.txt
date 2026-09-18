@@ -1,0 +1,65 @@
+=== P5-03 CPU Semantics Proof Gate ===
+
+--- differential_suite ---
+PASS: suite:vector-count
+PASS: suite:no-failed
+PASS: suite:covered-pairs
+PASS: suite:official-coverage
+PASS: edge:edge_adc_imm_7f_01:present-and-passing
+PASS: edge:edge_adc_imm_ff_01:present-and-passing
+PASS: edge:edge_adc_imm_80_80:present-and-passing
+PASS: edge:edge_adc_imm_00_ff_c:present-and-passing
+PASS: edge:edge_adc_abs_50_50_c:present-and-passing
+PASS: edge:edge_sbc_imm_00_01_c:present-and-passing
+PASS: edge:edge_sbc_imm_80_01_c:present-and-passing
+PASS: edge:edge_sbc_imm_50_f0_c:present-and-passing
+PASS: edge:edge_sbc_imm_00_00:present-and-passing
+PASS: edge:edge_bit_abs_40:present-and-passing
+PASS: edge:edge_inc_abs_7f:present-and-passing
+PASS: edge:edge_dec_abs_00:present-and-passing
+PASS: edge:edge_lda_zpx_wrap:present-and-passing
+PASS: edge:edge_lda_absx_page_cross:present-and-passing
+PASS: edge:edge_lda_absy_page_cross:present-and-passing
+PASS: edge:edge_lda_indy_page_cross:present-and-passing
+PASS: edge:edge_rmw_inc_absx_page_cross:present-and-passing
+PASS: edge:edge_cmp_imm_equal:present-and-passing
+PASS: edge:edge_cmp_imm_less:present-and-passing
+PASS: edge:edge_cpx_imm_greater:present-and-passing
+PASS: edge:edge_cpy_imm_equal:present-and-passing
+PASS: edge:edge_2a03_sed_adc_binary:present-and-passing
+PASS: edge:edge_2a03_sed_sbc_binary:present-and-passing
+PASS: edge:op_6c_jmp_ind:present-and-passing
+PASS: edge:op_00_brk_impl:present-and-passing
+PASS: edge:op_40_rti_impl:present-and-passing
+PASS: edge:op_20_jsr_abs:present-and-passing
+
+--- reachable_coverage ---
+PASS: reachable:subset-of-covered
+
+--- interrupts ---
+PASS: interrupt:reset
+PASS: interrupt:irq
+PASS: interrupt:nmi
+
+--- negative ---
+PASS: reject:undocumented-opcode
+PASS: reject:missing-terminator
+PASS: reject:assembly-error
+
+--- regressions ---
+PASS: regression:tools/test_nes6502_semantics_v1.py:exit
+PASS: regression:tools/test_nes6502_semantics_v1.py:stderr
+PASS: regression:tools/test_nes6502_state_v1.py:exit
+PASS: regression:tools/test_nes6502_state_v1.py:stderr
+
+--- evidence ---
+PASS: hygiene:no-public-rom-bytes:semantics.json
+PASS: hygiene:no-public-rom-bytes:coverage.json
+PASS: hygiene:no-public-rom-bytes:interrupt.json
+PASS: hygiene:no-public-rom-bytes:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P5_03=PASS
+OPENRECOMP_PHASE5_CPU_SEMANTICS_V1=PASS tests=46
+OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

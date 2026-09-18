@@ -107,10 +107,30 @@ markers reserved as `NOT_PROVEN`.
   (`2eb8ef8c...`).
 - Evidence: `.openrecomp-phase5/evidence/P5-02/`.
 
+## P5-03 outcome (PASS)
+
+Markers: `OPENRECOMP_P5_03=PASS`,
+`OPENRECOMP_PHASE5_CPU_SEMANTICS_V1=PASS tests=46`; terminal and general
+markers reserved as `NOT_PROVEN`.
+
+- 181 differential vectors (all 151 official opcode forms plus edge cases)
+  compare the frozen translation path against the frozen independent
+  reference with exact final-state and full-64KiB-memory agreement; zero
+  failures.
+- Every reachable public-fixture (mnemonic, mode) pair is covered; flag,
+  stack, branch, page-crossing, zero-page wrap, RMW, BRK/RTI, JMP-indirect
+  page-wrap and 2A03 binary-only ADC/SBC behaviour are explicitly exercised.
+- Documented reset/IRQ/NMI entry (vector, push order, flags) verified with
+  explicit expected values.
+- Two official runs byte-identical raw (`11055196...`, 2513 bytes) and LF
+  (`42c5cb65...`), empty stderr, exit 0; `p5_03_tests.json` identical
+  (`aa46976f...`).
+- Evidence: `.openrecomp-phase5/evidence/P5-03/`.
+
 ## Exact next action
 
-Execute P5-03 (CPU semantics proof): build an independently written differential
-vector set for every instruction required by the reachable public fixture path
-(flags, stack, branches, page crossing, BRK/IRQ/NMI/RESET, JMP-indirect
-page-wrap, zero-page, RMW, 2A03 binary-only ADC/SBC) and require exact
-agreement with the frozen independent reference. Then proceed to P5-04.
+Execute P5-04 (ProgramModel / CFG / functions / translation units): bridge the
+real public fixture into the shared architecture-neutral layers from its
+reset/NMI/IRQ roots, represent interrupt/reset roots explicitly, fabricate no
+function boundaries or indirect targets, and record the neutral structure
+fingerprints. Then proceed to P5-05.
