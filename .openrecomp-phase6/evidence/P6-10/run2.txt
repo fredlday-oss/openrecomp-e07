@@ -1,0 +1,97 @@
+=== P6-10 Private TMNT Compatibility Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-exists
+PASS: source:manifest-verified
+
+--- frozen_chain ---
+PASS: chain:phase5-tag-object
+PASS: chain:phase5-commit
+PASS: chain:phase5-tree
+PASS: chain:descends
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+
+--- analysis ---
+PASS: analysis:deterministic
+PASS: private:path
+PASS: private:sha256
+PASS: private:container-mapper
+PASS: private:prg-chr
+PASS: private:segment-hashes
+PASS: private:vectors
+
+--- mmc1_classification ---
+PASS: mmc1:status
+PASS: mmc1:power-on
+PASS: mmc1:variant-profile
+PASS: mmc1:p6-01-delta
+PASS: mmc1:superseded-blocker
+
+--- cartridge_service ---
+PASS: cartridge:constructs
+PASS: cartridge:power-on-state
+
+--- reference_platform ---
+PASS: reference:power-on-state
+PASS: reference:reset-vector-readback
+
+--- phase5_boundary ---
+PASS: phase5:frozen-mapper-fail-closed
+PASS: phase5:p5-bus-fail-closed
+
+--- frontier ---
+PASS: frontier:frozen-fail-closed
+PASS: frontier:candidate-counts
+PASS: frontier:candidate-stop
+PASS: frontier:indirect-sites
+PASS: frontier:outside-targets
+PASS: frontier:dynamic-returns
+
+--- structure_translation_runtime ---
+PASS: structure:fail-closed
+PASS: translation:not-attempted
+PASS: runtime:support-generated
+PASS: native:not-attempted
+
+--- blockers ---
+PASS: blockers:codes
+PASS: blockers:frontier-detail
+PASS: blockers:indirect-detail
+PASS: blockers:bank-state-detail
+PASS: blockers:public-none
+
+--- negative ---
+PASS: reject:missing-private-path
+PASS: reject:empty-plan
+PASS: reject:plan-value-range
+PASS: reject:budget-range
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:tools/test_nes_platform_v1.py:exit
+PASS: regression:tools/test_nes_platform_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_variant_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_variant_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_reference_equiv_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_reference_equiv_v1.py:stderr
+
+--- evidence_hygiene ---
+PASS: hygiene:no-private-rom-bytes:tmnt_pipeline.json
+PASS: hygiene:no-private-bank-bytes:tmnt_pipeline.json
+PASS: hygiene:no-private-rom-bytes:blockers.json
+PASS: hygiene:no-private-bank-bytes:blockers.json
+PASS: hygiene:no-private-rom-bytes:regressions.json
+PASS: hygiene:no-private-bank-bytes:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P6_10=PASS
+OPENRECOMP_PHASE6_PRIVATE_COMPAT_V1=PASS tests=62
+OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

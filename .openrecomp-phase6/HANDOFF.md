@@ -342,6 +342,44 @@ general markers reserved as `NOT_PROVEN`.
   `cddf93dc...`.
 - Evidence: `.openrecomp-phase6/evidence/P6-09/`.
 
+## P6-10 outcome (PASS)
+
+Markers: `OPENRECOMP_P6_10=PASS`,
+`OPENRECOMP_PHASE6_PRIVATE_COMPAT_V1=PASS tests=62`; terminal and general
+markers reserved as `NOT_PROVEN`.
+
+- New private pipeline runner (`.openrecomp-phase6/src/p6_private_run_v1.py`)
+  and gate (`tools/test_phase6_private_tmnt_v1.py`), metadata/derived-only.
+- Private identity re-verified in place: 262160 bytes, SHA-256 `2a9345e6...`,
+  NES 2.0, mapper 1/submapper 0, horizontal, 8 x 16 KiB PRG / 16 x 8 KiB CHR,
+  no PRG-RAM/battery/trainer; vectors NMI `0xC3A3` / RESET `0xFFD8` /
+  IRQ `0xC412`.
+- Ingestion now classifies `SUPPORTED_MMC1` and the P6-07 cartridge plus the
+  P6-09 reference platform construct with the expected power-on state
+  (registers `0C 00 00 00`, PRG windows `(0,7)`, CHR mode 0, one-screen
+  lower). The P6-01 `BLOCKED_MMC1_MAPPER_NOT_YET_IMPLEMENTED` status is
+  superseded.
+- Pipeline stop frontier: the frozen documented-control-flow walk fails closed
+  at `0xC570` (undocumented opcode `0x7C`); the candidate traversal reaches
+  1250 instructions / 2711 bytes (202 fixed, 1048 power-on low window), 42
+  opcode forms and three unresolved `$E2` indirect jumps
+  (`0x86E8`/`0x8956`/`0x8F3C`). The neutral structure attempt fails closed with
+  `proof fixture metadata declares no data spans`; translation and native
+  execution are not attempted. MMC1 runtime support generation is
+  deterministic and recorded by hash only (`2e3fa4ba...`).
+- Exact remaining blockers: private code/data boundary evidence, runtime
+  indirect jump-table targets, runtime bank-state evidence, and (untestable
+  until translation) extended platform behaviour. TMNT playability is not
+  required and was not achieved.
+- Frozen Phase-5 mapper and bus still fail closed on mapper 1 (preserved
+  boundary). Negative: missing path, empty/out-of-range plan, invalid budget.
+- Regressions: frozen NES tools plus the P6-01, P6-05 and P6-09 gates pass
+  with empty stderr (re-run into ignored scratch evidence).
+- Two official runs byte-identical raw (`45186d8b...`, 2886 bytes) and LF
+  (`9b061b7e...`), empty stderr, exit 0; `p6_10_tests.json` sha256
+  `bf18298c...`.
+- Evidence: `.openrecomp-phase6/evidence/P6-10/`.
+
 ## Exact next action
 
-Proceed to P6-10 - Private TMNT compatibility run.
+Proceed to P6-11 - Evidence-driven platform expansion.

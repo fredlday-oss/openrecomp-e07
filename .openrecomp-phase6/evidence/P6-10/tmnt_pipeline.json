@@ -1,0 +1,430 @@
+{
+  "battery": false,
+  "blockers": [
+    {
+      "code": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+      "detail": "documented-control-flow reachable frontier fails closed at 0xc570 (0xc570: undocumented 6502 opcode 0x7c) after 1250 candidate instructions; the private image declares no code/data boundary evidence",
+      "stage": "frontier"
+    },
+    {
+      "code": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+      "detail": "unresolved indirect jump sites at 0x86e8, 0x8956, 0x8f3c through zero-page pointer(s) 0x00e2; runtime jump-table targets must not be guessed",
+      "stage": "indirect_control_flow"
+    },
+    {
+      "code": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+      "detail": "1048 candidate instructions reach the mapper-switched $8000-$BFFF window under the power-on PRG bank only; runtime bank-state evidence is required to resolve the actual bank sequence",
+      "stage": "bank_state"
+    },
+    {
+      "code": "NOT_TESTED",
+      "detail": "PPU/APU/input/timing requirements beyond the bounded Phase-5/6 platform model cannot be assessed until translation completes",
+      "stage": "runtime_platform"
+    },
+    {
+      "code": "SUPERSEDED",
+      "detail": "the P6-01 blocker BLOCKED_MMC1_MAPPER_NOT_YET_IMPLEMENTED no longer applies: the MMC1 subset is implemented and differentially verified through P6-09",
+      "stage": "mapper"
+    }
+  ],
+  "cartridge": {
+    "chr_banks_8k": 16,
+    "error": "",
+    "power_on_chr_mode": 0,
+    "power_on_mirroring": "one_screen_lower",
+    "power_on_prg_window": [
+      0,
+      7
+    ],
+    "power_on_registers": {
+      "chr_bank_0": 0,
+      "chr_bank_1": 0,
+      "control": 12,
+      "prg_bank": 0
+    },
+    "prg_banks_16k": 8,
+    "prg_ram_enabled": false,
+    "status": "SUPPORTED_MMC1"
+  },
+  "chr_bytes": 131072,
+  "chr_is_ram": false,
+  "chr_sha256": "f9e354d57423f5d883663ed56801066ce38ab1a64065a735db88d42aee6eac29",
+  "classification": "PRIVATE_LOCAL_COMPATIBILITY_FIXTURE",
+  "container": "nes2.0",
+  "four_screen": false,
+  "frontier": {
+    "candidate": {
+      "basis": "power-on MMC1 image (fixed last bank at $C000-$FFFF, PRG register 0 bank in the $8000-$BFFF window); documented static control flow only, indirect jumps never guessed",
+      "budget": 20000,
+      "bytes": 2711,
+      "claim": "CANDIDATE / NOT PROVEN",
+      "distinct_opcode_forms": 42,
+      "dynamic_returns": [
+        {
+          "address": 34379,
+          "instruction": "rts"
+        },
+        {
+          "address": 34424,
+          "instruction": "rts"
+        },
+        {
+          "address": 34647,
+          "instruction": "rts"
+        },
+        {
+          "address": 34794,
+          "instruction": "rts"
+        },
+        {
+          "address": 34805,
+          "instruction": "rts"
+        },
+        {
+          "address": 34966,
+          "instruction": "rts"
+        },
+        {
+          "address": 34980,
+          "instruction": "rts"
+        },
+        {
+          "address": 35001,
+          "instruction": "rts"
+        },
+        {
+          "address": 35017,
+          "instruction": "rts"
+        },
+        {
+          "address": 35023,
+          "instruction": "rts"
+        },
+        {
+          "address": 35041,
+          "instruction": "rts"
+        },
+        {
+          "address": 35049,
+          "instruction": "rts"
+        },
+        {
+          "address": 35110,
+          "instruction": "rts"
+        },
+        {
+          "address": 35204,
+          "instruction": "rts"
+        },
+        {
+          "address": 35272,
+          "instruction": "rts"
+        },
+        {
+          "address": 35653,
+          "instruction": "rts"
+        },
+        {
+          "address": 35821,
+          "instruction": "rts"
+        },
+        {
+          "address": 35883,
+          "instruction": "rts"
+        },
+        {
+          "address": 35953,
+          "instruction": "rts"
+        },
+        {
+          "address": 36036,
+          "instruction": "rts"
+        },
+        {
+          "address": 36079,
+          "instruction": "rts"
+        },
+        {
+          "address": 36090,
+          "instruction": "rts"
+        },
+        {
+          "address": 36098,
+          "instruction": "rts"
+        },
+        {
+          "address": 36700,
+          "instruction": "rts"
+        },
+        {
+          "address": 36765,
+          "instruction": "rts"
+        },
+        {
+          "address": 36778,
+          "instruction": "rts"
+        },
+        {
+          "address": 36791,
+          "instruction": "rts"
+        },
+        {
+          "address": 36901,
+          "instruction": "rts"
+        },
+        {
+          "address": 36958,
+          "instruction": "rts"
+        },
+        {
+          "address": 36980,
+          "instruction": "rts"
+        },
+        {
+          "address": 37030,
+          "instruction": "rts"
+        },
+        {
+          "address": 37049,
+          "instruction": "rts"
+        },
+        {
+          "address": 37254,
+          "instruction": "rts"
+        },
+        {
+          "address": 50194,
+          "instruction": "rti"
+        },
+        {
+          "address": 50227,
+          "instruction": "rts"
+        },
+        {
+          "address": 50271,
+          "instruction": "rts"
+        },
+        {
+          "address": 50341,
+          "instruction": "rts"
+        },
+        {
+          "address": 50413,
+          "instruction": "rts"
+        },
+        {
+          "address": 50457,
+          "instruction": "rts"
+        },
+        {
+          "address": 50468,
+          "instruction": "rts"
+        },
+        {
+          "address": 50505,
+          "instruction": "rts"
+        },
+        {
+          "address": 52956,
+          "instruction": "rts"
+        }
+      ],
+      "fixed_window_instructions": 202,
+      "indirect_sites": [
+        {
+          "address": 34536,
+          "instruction": "jmp",
+          "pointer": 226
+        },
+        {
+          "address": 35158,
+          "instruction": "jmp",
+          "pointer": 226
+        },
+        {
+          "address": 36668,
+          "instruction": "jmp",
+          "pointer": 226
+        }
+      ],
+      "instructions": 1250,
+      "interrupt_sites": [],
+      "low_window_instructions": 1048,
+      "low_window_range": [
+        34330,
+        37267
+      ],
+      "opcode_histogram": {
+        "adc": 17,
+        "and": 53,
+        "asl": 16,
+        "bcc": 19,
+        "bcs": 26,
+        "beq": 56,
+        "bmi": 11,
+        "bne": 45,
+        "bpl": 1,
+        "clc": 13,
+        "cmp": 55,
+        "cpx": 25,
+        "cpy": 1,
+        "dec": 12,
+        "dex": 2,
+        "dey": 8,
+        "eor": 1,
+        "inc": 25,
+        "inx": 4,
+        "iny": 27,
+        "jmp": 63,
+        "jsr": 52,
+        "lda": 257,
+        "ldx": 19,
+        "ldy": 13,
+        "lsr": 39,
+        "ora": 20,
+        "pha": 10,
+        "pla": 11,
+        "rol": 6,
+        "ror": 2,
+        "rti": 1,
+        "rts": 41,
+        "sbc": 9,
+        "sec": 11,
+        "sta": 213,
+        "stx": 2,
+        "sty": 13,
+        "tax": 13,
+        "tay": 20,
+        "txa": 8,
+        "tya": 10
+      },
+      "outside_targets": [],
+      "pending_at_stop": 11,
+      "stop": {
+        "address": 50544,
+        "kind": "undocumented_opcode",
+        "predecessor": {
+          "address": 50541,
+          "instruction": "jsr"
+        },
+        "reason": "0xc570: undocumented 6502 opcode 0x7c"
+      },
+      "truncated": false
+    },
+    "frozen_error": "reachable decode failed at 0xc570: 0xc570: undocumented 6502 opcode 0x7c",
+    "frozen_status": "FAIL_CLOSED"
+  },
+  "image_sha256": "2a9345e608ec0c57470dc6658ce8199ddea9c18076134d9ef2a56f91b0a066d1",
+  "image_size": 262160,
+  "ingestion": {
+    "execution_status": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+    "status": "SUPPORTED_MMC1"
+  },
+  "mapper": 1,
+  "mapper_name": "unsupported",
+  "mirroring": "horizontal",
+  "mmc1_classification": {
+    "chr_banks_8k": 16,
+    "claim": "MMC1_SUBSET_V1",
+    "mapper": 1,
+    "mirroring": "horizontal",
+    "power_on_chr_mode": 0,
+    "power_on_control": 12,
+    "power_on_mirroring": "one_screen_lower",
+    "power_on_prg_mode": 3,
+    "prg_banks_16k": 8,
+    "reasons": [],
+    "status": "SUPPORTED_MMC1",
+    "target": "mmc1"
+  },
+  "native_build": {
+    "reason": "no host translation was emitted",
+    "status": "NOT_ATTEMPTED"
+  },
+  "native_execution": {
+    "reason": "no native executable exists for the private image",
+    "status": "NOT_ATTEMPTED"
+  },
+  "nes2_fields": {
+    "chr_ram_nibble": 0,
+    "chr_rom_size_msb": 0,
+    "cpu_ppu_timing": 1,
+    "flags10": 0,
+    "flags11": 0,
+    "flags12": 1,
+    "flags13": 0,
+    "flags14": 0,
+    "flags15": 1,
+    "flags8": 0,
+    "flags9": 0,
+    "prg_nvram_nibble": 0,
+    "prg_ram_nibble": 0,
+    "prg_rom_size_msb": 0,
+    "submapper": 0
+  },
+  "p6_01_recorded_execution_status": "BLOCKED_MMC1_MAPPER_NOT_YET_IMPLEMENTED",
+  "preserved_phase5_boundary": {
+    "frozen_mapper_error": "mapper 1 (unsupported) is classified but not implemented; fail closed instead of guessing banking behaviour",
+    "frozen_mapper_status": "FAIL_CLOSED",
+    "p5_bus_error": "mapper 1 is not implemented; fail closed instead of guessing banking behaviour",
+    "p5_bus_status": "FAIL_CLOSED"
+  },
+  "prg_bytes": 131072,
+  "prg_sha256": "2fbc367a453504f01d7dec9fcc52c59b249fd8633ee8e5de6c7ec04abe0131bc",
+  "public_claim": "none; this analysis must not enter the public package",
+  "reference_platform": {
+    "power_on_chr_banks": {
+      "bank_0": 0,
+      "bank_1": 0,
+      "count": 16,
+      "granule": 8192
+    },
+    "power_on_prg_window": [
+      0,
+      7
+    ],
+    "power_on_registers": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "reset_vector_readback": 65496
+  },
+  "runtime_support": {
+    "note": "generated in memory only for the deterministic hash; no generated source is stored or echoed",
+    "plan": [
+      0,
+      1,
+      128
+    ],
+    "status": "OK",
+    "support_sha256": "2e3fa4bac6c0630840535aff2827c5f453b2372d0acb90551c72a58309d8a3e7"
+  },
+  "source_path": "D:\\OpenRecomp\\Roms\\phase1\\nes\\primary\\tmnt.nes",
+  "stage": "P6-10",
+  "structure": {
+    "error": "P6FrontierError: proof fixture metadata declares no data spans",
+    "status": "FAIL_CLOSED"
+  },
+  "submapper": 0,
+  "trainer_bytes": 0,
+  "translation": {
+    "reason": "no complete reachable instruction set exists; fabricating translation units or indirect targets is not permitted",
+    "status": "NOT_ATTEMPTED"
+  },
+  "variant_classification": {
+    "claim": "MMC1_SUBSET_V1",
+    "mapper": 1,
+    "profile": "discrete_mmc1_chr_rom_no_wram",
+    "reasons": [],
+    "status": "SUPPORTED_PROFILE",
+    "variant_labels": []
+  },
+  "vectors": {
+    "irq": 50194,
+    "nmi": 50083,
+    "reset": 65496
+  },
+  "vectors_source": "mmc1_power_on_fixed_last_bank"
+}

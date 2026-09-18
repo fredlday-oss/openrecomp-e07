@@ -1,0 +1,32 @@
+{
+  "blockers": [
+    {
+      "code": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+      "detail": "documented-control-flow reachable frontier fails closed at 0xc570 (0xc570: undocumented 6502 opcode 0x7c) after 1250 candidate instructions; the private image declares no code/data boundary evidence",
+      "stage": "frontier"
+    },
+    {
+      "code": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+      "detail": "unresolved indirect jump sites at 0x86e8, 0x8956, 0x8f3c through zero-page pointer(s) 0x00e2; runtime jump-table targets must not be guessed",
+      "stage": "indirect_control_flow"
+    },
+    {
+      "code": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+      "detail": "1048 candidate instructions reach the mapper-switched $8000-$BFFF window under the power-on PRG bank only; runtime bank-state evidence is required to resolve the actual bank sequence",
+      "stage": "bank_state"
+    },
+    {
+      "code": "NOT_TESTED",
+      "detail": "PPU/APU/input/timing requirements beyond the bounded Phase-5/6 platform model cannot be assessed until translation completes",
+      "stage": "runtime_platform"
+    },
+    {
+      "code": "SUPERSEDED",
+      "detail": "the P6-01 blocker BLOCKED_MMC1_MAPPER_NOT_YET_IMPLEMENTED no longer applies: the MMC1 subset is implemented and differentially verified through P6-09",
+      "stage": "mapper"
+    }
+  ],
+  "execution_status": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+  "public_claim": "none; this analysis must not enter the public package",
+  "stage": "P6-10"
+}
