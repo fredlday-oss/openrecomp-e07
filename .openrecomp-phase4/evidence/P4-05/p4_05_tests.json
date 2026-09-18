@@ -1,0 +1,367 @@
+{
+  "checks": [
+    {
+      "check": "base:hooks-default",
+      "status": "PASS"
+    },
+    {
+      "check": "base:input-default",
+      "status": "PASS"
+    },
+    {
+      "check": "base:service-default",
+      "status": "PASS"
+    },
+    {
+      "check": "base:timing-default",
+      "status": "PASS"
+    },
+    {
+      "check": "bound:alias-output",
+      "status": "PASS"
+    },
+    {
+      "check": "bound:capabilities",
+      "status": "PASS"
+    },
+    {
+      "check": "bound:claims",
+      "status": "PASS"
+    },
+    {
+      "check": "bound:clock",
+      "status": "PASS"
+    },
+    {
+      "check": "bound:console-output",
+      "status": "PASS"
+    },
+    {
+      "check": "bound:document-no-host-path",
+      "status": "PASS"
+    },
+    {
+      "check": "bound:document-roundtrip",
+      "status": "PASS"
+    },
+    {
+      "check": "bound:identity",
+      "status": "PASS"
+    },
+    {
+      "check": "bound:interface-ids",
+      "status": "PASS"
+    },
+    {
+      "check": "bound:io-input",
+      "status": "PASS"
+    },
+    {
+      "check": "bound:memory-code",
+      "status": "PASS"
+    },
+    {
+      "check": "bound:memory-write-data",
+      "status": "PASS"
+    },
+    {
+      "check": "bound:poll-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "bound:read",
+      "status": "PASS"
+    },
+    {
+      "check": "bound:unknown-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "containment:no-fixture-tokens",
+      "status": "PASS"
+    },
+    {
+      "check": "containment:no-platform-imports",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:fingerprint-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:generic-catalog",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:generic-catalog-includes-io",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:hooks",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:id-pattern",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:name",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:negative-claims",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:no-console-tokens",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:no-platform-tokens",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:timing-sources",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:version",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:document",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "hooks:audio-capability",
+      "status": "PASS"
+    },
+    {
+      "check": "hooks:audio-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "hooks:graphics-capability",
+      "status": "PASS"
+    },
+    {
+      "check": "hooks:graphics-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "hooks:optional-in-core",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:document",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:valid",
+      "status": "PASS"
+    },
+    {
+      "check": "memory:model",
+      "status": "PASS"
+    },
+    {
+      "check": "profile:document",
+      "status": "PASS"
+    },
+    {
+      "check": "profile:interface",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:base:identity-not-implemented",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:base:memory-not-implemented",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bind:bad-memory",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bind:bad-service",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bind:host-timing",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bind:no-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bind:not-adapter",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:identity:bad-id",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:identity:bad-version",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:identity:empty-description",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:memory:bad-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:memory:empty",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:memory:overlap",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:profile:alias-unknown-target",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:profile:handler-without-interface",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:profile:terminating-handler",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:profile:unknown-interface",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:timing:host",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:timing:negative-ticks",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase4-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "timing:virtual-default",
+      "status": "PASS"
+    },
+    {
+      "check": "validate:bad-memory",
+      "status": "PASS"
+    },
+    {
+      "check": "validate:bad-service",
+      "status": "PASS"
+    },
+    {
+      "check": "validate:host-timing",
+      "status": "PASS"
+    },
+    {
+      "check": "validate:no-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "validate:not-adapter",
+      "status": "PASS"
+    },
+    {
+      "check": "validate:reference",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "binding": {
+      "capabilities": {
+        "audio_hook": false,
+        "console_output": true,
+        "event_delivery": true,
+        "graphics_hook": false,
+        "input_streams": true,
+        "memory": true,
+        "platform_services": false,
+        "timing_virtual": true
+      },
+      "fingerprint": "b4be892e9240c6030dc641736e83f703630442b6f297d7b37deb31ea7c8c029c",
+      "interface_ids": [
+        "or.runtime.exit",
+        "or.runtime.stream_write",
+        "or.runtime.stream_read",
+        "or.runtime.clock_ticks",
+        "or.runtime.input_poll"
+      ]
+    },
+    "components": {
+      "interface_ids": [
+        "or.runtime.exit",
+        "or.runtime.stream_write",
+        "or.runtime.stream_read",
+        "or.runtime.clock_ticks",
+        "or.runtime.input_poll"
+      ]
+    },
+    "contract": {
+      "fingerprint": "f9a536bae0108f4e5f21bf5861fee5c05b94b51ee61aad609c94c319665fd671",
+      "generic_interfaces": [
+        "or.runtime.exit",
+        "or.runtime.stream_write",
+        "or.runtime.stream_read",
+        "or.runtime.clock_ticks",
+        "or.runtime.input_poll"
+      ]
+    },
+    "source_integrity": {
+      "phase3_entries": 24,
+      "phase4_entries": 14,
+      "root_entries": 134
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE4_PLATFORM_ADAPTER_V1=PASS tests=76",
+    "stage": "OPENRECOMP_P4_05=PASS",
+    "terminal": "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN"
+  },
+  "passed": 76,
+  "stage": "P4-05",
+  "stage_name": "OPENRECOMP_PHASE4_PLATFORM_ADAPTER_V1",
+  "status": "PASS",
+  "tests": 76
+}

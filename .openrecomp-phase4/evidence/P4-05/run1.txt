@@ -1,0 +1,91 @@
+=== P4-05 Platform Adapter Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest
+PASS: source:root-manifest-entries
+PASS: source:root-manifest-verified
+PASS: source:phase3-manifest
+PASS: source:phase3-manifest-entries
+PASS: source:phase4-manifest-verified
+
+--- contract ---
+PASS: contract:name
+PASS: contract:version
+PASS: contract:id-pattern
+PASS: contract:timing-sources
+PASS: contract:generic-catalog
+PASS: contract:generic-catalog-includes-io
+PASS: contract:hooks
+PASS: contract:negative-claims
+PASS: contract:fingerprint-stable
+PASS: contract:no-console-tokens
+PASS: contract:no-platform-tokens
+PASS: base:timing-default
+PASS: base:input-default
+PASS: base:service-default
+PASS: base:hooks-default
+PASS: reject:base:identity-not-implemented
+PASS: reject:base:memory-not-implemented
+
+--- components ---
+PASS: identity:valid
+PASS: identity:document
+PASS: reject:identity:bad-id
+PASS: reject:identity:bad-version
+PASS: reject:identity:empty-description
+PASS: memory:model
+PASS: reject:memory:empty
+PASS: reject:memory:overlap
+PASS: reject:memory:bad-entry
+PASS: timing:virtual-default
+PASS: reject:timing:host
+PASS: reject:timing:negative-ticks
+PASS: profile:interface
+PASS: reject:profile:unknown-interface
+PASS: reject:profile:handler-without-interface
+PASS: reject:profile:terminating-handler
+PASS: reject:profile:alias-unknown-target
+PASS: profile:document
+
+--- binding ---
+PASS: validate:reference
+PASS: validate:not-adapter
+PASS: validate:no-identity
+PASS: validate:bad-memory
+PASS: validate:host-timing
+PASS: validate:bad-service
+PASS: reject:bind:not-adapter
+PASS: reject:bind:no-identity
+PASS: reject:bind:bad-memory
+PASS: reject:bind:host-timing
+PASS: reject:bind:bad-service
+PASS: bound:identity
+PASS: bound:memory-code
+PASS: bound:memory-write-data
+PASS: bound:io-input
+PASS: bound:interface-ids
+PASS: bound:capabilities
+PASS: bound:claims
+PASS: bound:alias-output
+PASS: bound:console-output
+PASS: bound:clock
+PASS: bound:poll-empty
+PASS: bound:read
+PASS: bound:unknown-fails-closed
+PASS: bound:document-roundtrip
+PASS: bound:document-no-host-path
+PASS: hooks:graphics-capability
+PASS: hooks:audio-capability
+PASS: hooks:graphics-recorded
+PASS: hooks:audio-recorded
+PASS: hooks:optional-in-core
+PASS: determinism:document
+PASS: determinism:fingerprint
+PASS: containment:no-platform-imports
+PASS: containment:no-fixture-tokens
+
+=== RESULT ===
+OPENRECOMP_P4_05=PASS
+OPENRECOMP_PHASE4_PLATFORM_ADAPTER_V1=PASS tests=76
+OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN

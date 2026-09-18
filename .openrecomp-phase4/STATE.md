@@ -4,8 +4,8 @@ PHASE=4
 BASELINE_TAG=openrecomp-phase3-pass
 BASELINE_COMMIT=e16e4b29b90f379615f1af97e47747cd1d531796
 BASELINE_TREE=a940f0d84a32adaf191f7ff2bebfb24cc855cde0
-CURRENT_STAGE=P4-05
-LAST_PASSED_STAGE=P4-04
+CURRENT_STAGE=P4-06
+LAST_PASSED_STAGE=P4-05
 STATUS=ACTIVE
 GENERIC_RUNTIME_STATUS=NOT_PROVEN
 FINAL_VERDICT=NOT_PROVEN
@@ -75,7 +75,7 @@ QUEUE_FREEZE_STAGES=P4-01..P4-99
 | P4-02 | Guest memory/runtime model | PASS | `.openrecomp-phase4/evidence/P4-02/` |
 | P4-03 | Runtime service mediation | PASS | `.openrecomp-phase4/evidence/P4-03/` |
 | P4-04 | Deterministic I/O, timing and input | PASS | `.openrecomp-phase4/evidence/P4-04/` |
-| P4-05 | Platform Adapter Interface V1 | QUEUED | `.openrecomp-phase4/evidence/P4-05/` |
+| P4-05 | Platform Adapter Interface V1 | PASS | `.openrecomp-phase4/evidence/P4-05/` |
 | P4-06 | Graphics/audio abstraction boundary | QUEUED | `.openrecomp-phase4/evidence/P4-06/` |
 | P4-07 | Interactive legally-clean fixture | QUEUED | `.openrecomp-phase4/evidence/P4-07/` |
 | P4-08 | First platform-adapter execution proof | QUEUED | `.openrecomp-phase4/evidence/P4-08/` |
@@ -102,6 +102,49 @@ QUEUE_FREEZE_STAGES=P4-01..P4-99
    terminal/general compatibility markers stay reserved as `NOT_PROVEN`.
 6. The working tree has no unexpected untracked paths beyond the documented
    Phase-2/Phase-3 sets and the Phase-4 control plane itself.
+
+## P4-05 result (PASS)
+
+Stage: \OPENRECOMP_PHASE4_PLATFORM_ADAPTER_V1\. Evidence:
+\.openrecomp-phase4/evidence/P4-05/\. Gate:
+\	ools/test_phase4_platform_adapter_v1.py\ (76 checks, sha256 łf3130...\).
+
+Markers issued:
+
+- Stage marker: \OPENRECOMP_P4_05=PASS- Gate marker: \OPENRECOMP_PHASE4_PLATFORM_ADAPTER_V1=PASS tests=76- Terminal marker (reserved): \OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN- General compatibility marker (never promoted):
+  \OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN
+Delivered (additive Phase-4 files only; no frozen file modified; the
+P4-01..P4-04 modules and catalogs are unchanged):
+
+- \.openrecomp-phase4/src/p4_platform_adapter_v1.py\: \AdapterIdentity\,
+  \MemoryMap\ (P4-02 region model), \TimingProfile\ (virtual only),
+  \ServiceProfile\ restricted to the approved generic catalog with
+  declarative aliases/handlers, optional graphics/audio \PlatformHooks  over the P2-08 frame/audio contracts, fail-closed
+  \alidate_adapter\/\ind_platform\ composing the P4-02 memory model,
+  P4-04 I/O runtime and P4-03 mediator into a \BoundPlatform\ with explicit
+  capabilities and explicit negative compatibility claims.
+- \	ools/test_phase4_platform_adapter_v1.py\; Phase-4 manifest grown
+  additively to fourteen entries.
+
+Verified: the contract contains no console/renderer/audio-backend names;
+invalid identities, host timing, invalid memory maps and unbindable service
+profiles fail closed; the synthetic reference adapter binds to the generic
+layers, aliases raw output onto the generic stream interface, and records
+\console_compatibility=false\/\rbitrary_binary_compatibility=false\.
+Two official runs byte-identical (2631 bytes raw \849af7fd...\, empty
+stderr, exit 0) with \p4_05_tests.json\ identical across runs
+((e1bfb5...\).
+
+Regressions: P2-08 \PASS tests=169\, P4-01 \PASS tests=156(\81c96314...\), P4-02 \PASS tests=113\ (cfc58f1...\), P4-03
+\PASS tests=86\ (\cc2f73da...\), P4-04 \PASS tests=101(\e55ad6cb...\), Phase-1 host gates \PASS=44 FAIL=0 SKIPPED=2\, public
+safety \PASS\, P4-00 \PASS tests=74\ (\953312d0...\) with the
+documented boundary-context hygiene.
+
+Limitations: V1 admits platform-specific behaviour only through the approved
+generic interfaces (aliases/handlers); adapter-defined interface names are
+rejected; only a synthetic reference adapter is exercised and no console
+support is claimed; graphics/audio hook boundaries are P4-06 scope;
+\GENERIC_RUNTIME_STATUS=NOT_PROVEN\.
 
 ## P4-04 result (PASS)
 

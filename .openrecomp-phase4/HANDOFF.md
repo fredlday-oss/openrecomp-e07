@@ -3,8 +3,8 @@
 STATUS: Phase 4 `ACTIVE` — P4-00 (Phase-4 boundary) `PASS`; P4-01 (Generic
 Runtime ABI V1) `PASS`; P4-02 (Guest memory/runtime model) `PASS`; P4-03
 (Runtime service mediation) `PASS`; P4-04 (Deterministic I/O, timing and
-input) `PASS`; P4-05 (Platform Adapter Interface V1) is the executing stage.
-The frozen
+input) `PASS`; P4-05 (Platform Adapter Interface V1) `PASS`; P4-06
+(Graphics/audio abstraction boundary) is the executing stage. The frozen
 Phase-4 queue (`P4-01` .. `P4-99`) is frozen by `.openrecomp-phase4/STAGE_QUEUE.md`
 (`## Queue freeze`) at the P4-00 `PASS` boundary, before any P4-01
 implementation work. Phase 3 is complete and frozen at annotated tag
@@ -29,6 +29,33 @@ Reserved markers:
 - `OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN` (P4-99 may issue PASS
   for the bounded claim only)
 - `OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN` (never promoted)
+
+## P4-05 outcome (PASS)
+
+Markers: `OPENRECOMP_P4_05=PASS`,
+`OPENRECOMP_PHASE4_PLATFORM_ADAPTER_V1=PASS tests=76`; terminal and general
+compatibility markers reserved as `NOT_PROVEN`.
+
+- New files: `.openrecomp-phase4/src/p4_platform_adapter_v1.py` (identity,
+  memory map, virtual timing, generic-catalog-only service profile with
+  aliases/handlers, optional graphics/audio hooks, fail-closed validation and
+  binding composing P4-02/P4-03/P4-04 into a `BoundPlatform` with explicit
+  capabilities and negative compatibility claims) and
+  `tools/test_phase4_platform_adapter_v1.py`; the Phase-4 manifest grew
+  additively to fourteen entries.
+- The contract contains no console/renderer/audio-backend names; invalid
+  adapters fail closed; the synthetic reference adapter binds and records
+  `console_compatibility=false`/`arbitrary_binary_compatibility=false`.
+- Two official runs byte-identical raw (`849af7fd...`, 2631 bytes) and LF,
+  empty stderr, exit 0; `p4_05_tests.json` identical across runs
+  (`50e1bfb5...`).
+- Regressions: P2-08 `PASS tests=169`, P4-01 `PASS tests=156`
+  (`81c96314...`), P4-02 `PASS tests=113` (`5cfc58f1...`), P4-03
+  `PASS tests=86` (`cc2f73da...`), P4-04 `PASS tests=101` (`e55ad6cb...`),
+  Phase-1 host gates `PASS=44 FAIL=0 SKIPPED=2`, public safety `PASS`,
+  P4-00 `PASS tests=74` (`953312d0...`) with the documented boundary-context
+  hygiene.
+- Evidence: `.openrecomp-phase4/evidence/P4-05/`.
 
 ## P4-04 outcome (PASS)
 
@@ -187,17 +214,17 @@ compatibility markers reserved as `NOT_PROVEN`.
 
 ## Exact next action
 
-Execute P4-05 (Platform Adapter Interface V1): define an architecture-neutral
-platform-adapter contract through which future platform-specific
-implementations can provide memory maps, services, timing, input,
-graphics/audio hooks or other platform behaviour without contaminating the
-recompiler core, building on the P4-01..P4-04 layers. Add its sources and
-gate to `.openrecomp-phase4/SOURCE_SHA256SUMS.txt`, run the official gate
-twice with deterministic evidence, run the required regressions (P2-08,
-P4-01, P4-02, P4-03, P4-04, Phase-1 host gates, public safety, and P4-00
-using the documented frozen-gate boundary-context hygiene), update the
-control plane and commit the P4-05 boundary. Do not claim any console support
-merely because the adapter interface exists.
+Execute P4-06 (Graphics/audio abstraction boundary): define reusable graphics
+and audio adapter boundaries suitable for later backend implementations,
+without making RT64, SDL, Vulkan, Direct3D or any particular renderer/audio
+system mandatory to the OpenRecomp core; backend-specific integrations remain
+future adapters only. Build on the P4-05 hook slots and the P2-08
+frame/audio contracts. Add sources and gate to
+`.openrecomp-phase4/SOURCE_SHA256SUMS.txt`, run the official gate twice with
+deterministic evidence, run the required regressions (P2-08, P4-01..P4-05,
+Phase-1 host gates, public safety, and P4-00 using the documented frozen-gate
+boundary-context hygiene), update the control plane and commit the P4-06
+boundary.
 
 ## Constraints
 
