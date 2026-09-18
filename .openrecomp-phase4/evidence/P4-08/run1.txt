@@ -1,0 +1,92 @@
+=== P4-08 Platform-Adapter Execution Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest
+PASS: source:root-manifest-entries
+PASS: source:root-manifest-verified
+PASS: source:phase3-manifest
+PASS: source:phase3-manifest-entries
+PASS: source:phase4-manifest-verified
+
+--- translation ---
+PASS: fixture:elf-sha256
+PASS: fixture:rebuild-identity
+PASS: fixture:region-count
+PASS: fixture:region-kinds
+PASS: fixture:model-entry-fetch
+PASS: translation:reachable-words
+PASS: translation:program-sha256
+PASS: translation:support-sha256
+PASS: translation:deterministic
+PASS: translation:profile-valid
+PASS: translation:program-compliant
+PASS: translation:support-compliant
+PASS: translation:profile-artifacts
+PASS: translation:service-macros
+PASS: translation:all-reachable-emitted
+PASS: translation:no-duplicate-cases
+PASS: translation:entry-case
+PASS: translation:reserved-words-not-emitted
+PASS: reject:emission-unsupported-op
+
+--- build ---
+PASS: build:status-ok
+PASS: build:classification
+PASS: build:executable-reproducible
+PASS: build:manifest-reproducible
+PASS: build:manifest-deterministic
+PASS: build:toolchain-identity
+PASS: build:no-host-path-leak
+PASS: build:executable-sha256
+PASS: build:artifact-set
+
+--- execution ---
+PASS: execution:replay-identical
+PASS: execution:stdout-sha256
+PASS: execution:no-failure
+PASS: execution:exit-status
+PASS: execution:steps
+PASS: execution:pc
+PASS: execution:state-digest
+PASS: execution:transcript-header
+PASS: execution:transcript-line-count
+PASS: execution:transcript:input_bytes
+PASS: execution:transcript:input_xor
+PASS: execution:transcript:fib10
+PASS: execution:transcript:prime_count
+PASS: execution:transcript:primes_sum
+PASS: execution:transcript:bss_sum
+PASS: execution:transcript:heap_sum
+PASS: execution:transcript:checksum
+PASS: execution:transcript:ticks_start
+PASS: execution:transcript:ticks_end
+PASS: execution:output-bytes
+
+--- adapter ---
+PASS: adapter:valid
+PASS: adapter:interface-ids
+PASS: adapter:capabilities
+PASS: adapter:negative-claims
+PASS: adapter:memory-fetch
+PASS: adapter:out-alias
+PASS: adapter:out-byte
+PASS: adapter:in-alias
+PASS: adapter:ticks-alias
+PASS: adapter:ticks-read
+PASS: adapter:exit-alias
+PASS: adapter:post-exit-fails-closed
+PASS: adapter:unknown-fails-closed
+PASS: adapter:profile-matches-translation
+PASS: adapter:document-roundtrip
+
+--- negatives ---
+PASS: negative:step-limit-patched
+PASS: negative:step-limit
+PASS: negative:unmapped-store-patched
+PASS: negative:unmapped-store
+
+=== RESULT ===
+OPENRECOMP_P4_08=PASS
+OPENRECOMP_PHASE4_ADAPTER_EXECUTION_V1=PASS tests=73
+OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN

@@ -1,0 +1,55 @@
+{
+  "entry": "0x1c00",
+  "profile": "p4-fixture-mips32-o32",
+  "program_sha256": "abd138ea391fb48cd5ba17b54f56f93a77aaa6ebab201d715210635a7f1edc48",
+  "reachable_words": 774,
+  "services": [
+    {
+      "arg_types": [
+        "u32"
+      ],
+      "description": "Terminate the fixture run with a 32-bit status.",
+      "macro": "OR_RT_SERVICE_FIXTURE_EXIT",
+      "numeric_id": 1,
+      "result_type": null,
+      "service_id": "fixture.exit",
+      "terminates_run": true,
+      "version": "1.0.0"
+    },
+    {
+      "arg_types": [],
+      "description": "Read one byte of the deterministic input plan (0xffffffff at end).",
+      "macro": "OR_RT_SERVICE_FIXTURE_IN",
+      "numeric_id": 2,
+      "result_type": "u32",
+      "service_id": "fixture.in",
+      "terminates_run": false,
+      "version": "1.0.0"
+    },
+    {
+      "arg_types": [
+        "u32"
+      ],
+      "description": "Append one byte to the bounded fixture transcript.",
+      "macro": "OR_RT_SERVICE_FIXTURE_OUT",
+      "numeric_id": 3,
+      "result_type": null,
+      "service_id": "fixture.out",
+      "terminates_run": false,
+      "version": "1.0.0"
+    },
+    {
+      "arg_types": [],
+      "description": "Read the virtual tick count (retired guest steps).",
+      "macro": "OR_RT_SERVICE_FIXTURE_TICKS",
+      "numeric_id": 4,
+      "result_type": "u32",
+      "service_id": "fixture.ticks",
+      "terminates_run": false,
+      "version": "1.0.0"
+    }
+  ],
+  "source_elf_sha256": "acb4f4e57a7f996e87989e99d702d802259b752aabb2476f574665ef061969bc",
+  "stage": "P4-08",
+  "support_sha256": "755a004630560ae606ce571c2c111934b94e945db6c4c6d6aea5c105a2b8a8fd"
+}

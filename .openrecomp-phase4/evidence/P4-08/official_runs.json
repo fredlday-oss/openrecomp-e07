@@ -1,0 +1,48 @@
+{
+  "identical_lf": true,
+  "identical_raw": true,
+  "newline_policy": "captures are stored and compared LF-normalized; the raw hash is recorded as well because this host emits CRLF through the stdout pipe",
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P4_08=PASS",
+        "OPENRECOMP_PHASE4_ADAPTER_EXECUTION_V1=PASS tests=73",
+        "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p4_08_tests_sha256": "84f60df60dc6a1ce36d7ac47c6d0cb6be57d5c212e6aaa125a206f05c95810b8",
+      "returncode": 0,
+      "script": "tools/test_phase4_adapter_execution_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes_lf": 2674,
+      "stdout_bytes_raw": 2766,
+      "stdout_sha256_lf": "60be7427d95b97f4e80871ac1b752f01d7ecbbe3f44b4649a6796ea15db18eaa",
+      "stdout_sha256_raw": "4449d842df0a6087d44b693aa39776b86583a0c909321f3ad1b619d8664ccded"
+    },
+    {
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P4_08=PASS",
+        "OPENRECOMP_PHASE4_ADAPTER_EXECUTION_V1=PASS tests=73",
+        "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p4_08_tests_sha256": "84f60df60dc6a1ce36d7ac47c6d0cb6be57d5c212e6aaa125a206f05c95810b8",
+      "returncode": 0,
+      "script": "tools/test_phase4_adapter_execution_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes_lf": 2674,
+      "stdout_bytes_raw": 2766,
+      "stdout_sha256_lf": "60be7427d95b97f4e80871ac1b752f01d7ecbbe3f44b4649a6796ea15db18eaa",
+      "stdout_sha256_raw": "4449d842df0a6087d44b693aa39776b86583a0c909321f3ad1b619d8664ccded"
+    }
+  ],
+  "stage": "P4-08",
+  "stderr_empty_both": true
+}

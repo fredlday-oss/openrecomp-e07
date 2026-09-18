@@ -1,0 +1,110 @@
+{
+  "classification": "EXECUTABLE_REPRODUCIBLE",
+  "executable_sha256": "c966e1854dcc9c9169859b20ef40c07810e7d40d7dc7700b2e202a168e5b3caa",
+  "manifest_sha256": "35774b83db32bf0f15f94b2bf5d4b4255d23a42d8737374ef7d8b7063db2fc78",
+  "runs": [
+    {
+      "compile_commands": [
+        [
+          "clang-cl.exe",
+          "/c",
+          "/Brepro",
+          "/Od",
+          "/std:c11",
+          "/nologo",
+          "/Fo:generated.obj",
+          "generated.c"
+        ],
+        [
+          "clang-cl.exe",
+          "/c",
+          "/Brepro",
+          "/Od",
+          "/std:c11",
+          "/nologo",
+          "/Fo:p4_fixture_support.obj",
+          "p4_fixture_support.c"
+        ]
+      ],
+      "index": 0,
+      "link_command": [
+        "lld-link.exe",
+        "/Brepro",
+        "/nologo",
+        "/OUT:program.exe",
+        "generated.obj",
+        "p4_fixture_support.obj"
+      ],
+      "manifest_sha256": "35774b83db32bf0f15f94b2bf5d4b4255d23a42d8737374ef7d8b7063db2fc78",
+      "outputs": [
+        {
+          "kind": "OBJECT",
+          "name": "generated.obj",
+          "sha256": "0f55af6d64a542bb7993556c5a2f38e09096d7cce2a7440a8fd5eb610d675cfd"
+        },
+        {
+          "kind": "OBJECT",
+          "name": "p4_fixture_support.obj",
+          "sha256": "1ac4c0baf2e033680272ceb39460cacbb0b0223be0b4a876e3a3ba0ceda2c13b"
+        },
+        {
+          "kind": "EXECUTABLE",
+          "name": "program.exe",
+          "sha256": "c966e1854dcc9c9169859b20ef40c07810e7d40d7dc7700b2e202a168e5b3caa"
+        }
+      ]
+    },
+    {
+      "compile_commands": [
+        [
+          "clang-cl.exe",
+          "/c",
+          "/Brepro",
+          "/Od",
+          "/std:c11",
+          "/nologo",
+          "/Fo:generated.obj",
+          "generated.c"
+        ],
+        [
+          "clang-cl.exe",
+          "/c",
+          "/Brepro",
+          "/Od",
+          "/std:c11",
+          "/nologo",
+          "/Fo:p4_fixture_support.obj",
+          "p4_fixture_support.c"
+        ]
+      ],
+      "index": 1,
+      "link_command": [
+        "lld-link.exe",
+        "/Brepro",
+        "/nologo",
+        "/OUT:program.exe",
+        "generated.obj",
+        "p4_fixture_support.obj"
+      ],
+      "manifest_sha256": "35774b83db32bf0f15f94b2bf5d4b4255d23a42d8737374ef7d8b7063db2fc78",
+      "outputs": [
+        {
+          "kind": "OBJECT",
+          "name": "generated.obj",
+          "sha256": "0f55af6d64a542bb7993556c5a2f38e09096d7cce2a7440a8fd5eb610d675cfd"
+        },
+        {
+          "kind": "OBJECT",
+          "name": "p4_fixture_support.obj",
+          "sha256": "1ac4c0baf2e033680272ceb39460cacbb0b0223be0b4a876e3a3ba0ceda2c13b"
+        },
+        {
+          "kind": "EXECUTABLE",
+          "name": "program.exe",
+          "sha256": "c966e1854dcc9c9169859b20ef40c07810e7d40d7dc7700b2e202a168e5b3caa"
+        }
+      ]
+    }
+  ],
+  "stage": "P4-08"
+}

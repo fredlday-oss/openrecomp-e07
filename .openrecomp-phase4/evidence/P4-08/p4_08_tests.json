@@ -1,0 +1,446 @@
+{
+  "checks": [
+    {
+      "check": "adapter:capabilities",
+      "status": "PASS"
+    },
+    {
+      "check": "adapter:document-roundtrip",
+      "status": "PASS"
+    },
+    {
+      "check": "adapter:exit-alias",
+      "status": "PASS"
+    },
+    {
+      "check": "adapter:in-alias",
+      "status": "PASS"
+    },
+    {
+      "check": "adapter:interface-ids",
+      "status": "PASS"
+    },
+    {
+      "check": "adapter:memory-fetch",
+      "status": "PASS"
+    },
+    {
+      "check": "adapter:negative-claims",
+      "status": "PASS"
+    },
+    {
+      "check": "adapter:out-alias",
+      "status": "PASS"
+    },
+    {
+      "check": "adapter:out-byte",
+      "status": "PASS"
+    },
+    {
+      "check": "adapter:post-exit-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "adapter:profile-matches-translation",
+      "status": "PASS"
+    },
+    {
+      "check": "adapter:ticks-alias",
+      "status": "PASS"
+    },
+    {
+      "check": "adapter:ticks-read",
+      "status": "PASS"
+    },
+    {
+      "check": "adapter:unknown-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "adapter:valid",
+      "status": "PASS"
+    },
+    {
+      "check": "build:artifact-set",
+      "status": "PASS"
+    },
+    {
+      "check": "build:classification",
+      "status": "PASS"
+    },
+    {
+      "check": "build:executable-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build:executable-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "build:manifest-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "build:manifest-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build:no-host-path-leak",
+      "status": "PASS"
+    },
+    {
+      "check": "build:status-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "build:toolchain-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:exit-status",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:output-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:pc",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:replay-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:state-digest",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:stdout-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:steps",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:transcript-header",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:transcript-line-count",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:transcript:bss_sum",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:transcript:checksum",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:transcript:fib10",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:transcript:heap_sum",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:transcript:input_bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:transcript:input_xor",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:transcript:prime_count",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:transcript:primes_sum",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:transcript:ticks_end",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:transcript:ticks_start",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:elf-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:model-entry-fetch",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:rebuild-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:region-count",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:region-kinds",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:step-limit",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:step-limit-patched",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unmapped-store",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unmapped-store-patched",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:emission-unsupported-op",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase4-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "translation:all-reachable-emitted",
+      "status": "PASS"
+    },
+    {
+      "check": "translation:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "translation:entry-case",
+      "status": "PASS"
+    },
+    {
+      "check": "translation:no-duplicate-cases",
+      "status": "PASS"
+    },
+    {
+      "check": "translation:profile-artifacts",
+      "status": "PASS"
+    },
+    {
+      "check": "translation:profile-valid",
+      "status": "PASS"
+    },
+    {
+      "check": "translation:program-compliant",
+      "status": "PASS"
+    },
+    {
+      "check": "translation:program-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "translation:reachable-words",
+      "status": "PASS"
+    },
+    {
+      "check": "translation:reserved-words-not-emitted",
+      "status": "PASS"
+    },
+    {
+      "check": "translation:service-macros",
+      "status": "PASS"
+    },
+    {
+      "check": "translation:support-compliant",
+      "status": "PASS"
+    },
+    {
+      "check": "translation:support-sha256",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "adapter": {
+      "capabilities": {
+        "audio_hook": true,
+        "console_output": true,
+        "event_delivery": false,
+        "graphics_hook": true,
+        "input_streams": true,
+        "memory": true,
+        "platform_services": false,
+        "timing_virtual": true
+      },
+      "fingerprint": "8e450d6ec487f3b93908b303691b90560a53d0f502c2175d36facb95eff2660b"
+    },
+    "build": {
+      "classification": "EXECUTABLE_REPRODUCIBLE",
+      "executable_sha256": "c966e1854dcc9c9169859b20ef40c07810e7d40d7dc7700b2e202a168e5b3caa",
+      "manifest_sha256": "35774b83db32bf0f15f94b2bf5d4b4255d23a42d8737374ef7d8b7063db2fc78"
+    },
+    "execution": {
+      "pc": "0x00001bf4",
+      "state_fnv1a64": "0x5185479717fe4020",
+      "stdout_sha256": "8a96b7083c04f63e7c0ed8181f3462e9a73d41e9f40ea67ccd66e85d76cb1c50",
+      "steps": 6784,
+      "transcript": [
+        "P4FIXTURE v1",
+        "input_bytes=4",
+        "input_xor=136",
+        "fib10=55",
+        "prime_count=16",
+        "primes_sum=381",
+        "bss_sum=4028012831",
+        "heap_sum=3784880468",
+        "checksum=0xd43e5ba6",
+        "ticks_start=19",
+        "ticks_end=6691"
+      ]
+    },
+    "negatives": [
+      {
+        "failed": "1",
+        "failure": "step limit exceeded",
+        "name": "step-limit"
+      },
+      {
+        "failed": "1",
+        "failure": "MEMORY_OUT_OF_RANGE",
+        "name": "unmapped-store"
+      }
+    ],
+    "source_integrity": {
+      "phase3_entries": 24,
+      "phase4_entries": 25,
+      "root_entries": 134
+    },
+    "translation": {
+      "profile": {
+        "abi_version": "1.0.0",
+        "artifacts": [
+          {
+            "path": ".openrecomp-phase4/build/P4-07/candidate-a/p4_fixture_mips32_O1.elf",
+            "sha256": "acb4f4e57a7f996e87989e99d702d802259b752aabb2476f574665ef061969bc"
+          }
+        ],
+        "aux_registers": [
+          {
+            "accessor": "openrecomp_hi",
+            "c_type": "uint32_t",
+            "name": "hi"
+          },
+          {
+            "accessor": "openrecomp_lo",
+            "c_type": "uint32_t",
+            "name": "lo"
+          }
+        ],
+        "endianness": "little",
+        "entry_return_policy": "fault",
+        "name": "p4-fixture-mips32-o32",
+        "register_count": 32,
+        "services": [
+          {
+            "arg_types": [
+              "u32"
+            ],
+            "description": "Terminate the fixture run with a 32-bit status.",
+            "macro": "OR_RT_SERVICE_FIXTURE_EXIT",
+            "numeric_id": 1,
+            "result_type": null,
+            "service_id": "fixture.exit",
+            "terminates_run": true,
+            "version": "1.0.0"
+          },
+          {
+            "arg_types": [],
+            "description": "Read one byte of the deterministic input plan (0xffffffff at end).",
+            "macro": "OR_RT_SERVICE_FIXTURE_IN",
+            "numeric_id": 2,
+            "result_type": "u32",
+            "service_id": "fixture.in",
+            "terminates_run": false,
+            "version": "1.0.0"
+          },
+          {
+            "arg_types": [
+              "u32"
+            ],
+            "description": "Append one byte to the bounded fixture transcript.",
+            "macro": "OR_RT_SERVICE_FIXTURE_OUT",
+            "numeric_id": 3,
+            "result_type": null,
+            "service_id": "fixture.out",
+            "terminates_run": false,
+            "version": "1.0.0"
+          },
+          {
+            "arg_types": [],
+            "description": "Read the virtual tick count (retired guest steps).",
+            "macro": "OR_RT_SERVICE_FIXTURE_TICKS",
+            "numeric_id": 4,
+            "result_type": "u32",
+            "service_id": "fixture.ticks",
+            "terminates_run": false,
+            "version": "1.0.0"
+          }
+        ],
+        "widths": [
+          8,
+          16,
+          32
+        ]
+      },
+      "program_sha256": "abd138ea391fb48cd5ba17b54f56f93a77aaa6ebab201d715210635a7f1edc48",
+      "reachable_words": 774,
+      "support_sha256": "755a004630560ae606ce571c2c111934b94e945db6c4c6d6aea5c105a2b8a8fd"
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE4_ADAPTER_EXECUTION_V1=PASS tests=73",
+    "stage": "OPENRECOMP_P4_08=PASS",
+    "terminal": "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN"
+  },
+  "passed": 73,
+  "stage": "P4-08",
+  "stage_name": "OPENRECOMP_PHASE4_ADAPTER_EXECUTION_V1",
+  "status": "PASS",
+  "tests": 73
+}

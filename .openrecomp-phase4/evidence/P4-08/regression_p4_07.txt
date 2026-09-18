@@ -1,0 +1,66 @@
+=== P4-07 Interactive Fixture Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest
+PASS: source:root-manifest-entries
+PASS: source:root-manifest-verified
+PASS: source:phase3-manifest
+PASS: source:phase3-manifest-entries
+PASS: source:phase4-manifest-verified
+
+--- provenance ---
+PASS: provenance:files-present
+PASS: provenance:license-statement
+PASS: provenance:no-third-party
+PASS: provenance:no-forbidden-tokens
+PASS: provenance:original-headers
+PASS: provenance:start-stub
+PASS: provenance:repo-license
+
+--- build ---
+PASS: toolchain:zig-present
+PASS: toolchain:version
+PASS: build:byte-identical
+PASS: build:minimal-size
+PASS: build:elf-sha256-pinned
+PASS: build:elf-size-pinned
+
+--- ingestion ---
+PASS: ingest:identity-fields
+PASS: ingest:required-sections
+PASS: ingest:entry-in-text
+PASS: ingest:no-dynamic
+PASS: ingest:bss-zero-fill
+PASS: ingest:data-initialised
+PASS: ingest:identity-flags
+PASS: ingest:image-identity
+PASS: frontier:unknown-encodings
+PASS: frontier:reachable-invalid
+PASS: frontier:reachable-words
+PASS: frontier:reachable-ops-in-bounded-class
+PASS: frontier:no-unresolved-flow
+PASS: frontier:no-indirect-jumps
+PASS: frontier:no-indirect-calls
+PASS: frontier:no-unsupported-control
+PASS: frontier:has-direct-calls
+PASS: frontier:has-branches
+PASS: frontier:has-returns
+
+--- features ---
+PASS: features:reachable-words
+PASS: features:supported-words
+PASS: features:function-scale
+PASS: features:region-model
+PASS: plan:terminator
+PASS: plan:has-input-bytes
+PASS: plan:tick-policy
+PASS: model:checksum-32bit
+PASS: model:known-fib10
+PASS: model:known-primes-sum
+PASS: model:known-checksum
+
+=== RESULT ===
+OPENRECOMP_P4_07=PASS
+OPENRECOMP_PHASE4_FIXTURE_V1=PASS tests=49
+OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN
