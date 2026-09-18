@@ -467,6 +467,37 @@ general markers reserved as `NOT_PROVEN`.
   `85664a79...` in both runs.
 - Evidence: `.openrecomp-phase6/evidence/P6-12/`.
 
+## P6-13 outcome (PASS)
+
+Markers: `OPENRECOMP_P6_13=PASS`,
+`OPENRECOMP_PHASE6_PRIVATE_COMPAT_RUN2_V1=PASS tests=66`; terminal and general
+markers reserved as `NOT_PROVEN`.
+
+- New gate (`tools/test_phase6_private_workflow_v1.py`) runs the private local
+  compatibility image through the frozen P6-12 workflow (metadata/hash only,
+  no ROM bytes copied, written or echoed).
+- Ingestion `SUPPORTED_MMC1` (8 x 16 KiB PRG, 16 x 8 KiB CHR, no
+  PRG-RAM/battery); power-on registers `0C 00 00 00`, PRG windows `(0, 7)`,
+  CHR mode 0, one-screen lower. The documented-control-flow walk fails closed;
+  the candidate traversal reaches 1250 instructions / 2711 bytes (202 fixed,
+  1048 low window), 42 opcode forms.
+- Exact remaining blockers, byte-equal to the committed P6-10 and P6-12
+  records: undocumented opcode `0x7C` at `0xC570`, unresolved `jmp ($E2)` at
+  `0x86E8`/`0x8956`/`0x8F3C`, 1048 power-on low-window candidates and
+  `NOT_TESTED` runtime platform. No blocker was guessed or patched.
+- Progress: translation `NOT_ATTEMPTED`, generated sources `NOT_GENERATED`
+  (workspace empty; MMC1 runtime support identity `2e3fa4ba...` re-derived in
+  memory only), native build/execution `NOT_ATTEMPTED`, platform `NOT_TESTED`.
+  Native execution reached: no; meaningful interactive behaviour: no.
+  Public claim: `none`.
+- Regressions: frozen NES tools plus P6-01 (`2bfd8a5e...`), P6-05
+  (`315fd5ea...`) and P6-09 (`0144086e...`, `tests=100`) all exit 0 with empty
+  stderr and match the recorded captures.
+- Two official runs byte-identical raw (`404dd00b...`, 3261 bytes) and LF
+  (`5cf90e87...`), empty stderr, exit 0; `p6_13_tests.json` sha256
+  `c9e815d6...` in both runs.
+- Evidence: `.openrecomp-phase6/evidence/P6-13/`.
+
 ## Exact next action
 
-Proceed to P6-13 - Second private TMNT compatibility run.
+Proceed to P6-90 - Whole regression.

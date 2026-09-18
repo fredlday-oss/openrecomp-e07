@@ -1,0 +1,461 @@
+{
+  "classification": "PRIVATE_LOCAL_COMPATIBILITY_FIXTURE",
+  "interactive_behaviour_reached": false,
+  "native_execution_reached": false,
+  "public_claim": "none; private local analysis must not enter any public package",
+  "report": {
+    "blockers": [
+      {
+        "classification": "unsupported_opcode",
+        "code": "BLOCKED_UNSUPPORTED_OPCODE",
+        "detail": "documented-control-flow walk fails closed at 0xc570 (0xc570: undocumented 6502 opcode 0x7c) after 1250 candidate instructions; no code/data boundary evidence is declared",
+        "stage": "opcode_frontier"
+      },
+      {
+        "classification": "unresolved_indirect_control_flow",
+        "code": "BLOCKED_UNRESOLVED_INDIRECT_CONTROL_FLOW",
+        "detail": "unresolved indirect jump sites at 0x86e8, 0x8956, 0x8f3c through zero-page pointer(s) 0x00e2; runtime jump-table targets must not be guessed",
+        "stage": "indirect_control_flow"
+      },
+      {
+        "classification": "bank_state_unresolved",
+        "code": "BLOCKED_BANK_STATE_UNRESOLVED",
+        "detail": "1048 candidate instructions reach the mapper-switched $8000-$BFFF window under the power-on PRG bank only; runtime bank-state evidence is required to resolve the actual bank sequence",
+        "stage": "bank_state"
+      },
+      {
+        "classification": "platform_runtime_not_tested",
+        "code": "NOT_TESTED",
+        "detail": "PPU/APU/input/timing requirements beyond the bounded Phase-5/6 platform model cannot be assessed until translation completes",
+        "stage": "runtime_platform"
+      }
+    ],
+    "frontier": {
+      "candidate": {
+        "basis": "power-on MMC1 frame (fixed last bank at $C000-$FFFF, PRG register bank in the $8000-$BFFF window); documented static control flow only, indirect jumps never guessed",
+        "budget": 20000,
+        "bytes": 2711,
+        "claim": "CANDIDATE / NOT PROVEN",
+        "distinct_opcode_forms": 42,
+        "dynamic_returns": [
+          {
+            "address": 34379,
+            "instruction": "rts"
+          },
+          {
+            "address": 34424,
+            "instruction": "rts"
+          },
+          {
+            "address": 34647,
+            "instruction": "rts"
+          },
+          {
+            "address": 34794,
+            "instruction": "rts"
+          },
+          {
+            "address": 34805,
+            "instruction": "rts"
+          },
+          {
+            "address": 34966,
+            "instruction": "rts"
+          },
+          {
+            "address": 34980,
+            "instruction": "rts"
+          },
+          {
+            "address": 35001,
+            "instruction": "rts"
+          },
+          {
+            "address": 35017,
+            "instruction": "rts"
+          },
+          {
+            "address": 35023,
+            "instruction": "rts"
+          },
+          {
+            "address": 35041,
+            "instruction": "rts"
+          },
+          {
+            "address": 35049,
+            "instruction": "rts"
+          },
+          {
+            "address": 35110,
+            "instruction": "rts"
+          },
+          {
+            "address": 35204,
+            "instruction": "rts"
+          },
+          {
+            "address": 35272,
+            "instruction": "rts"
+          },
+          {
+            "address": 35653,
+            "instruction": "rts"
+          },
+          {
+            "address": 35821,
+            "instruction": "rts"
+          },
+          {
+            "address": 35883,
+            "instruction": "rts"
+          },
+          {
+            "address": 35953,
+            "instruction": "rts"
+          },
+          {
+            "address": 36036,
+            "instruction": "rts"
+          },
+          {
+            "address": 36079,
+            "instruction": "rts"
+          },
+          {
+            "address": 36090,
+            "instruction": "rts"
+          },
+          {
+            "address": 36098,
+            "instruction": "rts"
+          },
+          {
+            "address": 36700,
+            "instruction": "rts"
+          },
+          {
+            "address": 36765,
+            "instruction": "rts"
+          },
+          {
+            "address": 36778,
+            "instruction": "rts"
+          },
+          {
+            "address": 36791,
+            "instruction": "rts"
+          },
+          {
+            "address": 36901,
+            "instruction": "rts"
+          },
+          {
+            "address": 36958,
+            "instruction": "rts"
+          },
+          {
+            "address": 36980,
+            "instruction": "rts"
+          },
+          {
+            "address": 37030,
+            "instruction": "rts"
+          },
+          {
+            "address": 37049,
+            "instruction": "rts"
+          },
+          {
+            "address": 37254,
+            "instruction": "rts"
+          },
+          {
+            "address": 50194,
+            "instruction": "rti"
+          },
+          {
+            "address": 50227,
+            "instruction": "rts"
+          },
+          {
+            "address": 50271,
+            "instruction": "rts"
+          },
+          {
+            "address": 50341,
+            "instruction": "rts"
+          },
+          {
+            "address": 50413,
+            "instruction": "rts"
+          },
+          {
+            "address": 50457,
+            "instruction": "rts"
+          },
+          {
+            "address": 50468,
+            "instruction": "rts"
+          },
+          {
+            "address": 50505,
+            "instruction": "rts"
+          },
+          {
+            "address": 52956,
+            "instruction": "rts"
+          }
+        ],
+        "fixed_window_instructions": 202,
+        "indirect_sites": [
+          {
+            "address": 34536,
+            "instruction": "jmp",
+            "pointer": 226
+          },
+          {
+            "address": 35158,
+            "instruction": "jmp",
+            "pointer": 226
+          },
+          {
+            "address": 36668,
+            "instruction": "jmp",
+            "pointer": 226
+          }
+        ],
+        "instructions": 1250,
+        "interrupt_sites": [],
+        "low_window_instructions": 1048,
+        "low_window_range": [
+          34330,
+          37267
+        ],
+        "mode_histogram": {
+          "abs": 223,
+          "absx": 199,
+          "absy": 18,
+          "acc": 53,
+          "imm": 203,
+          "impl": 179,
+          "ind": 3,
+          "indy": 35,
+          "rel": 158,
+          "zp": 170,
+          "zpx": 9
+        },
+        "opcode_histogram": {
+          "adc": 17,
+          "and": 53,
+          "asl": 16,
+          "bcc": 19,
+          "bcs": 26,
+          "beq": 56,
+          "bmi": 11,
+          "bne": 45,
+          "bpl": 1,
+          "clc": 13,
+          "cmp": 55,
+          "cpx": 25,
+          "cpy": 1,
+          "dec": 12,
+          "dex": 2,
+          "dey": 8,
+          "eor": 1,
+          "inc": 25,
+          "inx": 4,
+          "iny": 27,
+          "jmp": 63,
+          "jsr": 52,
+          "lda": 257,
+          "ldx": 19,
+          "ldy": 13,
+          "lsr": 39,
+          "ora": 20,
+          "pha": 10,
+          "pla": 11,
+          "rol": 6,
+          "ror": 2,
+          "rti": 1,
+          "rts": 41,
+          "sbc": 9,
+          "sec": 11,
+          "sta": 213,
+          "stx": 2,
+          "sty": 13,
+          "tax": 13,
+          "tay": 20,
+          "txa": 8,
+          "tya": 10
+        },
+        "outside_targets": [],
+        "pending_at_stop": 11,
+        "stop": {
+          "address": 50544,
+          "kind": "undocumented_opcode",
+          "predecessor": {
+            "address": 50541,
+            "instruction": "jsr"
+          },
+          "reason": "0xc570: undocumented 6502 opcode 0x7c"
+        },
+        "truncated": false
+      },
+      "code_region": null,
+      "contiguous": false,
+      "documented_error": "reachable decode failed at 0xc570: 0xc570: undocumented 6502 opcode 0x7c",
+      "documented_status": "FAIL_CLOSED"
+    },
+    "generated_sources": {
+      "reason": "translation is blocked; no ROM-derived source is written",
+      "status": "NOT_GENERATED"
+    },
+    "indirect_control_flow": {
+      "sites": [
+        {
+          "address": 34536,
+          "classification": "UNRESOLVED_INDIRECT_JUMP",
+          "instruction": "jmp",
+          "pointer": 226,
+          "targets": []
+        },
+        {
+          "address": 35158,
+          "classification": "UNRESOLVED_INDIRECT_JUMP",
+          "instruction": "jmp",
+          "pointer": 226,
+          "targets": []
+        },
+        {
+          "address": 36668,
+          "classification": "UNRESOLVED_INDIRECT_JUMP",
+          "instruction": "jmp",
+          "pointer": 226,
+          "targets": []
+        }
+      ],
+      "status": "UNRESOLVED"
+    },
+    "input": {
+      "image_sha256": "2a9345e608ec0c57470dc6658ce8199ddea9c18076134d9ef2a56f91b0a066d1",
+      "image_size": 262160,
+      "source_classification": "PRIVATE_LOCAL_COMPATIBILITY_FIXTURE",
+      "source_path": "D:\\OpenRecomp\\Roms\\phase1\\nes\\primary\\tmnt.nes",
+      "source_rom_copied": false
+    },
+    "inventory": {
+      "battery": false,
+      "chr_bytes": 131072,
+      "chr_is_ram": false,
+      "chr_sha256": "f9e354d57423f5d883663ed56801066ce38ab1a64065a735db88d42aee6eac29",
+      "container": "nes2.0",
+      "four_screen": false,
+      "mapper": 1,
+      "mapper_name": "unsupported",
+      "mirroring": "horizontal",
+      "nes2_fields": {
+        "chr_ram_nibble": 0,
+        "chr_rom_size_msb": 0,
+        "cpu_ppu_timing": 1,
+        "flags10": 0,
+        "flags11": 0,
+        "flags12": 1,
+        "flags13": 0,
+        "flags14": 0,
+        "flags15": 1,
+        "flags8": 0,
+        "flags9": 0,
+        "prg_nvram_nibble": 0,
+        "prg_ram_nibble": 0,
+        "prg_rom_size_msb": 0,
+        "submapper": 0
+      },
+      "prg_bytes": 131072,
+      "prg_sha256": "2fbc367a453504f01d7dec9fcc52c59b249fd8633ee8e5de6c7ec04abe0131bc",
+      "status": "OK",
+      "submapper": 0,
+      "trainer_bytes": 0,
+      "vectors": {
+        "irq": 50194,
+        "nmi": 50083,
+        "reset": 65496
+      },
+      "vectors_source": "mmc1_power_on_fixed_last_bank"
+    },
+    "mapper_platform": {
+      "cartridge": {
+        "chr_banks_8k": 16,
+        "power_on_chr_mode": 0,
+        "power_on_mirroring": "one_screen_lower",
+        "power_on_prg_window": [
+          0,
+          7
+        ],
+        "power_on_registers": {
+          "chr_bank_0": 0,
+          "chr_bank_1": 0,
+          "control": 12,
+          "prg_bank": 0
+        },
+        "prg_banks_16k": 8,
+        "prg_ram_enabled": false,
+        "status": "SUPPORTED_MMC1"
+      },
+      "classification": {
+        "chr_banks_8k": 16,
+        "claim": "MMC1_SUBSET_V1",
+        "mapper": 1,
+        "mirroring": "horizontal",
+        "power_on_chr_mode": 0,
+        "power_on_control": 12,
+        "power_on_mirroring": "one_screen_lower",
+        "power_on_prg_mode": 3,
+        "prg_banks_16k": 8,
+        "reasons": [],
+        "status": "SUPPORTED_MMC1",
+        "target": "mmc1"
+      },
+      "status": "SUPPORTED_MMC1",
+      "variant": {
+        "claim": "MMC1_SUBSET_V1",
+        "mapper": 1,
+        "profile": "discrete_mmc1_chr_rom_no_wram",
+        "reasons": [],
+        "status": "SUPPORTED_PROFILE",
+        "variant_labels": []
+      }
+    },
+    "native_build": {
+      "status": "NOT_ATTEMPTED"
+    },
+    "native_execution": {
+      "status": "NOT_ATTEMPTED"
+    },
+    "opcode_frontier": {
+      "documented_forms": 42,
+      "status": "BLOCKED_UNSUPPORTED_OPCODE",
+      "unsupported": [
+        {
+          "address": 50544,
+          "kind": "undocumented_opcode",
+          "reason": "0xc570: undocumented 6502 opcode 0x7c"
+        }
+      ]
+    },
+    "platform_runtime": {
+      "status": "NOT_TESTED"
+    },
+    "public_claim": "none; private local analysis must not enter any public package",
+    "stage": "P6-12",
+    "status": "FAIL_CLOSED",
+    "stop_reason": "BLOCKED_UNSUPPORTED_OPCODE (opcode_frontier): documented-control-flow walk fails closed at 0xc570 (0xc570: undocumented 6502 opcode 0x7c) after 1250 candidate instructions; no code/data boundary evidence is declared",
+    "translation": {
+      "reason": "no complete documented reachable instruction set exists; fabricating translation units or indirect targets is not permitted",
+      "status": "NOT_ATTEMPTED"
+    },
+    "workflow": "p6_rom_to_native_v1"
+  },
+  "runtime_support_sha256": "2e3fa4bac6c0630840535aff2827c5f453b2372d0acb90551c72a58309d8a3e7",
+  "stage": "P6-13"
+}

@@ -1,0 +1,105 @@
+=== P6-13 Second Private TMNT Compatibility Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-exists
+PASS: source:manifest-verified
+
+--- frozen_chain ---
+PASS: chain:phase5-tag-object
+PASS: chain:phase5-commit
+PASS: chain:phase5-tree
+PASS: chain:descends
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+
+--- anchors ---
+PASS: anchor:p6-10-pipeline-hash
+PASS: anchor:p6-10-blockers-hash
+PASS: anchor:p6-12-blockers-hash
+
+--- private_workflow ---
+PASS: workflow:deterministic
+PASS: workflow:status
+PASS: workflow:input-identity
+
+--- ingestion_result ---
+PASS: ingestion:status
+PASS: ingestion:segments
+PASS: ingestion:vectors
+
+--- mapper_state ---
+PASS: mapper:status
+PASS: mapper:variant
+PASS: mapper:power-on
+
+--- reachable_frontier ---
+PASS: frontier:documented-fail-closed
+PASS: frontier:candidate-counts
+PASS: frontier:stop
+PASS: frontier:no-code-region
+
+--- opcode_frontier ---
+PASS: opcode:blocked
+
+--- indirect_control_flow_frontier ---
+PASS: indirect:unresolved
+
+--- progress ---
+PASS: progress:translation-not-attempted
+PASS: progress:generated-not-generated
+PASS: progress:native-build-not-attempted
+PASS: progress:native-execution-not-attempted
+PASS: progress:platform-not-tested
+PASS: progress:blockers-exact
+PASS: progress:native-execution-not-reached
+PASS: progress:interactive-not-reached
+PASS: progress:public-claim-none
+
+--- runtime_support ---
+PASS: runtime:support-identity
+PASS: runtime:support-not-written
+PASS: runtime:support-matches-p6-10
+
+--- p6_10_anchor_cross_check ---
+PASS: cross-check:candidate
+PASS: cross-check:pipeline-status
+PASS: cross-check:p6-12-blockers
+PASS: cross-check:same-blockers-remain
+
+--- negative ---
+PASS: reject:missing-private-path
+PASS: reject:empty-plan
+PASS: reject:budget-range
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:tools/test_nes_platform_v1.py:exit
+PASS: regression:tools/test_nes_platform_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_variant_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_variant_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_reference_equiv_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_reference_equiv_v1.py:stderr
+PASS: regression:p6-09-reference-equivalence-marker
+
+--- evidence_hygiene ---
+PASS: hygiene:no-private-rom-bytes:private_workflow.json
+PASS: hygiene:no-private-bank-bytes:private_workflow.json
+PASS: hygiene:no-private-rom-bytes:frontier_record.json
+PASS: hygiene:no-private-bank-bytes:frontier_record.json
+PASS: hygiene:no-private-rom-bytes:anchors.json
+PASS: hygiene:no-private-bank-bytes:anchors.json
+PASS: hygiene:no-private-rom-bytes:regressions.json
+PASS: hygiene:no-private-bank-bytes:regressions.json
+PASS: hygiene:workspace-empty
+
+=== RESULT ===
+OPENRECOMP_P6_13=PASS
+OPENRECOMP_PHASE6_PRIVATE_COMPAT_RUN2_V1=PASS tests=66
+OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
