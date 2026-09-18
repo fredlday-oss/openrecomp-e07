@@ -243,10 +243,27 @@ markers reserved as NOT_PROVEN.
   (ad3501b...).
 - Evidence: .openrecomp-phase5/evidence/P5-09/.
 
+## P5-10 outcome (PASS)
+
+Markers: `OPENRECOMP_P5_10=PASS`,
+`OPENRECOMP_PHASE5_REFERENCE_EQUIVALENCE_V1=PASS tests=37`; terminal and
+general markers reserved as `NOT_PROVEN`.
+
+- Native vs frozen independent reference: exact equality on every compared
+  field, all three digests, the full 11-line frame transcript, the guest
+  transcript word and the exit state for all four declared plans.
+- Scheduling-tamper sensitivity checks pass (NMI cost and frame length).
+- Two official runs byte-identical raw (`077e99f2...`, 1489 bytes) and LF
+  (`1a1a6262...`), empty stderr, exit 0; `p5_10_tests.json` identical
+  (`2fb08384...`).
+- Evidence: `.openrecomp-phase5/evidence/P5-10/`.
+
 ## Exact next action
 
-Execute P5-10 (independent NES reference equivalence): drive the frozen
-independent ReferenceNES6502 + NesMachine platform with the same declared
-input plans and scheduling policy, compare CPU state, RAM/PPU/VRAM/palette/OAM,
-frame transcript, interrupt counts and the canonical state digest against the
-native observable. Then proceed to P5-11.
+Execute P5-11 (private TMNT compatibility run): analyse the private local
+`tmnt.nes` image (hashes and derived metadata only), decode a bounded
+reachable frontier from the documented last-bank reset/vector frame where
+defensible, record the precise fail-closed blockers (mapper-1/MMC1 banking,
+CHR banking, absent mapper model) and how far the static-recompilation
+pipeline gets, without committing or packaging any ROM bytes. Then proceed to
+P5-12.
