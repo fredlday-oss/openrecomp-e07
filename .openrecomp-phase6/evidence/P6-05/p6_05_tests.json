@@ -1,0 +1,442 @@
+{
+  "checks": [
+    {
+      "check": "chain:descends",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tag-object",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:compat-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:stage-row",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:prg_ram.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:variants.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:prg_ram.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:variants.json",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:basis",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:ids",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:not-tested",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:statuses",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:supported-profile",
+      "status": "PASS"
+    },
+    {
+      "check": "prg-ram:private-disabled",
+      "status": "PASS"
+    },
+    {
+      "check": "prg-ram:public-disabled",
+      "status": "PASS"
+    },
+    {
+      "check": "prg-ram:status",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_platform_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_platform_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_boundary_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_boundary_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_chr_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_chr_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_inventory_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_inventory_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_prg_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_prg_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_serial_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_serial_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:prg-ram-address-above",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:prg-ram-address-below",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:prg-ram-address-bool",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:prg-ram-battery",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:prg-ram-declared-ram",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:prg-ram-inventory-type",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:prg-ram-read-0x6000",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:prg-ram-read-0x7000",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:prg-ram-read-0x7fff",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:prg-ram-write",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:prg-ram-write-bad-value",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "variant:battery",
+      "status": "PASS"
+    },
+    {
+      "check": "variant:chr-banks-3",
+      "status": "PASS"
+    },
+    {
+      "check": "variant:chr-ram",
+      "status": "PASS"
+    },
+    {
+      "check": "variant:four-screen",
+      "status": "PASS"
+    },
+    {
+      "check": "variant:mapper-2",
+      "status": "PASS"
+    },
+    {
+      "check": "variant:playchoice",
+      "status": "PASS"
+    },
+    {
+      "check": "variant:prg-banks-3",
+      "status": "PASS"
+    },
+    {
+      "check": "variant:prg-banks-32",
+      "status": "PASS"
+    },
+    {
+      "check": "variant:prg-ram",
+      "status": "PASS"
+    },
+    {
+      "check": "variant:private-supported",
+      "status": "PASS"
+    },
+    {
+      "check": "variant:public-supported",
+      "status": "PASS"
+    },
+    {
+      "check": "variant:submapper",
+      "status": "PASS"
+    },
+    {
+      "check": "variant:vs-unisystem",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "evidence_files": [
+      "prg_ram.json",
+      "regressions.json",
+      "variants.json"
+    ],
+    "prg_ram_status": {
+      "battery": false,
+      "declared_bytes": 0,
+      "prg_ram_enabled": false,
+      "profile": "discrete_mmc1_chr_rom_no_wram",
+      "window": [
+        24576,
+        32767
+      ]
+    },
+    "regressions": [
+      {
+        "extra": [],
+        "returncode": 0,
+        "script": "tools/test_nes_rom_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 959,
+        "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+        "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+      },
+      {
+        "extra": [],
+        "returncode": 0,
+        "script": "tools/test_nes_platform_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 750,
+        "stdout_sha256_lf": "bf33dbe99790623b8e80ee2e20a3d409b829fa981987ddfb159f45b665301e4c",
+        "stdout_sha256_raw": "61ae15280094542974e1b8a4439d9ff240515b8401b61f681e62b686ba4736e8"
+      },
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-05/regression_p6_01"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_inventory_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 3140,
+        "stdout_sha256_lf": "d153a32d2fb2ebad91a944b8d7abad8ee5b827fab924bbde26b5308d7ed851f6",
+        "stdout_sha256_raw": "2bfd8a5efe673085ea06cce7281d92414eebb46b10c51d5df2e9ecb16f4409d6"
+      },
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-05/regression_p6_02"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_serial_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2305,
+        "stdout_sha256_lf": "ed0061090d5b50be03cf80dd44c2cf48f6871ebc0506d9d14fecc3761e2dafc6",
+        "stdout_sha256_raw": "caf7bb5c0a6c09621b6b0bbe1ec2990c696f0d6e910feac220fa727bf0ebb2c1"
+      },
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-05/regression_p6_03"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_prg_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2444,
+        "stdout_sha256_lf": "949380183b9cee6802677b98f9473ae99ef5728ce106dc552f968148ca40203e",
+        "stdout_sha256_raw": "13b2b2f178ab260e583f14de9461c800c148ae4e8fd1072ad9f6af4405f05c55"
+      },
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-05/regression_p6_04"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_chr_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2949,
+        "stdout_sha256_lf": "4b6b1a0889c3b35d724229e9386a6ad5dd1c9923551d935c23ec14de76600b7d",
+        "stdout_sha256_raw": "cbcb3697a0c7c43915cf8d45aee5c5e060cbaec4609ed07353fe9b0ce379340d"
+      },
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-05/regression_p6_00"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_boundary_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 3201,
+        "stdout_sha256_lf": "ca7ab21017aa5f89699b718ef6541d9f440a3d75a17730eb6343b90d4a148ffd",
+        "stdout_sha256_raw": "9391a99a241f0813584587b0bc4db7559f18ebc500897ca8c43bcce03b64e972"
+      }
+    ],
+    "variant_classes": [
+      {
+        "case": "battery",
+        "labels": [
+          "PRG-RAM/battery board"
+        ],
+        "status": "BLOCKED_UNSUPPORTED_MMC1_VARIANT"
+      },
+      {
+        "case": "prg-ram",
+        "labels": [
+          "PRG-RAM/battery board"
+        ],
+        "status": "BLOCKED_UNSUPPORTED_MMC1_VARIANT"
+      },
+      {
+        "case": "chr-ram",
+        "labels": [
+          "CHR-RAM board"
+        ],
+        "status": "BLOCKED_UNSUPPORTED_MMC1_VARIANT"
+      },
+      {
+        "case": "submapper",
+        "labels": [
+          "non-zero submapper variant"
+        ],
+        "status": "BLOCKED_UNSUPPORTED_MMC1_VARIANT"
+      },
+      {
+        "case": "four-screen",
+        "labels": [
+          "four-screen board"
+        ],
+        "status": "BLOCKED_UNSUPPORTED_MMC1_VARIANT"
+      },
+      {
+        "case": "vs-unisystem",
+        "labels": [
+          "VS UniSystem board"
+        ],
+        "status": "BLOCKED_UNSUPPORTED_MMC1_VARIANT"
+      },
+      {
+        "case": "playchoice",
+        "labels": [
+          "PlayChoice board"
+        ],
+        "status": "BLOCKED_UNSUPPORTED_MMC1_VARIANT"
+      },
+      {
+        "case": "prg-banks-3",
+        "labels": [
+          "non-power-of-two PRG wiring"
+        ],
+        "status": "BLOCKED_UNSUPPORTED_MMC1_VARIANT"
+      },
+      {
+        "case": "chr-banks-3",
+        "labels": [
+          "non-power-of-two CHR wiring"
+        ],
+        "status": "BLOCKED_UNSUPPORTED_MMC1_VARIANT"
+      },
+      {
+        "case": "prg-banks-32",
+        "labels": [
+          "PRG size outside the supported range"
+        ],
+        "status": "BLOCKED_UNSUPPORTED_MMC1_VARIANT"
+      },
+      {
+        "case": "mapper-2",
+        "labels": [],
+        "status": "BLOCKED_UNSUPPORTED_MAPPER"
+      }
+    ]
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE6_MMC1_VARIANT_V1=PASS tests=61",
+    "stage": "OPENRECOMP_P6_05=PASS",
+    "terminal": "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN"
+  },
+  "passed": 61,
+  "stage": "P6-05",
+  "stage_name": "OPENRECOMP_PHASE6_MMC1_VARIANT_V1",
+  "status": "PASS",
+  "tests": 61
+}

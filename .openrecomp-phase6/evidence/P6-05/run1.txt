@@ -1,0 +1,84 @@
+=== P6-05 MMC1 PRG-RAM and Variant Boundary Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-exists
+PASS: source:manifest-verified
+
+--- frozen_chain ---
+PASS: chain:phase5-tag-object
+PASS: chain:phase5-commit
+PASS: chain:phase5-tree
+PASS: chain:descends
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+
+--- prg_ram_contract ---
+PASS: prg-ram:public-disabled
+PASS: prg-ram:status
+PASS: prg-ram:private-disabled
+PASS: reject:prg-ram-read-0x6000
+PASS: reject:prg-ram-read-0x7000
+PASS: reject:prg-ram-read-0x7fff
+PASS: reject:prg-ram-write
+PASS: reject:prg-ram-write-bad-value
+PASS: reject:prg-ram-address-below
+PASS: reject:prg-ram-address-above
+PASS: reject:prg-ram-address-bool
+PASS: reject:prg-ram-declared-ram
+PASS: reject:prg-ram-battery
+PASS: reject:prg-ram-inventory-type
+
+--- variant_ledger ---
+PASS: ledger:ids
+PASS: ledger:statuses
+PASS: ledger:basis
+PASS: ledger:supported-profile
+PASS: ledger:not-tested
+
+--- variant_classification ---
+PASS: variant:public-supported
+PASS: variant:private-supported
+PASS: variant:battery
+PASS: variant:prg-ram
+PASS: variant:chr-ram
+PASS: variant:submapper
+PASS: variant:four-screen
+PASS: variant:vs-unisystem
+PASS: variant:playchoice
+PASS: variant:prg-banks-3
+PASS: variant:chr-banks-3
+PASS: variant:prg-banks-32
+PASS: variant:mapper-2
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:tools/test_nes_platform_v1.py:exit
+PASS: regression:tools/test_nes_platform_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_serial_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_serial_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_prg_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_prg_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_chr_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_chr_v1.py:stderr
+PASS: regression:tools/test_phase6_boundary_v1.py:exit
+PASS: regression:tools/test_phase6_boundary_v1.py:stderr
+
+--- evidence_hygiene ---
+PASS: hygiene:no-public-rom-bytes:prg_ram.json
+PASS: hygiene:no-private-rom-bytes:prg_ram.json
+PASS: hygiene:no-public-rom-bytes:variants.json
+PASS: hygiene:no-private-rom-bytes:variants.json
+PASS: hygiene:no-public-rom-bytes:regressions.json
+PASS: hygiene:no-private-rom-bytes:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P6_05=PASS
+OPENRECOMP_PHASE6_MMC1_VARIANT_V1=PASS tests=61
+OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

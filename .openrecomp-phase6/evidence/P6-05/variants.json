@@ -1,0 +1,182 @@
+{
+  "ledger": [
+    {
+      "basis": "the supported `MMC1_SUBSET_V1` profile and the audited fixtures",
+      "id": "V-001",
+      "name": "base discrete MMC1 with CHR ROM, no PRG-RAM/NVRAM/battery",
+      "requirement": "mapper 1, submapper 0, power-of-two PRG/CHR bank counts, declared PRG-RAM/NVRAM 0, no battery",
+      "status": "SUPPORTED"
+    },
+    {
+      "basis": "no revision differential board evidence; never inferred",
+      "id": "V-002",
+      "name": "MMC1A/MMC1B/MMC1C discrete implementation differences",
+      "requirement": "revision-specific serial/reset behaviour",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "basis": "the audited fixtures use CHR ROM; wiring never inferred",
+      "id": "V-003",
+      "name": "CHR-RAM boards (SNROM/SXROM-like)",
+      "requirement": "CHR-RAM banking and enable wiring",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "basis": "the supported profile declares no PRG-RAM/NVRAM",
+      "id": "V-004",
+      "name": "PRG-RAM/battery boards (SOROM/SXROM-like)",
+      "requirement": "PRG-RAM enable and battery-backed NVRAM",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "basis": "explicit range bound; wiring never inferred",
+      "id": "V-005",
+      "name": "SUROM 512 KiB PRG wiring",
+      "requirement": "512 KiB PRG bank selection beyond the supported range",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "basis": "outside the supported range and profile",
+      "id": "V-006",
+      "name": "SOROM/SXROM 512 KiB hybrids",
+      "requirement": "512 KiB PRG plus PRG-RAM",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "basis": "classified fail-closed by the ingestion contract",
+      "id": "V-007",
+      "name": "four-screen nametable boards",
+      "requirement": "four-screen layout",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "basis": "out of scope; classified fail-closed",
+      "id": "V-008",
+      "name": "VS UniSystem and PlayChoice boards",
+      "requirement": "arcade hardware registers",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "basis": "deliberate power-of-two bound; no audited fixture requires it",
+      "id": "V-009",
+      "name": "non-power-of-two PRG/CHR bank counts",
+      "requirement": "masking of unwired address lines",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "basis": "submapper is a declaration, not proven board wiring",
+      "id": "V-010",
+      "name": "non-zero NES 2.0 submapper",
+      "requirement": "variant-specific submapper wiring",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "basis": "no clone hardware or differential evidence available",
+      "id": "V-011",
+      "name": "MMC1 clone/FPGA implementations",
+      "requirement": "clone-specific timing and reset behaviour",
+      "status": "NOT_TESTED"
+    },
+    {
+      "basis": "never inferred from cartridge metadata",
+      "id": "V-012",
+      "name": "write-protection and board-specific bus conflicts",
+      "requirement": "board wiring beyond the declared header",
+      "status": "UNSUPPORTED"
+    }
+  ],
+  "private_classification": {
+    "claim": "MMC1_SUBSET_V1",
+    "mapper": 1,
+    "profile": "discrete_mmc1_chr_rom_no_wram",
+    "reasons": [],
+    "status": "SUPPORTED_PROFILE",
+    "variant_labels": []
+  },
+  "probes": [
+    {
+      "case": "battery",
+      "labels": [
+        "PRG-RAM/battery board"
+      ],
+      "status": "BLOCKED_UNSUPPORTED_MMC1_VARIANT"
+    },
+    {
+      "case": "prg-ram",
+      "labels": [
+        "PRG-RAM/battery board"
+      ],
+      "status": "BLOCKED_UNSUPPORTED_MMC1_VARIANT"
+    },
+    {
+      "case": "chr-ram",
+      "labels": [
+        "CHR-RAM board"
+      ],
+      "status": "BLOCKED_UNSUPPORTED_MMC1_VARIANT"
+    },
+    {
+      "case": "submapper",
+      "labels": [
+        "non-zero submapper variant"
+      ],
+      "status": "BLOCKED_UNSUPPORTED_MMC1_VARIANT"
+    },
+    {
+      "case": "four-screen",
+      "labels": [
+        "four-screen board"
+      ],
+      "status": "BLOCKED_UNSUPPORTED_MMC1_VARIANT"
+    },
+    {
+      "case": "vs-unisystem",
+      "labels": [
+        "VS UniSystem board"
+      ],
+      "status": "BLOCKED_UNSUPPORTED_MMC1_VARIANT"
+    },
+    {
+      "case": "playchoice",
+      "labels": [
+        "PlayChoice board"
+      ],
+      "status": "BLOCKED_UNSUPPORTED_MMC1_VARIANT"
+    },
+    {
+      "case": "prg-banks-3",
+      "labels": [
+        "non-power-of-two PRG wiring"
+      ],
+      "status": "BLOCKED_UNSUPPORTED_MMC1_VARIANT"
+    },
+    {
+      "case": "chr-banks-3",
+      "labels": [
+        "non-power-of-two CHR wiring"
+      ],
+      "status": "BLOCKED_UNSUPPORTED_MMC1_VARIANT"
+    },
+    {
+      "case": "prg-banks-32",
+      "labels": [
+        "PRG size outside the supported range"
+      ],
+      "status": "BLOCKED_UNSUPPORTED_MMC1_VARIANT"
+    },
+    {
+      "case": "mapper-2",
+      "labels": [],
+      "status": "BLOCKED_UNSUPPORTED_MAPPER"
+    }
+  ],
+  "public_classification": {
+    "claim": "MMC1_SUBSET_V1",
+    "mapper": 1,
+    "profile": "discrete_mmc1_chr_rom_no_wram",
+    "reasons": [],
+    "status": "SUPPORTED_PROFILE",
+    "variant_labels": []
+  },
+  "stage": "P6-05"
+}

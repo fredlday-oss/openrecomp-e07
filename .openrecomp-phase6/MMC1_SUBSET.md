@@ -74,11 +74,18 @@ the write window `$8000-$FFFF`:
 
 ## PRG-RAM and variants (P6-05)
 
-- The supported fixture declares no PRG-RAM/NVRAM and no battery. Declared
-  PRG-RAM, battery-backed NVRAM and board wiring are never inferred.
-- Explicitly unsupported: MMC1A/MMC1B/MMC1C differences, SUROM/SXROM/SOROM
-  and 512 KiB wiring variants, CHR-RAM boards, four-screen/VS/PlayChoice
-  layouts, write-protection and board-specific bus conflicts.
+- The supported profile `discrete_mmc1_chr_rom_no_wram` declares no
+  PRG-RAM/NVRAM and no battery: the `$6000-$7FFF` window is disabled and any
+  read or write there fails closed. Declared PRG-RAM/NVRAM or battery fails
+  closed at construction; the wiring is never inferred.
+- The variant ledger (`.openrecomp-phase6/src/p6_mapper1_variant_v1.py`,
+  IDs V-001 .. V-012) explicitly classifies: base discrete MMC1 (V-001,
+  supported); MMC1A/B/C differences (V-002); CHR-RAM boards (V-003);
+  PRG-RAM/battery boards (V-004); SUROM 512 KiB (V-005); SOROM/SXROM 512 KiB
+  hybrids (V-006); four-screen boards (V-007); VS/PlayChoice (V-008);
+  non-power-of-two bank counts (V-009); non-zero submapper (V-010); MMC1
+  clone/FPGA implementations (V-011, not tested); write-protection and bus
+  conflicts (V-012). Unsupported variants are explicit and fail closed.
 
 ## Claim boundary
 

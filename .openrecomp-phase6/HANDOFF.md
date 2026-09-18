@@ -187,6 +187,34 @@ reserved as `NOT_PROVEN`.
   and `RESULT.md`.
 - Evidence: `.openrecomp-phase6/evidence/P6-04/`.
 
+## P6-05 outcome (PASS)
+
+Markers: `OPENRECOMP_P6_05=PASS`,
+`OPENRECOMP_PHASE6_MMC1_VARIANT_V1=PASS tests=61`; terminal and general markers
+reserved as `NOT_PROVEN`.
+
+- New `p6_mapper1_variant_v1.py`: the supported profile
+  `discrete_mmc1_chr_rom_no_wram` implements a disabled `$6000-$7FFF` PRG-RAM
+  window (every read/write fails closed) and fails closed at construction when
+  an image declares PRG-RAM/NVRAM or a battery; no board wiring is inferred.
+- Explicit variant ledger V-001 .. V-012: base discrete MMC1 (supported),
+  MMC1A/B/C differences, CHR-RAM boards, PRG-RAM/battery boards, SUROM 512 KiB,
+  SOROM/SXROM hybrids, four-screen, VS/PlayChoice, non-power-of-two bank
+  counts, non-zero submapper, clone/FPGA implementations (not tested) and
+  write-protection/bus conflicts.
+- Deterministic classifications verified for the public fixture and the
+  private TMNT contract (`SUPPORTED_PROFILE`) plus probes for battery,
+  PRG-RAM, CHR-RAM, submapper, four-screen, VS, PlayChoice, three-bank
+  PRG/CHR and 512 KiB (variant-blocked) and mapper 2 (unsupported mapper).
+- MMC1 subset complete through PRG-RAM/variants: serial protocol (P6-02), PRG
+  banking (P6-03), CHR banking/mirroring (P6-04) and the variant boundary
+  (P6-05) are implemented and differentially verified; no execution claim yet.
+- Regressions: frozen NES tools plus P6-00..P6-04 gates pass with empty stderr
+  (earlier gates re-run into ignored scratch evidence).
+- Official run hashes are recorded in `p6_05_tests.json`, `official_runs.json`
+  and `RESULT.md`.
+- Evidence: `.openrecomp-phase6/evidence/P6-05/`.
+
 ## Exact next action
 
-Proceed to P6-05 - MMC1 PRG-RAM and variant boundary.
+Proceed to P6-06 - Public MMC1 proof fixture (full behavioural coverage).
