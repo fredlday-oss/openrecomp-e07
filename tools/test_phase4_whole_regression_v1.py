@@ -177,6 +177,12 @@ def git(arguments: list[str], timeout: int = 120) -> subprocess.CompletedProcess
                           text=True, encoding="utf-8", errors="replace", timeout=timeout)
 
 
+def head_bytes(rel: str) -> bytes:
+    """Committed bytes of a path (no text decoding; binary-safe)."""
+    return subprocess.run(["git", "show", f"HEAD:{rel}"], cwd=str(ROOT),
+                          capture_output=True).stdout
+
+
 def audit_boundaries() -> None:
     tag_type = git(["cat-file", "-t", PHASE3_TAG])
     check("boundary:phase3-tag-annotated", tag_type.stdout.strip() == "tag")
@@ -246,26 +252,21 @@ def audit_boundary_gate() -> dict[str, Any]:
     check("boundary-gate:no-staged-phase4-paths", not staged)
     saved = {rel: (ROOT / rel).read_bytes() for rel in modified}
     for rel in modified + list(BOUNDARY_SIDECARS):
-        committed = git(["show", f"HEAD:{rel}"]).stdout
-        (ROOT / rel).write_bytes(committed.encode("utf-8") if isinstance(committed, str)
-                                 else committed)
+        (ROOT / rel).write_bytes(head_bytes(rel))
     row = run_gate("regression_p4_00", BOUNDARY_GATE)
     ARTIFACTS["regression_p4_00.txt"] = row["stdout_lf"]
     ARTIFACTS["regression_p4_00.err.txt"] = row["stderr_lf"]
     for rel in modified:
         (ROOT / rel).write_bytes(saved[rel])
     for rel in BOUNDARY_SIDECARS:
-        committed = git(["show", f"HEAD:{rel}"]).stdout
-        (ROOT / rel).write_bytes(committed.encode("utf-8") if isinstance(committed, str)
-                                 else committed)
+        (ROOT / rel).write_bytes(head_bytes(rel))
     check("boundary-gate:returncode", row["returncode"] == 0)
     check("boundary-gate:stderr-empty", row["stderr_empty"])
     check("boundary-gate:stdout-byte-identical",
           row["stdout_sha256_raw"] == BOUNDARY_STDOUT_RAW)
     row["held_out_modified_tracked"] = modified
     row["sidecars_restored_to_committed"] = all(
-        sha256_file(ROOT / rel) == sha256_bytes(
-            git(["show", f"HEAD:{rel}"]).stdout.encode("utf-8"))
+        sha256_file(ROOT / rel) == sha256_bytes(head_bytes(rel))
         for rel in BOUNDARY_SIDECARS)
     del row["stdout_lf"], row["stderr_lf"]
     return row
