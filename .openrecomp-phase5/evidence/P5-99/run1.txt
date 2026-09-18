@@ -1,0 +1,104 @@
+=== P5-99 Phase-5 Final Verdict Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest
+PASS: source:phase3-manifest
+PASS: source:phase4-manifest-verified
+PASS: source:phase5-manifest-verified
+PASS: source:p3-99
+PASS: source:p4-99
+
+--- frozen_chain ---
+PASS: chain:phase4-tag-annotated
+PASS: chain:phase4-tag-object
+PASS: chain:phase4-commit
+PASS: chain:phase4-tree
+PASS: chain:phase3
+PASS: chain:phase2-phase1
+PASS: chain:descends
+
+--- control_plane ---
+PASS: control-plane:current-stage
+PASS: control-plane:last-passed
+PASS: control-plane:queue:P5-00
+PASS: control-plane:queue:P5-01
+PASS: control-plane:queue:P5-02
+PASS: control-plane:queue:P5-03
+PASS: control-plane:queue:P5-04
+PASS: control-plane:queue:P5-05
+PASS: control-plane:queue:P5-06
+PASS: control-plane:queue:P5-07
+PASS: control-plane:queue:P5-08
+PASS: control-plane:queue:P5-09
+PASS: control-plane:queue:P5-10
+PASS: control-plane:queue:P5-11
+PASS: control-plane:queue:P5-12
+PASS: control-plane:queue:P5-90
+PASS: control-plane:queue:P5-91
+PASS: control-plane:ledger:P5-00
+PASS: control-plane:ledger:P5-01
+PASS: control-plane:ledger:P5-02
+PASS: control-plane:ledger:P5-03
+PASS: control-plane:ledger:P5-04
+PASS: control-plane:ledger:P5-05
+PASS: control-plane:ledger:P5-06
+PASS: control-plane:ledger:P5-07
+PASS: control-plane:ledger:P5-08
+PASS: control-plane:ledger:P5-09
+PASS: control-plane:ledger:P5-10
+PASS: control-plane:ledger:P5-11
+PASS: control-plane:ledger:P5-12
+PASS: control-plane:ledger:P5-90
+PASS: control-plane:ledger:P5-91
+PASS: control-plane:terminal-reserved-before-verdict
+PASS: control-plane:general-reserved
+
+--- stage_records ---
+PASS: record:P5-00:present
+PASS: record:P5-00:pass
+PASS: record:P5-01:present
+PASS: record:P5-01:pass
+PASS: record:P5-02:present
+PASS: record:P5-02:pass
+PASS: record:P5-03:present
+PASS: record:P5-03:pass
+PASS: record:P5-04:present
+PASS: record:P5-04:pass
+PASS: record:P5-05:present
+PASS: record:P5-05:pass
+PASS: record:P5-06:present
+PASS: record:P5-06:pass
+PASS: record:P5-07:present
+PASS: record:P5-07:pass
+PASS: record:P5-08:present
+PASS: record:P5-08:pass
+PASS: record:P5-09:present
+PASS: record:P5-09:pass
+PASS: record:P5-10:present
+PASS: record:P5-10:pass
+PASS: record:P5-11:present
+PASS: record:P5-11:pass
+PASS: record:P5-12:present
+PASS: record:P5-12:pass
+PASS: record:P5-90:present
+PASS: record:P5-90:pass
+PASS: record:P5-91:present
+PASS: record:P5-91:pass
+
+--- identities ---
+PASS: identity:public-fixture
+PASS: identity:translation
+PASS: identity:native-observable
+PASS: identity:equivalence
+PASS: identity:interactivity
+PASS: identity:package
+PASS: identity:package-index
+PASS: identity:claims
+PASS: identity:whole-regression
+PASS: identity:private-blocked
+
+=== RESULT ===
+OPENRECOMP_P5_99=PASS
+OPENRECOMP_PHASE5_FINAL_VERDICT_V1=PASS tests=87
+OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=PASS
+OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

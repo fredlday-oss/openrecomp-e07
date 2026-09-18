@@ -1,9 +1,8 @@
 # OpenRecomp Phase 5 Handoff
 
-STATUS: Phase 5 `ACTIVE` - P5-00 (Phase-5 boundary) and P5-01 (NES/iNES
-ingestion and inventory) are `PASS`; P5-02 (2A03/6502 decode + reachable
-instruction frontier) is the active stage. Phase 4 is complete and frozen at
-annotated tag `openrecomp-phase4-pass` (object
+STATUS: Phase 5 `COMPLETE` - the frozen queue `P5-00` .. `P5-99` is COMPLETE
+and the bounded terminal verdict was issued at P5-99. Phase 4 is complete and
+frozen at annotated tag `openrecomp-phase4-pass` (object
 `e7eaab18fee267b3d7962db13835c9e14dd77fc2`) =
 `b3c71fb690f00b4811e8ec30c28f7725141295d0`, tree
 `f2ca3080915aa68f403526b89dfc17454687aed6`, with
@@ -329,12 +328,33 @@ markers reserved as `NOT_PROVEN`.
   (`37b0fce8...`).
 - Evidence: `.openrecomp-phase5/evidence/P5-91/`.
 
+## P5-99 outcome (FINAL VERDICT: PASS for the bounded audited claim)
+
+Markers: `OPENRECOMP_P5_99=PASS`,
+`OPENRECOMP_PHASE5_FINAL_VERDICT_V1=PASS tests=87`,
+`OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=PASS` (bounded claim);
+`OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN`.
+
+- The verdict was issued only after re-verifying source integrity, the frozen
+  Phase-1/2/3/4 chain, the complete P5-00..P5-91 ledger (queue COMPLETE,
+  recorded stage records PASS), the fixture/translation/native/equivalence/
+  package identities, the P5-91 evidence index and claim ledger, the P5-90
+  whole-regression record and the private TMNT blocked classification.
+- Two official runs byte-identical raw (`bc1f1e97...`, 2971 bytes) and LF
+  (`2378b480...`), empty stderr, exit 0; `p5_99_tests.json` identical
+  (`b0e8267c...`).
+- Boundary: `PASS` for the exact bounded Phase-5 public-fixture NES
+  static-recompilation claim only. `FINAL_VERDICT` (general compatibility)
+  remains `NOT_PROVEN`; the P5-91 ledger (12 PROVEN, 4 BOUNDED, 7 UNPROVEN,
+  4 UNSUPPORTED, 6 NOT TESTED) and limitations apply unchanged.
+- Known evidence-template note: the stage runner's `determinism.json`
+  `terminal_marker` field carries the reserved template string; the
+  authoritative promoted markers are the P5-99 gate output and
+  `p5_99_tests.json` (`OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=PASS`).
+- Evidence: `.openrecomp-phase5/evidence/P5-99/`.
+
 ## Exact next action
 
-Execute P5-99 (final Phase-5 verdict): issue
-`OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=PASS` only if the exact bounded public
-NES static-recompilation claim is supported by the audited tree and evidence,
-keeping `OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN`; verify the
-full stage ledger, package/fixture/translation/execution/equivalence
-identities, the P5-91 index and ledger, and the P5-90 whole-regression record,
-then advance STATE/HANDOFF/queue to the terminal state.
+None. The frozen Phase-5 queue is COMPLETE and the bounded terminal verdict
+has been issued. Do not mutate the Phase-5 terminal record; any broader
+compatibility claim requires a later phase with its own evidence.

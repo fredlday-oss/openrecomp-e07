@@ -1,0 +1,58 @@
+{
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "command": [
+        "python",
+        "tools/test_phase5_final_verdict_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase5/evidence/P5-99"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P5_99=",
+        "OPENRECOMP_PHASE5_FINAL_VERDICT_V1=",
+        "OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=",
+        "OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY="
+      ],
+      "name": "run1",
+      "p5_99_tests_sha256": "b0e8267c70ab2e990ca74665d8020ba463280447dd9f5fb370f4411cfb6e72c9",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2971,
+      "stdout_bytes_lf": 2867,
+      "stdout_sha256_lf": "2378b480a1be7cbb10219e3da0c0171c48de962fb45c31ac8033c28e0f133907",
+      "stdout_sha256_raw": "bc1f1e97f9f34cb06eba388a96e3879e4304e9a38a7224051d1c05aceced1591"
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_phase5_final_verdict_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase5/evidence/P5-99"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P5_99=",
+        "OPENRECOMP_PHASE5_FINAL_VERDICT_V1=",
+        "OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=",
+        "OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY="
+      ],
+      "name": "run2",
+      "p5_99_tests_sha256": "b0e8267c70ab2e990ca74665d8020ba463280447dd9f5fb370f4411cfb6e72c9",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2971,
+      "stdout_bytes_lf": 2867,
+      "stdout_sha256_lf": "2378b480a1be7cbb10219e3da0c0171c48de962fb45c31ac8033c28e0f133907",
+      "stdout_sha256_raw": "bc1f1e97f9f34cb06eba388a96e3879e4304e9a38a7224051d1c05aceced1591"
+    }
+  ],
+  "stage": "P5-99",
+  "stderr_empty_both": true
+}

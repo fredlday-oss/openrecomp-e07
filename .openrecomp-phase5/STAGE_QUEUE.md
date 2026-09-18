@@ -21,7 +21,7 @@ The freeze is effective before any P5-01 implementation work.
 | P5-12 | Reproducible NES package | COMPLETE | Build a reproducible public package using only redistributable artifacts. TMNT ROM bytes must not appear anywhere in the package |
 | P5-90 | Phase-5 whole regression | COMPLETE | Run Phase-1 + Phase-2 + Phase-3 + Phase-4 + Phase-5 required gates. Require deterministic/byte-identical outputs where applicable |
 | P5-91 | Evidence index + compatibility limitations | COMPLETE | Create a complete evidence index and claim ledger: PROVEN, BOUNDED, UNPROVEN, UNSUPPORTED, NOT TESTED. Clearly separate the legal public fixture result, the private TMNT compatibility observations and general NES compatibility |
-| P5-99 | Final Phase-5 verdict | QUEUED | Issue `OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=PASS` only if the exact bounded public NES static-recompilation claim is supported by the audited tree. Keep `OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN`. A PASS must not imply all NES games, all mappers, cycle accuracy, full PPU/APU accuracy, commercial-game compatibility, FDS compatibility or arbitrary 6502 binary compatibility |
+| P5-99 | Final Phase-5 verdict | COMPLETE | Issue `OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=PASS` only if the exact bounded public NES static-recompilation claim is supported by the audited tree. Keep `OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN`. A PASS must not imply all NES games, all mappers, cycle accuracy, full PPU/APU accuracy, commercial-game compatibility, FDS compatibility or arbitrary 6502 binary compatibility |
 
 ## Queue freeze
 
@@ -57,15 +57,17 @@ Frozen-queue rules:
 - queue freeze: rows `P5-01` .. `P5-99` are frozen by the `## Queue freeze`
   section above (P5-00 `PASS` boundary, control-plane record)
 - `OPENRECOMP_P5_00=PASS`
-- terminal Phase-5 marker (reserved at P5-00 .. `P5-91`):
-  `OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN`; P5-99 may issue `PASS`
-  only for the exact bounded claim recorded in `SCOPE.md`
+- terminal Phase-5 marker: `OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=PASS`
+  (issued by P5-99 for the bounded audited claim; the reserved pre-verdict
+  value recorded throughout P5-00 .. P5-91 was `NOT_PROVEN`)
 - general NES compatibility marker (never promoted by Phase 5):
   `OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN`
 
 ## Terminal state
 
-- Reserved until P5-99: `OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN`.
+- Issued at P5-99: `OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=PASS` for the
+  bounded audited claim, with the P5-91 limitations and the explicit
+  unproven/unsupported/not-tested areas.
 - `OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN` is permanent for
   Phase 5: no general NES, mapper, game, commercial-title, cycle-accuracy,
   full-PPU/APU or arbitrary-6502 compatibility is claimed at any Phase-5
