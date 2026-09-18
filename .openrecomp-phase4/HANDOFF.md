@@ -7,7 +7,8 @@ input) `PASS`; P4-05 (Platform Adapter Interface V1) `PASS` with a
 stage-internal repair recorded in `STATE.md`; P4-06 (Graphics/audio
 abstraction boundary) `PASS`; P4-07 (Interactive legally-clean fixture)
 `PASS`; P4-08 (First platform-adapter execution proof) `PASS`; P4-09
-(End-to-end generic-runtime native proof) is the executing stage. The frozen
+(End-to-end generic-runtime native proof) `PASS`; P4-10 (Reproducible
+Phase-4 package) is the executing stage. The frozen
 Phase-4 queue (`P4-01` .. `P4-99`) is frozen by `.openrecomp-phase4/STAGE_QUEUE.md`
 (`## Queue freeze`) at the P4-00 `PASS` boundary, before any P4-01
 implementation work. Phase 3 is complete and frozen at annotated tag
@@ -32,6 +33,32 @@ Reserved markers:
 - `OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN` (P4-99 may issue PASS
   for the bounded claim only)
 - `OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN` (never promoted)
+
+## P4-09 outcome (PASS)
+
+Markers: `OPENRECOMP_P4_09=PASS`,
+`OPENRECOMP_PHASE4_END_TO_END_NATIVE_PROOF_V1=PASS tests=55`; terminal and
+general compatibility markers reserved as `NOT_PROVEN`.
+
+- New files: `.openrecomp-phase4/src/p4_reference_fixture_v1.py` (independent
+  loader/decoder/executor and canonical observable) and
+  `tools/test_phase4_generic_runtime_proof_v1.py`; the Phase-4 manifest grew
+  additively to 27 entries.
+- The nine-stage pipeline is executed and recorded (fixture/input, ingestion,
+  774-instruction/142-block/9-function recovery with no unresolved edges,
+  translation `abd138ea...`, host emission, reproducible native build
+  `c966e185...`, generic runtime, platform adapter, deterministic execution).
+- The independent reference matches the native observable on every compared
+  field, including `ticks_start=19`, `ticks_end=6691`, `steps=6784`,
+  `pc=0x1bf4` and `state_fnv1a64=0x5185479717fe4020`, and fails closed on
+  unsupported instructions, step limits, out-of-region stores and unaligned
+  indirect jumps.
+- Two official runs byte-identical raw (`8ab7d3fa...`) and LF, empty stderr,
+  exit 0; `p4_09_tests.json` identical across runs.
+- Regressions: P2-08 `PASS tests=169`, P4-01..P4-08 all PASS, Phase-1 host
+  gates `PASS=44 FAIL=0 SKIPPED=2`, public safety `PASS`, P4-00
+  `PASS tests=74` (`953312d0...`).
+- Evidence: `.openrecomp-phase4/evidence/P4-09/`.
 
 ## P4-08 outcome (PASS)
 
@@ -297,16 +324,15 @@ compatibility markers reserved as `NOT_PROVEN`.
 
 ## Exact next action
 
-Execute P4-09 (End-to-end generic-runtime native proof): demonstrate the
-bounded pipeline fixture/input -> ingestion -> program recovery ->
-translation -> host emission -> native build -> generic runtime -> platform
-adapter -> deterministic execution, and verify the observable against an
-independent reference/model where technically appropriate. Add sources/gate
-to `.openrecomp-phase4/SOURCE_SHA256SUMS.txt`, run the official gate twice
-with deterministic evidence, run the required regressions (P2-08,
-P4-01..P4-08, Phase-1 host gates, public safety, and P4-00 using the
+Execute P4-10 (Reproducible Phase-4 package): produce a clean
+byte-reproducible or explicitly reproducibility-bounded Phase-4 package
+containing all required source, generated artifacts, manifests, evidence and
+exact reproduction instructions, verified from the audited tree. Add
+sources/gate to `.openrecomp-phase4/SOURCE_SHA256SUMS.txt`, run the official
+gate twice with deterministic evidence, run the required regressions (P2-08,
+P4-01..P4-09, Phase-1 host gates, public safety, and P4-00 using the
 documented dynamic frozen-gate boundary-context hygiene), update the control
-plane and commit the P4-09 boundary.
+plane and commit the P4-10 boundary.
 
 ## Constraints
 

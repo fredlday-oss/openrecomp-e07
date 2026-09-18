@@ -1,0 +1,36 @@
+{
+  "equivalent": true,
+  "fields_compared": [
+    "transcript",
+    "exit_status",
+    "steps",
+    "pc",
+    "failed",
+    "output_sha256",
+    "state_fnv1a64"
+  ],
+  "native_observable": {
+    "exit_status": "0",
+    "failed": "0",
+    "failure": "",
+    "output_bytes": "169",
+    "output_hex": "5034464958545552452076310a696e7075745f62797465733d340a696e7075745f786f723d3133360a66696231303d35350a7072696d655f636f756e743d31360a7072696d65735f73756d3d3338310a6273735f73756d3d343032383031323833310a686561705f73756d3d333738343838303436380a636865636b73756d3d307864343365356261360a7469636b735f73746172743d31390a7469636b735f656e643d363639310a",
+    "pc": "0x00001bf4",
+    "state_fnv1a64": "0x5185479717fe4020",
+    "steps": "6784"
+  },
+  "reference_observable": {
+    "exit_status": 0,
+    "failed": false,
+    "failure": "",
+    "hi": 4,
+    "lo": 3435973838,
+    "output_bytes": 169,
+    "output_sha256": "698599ce24c0a00e58be3bfdf2e5fe22495fd6132291fbeca9c953403c08c9b6",
+    "pc": 7156,
+    "state_fnv1a64": "0x5185479717fe4020",
+    "steps": 6784
+  },
+  "reference_version": "1.0.0",
+  "stage": "P4-09"
+}

@@ -1,0 +1,366 @@
+{
+  "checks": [
+    {
+      "check": "negative:reference-step-limit",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:reference-unaligned-jump",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:reference-unmapped-store",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:reference-unsupported-instruction",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:adapter-claims",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:adapter-exit",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:adapter-input",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:adapter-memory",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:adapter-services",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:adapter-ticks",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:adapter-valid",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:build-classification",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:build-executable",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:build-manifest-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:execution-digest",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:execution-no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:execution-pc",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:execution-replay-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:execution-steps",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:execution-transcript",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:fixture-elf",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:independent-loader-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:ingestion-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:ingestion-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:ingestion-text",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:input-plan",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:loader-segment-agreement",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:structure-blocks",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:structure-call-edges",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:structure-entry-unit",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:structure-fingerprints",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:structure-functions",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:structure-instructions",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:structure-no-indirect",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:structure-no-unresolved",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:structure-recursion",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:translation-program",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:translation-reachable",
+      "status": "PASS"
+    },
+    {
+      "check": "pipeline:translation-support",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:digest-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:exit-status",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:hi-lo-covered-by-digest",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:image-window-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:output-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:pc",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:steps",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:transcript",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase4-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-verified",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "equivalence": {
+      "equivalent": true,
+      "output_sha256": "698599ce24c0a00e58be3bfdf2e5fe22495fd6132291fbeca9c953403c08c9b6",
+      "state_fnv1a64": "0x5185479717fe4020",
+      "steps": 6784
+    },
+    "ingestion": {
+      "fixture_elf_sha256": "acb4f4e57a7f996e87989e99d702d802259b752aabb2476f574665ef061969bc",
+      "identity": {
+        "abi": "O32",
+        "dynamic": false,
+        "elf_class": "ELF32",
+        "endianness": "little",
+        "entry": "0x00001c00",
+        "entry_region": 2,
+        "entry_section": ".text",
+        "executable_section": ".text",
+        "flags": "0x50001001",
+        "flags_interpretation": "EF_MIPS_ABI_O32 | EF_MIPS_ARCH_32 | EF_MIPS_NOREORDER (non-PIC)",
+        "isa": "MIPS32 (EF_MIPS_ARCH_32)",
+        "machine": 8,
+        "machine_name": "EM_MIPS",
+        "pic": false,
+        "relocations": false,
+        "required_sections": [
+          ".text",
+          ".rodata",
+          ".data",
+          ".bss"
+        ],
+        "static": true,
+        "target": "mips32-o32-soft-float-static",
+        "type": 2,
+        "type_name": "ET_EXEC"
+      },
+      "independent_entry": "0x1c00",
+      "input_plan_hex": "0512ab34ff",
+      "segments": [
+        {
+          "filesz": 308,
+          "flags": 4,
+          "memsz": 308,
+          "vaddr": "0x0"
+        },
+        {
+          "filesz": 3104,
+          "flags": 5,
+          "memsz": 3104,
+          "vaddr": "0x1000"
+        },
+        {
+          "filesz": 129,
+          "flags": 4,
+          "memsz": 129,
+          "vaddr": "0x1c20"
+        },
+        {
+          "filesz": 40,
+          "flags": 6,
+          "memsz": 9536,
+          "vaddr": "0x1cb0"
+        }
+      ]
+    },
+    "native_execution": {
+      "exit_status": "0",
+      "failed": "0",
+      "failure": "",
+      "output_bytes": "169",
+      "output_hex": "5034464958545552452076310a696e7075745f62797465733d340a696e7075745f786f723d3133360a66696231303d35350a7072696d655f636f756e743d31360a7072696d65735f73756d3d3338310a6273735f73756d3d343032383031323833310a686561705f73756d3d333738343838303436380a636865636b73756d3d307864343365356261360a7469636b735f73746172743d31390a7469636b735f656e643d363639310a",
+      "pc": "0x00001bf4",
+      "state_fnv1a64": "0x5185479717fe4020",
+      "steps": "6784"
+    },
+    "program_recovery": {
+      "block_count": 142,
+      "call_graph_edges": 14,
+      "call_graph_fingerprint": "11fab55997f958a715db31bfa0e51c0d8e7da125e89c1e9e4cdef39e80ba60d6",
+      "cfg_fingerprint": "64c5d29f2bf3d5cd9e67c2bd533fb1386cee63725b91df2e8d181fe66e4d2a6c",
+      "edge_histogram": {
+        "BRANCH_NOT_TAKEN": 47,
+        "BRANCH_TAKEN": 47,
+        "CALL_RETURN": 14,
+        "FALLTHROUGH": 56,
+        "JUMP": 12
+      },
+      "flow_histogram": {
+        "BRANCH": 47,
+        "CALL": 14,
+        "JUMP": 12,
+        "NORMAL": 691,
+        "RETURN": 10
+      },
+      "function_count": 9,
+      "program_model_fingerprint": "89b4bf4132da05ddd09ab1646c03c2c17a62b025e435ac124ed8173f3b77343f",
+      "translation_unit_set_fingerprint": "36fb42e07bf2945d570908c317bcf20ef2319a5c16a273530ecdba4b91a1e151"
+    },
+    "runtime_adapter": {
+      "capabilities": {
+        "audio_hook": false,
+        "console_output": true,
+        "event_delivery": false,
+        "graphics_hook": false,
+        "input_streams": true,
+        "memory": true,
+        "platform_services": false,
+        "timing_virtual": true
+      },
+      "fingerprint": "fffb4dc120143fb607b9cd45cc95dfe08adb42f4e86a563acddd03d21a0b5ca2",
+      "interface_ids": [
+        "or.runtime.exit",
+        "or.runtime.stream_write",
+        "or.runtime.stream_read",
+        "or.runtime.clock_ticks"
+      ]
+    },
+    "source_integrity": {
+      "phase3_entries": 24,
+      "phase4_entries": 27,
+      "root_entries": 134
+    },
+    "translation_build": {
+      "executable_sha256": "c966e1854dcc9c9169859b20ef40c07810e7d40d7dc7700b2e202a168e5b3caa",
+      "manifest_sha256": "35774b83db32bf0f15f94b2bf5d4b4255d23a42d8737374ef7d8b7063db2fc78",
+      "program_sha256": "abd138ea391fb48cd5ba17b54f56f93a77aaa6ebab201d715210635a7f1edc48",
+      "support_sha256": "755a004630560ae606ce571c2c111934b94e945db6c4c6d6aea5c105a2b8a8fd"
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE4_END_TO_END_NATIVE_PROOF_V1=PASS tests=55",
+    "stage": "OPENRECOMP_P4_09=PASS",
+    "terminal": "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN"
+  },
+  "passed": 55,
+  "stage": "P4-09",
+  "stage_name": "OPENRECOMP_PHASE4_END_TO_END_NATIVE_PROOF_V1",
+  "status": "PASS",
+  "tests": 55
+}
