@@ -1,0 +1,35 @@
+{
+  "frontend": ".openrecomp-phase5/src/p5_frontier_v1.py + tools/nes6502_frontend_v1.py",
+  "ir_sha256": "c057a2f66135c619edbab5fb010c9fbba4a028c0a2595956b9fbb6b8354ce7a4",
+  "meta": {
+    "architecture": "nes6502",
+    "entry_address": 49152,
+    "initial_state": {
+      "cpu:a": 0,
+      "cpu:p": 36,
+      "cpu:pc": 49152,
+      "cpu:sp": 253,
+      "cpu:x": 0,
+      "cpu:y": 0,
+      "platform:halted": 0
+    },
+    "max_operations": 1000000,
+    "observe_state_slot": "cpu:a",
+    "region_end": 49661,
+    "region_start": 49152
+  },
+  "report": {
+    "architecture": "nes6502",
+    "blocks": 45,
+    "frontend_version": "1.0.0",
+    "functions": 1,
+    "instructions": 231,
+    "source_input_sha256": "eda59866f8add232b1064d1d9952a3d3e66ad9b7c1fe06604dff0e610f5bcecb",
+    "source_region": [
+      49152,
+      49661
+    ]
+  },
+  "sidecar_sha256": "c71a2a7127105772c28e9d54caf44777c4af608f70f2dac2c649beab04bbbd1c",
+  "stage": "P5-02"
+}

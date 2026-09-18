@@ -1,0 +1,159 @@
+{
+  "code_region": [
+    49152,
+    49661
+  ],
+  "code_span": {
+    "dead_addresses": [
+      49319
+    ],
+    "dead_in_span": 1,
+    "linear_instructions": 231,
+    "reachable_in_span": 230,
+    "span": [
+      49152,
+      49661
+    ]
+  },
+  "decimal_mode": {
+    "arithmetic": "binary_only_2a03",
+    "instructions_present": [
+      "sed",
+      "cld"
+    ],
+    "note": "NES 2A03 has no decimal-mode arithmetic; exact semantics are proven in P5-03 against the independent reference"
+  },
+  "image_sha256": "eda59866f8add232b1064d1d9952a3d3e66ad9b7c1fe06604dff0e610f5bcecb",
+  "reachable": {
+    "bytes": 508,
+    "dynamic_return_sites": [
+      {
+        "address": 49421,
+        "instruction": "rts"
+      },
+      {
+        "address": 49445,
+        "instruction": "rts"
+      },
+      {
+        "address": 49469,
+        "instruction": "rts"
+      },
+      {
+        "address": 49520,
+        "instruction": "rts"
+      },
+      {
+        "address": 49538,
+        "instruction": "rts"
+      },
+      {
+        "address": 49551,
+        "instruction": "rts"
+      },
+      {
+        "address": 49557,
+        "instruction": "rts"
+      },
+      {
+        "address": 49654,
+        "instruction": "rti"
+      },
+      {
+        "address": 49660,
+        "instruction": "rti"
+      }
+    ],
+    "indirect_sites": [
+      {
+        "address": 49405,
+        "indirect": 767,
+        "instruction": "jmp"
+      }
+    ],
+    "instructions": 230,
+    "interrupt_sites": [
+      {
+        "address": 49318,
+        "continuation": 49320,
+        "instruction": "brk"
+      }
+    ],
+    "mode_histogram": {
+      "abs": 81,
+      "absx": 13,
+      "absy": 1,
+      "acc": 2,
+      "imm": 63,
+      "impl": 46,
+      "ind": 1,
+      "indx": 2,
+      "indy": 1,
+      "rel": 15,
+      "zpx": 3,
+      "zpy": 2
+    },
+    "opcode_histogram": {
+      "adc": 5,
+      "and": 3,
+      "asl": 1,
+      "bcs": 2,
+      "beq": 3,
+      "bit": 3,
+      "bne": 7,
+      "bpl": 2,
+      "brk": 1,
+      "bvc": 1,
+      "clc": 5,
+      "cld": 2,
+      "clv": 1,
+      "cmp": 2,
+      "cpx": 4,
+      "cpy": 1,
+      "dec": 1,
+      "dex": 1,
+      "dey": 1,
+      "eor": 1,
+      "inc": 4,
+      "inx": 5,
+      "iny": 1,
+      "jmp": 2,
+      "jsr": 7,
+      "lda": 51,
+      "ldx": 11,
+      "ldy": 6,
+      "lsr": 1,
+      "ora": 1,
+      "pha": 5,
+      "php": 1,
+      "pla": 5,
+      "plp": 1,
+      "rol": 1,
+      "rti": 2,
+      "rts": 7,
+      "sbc": 1,
+      "sec": 1,
+      "sed": 1,
+      "sei": 1,
+      "sta": 59,
+      "stx": 3,
+      "sty": 1,
+      "tax": 1,
+      "tay": 1,
+      "txa": 1,
+      "txs": 1,
+      "tya": 1
+    }
+  },
+  "roots": {
+    "irq": 49655,
+    "nmi": 49558,
+    "reset": 49152
+  },
+  "source": "original public fixture (Apache-2.0)",
+  "stage": "P5-02",
+  "unsupported": {
+    "note": "frozen decoder fails closed on undocumented opcodes; none occur on the reachable public-fixture path",
+    "reachable_undocumented_opcodes": 0
+  }
+}

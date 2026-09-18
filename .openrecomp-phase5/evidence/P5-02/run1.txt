@@ -1,0 +1,52 @@
+=== P5-02 2A03/6502 Decode + Reachable Frontier Gate ===
+
+--- fixture_and_image ---
+PASS: fixture:rom-sha256
+PASS: fixture:status
+PASS: image:64k
+PASS: image:sha256
+
+--- reachable_frontier ---
+PASS: frontier:deterministic
+PASS: frontier:roots
+PASS: frontier:instructions
+PASS: frontier:bytes
+PASS: frontier:opcode-histogram
+PASS: frontier:mode-histogram
+PASS: frontier:reachable-section
+PASS: frontier:indirect-sites
+PASS: frontier:interrupt-sites
+PASS: frontier:dynamic-returns
+PASS: frontier:code-span
+PASS: frontier:unsupported-zero
+PASS: frontier:decimal-mode
+
+--- negative ---
+PASS: reject:reachable-undocumented-opcode
+PASS: reject:nrom-prg-size
+PASS: reject:missing-data-spans
+
+--- frozen_frontend ---
+PASS: frontend:deterministic
+PASS: frontend:instructions
+PASS: frontend:blocks
+PASS: frontend:region
+PASS: frontend:input-sha
+PASS: reject:frontend-undocumented-opcode
+
+--- regressions ---
+PASS: regression:tools/test_nes6502_decode_v1.py:exit
+PASS: regression:tools/test_nes6502_decode_v1.py:stderr
+PASS: regression:tools/test_nes6502_lowering_v1.py:exit
+PASS: regression:tools/test_nes6502_lowering_v1.py:stderr
+
+--- evidence ---
+PASS: hygiene:no-public-rom-bytes:frontier.json
+PASS: hygiene:no-public-rom-bytes:frontend.json
+PASS: hygiene:no-public-rom-bytes:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P5_02=PASS
+OPENRECOMP_PHASE5_DECODE_FRONTIER_V1=PASS tests=33
+OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

@@ -85,9 +85,32 @@ reserved as `NOT_PROVEN`.
   (`4b87897f...`).
 - Evidence: `.openrecomp-phase5/evidence/P5-00/`.
 
+## P5-02 outcome (PASS)
+
+Markers: `OPENRECOMP_P5_02=PASS`,
+`OPENRECOMP_PHASE5_DECODE_FRONTIER_V1=PASS tests=33`; terminal and general
+markers reserved as `NOT_PROVEN`.
+
+- Exact reachable frontier from RESET `$C000` / NMI `$C196` / IRQ `$C1F7`:
+  230 instructions / 508 bytes; one dead padding NOP at `$C0A7`; zero
+  reachable undocumented opcodes.
+- One unresolved indirect site: `$C0FD jmp ($02FF)` (declared run-exit
+  service thunk); one BRK at `$C0A6` with documented continuation `$C0A8`;
+  9 dynamic `rts`/`rti` return sites recorded, never guessed.
+- 2A03 decimal accounting: `sed`/`cld` reachable, arithmetic `binary_only_2a03`
+  (exact semantics proven in P5-03).
+- Frozen `tools/nes6502_frontend_v1.convert` exercised on the real code region
+  `[$C000,$C1FD)`: 231 instructions / 45 blocks, deterministic; undocumented
+  0x03 rejected fail-closed.
+- Two official runs byte-identical raw (`76767a3b...`, 1531 bytes) and LF
+  (`27de3c27...`), empty stderr, exit 0; `p5_02_tests.json` identical
+  (`2eb8ef8c...`).
+- Evidence: `.openrecomp-phase5/evidence/P5-02/`.
+
 ## Exact next action
 
-Execute P5-02 (2A03/6502 decode + reachable instruction frontier): decode the
-public fixture from its reset/NMI/IRQ roots with the frozen NES6502 frontend,
-produce the exact reachable/dead/unsupported opcode inventory, and classify
-every unreachable or unsupported byte fail-closed. Then proceed to P5-03.
+Execute P5-03 (CPU semantics proof): build an independently written differential
+vector set for every instruction required by the reachable public fixture path
+(flags, stack, branches, page crossing, BRK/IRQ/NMI/RESET, JMP-indirect
+page-wrap, zero-page, RMW, 2A03 binary-only ADC/SBC) and require exact
+agreement with the frozen independent reference. Then proceed to P5-04.

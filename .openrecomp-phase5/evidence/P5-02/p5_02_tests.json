@@ -1,0 +1,184 @@
+{
+  "checks": [
+    {
+      "check": "fixture:rom-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:status",
+      "status": "PASS"
+    },
+    {
+      "check": "frontend:blocks",
+      "status": "PASS"
+    },
+    {
+      "check": "frontend:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "frontend:input-sha",
+      "status": "PASS"
+    },
+    {
+      "check": "frontend:instructions",
+      "status": "PASS"
+    },
+    {
+      "check": "frontend:region",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:code-span",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:decimal-mode",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:dynamic-returns",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:indirect-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:instructions",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:interrupt-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:mode-histogram",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:opcode-histogram",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:reachable-section",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:roots",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:unsupported-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:frontend.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "image:64k",
+      "status": "PASS"
+    },
+    {
+      "check": "image:sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes6502_decode_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes6502_decode_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes6502_lowering_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes6502_lowering_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:frontend-undocumented-opcode",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:missing-data-spans",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:nrom-prg-size",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:reachable-undocumented-opcode",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "evidence_files": [
+      "frontend.json",
+      "frontier.json",
+      "regressions.json"
+    ],
+    "indirect_sites": [
+      {
+        "address": 49405,
+        "indirect": 767,
+        "instruction": "jmp"
+      }
+    ],
+    "reachable_instructions": 230,
+    "regressions": [
+      {
+        "returncode": 0,
+        "script": "tools/test_nes6502_decode_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 770,
+        "stdout_sha256_lf": "cc1d972c6efb0c437c6324d5a95599f3840ce3e80cbc29bbfe304cd6fe30904f",
+        "stdout_sha256_raw": "e13526a56b2ae5ae223e41654151b6a050a2eb8ddd587b5832cc2eb3f42d91d1"
+      },
+      {
+        "returncode": 0,
+        "script": "tools/test_nes6502_lowering_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 630,
+        "stdout_sha256_lf": "7563817e67a0625a73ab55bdeb67c2d7a90c8db96864d1f9a2b36e4daf4bc157",
+        "stdout_sha256_raw": "e1abc6ff8a1ff6e8813519ed26551783bab961aa4b25048cec44c6d02631593e"
+      }
+    ]
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE5_DECODE_FRONTIER_V1=PASS tests=33",
+    "stage": "OPENRECOMP_P5_02=PASS",
+    "terminal": "OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN"
+  },
+  "passed": 33,
+  "stage": "P5-02",
+  "stage_name": "OPENRECOMP_PHASE5_DECODE_FRONTIER_V1",
+  "status": "PASS",
+  "tests": 33
+}
