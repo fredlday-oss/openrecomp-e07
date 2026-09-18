@@ -1,0 +1,179 @@
+{
+  "bounded_count": 4,
+  "compatibility_marker": "OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+  "generic_runtime_status": "NOT_PROVEN",
+  "ledger": {
+    "general_nes": {
+      "not_tested": [
+        {
+          "area": "PAL/Dendy timing variants"
+        },
+        {
+          "area": "Hardware IRQ delivery in the native path (the fixture uses software BRK only)"
+        },
+        {
+          "area": "CHR-RAM writes in the native path (the fixture uses CHR ROM)"
+        },
+        {
+          "area": "Sprite-0 hit and sprite overflow timing"
+        },
+        {
+          "area": "Second controller port in the fixture"
+        },
+        {
+          "area": "OAM decay and DMC/DPCM read conflicts"
+        }
+      ],
+      "section": "general NES compatibility",
+      "status": "NOT_PROVEN",
+      "unproven": [
+        {
+          "area": "General NES game compatibility"
+        },
+        {
+          "area": "Commercial-game compatibility"
+        },
+        {
+          "area": "Cycle accuracy"
+        },
+        {
+          "area": "Full PPU rendering and sprite timing accuracy"
+        },
+        {
+          "area": "Full APU accuracy or audio equivalence"
+        },
+        {
+          "area": "Arbitrary 6502 binary compatibility"
+        },
+        {
+          "area": "Mapper-1 (MMC1) execution and TMNT compatibility"
+        }
+      ],
+      "unsupported": [
+        {
+          "area": "Non-NROM mappers"
+        },
+        {
+          "area": "NES 2.0 exponent/extended PRG/CHR size forms"
+        },
+        {
+          "area": "Four-screen nametable arrangements"
+        },
+        {
+          "area": "FDS/UNIF/UNF containers"
+        }
+      ]
+    },
+    "private_tmnt_observations": {
+      "observations": [
+        {
+          "evidence": "P5-01, P5-11",
+          "observation": "tmnt.nes: 262160 bytes, SHA-256 2a9345e608ec0c57470dc6658ce8199ddea9c18076134d9ef2a56f91b0a066d1, mapper 1 (MMC1/SxROM), 128 KiB PRG, 128 KiB CHR, horizontal mirroring; execution status BLOCKED_UNSUPPORTED_MAPPER."
+        },
+        {
+          "evidence": "P5-11",
+          "observation": "Frozen mapper and Phase-5 cartridge both fail closed for mapper 1; no banking behaviour guessed."
+        },
+        {
+          "evidence": "P5-11",
+          "observation": "Candidate SxROM fixed-bank frame (CANDIDATE / NOT PROVEN): vectors NMI $C3A3, RESET $FFD8, IRQ $C412; bounded candidate frontier 351 instructions / 59 opcode forms; stop at 0xc570 undocumented 0x7C; out-of-bank targets $864C and $901E require an MMC1 PRG-bank model."
+        },
+        {
+          "evidence": "P5-11, P5-12",
+          "observation": "Private image bytes, banks and P5-11 evidence are excluded from the public package by name and scan."
+        }
+      ],
+      "section": "private local compatibility fixture observations (non-redistributed; no public claim)"
+    },
+    "public_fixture_result": {
+      "bounded": [
+        {
+          "claim": "The claim is bounded to the audited public fixture, the declared input plans and the bounded scheduling policy.",
+          "evidence": "P5-08, P5-09, P5-10, P5-12"
+        },
+        {
+          "claim": "Timing uses documented base instruction costs only; page-cross and taken-branch penalties are not modelled.",
+          "evidence": "P5-07"
+        },
+        {
+          "claim": "The graphics observable is a bounded tile-space/PPU state view submitted through the Phase-4 graphics boundary; it is not rendered video output.",
+          "evidence": "P5-06, P5-08"
+        },
+        {
+          "claim": "Only NROM (mapper 0) is implemented for the public fixture.",
+          "evidence": "P5-05"
+        }
+      ],
+      "proven": [
+        {
+          "claim": "Original Apache-2.0 NES fixture authored and built deterministically (NROM-128, 16 KiB PRG, 8 KiB CHR, vectors NMI $C196 / RESET $C000 / IRQ $C1F7, ROM SHA-256 272c94cd...).",
+          "evidence": "P5-01, P5-02"
+        },
+        {
+          "claim": "Fail-closed iNES/NES 2.0 ingestion and full metadata inventory for both selected fixtures.",
+          "evidence": "P5-01"
+        },
+        {
+          "claim": "Exact reachable frontier: 230 instructions / 508 bytes, one dead padding NOP at $C0A7, zero reachable undocumented opcodes.",
+          "evidence": "P5-02"
+        },
+        {
+          "claim": "CPU semantics: 181 differential vectors covering all 151 official opcode forms plus flag/stack/branch/page-crossing/wrap/BRK-RTI/2A03-decimal edges, zero mismatches.",
+          "evidence": "P5-03"
+        },
+        {
+          "claim": "Neutral architecture-neutral structure (231 instructions, 48 blocks, 11 functions, 11 translation units, 7 direct call edges) with explicit reset/NMI/IRQ/BRK-continuation roots and no fabricated boundaries or indirect targets.",
+          "evidence": "P5-04"
+        },
+        {
+          "claim": "Bounded NES CPU bus verified against the frozen independent platform: RAM mirrors, all 8192 PPU window addresses, APU/IO, controllers, OAM DMA, cartridge mapping, fail-closed windows, 5000-operation mixed differential.",
+          "evidence": "P5-05"
+        },
+        {
+          "claim": "Bounded PPU register/memory semantics verified against the frozen independent PPU: 3000-step register script, all 16384 PPU addresses, horizontal and vertical mirroring, CHR-ROM write rejection.",
+          "evidence": "P5-06"
+        },
+        {
+          "claim": "Deterministic virtual timing/input/NMI scheduling with a documented base-cost table covering all 151 official opcodes and explicit vblank/NMI/IRQ semantics.",
+          "evidence": "P5-07"
+        },
+        {
+          "claim": "Deterministic native host emission for the fixture's 231 instructions through the typed runtime ABI, a reproducible native build, and three identical native runs.",
+          "evidence": "P5-08"
+        },
+        {
+          "claim": "Meaningful interactive behaviour on four declared controller plans: exact guest transcripts, A-dependent OAM/PPU observables, RIGHT-dependent RAM state, input-independent nametable graphics.",
+          "evidence": "P5-09"
+        },
+        {
+          "claim": "Exact independent-reference equivalence on every compared CPU/state field, all three digests, the full frame transcript and exit state for all four plans, with scheduling-tamper sensitivity.",
+          "evidence": "P5-10"
+        },
+        {
+          "claim": "Reproducible public package with a self-contained rebuild from packaged generated sources reproducing the canonical observable.",
+          "evidence": "P5-12"
+        }
+      ],
+      "section": "legal public fixture result (bounded audited claim)"
+    }
+  },
+  "not_tested_count": 6,
+  "private_observation_count": 4,
+  "proven_count": 12,
+  "sections": {
+    "general": "general NES compatibility",
+    "private": "private TMNT observations (non-redistributed)",
+    "public": "legal public fixture result"
+  },
+  "stage": "P5-91",
+  "terminal_marker": "OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN",
+  "unproven_count": 7,
+  "unsupported_count": 4,
+  "vocabulary": [
+    "PROVEN",
+    "BOUNDED",
+    "UNPROVEN",
+    "UNSUPPORTED",
+    "NOT TESTED"
+  ]
+}

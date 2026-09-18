@@ -311,10 +311,30 @@ markers reserved as `NOT_PROVEN`.
   (`431d4e5a...`).
 - Evidence: `.openrecomp-phase5/evidence/P5-90/`.
 
+## P5-91 outcome (PASS)
+
+Markers: `OPENRECOMP_P5_91=PASS`,
+`OPENRECOMP_PHASE5_EVIDENCE_INDEX_V1=PASS tests=26`; terminal and general
+markers reserved as `NOT_PROVEN`.
+
+- Complete evidence index over every phase-5 stage file (P5-00..P5-12,
+  P5-90) with sizes/hashes/tracked status, control-plane hashes, manifest
+  entries, boundary identities and the package identity; verified against an
+  independent filesystem walk.
+- Claim ledger: 12 PROVEN and 4 BOUNDED public statements; 4 private TMNT
+  observations (separate, no public claim); general NES compatibility
+  `NOT_PROVEN` with 7 UNPROVEN, 4 UNSUPPORTED and 6 NOT TESTED entries.
+- Two official runs byte-identical raw (`33b23f58...`, 1150 bytes) and LF
+  (`af7c7c06...`), empty stderr, exit 0; `p5_91_tests.json` identical
+  (`37b0fce8...`).
+- Evidence: `.openrecomp-phase5/evidence/P5-91/`.
+
 ## Exact next action
 
-Execute P5-91 (evidence index + compatibility limitations): build a complete
-evidence index over every Phase-5 stage file with hashes, and the claim
-ledger separating PROVEN / BOUNDED / UNPROVEN / UNSUPPORTED / NOT TESTED and
-clearly separating the public fixture result, the private TMNT observations
-and general NES compatibility. Then proceed to P5-99.
+Execute P5-99 (final Phase-5 verdict): issue
+`OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=PASS` only if the exact bounded public
+NES static-recompilation claim is supported by the audited tree and evidence,
+keeping `OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN`; verify the
+full stage ledger, package/fixture/translation/execution/equivalence
+identities, the P5-91 index and ledger, and the P5-90 whole-regression record,
+then advance STATE/HANDOFF/queue to the terminal state.

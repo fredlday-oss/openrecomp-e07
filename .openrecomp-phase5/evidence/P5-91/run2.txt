@@ -1,0 +1,41 @@
+=== P5-91 Evidence Index + Compatibility Limitations Gate ===
+
+--- index ---
+PASS: index:deterministic
+PASS: index:evidence-count
+PASS: index:stages
+PASS: index:complete
+PASS: index:hashes
+PASS: index:control-plane
+PASS: index:package
+PASS: index:phase5-manifest
+PASS: index:boundaries
+
+--- claim_ledger ---
+PASS: ledger:deterministic
+PASS: ledger:proven
+PASS: ledger:bounded
+PASS: ledger:private
+PASS: ledger:unproven
+PASS: ledger:unsupported
+PASS: ledger:not-tested
+PASS: ledger:general-not-proven
+PASS: ledger:sections-distinct
+PASS: ledger:vocabulary
+PASS: ledger:private-separate
+
+--- regressions ---
+PASS: regression:tools/test_phase5_tmnt_private_v1.py:exit
+PASS: regression:tools/test_phase5_tmnt_private_v1.py:stderr
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+
+--- evidence ---
+PASS: hygiene:no-private-rom-bytes
+PASS: hygiene:private-observation-recorded
+
+=== RESULT ===
+OPENRECOMP_P5_91=PASS
+OPENRECOMP_PHASE5_EVIDENCE_INDEX_V1=PASS tests=26
+OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

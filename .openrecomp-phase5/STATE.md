@@ -5,8 +5,8 @@ BASELINE_TAG=openrecomp-phase4-pass
 BASELINE_OBJECT=e7eaab18fee267b3d7962db13835c9e14dd77fc2
 BASELINE_COMMIT=b3c71fb690f00b4811e8ec30c28f7725141295d0
 BASELINE_TREE=f2ca3080915aa68f403526b89dfc17454687aed6
-CURRENT_STAGE=P5-91
-LAST_PASSED_STAGE=P5-90
+CURRENT_STAGE=P5-99
+LAST_PASSED_STAGE=P5-91
 STATUS=ACTIVE
 NES_PLATFORM_STATUS=NOT_PROVEN
 FINAL_VERDICT=NOT_PROVEN
@@ -86,7 +86,7 @@ QUEUE_FREEZE_STAGES=P5-01..P5-99
 | P5-11 | Private TMNT compatibility run | PASS | `.openrecomp-phase5/evidence/P5-11/` |
 | P5-12 | Reproducible NES package | PASS | `.openrecomp-phase5/evidence/P5-12/` |
 | P5-90 | Phase-5 whole regression | PASS | `.openrecomp-phase5/evidence/P5-90/` |
-| P5-91 | Evidence index + compatibility limitations | QUEUED | `.openrecomp-phase5/evidence/P5-91/` |
+| P5-91 | Evidence index + compatibility limitations | PASS | `.openrecomp-phase5/evidence/P5-91/` |
 | P5-99 | Final Phase-5 verdict | QUEUED | `.openrecomp-phase5/evidence/P5-99/` |
 
 ## P5-00 acceptance criteria
