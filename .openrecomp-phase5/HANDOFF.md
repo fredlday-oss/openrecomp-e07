@@ -278,11 +278,28 @@ markers reserved as `NOT_PROVEN`.
   (`8ab307ad...`).
 - Evidence: `.openrecomp-phase5/evidence/P5-11/`; no ROM bytes in evidence.
 
+## P5-12 outcome (PASS)
+
+Markers: `OPENRECOMP_P5_12=PASS`,
+`OPENRECOMP_PHASE5_PACKAGE_V1=PASS tests=190`; terminal and general markers
+reserved as `NOT_PROVEN`.
+
+- Deterministic public package `phase5_nes_package_v1.zip`: 169 members,
+  SHA-256 `8c5ab401...`, manifest fingerprint `213bdf1e...`, two builds
+  byte-identical; UTF-8/LF-only; private TMNT bytes/probe and P5-11 evidence
+  excluded and checked.
+- Self-contained rebuild from packaged generated sources reproduces the
+  canonical P5-08 observable exactly.
+- Two official runs byte-identical raw (`32e4daf7...`, 9812 bytes) and LF
+  (`b5f02035...`), empty stderr, exit 0; `p5_12_tests.json` identical
+  (`5a6e89f7...`).
+- Evidence: `.openrecomp-phase5/evidence/P5-12/`; package at
+  `.openrecomp-phase5/package/phase5_nes_package_v1.zip`.
+
 ## Exact next action
 
-Execute P5-12 (reproducible NES package): build a deterministic public ZIP
-containing only redistributable artifacts (Phase-5 control plane, sources,
-fixture assembly + assembler, gates, native translation sources regenerated
-from the public fixture, evidence through P5-11), with a per-member manifest
-and an explicit exclusion scan proving the private TMNT image, its bytes and
-its hashes-as-content never appear. Then proceed to P5-90.
+Execute P5-90 (Phase-5 whole regression): re-verify the frozen
+Phase-1/2/3/4 chain and re-run every Phase-1..Phase-5 required gate from the
+audited tree with the documented frozen-boundary hygiene (restore committed
+Phase-4 sidecars before re-running P5-00/P5-06 regressions, then restore
+again), requiring byte-identical deterministic stdout; then proceed to P5-91.
