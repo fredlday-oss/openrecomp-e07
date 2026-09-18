@@ -1,0 +1,99 @@
+=== P6-08 Native Execution of the Public MMC1 Fixture Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-exists
+PASS: source:manifest-verified
+
+--- frozen_chain ---
+PASS: chain:phase5-tag-object
+PASS: chain:phase5-commit
+PASS: chain:phase5-tree
+PASS: chain:descends
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+
+--- emission ---
+PASS: fixture:proof-identity
+PASS: emit:host-sha256
+PASS: emit:support-sha256
+
+--- native_build ---
+PASS: build:status
+PASS: build:classification
+PASS: build:executable-reproducible
+PASS: build:manifest-reproducible
+PASS: build:toolchain
+PASS: build:executable-present
+
+--- native_execution ---
+PASS: run:exit-code
+PASS: run:stderr-empty
+PASS: run:exit-code
+PASS: run:stderr-empty
+PASS: run:exit-code
+PASS: run:stderr-empty
+PASS: run:identical-output
+PASS: observable:failed
+PASS: observable:error
+PASS: observable:exit
+PASS: observable:steps
+PASS: observable:pc
+PASS: observable:a
+PASS: observable:x
+PASS: observable:y
+PASS: observable:sp
+PASS: observable:p
+PASS: observable:frames
+PASS: observable:nmi
+PASS: observable:clock
+PASS: observable:exit_arg
+PASS: observable:ram_fnv1a64
+PASS: observable:ppu_fnv1a64
+PASS: observable:state_fnv1a64
+PASS: observable:mmc1_regs
+PASS: observable:mmc1_shift
+PASS: observable:mmc1_count
+PASS: observable:mmc1_writes
+PASS: observable:prg_window_8000
+PASS: observable:prg_window_c000
+PASS: observable:chr_mode
+PASS: observable:mirroring
+PASS: observable:prg_ram_enabled
+PASS: observable:exit_word
+PASS: observable:frames-transcript
+PASS: observable:meaningful-mapper-state
+PASS: observable:timing
+PASS: observable:input-transcript
+PASS: observable:digests-distinct
+PASS: observable:no-guest-execution
+
+--- negative ---
+PASS: reject:truncated-rom-support
+PASS: reject:undeclared-thunk
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:tools/test_nes_platform_v1.py:exit
+PASS: regression:tools/test_nes_platform_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_fixture_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_fixture_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_recompile_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_recompile_v1.py:stderr
+
+--- evidence_hygiene ---
+PASS: hygiene:no-public-rom-bytes:build.json
+PASS: hygiene:no-private-rom-bytes:build.json
+PASS: hygiene:no-public-rom-bytes:executions.json
+PASS: hygiene:no-private-rom-bytes:executions.json
+PASS: hygiene:no-public-rom-bytes:regressions.json
+PASS: hygiene:no-private-rom-bytes:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P6_08=PASS
+OPENRECOMP_PHASE6_MMC1_NATIVE_V1=PASS tests=74
+OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

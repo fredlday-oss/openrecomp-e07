@@ -1,0 +1,51 @@
+{
+  "regressions": [
+    {
+      "extra": [],
+      "returncode": 0,
+      "script": "tools/test_nes_rom_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 959,
+      "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+      "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+    },
+    {
+      "extra": [],
+      "returncode": 0,
+      "script": "tools/test_nes_platform_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 750,
+      "stdout_sha256_lf": "bf33dbe99790623b8e80ee2e20a3d409b829fa981987ddfb159f45b665301e4c",
+      "stdout_sha256_raw": "61ae15280094542974e1b8a4439d9ff240515b8401b61f681e62b686ba4736e8"
+    },
+    {
+      "extra": [
+        "--evidence-dir",
+        ".openrecomp-phase6/scratch/P6-08/regression_p6_06"
+      ],
+      "returncode": 0,
+      "script": "tools/test_phase6_mmc1_fixture_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 3073,
+      "stdout_sha256_lf": "3fd40332c6b5055da61ed913c846752947d1a4119411f150d55968284e3fd2bb",
+      "stdout_sha256_raw": "2d32801cfec18390f4cb16f361c3fa6a1fd7a1c7d7a10232632d0b59a573beb9"
+    },
+    {
+      "extra": [
+        "--evidence-dir",
+        ".openrecomp-phase6/scratch/P6-08/regression_p6_07"
+      ],
+      "returncode": 0,
+      "script": "tools/test_phase6_mmc1_recompile_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 3170,
+      "stdout_sha256_lf": "161b1867351b51cb2c4721e97f148b718845b5b178235bae1956290de8a20d0e",
+      "stdout_sha256_raw": "d7842d364d5bbb5053936e5a073cee0c37a9d3379168b50d4fac42ce7b0127a0"
+    }
+  ],
+  "stage": "P6-08"
+}

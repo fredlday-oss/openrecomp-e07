@@ -277,6 +277,32 @@ reserved as `NOT_PROVEN`.
   and `RESULT.md`.
 - Evidence: `.openrecomp-phase6/evidence/P6-07/`.
 
+## P6-08 outcome (PASS)
+
+Markers: `OPENRECOMP_P6_08=PASS`,
+`OPENRECOMP_PHASE6_MMC1_NATIVE_V1=PASS tests=74`; terminal and general markers
+reserved as `NOT_PROVEN`.
+
+- Native build through the shared Phase-2 pipeline: `EXECUTABLE_REPRODUCIBLE`,
+  two OK runs, clang-cl/lld-link toolchain, executable present.
+- Three native runs byte-identical (stdout, empty stderr, exit 0): `failed=0`,
+  `exit=1`, `steps=82731`, `pc=0xC089`, `frames=9`, `nmi=6`,
+  `clock=241746`, `exit_arg=0x0000C089`.
+- Mapper observables: `mmc1_regs=1F070703`, `prg_window_8000=3`,
+  `prg_window_c000=3`, `chr_mode=1`, `mirroring=3`, `prg_ram_enabled=0`,
+  5905 serial writes; RAM/PPU/state FNV digests and the 9-frame transcript
+  pinned; controller transcript `0101010101010000`.
+- Meaningful deterministic behaviour across bank switching, CPU, memory, PPU,
+  input and timing; the original 6502 guest program is never executed directly
+  (host code runs the emitted switch machine through the typed runtime ABI).
+- Negative coverage: truncated ROM support generation and a missing run-exit
+  thunk fail closed.
+- Regressions: frozen NES tools plus the P6-06/P6-07 gates pass with empty
+  stderr (earlier gates re-run into ignored scratch evidence).
+- Official run hashes are recorded in `p6_08_tests.json`, `official_runs.json`
+  and `RESULT.md`.
+- Evidence: `.openrecomp-phase6/evidence/P6-08/`.
+
 ## Exact next action
 
-Proceed to P6-08 - Native execution of public MMC1 fixture.
+Proceed to P6-09 - Independent MMC1 reference equivalence.
