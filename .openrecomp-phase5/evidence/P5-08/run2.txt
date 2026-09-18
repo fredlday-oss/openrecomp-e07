@@ -1,0 +1,69 @@
+=== P5-08 Host Emission / NES Platform Adapter Gate ===
+
+--- fixtures ---
+
+--- emission ---
+PASS: emission:deterministic-program
+PASS: emission:deterministic-support
+PASS: emission:case-count
+PASS: emission:switch
+PASS: emission:advance
+PASS: emission:no-forbidden:system(
+PASS: emission:no-forbidden:popen(
+PASS: emission:no-forbidden:exec(
+PASS: emission:no-forbidden:fork(
+PASS: emission:no-forbidden:dlopen(
+PASS: emission:no-forbidden:LoadLibrary
+PASS: emission:no-forbidden:CreateProcess
+PASS: emission:typed-abi
+PASS: emission:no-guest-code-execution
+PASS: emission:public-rom-embedded-in-support
+
+--- emission_negative ---
+PASS: reject:undeclared-indirect-site
+PASS: reject:wrong-indirect-site
+PASS: reject:undocumented-opcode
+
+--- native_build ---
+PASS: build:status
+PASS: build:classification
+PASS: build:executable-reproducible
+PASS: build:manifest-reproducible
+PASS: build:toolchain
+PASS: build:executable-present
+
+--- native_smoke ---
+PASS: smoke:exit-code
+PASS: smoke:exit-code
+PASS: smoke:exit-code
+PASS: smoke:identical-output
+PASS: smoke:failed
+PASS: smoke:exit
+PASS: smoke:steps
+PASS: smoke:pc
+PASS: smoke:cpu
+PASS: smoke:frames
+PASS: smoke:nmi
+PASS: smoke:clock
+PASS: smoke:exit-arg
+PASS: smoke:ram-digest
+PASS: smoke:ppu-digest
+PASS: smoke:state-digest
+PASS: smoke:frame-transcript
+
+--- regressions ---
+PASS: regression:tools/test_host_emitter_v1.py:exit
+PASS: regression:tools/test_host_emitter_v1.py:stderr
+PASS: regression:tools/test_build_pipeline_v1.py:exit
+PASS: regression:tools/test_build_pipeline_v1.py:stderr
+
+--- evidence ---
+PASS: hygiene:no-private-rom-sha:emission.json
+PASS: hygiene:no-private-rom-sha:observable.json
+PASS: hygiene:no-private-rom-sha:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P5_08=PASS
+OPENRECOMP_PHASE5_HOST_EMIT_V1=PASS tests=48
+OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

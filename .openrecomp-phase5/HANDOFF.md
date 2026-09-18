@@ -206,11 +206,30 @@ markers reserved as `NOT_PROVEN`.
   the P5-07 RESULT. P5-07 regressions write to scratch evidence only.
 - Evidence: `.openrecomp-phase5/evidence/P5-07/`.
 
+## P5-08 outcome (PASS)
+
+Markers: `OPENRECOMP_P5_08=PASS`,
+`OPENRECOMP_PHASE5_HOST_EMIT_V1=PASS tests=48`; terminal and general markers
+reserved as `NOT_PROVEN`.
+
+- New deterministic 6502 C emitter (`p5_emit_v1.py`, 231 switch cases, typed
+  `or_rt_*` ABI only, declared `p5.exit` service binding, fail-closed on
+  undeclared indirect sites/undocumented opcodes) and bounded NES C runtime
+  support (`p5_support_v1.py`).
+- Reproducible native build through the shared Phase-2 pipeline; three
+  identical runs: `failed=0`, `exit=1`, `steps=90904`, `nmi=8`, `frames=11`,
+  `clock=298327`, exact digests and 11-frame transcript recorded.
+- No original guest code executes on the host; NMI entry is generated host
+  logic at instruction boundaries.
+- Two official runs byte-identical raw (`96004f12...`, 1958 bytes) and LF
+  (`732ad767...`), empty stderr, exit 0; `p5_08_tests.json` identical
+  (`edb65ad5...`).
+- Evidence: `.openrecomp-phase5/evidence/P5-08/`.
+
 ## Exact next action
 
-Execute P5-08 (Host emission + NES platform adapter): emit deterministic
-native host code for the proven NES CPU subset through the frozen host
-emitter, bind the fixture's declared run-exit service through the Phase-4
-runtime service mediator, implement the Phase-4 platform adapter over the
-P5-05/06/07 boundaries, and prove the generated C compiles and runs without
-executing original guest code. Then proceed to P5-09.
+Execute P5-09 (native execution of the legal NES fixture): run the native
+translation under multiple declared controller input plans, prove the guest
+receives controller input at the documented frame boundaries, that
+input-derived guest state and PPU/OAM observables change accordingly, and
+that every plan is deterministic. Then proceed to P5-10.

@@ -1,0 +1,239 @@
+{
+  "checks": [
+    {
+      "check": "build:classification",
+      "status": "PASS"
+    },
+    {
+      "check": "build:executable-present",
+      "status": "PASS"
+    },
+    {
+      "check": "build:executable-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build:manifest-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "build:status",
+      "status": "PASS"
+    },
+    {
+      "check": "build:toolchain",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:advance",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:case-count",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:deterministic-program",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:deterministic-support",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-forbidden:CreateProcess",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-forbidden:LoadLibrary",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-forbidden:dlopen(",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-forbidden:exec(",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-forbidden:fork(",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-forbidden:popen(",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-forbidden:system(",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-guest-code-execution",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:public-rom-embedded-in-support",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:switch",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:typed-abi",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-sha:emission.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-sha:observable.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-sha:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_build_pipeline_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_build_pipeline_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_host_emitter_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_host_emitter_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:undeclared-indirect-site",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:undocumented-opcode",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:wrong-indirect-site",
+      "status": "PASS"
+    },
+    {
+      "check": "smoke:clock",
+      "status": "PASS"
+    },
+    {
+      "check": "smoke:cpu",
+      "status": "PASS"
+    },
+    {
+      "check": "smoke:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "smoke:exit-arg",
+      "status": "PASS"
+    },
+    {
+      "check": "smoke:exit-code",
+      "status": "PASS"
+    },
+    {
+      "check": "smoke:exit-code",
+      "status": "PASS"
+    },
+    {
+      "check": "smoke:exit-code",
+      "status": "PASS"
+    },
+    {
+      "check": "smoke:failed",
+      "status": "PASS"
+    },
+    {
+      "check": "smoke:frame-transcript",
+      "status": "PASS"
+    },
+    {
+      "check": "smoke:frames",
+      "status": "PASS"
+    },
+    {
+      "check": "smoke:identical-output",
+      "status": "PASS"
+    },
+    {
+      "check": "smoke:nmi",
+      "status": "PASS"
+    },
+    {
+      "check": "smoke:pc",
+      "status": "PASS"
+    },
+    {
+      "check": "smoke:ppu-digest",
+      "status": "PASS"
+    },
+    {
+      "check": "smoke:ram-digest",
+      "status": "PASS"
+    },
+    {
+      "check": "smoke:state-digest",
+      "status": "PASS"
+    },
+    {
+      "check": "smoke:steps",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "evidence_files": [
+      "emission.json",
+      "observable.json",
+      "regressions.json"
+    ],
+    "executable_sha256": "ff39c97ede288e5db06bf4416652dbec6ba0b4fc537d2090d8ba36284098784e",
+    "program_sha256": "6e4dcb44aedd4fb010f00c8cbdf17ae3b92f5ce98a963bcffdbbbb8939c79078",
+    "regressions": [
+      {
+        "returncode": 0,
+        "script": "tools/test_host_emitter_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 3077,
+        "stdout_sha256_lf": "44c24de8a0f6f80ee81514caeb64057c28d0dae604d389db8dfe2ef259180863",
+        "stdout_sha256_raw": "fb6e6e2c6ba660a5c3df75602a59c0501bf86ca53e0371e4942c0c76108c45d5"
+      },
+      {
+        "returncode": 0,
+        "script": "tools/test_build_pipeline_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 4044,
+        "stdout_sha256_lf": "25139e4da54ad7f683e442570250b739cec1477c49f03f9cd3ff648f1ffed9a4",
+        "stdout_sha256_raw": "db055b5cd622a7ef188901ef8da65898e2dac0cacb03c0ee2fb6caeec5b3e273"
+      }
+    ],
+    "support_sha256": "2b411eea226bb6a59eb97314102dc7794d5551002f5b8bf6dffe4a75f6fd8b48"
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE5_HOST_EMIT_V1=PASS tests=48",
+    "stage": "OPENRECOMP_P5_08=PASS",
+    "terminal": "OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN"
+  },
+  "passed": 48,
+  "stage": "P5-08",
+  "stage_name": "OPENRECOMP_PHASE5_HOST_EMIT_V1",
+  "status": "PASS",
+  "tests": 48
+}

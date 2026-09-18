@@ -1,0 +1,23 @@
+{
+  "regressions": [
+    {
+      "returncode": 0,
+      "script": "tools/test_host_emitter_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 3077,
+      "stdout_sha256_lf": "44c24de8a0f6f80ee81514caeb64057c28d0dae604d389db8dfe2ef259180863",
+      "stdout_sha256_raw": "fb6e6e2c6ba660a5c3df75602a59c0501bf86ca53e0371e4942c0c76108c45d5"
+    },
+    {
+      "returncode": 0,
+      "script": "tools/test_build_pipeline_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 4044,
+      "stdout_sha256_lf": "25139e4da54ad7f683e442570250b739cec1477c49f03f9cd3ff648f1ffed9a4",
+      "stdout_sha256_raw": "db055b5cd622a7ef188901ef8da65898e2dac0cacb03c0ee2fb6caeec5b3e273"
+    }
+  ],
+  "stage": "P5-08"
+}
