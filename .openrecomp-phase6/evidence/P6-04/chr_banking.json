@@ -1,0 +1,46 @@
+{
+  "claim": "MMC1_SUBSET_V1",
+  "layouts": {
+    "power_on_4_banks": {
+      "bank_0": 0,
+      "bank_1": 0,
+      "chr_mode": 0,
+      "count": 4,
+      "granule": 8192
+    },
+    "private_16_banks_control_0x0f": {
+      "bank_0": 0,
+      "bank_1": 0,
+      "chr_mode": 0,
+      "count": 16,
+      "granule": 8192
+    },
+    "public_4_banks_control_0x0f": {
+      "bank_0": 0,
+      "bank_1": 0,
+      "chr_mode": 0,
+      "count": 4,
+      "granule": 8192
+    }
+  },
+  "stage": "P6-04",
+  "supported_bank_counts_8k": [
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "vectors": {
+    "bank_counts": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "chr_mode_0_combinations": 5120,
+    "chr_mode_1_combinations": 163840,
+    "comparisons": 1013760
+  }
+}

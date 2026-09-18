@@ -1,0 +1,77 @@
+{
+  "regressions": [
+    {
+      "extra": [],
+      "returncode": 0,
+      "script": "tools/test_nes_rom_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 959,
+      "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+      "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+    },
+    {
+      "extra": [],
+      "returncode": 0,
+      "script": "tools/test_nes_platform_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 750,
+      "stdout_sha256_lf": "bf33dbe99790623b8e80ee2e20a3d409b829fa981987ddfb159f45b665301e4c",
+      "stdout_sha256_raw": "61ae15280094542974e1b8a4439d9ff240515b8401b61f681e62b686ba4736e8"
+    },
+    {
+      "extra": [
+        "--evidence-dir",
+        ".openrecomp-phase6/scratch/P6-04/regression_p6_01"
+      ],
+      "returncode": 0,
+      "script": "tools/test_phase6_mmc1_inventory_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 3140,
+      "stdout_sha256_lf": "d153a32d2fb2ebad91a944b8d7abad8ee5b827fab924bbde26b5308d7ed851f6",
+      "stdout_sha256_raw": "2bfd8a5efe673085ea06cce7281d92414eebb46b10c51d5df2e9ecb16f4409d6"
+    },
+    {
+      "extra": [
+        "--evidence-dir",
+        ".openrecomp-phase6/scratch/P6-04/regression_p6_02"
+      ],
+      "returncode": 0,
+      "script": "tools/test_phase6_mmc1_serial_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2305,
+      "stdout_sha256_lf": "ed0061090d5b50be03cf80dd44c2cf48f6871ebc0506d9d14fecc3761e2dafc6",
+      "stdout_sha256_raw": "caf7bb5c0a6c09621b6b0bbe1ec2990c696f0d6e910feac220fa727bf0ebb2c1"
+    },
+    {
+      "extra": [
+        "--evidence-dir",
+        ".openrecomp-phase6/scratch/P6-04/regression_p6_03"
+      ],
+      "returncode": 0,
+      "script": "tools/test_phase6_mmc1_prg_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2444,
+      "stdout_sha256_lf": "949380183b9cee6802677b98f9473ae99ef5728ce106dc552f968148ca40203e",
+      "stdout_sha256_raw": "13b2b2f178ab260e583f14de9461c800c148ae4e8fd1072ad9f6af4405f05c55"
+    },
+    {
+      "extra": [
+        "--evidence-dir",
+        ".openrecomp-phase6/scratch/P6-04/regression_p6_00"
+      ],
+      "returncode": 0,
+      "script": "tools/test_phase6_boundary_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 3201,
+      "stdout_sha256_lf": "ca7ab21017aa5f89699b718ef6541d9f440a3d75a17730eb6343b90d4a148ffd",
+      "stdout_sha256_raw": "9391a99a241f0813584587b0bc4db7559f18ebc500897ca8c43bcce03b64e972"
+    }
+  ],
+  "stage": "P6-04"
+}

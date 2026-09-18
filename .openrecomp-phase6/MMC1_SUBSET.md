@@ -59,10 +59,18 @@ the write window `$8000-$FFFF`:
 
 ## CHR banking and mirroring (P6-04)
 
-- Supported CHR ROM sizes: 8 KiB .. 128 KiB in exact 8 KiB banks; CHR-RAM
-  boards and absent CHR ROM are classified unsupported.
-- All four mirroring settings are in the supported subset; nametable address
-  mapping is differentially verified at the PPU boundary.
+- Supported CHR ROM sizes: 8 KiB .. 128 KiB in exact 8 KiB banks with a
+  power-of-two bank count (1, 2, 4, 8, 16); CHR-RAM boards, absent CHR ROM
+  and non-power-of-two bank counts are classified unsupported.
+- CHR mode 0: 8 KiB bank = `chr_bank_0 >> 1`, masked to the 8 KiB bank count.
+- CHR mode 1: two 4 KiB banks from `chr_bank_0` and `chr_bank_1`, masked to
+  twice the 8 KiB bank count.
+- All four mirroring settings are in the supported subset. Nametable mapping
+  covers `$2000-$3EFF`: one-screen lower/upper fix all four logical nametables
+  to physical table 0/1; vertical selects on address bit 10; horizontal
+  selects on address bit 11. Nametable address offsets are
+  `table * 0x400 + (address & 0x3FF)`; the palette window `$3F00-$3FFF` is a
+  separate pass-through and other addresses fail closed.
 
 ## PRG-RAM and variants (P6-05)
 

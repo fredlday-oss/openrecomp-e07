@@ -159,6 +159,34 @@ reserved as `NOT_PROVEN`.
   recorded in `p6_03_tests.json`, `official_runs.json` and `RESULT.md`.
 - Evidence: `.openrecomp-phase6/evidence/P6-03/`.
 
+## P6-04 outcome (PASS)
+
+Markers: `OPENRECOMP_P6_04=PASS`,
+`OPENRECOMP_PHASE6_MMC1_CHR_V1=PASS tests=61`; terminal and general markers
+reserved as `NOT_PROVEN`.
+
+- New `p6_mapper1_chr_v1.py`: CHR mode 0 (8 KiB bank = `chr_bank_0 >> 1`,
+  masked to the 8 KiB bank count), CHR mode 1 (two 4 KiB banks from
+  `chr_bank_0`/`chr_bank_1`, masked to twice the bank count) and nametable
+  mapping for all four mirroring settings over `$2000-$3EFF` with
+  `table * 0x400 + (address & 0x3FF)`; out-of-window addresses fail closed.
+- Supported CHR 8 KiB bank counts are powers of two 1, 2, 4, 8, 16; non-powers
+  now classify `chr_bank_count_not_power_of_two` and fail closed.
+- Independently structured reference (`p6_mapper1_chr_reference_v1.py`,
+  division/modulo and branch tables) and differential vectors: 1,013,760 CHR
+  mapping comparisons over all 5 bank counts x 32 control x 32 register 0 x 32
+  register 1 values, plus 63,488 nametable comparisons over every
+  `$2000-$3EFF` address for all four modes; zero mismatches.
+- Explicit one-screen lower/upper, vertical and horizontal tables and table
+  offsets verified; serial integration commits control `0x1F`, CHR registers
+  `5`/`2` and maps `$0543`/`$1543` to the expected 4 KiB banks.
+- Malformed bank counts and out-of-window CHR/nametable addresses fail closed.
+- Regressions: frozen NES tools plus P6-00/P6-01/P6-02/P6-03 gates pass with
+  empty stderr (earlier gates re-run into ignored scratch evidence).
+- Official run hashes are recorded in `p6_04_tests.json`, `official_runs.json`
+  and `RESULT.md`.
+- Evidence: `.openrecomp-phase6/evidence/P6-04/`.
+
 ## Exact next action
 
-Proceed to P6-04 - MMC1 CHR banking and mirroring.
+Proceed to P6-05 - MMC1 PRG-RAM and variant boundary.

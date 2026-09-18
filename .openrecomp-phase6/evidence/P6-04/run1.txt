@@ -1,0 +1,90 @@
+=== P6-04 MMC1 CHR Banking and Mirroring Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-exists
+PASS: source:manifest-verified
+
+--- frozen_chain ---
+PASS: chain:phase5-tag-object
+PASS: chain:phase5-commit
+PASS: chain:phase5-tree
+PASS: chain:descends
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+
+--- power_on ---
+PASS: power-on:chr-mode0-bank0
+PASS: power-on:one-screen-lower
+PASS: supported:chr-bank-counts
+
+--- chr_vectors ---
+PASS: chr:mode0-combinations
+PASS: chr:mode1-combinations
+PASS: chr:comparisons
+
+--- mirroring_vectors ---
+PASS: mirroring:comparisons
+PASS: mirroring:one-screen-lower
+PASS: mirroring:one-screen-upper
+PASS: mirroring:vertical
+PASS: mirroring:horizontal
+PASS: mirroring:table-offsets
+
+--- serial_integration ---
+PASS: integration:chr-mode1-banks
+PASS: integration:chr-offsets
+PASS: integration:mirroring-horizontal
+
+--- fixture_configurations ---
+PASS: fixture:public-chr-banks
+PASS: fixture:public-chr-layout
+PASS: fixture:private-contract-chr
+PASS: fixture:rom-present
+
+--- negative ---
+PASS: reject:chr-bank-count-0
+PASS: reject:chr-bank-count-3
+PASS: reject:chr-bank-count-5
+PASS: reject:chr-bank-count-17
+PASS: reject:chr-bank-count-32
+PASS: reject:chr-bank-count-bool
+PASS: reject:chr-address-0x2000
+PASS: reject:chr-address-0xffff
+PASS: reject:chr-address-bool
+PASS: reject:nametable-address-0x1fff
+PASS: reject:nametable-address-0x3f00
+PASS: reject:nametable-address-0x4000
+PASS: negative:state-untouched
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:tools/test_nes_platform_v1.py:exit
+PASS: regression:tools/test_nes_platform_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_serial_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_serial_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_prg_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_prg_v1.py:stderr
+PASS: regression:tools/test_phase6_boundary_v1.py:exit
+PASS: regression:tools/test_phase6_boundary_v1.py:stderr
+
+--- evidence_hygiene ---
+PASS: hygiene:no-public-rom-bytes:chr_banking.json
+PASS: hygiene:no-private-rom-bytes:chr_banking.json
+PASS: hygiene:no-public-rom-bytes:mirroring.json
+PASS: hygiene:no-private-rom-bytes:mirroring.json
+PASS: hygiene:no-public-rom-bytes:reference_comparison.json
+PASS: hygiene:no-private-rom-bytes:reference_comparison.json
+PASS: hygiene:no-public-rom-bytes:regressions.json
+PASS: hygiene:no-private-rom-bytes:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P6_04=PASS
+OPENRECOMP_PHASE6_MMC1_CHR_V1=PASS tests=61
+OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

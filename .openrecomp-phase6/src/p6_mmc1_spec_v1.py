@@ -136,7 +136,8 @@ _REQUIREMENTS: tuple[dict[str, Any], ...] = (
                     "to the two 4 KiB PPU windows",
      "basis": "documented MMC1 CHR banking"},
     {"id": "CHR-003", "area": "chr_banking", "status": "SUPPORTED",
-     "requirement": "CHR ROM sizes 8 KiB .. 128 KiB in exact 8 KiB banks",
+     "requirement": "CHR ROM sizes 8 KiB .. 128 KiB in exact 8 KiB banks "
+                    "with a power-of-two bank count (1, 2, 4, 8, 16)",
      "basis": "supported-subset bound and declared header fields"},
     {"id": "RAM-001", "area": "prg_ram", "status": "SUPPORTED",
      "requirement": "supported fixture declares no PRG-RAM/NVRAM and no "
@@ -253,6 +254,10 @@ def classify(inventory: dict[str, Any]) -> dict[str, Any]:
         reasons.append("chr_size_out_of_supported_range")
     elif chr_bytes % CHR_BANK_BYTES != 0:
         reasons.append("chr_size_not_8k_multiple")
+    else:
+        chr_banks = chr_bytes // CHR_BANK_BYTES
+        if chr_banks & (chr_banks - 1) != 0:
+            reasons.append("chr_bank_count_not_power_of_two")
 
     base["prg_banks_16k"] = prg_bytes // PRG_BANK_BYTES
     base["chr_banks_8k"] = chr_bytes // CHR_BANK_BYTES
