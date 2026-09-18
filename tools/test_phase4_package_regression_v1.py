@@ -274,7 +274,14 @@ def audit_package() -> dict[str, Any]:
     }
     check("package:required-members", required <= names)
     gates = {name for name in names if "/gates/test_phase4_" in name}
-    check("package:all-gates", len(gates) == 11)
+    expected_gate_names = {
+        "boundary", "runtime_abi", "guest_memory", "runtime_services",
+        "deterministic_io", "platform_adapter", "graphics_audio", "fixture",
+        "adapter_execution", "generic_runtime_proof", "package_regression",
+    }
+    check("package:all-gates",
+          {f"{pkg.MEMBERS_ROOT}/gates/test_phase4_{name}_v1.py"
+           for name in expected_gate_names} <= gates)
     for stage in range(0, 10):
         stage_dir = f"{pkg.MEMBERS_ROOT}/evidence/P4-{stage:02d}/"
         check(f"package:evidence-P4-{stage:02d}",

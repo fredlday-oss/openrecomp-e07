@@ -1,0 +1,39 @@
+=== P4-90 Phase-4 Whole Regression Gate ===
+
+--- boundaries ---
+PASS: boundary:phase3-tag-annotated
+PASS: boundary:phase3-tag-object
+PASS: boundary:phase3-commit
+PASS: boundary:phase3-tree
+PASS: boundary:phase2-commit
+PASS: boundary:phase1-commit
+PASS: boundary:descends
+PASS: boundary:root-manifest
+PASS: boundary:root-manifest-entries
+PASS: boundary:phase3-manifest
+PASS: boundary:phase3-manifest-entries
+PASS: boundary:p3-99-result
+PASS: boundary:p3-99-gate
+PASS: boundary:phase4-manifest-verified
+PASS: boundary:record:p4_00_tests.json
+PASS: boundary:record:p4_00_tests.json:pass
+PASS: boundary:record:p4_00_tests.json:no-failure
+PASS: boundary:record:p4_08_tests.json
+PASS: boundary:record:p4_08_tests.json:pass
+PASS: boundary:record:p4_08_tests.json:no-failure
+PASS: boundary:record:p4_09_tests.json
+PASS: boundary:record:p4_09_tests.json:pass
+PASS: boundary:record:p4_09_tests.json:no-failure
+PASS: boundary:record:p4_10_tests.json
+PASS: boundary:record:p4_10_tests.json:pass
+PASS: boundary:record:p4_10_tests.json:no-failure
+
+--- boundary_gate ---
+PASS: boundary-gate:no-staged-phase4-paths
+FAIL: boundary-gate:returncode
+
+=== RESULT ===
+OPENRECOMP_P4_90=FAIL (AssertionError: boundary-gate:returncode: condition failed)
+OPENRECOMP_PHASE4_WHOLE_REGRESSION_V1=FAIL
+OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN

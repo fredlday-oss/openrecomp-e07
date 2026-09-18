@@ -116,6 +116,17 @@ affected P4-05 pins were refreshed (`determinism.json`, `changed_files.txt`,
 `repair_record.json`, `repair_run1/2.txt`). No stage contract, queue row or
 claim changed, and the historical Phase-3 tag is untouched.
 
+## P4-10 stage-internal repair record (P4-90 boundary)
+
+The P4-10 package completeness check required exactly eleven Phase-4 gates and
+broke when the P4-90 whole-regression gate was added. Repaired at the source
+on the Phase-4 branch: the check now requires the eleven named stage gates by
+presence, which also admits later gates. The P4-10 gate was re-run with
+byte-identical official stdout (`8a9769d7...`) and the affected pins were
+refreshed (`determinism.json`, `changed_files.txt`, `repair_record.json`). No
+stage contract, queue row or claim changed, and the historical Phase-3 tag is
+untouched.
+
 ## P4-10 result (PASS)
 
 Stage: `P4-10` Reproducible Phase-4 package (frozen queue row).

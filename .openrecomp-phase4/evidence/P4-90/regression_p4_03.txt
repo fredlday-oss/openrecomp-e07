@@ -1,0 +1,103 @@
+=== P4-03 Runtime Service Mediation Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest
+PASS: source:root-manifest-entries
+PASS: source:root-manifest-verified
+PASS: source:phase3-manifest
+PASS: source:phase3-manifest-entries
+PASS: source:phase4-manifest-verified
+
+--- interfaces ---
+PASS: interfaces:catalog
+PASS: interfaces:core-namespace
+PASS: interfaces:typed
+PASS: interfaces:terminating-exactly-one
+PASS: interfaces:version-abi
+PASS: interfaces:arg-count
+PASS: reject:interface-outside-namespace
+PASS: reject:interface-unbounded-type
+PASS: reject:interface-incompatible-version
+PASS: reject:interface-empty-description
+PASS: registry:ids
+PASS: registry:resolve
+PASS: registry:resolve-version-ok
+PASS: reject:registry-unknown
+PASS: registry-version-mismatch
+PASS: reject:registry-duplicate
+PASS: reject:registry-empty
+PASS: reject:registry-bad-entry
+PASS: registry:document-roundtrip
+PASS: registry:fingerprint-stable
+PASS: registry:no-fixture-tokens
+
+--- mediator ---
+PASS: aliases:declared
+PASS: aliases:version
+PASS: reject:alias-bad-source-id
+PASS: reject:alias-negative-bound-arg
+PASS: reject:mediator-alias-to-unknown
+PASS: reject:mediator-duplicate-alias
+PASS: reject:mediator-terminating-handler
+PASS: mediate:stream-ok
+PASS: mediate:call-log
+PASS: mediate:identity-service
+PASS: mediate:exit-ok
+PASS: mediate:exit-status
+PASS: mediate:post-termination
+PASS: mediate:post-termination-log
+PASS: mediate:unknown
+PASS: mediate:version
+PASS: mediate:arity
+PASS: mediate:typed-overflow
+PASS: mediate:typed-negative
+PASS: mediate:no-handler
+PASS: mediate:handler-failure
+PASS: mediate:first-call-ok
+PASS: mediate:first-failure
+PASS: mediate:latch-preserved
+PASS: mediate:latch-blocks-handler
+PASS: mediate:no-alias-fails-closed
+PASS: reject:sink-wrong-stream
+PASS: reject:sink-byte-overflow
+PASS: reject:sink-capacity
+
+--- bridge ---
+PASS: bridge:ok-stream
+PASS: bridge:ok-exit
+PASS: bridge:unknown-numeric
+PASS: bridge:arity
+PASS: bridge:typed
+PASS: bridge:status-values
+PASS: reject:bridge-no-mediator
+PASS: reject:bridge-no-profile-services
+PASS: reject:bridge-unmapped-profile-service
+PASS: reject:bridge-missing-codes
+
+--- fixture_replacement ---
+PASS: replay:frozen-stream-length
+PASS: replay:frozen-exit-status
+PASS: replay:all-bytes-accepted
+PASS: replay:output-byte-identical
+PASS: replay:call-count
+PASS: replay:not-terminated-before-exit
+PASS: replay:exit-accepted
+PASS: replay:exit-status
+PASS: replay:no-failure
+PASS: replay:output-sha256
+PASS: replay:deterministic-document
+PASS: replay:deterministic-fingerprint
+PASS: replay:deterministic-output
+PASS: replay:no-aliases-fails-closed
+PASS: replay:bridge-all-ok
+PASS: replay:bridge-exit
+PASS: replay:bridge-unknown-after-exit
+PASS: capability:no-ambient-host-access
+PASS: capability:generated-source-compliant
+PASS: capability:generated-service-macros-declared
+
+=== RESULT ===
+OPENRECOMP_P4_03=PASS
+OPENRECOMP_PHASE4_RUNTIME_SERVICES_V1=PASS tests=86
+OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN

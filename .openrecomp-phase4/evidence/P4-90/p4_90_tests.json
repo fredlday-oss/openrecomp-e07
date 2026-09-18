@@ -1,0 +1,137 @@
+{
+  "checks": [
+    {
+      "check": "boundary-gate:no-staged-phase4-paths",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary-gate:returncode",
+      "status": "FAIL"
+    },
+    {
+      "check": "boundary:descends",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:p3-99-gate",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:p3-99-result",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:phase1-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:phase2-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:phase3-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:phase3-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:phase3-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:phase3-tag-annotated",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:phase3-tag-object",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:phase3-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:phase4-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:record:p4_00_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:record:p4_00_tests.json:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:record:p4_00_tests.json:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:record:p4_08_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:record:p4_08_tests.json:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:record:p4_08_tests.json:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:record:p4_09_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:record:p4_09_tests.json:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:record:p4_09_tests.json:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:record:p4_10_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:record:p4_10_tests.json:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:record:p4_10_tests.json:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:root-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:root-manifest-entries",
+      "status": "PASS"
+    }
+  ],
+  "failed": 2,
+  "failure": "AssertionError: boundary-gate:returncode: condition failed",
+  "findings": {
+    "boundaries": {
+      "phase3_commit": "e16e4b29b90f379615f1af97e47747cd1d531796",
+      "phase3_tag_object": "ac31524504b1b5cc63aabcfd5132a3eb4275e8e9",
+      "phase3_tree": "a940f0d84a32adaf191f7ff2bebfb24cc855cde0",
+      "phase4_manifest_entries": 30
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE4_WHOLE_REGRESSION_V1=FAIL tests=27",
+    "stage": "OPENRECOMP_P4_90=FAIL",
+    "terminal": "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN"
+  },
+  "passed": 27,
+  "stage": "P4-90",
+  "stage_name": "OPENRECOMP_PHASE4_WHOLE_REGRESSION_V1",
+  "status": "FAIL",
+  "tests": 27
+}

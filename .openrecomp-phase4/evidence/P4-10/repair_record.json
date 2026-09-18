@@ -1,0 +1,10 @@
+{
+  "defect": "the package completeness check required exactly eleven P4 gates, so it broke when the P4-90 whole-regression gate was added to the tree.",
+  "discovered_by": "P4-90 whole regression audit",
+  "fix": "the check now requires the eleven named stage gates to be present, which also admits later P4-91/P4-99 gates.",
+  "gate_sha256": "f41b4c262492503d38d7b0e9c6896b7fe122dc8444f885167db6799613123bbe",
+  "gate_sha256_pre_repair": "77d4ee6492c6df5c371d41d15810537a1d0a706c4d53314e241b2c3284b3625e",
+  "official_stdout_sha256_raw": "8a9769d7019a4e15f3733c2ea697d17dfc316311d0c7b260092dbeb7f3b47ba9",
+  "repair": "gate presence check",
+  "stage": "P4-10"
+}
