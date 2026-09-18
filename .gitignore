@@ -21,3 +21,14 @@ Thumbs.db
 **/Intermediate/
 **/Saved/
 **/DerivedDataCache/
+
+# ROM / console image safety (Phase 5): never commit ROM images or
+# ROM-derived binary copies.
+*.nes
+*.fds
+*.unf
+*.unif
+*.prg
+*.chr
+Roms/
+roms/

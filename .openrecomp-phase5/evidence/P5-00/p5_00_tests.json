@@ -1,0 +1,355 @@
+{
+  "checks": [
+    {
+      "check": "chain:descends",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase1-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase2-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase3-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase3-tag-object",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase3-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase4-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase4-tag-annotated",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase4-tag-object",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase4-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:baseline-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:baseline-object",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:baseline-tag",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:baseline-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:compat-marker-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:complete-set-matches-ledger",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:current-stage",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:CONTROL_POLICY.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:EVIDENCE_SCHEMA.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:FIXTURE_POLICY.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:HANDOFF.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:SCOPE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:STAGE_QUEUE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:STATE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:fixture-policy-private",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:fixture-policy-public",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:freeze-record",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:last-passed-stage",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger-ids-frozen",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger-statuses-valid",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:phase",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue-at-most-one-active",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue-freeze-section",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue-ids-frozen",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue-names-frozen",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue-statuses-valid",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:rom-policy",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:scope-nonclaims",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:scope-terminal",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:separated-fixtures",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:status",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-marker-present",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-unexpected-paths",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:identical",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:markers",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:record-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:returncode-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:stdout-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:stdout-lf-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:stdout-raw-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:exists",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:gitignore:.fds",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:gitignore:.nes",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:gitignore:.unf",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:gitignore:.unif",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:ignored:Roms/probe.rom",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:ignored:probe.fds",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:ignored:probe.nes",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:ignored:probe.unf",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:ignored:probe.unif",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:ignored:roms/probe.rom",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:md5",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:no-private-copy",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:no-tracked-images",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:no-worktree-images",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:outside-worktree",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:size",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict:gate-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict:general-marker-never-promoted",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict:official-runs-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict:record-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict:record-present",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict:record-status",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict:record-terminal",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict:terminal-marker-promoted",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "control_plane_digest": "f168563866e6edce7c2f1b7cb2f4881927f958c271a17cff5007da18ba2f1760",
+    "p4_99_reconstruction": {
+      "identical_raw": true,
+      "identical_stderr": true,
+      "raw_bytes": 2609,
+      "returncode_zero_both": true,
+      "stderr_empty_both": true,
+      "stdout_sha256_lf": "79c6f395637bf195e478b03eeadd009dfbf83df4e2e51648245a08d93acbca7d",
+      "stdout_sha256_raw": "903308caf2167053de63f8d87a7376c09125c7ea0d0fd2d0fc08a90d90ec8c6e",
+      "tests_sha256": "f13cf89155daaf07731097a7530a642c7cbd60cc5ae231e9f602139cdcc78154"
+    },
+    "phase5_manifest_entries": 2,
+    "private_rom_copies": [],
+    "private_rom_sha256": "2a9345e608ec0c57470dc6658ce8199ddea9c18076134d9ef2a56f91b0a066d1",
+    "rom_extension_files": [],
+    "worktree_problems": []
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE5_BOUNDARY_V1=PASS tests=80",
+    "stage": "OPENRECOMP_P5_00=PASS",
+    "terminal": "OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN"
+  },
+  "passed": 80,
+  "stage": "P5-00",
+  "stage_name": "OPENRECOMP_PHASE5_BOUNDARY_V1",
+  "status": "PASS",
+  "tests": 80
+}
