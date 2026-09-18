@@ -1,0 +1,38 @@
+{
+  "memory_differential": {
+    "addresses": 16384,
+    "chr_rom_writes_failed": 8192,
+    "palette_sha256": "ba8e0ce6e48e75478d71463c86ead7493050d1f48b444b25dc8d3635d3c9fc1e",
+    "read_mismatches": [],
+    "vram_sha256": "66eacec1a97e65e5941e1d26e4bd5186bfe1820827635a6023d6e663db76dfb2",
+    "write_mismatches": []
+  },
+  "mirroring": [
+    {
+      "mirroring": "horizontal",
+      "mismatches": []
+    },
+    {
+      "mirroring": "vertical",
+      "mismatches": []
+    }
+  ],
+  "register_differential": {
+    "final_state_sha256": "91309571c514d339b6d426f5db565d8f262bcb68d01c9db19955fd33fafc8c1f",
+    "mismatches": [],
+    "steps": 3000
+  },
+  "stage": "P5-06",
+  "unsupported": {
+    "cycle_accuracy": false,
+    "fine_scroll_rendering": false,
+    "four_screen": "unsupported, fails closed",
+    "frame_length_model": "virtual frame: 29780 retired CPU clock units with a 2273-unit vblank window (documented NTSC nominal), instruction clock costs from a documented P5 table",
+    "nmi_delivery": "platform queues NMI at vblank when PPUCTRL bit 7 is set; delivered at an instruction boundary (P5-07)",
+    "ppu_rendering": "not modelled; the observable is a bounded tile-space state view submitted through the Phase-4 graphics boundary",
+    "sprite_overflow_timing": false,
+    "sprite_rendering": false,
+    "sprite_zero_hit": false,
+    "vblank_source": "explicit deterministic platform event (P5-07)"
+  }
+}

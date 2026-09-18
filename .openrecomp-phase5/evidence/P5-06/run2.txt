@@ -1,0 +1,57 @@
+=== P5-06 PPU Boundary / Deterministic Graphics Gate ===
+
+--- fixtures ---
+PASS: fixture:mirroring
+PASS: fixture:chr-rom
+
+--- register_differential ---
+PASS: register:mismatches
+
+--- memory_differential ---
+PASS: memory:reads
+PASS: memory:writes
+PASS: memory:chr-rom-writes-fail
+
+--- mirroring ---
+PASS: mirroring:horizontal
+PASS: mirroring:vertical
+
+--- frame_observation ---
+PASS: frame:vblank
+PASS: frame:runtime-frame-type
+PASS: frame:dimensions
+PASS: frame:payload
+PASS: frame:deterministic
+PASS: frame:digest-sensitive
+PASS: frame:tile-space-sensitive
+PASS: frame:boundary-supports
+PASS: frame:boundary-presented
+PASS: frame:boundary-checksum
+
+--- timing_assumptions ---
+PASS: timing:documented
+PASS: timing:model
+
+--- negative ---
+PASS: reject:four-screen
+PASS: reject:chr-rom-write
+PASS: reject:unknown-register
+PASS: reject:address-range
+PASS: negative:no-backend-tokens
+
+--- regressions ---
+PASS: regression:tools/test_phase4_graphics_audio_v1.py:exit
+PASS: regression:tools/test_phase4_graphics_audio_v1.py:stderr
+PASS: regression:tools/test_nes_platform_v1.py:exit
+PASS: regression:tools/test_nes_platform_v1.py:stderr
+
+--- evidence ---
+PASS: hygiene:no-public-rom-bytes:ppu.json
+PASS: hygiene:no-public-rom-bytes:frame.json
+PASS: hygiene:no-public-rom-bytes:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P5_06=PASS
+OPENRECOMP_PHASE5_PPU_BOUNDARY_V1=PASS tests=32
+OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
