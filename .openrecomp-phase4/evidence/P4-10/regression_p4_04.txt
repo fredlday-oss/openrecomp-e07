@@ -1,0 +1,118 @@
+=== P4-04 Deterministic I/O Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest
+PASS: source:root-manifest-entries
+PASS: source:root-manifest-verified
+PASS: source:phase3-manifest
+PASS: source:phase3-manifest-entries
+PASS: source:phase4-manifest-verified
+
+--- recorded_input ---
+PASS: record:digest-format
+PASS: record:digest-stable
+PASS: record:document
+PASS: record:digest-sensitive
+PASS: reject:record-duplicate-file
+PASS: reject:record-bad-file-name
+PASS: reject:record-non-bytes-file
+PASS: reject:record-non-bytes-console
+PASS: reject:record-negative-ticks
+PASS: reject:record-bad-event
+PASS: console:read-a
+PASS: console:read-b
+PASS: console:eof-sentinel
+PASS: console:pending-input
+PASS: console:input-length
+PASS: console:output
+PASS: reject:console-output-capacity
+PASS: reject:console-byte-overflow
+PASS: reject:console-negative-byte
+PASS: reject:console-zero-capacity
+PASS: reject:console-fault-policy
+PASS: reject:console-bad-policy
+PASS: console:document
+
+--- files_time_events ---
+PASS: file:read
+PASS: file:eof
+PASS: file:seek-read
+PASS: file:write-append
+PASS: file:size
+PASS: reject:file:capacity
+PASS: reject:file:initial-too-large
+PASS: reject:file:read-only-write
+PASS: reject:file:seek-beyond-capacity
+PASS: reject:file:bad-name
+PASS: reject:file:zero-capacity
+PASS: clock:initial
+PASS: clock:advance
+PASS: clock:read-does-not-advance
+PASS: reject:clock:negative-delta
+PASS: reject:clock:overflow
+PASS: clock:document
+PASS: events:next-tick
+PASS: events:not-early
+PASS: events:deliver-ordered
+PASS: events:deliver-second
+PASS: events:empty
+PASS: events:delivered-log
+PASS: events:insertion-order
+PASS: reject:events:overflow
+PASS: reject:events:too-many
+PASS: reject:events:negative-tick
+PASS: reject:events:bad-kind
+PASS: events:timer-kind
+PASS: events:kinds
+
+--- runtime_services ---
+PASS: runtime:read-a
+PASS: runtime:read-b
+PASS: runtime:eof
+PASS: runtime:write
+PASS: runtime:ticks
+PASS: runtime:poll-early
+PASS: runtime:advance
+PASS: runtime:poll-due
+PASS: reject:runtime:unknown-file-open
+PASS: reject:runtime:bad-output-stream
+PASS: reject:runtime:bad-input-stream
+PASS: reject:runtime:bad-record
+PASS: reject:runtime:bad-policy
+PASS: reject:runtime:input-fault
+PASS: reject:runtime:ambient-rejected
+PASS: runtime:ambient-flag
+PASS: services:registry-composition
+PASS: services:base-catalog-unmodified
+PASS: services:interface-typed
+PASS: reject:services:handlers-need-runtime
+PASS: services:stream-write
+PASS: services:stream-write-output
+PASS: services:clock
+PASS: services:poll-early
+PASS: services:poll
+PASS: services:stream-read
+PASS: services:exit
+PASS: services:bridge-unknown-stream
+
+--- determinism_replay ---
+PASS: determinism:document
+PASS: determinism:fingerprint
+PASS: determinism:output
+PASS: determinism:event-log
+PASS: determinism:policies
+PASS: determinism:no-host-time
+PASS: determinism:no-ambient-tokens
+PASS: determinism:no-fixture-tokens
+PASS: replay:frozen-stream-length
+PASS: replay:all-bytes-accepted
+PASS: replay:output-byte-identical
+PASS: replay:exit
+PASS: replay:no-failure
+PASS: replay:output-sha256
+
+=== RESULT ===
+OPENRECOMP_P4_04=PASS
+OPENRECOMP_PHASE4_DETERMINISTIC_IO_V1=PASS tests=101
+OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN

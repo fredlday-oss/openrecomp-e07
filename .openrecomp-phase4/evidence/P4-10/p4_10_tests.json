@@ -1,0 +1,379 @@
+{
+  "checks": [
+    {
+      "check": "boundary:p4_00_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:p4_00_tests.json:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:p4_00_tests.json:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:p4_08_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:p4_08_tests.json:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:p4_08_tests.json:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:p4_09_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:p4_09_tests.json:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:p4_09_tests.json:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:program-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:program-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:reproduce-instructions",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:support-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:support-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "package:all-gates",
+      "status": "PASS"
+    },
+    {
+      "check": "package:byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "package:evidence-P4-00",
+      "status": "PASS"
+    },
+    {
+      "check": "package:evidence-P4-01",
+      "status": "PASS"
+    },
+    {
+      "check": "package:evidence-P4-02",
+      "status": "PASS"
+    },
+    {
+      "check": "package:evidence-P4-03",
+      "status": "PASS"
+    },
+    {
+      "check": "package:evidence-P4-04",
+      "status": "PASS"
+    },
+    {
+      "check": "package:evidence-P4-05",
+      "status": "PASS"
+    },
+    {
+      "check": "package:evidence-P4-06",
+      "status": "PASS"
+    },
+    {
+      "check": "package:evidence-P4-07",
+      "status": "PASS"
+    },
+    {
+      "check": "package:evidence-P4-08",
+      "status": "PASS"
+    },
+    {
+      "check": "package:evidence-P4-09",
+      "status": "PASS"
+    },
+    {
+      "check": "package:host-specific-exclusions",
+      "status": "PASS"
+    },
+    {
+      "check": "package:manifest-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "package:manifest-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "package:manifest-member",
+      "status": "PASS"
+    },
+    {
+      "check": "package:policy-exempt-members",
+      "status": "PASS"
+    },
+    {
+      "check": "package:required-members",
+      "status": "PASS"
+    },
+    {
+      "check": "package:size-bound",
+      "status": "PASS"
+    },
+    {
+      "check": "package:verify-members",
+      "status": "PASS"
+    },
+    {
+      "check": "package:written",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p2_08:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p2_08:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p2_08:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_01:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_01:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_01:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_02:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_02:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_02:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_03:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_03:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_03:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_04:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_04:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_04:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_05:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_05:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_05:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_06:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_06:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_06:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_07:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_07:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_07:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_phase1_host_gates:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_phase1_host_gates:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_phase1_host_gates:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_public_safety:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_public_safety:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_public_safety:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase4-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-verified",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "package": {
+      "fingerprint": "1d417db978f8c1c0b73f8585caa8df08fa42ef542c31186b5c878b41c36cfb46",
+      "host_specific_exclusions": [
+        "phase4_package_v1/evidence/P4-07/build.json"
+      ],
+      "member_count": 326,
+      "sha256": "88f508d7971f68e516086b691f4828b247ab67e46441e514eaa6c330b47f5b40",
+      "size": 2705508
+    },
+    "regressions": [
+      {
+        "marker": "OPENRECOMP_GENERIC_RUNTIME_ABI_V1=PASS tests=169",
+        "name": "regression_p2_08",
+        "returncode": 0,
+        "stdout_sha256_lf": "bf0177edafc3908053306a6bc2c97648451e2eb71ad132519ade8146ed53975c"
+      },
+      {
+        "marker": "OPENRECOMP_PHASE4_RUNTIME_ABI_V1=PASS tests=156",
+        "name": "regression_p4_01",
+        "returncode": 0,
+        "stdout_sha256_lf": "ad9a0a58fcb3e1f7c26bdd793e0174982ddd44aeec0dddf4f160eacf511dc8a0"
+      },
+      {
+        "marker": "OPENRECOMP_PHASE4_GUEST_MEMORY_V1=PASS tests=113",
+        "name": "regression_p4_02",
+        "returncode": 0,
+        "stdout_sha256_lf": "4545d2b465894d2ef0ce31fc460f9fac0e27cf2b6ef73131c49110c33095b2b0"
+      },
+      {
+        "marker": "OPENRECOMP_PHASE4_RUNTIME_SERVICES_V1=PASS tests=86",
+        "name": "regression_p4_03",
+        "returncode": 0,
+        "stdout_sha256_lf": "a6705aecaadfd13c114898b627e54fc3749ef14a427c16c4a9444cd5ecc0cd5a"
+      },
+      {
+        "marker": "OPENRECOMP_PHASE4_DETERMINISTIC_IO_V1=PASS tests=101",
+        "name": "regression_p4_04",
+        "returncode": 0,
+        "stdout_sha256_lf": "13f1d323f5033433e1d3328230c11a4f0b8a1cc253922699362976e00d7e9f2c"
+      },
+      {
+        "marker": "OPENRECOMP_PHASE4_PLATFORM_ADAPTER_V1=PASS tests=76",
+        "name": "regression_p4_05",
+        "returncode": 0,
+        "stdout_sha256_lf": "773097951626137d713e6307c05593bb73831c1c0a1197246dcf9eef936a3e8c"
+      },
+      {
+        "marker": "OPENRECOMP_PHASE4_GRAPHICS_AUDIO_V1=PASS tests=72",
+        "name": "regression_p4_06",
+        "returncode": 0,
+        "stdout_sha256_lf": "5350e47f3ac873ddcb5a9d21d00c3b64f30748ae53c217058ad6e307239dcc3e"
+      },
+      {
+        "marker": "OPENRECOMP_PHASE4_FIXTURE_V1=PASS tests=49",
+        "name": "regression_p4_07",
+        "returncode": 0,
+        "stdout_sha256_lf": "f1f58bf8d883717d28cc29f08c1eb4a1106ec0d3abb5011effd6cba511c72030"
+      },
+      {
+        "marker": "OPENRECOMP_PHASE1_HOST_GATES_V1=PASS",
+        "name": "regression_phase1_host_gates",
+        "returncode": 0,
+        "stdout_sha256_lf": "0371f7ef9bd63a81d2fced42238d0a1e6fbb1731d719f4b277e4a4dc5a11de38"
+      },
+      {
+        "marker": "OPENRECOMP_PUBLIC_SAFETY=PASS",
+        "name": "regression_public_safety",
+        "returncode": 0,
+        "stdout_sha256_lf": "0793ee2cf2ad7a19dbe2fe7f98d2e08a272db9653837c73bc9558fc33de5e5a2"
+      }
+    ],
+    "source_integrity": {
+      "phase3_entries": 24,
+      "phase4_entries": 29,
+      "root_entries": 134
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE4_PACKAGE_REGRESSION_V1=PASS tests=71",
+    "stage": "OPENRECOMP_P4_10=PASS",
+    "terminal": "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN"
+  },
+  "passed": 71,
+  "stage": "P4-10",
+  "stage_name": "OPENRECOMP_PHASE4_PACKAGE_REGRESSION_V1",
+  "status": "PASS",
+  "tests": 71
+}

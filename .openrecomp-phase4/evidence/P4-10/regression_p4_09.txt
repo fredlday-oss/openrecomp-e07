@@ -1,0 +1,78 @@
+=== P4-09 End-to-End Generic-Runtime Native Proof Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest
+PASS: source:root-manifest-entries
+PASS: source:root-manifest-verified
+PASS: source:phase3-manifest
+PASS: source:phase3-manifest-entries
+PASS: source:phase4-manifest-verified
+
+--- fixture_ingestion ---
+PASS: pipeline:fixture-elf
+PASS: pipeline:input-plan
+PASS: pipeline:ingestion-identity
+PASS: pipeline:ingestion-entry
+PASS: pipeline:ingestion-text
+PASS: pipeline:independent-loader-entry
+PASS: pipeline:loader-segment-agreement
+
+--- program_recovery ---
+PASS: pipeline:structure-instructions
+PASS: pipeline:structure-blocks
+PASS: pipeline:structure-functions
+PASS: pipeline:structure-call-edges
+PASS: pipeline:structure-recursion
+PASS: pipeline:structure-entry-unit
+PASS: pipeline:structure-no-indirect
+PASS: pipeline:structure-no-unresolved
+PASS: pipeline:structure-fingerprints
+
+--- translation_build ---
+PASS: pipeline:translation-program
+PASS: pipeline:translation-support
+PASS: pipeline:translation-reachable
+PASS: pipeline:build-classification
+PASS: pipeline:build-executable
+PASS: pipeline:build-manifest-deterministic
+
+--- runtime_adapter ---
+PASS: pipeline:adapter-valid
+PASS: pipeline:adapter-claims
+PASS: pipeline:adapter-memory
+PASS: pipeline:adapter-services
+PASS: pipeline:adapter-input
+PASS: pipeline:adapter-ticks
+PASS: pipeline:adapter-exit
+
+--- native_execution ---
+PASS: pipeline:execution-replay-identical
+PASS: pipeline:execution-no-failure
+PASS: pipeline:execution-transcript
+PASS: pipeline:execution-steps
+PASS: pipeline:execution-pc
+PASS: pipeline:execution-digest
+
+--- equivalence ---
+PASS: reference:deterministic
+PASS: reference:transcript
+PASS: reference:exit-status
+PASS: reference:steps
+PASS: reference:pc
+PASS: reference:no-failure
+PASS: reference:output-identical
+PASS: reference:digest-identical
+PASS: reference:image-window-identical
+PASS: reference:hi-lo-covered-by-digest
+
+--- reference_negatives ---
+PASS: negative:reference-unsupported-instruction
+PASS: negative:reference-step-limit
+PASS: negative:reference-unmapped-store
+PASS: negative:reference-unaligned-jump
+
+=== RESULT ===
+OPENRECOMP_P4_09=PASS
+OPENRECOMP_PHASE4_END_TO_END_NATIVE_PROOF_V1=PASS tests=55
+OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN

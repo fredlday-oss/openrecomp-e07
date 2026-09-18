@@ -8,7 +8,8 @@ stage-internal repair recorded in `STATE.md`; P4-06 (Graphics/audio
 abstraction boundary) `PASS`; P4-07 (Interactive legally-clean fixture)
 `PASS`; P4-08 (First platform-adapter execution proof) `PASS`; P4-09
 (End-to-end generic-runtime native proof) `PASS`; P4-10 (Reproducible
-Phase-4 package) is the executing stage. The frozen
+Phase-4 package) `PASS`; P4-90 (Phase-4 whole regression audit) is the
+executing stage. The frozen
 Phase-4 queue (`P4-01` .. `P4-99`) is frozen by `.openrecomp-phase4/STAGE_QUEUE.md`
 (`## Queue freeze`) at the P4-00 `PASS` boundary, before any P4-01
 implementation work. Phase 3 is complete and frozen at annotated tag
@@ -33,6 +34,27 @@ Reserved markers:
 - `OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN` (P4-99 may issue PASS
   for the bounded claim only)
 - `OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN` (never promoted)
+
+## P4-10 outcome (PASS)
+
+Markers: `OPENRECOMP_P4_10=PASS`,
+`OPENRECOMP_PHASE4_PACKAGE_REGRESSION_V1=PASS tests=71`; terminal and general
+compatibility markers reserved as `NOT_PROVEN`.
+
+- New files: `.openrecomp-phase4/src/p4_package_v1.py` (deterministic ZIP
+  builder with fail-closed content policy and member manifest) and
+  `tools/test_phase4_package_regression_v1.py`; the Phase-4 manifest grew
+  additively to 29 entries.
+- Package `phase4_package_v1.zip`: two builds byte-identical, member
+  manifest verified, completeness checks for control plane, sources, gates,
+  fixture, generated translation sources, evidence `P4-00`..`P4-09` and
+  `REPRODUCE.md`.
+- Bounded regressions pass (P2-08, P4-01..P4-07, host gates, public safety)
+  and the committed P4-00/P4-08/P4-09 boundary records verify.
+- Two official runs byte-identical raw (`8a9769d7...`) and LF, empty stderr,
+  exit 0; `p4_10_tests.json` identical across runs.
+- Evidence: `.openrecomp-phase4/evidence/P4-10/`; package at
+  `.openrecomp-phase4/package/phase4_package_v1.zip`.
 
 ## P4-09 outcome (PASS)
 
@@ -324,15 +346,10 @@ compatibility markers reserved as `NOT_PROVEN`.
 
 ## Exact next action
 
-Execute P4-10 (Reproducible Phase-4 package): produce a clean
-byte-reproducible or explicitly reproducibility-bounded Phase-4 package
-containing all required source, generated artifacts, manifests, evidence and
-exact reproduction instructions, verified from the audited tree. Add
-sources/gate to `.openrecomp-phase4/SOURCE_SHA256SUMS.txt`, run the official
-gate twice with deterministic evidence, run the required regressions (P2-08,
-P4-01..P4-09, Phase-1 host gates, public safety, and P4-00 using the
-documented dynamic frozen-gate boundary-context hygiene), update the control
-plane and commit the P4-10 boundary.
+Execute P4-90 (Phase-4 whole regression audit): run the complete required
+Phase-1, Phase-2, Phase-3 and Phase-4 regression set from the audited
+Phase-4 tree, keeping every frozen earlier proof boundary valid. Then P4-91
+(evidence index + limitations) and P4-99 (final verdict).
 
 ## Constraints
 
