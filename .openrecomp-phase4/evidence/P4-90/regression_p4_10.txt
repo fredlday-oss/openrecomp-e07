@@ -1,0 +1,86 @@
+=== P4-10 Reproducible Package Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest
+PASS: source:root-manifest-entries
+PASS: source:root-manifest-verified
+PASS: source:phase3-manifest
+PASS: source:phase3-manifest-entries
+PASS: source:phase4-manifest-verified
+
+--- evidence_generation ---
+PASS: evidence:program-sha256
+PASS: evidence:support-sha256
+PASS: evidence:program-identical
+PASS: evidence:support-identical
+PASS: evidence:reproduce-instructions
+
+--- package ---
+PASS: package:byte-identical
+PASS: package:manifest-identical
+PASS: package:manifest-fingerprint
+PASS: package:verify-members
+PASS: package:written
+PASS: package:size-bound
+PASS: package:required-members
+PASS: package:all-gates
+PASS: package:evidence-P4-00
+PASS: package:evidence-P4-01
+PASS: package:evidence-P4-02
+PASS: package:evidence-P4-03
+PASS: package:evidence-P4-04
+PASS: package:evidence-P4-05
+PASS: package:evidence-P4-06
+PASS: package:evidence-P4-07
+PASS: package:evidence-P4-08
+PASS: package:evidence-P4-09
+PASS: package:manifest-member
+PASS: package:host-specific-exclusions
+PASS: package:policy-exempt-members
+
+--- regressions ---
+PASS: regression_p2_08:returncode
+PASS: regression_p2_08:stderr-empty
+PASS: regression_p2_08:marker
+PASS: regression_p4_01:returncode
+PASS: regression_p4_01:stderr-empty
+PASS: regression_p4_01:marker
+PASS: regression_p4_02:returncode
+PASS: regression_p4_02:stderr-empty
+PASS: regression_p4_02:marker
+PASS: regression_p4_03:returncode
+PASS: regression_p4_03:stderr-empty
+PASS: regression_p4_03:marker
+PASS: regression_p4_04:returncode
+PASS: regression_p4_04:stderr-empty
+PASS: regression_p4_04:marker
+PASS: regression_p4_05:returncode
+PASS: regression_p4_05:stderr-empty
+PASS: regression_p4_05:marker
+PASS: regression_p4_06:returncode
+PASS: regression_p4_06:stderr-empty
+PASS: regression_p4_06:marker
+PASS: regression_p4_07:returncode
+PASS: regression_p4_07:stderr-empty
+PASS: regression_p4_07:marker
+PASS: regression_phase1_host_gates:returncode
+PASS: regression_phase1_host_gates:stderr-empty
+PASS: regression_phase1_host_gates:marker
+PASS: regression_public_safety:returncode
+PASS: regression_public_safety:stderr-empty
+PASS: regression_public_safety:marker
+PASS: boundary:p4_00_tests.json
+PASS: boundary:p4_00_tests.json:pass
+PASS: boundary:p4_00_tests.json:no-failure
+PASS: boundary:p4_08_tests.json
+PASS: boundary:p4_08_tests.json:pass
+PASS: boundary:p4_08_tests.json:no-failure
+PASS: boundary:p4_09_tests.json
+PASS: boundary:p4_09_tests.json:pass
+PASS: boundary:p4_09_tests.json:no-failure
+
+=== RESULT ===
+OPENRECOMP_P4_10=PASS
+OPENRECOMP_PHASE4_PACKAGE_REGRESSION_V1=PASS tests=71
+OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN

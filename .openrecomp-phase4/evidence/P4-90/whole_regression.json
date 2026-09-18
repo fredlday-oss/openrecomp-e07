@@ -1,0 +1,134 @@
+{
+  "all_returncode_zero": true,
+  "all_stderr_empty": true,
+  "findings": {
+    "boundaries": {
+      "phase3_commit": "e16e4b29b90f379615f1af97e47747cd1d531796",
+      "phase3_tag_object": "ac31524504b1b5cc63aabcfd5132a3eb4275e8e9",
+      "phase3_tree": "a940f0d84a32adaf191f7ff2bebfb24cc855cde0",
+      "phase4_manifest_entries": 30
+    }
+  },
+  "regressions": [
+    {
+      "name": "regression_p4_01",
+      "returncode": 0,
+      "script": "tools/test_phase4_runtime_abi_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 6199,
+      "stdout_sha256_raw": "81c96314335da8420b5fe72f9659ce0efcf603f82179566c4c3a218c2e4c0b6d"
+    },
+    {
+      "name": "regression_p4_02",
+      "returncode": 0,
+      "script": "tools/test_phase4_guest_memory_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 3855,
+      "stdout_sha256_raw": "5cfc58f1bea7a89b835b17086e6d9f90ec9137e2a4527e6aa30c0b11139cff6e"
+    },
+    {
+      "name": "regression_p4_03",
+      "returncode": 0,
+      "script": "tools/test_phase4_runtime_services_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 3135,
+      "stdout_sha256_raw": "cc2f73daa0d9a2b4cff977db5c20ec083208c9ea35f903e7a0e63af134cb013b"
+    },
+    {
+      "name": "regression_p4_04",
+      "returncode": 0,
+      "script": "tools/test_phase4_deterministic_io_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 3378,
+      "stdout_sha256_raw": "e55ad6cb52592d5fbaa4fdea525ba05c437b9c942ebeeaf28c13ef9e1ca49ac3"
+    },
+    {
+      "name": "regression_p4_05",
+      "returncode": 0,
+      "script": "tools/test_phase4_platform_adapter_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2631,
+      "stdout_sha256_raw": "849af7fd1f63930bdf3c8459906ce11578ea7f7224ed00423a52079df45bdde0"
+    },
+    {
+      "name": "regression_p4_06",
+      "returncode": 0,
+      "script": "tools/test_phase4_graphics_audio_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2783,
+      "stdout_sha256_raw": "d2a59e4a45513f55b58dbae2a1f7fd880a607013614b7842861f62580a4b2da1"
+    },
+    {
+      "name": "regression_p4_07",
+      "returncode": 0,
+      "script": "tools/test_phase4_fixture_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1868,
+      "stdout_sha256_raw": "76dd4cf2a07da5ddc153822b212d4b9b21f467c03bca05811cd8d507bbb0ec14"
+    },
+    {
+      "name": "regression_p4_08",
+      "returncode": 0,
+      "script": "tools/test_phase4_adapter_execution_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2766,
+      "stdout_sha256_raw": "4449d842df0a6087d44b693aa39776b86583a0c909321f3ad1b619d8664ccded"
+    },
+    {
+      "name": "regression_p4_09",
+      "returncode": 0,
+      "script": "tools/test_phase4_generic_runtime_proof_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2393,
+      "stdout_sha256_raw": "8ab7d3fa8a7788f5a916d78c57726ed702c12851c3ed01c026bc4175ba2b291e"
+    },
+    {
+      "name": "regression_p4_10",
+      "returncode": 0,
+      "script": "tools/test_phase4_package_regression_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2798,
+      "stdout_sha256_raw": "8a9769d7019a4e15f3733c2ea697d17dfc316311d0c7b260092dbeb7f3b47ba9"
+    },
+    {
+      "name": "regression_phase1_host_gates",
+      "returncode": 0,
+      "script": "tools/phase1_host_gates_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 5417,
+      "stdout_sha256_raw": "2a9d1bba538b91605d61c3c47d8208cc7012cdfe49042f088c409dc54729cc35"
+    },
+    {
+      "name": "regression_public_safety",
+      "returncode": 0,
+      "script": "tools/public_safety_scan.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 31,
+      "stdout_sha256_raw": "ad022ff195be230e31115124d48b7f6d8ccaae58d97eab2779b8b1ad694dbb2e"
+    },
+    {
+      "held_out_modified_tracked": [],
+      "name": "regression_p4_00",
+      "returncode": 0,
+      "script": "tools/test_phase4_boundary_v1.py",
+      "sidecars_restored_to_committed": true,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 3186,
+      "stdout_sha256_raw": "953312d08eab65d72d7f80f7bc2f0d50adb6c9cb770324b5398b52803a92c5f8"
+    }
+  ],
+  "stage": "P4-90"
+}

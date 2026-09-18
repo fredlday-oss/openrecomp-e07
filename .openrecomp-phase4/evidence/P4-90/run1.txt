@@ -30,10 +30,62 @@ PASS: boundary:record:p4_10_tests.json:no-failure
 
 --- boundary_gate ---
 PASS: boundary-gate:no-staged-phase4-paths
-FAIL: boundary-gate:returncode
+PASS: boundary-gate:returncode
+PASS: boundary-gate:stderr-empty
+PASS: boundary-gate:stdout-byte-identical
+
+--- regressions ---
+PASS: regression_p4_01:returncode
+PASS: regression_p4_01:stderr-empty
+PASS: regression_p4_01:marker
+PASS: regression_p4_01:stdout-byte-identical
+PASS: regression_p4_02:returncode
+PASS: regression_p4_02:stderr-empty
+PASS: regression_p4_02:marker
+PASS: regression_p4_02:stdout-byte-identical
+PASS: regression_p4_03:returncode
+PASS: regression_p4_03:stderr-empty
+PASS: regression_p4_03:marker
+PASS: regression_p4_03:stdout-byte-identical
+PASS: regression_p4_04:returncode
+PASS: regression_p4_04:stderr-empty
+PASS: regression_p4_04:marker
+PASS: regression_p4_04:stdout-byte-identical
+PASS: regression_p4_05:returncode
+PASS: regression_p4_05:stderr-empty
+PASS: regression_p4_05:marker
+PASS: regression_p4_05:stdout-byte-identical
+PASS: regression_p4_06:returncode
+PASS: regression_p4_06:stderr-empty
+PASS: regression_p4_06:marker
+PASS: regression_p4_06:stdout-byte-identical
+PASS: regression_p4_07:returncode
+PASS: regression_p4_07:stderr-empty
+PASS: regression_p4_07:marker
+PASS: regression_p4_07:stdout-byte-identical
+PASS: regression_p4_08:returncode
+PASS: regression_p4_08:stderr-empty
+PASS: regression_p4_08:marker
+PASS: regression_p4_08:stdout-byte-identical
+PASS: regression_p4_09:returncode
+PASS: regression_p4_09:stderr-empty
+PASS: regression_p4_09:marker
+PASS: regression_p4_09:stdout-byte-identical
+PASS: regression_p4_10:returncode
+PASS: regression_p4_10:stderr-empty
+PASS: regression_p4_10:marker
+PASS: regression_p4_10:stdout-byte-identical
+PASS: regression_phase1_host_gates:returncode
+PASS: regression_phase1_host_gates:stderr-empty
+PASS: regression_phase1_host_gates:marker
+PASS: regression_phase1_host_gates:stdout-byte-identical
+PASS: regression_public_safety:returncode
+PASS: regression_public_safety:stderr-empty
+PASS: regression_public_safety:marker
+PASS: regression_public_safety:stdout-byte-identical
 
 === RESULT ===
-OPENRECOMP_P4_90=FAIL (AssertionError: boundary-gate:returncode: condition failed)
-OPENRECOMP_PHASE4_WHOLE_REGRESSION_V1=FAIL
+OPENRECOMP_P4_90=PASS
+OPENRECOMP_PHASE4_WHOLE_REGRESSION_V1=PASS tests=78
 OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN
 OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN

@@ -1,22 +1,22 @@
 {
-  "artifacts_identical": true,
-  "identical_lf": true,
-  "identical_raw": true,
+  "artifacts_identical": false,
+  "identical_lf": false,
+  "identical_raw": false,
   "official_runs": [
     {
       "markers": [
-        "OPENRECOMP_P4_90=FAIL (AssertionError: boundary-gate:returncode: condition failed)",
-        "OPENRECOMP_PHASE4_WHOLE_REGRESSION_V1=FAIL",
+        "OPENRECOMP_P4_90=PASS",
+        "OPENRECOMP_PHASE4_WHOLE_REGRESSION_V1=PASS tests=78",
         "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN",
         "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN"
       ],
       "name": "run1",
-      "p4_90_tests_sha256": "11345e6784d557ba524a4a61392068acf5d27a64f719fe9bb81feb108679f20f",
-      "returncode": 1,
+      "p4_90_tests_sha256": "12d11688ed1b65b19e898794360bb1377321ad8af7949746746cebd9c6b0f808",
+      "returncode": 0,
       "stderr_empty": true,
-      "stdout_bytes_raw": 1413,
-      "stdout_sha256_lf": "c898b3d13b3b27c5a91afd29e02e201b5ef07fd57cc2a8725c1417c9fa308b95",
-      "stdout_sha256_raw": "b57227ae3a5e2abdd7ee2e9bab62b8e500a562f27f5c4a46a847a96035e4e767"
+      "stdout_bytes_raw": 3329,
+      "stdout_sha256_lf": "0301654481c42b65150148d0b91c5cfdfa4c9a3d7019c61b92bde97ee114356f",
+      "stdout_sha256_raw": "f7bd0e304391fca9b04764d34417ff6b2ff3df02bd41af5780abb347c40377bc"
     },
     {
       "markers": [
