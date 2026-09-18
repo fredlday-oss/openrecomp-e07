@@ -5,8 +5,8 @@ BASELINE_TAG=openrecomp-phase4-pass
 BASELINE_OBJECT=e7eaab18fee267b3d7962db13835c9e14dd77fc2
 BASELINE_COMMIT=b3c71fb690f00b4811e8ec30c28f7725141295d0
 BASELINE_TREE=f2ca3080915aa68f403526b89dfc17454687aed6
-CURRENT_STAGE=P5-05
-LAST_PASSED_STAGE=P5-04
+CURRENT_STAGE=P5-06
+LAST_PASSED_STAGE=P5-05
 STATUS=ACTIVE
 NES_PLATFORM_STATUS=NOT_PROVEN
 FINAL_VERDICT=NOT_PROVEN
@@ -77,7 +77,7 @@ QUEUE_FREEZE_STAGES=P5-01..P5-99
 | P5-02 | 2A03/6502 decode + reachable instruction frontier | PASS | `.openrecomp-phase5/evidence/P5-02/` |
 | P5-03 | CPU semantics proof | PASS | `.openrecomp-phase5/evidence/P5-03/` |
 | P5-04 | ProgramModel / CFG / functions / translation units | PASS | `.openrecomp-phase5/evidence/P5-04/` |
-| P5-05 | NES CPU memory map + mapper model | QUEUED | `.openrecomp-phase5/evidence/P5-05/` |
+| P5-05 | NES CPU memory map + mapper model | PASS | `.openrecomp-phase5/evidence/P5-05/` |
 | P5-06 | PPU boundary / deterministic graphics model | QUEUED | `.openrecomp-phase5/evidence/P5-06/` |
 | P5-07 | APU/input/timing/interrupt boundary | QUEUED | `.openrecomp-phase5/evidence/P5-07/` |
 | P5-08 | Host emission + NES platform adapter | QUEUED | `.openrecomp-phase5/evidence/P5-08/` |

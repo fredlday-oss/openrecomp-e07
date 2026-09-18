@@ -1,0 +1,138 @@
+{
+  "sections": {
+    "apu_io": {
+      "mismatches": []
+    },
+    "cartridge": {
+      "mismatches": []
+    },
+    "controllers": {
+      "mismatches": []
+    },
+    "fail_closed": {
+      "pairs": [
+        {
+          "address": 16408,
+          "frozen_failed": true,
+          "operation": "read",
+          "our_failed": true
+        },
+        {
+          "address": 16408,
+          "frozen_failed": true,
+          "operation": "write",
+          "our_failed": true
+        },
+        {
+          "address": 16415,
+          "frozen_failed": true,
+          "operation": "read",
+          "our_failed": true
+        },
+        {
+          "address": 16415,
+          "frozen_failed": true,
+          "operation": "write",
+          "our_failed": true
+        },
+        {
+          "address": 16416,
+          "frozen_failed": true,
+          "operation": "read",
+          "our_failed": true
+        },
+        {
+          "address": 16416,
+          "frozen_failed": true,
+          "operation": "write",
+          "our_failed": true
+        },
+        {
+          "address": 24575,
+          "frozen_failed": true,
+          "operation": "read",
+          "our_failed": true
+        },
+        {
+          "address": 24575,
+          "frozen_failed": true,
+          "operation": "write",
+          "our_failed": true
+        },
+        {
+          "address": 24576,
+          "frozen_failed": true,
+          "operation": "read",
+          "our_failed": true
+        },
+        {
+          "address": 24576,
+          "frozen_failed": true,
+          "operation": "write",
+          "our_failed": true
+        },
+        {
+          "address": 32767,
+          "frozen_failed": true,
+          "operation": "read",
+          "our_failed": true
+        },
+        {
+          "address": 32767,
+          "frozen_failed": true,
+          "operation": "write",
+          "our_failed": true
+        }
+      ]
+    },
+    "mixed": {
+      "apu_registers_equal": true,
+      "apu_status_equal": true,
+      "controller_bits_equal": true,
+      "controller_states_equal": true,
+      "mismatches": [],
+      "oam_equal": true,
+      "palette_equal": true,
+      "ppu_addr_equal": true,
+      "ppu_buffer_equal": true,
+      "ppu_ctrl_equal": true,
+      "ppu_mask_equal": true,
+      "ppu_status_equal": true,
+      "ppu_t_equal": true,
+      "ppu_w_equal": true,
+      "ram_equal": true,
+      "strobe_equal": true,
+      "vram_equal": true
+    },
+    "oam_dma": {
+      "equal": true
+    },
+    "ppu_window": {
+      "addresses": 8192,
+      "log_entries": 18432,
+      "log_equal": true,
+      "log_sha256": "82137af84f07d01d3a714949d7cdb2d5da58c1fa93e20a693d5e44a56e2ada97"
+    },
+    "ram": {
+      "mismatches": {}
+    }
+  },
+  "state_digest": {
+    "apu_registers_equal": true,
+    "apu_status_equal": true,
+    "controller_bits_equal": true,
+    "controller_states_equal": true,
+    "oam_equal": true,
+    "palette_equal": true,
+    "ppu_addr_equal": true,
+    "ppu_buffer_equal": true,
+    "ppu_ctrl_equal": true,
+    "ppu_mask_equal": true,
+    "ppu_status_equal": true,
+    "ppu_t_equal": true,
+    "ppu_w_equal": true,
+    "ram_equal": true,
+    "strobe_equal": true,
+    "vram_equal": true
+  }
+}

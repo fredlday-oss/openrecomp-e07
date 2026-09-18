@@ -1,0 +1,129 @@
+{
+  "checks": [
+    {
+      "check": "differential:apu-io",
+      "status": "PASS"
+    },
+    {
+      "check": "differential:cartridge",
+      "status": "PASS"
+    },
+    {
+      "check": "differential:controllers",
+      "status": "PASS"
+    },
+    {
+      "check": "differential:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "differential:fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "differential:mixed",
+      "status": "PASS"
+    },
+    {
+      "check": "differential:oam-dma",
+      "status": "PASS"
+    },
+    {
+      "check": "differential:ppu-window",
+      "status": "PASS"
+    },
+    {
+      "check": "differential:ram",
+      "status": "PASS"
+    },
+    {
+      "check": "differential:state",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:prg-ram-absent",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:rom-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:bus.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_platform_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_platform_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:address-range",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bad-controller-port",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:non-nrom-mapper",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "differential_sha256": "fed133da669a33908e253dea04d2dbf0057ea53740e007da07a5f406cd548cc3",
+    "evidence_files": [
+      "bus.json",
+      "regressions.json"
+    ],
+    "ppu_routing_sha256": "82137af84f07d01d3a714949d7cdb2d5da58c1fa93e20a693d5e44a56e2ada97",
+    "regressions": [
+      {
+        "returncode": 0,
+        "script": "tools/test_nes_platform_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 750,
+        "stdout_sha256_lf": "bf33dbe99790623b8e80ee2e20a3d409b829fa981987ddfb159f45b665301e4c",
+        "stdout_sha256_raw": "61ae15280094542974e1b8a4439d9ff240515b8401b61f681e62b686ba4736e8"
+      },
+      {
+        "returncode": 0,
+        "script": "tools/test_nes_rom_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 959,
+        "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+        "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+      }
+    ]
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE5_MEMORY_MAP_V1=PASS tests=21",
+    "stage": "OPENRECOMP_P5_05=PASS",
+    "terminal": "OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN"
+  },
+  "passed": 21,
+  "stage": "P5-05",
+  "stage_name": "OPENRECOMP_PHASE5_MEMORY_MAP_V1",
+  "status": "PASS",
+  "tests": 21
+}

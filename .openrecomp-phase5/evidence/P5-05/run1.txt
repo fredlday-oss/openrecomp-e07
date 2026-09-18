@@ -1,0 +1,38 @@
+=== P5-05 NES CPU Memory Map / Mapper Model Gate ===
+
+--- fixtures ---
+PASS: fixture:rom-sha256
+PASS: fixture:prg-ram-absent
+
+--- differential ---
+PASS: differential:deterministic
+PASS: differential:ram
+PASS: differential:ppu-window
+PASS: differential:apu-io
+PASS: differential:controllers
+PASS: differential:oam-dma
+PASS: differential:cartridge
+PASS: differential:fail-closed
+PASS: differential:mixed
+PASS: differential:state
+
+--- negative ---
+PASS: reject:non-nrom-mapper
+PASS: reject:bad-controller-port
+PASS: reject:address-range
+
+--- regressions ---
+PASS: regression:tools/test_nes_platform_v1.py:exit
+PASS: regression:tools/test_nes_platform_v1.py:stderr
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+
+--- evidence ---
+PASS: hygiene:no-public-rom-bytes:bus.json
+PASS: hygiene:no-public-rom-bytes:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P5_05=PASS
+OPENRECOMP_PHASE5_MEMORY_MAP_V1=PASS tests=21
+OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

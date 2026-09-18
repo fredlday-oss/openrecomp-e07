@@ -149,11 +149,29 @@ markers reserved as `NOT_PROVEN`.
   (`9d3e924c...`).
 - Evidence: `.openrecomp-phase5/evidence/P5-04/`.
 
+## P5-05 outcome (PASS)
+
+Markers: `OPENRECOMP_P5_05=PASS`,
+`OPENRECOMP_PHASE5_MEMORY_MAP_V1=PASS tests=21`; terminal and general markers
+reserved as `NOT_PROVEN`.
+
+- New original bounded NES CPU bus (`p5_bus_v1.py`): RAM + mirrors, PPU
+  register-window routing, APU/IO latches/status, OAM DMA, controller ports,
+  NROM cartridge window, fail-closed disabled I/O/expansion/absent PRG-RAM.
+- Differentially verified against the frozen independent platform: full RAM
+  mirror sweep, all 8192 PPU window addresses, APU/IO, controller transcripts,
+  OAM DMA, all 32 KiB of PRG, six fail-closed windows, and a 5000-operation
+  mixed script with zero mismatches; final PPU register/latch state equal.
+- Two official runs byte-identical raw (`16f49c60...`, 1094 bytes) and LF
+  (`2783ea49...`), empty stderr, exit 0; `p5_05_tests.json` identical
+  (`46d7ad1a...`).
+- Evidence: `.openrecomp-phase5/evidence/P5-05/`.
+
 ## Exact next action
 
-Execute P5-05 (NES CPU memory map + mapper model): implement the bounded
-platform memory model for the public NROM fixture (2 KiB RAM + mirrors, PPU
-register window, APU/IO window, controller ports, cartridge PRG mapping,
-mapper-0 behaviour and absent PRG-RAM), with unknown mappings failing closed,
-and reconcile it with the frozen independent platform contract. Then proceed
-to P5-06.
+Execute P5-06 (PPU boundary / deterministic graphics model): implement the
+Phase-5 PPU port behind the P5-05 bus with the documented register and memory
+semantics required by the fixture (PPUCTRL/PPUMASK/PPUSTATUS/OAMADDR/OAMDATA/
+PPUSCROLL/PPUADDR/PPUDATA, nametable/palette/OAM access, CHR reads), record
+frame/vblank timing assumptions and unsupported behaviours, and differentially
+verify it against the frozen PPU contract. Then proceed to P5-07.

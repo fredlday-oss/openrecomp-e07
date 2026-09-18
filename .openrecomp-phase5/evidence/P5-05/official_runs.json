@@ -1,0 +1,58 @@
+{
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "command": [
+        "python",
+        "tools/test_phase5_bus_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase5/evidence/P5-05"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P5_05=",
+        "OPENRECOMP_PHASE5_MEMORY_MAP_V1=",
+        "OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=",
+        "OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY="
+      ],
+      "name": "run1",
+      "p5_05_tests_sha256": "46d7ad1a2e7c7a0828475c749eed078f7992925aa4a3ea1a556ea306b8a14a6e",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1094,
+      "stdout_bytes_lf": 1056,
+      "stdout_sha256_lf": "2783ea498ba9275e208a7e1eef79e6e21201b838143e071b3054a7f604c2d7b5",
+      "stdout_sha256_raw": "16f49c60d9a94eb2b4010489e60cd1cddd7885e3827f829cebbd6f59fc4ce773"
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_phase5_bus_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase5/evidence/P5-05"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P5_05=",
+        "OPENRECOMP_PHASE5_MEMORY_MAP_V1=",
+        "OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=",
+        "OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY="
+      ],
+      "name": "run2",
+      "p5_05_tests_sha256": "46d7ad1a2e7c7a0828475c749eed078f7992925aa4a3ea1a556ea306b8a14a6e",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1094,
+      "stdout_bytes_lf": 1056,
+      "stdout_sha256_lf": "2783ea498ba9275e208a7e1eef79e6e21201b838143e071b3054a7f604c2d7b5",
+      "stdout_sha256_raw": "16f49c60d9a94eb2b4010489e60cd1cddd7885e3827f829cebbd6f59fc4ce773"
+    }
+  ],
+  "stage": "P5-05",
+  "stderr_empty_both": true
+}
