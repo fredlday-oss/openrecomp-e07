@@ -1,0 +1,44 @@
+=== P4-91 Evidence Index Gate ===
+
+--- index ---
+PASS: index:stage:P4-00
+PASS: index:stage:P4-01
+PASS: index:stage:P4-02
+PASS: index:stage:P4-03
+PASS: index:stage:P4-04
+PASS: index:stage:P4-05
+PASS: index:stage:P4-06
+PASS: index:stage:P4-07
+PASS: index:stage:P4-08
+PASS: index:stage:P4-09
+PASS: index:stage:P4-10
+PASS: index:stage:P4-90
+PASS: index:stage:P4-91
+PASS: index:evidence-files
+PASS: index:control-plane
+PASS: index:package-present
+PASS: index:package-sha256
+
+--- claims ---
+PASS: claims:proven
+PASS: claims:unproven
+PASS: claims:unsupported
+PASS: claims:not-tested
+PASS: claims:limitations
+PASS: claims:terminal-reserved
+PASS: claims:general-reserved
+PASS: claims:generic-runtime-status
+PASS: claims:coremark-status
+PASS: claims:console-unproven
+PASS: claims:game-unproven
+PASS: claims:limitations-evidenced
+
+--- determinism ---
+PASS: determinism:index
+PASS: determinism:claims
+
+=== RESULT ===
+OPENRECOMP_P4_91=PASS
+OPENRECOMP_PHASE4_EVIDENCE_INDEX_V1=PASS tests=31
+OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN

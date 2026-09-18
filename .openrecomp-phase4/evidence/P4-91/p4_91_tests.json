@@ -1,0 +1,169 @@
+{
+  "checks": [
+    {
+      "check": "claims:console-unproven",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:coremark-status",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:game-unproven",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:general-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:generic-runtime-status",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:limitations",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:limitations-evidenced",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:not-tested",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:proven",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:unproven",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:unsupported",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:claims",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:index",
+      "status": "PASS"
+    },
+    {
+      "check": "index:control-plane",
+      "status": "PASS"
+    },
+    {
+      "check": "index:evidence-files",
+      "status": "PASS"
+    },
+    {
+      "check": "index:package-present",
+      "status": "PASS"
+    },
+    {
+      "check": "index:package-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P4-00",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P4-01",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P4-02",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P4-03",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P4-04",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P4-05",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P4-06",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P4-07",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P4-08",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P4-09",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P4-10",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P4-90",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stage:P4-91",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "claims": {
+      "bounded": 3,
+      "limitation": 8,
+      "not_tested": 6,
+      "proven": 12,
+      "unproven": 9,
+      "unsupported": 6
+    },
+    "index": {
+      "evidence_file_count": 355,
+      "stages": [
+        "P4-00",
+        "P4-01",
+        "P4-02",
+        "P4-03",
+        "P4-04",
+        "P4-05",
+        "P4-06",
+        "P4-07",
+        "P4-08",
+        "P4-09",
+        "P4-10",
+        "P4-90",
+        "P4-91"
+      ]
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE4_EVIDENCE_INDEX_V1=PASS tests=31",
+    "stage": "OPENRECOMP_P4_91=PASS",
+    "terminal": "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN"
+  },
+  "passed": 31,
+  "stage": "P4-91",
+  "stage_name": "OPENRECOMP_PHASE4_EVIDENCE_INDEX_V1",
+  "status": "PASS",
+  "tests": 31
+}

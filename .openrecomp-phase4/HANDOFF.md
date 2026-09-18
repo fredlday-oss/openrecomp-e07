@@ -9,7 +9,8 @@ abstraction boundary) `PASS`; P4-07 (Interactive legally-clean fixture)
 `PASS`; P4-08 (First platform-adapter execution proof) `PASS`; P4-09
 (End-to-end generic-runtime native proof) `PASS`; P4-10 (Reproducible
 Phase-4 package) `PASS`; P4-90 (Phase-4 whole regression audit) `PASS`;
-P4-91 (Evidence index + limitations) is the executing stage. The frozen
+P4-91 (Evidence index + limitations) `PASS`; P4-99 (Final Phase-4
+verdict) is the executing stage. The frozen
 Phase-4 queue (`P4-01` .. `P4-99`) is frozen by `.openrecomp-phase4/STAGE_QUEUE.md`
 (`## Queue freeze`) at the P4-00 `PASS` boundary, before any P4-01
 implementation work. Phase 3 is complete and frozen at annotated tag
@@ -34,6 +35,21 @@ Reserved markers:
 - `OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN` (P4-99 may issue PASS
   for the bounded claim only)
 - `OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN` (never promoted)
+
+## P4-91 outcome (PASS)
+
+Markers: `OPENRECOMP_P4_91=PASS`,
+`OPENRECOMP_PHASE4_EVIDENCE_INDEX_V1=PASS tests=31`; terminal and general
+compatibility markers reserved as `NOT_PROVEN`.
+
+- `evidence_index.json` covers every evidence file (355 files) with sizes and
+  sha256 plus the control-plane hashes, frozen boundary identities and the
+  package identity; `claim_record.json` separates 12 PROVEN, 3 BOUNDED, 9
+  UNPROVEN, 6 UNSUPPORTED and 6 NOT TESTED entries with 8 evidenced
+  limitations.
+- Two official runs byte-identical raw and LF, empty stderr, exit 0;
+  `p4_91_tests.json` identical across runs.
+- Evidence: `.openrecomp-phase4/evidence/P4-91/`.
 
 ## P4-90 outcome (PASS)
 
@@ -366,10 +382,10 @@ compatibility markers reserved as `NOT_PROVEN`.
 
 ## Exact next action
 
-Execute P4-91 (Evidence index + limitations): create the complete Phase-4
-evidence index and the explicit claim ledger separating PROVEN, BOUNDED,
-UNPROVEN, UNSUPPORTED and NOT TESTED, recording every material limitation.
-Then P4-99 (final verdict).
+Execute P4-99 (Final Phase-4 verdict): issue a Phase-4 PASS only if the
+exact bounded generic-runtime/platform claim is supported by the audited tree
+and evidence, with the terminal marker promoted only for that bounded claim
+and the general compatibility marker permanently `NOT_PROVEN`.
 
 ## Constraints
 

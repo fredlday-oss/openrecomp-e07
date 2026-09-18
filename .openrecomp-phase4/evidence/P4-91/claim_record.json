@@ -1,0 +1,146 @@
+{
+  "bounded": [
+    {
+      "claim": "Every PROVEN statement above is bounded to the audited fixtures, profiles, toolchains and declared policies.",
+      "evidence": "P4-07/P4-08/P4-09 evidence"
+    },
+    {
+      "claim": "The Phase-4 end-to-end claim is bounded to the original fixture, its translation profile and the declared one-tick-per-retired-instruction policy.",
+      "evidence": ".openrecomp-phase4/evidence/P4-09/equivalence.json"
+    },
+    {
+      "claim": "The Phase-3 CoreMark real-ELF proof remains the separate bounded Phase-3 claim (tag openrecomp-phase3-pass).",
+      "evidence": ".openrecomp-phase3/evidence/P3-99/"
+    }
+  ],
+  "bounded_count": 3,
+  "compatibility_marker": "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN",
+  "coremark_status": "NOT_PROVEN",
+  "generic_runtime_status": "NOT_PROVEN",
+  "limitation_count": 8,
+  "limitations": [
+    {
+      "evidence": "P4-09 pipeline",
+      "impact": "Structural function ownership excludes orphan delay-slot blocks in the neutral model.",
+      "limitation": "The shared Phase-2 structural layers have no delay-slot concept; delay slots are modelled as NORMAL instructions with the relationship recorded separately (inherited Phase-3 limitation, unchanged)."
+    },
+    {
+      "evidence": ".openrecomp-phase4/evidence/P4-07/",
+      "impact": "No claim about arbitrary MIPS32 programs.",
+      "limitation": "The Phase-4 fixture deliberately avoids indirect control flow and unaligned accesses to stay inside the proven bounded frontier."
+    },
+    {
+      "evidence": "P4-08 evidence",
+      "impact": "Other guests require their own generated support subject to the same contracts.",
+      "limitation": "The native runtime support is the concrete adapter implementation for this fixture, not a universal runtime."
+    },
+    {
+      "evidence": ".openrecomp-phase4/fixture/input_plan.json",
+      "impact": "A different policy changes the tick transcript fields.",
+      "limitation": "Tick values depend on the declared one-tick-per-retired-instruction policy."
+    },
+    {
+      "evidence": ".openrecomp-phase4/evidence/P4-10/REPRODUCE.md",
+      "impact": "Reproduction requires those exact toolchains.",
+      "limitation": "External toolchains (zig 0.13.0, LLVM/clang-cl 22.1.8) are pinned by identity and not shipped in the package."
+    },
+    {
+      "evidence": "P4-10 package evidence",
+      "impact": "The package is a snapshot, not a self-contained toolchain.",
+      "limitation": "Package bytes are reproducible from the same tree state only, and host-specific command records are excluded by design."
+    },
+    {
+      "evidence": ".openrecomp-phase4/src/p4_package_v1.py",
+      "impact": "Policy scans apply fully to all product members only.",
+      "limitation": "Gate sources embed the content-policy detection needles and are exempt from needle scans (still UTF-8/LF checked and hashed)."
+    },
+    {
+      "evidence": ".openrecomp-phase3/evidence/P3-91/claim_record.json",
+      "impact": "No CoreMark support claim is implied by Phase 4.",
+      "limitation": "CoreMark remains an unsupported target; COREMARK_STATUS=NOT_PROVEN."
+    }
+  ],
+  "not_tested": [
+    "real console or hardware execution",
+    "performance or benchmarking claims",
+    "floating point programs",
+    "multi-threaded or interrupt-driven guests",
+    "big-endian MIPS or other architectures through the Phase-4 layers",
+    "the -O2 stress profile"
+  ],
+  "not_tested_count": 6,
+  "proven": [
+    {
+      "claim": "Phase-4 boundary descends from the frozen Phase-3 PASS boundary and the frozen P3-99 final gate re-runs byte-identically in the reconstructed Phase-3 context.",
+      "evidence": ".openrecomp-phase4/evidence/P4-00/"
+    },
+    {
+      "claim": "Architecture-neutral generated-code <-> runtime ABI V1 (state, calls, exits, faults, memory boundary, typed versioned services, deterministic observable) is defined and verified, including compliance of the frozen Phase-3 generated artifacts.",
+      "evidence": ".openrecomp-phase4/evidence/P4-01/"
+    },
+    {
+      "claim": "Explicit guest memory model with regions, permissions, bounds, alignment and endian semantics and fail-closed faults mapped to the ABI codes.",
+      "evidence": ".openrecomp-phase4/evidence/P4-02/"
+    },
+    {
+      "claim": "Runtime service mediation with typed/versioned interfaces and declared aliases; fixture-specific handling becomes data; unknown services and failures fail closed; the exact frozen external interaction replays byte-identically.",
+      "evidence": ".openrecomp-phase4/evidence/P4-03/"
+    },
+    {
+      "claim": "Bounded deterministic I/O, virtual time and input/event delivery with explicit recorded inputs and no ambient host input capability.",
+      "evidence": ".openrecomp-phase4/evidence/P4-04/"
+    },
+    {
+      "claim": "Architecture-neutral platform-adapter contract restricted to the generic interface catalog with explicit negative compatibility claims and optional graphics/audio hooks.",
+      "evidence": ".openrecomp-phase4/evidence/P4-05/"
+    },
+    {
+      "claim": "Reusable graphics/audio adapter boundaries with capability validation, deterministic headless reference implementations and no mandatory backend.",
+      "evidence": ".openrecomp-phase4/evidence/P4-06/"
+    },
+    {
+      "claim": "Original Apache-2.0 interactive fixture is reproducible and its complete decode frontier is inventoried with no indirect or unresolved control flow.",
+      "evidence": ".openrecomp-phase4/evidence/P4-07/"
+    },
+    {
+      "claim": "The fixture translates, builds reproducibly and executes natively through a real platform adapter/runtime implementation, reproducing the expected transcript and state digest with fail-closed negatives.",
+      "evidence": ".openrecomp-phase4/evidence/P4-08/"
+    },
+    {
+      "claim": "The nine-stage generic-runtime pipeline is demonstrated end-to-end and the observable is verified against an independent reference (own loader, decoder, executor) on every compared field.",
+      "evidence": ".openrecomp-phase4/evidence/P4-09/"
+    },
+    {
+      "claim": "A deterministic byte-reproducible package with a verified member manifest and fail-closed content policy.",
+      "evidence": ".openrecomp-phase4/evidence/P4-10/"
+    },
+    {
+      "claim": "The complete Phase-1/Phase-2/Phase-3/Phase-4 regression set re-runs from the audited tree with byte-identical stdout and the frozen earlier boundaries remain valid.",
+      "evidence": ".openrecomp-phase4/evidence/P4-90/"
+    }
+  ],
+  "proven_count": 12,
+  "stage": "P4-91",
+  "terminal_marker": "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN",
+  "unproven": [
+    "arbitrary binary compatibility",
+    "arbitrary MIPS32 compatibility",
+    "PS1/PS2/N64/PSP or any console compatibility",
+    "game or commercial-title compatibility",
+    "cycle accuracy or hardware emulation",
+    "self-modifying code",
+    "runtime equivalence beyond the audited deterministic observable",
+    "general renderer/audio backend integration",
+    "universal runtime completeness"
+  ],
+  "unproven_count": 9,
+  "unsupported": [
+    "indirect control flow without a declared resolution mechanism in the shared layers (the reference fails closed; the fixture avoids it)",
+    "unaligned multi-byte loads/stores in the emitted/reference paths (fail closed)",
+    "instructions outside the audited fixture set in the independent reference (fail closed)",
+    "host wall clock, real filesystem, network and process capabilities (no ambient capability path exists)",
+    "platform-specific runtime service interface names in V1 (adapters use generic-catalog aliases)",
+    "compiled/guest binaries inside the reproducible package (rebuilt from pinned source instead)"
+  ],
+  "unsupported_count": 6
+}
