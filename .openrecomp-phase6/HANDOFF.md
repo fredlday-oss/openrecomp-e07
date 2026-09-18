@@ -380,6 +380,47 @@ markers reserved as `NOT_PROVEN`.
   `bf18298c...`.
 - Evidence: `.openrecomp-phase6/evidence/P6-10/`.
 
+## P6-11 outcome (PASS)
+
+Markers: `OPENRECOMP_P6_11=PASS`,
+`OPENRECOMP_PHASE6_PLATFORM_EXPANSION_V1=PASS tests=56`; terminal and general
+markers reserved as `NOT_PROVEN`.
+
+- New gate `tools/test_phase6_evidence_expansion_v1.py` resolves the frozen
+  P6-11 contract as a deterministic zero-platform-delta PASS: the outcome is
+  conditional on evidence demonstrating that an addition is necessary, and no
+  such evidence exists at this boundary.
+- The P6-10 private pipeline is re-derived in process and reproduces the
+  committed P6-10 evidence byte-for-byte (`tmnt_pipeline.json` sha256
+  `0b8c9014...`, `blockers.json` sha256 `6b8b789c...`); all five P6-10
+  blockers classify without a platform requirement:
+  - `0xC570` undocumented opcode `0x7C` and the three unresolved `jmp ($E2)`
+    sites `0x86E8`/`0x8956`/`0x8F3C` are translation/control-flow blockers;
+  - the 1048-instruction power-on-bank `$8000-$BFFF` reachability gap is a
+    translation/reachability blocker;
+  - the only runtime-platform record is `NOT_TESTED` ("cannot be assessed
+    until translation completes") and cannot justify an addition;
+  - the mapper blocker remains `SUPERSEDED`.
+- Translation/native build/execution remain `NOT_ATTEMPTED`; the platform
+  layer is never reached, so no PPU/APU/input/timing addition is justified.
+  Decision ledger: `NO_ADDITION_JUSTIFIED`, `additions = []`.
+- Zero platform delta: all 19 Phase-6 `src` identities pinned to the P6-10
+  boundary and verified unchanged; private runtime support identity
+  `2e3fa4ba...` reproduced. No CPU/indirect-target/platform semantics were
+  implemented and no frozen file was modified.
+- Explicit deterministic reference test: the frozen P6-09 independent MMC1
+  reference equivalence gate re-passed (`PASS tests=100`, stdout
+  `0144086e...`, identical to the recorded P6-09 capture), together with the
+  frozen NES tools and the P6-01/P6-05 gates, all exit 0 with empty stderr.
+- Negative/fail-closed: synthetic platform-requirement evidence (PPU, runtime,
+  demonstrated runtime-platform), unclassified blockers, anchor tampering,
+  missing/changed pinned platform sources and a missing private path all fail
+  closed without traceback.
+- Two official runs byte-identical raw (`627a8ce1...`, 2871 bytes) and LF
+  (`d428bb64...`), empty stderr, exit 0; `p6_11_tests.json` sha256
+  `bffc7358...` in both runs.
+- Evidence: `.openrecomp-phase6/evidence/P6-11/`.
+
 ## Exact next action
 
-Proceed to P6-11 - Evidence-driven platform expansion.
+Proceed to P6-12 - Reusable ROM-to-native workflow.

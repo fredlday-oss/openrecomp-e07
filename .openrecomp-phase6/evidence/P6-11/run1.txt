@@ -1,0 +1,81 @@
+=== P6-11 Evidence-Driven Platform Expansion Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-exists
+PASS: source:manifest-verified
+PASS: source:p6-11-gate-listed
+
+--- frozen_chain ---
+PASS: chain:phase5-tag-object
+PASS: chain:phase5-commit
+PASS: chain:phase5-tree
+PASS: chain:descends
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+
+--- p6_10_anchor ---
+PASS: anchor:p6-10-pipeline-hash
+PASS: anchor:p6-10-blockers-hash
+PASS: anchor:private-pipeline-deterministic
+PASS: anchor:private-pipeline-reproduces-p6-10
+PASS: anchor:blocker-ledger-reproduces-p6-10
+PASS: anchor:private-identity
+PASS: anchor:translation-not-attempted
+PASS: anchor:structure-fail-closed
+PASS: anchor:frontier-fail-closed
+
+--- blocker_classification ---
+PASS: classification:blocker-order
+PASS: classification:control-flow-entries
+PASS: classification:0x7c-site
+PASS: classification:indirect-sites
+PASS: classification:bank-state
+PASS: classification:runtime-not-observable
+PASS: classification:mapper-closed
+PASS: decision:no-addition-justified
+
+--- platform_preservation ---
+PASS: platform:src-pin-count
+PASS: platform:src-unchanged
+PASS: platform:runtime-identity
+PASS: platform:cartridge-power-on
+
+--- negative ---
+PASS: reject:platform-requirement-ppu
+PASS: reject:platform-requirement-runtime
+PASS: reject:runtime-platform-demonstrated
+PASS: reject:unclassified-blocker
+PASS: reject:anchor-mismatch
+PASS: reject:platform-source-missing
+PASS: reject:platform-source-changed
+PASS: reject:missing-private-path
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:tools/test_nes_platform_v1.py:exit
+PASS: regression:tools/test_nes_platform_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_variant_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_variant_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_reference_equiv_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_reference_equiv_v1.py:stderr
+PASS: regression:p6-09-reference-equivalence-marker
+
+--- evidence_hygiene ---
+PASS: hygiene:no-private-rom-bytes:platform_expansion.json
+PASS: hygiene:no-private-bank-bytes:platform_expansion.json
+PASS: hygiene:no-private-rom-bytes:platform_sources.json
+PASS: hygiene:no-private-bank-bytes:platform_sources.json
+PASS: hygiene:no-private-rom-bytes:regressions.json
+PASS: hygiene:no-private-bank-bytes:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P6_11=PASS
+OPENRECOMP_PHASE6_PLATFORM_EXPANSION_V1=PASS tests=56
+OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

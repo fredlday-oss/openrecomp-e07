@@ -1,0 +1,90 @@
+{
+  "anchors": {
+    "p6_10_blockers_sha256": "6b8b789cb691da742c270b81c98849bbda952642ad393cc5a4af230bc97e41c5",
+    "p6_10_pipeline_sha256": "0b8c9014fa11f9e363f1cfb1c569048f786b8baec2117769adb862b375a3ebdc",
+    "private_support_sha256": "2e3fa4bac6c0630840535aff2827c5f453b2372d0acb90551c72a58309d8a3e7"
+  },
+  "decision": {
+    "additions": [],
+    "control_flow_sites": {
+      "low_window_candidate_instructions": 1048,
+      "low_window_classification": "translation_reachability_control_flow",
+      "undocumented_opcode_site": {
+        "address": "0xc570",
+        "classification": "translation_control_flow",
+        "kind": "undocumented_opcode",
+        "platform_behaviour": false,
+        "reason": "0xc570: undocumented 6502 opcode 0x7c"
+      },
+      "unresolved_indirect_sites": [
+        {
+          "address": "0x86e8",
+          "classification": "translation_control_flow",
+          "instruction": "jmp",
+          "platform_behaviour": false,
+          "pointer": "0x00e2"
+        },
+        {
+          "address": "0x8956",
+          "classification": "translation_control_flow",
+          "instruction": "jmp",
+          "platform_behaviour": false,
+          "pointer": "0x00e2"
+        },
+        {
+          "address": "0x8f3c",
+          "classification": "translation_control_flow",
+          "instruction": "jmp",
+          "platform_behaviour": false,
+          "pointer": "0x00e2"
+        }
+      ]
+    },
+    "decision": "NO_ADDITION_JUSTIFIED",
+    "justified_blockers": [],
+    "ledger": [
+      {
+        "classification": "translation_control_flow",
+        "code": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+        "detail": "documented-control-flow reachable frontier fails closed at 0xc570 (0xc570: undocumented 6502 opcode 0x7c) after 1250 candidate instructions; the private image declares no code/data boundary evidence",
+        "justifies_addition": false,
+        "platform": false,
+        "stage": "frontier"
+      },
+      {
+        "classification": "translation_control_flow",
+        "code": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+        "detail": "unresolved indirect jump sites at 0x86e8, 0x8956, 0x8f3c through zero-page pointer(s) 0x00e2; runtime jump-table targets must not be guessed",
+        "justifies_addition": false,
+        "platform": false,
+        "stage": "indirect_control_flow"
+      },
+      {
+        "classification": "translation_reachability_control_flow",
+        "code": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+        "detail": "1048 candidate instructions reach the mapper-switched $8000-$BFFF window under the power-on PRG bank only; runtime bank-state evidence is required to resolve the actual bank sequence",
+        "justifies_addition": false,
+        "platform": false,
+        "stage": "bank_state"
+      },
+      {
+        "classification": "platform_behaviour_not_yet_observable",
+        "code": "NOT_TESTED",
+        "detail": "PPU/APU/input/timing requirements beyond the bounded Phase-5/6 platform model cannot be assessed until translation completes",
+        "justifies_addition": false,
+        "platform": true,
+        "stage": "runtime_platform"
+      },
+      {
+        "classification": "mapper_blocker_closed",
+        "code": "SUPERSEDED",
+        "detail": "the P6-01 blocker BLOCKED_MMC1_MAPPER_NOT_YET_IMPLEMENTED no longer applies: the MMC1 subset is implemented and differentially verified through P6-09",
+        "justifies_addition": false,
+        "platform": false,
+        "stage": "mapper"
+      }
+    ],
+    "policy": "add only behaviour demonstrated necessary by the private compatibility evidence and/or the public proof fixture; every addition requires an explicit deterministic reference test; no broad full-hardware implementation by assumption"
+  },
+  "stage": "P6-11"
+}
