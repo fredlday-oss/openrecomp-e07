@@ -184,10 +184,33 @@ markers reserved as `NOT_PROVEN`.
   (`2a5bc85f...`).
 - Evidence: `.openrecomp-phase5/evidence/P5-06/`.
 
+## P5-07 outcome (PASS)
+
+Markers: `OPENRECOMP_P5_07=PASS`,
+`OPENRECOMP_PHASE5_TIMING_INPUT_V1=PASS tests=34`; terminal and general
+markers reserved as `NOT_PROVEN`.
+
+- New deterministic virtual platform (`p5_platform_v1.py`): documented base
+  instruction-cost table (all 151 opcodes), 29780-unit virtual frames with a
+  2273-unit vblank window, per-frame controller input plan, NMI queueing and
+  delivery, asserted-line IRQ interface, APU-latch consistency with the
+  frozen platform.
+- 300000-NOP schedule verified against independently computed expectations;
+  transcripts deterministic; fail-closed on undocumented costs and invalid
+  timing/input configuration.
+- Two official runs byte-identical raw (`062678b9...`, 1572 bytes) and LF
+  (`dd9087ae...`), empty stderr, exit 0; `p5_07_tests.json` identical
+  (`ca98795c...`).
+- P5-06's Phase-4 regression had refreshed the frozen P4-06 sidecar
+  (`phase4_entries` 30 -> 32); restored to the committed bytes and recorded in
+  the P5-07 RESULT. P5-07 regressions write to scratch evidence only.
+- Evidence: `.openrecomp-phase5/evidence/P5-07/`.
+
 ## Exact next action
 
-Execute P5-07 (APU/input/timing/interrupt boundary): implement the bounded
-controller input plan, deterministic virtual-frame timing with the documented
-instruction-cost table, vblank/NMI event delivery (PPUCTRL bit 7), optional
-IRQ handling, APU latch accesses required by the fixture, and the platform
-event transcript. Then proceed to P5-08.
+Execute P5-08 (Host emission + NES platform adapter): emit deterministic
+native host code for the proven NES CPU subset through the frozen host
+emitter, bind the fixture's declared run-exit service through the Phase-4
+runtime service mediator, implement the Phase-4 platform adapter over the
+P5-05/06/07 boundaries, and prove the generated C compiles and runs without
+executing original guest code. Then proceed to P5-09.

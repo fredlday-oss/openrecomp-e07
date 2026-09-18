@@ -1,0 +1,33 @@
+{
+  "input_plan": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128
+  ],
+  "scheduling": {
+    "clock": 600000,
+    "frames": 21,
+    "instructions": 300000,
+    "nmi_delivered": 21,
+    "transcript_sha256": "8b063a645fe4391419d5cc9e47f1362b62039b8f29bb94c000c1987116a4c263"
+  },
+  "stage": "P5-07",
+  "timing": {
+    "apu": "register latches/status only; no audio equivalence claim",
+    "cost_table_sha256": "57447c2cbd02303f589a25940272d6f225a00acf1131174fcc98a610dca53daf",
+    "cycle_accuracy": false,
+    "frame_units": 29780,
+    "input": "one controller-0 byte per virtual frame from the declared plan",
+    "instruction_costs": "documented base cycles per official opcode",
+    "irq": "explicit asserted-line interface with acknowledgment; the fixture uses software BRK only",
+    "nmi": "queued at vblank start when PPUCTRL bit 7 is set; delivered by the driver at the next instruction boundary",
+    "page_cross_penalty": "not modelled",
+    "taken_branch_penalty": "not modelled",
+    "vblank_units": 2273
+  }
+}

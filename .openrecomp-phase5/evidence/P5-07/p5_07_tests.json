@@ -1,0 +1,180 @@
+{
+  "checks": [
+    {
+      "check": "apu:mismatches",
+      "status": "PASS"
+    },
+    {
+      "check": "costs:coverage",
+      "status": "PASS"
+    },
+    {
+      "check": "costs:range",
+      "status": "PASS"
+    },
+    {
+      "check": "costs:table-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "costs:timing-document",
+      "status": "PASS"
+    },
+    {
+      "check": "costs:values",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:digest",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:platform.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:transcript.json",
+      "status": "PASS"
+    },
+    {
+      "check": "irq:assert",
+      "status": "PASS"
+    },
+    {
+      "check": "irq:deassert-clears",
+      "status": "PASS"
+    },
+    {
+      "check": "irq:take",
+      "status": "PASS"
+    },
+    {
+      "check": "nmi:disabled-when-ctrl-clear",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_platform_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_platform_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase4_deterministic_io_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase4_deterministic_io_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bad-frame-units",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bad-plan-value",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bad-vblank-units",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:empty-plan",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unknown-opcode",
+      "status": "PASS"
+    },
+    {
+      "check": "schedule:clock",
+      "status": "PASS"
+    },
+    {
+      "check": "schedule:frame-boundaries",
+      "status": "PASS"
+    },
+    {
+      "check": "schedule:frame-count",
+      "status": "PASS"
+    },
+    {
+      "check": "schedule:input-plan",
+      "status": "PASS"
+    },
+    {
+      "check": "schedule:nmi-delivered",
+      "status": "PASS"
+    },
+    {
+      "check": "schedule:nmi-queued",
+      "status": "PASS"
+    },
+    {
+      "check": "schedule:vblank-ends",
+      "status": "PASS"
+    },
+    {
+      "check": "schedule:vblank-window",
+      "status": "PASS"
+    },
+    {
+      "check": "vblank:cleared-by-status-read",
+      "status": "PASS"
+    },
+    {
+      "check": "vblank:remains-clear",
+      "status": "PASS"
+    },
+    {
+      "check": "vblank:set-at-frame-start",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "evidence_files": [
+      "platform.json",
+      "regressions.json",
+      "transcript.json"
+    ],
+    "regressions": [
+      {
+        "returncode": 0,
+        "script": "tools/test_nes_platform_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 750,
+        "stdout_sha256_lf": "bf33dbe99790623b8e80ee2e20a3d409b829fa981987ddfb159f45b665301e4c",
+        "stdout_sha256_raw": "61ae15280094542974e1b8a4439d9ff240515b8401b61f681e62b686ba4736e8"
+      },
+      {
+        "returncode": 0,
+        "script": "tools/test_phase4_deterministic_io_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 3378,
+        "stdout_sha256_lf": "13f1d323f5033433e1d3328230c11a4f0b8a1cc253922699362976e00d7e9f2c",
+        "stdout_sha256_raw": "e55ad6cb52592d5fbaa4fdea525ba05c437b9c942ebeeaf28c13ef9e1ca49ac3"
+      }
+    ]
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE5_TIMING_INPUT_V1=PASS tests=34",
+    "stage": "OPENRECOMP_P5_07=PASS",
+    "terminal": "OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN"
+  },
+  "passed": 34,
+  "stage": "P5-07",
+  "stage_name": "OPENRECOMP_PHASE5_TIMING_INPUT_V1",
+  "status": "PASS",
+  "tests": 34
+}

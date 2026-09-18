@@ -1,0 +1,59 @@
+=== P5-07 APU/Input/Timing/Interrupt Boundary Gate ===
+
+--- costs ---
+PASS: costs:coverage
+PASS: costs:values
+PASS: costs:range
+PASS: costs:table-sha256
+PASS: costs:timing-document
+
+--- fixtures ---
+
+--- scheduling ---
+PASS: schedule:clock
+PASS: schedule:frame-count
+PASS: schedule:frame-boundaries
+PASS: schedule:input-plan
+PASS: schedule:nmi-queued
+PASS: schedule:vblank-ends
+PASS: schedule:vblank-window
+PASS: schedule:nmi-delivered
+
+--- vblank_and_interrupts ---
+PASS: vblank:set-at-frame-start
+PASS: vblank:cleared-by-status-read
+PASS: vblank:remains-clear
+PASS: irq:assert
+PASS: irq:take
+PASS: irq:deassert-clears
+PASS: nmi:disabled-when-ctrl-clear
+
+--- apu_registers ---
+PASS: apu:mismatches
+
+--- determinism ---
+PASS: determinism:digest
+
+--- negative ---
+PASS: reject:unknown-opcode
+PASS: reject:empty-plan
+PASS: reject:bad-plan-value
+PASS: reject:bad-frame-units
+PASS: reject:bad-vblank-units
+
+--- regressions ---
+PASS: regression:tools/test_nes_platform_v1.py:exit
+PASS: regression:tools/test_nes_platform_v1.py:stderr
+PASS: regression:tools/test_phase4_deterministic_io_v1.py:exit
+PASS: regression:tools/test_phase4_deterministic_io_v1.py:stderr
+
+--- evidence ---
+PASS: hygiene:no-public-rom-bytes:platform.json
+PASS: hygiene:no-public-rom-bytes:transcript.json
+PASS: hygiene:no-public-rom-bytes:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P5_07=PASS
+OPENRECOMP_PHASE5_TIMING_INPUT_V1=PASS tests=34
+OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

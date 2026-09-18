@@ -1,0 +1,544 @@
+{
+  "checks": [
+    {
+      "check": "clock:advance",
+      "status": "PASS"
+    },
+    {
+      "check": "clock:document",
+      "status": "PASS"
+    },
+    {
+      "check": "clock:initial",
+      "status": "PASS"
+    },
+    {
+      "check": "clock:read-does-not-advance",
+      "status": "PASS"
+    },
+    {
+      "check": "console:document",
+      "status": "PASS"
+    },
+    {
+      "check": "console:eof-sentinel",
+      "status": "PASS"
+    },
+    {
+      "check": "console:input-length",
+      "status": "PASS"
+    },
+    {
+      "check": "console:output",
+      "status": "PASS"
+    },
+    {
+      "check": "console:pending-input",
+      "status": "PASS"
+    },
+    {
+      "check": "console:read-a",
+      "status": "PASS"
+    },
+    {
+      "check": "console:read-b",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:document",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:event-log",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:no-ambient-tokens",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:no-fixture-tokens",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:no-host-time",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:output",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:policies",
+      "status": "PASS"
+    },
+    {
+      "check": "events:deliver-ordered",
+      "status": "PASS"
+    },
+    {
+      "check": "events:deliver-second",
+      "status": "PASS"
+    },
+    {
+      "check": "events:delivered-log",
+      "status": "PASS"
+    },
+    {
+      "check": "events:empty",
+      "status": "PASS"
+    },
+    {
+      "check": "events:insertion-order",
+      "status": "PASS"
+    },
+    {
+      "check": "events:kinds",
+      "status": "PASS"
+    },
+    {
+      "check": "events:next-tick",
+      "status": "PASS"
+    },
+    {
+      "check": "events:not-early",
+      "status": "PASS"
+    },
+    {
+      "check": "events:timer-kind",
+      "status": "PASS"
+    },
+    {
+      "check": "file:eof",
+      "status": "PASS"
+    },
+    {
+      "check": "file:read",
+      "status": "PASS"
+    },
+    {
+      "check": "file:seek-read",
+      "status": "PASS"
+    },
+    {
+      "check": "file:size",
+      "status": "PASS"
+    },
+    {
+      "check": "file:write-append",
+      "status": "PASS"
+    },
+    {
+      "check": "record:digest-format",
+      "status": "PASS"
+    },
+    {
+      "check": "record:digest-sensitive",
+      "status": "PASS"
+    },
+    {
+      "check": "record:digest-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "record:document",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:clock:negative-delta",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:clock:overflow",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:console-bad-policy",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:console-byte-overflow",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:console-fault-policy",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:console-negative-byte",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:console-output-capacity",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:console-zero-capacity",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:events:bad-kind",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:events:negative-tick",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:events:overflow",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:events:too-many",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:file:bad-name",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:file:capacity",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:file:initial-too-large",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:file:read-only-write",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:file:seek-beyond-capacity",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:file:zero-capacity",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:record-bad-event",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:record-bad-file-name",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:record-duplicate-file",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:record-negative-ticks",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:record-non-bytes-console",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:record-non-bytes-file",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:runtime:ambient-rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:runtime:bad-input-stream",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:runtime:bad-output-stream",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:runtime:bad-policy",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:runtime:bad-record",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:runtime:input-fault",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:runtime:unknown-file-open",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:services:handlers-need-runtime",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:all-bytes-accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:frozen-stream-length",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:output-byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:output-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:advance",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:ambient-flag",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:eof",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:poll-due",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:poll-early",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:read-a",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:read-b",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:ticks",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:write",
+      "status": "PASS"
+    },
+    {
+      "check": "services:base-catalog-unmodified",
+      "status": "PASS"
+    },
+    {
+      "check": "services:bridge-unknown-stream",
+      "status": "PASS"
+    },
+    {
+      "check": "services:clock",
+      "status": "PASS"
+    },
+    {
+      "check": "services:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "services:interface-typed",
+      "status": "PASS"
+    },
+    {
+      "check": "services:poll",
+      "status": "PASS"
+    },
+    {
+      "check": "services:poll-early",
+      "status": "PASS"
+    },
+    {
+      "check": "services:registry-composition",
+      "status": "PASS"
+    },
+    {
+      "check": "services:stream-read",
+      "status": "PASS"
+    },
+    {
+      "check": "services:stream-write",
+      "status": "PASS"
+    },
+    {
+      "check": "services:stream-write-output",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase4-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-verified",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "determinism_replay": {
+      "ambient_tokens": [],
+      "fingerprint": "908dc4450f3fb513bf707231467ef7c0817c4957a3354d201e0bbb29028bb207",
+      "frozen_output_bytes": 499,
+      "frozen_output_sha256": "7745bb8852778e9f91b2ccf91c293918b9b52ae2c111f3b6a923678551c1fa26"
+    },
+    "files_time_events": {
+      "clock_document": {
+        "source": "virtual",
+        "ticks": 7
+      },
+      "event_document": {
+        "delivered": 2,
+        "events": [
+          {
+            "code": 65,
+            "kind": "key",
+            "tick": 5,
+            "value": 0
+          },
+          {
+            "code": 66,
+            "kind": "byte",
+            "tick": 10,
+            "value": 0
+          }
+        ],
+        "pending": 0,
+        "planned": 2
+      },
+      "file_document": {
+        "capacity": 8,
+        "name": "log.txt",
+        "read_position": 0,
+        "sha256": "88d4266fd4e6338d13b845fcf289579d209c897823b9217da3e161936f031589",
+        "size": 4,
+        "writable": true
+      }
+    },
+    "recorded_input": {
+      "console_document": {
+        "input_bytes": 2,
+        "input_read": 2,
+        "input_sha256": "38164fbd17603d73f696b8b4d72664d735bb6a7c88577687fd2ae33fd6964153",
+        "output_bytes": 2,
+        "output_capacity": 2,
+        "output_sha256": "a12871fee210fb8619291eaea194581cbd2531e4b23759d225f6806923f63222"
+      },
+      "record_fingerprint": "5c54946971333f4283592149c26c4636ddd084d1841e30bf361d0fd811ae7bdf"
+    },
+    "runtime_services": {
+      "document": {
+        "ambient_host_input": false,
+        "clock": {
+          "source": "virtual",
+          "ticks": 10
+        },
+        "console": {
+          "input_bytes": 2,
+          "input_read": 2,
+          "input_sha256": "38164fbd17603d73f696b8b4d72664d735bb6a7c88577687fd2ae33fd6964153",
+          "output_bytes": 2,
+          "output_capacity": 1048576,
+          "output_sha256": "9a8bf3ebbe6f826e39772c4763bea0722b18c0e4b5b7ba2fe6813f02f7f0a06a"
+        },
+        "event_codes": [
+          65,
+          66
+        ],
+        "events": {
+          "delivered": 2,
+          "events": [
+            {
+              "code": 65,
+              "kind": "key",
+              "tick": 5,
+              "value": 0
+            },
+            {
+              "code": 66,
+              "kind": "byte",
+              "tick": 10,
+              "value": 1
+            },
+            {
+              "code": 7,
+              "kind": "timer",
+              "tick": 10,
+              "value": 0
+            }
+          ],
+          "pending": 1,
+          "planned": 3
+        },
+        "files": [
+          {
+            "capacity": 5,
+            "name": "stdin.txt",
+            "read_position": 0,
+            "sha256": "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824",
+            "size": 5,
+            "writable": false
+          }
+        ],
+        "input_policy": "eof",
+        "record_fingerprint": "5c54946971333f4283592149c26c4636ddd084d1841e30bf361d0fd811ae7bdf"
+      },
+      "fingerprint": "3ded082fc6832b6dcdd5585fc9a83bcf01c42cb1d6464eb14ad420c6ee0fdbdb",
+      "registry": [
+        "or.runtime.clock_ticks",
+        "or.runtime.exit",
+        "or.runtime.input_poll",
+        "or.runtime.stream_read",
+        "or.runtime.stream_write"
+      ]
+    },
+    "source_integrity": {
+      "phase3_entries": 24,
+      "phase4_entries": 32,
+      "root_entries": 134
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE4_DETERMINISTIC_IO_V1=PASS tests=101",
+    "stage": "OPENRECOMP_P4_04=PASS",
+    "terminal": "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN"
+  },
+  "passed": 101,
+  "stage": "P4-04",
+  "stage_name": "OPENRECOMP_PHASE4_DETERMINISTIC_IO_V1",
+  "status": "PASS",
+  "tests": 101
+}
