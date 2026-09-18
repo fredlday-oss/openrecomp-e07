@@ -1,0 +1,300 @@
+{
+  "checks": [
+    {
+      "check": "chain:descends",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tag-object",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:compat-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:stage-row",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:private-contract-layout",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:public-banks",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:public-layout",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:rom-present",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:prg_banking.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:reference_comparison.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:prg_banking.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:reference_comparison.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "integration:control-mode3",
+      "status": "PASS"
+    },
+    {
+      "check": "integration:map-offset",
+      "status": "PASS"
+    },
+    {
+      "check": "integration:prg-bank-2",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:state-untouched",
+      "status": "PASS"
+    },
+    {
+      "check": "power-on:mirroring-bits",
+      "status": "PASS"
+    },
+    {
+      "check": "power-on:mode3-fixed-last",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_platform_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_platform_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_boundary_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_boundary_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_inventory_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_inventory_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_serial_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_serial_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:address-above-window",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:address-below-window",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:address-bool",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bank-count-0",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bank-count-17",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bank-count-3",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bank-count-32",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bank-count-5",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bank-count-bool",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bank-count-string",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "supported:bank-counts",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:address-comparisons",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:combinations",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:explicit-mode-checks",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:mode01-equivalence",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "evidence_files": [
+      "prg_banking.json",
+      "reference_comparison.json",
+      "regressions.json"
+    ],
+    "regressions": [
+      {
+        "extra": [],
+        "returncode": 0,
+        "script": "tools/test_nes_rom_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 959,
+        "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+        "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+      },
+      {
+        "extra": [],
+        "returncode": 0,
+        "script": "tools/test_nes_platform_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 750,
+        "stdout_sha256_lf": "bf33dbe99790623b8e80ee2e20a3d409b829fa981987ddfb159f45b665301e4c",
+        "stdout_sha256_raw": "61ae15280094542974e1b8a4439d9ff240515b8401b61f681e62b686ba4736e8"
+      },
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-03/regression_p6_01"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_inventory_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 3140,
+        "stdout_sha256_lf": "d153a32d2fb2ebad91a944b8d7abad8ee5b827fab924bbde26b5308d7ed851f6",
+        "stdout_sha256_raw": "2bfd8a5efe673085ea06cce7281d92414eebb46b10c51d5df2e9ecb16f4409d6"
+      },
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-03/regression_p6_02"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_serial_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2305,
+        "stdout_sha256_lf": "ed0061090d5b50be03cf80dd44c2cf48f6871ebc0506d9d14fecc3761e2dafc6",
+        "stdout_sha256_raw": "caf7bb5c0a6c09621b6b0bbe1ec2990c696f0d6e910feac220fa727bf0ebb2c1"
+      },
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-03/regression_p6_00"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_boundary_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 3201,
+        "stdout_sha256_lf": "ca7ab21017aa5f89699b718ef6541d9f440a3d75a17730eb6343b90d4a148ffd",
+        "stdout_sha256_raw": "9391a99a241f0813584587b0bc4db7559f18ebc500897ca8c43bcce03b64e972"
+      }
+    ],
+    "vectors": {
+      "address_comparisons": 40960,
+      "bank_counts": [
+        1,
+        2,
+        4,
+        8,
+        16
+      ],
+      "combinations": 5120,
+      "control_values": 32,
+      "explicit_mode_checks": 480,
+      "mode01_equivalence": 160,
+      "register_values": 32
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE6_MMC1_PRG_V1=PASS tests=50",
+    "stage": "OPENRECOMP_P6_03=PASS",
+    "terminal": "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN"
+  },
+  "passed": 50,
+  "stage": "P6-03",
+  "stage_name": "OPENRECOMP_PHASE6_MMC1_PRG_V1",
+  "status": "PASS",
+  "tests": 50
+}

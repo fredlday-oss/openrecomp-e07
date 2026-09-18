@@ -120,12 +120,13 @@ _REQUIREMENTS: tuple[dict[str, Any], ...] = (
                     "fixes the last bank at $C000",
      "basis": "documented MMC1 PRG banking"},
     {"id": "PRG-004", "area": "prg_banking", "status": "SUPPORTED",
-     "requirement": "bank numbers mask to the declared PRG ROM size; masking "
-                    "is proven by P6-03 bounded reference vectors",
+     "requirement": "bank numbers mask to the declared PRG ROM bank count; "
+                    "masking is proven by P6-03 bounded reference vectors",
      "basis": "declared ROM size and documented MMC1 wiring"},
     {"id": "PRG-005", "area": "prg_banking", "status": "SUPPORTED",
-     "requirement": "PRG ROM sizes 16 KiB .. 256 KiB in exact 16 KiB banks",
-     "basis": "supported-subset bound; larger ROMs fail closed"},
+     "requirement": "PRG ROM sizes 16 KiB .. 256 KiB in exact 16 KiB banks "
+                    "with a power-of-two bank count (1, 2, 4, 8, 16)",
+     "basis": "supported-subset bound; larger or non-power-of-two ROMs fail closed"},
     {"id": "CHR-001", "area": "chr_banking", "status": "SUPPORTED",
      "requirement": "8 KiB CHR mode uses PRG-register-style bits of the CHR "
                     "bank 0 register shifted right by one",
@@ -242,6 +243,10 @@ def classify(inventory: dict[str, Any]) -> dict[str, Any]:
         reasons.append("prg_size_out_of_supported_range")
     elif prg_bytes % PRG_BANK_BYTES != 0:
         reasons.append("prg_size_not_16k_multiple")
+    else:
+        prg_banks = prg_bytes // PRG_BANK_BYTES
+        if prg_banks & (prg_banks - 1) != 0:
+            reasons.append("prg_bank_count_not_power_of_two")
     if chr_bytes == 0:
         reasons.append("chr_rom_absent")
     elif chr_bytes < MIN_CHR_ROM_BYTES or chr_bytes > MAX_CHR_ROM_BYTES:

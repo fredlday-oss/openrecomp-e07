@@ -1,0 +1,77 @@
+=== P6-03 MMC1 PRG Banking Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-exists
+PASS: source:manifest-verified
+
+--- frozen_chain ---
+PASS: chain:phase5-tag-object
+PASS: chain:phase5-commit
+PASS: chain:phase5-tree
+PASS: chain:descends
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+
+--- power_on_and_modes ---
+PASS: power-on:mode3-fixed-last
+PASS: power-on:mirroring-bits
+PASS: supported:bank-counts
+
+--- exhaustive_vectors ---
+PASS: vectors:combinations
+PASS: vectors:address-comparisons
+PASS: vectors:mode01-equivalence
+PASS: vectors:explicit-mode-checks
+
+--- serial_integration ---
+PASS: integration:control-mode3
+PASS: integration:prg-bank-2
+PASS: integration:map-offset
+
+--- fixture_configurations ---
+PASS: fixture:public-banks
+PASS: fixture:public-layout
+PASS: fixture:private-contract-layout
+PASS: fixture:rom-present
+
+--- negative ---
+PASS: reject:bank-count-0
+PASS: reject:bank-count-3
+PASS: reject:bank-count-5
+PASS: reject:bank-count-17
+PASS: reject:bank-count-32
+PASS: reject:bank-count-bool
+PASS: reject:bank-count-string
+PASS: reject:address-below-window
+PASS: reject:address-above-window
+PASS: reject:address-bool
+PASS: negative:state-untouched
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:tools/test_nes_platform_v1.py:exit
+PASS: regression:tools/test_nes_platform_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_serial_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_serial_v1.py:stderr
+PASS: regression:tools/test_phase6_boundary_v1.py:exit
+PASS: regression:tools/test_phase6_boundary_v1.py:stderr
+
+--- evidence_hygiene ---
+PASS: hygiene:no-public-rom-bytes:prg_banking.json
+PASS: hygiene:no-private-rom-bytes:prg_banking.json
+PASS: hygiene:no-public-rom-bytes:reference_comparison.json
+PASS: hygiene:no-private-rom-bytes:reference_comparison.json
+PASS: hygiene:no-public-rom-bytes:regressions.json
+PASS: hygiene:no-private-rom-bytes:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P6_03=PASS
+OPENRECOMP_PHASE6_MMC1_PRG_V1=PASS tests=50
+OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

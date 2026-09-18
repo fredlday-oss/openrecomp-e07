@@ -50,8 +50,12 @@ the write window `$8000-$FFFF`:
 
 - 16 KiB bank selection by the PRG register low bits; masking to the declared
   PRG ROM size is proven by bounded reference vectors.
-- Supported PRG ROM sizes: 16 KiB .. 256 KiB in exact 16 KiB banks. Larger
-  ROMs are classified unsupported and fail closed.
+- Supported PRG ROM sizes: 16 KiB .. 256 KiB in exact 16 KiB banks with a
+  power-of-two bank count (1, 2, 4, 8, 16). Larger or non-power-of-two ROMs
+  are classified unsupported and fail closed.
+- Bank masking rule: the selected bank is `register & (bank_count - 1)`.
+  32 KiB modes ignore the register low bit; mode 2 fixes bank 0 at
+  `$8000-$BFFF`; mode 3 fixes the last bank at `$C000-$FFFF`.
 
 ## CHR banking and mirroring (P6-04)
 

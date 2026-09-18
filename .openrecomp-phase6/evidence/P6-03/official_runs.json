@@ -1,0 +1,58 @@
+{
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "command": [
+        "python",
+        "tools/test_phase6_mmc1_prg_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase6/evidence/P6-03"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P6_03=",
+        "OPENRECOMP_PHASE6_MMC1_PRG_V1=",
+        "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=",
+        "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY="
+      ],
+      "name": "run1",
+      "p6_03_tests_sha256": "d789ee8937ee458b267321bb3f00b45fb22270ed60698c2a2a3ecb826d3b4531",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2444,
+      "stdout_bytes_lf": 2367,
+      "stdout_sha256_lf": "949380183b9cee6802677b98f9473ae99ef5728ce106dc552f968148ca40203e",
+      "stdout_sha256_raw": "13b2b2f178ab260e583f14de9461c800c148ae4e8fd1072ad9f6af4405f05c55"
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_phase6_mmc1_prg_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase6/evidence/P6-03"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P6_03=",
+        "OPENRECOMP_PHASE6_MMC1_PRG_V1=",
+        "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=",
+        "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY="
+      ],
+      "name": "run2",
+      "p6_03_tests_sha256": "d789ee8937ee458b267321bb3f00b45fb22270ed60698c2a2a3ecb826d3b4531",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2444,
+      "stdout_bytes_lf": 2367,
+      "stdout_sha256_lf": "949380183b9cee6802677b98f9473ae99ef5728ce106dc552f968148ca40203e",
+      "stdout_sha256_raw": "13b2b2f178ab260e583f14de9461c800c148ae4e8fd1072ad9f6af4405f05c55"
+    }
+  ],
+  "stage": "P6-03",
+  "stderr_empty_both": true
+}

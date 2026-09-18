@@ -5,8 +5,8 @@ BASELINE_TAG=openrecomp-phase5-pass
 BASELINE_OBJECT=b5d6832ba2374b810f4c24500ed9093a9481fd8d
 BASELINE_COMMIT=e8d3627a622d0ca3196b117c5112f29fabdb49e7
 BASELINE_TREE=468fb9788350de393d3de2ca9471b7d874ee8dc9
-CURRENT_STAGE=P6-02
-LAST_PASSED_STAGE=P6-02
+CURRENT_STAGE=P6-03
+LAST_PASSED_STAGE=P6-03
 STATUS=ACTIVE
 MMC1_PLATFORM_STATUS=NOT_PROVEN
 FINAL_VERDICT=NOT_PROVEN
@@ -86,7 +86,7 @@ QUEUE_FREEZE_STAGES=P6-01..P6-99
 | P6-00 | Phase-6 boundary | PASS | `.openrecomp-phase6/evidence/P6-00/` |
 | P6-01 | MMC1 requirements and fixture inventory | PASS | `.openrecomp-phase6/evidence/P6-01/` |
 | P6-02 | MMC1 serial register protocol | PASS | `.openrecomp-phase6/evidence/P6-02/` |
-| P6-03 | MMC1 PRG banking | QUEUED | - |
+| P6-03 | MMC1 PRG banking | PASS | `.openrecomp-phase6/evidence/P6-03/` |
 | P6-04 | MMC1 CHR banking and mirroring | QUEUED | - |
 | P6-05 | MMC1 PRG-RAM and variant boundary | QUEUED | - |
 | P6-06 | Public MMC1 proof fixture | QUEUED | - |

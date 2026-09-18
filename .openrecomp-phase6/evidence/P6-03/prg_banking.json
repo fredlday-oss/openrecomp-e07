@@ -1,0 +1,56 @@
+{
+  "claim": "MMC1_SUBSET_V1",
+  "layouts": {
+    "power_on_4_banks": {
+      "chr_mode": 0,
+      "mirroring": "one_screen_lower",
+      "prg_bank_count": 4,
+      "prg_mode": 3,
+      "prg_register": 0,
+      "window_8000_bank": 0,
+      "window_c000_bank": 3
+    },
+    "private_8_banks_control_0x0f": {
+      "chr_mode": 0,
+      "mirroring": "horizontal",
+      "prg_bank_count": 8,
+      "prg_mode": 3,
+      "prg_register": 0,
+      "window_8000_bank": 0,
+      "window_c000_bank": 7
+    },
+    "public_4_banks_control_0x0f": {
+      "chr_mode": 0,
+      "mirroring": "horizontal",
+      "prg_bank_count": 4,
+      "prg_mode": 3,
+      "prg_register": 0,
+      "window_8000_bank": 0,
+      "window_c000_bank": 3
+    }
+  },
+  "masking_rule": "bank = register & (bank_count - 1)",
+  "stage": "P6-03",
+  "supported_bank_counts": [
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "vectors": {
+    "address_comparisons": 40960,
+    "bank_counts": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "combinations": 5120,
+    "control_values": 32,
+    "explicit_mode_checks": 480,
+    "mode01_equivalence": 160,
+    "register_values": 32
+  }
+}

@@ -130,6 +130,35 @@ reserved as `NOT_PROVEN`.
   `86ca0e02...`.
 - Evidence: `.openrecomp-phase6/evidence/P6-02/`.
 
+## P6-03 outcome (PASS)
+
+Markers: `OPENRECOMP_P6_03=PASS`,
+`OPENRECOMP_PHASE6_MMC1_PRG_V1=PASS tests=50`; terminal and general markers
+reserved as `NOT_PROVEN`.
+
+- New `p6_mapper1_prg_v1.py`: control/PRG register state mapped to the
+  `$8000-$FFFF` CPU window for 32 KiB modes (low register bit ignored),
+  mode 2 (bank 0 fixed first, register bank at `$C000`) and mode 3 (register
+  bank at `$8000`, last bank fixed), with masking `register & (count - 1)`.
+  Supported bank counts are powers of two 1, 2, 4, 8, 16 (16 KiB .. 256 KiB);
+  larger or non-power-of-two PRG sizes now classify
+  `prg_bank_count_not_power_of_two` and fail closed.
+- Independently structured reference (`p6_mapper1_prg_reference_v1.py`,
+  modulo arithmetic and dispatch decoding) and exhaustive bounded vectors:
+  5120 register/bank combinations and 40960 address mappings with zero
+  mismatches, plus 480 explicit fixed-first/fixed-last/32 KiB checks and
+  mode 0/1 equivalence for all bank counts.
+- Serial integration: committing control `0x0F` and PRG register `2` through
+  the P6-02 serial file yields window banks `(2, 3)` and the expected ROM
+  offsets; the public 4-bank and private 8-bank contract layouts are `(0, 3)`
+  and `(0, 7)`.
+- Malformed bank counts and out-of-window addresses fail closed.
+- Regressions: frozen NES tools plus P6-00/P6-01/P6-02 gates pass with empty
+  stderr (earlier gates re-run into ignored scratch evidence).
+- Two official runs byte-identical raw/LF with empty stderr; hashes are
+  recorded in `p6_03_tests.json`, `official_runs.json` and `RESULT.md`.
+- Evidence: `.openrecomp-phase6/evidence/P6-03/`.
+
 ## Exact next action
 
-Proceed to P6-03 - MMC1 PRG banking.
+Proceed to P6-04 - MMC1 CHR banking and mirroring.
