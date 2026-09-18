@@ -100,6 +100,36 @@ markers reserved as `NOT_PROVEN`.
   `69900ee9...`.
 - Evidence: `.openrecomp-phase6/evidence/P6-01/`.
 
+## P6-02 outcome (PASS)
+
+Markers: `OPENRECOMP_P6_02=PASS`,
+`OPENRECOMP_PHASE6_MMC1_SERIAL_V1=PASS tests=47`; terminal and general markers
+reserved as `NOT_PROVEN`.
+
+- New deterministic MMC1 serial register file (`p6_mmc1_serial_v1.py`):
+  four 5-bit registers selected by address bits 14:13, five-write LSB-first
+  commits, bit-7 shift reset, the audited consecutive-cycle suppression model
+  (a write on the immediately following CPU cycle is ignored and leaves all
+  state, including the last-write cycle, unchanged), power-on control `0x0C`.
+- Independently structured reference model
+  (`p6_mmc1_serial_reference_v1.py`, explicit received-bit list) and
+  differential vectors: 4940+ comparisons with zero mismatches, including all
+  256 first-write classifications, 128 exhaustive five-write commits, 128
+  reset-bit sequences, suppression/write-edge sequences and 3000 deterministic
+  pseudo-random mixed writes.
+- Malformed writes (outside `$8000-$FFFF`, non-8-bit or non-integer values,
+  negative cycles) and unknown register names fail closed without traceback
+  and leave state untouched.
+- `MMC1_SUBSET.md` records the exact audited suppression model; the public
+  fixture control write (`0x0F`) replays to the expected commit.
+- Regressions: `tools/test_nes_rom_v1.py`, `tools/test_nes_platform_v1.py`,
+  the P6-01 gate and the P6-00 boundary gate all pass with empty stderr
+  (P6-01/P6-00 re-run into ignored scratch evidence).
+- Two official runs byte-identical raw (`caf7bb5c...`, 2305 bytes) and LF
+  (`ed006109...`), empty stderr, exit 0; `p6_02_tests.json` sha256
+  `86ca0e02...`.
+- Evidence: `.openrecomp-phase6/evidence/P6-02/`.
+
 ## Exact next action
 
-Proceed to P6-02 - MMC1 serial register protocol.
+Proceed to P6-03 - MMC1 PRG banking.

@@ -1,0 +1,74 @@
+=== P6-02 MMC1 Serial Register Protocol Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-exists
+PASS: source:manifest-verified
+
+--- frozen_chain ---
+PASS: chain:phase5-tag-object
+PASS: chain:phase5-commit
+PASS: chain:phase5-tree
+PASS: chain:descends
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+
+--- power_on ---
+PASS: power-on:registers
+PASS: power-on:shift-state
+PASS: power-on:reset-method
+
+--- register_selection ---
+PASS: selection:window-bases
+PASS: selection:window-bounds
+PASS: selection:names
+
+--- differential_vectors ---
+PASS: vectors:comparisons
+PASS: vectors:exhaustive-commits
+PASS: vectors:first-write-classification
+PASS: vectors:reset-bit
+PASS: vectors:random-commits
+PASS: vectors:random-suppressed
+PASS: vectors:random-resets
+
+--- malformed ---
+PASS: reject:address-below-window
+PASS: reject:address-above-window
+PASS: reject:value-over-byte
+PASS: reject:value-negative
+PASS: reject:cycle-negative
+PASS: reject:non-integer-address
+PASS: reject:boolean-value
+PASS: reject:unknown-register-name
+PASS: malformed:state-untouched
+
+--- published_fixture_writes ---
+PASS: fixture:control-write
+PASS: fixture:rom-present
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:tools/test_nes_platform_v1.py:exit
+PASS: regression:tools/test_nes_platform_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:stderr
+PASS: regression:tools/test_phase6_boundary_v1.py:exit
+PASS: regression:tools/test_phase6_boundary_v1.py:stderr
+
+--- evidence_hygiene ---
+PASS: hygiene:no-public-rom-bytes:serial_protocol.json
+PASS: hygiene:no-private-rom-bytes:serial_protocol.json
+PASS: hygiene:no-public-rom-bytes:reference_comparison.json
+PASS: hygiene:no-private-rom-bytes:reference_comparison.json
+PASS: hygiene:no-public-rom-bytes:regressions.json
+PASS: hygiene:no-private-rom-bytes:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P6_02=PASS
+OPENRECOMP_PHASE6_MMC1_SERIAL_V1=PASS tests=47
+OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

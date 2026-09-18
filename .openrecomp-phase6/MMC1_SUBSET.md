@@ -29,8 +29,10 @@ the write window `$8000-$FFFF`:
 1. Write bit 0 is the data bit; the register commits on the fifth write,
    least-significant bit first.
 2. A write with bit 7 set resets the shift register.
-3. Writes on consecutive CPU cycles are suppressed as documented; the exact
-   suppression model is proven by P6-02 differential vectors.
+3. Writes on consecutive CPU cycles are suppressed: a write that lands on the
+   CPU cycle immediately after another MMC1 write is ignored and leaves all
+   state, including the last-write cycle, unchanged. The exact suppression
+   model is proven by P6-02 differential vectors.
 4. Power-on state: shift register cleared, control register `0x0C` (PRG mode
    3, CHR mode 0, one-screen lower mirroring), all other registers `0`.
 

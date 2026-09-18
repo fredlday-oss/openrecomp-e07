@@ -1,0 +1,276 @@
+{
+  "checks": [
+    {
+      "check": "chain:descends",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tag-object",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:compat-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:stage-row",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:control-write",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:rom-present",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:reference_comparison.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:serial_protocol.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:reference_comparison.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:serial_protocol.json",
+      "status": "PASS"
+    },
+    {
+      "check": "malformed:state-untouched",
+      "status": "PASS"
+    },
+    {
+      "check": "power-on:registers",
+      "status": "PASS"
+    },
+    {
+      "check": "power-on:reset-method",
+      "status": "PASS"
+    },
+    {
+      "check": "power-on:shift-state",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_platform_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_platform_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_boundary_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_boundary_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_inventory_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_inventory_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:address-above-window",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:address-below-window",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:boolean-value",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:cycle-negative",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:non-integer-address",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unknown-register-name",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:value-negative",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:value-over-byte",
+      "status": "PASS"
+    },
+    {
+      "check": "selection:names",
+      "status": "PASS"
+    },
+    {
+      "check": "selection:window-bases",
+      "status": "PASS"
+    },
+    {
+      "check": "selection:window-bounds",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:comparisons",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:exhaustive-commits",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:first-write-classification",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:random-commits",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:random-resets",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:random-suppressed",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:reset-bit",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "differential_vectors": {
+      "classes": {
+        "exhaustive_five_write_commits": 128,
+        "first_write_classification": 256,
+        "random_commits": 28,
+        "random_mixed_writes": 3000,
+        "random_resets": 1126,
+        "random_suppressed": 764,
+        "reset_bit_sequences": 128,
+        "suppression_sequences": 3,
+        "write_edge_sequences": 2
+      },
+      "comparisons": 4928,
+      "seed": 5260802,
+      "steps": 3000
+    },
+    "evidence_files": [
+      "reference_comparison.json",
+      "regressions.json",
+      "serial_protocol.json"
+    ],
+    "regressions": [
+      {
+        "extra": [],
+        "returncode": 0,
+        "script": "tools/test_nes_rom_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 959,
+        "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+        "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+      },
+      {
+        "extra": [],
+        "returncode": 0,
+        "script": "tools/test_nes_platform_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 750,
+        "stdout_sha256_lf": "bf33dbe99790623b8e80ee2e20a3d409b829fa981987ddfb159f45b665301e4c",
+        "stdout_sha256_raw": "61ae15280094542974e1b8a4439d9ff240515b8401b61f681e62b686ba4736e8"
+      },
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-02/regression_p6_01"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_inventory_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 3140,
+        "stdout_sha256_lf": "d153a32d2fb2ebad91a944b8d7abad8ee5b827fab924bbde26b5308d7ed851f6",
+        "stdout_sha256_raw": "2bfd8a5efe673085ea06cce7281d92414eebb46b10c51d5df2e9ecb16f4409d6"
+      },
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-02/regression_p6_00"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_boundary_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 3201,
+        "stdout_sha256_lf": "ca7ab21017aa5f89699b718ef6541d9f440a3d75a17730eb6343b90d4a148ffd",
+        "stdout_sha256_raw": "9391a99a241f0813584587b0bc4db7559f18ebc500897ca8c43bcce03b64e972"
+      }
+    ]
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE6_MMC1_SERIAL_V1=PASS tests=47",
+    "stage": "OPENRECOMP_P6_02=PASS",
+    "terminal": "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN"
+  },
+  "passed": 47,
+  "stage": "P6-02",
+  "stage_name": "OPENRECOMP_PHASE6_MMC1_SERIAL_V1",
+  "status": "PASS",
+  "tests": 47
+}

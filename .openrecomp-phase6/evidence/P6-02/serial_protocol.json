@@ -1,0 +1,26 @@
+{
+  "claim": "MMC1_SUBSET_V1",
+  "power_on": {
+    "control": 12,
+    "count": 0,
+    "shift": 0
+  },
+  "stage": "P6-02",
+  "suppression_model": "write on the cycle immediately after an MMC1 write is ignored and leaves all state unchanged",
+  "vectors": {
+    "classes": {
+      "exhaustive_five_write_commits": 128,
+      "first_write_classification": 256,
+      "random_commits": 28,
+      "random_mixed_writes": 3000,
+      "random_resets": 1126,
+      "random_suppressed": 764,
+      "reset_bit_sequences": 128,
+      "suppression_sequences": 3,
+      "write_edge_sequences": 2
+    },
+    "comparisons": 4928,
+    "seed": 5260802,
+    "steps": 3000
+  }
+}
