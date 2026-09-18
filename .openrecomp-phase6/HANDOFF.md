@@ -215,6 +215,37 @@ reserved as `NOT_PROVEN`.
   and `RESULT.md`.
 - Evidence: `.openrecomp-phase6/evidence/P6-05/`.
 
+## P6-06 outcome (PASS)
+
+Markers: `OPENRECOMP_P6_06=PASS`,
+`OPENRECOMP_PHASE6_MMC1_FIXTURE_V1=PASS tests=67`; terminal and general markers
+reserved as `NOT_PROVEN`.
+
+- New full behavioural proof fixture
+  `.openrecomp-phase6/fixture/p6_public_mmc1_proof.asm` (262 instructions,
+  original Apache-2.0) and proof builder `p6_fixture_proof_v1.py`; the P6-01
+  established fixture identity remains frozen and is re-verified.
+- Proof fixture identity: 64 KiB PRG (4 x 16 KiB), 32 KiB CHR (4 x 8 KiB),
+  mapper 1, submapper 0, horizontal mirroring, ROM SHA-256 `9e10dce5...`
+  (98320 bytes), PRG `197a464f...`, CHR `4f9abd22...`, vectors NMI `$C1F8` /
+  RESET `$C000` / IRQ `$C235`, source revision `17f12ba0...`, assembler
+  `dd82b6a4...`.
+- Static behavioural inventory verified: writes to all four MMC1 register
+  windows, reads of the switched `$8000`/`$8100` window, CHR 4 KiB bank
+  selection observed through PPUDATA, all four mirroring modes observed
+  through aliased nametable reads, controller reads, graphics setup
+  (palette/nametable/sprites/NMI/OAM DMA) and the `$02FF` run-exit thunk.
+- Mapper contract exercise: PRG banks 0..3, CHR 4 KiB banks 0..7 and all four
+  mirroring modes replayed through the P6-02 .. P6-05 models with the expected
+  deterministic states.
+- Negative coverage: unsupported mnemonic, missing reset label and broken
+  vector all fail closed during the build.
+- Regressions: frozen NES tools plus P6-00 .. P6-05 gates pass with empty
+  stderr (earlier gates re-run into ignored scratch evidence).
+- Official run hashes are recorded in `p6_06_tests.json`, `official_runs.json`
+  and `RESULT.md`.
+- Evidence: `.openrecomp-phase6/evidence/P6-06/`.
+
 ## Exact next action
 
-Proceed to P6-06 - Public MMC1 proof fixture (full behavioural coverage).
+Proceed to P6-07 - MMC1 static-recompilation integration.

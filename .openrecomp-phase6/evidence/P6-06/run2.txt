@@ -1,0 +1,96 @@
+=== P6-06 Public MMC1 Proof Fixture Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-exists
+PASS: source:manifest-verified
+
+--- frozen_chain ---
+PASS: chain:phase5-tag-object
+PASS: chain:phase5-commit
+PASS: chain:phase5-tree
+PASS: chain:descends
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+
+--- established_fixture_frozen ---
+PASS: base:identity-preserved
+
+--- proof_fixture_build ---
+PASS: proof:build-byte-identical
+PASS: proof:metadata-identical
+PASS: base:distinct-from-proof
+PASS: proof:rom-size
+PASS: proof:rom-sha256
+PASS: proof:source-sha256
+PASS: proof:assembler-sha256
+PASS: proof:header
+PASS: proof:prg
+PASS: proof:prg-bank-hashes
+PASS: proof:chr
+PASS: proof:mapper-metadata
+PASS: proof:vectors
+PASS: proof:instruction-count
+PASS: proof:license
+PASS: proof:labels
+
+--- behaviour_inventory ---
+PASS: behaviour:mmc1-windows
+PASS: behaviour:ppu-writes
+PASS: behaviour:ppu-reads
+PASS: behaviour:controller-reads
+PASS: behaviour:switchable-reads
+PASS: behaviour:exit-thunk
+PASS: behaviour:opcode-forms
+PASS: behaviour:graphics-setup
+
+--- proof_ingestion ---
+PASS: proof:ingest-status
+PASS: proof:ingest-vectors
+PASS: proof:ingest-container
+PASS: proof:prg-ram-disabled
+
+--- mapper_contract_exercise ---
+PASS: exercise:prg-mode3
+PASS: exercise:prg-banks-0-3
+PASS: exercise:chr-4k-banks-0-7
+PASS: exercise:mirroring-modes
+
+--- negative ---
+PASS: reject:unsupported-mnemonic
+PASS: reject:missing-reset-label
+PASS: reject:broken-vector
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:tools/test_nes_platform_v1.py:exit
+PASS: regression:tools/test_nes_platform_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_serial_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_serial_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_prg_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_prg_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_chr_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_chr_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_variant_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_variant_v1.py:stderr
+PASS: regression:tools/test_phase6_boundary_v1.py:exit
+PASS: regression:tools/test_phase6_boundary_v1.py:stderr
+
+--- evidence_hygiene ---
+PASS: hygiene:no-public-rom-bytes:proof_fixture.json
+PASS: hygiene:no-private-rom-bytes:proof_fixture.json
+PASS: hygiene:no-public-rom-bytes:behaviours.json
+PASS: hygiene:no-private-rom-bytes:behaviours.json
+PASS: hygiene:no-public-rom-bytes:regressions.json
+PASS: hygiene:no-private-rom-bytes:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P6_06=PASS
+OPENRECOMP_PHASE6_MMC1_FIXTURE_V1=PASS tests=67
+OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

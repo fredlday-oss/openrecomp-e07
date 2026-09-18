@@ -1,0 +1,335 @@
+{
+  "claim": "MMC1_SUBSET_V1",
+  "established_fixture": {
+    "note": "P6-01 established fixture remains frozen",
+    "rom_sha256": "7d5514c7db89ae9be5cb98bc8c12f94761d187e2a52a28018fa87f0af971d833"
+  },
+  "ingestion": {
+    "actual_size": 98320,
+    "battery": false,
+    "chr_bytes": 32768,
+    "chr_is_ram": false,
+    "chr_sha256": "4f9abd22d246d0f3d691e0ec7379f61b88c34b5653d6a8299f2fc73e287ad9fd",
+    "container": "ines",
+    "container_declared_size": 98320,
+    "declared_size": 98320,
+    "execution_status": "BLOCKED_UNSUPPORTED_MAPPER",
+    "four_screen": false,
+    "header_hex": "4e45531a040410000000000000000000",
+    "image_sha256": "9e10dce532266592f9ccda781bc6d3a7354ab4951bd3db87e4f43d1c45056b70",
+    "mapper": 1,
+    "mapper_name": "unsupported",
+    "mirroring": "horizontal",
+    "nametable_arrangement": "vertical",
+    "nes2_fields": {},
+    "phase6": {
+      "chr_banks_8k": 4,
+      "claim": "MMC1_SUBSET_V1",
+      "mapper": 1,
+      "mirroring": "horizontal",
+      "power_on_chr_mode": 0,
+      "power_on_control": 12,
+      "power_on_mirroring": "one_screen_lower",
+      "power_on_prg_mode": 3,
+      "prg_banks_16k": 4,
+      "reasons": [],
+      "status": "SUPPORTED_MMC1",
+      "target": "mmc1"
+    },
+    "playchoice": false,
+    "prg_bytes": 65536,
+    "prg_ram_bytes": 0,
+    "prg_sha256": "197a464f5ffe038b225b038aac928e75b7f9daa19bd93f476ad7b6666bd2c486",
+    "source_label": "proof_fixture",
+    "submapper": 0,
+    "trainer_bytes": 0,
+    "trainer_offset": null,
+    "tv_system": "ntsc",
+    "unsupported_metadata": [],
+    "vectors": {
+      "irq": 49717,
+      "nmi": 49656,
+      "reset": 49152
+    },
+    "vectors_source": "mmc1_power_on_fixed_last_bank",
+    "vs_unisystem": false
+  },
+  "metadata": {
+    "assembler": ".openrecomp-phase5/src/p5_fixture_asm_v1.py",
+    "assembler_sha256": "dd82b6a46b3c0411b9977677254b2796b5a6161da8fe544588df13b7d444ce80",
+    "behaviour": {
+      "controller_reads": [
+        "0x4016"
+      ],
+      "exit_thunk": [
+        "0x02ff"
+      ],
+      "indirect_targets": {
+        "0x02ff": 1
+      },
+      "instruction_count": 262,
+      "mmc1_write_windows": [
+        "0x8000",
+        "0xa000",
+        "0xc000",
+        "0xe000"
+      ],
+      "opcode_form_count": 40,
+      "opcode_histogram": {
+        "adc abs": 7,
+        "and imm": 4,
+        "bcs rel": 2,
+        "bit abs": 3,
+        "bne rel": 12,
+        "bpl rel": 2,
+        "clc imp": 7,
+        "cld imp": 1,
+        "cmp imm": 1,
+        "cpx imm": 4,
+        "cpy imm": 3,
+        "dex imp": 5,
+        "eor imm": 1,
+        "inc abs": 3,
+        "inx imp": 5,
+        "iny imp": 3,
+        "jmp abs": 1,
+        "jmp ind": 1,
+        "jsr abs": 17,
+        "lda abs": 14,
+        "lda absx": 3,
+        "lda imm": 41,
+        "ldx abs": 1,
+        "ldx imm": 9,
+        "ldy imm": 3,
+        "lsr acc": 5,
+        "ora imm": 1,
+        "pha imp": 8,
+        "pla imp": 8,
+        "rol abs": 1,
+        "rti imp": 2,
+        "rts imp": 12,
+        "sei imp": 1,
+        "sta abs": 53,
+        "sta absx": 9,
+        "tax imp": 1,
+        "tay imp": 1,
+        "txa imp": 1,
+        "txs imp": 1,
+        "tya imp": 5
+      },
+      "ppu_reads": [
+        "0x2002",
+        "0x2007"
+      ],
+      "ppu_writes": [
+        "0x2000",
+        "0x2001",
+        "0x2003",
+        "0x2004",
+        "0x2005",
+        "0x2006",
+        "0x2007",
+        "0x4014"
+      ],
+      "read_modify_write": {
+        "0x0300": 1,
+        "0x0301": 1,
+        "0x0305": 1,
+        "0x0306": 1
+      },
+      "reads": {
+        "0x0300": 2,
+        "0x0301": 1,
+        "0x0302": 2,
+        "0x0303": 2,
+        "0x0304": 2,
+        "0x0307": 2,
+        "0x0400": 1,
+        "0x2002": 3,
+        "0x2007": 8,
+        "0x4016": 1,
+        "0x8000": 1,
+        "0x8100": 1,
+        "0xc23b": 1,
+        "0xc25b": 1
+      },
+      "switchable_window_reads": [
+        "0x8000",
+        "0x8100"
+      ],
+      "writes": {
+        "0x0000": 1,
+        "0x0100": 1,
+        "0x0200": 1,
+        "0x0300": 1,
+        "0x0301": 1,
+        "0x0302": 2,
+        "0x0303": 2,
+        "0x0304": 2,
+        "0x0307": 3,
+        "0x0400": 2,
+        "0x0500": 1,
+        "0x0600": 1,
+        "0x0700": 1,
+        "0x2000": 3,
+        "0x2001": 2,
+        "0x2003": 1,
+        "0x2004": 8,
+        "0x2005": 2,
+        "0x2006": 16,
+        "0x2007": 4,
+        "0x4014": 1,
+        "0x4016": 2,
+        "0x8000": 1,
+        "0xa000": 1,
+        "0xc000": 1,
+        "0xe000": 1
+      }
+    },
+    "chr_banks": 4,
+    "chr_sha256": "4f9abd22d246d0f3d691e0ec7379f61b88c34b5653d6a8299f2fc73e287ad9fd",
+    "chr_size": 32768,
+    "claim": "MMC1_SUBSET_V1",
+    "data_spans": [
+      [
+        49723,
+        49731
+      ],
+      [
+        49731,
+        49739
+      ],
+      [
+        49739,
+        49747
+      ],
+      [
+        49747,
+        49755
+      ],
+      [
+        49755,
+        49763
+      ],
+      [
+        49763,
+        49771
+      ],
+      [
+        49771,
+        49779
+      ],
+      [
+        49779,
+        49787
+      ],
+      [
+        65530,
+        65532
+      ],
+      [
+        65532,
+        65534
+      ],
+      [
+        65534,
+        65536
+      ]
+    ],
+    "decoder_cross_check": "adapters/nes6502.py",
+    "fixed_bank_index": 3,
+    "fixed_bank_origin": 49152,
+    "fixture": "openrecomp-phase6-public-mmc1-proof-fixture",
+    "header_hex": "4e45531a040410000000000000000000",
+    "instruction_count": 262,
+    "instructions_cross_checked": 262,
+    "labels": {
+      "EXIT_VEC": 767,
+      "JOY1": 16406,
+      "MMC1_CHR0": 40960,
+      "MMC1_CHR1": 49152,
+      "MMC1_CTRL": 32768,
+      "MMC1_PRG": 57344,
+      "OAMADDR": 8195,
+      "OAMDATA": 8196,
+      "OAMDMA": 16404,
+      "PPUADDR": 8198,
+      "PPUCTRL": 8192,
+      "PPUDATA": 8199,
+      "PPUMASK": 8193,
+      "PPUSCROLL": 8197,
+      "PPUSTATUS": 8194,
+      "PTR_HI": 1,
+      "PTR_LO": 0,
+      "TARGET_FRAMES": 6,
+      "checksum": 775,
+      "chr_loop": 49382,
+      "chr_sum": 771,
+      "clear_ram": 49166,
+      "exercise_chr_banks": 49380,
+      "exercise_mirroring": 49440,
+      "exercise_prg_banks": 49348,
+      "frames": 768,
+      "input0": 769,
+      "irq_count": 774,
+      "irq_handler": 49717,
+      "load_nametable": 49568,
+      "load_palette": 49544,
+      "main_loop": 49240,
+      "mirror_loop": 49442,
+      "mirror_sum": 772,
+      "mmc1_chr0_loop": 49308,
+      "mmc1_chr1_loop": 49322,
+      "mmc1_control_loop": 49294,
+      "mmc1_prg_loop": 49336,
+      "mmc1_write_chr0": 49306,
+      "mmc1_write_chr1": 49320,
+      "mmc1_write_ctrl": 49292,
+      "mmc1_write_prg": 49334,
+      "nametable": 49755,
+      "nmi_count": 773,
+      "nmi_handler": 49656,
+      "no_record": 49687,
+      "nt_loop": 49580,
+      "pal_loop": 49556,
+      "palette": 49723,
+      "prg_loop": 49350,
+      "prg_sum": 770,
+      "rc_loop": 49645,
+      "read_controller": 49638,
+      "reset": 49152,
+      "script_done": 49259,
+      "setup_sprites": 49592,
+      "sum_loop": 49266,
+      "wait_one": 49533,
+      "wait_two": 49538,
+      "wait_vblank": 49530
+    },
+    "license": "Apache-2.0",
+    "mapper": 1,
+    "mirroring": "horizontal",
+    "origin": "original",
+    "power_on_control": 12,
+    "prg_bank_sha256": [
+      "e12ec00b3378ef16c2855d72330870c8249f20245372db1e9d931c7e04fabf73",
+      "da5341ea7df3d88175e33abf30538251d94989d540fb6bf5e6f5a2af3ef38c90",
+      "569ee4a0b2876656a9aa395b87ac2850e426fba567d8de4d9d1934e03cf3a10e",
+      "4772b3c97b2e70c823c5111cd40370a06d8a8b224b3e1167df8aab405b66643d"
+    ],
+    "prg_banks": 4,
+    "prg_sha256": "197a464f5ffe038b225b038aac928e75b7f9daa19bd93f476ad7b6666bd2c486",
+    "prg_size": 65536,
+    "rom_sha256": "9e10dce532266592f9ccda781bc6d3a7354ab4951bd3db87e4f43d1c45056b70",
+    "rom_size": 98320,
+    "source": ".openrecomp-phase6/fixture/p6_public_mmc1_proof.asm",
+    "source_sha256": "17f12ba0cb7b5d5a220ed205b28e66ff62e33959b8e62f47dae9c598fa533528",
+    "stage": "P6-06",
+    "submapper": 0,
+    "vectors": {
+      "irq": 49717,
+      "nmi": 49656,
+      "reset": 49152
+    }
+  },
+  "stage": "P6-06"
+}

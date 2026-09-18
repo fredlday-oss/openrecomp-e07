@@ -1,0 +1,196 @@
+{
+  "behaviour": {
+    "controller_reads": [
+      "0x4016"
+    ],
+    "exit_thunk": [
+      "0x02ff"
+    ],
+    "indirect_targets": {
+      "0x02ff": 1
+    },
+    "instruction_count": 262,
+    "mmc1_write_windows": [
+      "0x8000",
+      "0xa000",
+      "0xc000",
+      "0xe000"
+    ],
+    "opcode_form_count": 40,
+    "opcode_histogram": {
+      "adc abs": 7,
+      "and imm": 4,
+      "bcs rel": 2,
+      "bit abs": 3,
+      "bne rel": 12,
+      "bpl rel": 2,
+      "clc imp": 7,
+      "cld imp": 1,
+      "cmp imm": 1,
+      "cpx imm": 4,
+      "cpy imm": 3,
+      "dex imp": 5,
+      "eor imm": 1,
+      "inc abs": 3,
+      "inx imp": 5,
+      "iny imp": 3,
+      "jmp abs": 1,
+      "jmp ind": 1,
+      "jsr abs": 17,
+      "lda abs": 14,
+      "lda absx": 3,
+      "lda imm": 41,
+      "ldx abs": 1,
+      "ldx imm": 9,
+      "ldy imm": 3,
+      "lsr acc": 5,
+      "ora imm": 1,
+      "pha imp": 8,
+      "pla imp": 8,
+      "rol abs": 1,
+      "rti imp": 2,
+      "rts imp": 12,
+      "sei imp": 1,
+      "sta abs": 53,
+      "sta absx": 9,
+      "tax imp": 1,
+      "tay imp": 1,
+      "txa imp": 1,
+      "txs imp": 1,
+      "tya imp": 5
+    },
+    "ppu_reads": [
+      "0x2002",
+      "0x2007"
+    ],
+    "ppu_writes": [
+      "0x2000",
+      "0x2001",
+      "0x2003",
+      "0x2004",
+      "0x2005",
+      "0x2006",
+      "0x2007",
+      "0x4014"
+    ],
+    "read_modify_write": {
+      "0x0300": 1,
+      "0x0301": 1,
+      "0x0305": 1,
+      "0x0306": 1
+    },
+    "reads": {
+      "0x0300": 2,
+      "0x0301": 1,
+      "0x0302": 2,
+      "0x0303": 2,
+      "0x0304": 2,
+      "0x0307": 2,
+      "0x0400": 1,
+      "0x2002": 3,
+      "0x2007": 8,
+      "0x4016": 1,
+      "0x8000": 1,
+      "0x8100": 1,
+      "0xc23b": 1,
+      "0xc25b": 1
+    },
+    "switchable_window_reads": [
+      "0x8000",
+      "0x8100"
+    ],
+    "writes": {
+      "0x0000": 1,
+      "0x0100": 1,
+      "0x0200": 1,
+      "0x0300": 1,
+      "0x0301": 1,
+      "0x0302": 2,
+      "0x0303": 2,
+      "0x0304": 2,
+      "0x0307": 3,
+      "0x0400": 2,
+      "0x0500": 1,
+      "0x0600": 1,
+      "0x0700": 1,
+      "0x2000": 3,
+      "0x2001": 2,
+      "0x2003": 1,
+      "0x2004": 8,
+      "0x2005": 2,
+      "0x2006": 16,
+      "0x2007": 4,
+      "0x4014": 1,
+      "0x4016": 2,
+      "0x8000": 1,
+      "0xa000": 1,
+      "0xc000": 1,
+      "0xe000": 1
+    }
+  },
+  "mapper_exercise": {
+    "chr_4k_banks": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "mirroring_records": [
+      [
+        "one_screen_lower",
+        0,
+        0
+      ],
+      [
+        "one_screen_upper",
+        1,
+        1
+      ],
+      [
+        "vertical",
+        1,
+        1
+      ],
+      [
+        "horizontal",
+        0,
+        1
+      ]
+    ],
+    "prg_switch_plan": [
+      {
+        "bank": 0,
+        "windows": [
+          0,
+          3
+        ]
+      },
+      {
+        "bank": 1,
+        "windows": [
+          1,
+          3
+        ]
+      },
+      {
+        "bank": 2,
+        "windows": [
+          2,
+          3
+        ]
+      },
+      {
+        "bank": 3,
+        "windows": [
+          3,
+          3
+        ]
+      }
+    ]
+  },
+  "stage": "P6-06"
+}
