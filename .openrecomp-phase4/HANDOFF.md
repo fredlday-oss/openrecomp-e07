@@ -5,8 +5,9 @@ Runtime ABI V1) `PASS`; P4-02 (Guest memory/runtime model) `PASS`; P4-03
 (Runtime service mediation) `PASS`; P4-04 (Deterministic I/O, timing and
 input) `PASS`; P4-05 (Platform Adapter Interface V1) `PASS` with a
 stage-internal repair recorded in `STATE.md`; P4-06 (Graphics/audio
-abstraction boundary) `PASS`; P4-07 (Interactive legally-clean fixture) is
-the executing stage. The frozen
+abstraction boundary) `PASS`; P4-07 (Interactive legally-clean fixture)
+`PASS`; P4-08 (First platform-adapter execution proof) is the executing
+stage. The frozen
 Phase-4 queue (`P4-01` .. `P4-99`) is frozen by `.openrecomp-phase4/STAGE_QUEUE.md`
 (`## Queue freeze`) at the P4-00 `PASS` boundary, before any P4-01
 implementation work. Phase 3 is complete and frozen at annotated tag
@@ -31,6 +32,33 @@ Reserved markers:
 - `OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN` (P4-99 may issue PASS
   for the bounded claim only)
 - `OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN` (never promoted)
+
+## P4-07 outcome (PASS)
+
+Markers: `OPENRECOMP_P4_07=PASS`,
+`OPENRECOMP_PHASE4_FIXTURE_V1=PASS tests=48`; terminal and general
+compatibility markers reserved as `NOT_PROVEN`.
+
+- New original Apache-2.0 fixture under `.openrecomp-phase4/fixture/`
+  (7 files) exercising code/data/bss/stack/heap-like arena, runtime
+  service windows (output/input/exit/ticks), deterministic input plan
+  `0512ab34ff` and an observable transcript.
+- Reproducible build: `zig cc` 0.13.0 with the recorded bounded flags; two
+  isolated roots produce a byte-identical 9884-byte ELF, sha256
+  `acb4f4e5...`.
+- Frontier inventory: 774 reachable words, no unknown/invalid encodings, no
+  indirect control flow, reachable recognized-unsupported ops only `movn`
+  (1) and `mul` (4) from the bounded P3-04 semantic class.
+- Preliminary model-derived fields: `fib10=55`, `primes_sum=381`,
+  `bss_sum=4028012831`, `heap_sum=3784880468`, `checksum=0xd43e5ba6`
+  (tick fields remain policy-dependent; independent confirmation is P4-09).
+- Two official runs byte-identical raw (`e7ece97b...`, 1839 bytes) and LF,
+  empty stderr, exit 0; `p4_07_tests.json` identical across runs
+  (`65e8635a...`).
+- Regressions: P2-08 `PASS tests=169`, P4-01..P4-06 all PASS, Phase-1 host
+  gates `PASS=44 FAIL=0 SKIPPED=2`, public safety `PASS`, P4-00
+  `PASS tests=74` (`953312d0...`) with the dynamic boundary-context hygiene.
+- Evidence: `.openrecomp-phase4/evidence/P4-07/`.
 
 ## P4-06 outcome (PASS)
 
@@ -243,18 +271,15 @@ compatibility markers reserved as `NOT_PROVEN`.
 
 ## Exact next action
 
-Execute P4-07 (Interactive legally-clean fixture): introduce or build a
-legally clean/open fixture materially more demanding than CoreMark and
-exercising a meaningful subset of code, static/global data, stack, heap if
-required, runtime services, deterministic input/events, timing and observable
-output, with recorded license, provenance, exact source/toolchain/build flags
-and hashes. Do not use proprietary ROMs, commercial game binaries,
-copyrighted game assets or unverified fixtures. Add sources/gate to
+Execute P4-08 (First platform-adapter execution proof): run the P4-07 fixture
+through a real implementation of the platform-adapter/runtime contracts
+(generated code architecture-neutral, unsupported behaviour failing closed),
+building on P4-01..P4-07. Add sources/gate to
 `.openrecomp-phase4/SOURCE_SHA256SUMS.txt`, run the official gate twice with
-deterministic evidence, run the required regressions (P2-08, P4-01..P4-06,
-Phase-1 host gates, public safety, and P4-00 using the documented refined
+deterministic evidence, run the required regressions (P2-08, P4-01..P4-07,
+Phase-1 host gates, public safety, and P4-00 using the documented dynamic
 frozen-gate boundary-context hygiene), update the control plane and commit
-the P4-07 boundary.
+the P4-08 boundary.
 
 ## Constraints
 

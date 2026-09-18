@@ -1,0 +1,89 @@
+=== P4-06 Graphics/Audio Boundary Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest
+PASS: source:root-manifest-entries
+PASS: source:root-manifest-verified
+PASS: source:phase3-manifest
+PASS: source:phase3-manifest-entries
+PASS: source:phase4-manifest-verified
+
+--- contract ---
+PASS: contract:name
+PASS: contract:version
+PASS: contract:pixel-formats
+PASS: contract:sample-formats
+PASS: contract:limits
+PASS: contract:no-mandatory-backend
+PASS: contract:fingerprint-stable
+PASS: contract:no-backend-tokens
+PASS: graphics-caps:supports
+PASS: graphics-caps:rejects-dimensions
+PASS: graphics-caps:rejects-format
+PASS: graphics-caps:empty-formats
+PASS: graphics-caps:document
+PASS: reject:graphics-caps:unknown-format
+PASS: reject:graphics-caps:zero-dimension
+PASS: reject:graphics-caps:oversized
+PASS: reject:graphics-caps:zero-capacity
+PASS: audio-caps:supports
+PASS: audio-caps:rejects-rate
+PASS: audio-caps:rejects-channels
+PASS: audio-caps:rejects-samples
+PASS: audio-caps:rejects-format
+PASS: reject:audio-caps:unknown-format
+PASS: reject:audio-caps:duplicate-rates
+PASS: reject:audio-caps:zero-rate
+PASS: reject:audio-caps:bad-channels
+PASS: reject:audio-caps:bad-samples
+
+--- graphics ---
+PASS: graphics:record-count
+PASS: graphics:record-fields
+PASS: graphics:document-ledger
+PASS: reject:graphics:capacity
+PASS: reject:graphics:unsupported-format
+PASS: reject:graphics:unsupported-dimension
+PASS: reject:graphics:not-a-frame
+PASS: reject:graphics:bad-capabilities
+PASS: graphics:null-capabilities-empty
+PASS: reject:graphics:null-rejects
+PASS: graphics:null-document
+PASS: graphics:deterministic-document
+PASS: graphics:deterministic-fingerprint
+PASS: graphics:ledger-sensitive
+
+--- audio ---
+PASS: audio:record-count
+PASS: audio:record-fields
+PASS: audio:document-ledger
+PASS: reject:audio:capacity
+PASS: reject:audio:unsupported-format
+PASS: reject:audio:unsupported-rate
+PASS: reject:audio:not-a-buffer
+PASS: reject:audio:bad-capabilities
+PASS: audio:null-capabilities-empty
+PASS: reject:audio:null-rejects
+PASS: audio:null-document
+PASS: audio:deterministic-document
+PASS: audio:deterministic-fingerprint
+
+--- integration ---
+PASS: hooks:types
+PASS: reject:hooks:bad-boundary
+PASS: reject:hooks:bad-audio-boundary
+PASS: hooks:adapter-valid
+PASS: hooks:bound-graphics
+PASS: hooks:bound-audio
+PASS: hooks:routed-graphics
+PASS: hooks:routed-audio
+PASS: hooks:document-includes-boundary
+PASS: hooks:claims-unchanged
+PASS: independence:no-backend-tokens
+PASS: independence:neutral-imports
+
+=== RESULT ===
+OPENRECOMP_P4_06=PASS
+OPENRECOMP_PHASE4_GRAPHICS_AUDIO_V1=PASS tests=72
+OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN

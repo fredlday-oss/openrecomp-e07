@@ -1,0 +1,9 @@
+{
+  "plan_version": "1.0.0",
+  "fixture": "p4-demo-v1",
+  "console_input_hex": "0512ab34ff",
+  "terminator_byte": "ff",
+  "tick_policy": "one virtual tick per retired guest instruction; the ticks window reads that counter and never a host clock",
+  "output_framing": "fixed ASCII transcript emitted by p4_fixture_main.c in source order",
+  "note": "The runtime delivers the declared bytes to the input window in order and terminates the run on the exit window write. The transcript is deterministic under the declared tick policy. This plan is the declared input contract for P4-08/P4-09; the expected transcript is confirmed by an independent reference in P4-09."
+}

@@ -4,8 +4,8 @@ PHASE=4
 BASELINE_TAG=openrecomp-phase3-pass
 BASELINE_COMMIT=e16e4b29b90f379615f1af97e47747cd1d531796
 BASELINE_TREE=a940f0d84a32adaf191f7ff2bebfb24cc855cde0
-CURRENT_STAGE=P4-07
-LAST_PASSED_STAGE=P4-06
+CURRENT_STAGE=P4-08
+LAST_PASSED_STAGE=P4-07
 STATUS=ACTIVE
 GENERIC_RUNTIME_STATUS=NOT_PROVEN
 FINAL_VERDICT=NOT_PROVEN
@@ -77,7 +77,7 @@ QUEUE_FREEZE_STAGES=P4-01..P4-99
 | P4-04 | Deterministic I/O, timing and input | PASS | `.openrecomp-phase4/evidence/P4-04/` |
 | P4-05 | Platform Adapter Interface V1 | PASS | `.openrecomp-phase4/evidence/P4-05/` |
 | P4-06 | Graphics/audio abstraction boundary | PASS | `.openrecomp-phase4/evidence/P4-06/` |
-| P4-07 | Interactive legally-clean fixture | QUEUED | `.openrecomp-phase4/evidence/P4-07/` |
+| P4-07 | Interactive legally-clean fixture | PASS | `.openrecomp-phase4/evidence/P4-07/` |
 | P4-08 | First platform-adapter execution proof | QUEUED | `.openrecomp-phase4/evidence/P4-08/` |
 | P4-09 | End-to-end generic-runtime native proof | QUEUED | `.openrecomp-phase4/evidence/P4-09/` |
 | P4-10 | Reproducible Phase-4 package | QUEUED | `.openrecomp-phase4/evidence/P4-10/` |
@@ -115,6 +115,53 @@ gate re-ran twice with byte-identical stdout and the same 76 checks, and the
 affected P4-05 pins were refreshed (`determinism.json`, `changed_files.txt`,
 `repair_record.json`, `repair_run1/2.txt`). No stage contract, queue row or
 claim changed, and the historical Phase-3 tag is untouched.
+
+## P4-07 result (PASS)
+
+Stage: `OPENRECOMP_PHASE4_FIXTURE_V1`. Evidence:
+`.openrecomp-phase4/evidence/P4-07/`. Gate:
+`tools/test_phase4_fixture_v1.py` (48 checks, sha256 `964fdd89...`).
+
+Markers issued:
+
+- Stage marker: `OPENRECOMP_P4_07=PASS`
+- Gate marker: `OPENRECOMP_PHASE4_FIXTURE_V1=PASS tests=48`
+- Terminal marker (reserved): `OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN`
+- General compatibility marker (never promoted):
+  `OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN`
+
+Delivered (original Apache-2.0 fixture under `.openrecomp-phase4/fixture/`):
+
+- Program: recursion, loops/branches, direct calls, const tables, initialised
+  globals, zero-fill storage, stack window, bounded static bump arena,
+  byte output/input, exit and virtual ticks windows, fixed-format transcript
+  and a 32-bit FNV-1a-style checksum; deterministic input plan
+  `0512ab34ff`.
+- Gate: builds the fixture twice with the recorded `zig cc` 0.13.0 bounded
+  flags and `zig ld.lld -m elf32ltsmip` (byte-identical 9884-byte ELF,
+  sha256 `acb4f4e5...`), verifies provenance/license, ingests through the
+  frozen Phase-3 ELF layer, and inventories the complete decode frontier.
+- Frontier: 776 words; 774 reachable; reachable recognized-unsupported ops
+  only `movn` (1) and `mul` (4) from the bounded P3-04 semantic class; no
+  unknown encodings, no reachable invalid words, no indirect control flow and
+  no unresolved successors.
+- Preliminary model-derived transcript fields (to be independently confirmed
+  by P4-09): `fib10=55`, `primes_sum=381`, `bss_sum=4028012831`,
+  `heap_sum=3784880468`, `checksum=0xd43e5ba6`.
+
+Two official runs byte-identical (1839 bytes raw `e7ece97b...`, empty
+stderr, exit 0) with `p4_07_tests.json` identical across runs
+(`65e8635a...`).
+
+Regressions: P2-08 `PASS tests=169`, P4-01..P4-06 all PASS, Phase-1 host
+gates `PASS=44 FAIL=0 SKIPPED=2`, public safety `PASS`, P4-00
+`PASS tests=74` (`953312d0...`) with the documented dynamic
+boundary-context hygiene.
+
+Limitations: the fixture is not yet translated or executed (P4-08/P4-09
+scope); the transcript mirror is model-derived, not independent; the fixture
+deliberately stays inside the bounded proven frontier;
+`GENERIC_RUNTIME_STATUS=NOT_PROVEN`.
 
 ## P4-06 result (PASS)
 

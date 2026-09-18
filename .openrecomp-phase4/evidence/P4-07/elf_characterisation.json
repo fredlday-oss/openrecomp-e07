@@ -1,0 +1,214 @@
+{
+  "control_flow_site_counts": {
+    "conditional-branches": 47,
+    "direct-calls": 14,
+    "indirect-calls": 0,
+    "indirect-jumps": 0,
+    "jumps": 12,
+    "returns": 10,
+    "unsupported-control-transfers": 0
+  },
+  "entry": 7168,
+  "frontier_summary": {
+    "control_flow_site_counts": {
+      "conditional-branches": 47,
+      "direct-calls": 14,
+      "indirect-calls": 0,
+      "indirect-jumps": 0,
+      "jumps": 12,
+      "returns": 10,
+      "unsupported-control-transfers": 0
+    },
+    "decoded_words": 774,
+    "exception_site_count": 0,
+    "invalid_words": 2,
+    "reachable_invalid_words": 0,
+    "reachable_supported_words": 769,
+    "reachable_unsupported_words": 5,
+    "reachable_words": 774,
+    "recognized_unsupported_words": 5,
+    "reserved_encoding_words": 2,
+    "supported_histogram": {
+      "addiu": 202,
+      "addu": 46,
+      "andi": 22,
+      "beq": 31,
+      "bne": 16,
+      "j": 12,
+      "jal": 14,
+      "jr": 10,
+      "lbu": 21,
+      "lui": 44,
+      "lw": 12,
+      "mfhi": 9,
+      "multu": 9,
+      "nop": 30,
+      "or": 28,
+      "ori": 23,
+      "sb": 161,
+      "sll": 12,
+      "sltiu": 12,
+      "srl": 20,
+      "subu": 10,
+      "sw": 17,
+      "xor": 8
+    },
+    "supported_reachable_histogram": {
+      "addiu": 202,
+      "addu": 46,
+      "andi": 22,
+      "beq": 31,
+      "bne": 16,
+      "j": 12,
+      "jal": 14,
+      "jr": 10,
+      "lbu": 21,
+      "lui": 44,
+      "lw": 12,
+      "mfhi": 9,
+      "multu": 9,
+      "nop": 30,
+      "or": 28,
+      "ori": 23,
+      "sb": 161,
+      "sll": 12,
+      "sltiu": 12,
+      "srl": 20,
+      "subu": 10,
+      "sw": 17,
+      "xor": 8
+    },
+    "supported_words": 769,
+    "total_words": 776,
+    "unknown_encoding_words": 0,
+    "unreachable_words": 2,
+    "unresolved_site_counts": {},
+    "unsupported_histogram": {
+      "movn": 1,
+      "mul": 4
+    },
+    "unsupported_reachable_histogram": {
+      "movn": 1,
+      "mul": 4
+    },
+    "unsupported_unreachable_histogram": {}
+  },
+  "identity": {
+    "abi": "O32",
+    "dynamic": false,
+    "elf_class": "ELF32",
+    "endianness": "little",
+    "entry": "0x00001c00",
+    "entry_region": 2,
+    "entry_section": ".text",
+    "executable_section": ".text",
+    "flags": "0x50001001",
+    "flags_interpretation": "EF_MIPS_ABI_O32 | EF_MIPS_ARCH_32 | EF_MIPS_NOREORDER (non-PIC)",
+    "isa": "MIPS32 (EF_MIPS_ARCH_32)",
+    "machine": 8,
+    "machine_name": "EM_MIPS",
+    "pic": false,
+    "relocations": false,
+    "required_sections": [
+      ".text",
+      ".rodata",
+      ".data",
+      ".bss"
+    ],
+    "static": true,
+    "target": "mips32-o32-soft-float-static",
+    "type": 2,
+    "type_name": "ET_EXEC"
+  },
+  "sections": [
+    {
+      "addr": 0,
+      "flags": 0,
+      "name": "",
+      "size": 0,
+      "type": 0
+    },
+    {
+      "addr": 4096,
+      "flags": 6,
+      "name": ".text",
+      "size": 3104,
+      "type": 1
+    },
+    {
+      "addr": 7200,
+      "flags": 2,
+      "name": ".MIPS.abiflags",
+      "size": 24,
+      "type": 1879048234
+    },
+    {
+      "addr": 7224,
+      "flags": 2,
+      "name": ".reginfo",
+      "size": 24,
+      "type": 1879048198
+    },
+    {
+      "addr": 7248,
+      "flags": 50,
+      "name": ".rodata",
+      "size": 81,
+      "type": 1
+    },
+    {
+      "addr": 7344,
+      "flags": 268435459,
+      "name": ".data",
+      "size": 40,
+      "type": 1
+    },
+    {
+      "addr": 7392,
+      "flags": 3,
+      "name": ".bss",
+      "size": 9488,
+      "type": 8
+    },
+    {
+      "addr": 0,
+      "flags": 0,
+      "name": ".mdebug.abi32",
+      "size": 0,
+      "type": 1
+    },
+    {
+      "addr": 0,
+      "flags": 48,
+      "name": ".comment",
+      "size": 124,
+      "type": 1
+    },
+    {
+      "addr": 0,
+      "flags": 0,
+      "name": ".symtab",
+      "size": 1504,
+      "type": 2
+    },
+    {
+      "addr": 0,
+      "flags": 0,
+      "name": ".shstrtab",
+      "size": 99,
+      "type": 3
+    },
+    {
+      "addr": 0,
+      "flags": 0,
+      "name": ".strtab",
+      "size": 290,
+      "type": 3
+    }
+  ],
+  "stage": "P4-07",
+  "unsupported_reachable_histogram": {
+    "movn": 1,
+    "mul": 4
+  }
+}

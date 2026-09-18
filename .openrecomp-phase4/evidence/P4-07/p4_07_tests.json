@@ -1,0 +1,338 @@
+{
+  "checks": [
+    {
+      "check": "build:byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "build:elf-sha256-pinned",
+      "status": "PASS"
+    },
+    {
+      "check": "build:elf-size-pinned",
+      "status": "PASS"
+    },
+    {
+      "check": "build:minimal-size",
+      "status": "PASS"
+    },
+    {
+      "check": "features:function-scale",
+      "status": "PASS"
+    },
+    {
+      "check": "features:reachable-words",
+      "status": "PASS"
+    },
+    {
+      "check": "features:region-model",
+      "status": "PASS"
+    },
+    {
+      "check": "features:supported-words",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:has-branches",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:has-direct-calls",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:has-returns",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-indirect-calls",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-indirect-jumps",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-unresolved-flow",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-unsupported-control",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:reachable-invalid",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:reachable-ops-in-bounded-class",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:reachable-words",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:unknown-encodings",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:bss-zero-fill",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:data-initialised",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:entry-in-text",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:identity-fields",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:identity-flags",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:image-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:no-dynamic",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:required-sections",
+      "status": "PASS"
+    },
+    {
+      "check": "model:checksum-32bit",
+      "status": "PASS"
+    },
+    {
+      "check": "model:known-checksum",
+      "status": "PASS"
+    },
+    {
+      "check": "model:known-fib10",
+      "status": "PASS"
+    },
+    {
+      "check": "model:known-primes-sum",
+      "status": "PASS"
+    },
+    {
+      "check": "plan:has-input-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "plan:terminator",
+      "status": "PASS"
+    },
+    {
+      "check": "plan:tick-policy",
+      "status": "PASS"
+    },
+    {
+      "check": "provenance:files-present",
+      "status": "PASS"
+    },
+    {
+      "check": "provenance:license-statement",
+      "status": "PASS"
+    },
+    {
+      "check": "provenance:no-forbidden-tokens",
+      "status": "PASS"
+    },
+    {
+      "check": "provenance:no-third-party",
+      "status": "PASS"
+    },
+    {
+      "check": "provenance:original-headers",
+      "status": "PASS"
+    },
+    {
+      "check": "provenance:repo-license",
+      "status": "PASS"
+    },
+    {
+      "check": "provenance:start-stub",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase4-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:version",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:zig-present",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "build": {
+      "byte_identical": true,
+      "elf_sha256": "acb4f4e57a7f996e87989e99d702d802259b752aabb2476f574665ef061969bc",
+      "elf_size": 9884
+    },
+    "features": {
+      "bss_sum": 4028012831,
+      "checksum": "0xd43e5ba6",
+      "fib10": 55,
+      "heap_sum": 3784880468,
+      "input_bytes": 4,
+      "primes_sum": 381
+    },
+    "ingestion": {
+      "bss_size": 9488,
+      "entry": "0x1c00",
+      "frontier": {
+        "control_flow_site_counts": {
+          "conditional-branches": 47,
+          "direct-calls": 14,
+          "indirect-calls": 0,
+          "indirect-jumps": 0,
+          "jumps": 12,
+          "returns": 10,
+          "unsupported-control-transfers": 0
+        },
+        "decoded_words": 774,
+        "exception_site_count": 0,
+        "invalid_words": 2,
+        "reachable_invalid_words": 0,
+        "reachable_supported_words": 769,
+        "reachable_unsupported_words": 5,
+        "reachable_words": 774,
+        "recognized_unsupported_words": 5,
+        "reserved_encoding_words": 2,
+        "supported_histogram": {
+          "addiu": 202,
+          "addu": 46,
+          "andi": 22,
+          "beq": 31,
+          "bne": 16,
+          "j": 12,
+          "jal": 14,
+          "jr": 10,
+          "lbu": 21,
+          "lui": 44,
+          "lw": 12,
+          "mfhi": 9,
+          "multu": 9,
+          "nop": 30,
+          "or": 28,
+          "ori": 23,
+          "sb": 161,
+          "sll": 12,
+          "sltiu": 12,
+          "srl": 20,
+          "subu": 10,
+          "sw": 17,
+          "xor": 8
+        },
+        "supported_reachable_histogram": {
+          "addiu": 202,
+          "addu": 46,
+          "andi": 22,
+          "beq": 31,
+          "bne": 16,
+          "j": 12,
+          "jal": 14,
+          "jr": 10,
+          "lbu": 21,
+          "lui": 44,
+          "lw": 12,
+          "mfhi": 9,
+          "multu": 9,
+          "nop": 30,
+          "or": 28,
+          "ori": 23,
+          "sb": 161,
+          "sll": 12,
+          "sltiu": 12,
+          "srl": 20,
+          "subu": 10,
+          "sw": 17,
+          "xor": 8
+        },
+        "supported_words": 769,
+        "total_words": 776,
+        "unknown_encoding_words": 0,
+        "unreachable_words": 2,
+        "unresolved_site_counts": {},
+        "unsupported_histogram": {
+          "movn": 1,
+          "mul": 4
+        },
+        "unsupported_reachable_histogram": {
+          "movn": 1,
+          "mul": 4
+        },
+        "unsupported_unreachable_histogram": {}
+      },
+      "image_executable_sha256": "3c030aecf08d1b305e6f3f58811660bc8b9edcf1210d65be2e3cf7310095aec6",
+      "text_size": 3104,
+      "text_start": "0x1000"
+    },
+    "provenance": {
+      "authorship": "original OpenRecomp work",
+      "files": [
+        "input_plan.json",
+        "p4_fixture.h",
+        "p4_fixture.ld",
+        "p4_fixture_main.c",
+        "p4_fixture_util.c",
+        "p4_start.S",
+        "README.md"
+      ],
+      "license": "Apache-2.0 (repository LICENSE)",
+      "problems": []
+    },
+    "source_integrity": {
+      "phase3_entries": 24,
+      "phase4_entries": 23,
+      "root_entries": 134
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE4_FIXTURE_V1=PASS tests=49",
+    "stage": "OPENRECOMP_P4_07=PASS",
+    "terminal": "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN"
+  },
+  "passed": 49,
+  "stage": "P4-07",
+  "stage_name": "OPENRECOMP_PHASE4_FIXTURE_V1",
+  "status": "PASS",
+  "tests": 49
+}
