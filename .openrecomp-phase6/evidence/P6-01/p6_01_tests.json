@@ -1,0 +1,385 @@
+{
+  "checks": [
+    {
+      "check": "chain:descends",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tag-object",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:battery",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:chr-over-range",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:chr-ram",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:four-screen",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:prg-over-range",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:prg-ram",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:submapper",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:unsupported-mapper",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:compat-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:stage-row",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:ingestion.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:mmc1_requirements.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:ingestion.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:mmc1_requirements.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "private:blocked",
+      "status": "PASS"
+    },
+    {
+      "check": "private:classification",
+      "status": "PASS"
+    },
+    {
+      "check": "private:container",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract",
+      "status": "PASS"
+    },
+    {
+      "check": "private:hashes",
+      "status": "PASS"
+    },
+    {
+      "check": "private:mapper",
+      "status": "PASS"
+    },
+    {
+      "check": "private:mirroring",
+      "status": "PASS"
+    },
+    {
+      "check": "private:no-ram-battery",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prg-chr",
+      "status": "PASS"
+    },
+    {
+      "check": "private:sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "private:size",
+      "status": "PASS"
+    },
+    {
+      "check": "public:build-byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "public:chr",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixed-bank",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frozen-classify",
+      "status": "PASS"
+    },
+    {
+      "check": "public:header",
+      "status": "PASS"
+    },
+    {
+      "check": "public:ingest-container",
+      "status": "PASS"
+    },
+    {
+      "check": "public:ingest-exact-size",
+      "status": "PASS"
+    },
+    {
+      "check": "public:ingest-fingerprint-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "public:ingest-mapper",
+      "status": "PASS"
+    },
+    {
+      "check": "public:ingest-sizes",
+      "status": "PASS"
+    },
+    {
+      "check": "public:ingest-status",
+      "status": "PASS"
+    },
+    {
+      "check": "public:ingest-vectors",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instruction-count",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instructions-cross-checked",
+      "status": "PASS"
+    },
+    {
+      "check": "public:labels",
+      "status": "PASS"
+    },
+    {
+      "check": "public:mapper-mirroring",
+      "status": "PASS"
+    },
+    {
+      "check": "public:metadata-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "public:original-license",
+      "status": "PASS"
+    },
+    {
+      "check": "public:phase5-status-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "public:phase5-vectors-unavailable",
+      "status": "PASS"
+    },
+    {
+      "check": "public:prg",
+      "status": "PASS"
+    },
+    {
+      "check": "public:prg-bank-hashes",
+      "status": "PASS"
+    },
+    {
+      "check": "public:register-writes",
+      "status": "PASS"
+    },
+    {
+      "check": "public:rom-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "public:rom-size",
+      "status": "PASS"
+    },
+    {
+      "check": "public:vectors",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_platform_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_platform_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bad-magic",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:missing-file",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:oversized",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:public:frozen-mapper-fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:truncated",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:zero-prg",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "subset:chr-modes",
+      "status": "PASS"
+    },
+    {
+      "check": "subset:claim",
+      "status": "PASS"
+    },
+    {
+      "check": "subset:limits",
+      "status": "PASS"
+    },
+    {
+      "check": "subset:mapper",
+      "status": "PASS"
+    },
+    {
+      "check": "subset:mirroring",
+      "status": "PASS"
+    },
+    {
+      "check": "subset:power-on",
+      "status": "PASS"
+    },
+    {
+      "check": "subset:prg-modes",
+      "status": "PASS"
+    },
+    {
+      "check": "subset:register-windows",
+      "status": "PASS"
+    },
+    {
+      "check": "subset:registers",
+      "status": "PASS"
+    },
+    {
+      "check": "subset:requirements-basis",
+      "status": "PASS"
+    },
+    {
+      "check": "subset:requirements-ids",
+      "status": "PASS"
+    },
+    {
+      "check": "subset:requirements-statuses",
+      "status": "PASS"
+    },
+    {
+      "check": "subset:serial-bits",
+      "status": "PASS"
+    },
+    {
+      "check": "subset:supported-areas",
+      "status": "PASS"
+    },
+    {
+      "check": "subset:unsupported-variants",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "evidence_files": [
+      "ingestion.json",
+      "mmc1_requirements.json",
+      "regressions.json"
+    ],
+    "negative_checks": 16,
+    "regressions": [
+      {
+        "returncode": 0,
+        "script": "tools/test_nes_rom_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 959,
+        "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+        "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+      },
+      {
+        "returncode": 0,
+        "script": "tools/test_nes_platform_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 750,
+        "stdout_sha256_lf": "bf33dbe99790623b8e80ee2e20a3d409b829fa981987ddfb159f45b665301e4c",
+        "stdout_sha256_raw": "61ae15280094542974e1b8a4439d9ff240515b8401b61f681e62b686ba4736e8"
+      }
+    ]
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE6_MMC1_INVENTORY_V1=PASS tests=85",
+    "stage": "OPENRECOMP_P6_01=PASS",
+    "terminal": "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN"
+  },
+  "passed": 85,
+  "stage": "P6-01",
+  "stage_name": "OPENRECOMP_PHASE6_MMC1_INVENTORY_V1",
+  "status": "PASS",
+  "tests": 85
+}

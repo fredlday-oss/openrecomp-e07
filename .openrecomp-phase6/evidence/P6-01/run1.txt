@@ -1,0 +1,112 @@
+=== P6-01 MMC1 Requirements and Fixture Inventory Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-exists
+PASS: source:manifest-verified
+
+--- frozen_chain ---
+PASS: chain:phase5-tag-object
+PASS: chain:phase5-commit
+PASS: chain:phase5-tree
+PASS: chain:descends
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+
+--- mmc1_subset ---
+PASS: subset:claim
+PASS: subset:mapper
+PASS: subset:serial-bits
+PASS: subset:registers
+PASS: subset:register-windows
+PASS: subset:mirroring
+PASS: subset:prg-modes
+PASS: subset:chr-modes
+PASS: subset:power-on
+PASS: subset:limits
+PASS: subset:requirements-ids
+PASS: subset:requirements-statuses
+PASS: subset:requirements-basis
+PASS: subset:unsupported-variants
+PASS: subset:supported-areas
+
+--- public_fixture_build ---
+PASS: public:build-byte-identical
+PASS: public:metadata-identical
+PASS: public:rom-size
+PASS: public:rom-sha256
+PASS: public:header
+PASS: public:prg
+PASS: public:prg-bank-hashes
+PASS: public:chr
+PASS: public:mapper-mirroring
+PASS: public:fixed-bank
+PASS: public:vectors
+PASS: public:labels
+PASS: public:instruction-count
+PASS: public:instructions-cross-checked
+PASS: public:original-license
+PASS: public:register-writes
+
+--- public_ingestion ---
+PASS: public:ingest-mapper
+PASS: public:ingest-container
+PASS: public:ingest-sizes
+PASS: public:ingest-exact-size
+PASS: public:ingest-status
+PASS: public:ingest-vectors
+PASS: public:ingest-fingerprint-stable
+PASS: public:phase5-status-preserved
+PASS: public:frozen-classify
+PASS: reject:public:frozen-mapper-fail-closed
+PASS: public:phase5-vectors-unavailable
+
+--- private_fixture ---
+PASS: private:sha256
+PASS: private:size
+PASS: private:container
+PASS: private:mapper
+PASS: private:mirroring
+PASS: private:prg-chr
+PASS: private:hashes
+PASS: private:no-ram-battery
+PASS: private:contract
+PASS: private:blocked
+PASS: private:classification
+
+--- negative ---
+PASS: reject:bad-magic
+PASS: reject:truncated
+PASS: reject:oversized
+PASS: reject:zero-prg
+PASS: classify:prg-over-range
+PASS: classify:chr-over-range
+PASS: classify:chr-ram
+PASS: classify:battery
+PASS: classify:prg-ram
+PASS: classify:submapper
+PASS: classify:four-screen
+PASS: classify:unsupported-mapper
+PASS: reject:missing-file
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:tools/test_nes_platform_v1.py:exit
+PASS: regression:tools/test_nes_platform_v1.py:stderr
+
+--- evidence_hygiene ---
+PASS: hygiene:no-public-rom-bytes:ingestion.json
+PASS: hygiene:no-private-rom-bytes:ingestion.json
+PASS: hygiene:no-public-rom-bytes:mmc1_requirements.json
+PASS: hygiene:no-private-rom-bytes:mmc1_requirements.json
+PASS: hygiene:no-public-rom-bytes:regressions.json
+PASS: hygiene:no-private-rom-bytes:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P6_01=PASS
+OPENRECOMP_PHASE6_MMC1_INVENTORY_V1=PASS tests=85
+OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

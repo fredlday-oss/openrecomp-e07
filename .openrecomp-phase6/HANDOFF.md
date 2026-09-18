@@ -63,6 +63,43 @@ reserved as `NOT_PROVEN`.
   evidence.
 - Evidence: `.openrecomp-phase6/evidence/P6-00/`.
 
+## P6-01 outcome (PASS)
+
+Markers: `OPENRECOMP_P6_01=PASS`,
+`OPENRECOMP_PHASE6_MMC1_INVENTORY_V1=PASS tests=85`; terminal and general
+markers reserved as `NOT_PROVEN`.
+
+- Supported MMC1 subset `MMC1_SUBSET_V1` defined in
+  `.openrecomp-phase6/MMC1_SUBSET.md` and `p6_mmc1_spec_v1.py`: four serial
+  registers, 5-bit LSB-first write protocol, reset bit, control
+  mirroring/PRG/CHR modes, 16/32 KiB PRG banking, 8/4 KiB CHR banking, no
+  PRG-RAM/battery in the supported fixture, 26 pinned requirement IDs and
+  explicitly classified unsupported variants.
+- Original Apache-2.0 MMC1 fixture established and built deterministically:
+  64 KiB PRG (4 x 16 KiB, bank 3 fixed with code and vectors), 32 KiB CHR
+  (4 x 8 KiB), horizontal mirroring, ROM SHA-256 `7d5514c7...` (98320 bytes),
+  PRG `2fc4064e...`, CHR `4f9abd22...`, vectors NMI `$C029` / RESET `$C000` /
+  IRQ `$C02C`, 57 instructions cross-checked against the frozen decoder.
+- MMC1-aware ingestion (`p6_ines_v1.py`) classifies mapper-1 images against
+  the subset and extracts power-on fixed-last-bank vectors for supported
+  images only; unsupported/malformed declarations fail closed. Phase-5
+  ingestion behavior is preserved (mapper 1 still `BLOCKED_UNSUPPORTED_MAPPER`
+  with vectors unavailable) and the frozen `make_mapper` still fails closed.
+- Private TMNT inventoried by metadata/hash only (262160 bytes, SHA-256
+  `2a9345e6...`, mapper 1, submapper 0, 128 KiB PRG/CHR, no battery/trainer,
+  horizontal); cartridge contract `SUPPORTED_MMC1`, execution still
+  `BLOCKED_MMC1_MAPPER_NOT_YET_IMPLEMENTED`. No ROM bytes in evidence.
+- Negative coverage: bad magic, truncation, excess bytes, zero PRG, PRG/CHR
+  out-of-range, absent CHR, battery, declared PRG-RAM, non-zero submapper,
+  four-screen and unsupported mapper all fail closed or classify with explicit
+  reasons.
+- Regressions: `tools/test_nes_rom_v1.py` and `tools/test_nes_platform_v1.py`
+  pass with empty stderr.
+- Two official runs byte-identical raw (`2bfd8a5e...`, 3140 bytes) and LF
+  (`d153a32d...`), empty stderr, exit 0; `p6_01_tests.json` sha256
+  `69900ee9...`.
+- Evidence: `.openrecomp-phase6/evidence/P6-01/`.
+
 ## Exact next action
 
-Proceed to P6-01 - MMC1 requirements and fixture inventory.
+Proceed to P6-02 - MMC1 serial register protocol.

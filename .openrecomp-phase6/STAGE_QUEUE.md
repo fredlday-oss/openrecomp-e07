@@ -7,7 +7,7 @@ The freeze is effective before any P6-01 implementation work.
 | Stage | Name | Status | Required outcome |
 |---|---|---|---|
 | P6-00 | Phase-6 boundary | COMPLETE | Verify the exact Phase-5 PASS boundary, rerun the Phase-5 final verdict deterministically, establish the Phase-6 control plane, public/private fixture separation and the frozen queue. No new MMC1 capability claimed yet |
-| P6-01 | MMC1 requirements and fixture inventory | QUEUED | Define the supported MMC1 subset. Inventory mapper 1 requirements. Establish an original Apache-2.0 public MMC1 fixture. Inventory the private TMNT image by metadata/hash only. Do not copy private ROM bytes |
+| P6-01 | MMC1 requirements and fixture inventory | COMPLETE | Define the supported MMC1 subset. Inventory mapper 1 requirements. Establish an original Apache-2.0 public MMC1 fixture. Inventory the private TMNT image by metadata/hash only. Do not copy private ROM bytes |
 | P6-02 | MMC1 serial register protocol | QUEUED | Implement deterministic five-write shift-register semantics, reset-bit behaviour, register selection and the consecutive/write-edge behaviours required by the audited fixtures. Malformed/unsupported states fail closed. Differential tests against an independent reference |
 | P6-03 | MMC1 PRG banking | QUEUED | Implement the required 32 KiB and 16 KiB PRG modes, fixed-first/fixed-last behaviour and the bank masking required by the proven cartridge configuration. Exhaustive bounded reference vectors |
 | P6-04 | MMC1 CHR banking and mirroring | QUEUED | Implement required 8 KiB / 4 KiB CHR banking and one-screen lower/upper, vertical and horizontal mirroring as required. Differential PPU address-mapping verification |
