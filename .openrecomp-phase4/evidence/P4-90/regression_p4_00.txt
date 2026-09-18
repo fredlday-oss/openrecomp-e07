@@ -81,10 +81,13 @@ PASS: source:phase4-manifest-entries-verified
 --- worktree ---
 PASS: worktree:status-readable
 PASS: worktree:no-unexpected-untracked
-FAIL: worktree:modified-tracked-scope
+PASS: worktree:modified-tracked-scope
+PASS: worktree:no-deleted-or-staged-paths
+PASS: worktree:residue-documented
+PASS: legal:no-console-magics
 
 === RESULT ===
-OPENRECOMP_P4_00=FAIL (AssertionError: worktree:modified-tracked-scope: condition failed)
-OPENRECOMP_PHASE4_BOUNDARY_V1=FAIL
+OPENRECOMP_P4_00=PASS
+OPENRECOMP_PHASE4_BOUNDARY_V1=PASS tests=74
 OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN
 OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN

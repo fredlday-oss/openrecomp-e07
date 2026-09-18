@@ -6,7 +6,15 @@
     },
     {
       "check": "boundary-gate:returncode",
-      "status": "FAIL"
+      "status": "PASS"
+    },
+    {
+      "check": "boundary-gate:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary-gate:stdout-byte-identical",
+      "status": "PASS"
     },
     {
       "check": "boundary:descends",
@@ -111,10 +119,202 @@
     {
       "check": "boundary:root-manifest-entries",
       "status": "PASS"
+    },
+    {
+      "check": "regression_p4_01:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_01:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_01:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_01:stdout-byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_02:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_02:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_02:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_02:stdout-byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_03:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_03:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_03:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_03:stdout-byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_04:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_04:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_04:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_04:stdout-byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_05:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_05:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_05:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_05:stdout-byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_06:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_06:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_06:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_06:stdout-byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_07:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_07:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_07:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_07:stdout-byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_08:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_08:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_08:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_08:stdout-byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_09:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_09:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_09:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_09:stdout-byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_10:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_10:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_10:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_p4_10:stdout-byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_phase1_host_gates:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_phase1_host_gates:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_phase1_host_gates:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_phase1_host_gates:stdout-byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_public_safety:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_public_safety:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_public_safety:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "regression_public_safety:stdout-byte-identical",
+      "status": "PASS"
     }
   ],
-  "failed": 2,
-  "failure": "AssertionError: boundary-gate:returncode: condition failed",
+  "failed": 0,
+  "failure": null,
   "findings": {
     "boundaries": {
       "phase3_commit": "e16e4b29b90f379615f1af97e47747cd1d531796",
@@ -125,13 +325,13 @@
   },
   "markers": {
     "compatibility": "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN",
-    "gate": "OPENRECOMP_PHASE4_WHOLE_REGRESSION_V1=FAIL tests=27",
-    "stage": "OPENRECOMP_P4_90=FAIL",
+    "gate": "OPENRECOMP_PHASE4_WHOLE_REGRESSION_V1=PASS tests=78",
+    "stage": "OPENRECOMP_P4_90=PASS",
     "terminal": "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN"
   },
-  "passed": 27,
+  "passed": 78,
   "stage": "P4-90",
   "stage_name": "OPENRECOMP_PHASE4_WHOLE_REGRESSION_V1",
-  "status": "FAIL",
-  "tests": 27
+  "status": "PASS",
+  "tests": 78
 }

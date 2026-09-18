@@ -8,8 +8,8 @@ stage-internal repair recorded in `STATE.md`; P4-06 (Graphics/audio
 abstraction boundary) `PASS`; P4-07 (Interactive legally-clean fixture)
 `PASS`; P4-08 (First platform-adapter execution proof) `PASS`; P4-09
 (End-to-end generic-runtime native proof) `PASS`; P4-10 (Reproducible
-Phase-4 package) `PASS`; P4-90 (Phase-4 whole regression audit) is the
-executing stage. The frozen
+Phase-4 package) `PASS`; P4-90 (Phase-4 whole regression audit) `PASS`;
+P4-91 (Evidence index + limitations) is the executing stage. The frozen
 Phase-4 queue (`P4-01` .. `P4-99`) is frozen by `.openrecomp-phase4/STAGE_QUEUE.md`
 (`## Queue freeze`) at the P4-00 `PASS` boundary, before any P4-01
 implementation work. Phase 3 is complete and frozen at annotated tag
@@ -34,6 +34,26 @@ Reserved markers:
 - `OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN` (P4-99 may issue PASS
   for the bounded claim only)
 - `OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN` (never promoted)
+
+## P4-90 outcome (PASS)
+
+Markers: `OPENRECOMP_P4_90=PASS`,
+`OPENRECOMP_PHASE4_WHOLE_REGRESSION_V1=PASS tests=78`; terminal and general
+compatibility markers reserved as `NOT_PROVEN`.
+
+- Frozen Phase-1/Phase-2/Phase-3 boundaries re-verified (tags, manifests,
+  P3-99 identities, descent) and the committed P4-00/P4-08/P4-09/P4-10
+  boundary records checked PASS with no failure.
+- P4-00 re-ran under the dynamic frozen-boundary hygiene and reproduced
+  `953312d0...`; its internal P3-99 re-run exercises the complete
+  Phase-1/Phase-2/Phase-3 chain.
+- All Phase-4 stage gates P4-01..P4-10 re-ran with empty stderr and
+  byte-identical official stdout, including the native build, end-to-end
+  execution and package rebuild.
+- Two official audit runs byte-identical raw (`f7bd0e30...`) and LF, empty
+  stderr, exit 0; `p4_90_tests.json` identical across runs.
+- Gate hardening recorded: modified `tools/test_phase4_*` held out; binary-safe
+  `git show` restore. Evidence: `.openrecomp-phase4/evidence/P4-90/`.
 
 ## P4-10 outcome (PASS)
 
@@ -346,10 +366,10 @@ compatibility markers reserved as `NOT_PROVEN`.
 
 ## Exact next action
 
-Execute P4-90 (Phase-4 whole regression audit): run the complete required
-Phase-1, Phase-2, Phase-3 and Phase-4 regression set from the audited
-Phase-4 tree, keeping every frozen earlier proof boundary valid. Then P4-91
-(evidence index + limitations) and P4-99 (final verdict).
+Execute P4-91 (Evidence index + limitations): create the complete Phase-4
+evidence index and the explicit claim ledger separating PROVEN, BOUNDED,
+UNPROVEN, UNSUPPORTED and NOT TESTED, recording every material limitation.
+Then P4-99 (final verdict).
 
 ## Constraints
 
