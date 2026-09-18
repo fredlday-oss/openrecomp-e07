@@ -14,13 +14,14 @@ TMNT ROM bytes must not appear anywhere in the package.
 ## Package
 
 - `.openrecomp-phase5/package/phase5_nes_package_v1.zip`:
-  - SHA-256 `8c5ab401a1526a77f32e1b347d8946fff13541b35f00eda3e04bcd144764606d`
+  - SHA-256 `447f72cc616d80fa72e3681c5acd34b00833d7e3fe3fb5bf8bf3230347cc4c13`
   - manifest fingerprint
-    `213bdf1ebc41b10ee5859e343588fe6fa12cd604b1994214d033365caa230259`
+    `dfabe4ffc3517b7782fc85d0a4ed16e640991a33e726664a5dcb32608a4cf298`
   - 169 members, two builds byte-identical.
 - Members: the eight Phase-5 control-plane files (`control/`), the original
   fixture assembly (`fixture/`), all fifteen Phase-5 source modules (`src/`),
-  all twelve Phase-5 gates except the self-referential P5-12 gate (`gates/`),
+  all twelve Phase-5 gates except the self-referential terminal gates
+  (P5-12/90/91/99) (`gates/`),
   evidence `P5-00` .. `P5-10` (`evidence/`), the deterministic generated
   native translation sources for the canonical declared plan
   (`generated/p5_nes_program.c`, `generated/p5_nes_support.c`,
