@@ -1,0 +1,78 @@
+=== P5-90 Phase-5 Whole Regression Audit Gate ===
+
+--- frozen_chain ---
+PASS: chain:phase4-tag-annotated
+PASS: chain:phase4-tag-object
+PASS: chain:phase4-commit
+PASS: chain:phase4-tree
+PASS: chain:phase3-tag-object
+PASS: chain:phase3-commit
+PASS: chain:phase3-tree
+PASS: chain:phase2-commit
+PASS: chain:phase1-commit
+PASS: chain:descends
+
+--- frozen_manifests ---
+PASS: manifest:root
+PASS: manifest:phase3
+PASS: manifest:phase4-verified
+PASS: manifest:phase5-verified
+PASS: record:p3-99
+PASS: record:p4-99
+PASS: record:p4-terminal
+
+--- stage_gates ---
+PASS: gate:P5-00:exit
+PASS: gate:P5-00:stderr
+PASS: gate:P5-00:stdout-official
+PASS: gate:P5-01:exit
+PASS: gate:P5-01:stderr
+PASS: gate:P5-01:stdout-official
+PASS: gate:P5-02:exit
+PASS: gate:P5-02:stderr
+PASS: gate:P5-02:stdout-official
+PASS: gate:P5-03:exit
+PASS: gate:P5-03:stderr
+PASS: gate:P5-03:stdout-official
+PASS: gate:P5-04:exit
+PASS: gate:P5-04:stderr
+PASS: gate:P5-04:stdout-official
+PASS: gate:P5-05:exit
+PASS: gate:P5-05:stderr
+PASS: gate:P5-05:stdout-official
+PASS: gate:P5-06:exit
+PASS: gate:P5-06:stderr
+PASS: gate:P5-06:stdout-official
+PASS: gate:P5-07:exit
+PASS: gate:P5-07:stderr
+PASS: gate:P5-07:stdout-official
+PASS: gate:P5-08:exit
+PASS: gate:P5-08:stderr
+PASS: gate:P5-08:stdout-official
+PASS: gate:P5-09:exit
+PASS: gate:P5-09:stderr
+PASS: gate:P5-09:stdout-official
+PASS: gate:P5-10:exit
+PASS: gate:P5-10:stderr
+PASS: gate:P5-10:stdout-official
+PASS: gate:P5-11:exit
+PASS: gate:P5-11:stderr
+PASS: gate:P5-11:stdout-official
+PASS: gate:P5-12:exit
+PASS: gate:P5-12:stderr
+PASS: gate:P5-12:stdout-official
+
+--- evidence_immutability ---
+PASS: immutability:no-tracked-evidence-modified
+
+--- frozen_restore ---
+PASS: restore:frozen-clean
+
+--- evidence ---
+PASS: hygiene:no-private-rom-in-evidence
+
+=== RESULT ===
+OPENRECOMP_P5_90=PASS
+OPENRECOMP_PHASE5_WHOLE_REGRESSION_V1=PASS tests=59
+OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

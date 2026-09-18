@@ -296,10 +296,25 @@ reserved as `NOT_PROVEN`.
 - Evidence: `.openrecomp-phase5/evidence/P5-12/`; package at
   `.openrecomp-phase5/package/phase5_nes_package_v1.zip`.
 
+## P5-90 outcome (PASS)
+
+Markers: `OPENRECOMP_P5_90=PASS`,
+`OPENRECOMP_PHASE5_WHOLE_REGRESSION_V1=PASS tests=59`; terminal and general
+markers reserved as `NOT_PROVEN`.
+
+- Frozen Phase-1/2/3/4 chain, manifests and P3-99/P4-99 records re-verified;
+  every Phase-5 gate P5-00..P5-12 re-ran with stdout byte-identical to its
+  official capture; committed evidence untouched (scratch runs) and the
+  refreshed P4-06 sidecar restored to the committed bytes.
+- Two official runs byte-identical raw (`e487dbc0...`, 2039 bytes) and LF
+  (`5cbea86f...`), empty stderr, exit 0; `p5_90_tests.json` identical
+  (`431d4e5a...`).
+- Evidence: `.openrecomp-phase5/evidence/P5-90/`.
+
 ## Exact next action
 
-Execute P5-90 (Phase-5 whole regression): re-verify the frozen
-Phase-1/2/3/4 chain and re-run every Phase-1..Phase-5 required gate from the
-audited tree with the documented frozen-boundary hygiene (restore committed
-Phase-4 sidecars before re-running P5-00/P5-06 regressions, then restore
-again), requiring byte-identical deterministic stdout; then proceed to P5-91.
+Execute P5-91 (evidence index + compatibility limitations): build a complete
+evidence index over every Phase-5 stage file with hashes, and the claim
+ledger separating PROVEN / BOUNDED / UNPROVEN / UNSUPPORTED / NOT TESTED and
+clearly separating the public fixture result, the private TMNT observations
+and general NES compatibility. Then proceed to P5-99.
