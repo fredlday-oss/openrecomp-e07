@@ -167,11 +167,27 @@ reserved as `NOT_PROVEN`.
   (`46d7ad1a...`).
 - Evidence: `.openrecomp-phase5/evidence/P5-05/`.
 
+## P5-06 outcome (PASS)
+
+Markers: `OPENRECOMP_P5_06=PASS`,
+`OPENRECOMP_PHASE5_PPU_BOUNDARY_V1=PASS tests=32`; terminal and general
+markers reserved as `NOT_PROVEN`.
+
+- New original bounded PPU (`p5_ppu_v1.py`): register semantics, PPU memory
+  (CHR/nametable/palette/OAM), vblank event surface, bounded tile-space
+  GRAY8 frame observation through the Phase-4 graphics boundary.
+- Differentially verified against the frozen PPU: 3000-step register script
+  with full state comparison, all 16384 PPU addresses for reads/writes,
+  horizontal and vertical mirroring, CHR-ROM write rejection.
+- Two official runs byte-identical raw (`d064c0ba...`, 1534 bytes) and LF
+  (`25850ae8...`), empty stderr, exit 0; `p5_06_tests.json` identical
+  (`2a5bc85f...`).
+- Evidence: `.openrecomp-phase5/evidence/P5-06/`.
+
 ## Exact next action
 
-Execute P5-06 (PPU boundary / deterministic graphics model): implement the
-Phase-5 PPU port behind the P5-05 bus with the documented register and memory
-semantics required by the fixture (PPUCTRL/PPUMASK/PPUSTATUS/OAMADDR/OAMDATA/
-PPUSCROLL/PPUADDR/PPUDATA, nametable/palette/OAM access, CHR reads), record
-frame/vblank timing assumptions and unsupported behaviours, and differentially
-verify it against the frozen PPU contract. Then proceed to P5-07.
+Execute P5-07 (APU/input/timing/interrupt boundary): implement the bounded
+controller input plan, deterministic virtual-frame timing with the documented
+instruction-cost table, vblank/NMI event delivery (PPUCTRL bit 7), optional
+IRQ handling, APU latch accesses required by the fixture, and the platform
+event transcript. Then proceed to P5-08.
