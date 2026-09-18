@@ -9,7 +9,7 @@ The freeze is effective before any P4-01 implementation work.
 | P4-00 | Phase-4 boundary | COMPLETE | Prove descent from the exact Phase-3 PASS boundary; independently rerun the Phase-3 final gate; establish deterministic Phase-4 control plane, scope, evidence schema and frozen stage queue. No new runtime capability claimed yet |
 | P4-01 | Generic Runtime ABI V1 | COMPLETE | Define and verify an architecture-neutral generated-code <-> runtime ABI covering execution state, calls, returns/exits, faults, memory service boundaries, host/runtime services and deterministic observable state. No CoreMark-specific shortcuts in the ABI |
 | P4-02 | Guest memory/runtime model | COMPLETE | Implement and verify explicit guest memory regions and access semantics including code/data/BSS/stack/heap where applicable, permissions, bounds, alignment, endian handling and deterministic fault behaviour. Invalid/unmapped accesses fail closed |
-| P4-03 | Runtime service mediation | QUEUED | Replace fixture-specific external handling with explicit typed/versioned runtime service interfaces. Unknown or unsupported services fail closed. Generated code must not silently call arbitrary host functionality |
+| P4-03 | Runtime service mediation | COMPLETE | Replace fixture-specific external handling with explicit typed/versioned runtime service interfaces. Unknown or unsupported services fail closed. Generated code must not silently call arbitrary host functionality |
 | P4-04 | Deterministic I/O, timing and input | QUEUED | Provide reusable bounded interfaces for deterministic console/file-style I/O as required by the fixture, time/timers and input/event delivery. Host nondeterminism must be explicitly controlled, recorded or rejected |
 | P4-05 | Platform Adapter Interface V1 | QUEUED | Define an architecture-neutral platform-adapter contract through which future platform-specific implementations can provide memory maps, services, timing, input, graphics/audio hooks or other platform behaviour without contaminating the recompiler core. Do NOT claim support for any console merely because the adapter interface exists |
 | P4-06 | Graphics/audio abstraction boundary | QUEUED | Define reusable graphics and audio adapter boundaries suitable for later backend implementations. Do not make RT64, SDL, Vulkan, Direct3D or any particular renderer/audio system mandatory to the OpenRecomp core. Backend-specific integrations may be future adapters only unless explicitly required and proven by this phase |
@@ -60,6 +60,8 @@ Frozen-queue rules:
 - `OPENRECOMP_PHASE4_RUNTIME_ABI_V1=PASS tests=156`
 - `OPENRECOMP_P4_02=PASS`
 - `OPENRECOMP_PHASE4_GUEST_MEMORY_V1=PASS tests=113`
+- `OPENRECOMP_P4_03=PASS`
+- `OPENRECOMP_PHASE4_RUNTIME_SERVICES_V1=PASS tests=86`
 - terminal Phase-4 marker (reserved at P4-00 .. P4-91):
   `OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN`
 - general compatibility marker (never promoted by Phase 4):

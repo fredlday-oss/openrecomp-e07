@@ -4,8 +4,8 @@ PHASE=4
 BASELINE_TAG=openrecomp-phase3-pass
 BASELINE_COMMIT=e16e4b29b90f379615f1af97e47747cd1d531796
 BASELINE_TREE=a940f0d84a32adaf191f7ff2bebfb24cc855cde0
-CURRENT_STAGE=P4-03
-LAST_PASSED_STAGE=P4-02
+CURRENT_STAGE=P4-04
+LAST_PASSED_STAGE=P4-03
 STATUS=ACTIVE
 GENERIC_RUNTIME_STATUS=NOT_PROVEN
 FINAL_VERDICT=NOT_PROVEN
@@ -73,7 +73,7 @@ QUEUE_FREEZE_STAGES=P4-01..P4-99
 | P4-00 | Phase-4 boundary | PASS | `.openrecomp-phase4/evidence/P4-00/` |
 | P4-01 | Generic Runtime ABI V1 | PASS | `.openrecomp-phase4/evidence/P4-01/` |
 | P4-02 | Guest memory/runtime model | PASS | `.openrecomp-phase4/evidence/P4-02/` |
-| P4-03 | Runtime service mediation | QUEUED | `.openrecomp-phase4/evidence/P4-03/` |
+| P4-03 | Runtime service mediation | PASS | `.openrecomp-phase4/evidence/P4-03/` |
 | P4-04 | Deterministic I/O, timing and input | QUEUED | `.openrecomp-phase4/evidence/P4-04/` |
 | P4-05 | Platform Adapter Interface V1 | QUEUED | `.openrecomp-phase4/evidence/P4-05/` |
 | P4-06 | Graphics/audio abstraction boundary | QUEUED | `.openrecomp-phase4/evidence/P4-06/` |
@@ -102,6 +102,48 @@ QUEUE_FREEZE_STAGES=P4-01..P4-99
    terminal/general compatibility markers stay reserved as `NOT_PROVEN`.
 6. The working tree has no unexpected untracked paths beyond the documented
    Phase-2/Phase-3 sets and the Phase-4 control plane itself.
+
+## P4-03 result (PASS)
+
+Stage: \OPENRECOMP_PHASE4_RUNTIME_SERVICES_V1\. Evidence:
+\.openrecomp-phase4/evidence/P4-03/\. Gate:
+\	ools/test_phase4_runtime_services_v1.py\ (86 checks, sha256 \ea5f22d6...\).
+
+Markers issued:
+
+- Stage marker: \OPENRECOMP_P4_03=PASS- Gate marker: \OPENRECOMP_PHASE4_RUNTIME_SERVICES_V1=PASS tests=86- Terminal marker (reserved): \OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN- General compatibility marker (never promoted):
+  \OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN
+Delivered (additive Phase-4 files only; no frozen file modified):
+
+- \.openrecomp-phase4/src/p4_runtime_services_v1.py\: architecture-neutral
+  interface catalog (\or.runtime.exit\, \or.runtime.stream_write\),
+  versioned \ServiceRegistry\, declarative \ServiceAlias\ mappings with
+  bound arguments (the frozen instance handling becomes data), fail-closed
+  \RuntimeServiceMediator\ (unknown/version/arity/typed/missing-handler/
+  handler-failure codes, first-failure latch, explicit termination,
+  deterministic call log), \AbiHostCallBridge\ for declared profile numeric
+  ids, and a generic bounded byte sink.
+- \	ools/test_phase4_runtime_services_v1.py\; Phase-4 manifest grown
+  additively to ten entries.
+
+Verified: all mediation failure modes return the exact stable codes; the
+exact frozen external interaction from P3-08 evidence (499 output bytes plus
+exit status 0) replays byte-identically through the generic mediator and
+fails closed without the declared aliases; the generated source passes the
+P4-01 verifier and can reach only declared service macros; the module has no
+ambient host capability tokens. Two official runs byte-identical (3135 bytes
+raw \cc2f73da...\, empty stderr, exit 0) with \p4_03_tests.json\ identical
+across runs (\59e9879...\).
+
+Regressions: P2-08 \PASS tests=169\, P4-01 \PASS tests=156(\81c96314...\), P4-02 \PASS tests=113\ (cfc58f1...\), Phase-1 host
+gates \PASS=44 FAIL=0 SKIPPED=2\, public safety \PASS\, P4-00
+\PASS tests=74\ (\953312d0...\) with the documented boundary-context
+hygiene.
+
+Limitations: the mediator is not yet the execution path of the frozen native
+program (P4-08/P4-09 scope); the catalog covers control and byte-stream
+interfaces only, with deterministic I/O/timing/input services reserved for
+P4-04; \GENERIC_RUNTIME_STATUS=NOT_PROVEN\.
 
 ## P4-02 result (PASS)
 

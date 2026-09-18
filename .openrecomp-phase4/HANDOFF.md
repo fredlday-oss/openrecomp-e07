@@ -2,7 +2,8 @@
 
 STATUS: Phase 4 `ACTIVE` — P4-00 (Phase-4 boundary) `PASS`; P4-01 (Generic
 Runtime ABI V1) `PASS`; P4-02 (Guest memory/runtime model) `PASS`; P4-03
-(Runtime service mediation) is the executing stage. The frozen
+(Runtime service mediation) `PASS`; P4-04 (Deterministic I/O, timing and
+input) is the executing stage. The frozen
 Phase-4 queue (`P4-01` .. `P4-99`) is frozen by `.openrecomp-phase4/STAGE_QUEUE.md`
 (`## Queue freeze`) at the P4-00 `PASS` boundary, before any P4-01
 implementation work. Phase 3 is complete and frozen at annotated tag
@@ -27,6 +28,32 @@ Reserved markers:
 - `OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN` (P4-99 may issue PASS
   for the bounded claim only)
 - `OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN` (never promoted)
+
+## P4-03 outcome (PASS)
+
+Markers: `OPENRECOMP_P4_03=PASS`,
+`OPENRECOMP_PHASE4_RUNTIME_SERVICES_V1=PASS tests=86`; terminal and general
+compatibility markers reserved as `NOT_PROVEN`.
+
+- New files: `.openrecomp-phase4/src/p4_runtime_services_v1.py` (typed and
+  versioned `or.runtime.*` interface catalog, registry, declarative aliases
+  with bound arguments, fail-closed mediator with deterministic call log, ABI
+  host-call bridge, bounded byte sink) and
+  `tools/test_phase4_runtime_services_v1.py`; the Phase-4 manifest grew
+  additively to ten entries.
+- Frozen external handling replaced as data: `p3.exit -> or.runtime.exit`,
+  `p3.uart_write -> or.runtime.stream_write` stream 0. The exact frozen
+  P3-08 external interaction (499 output bytes + exit status 0) replays
+  byte-identically through the generic mediator and fails closed without the
+  declared aliases.
+- Two official runs byte-identical raw (`cc2f73da...`, 3135 bytes) and LF,
+  empty stderr, exit 0; `p4_03_tests.json` identical across runs
+  (`f59e9879...`).
+- Regressions: P2-08 `PASS tests=169`, P4-01 `PASS tests=156`
+  (`81c96314...`), P4-02 `PASS tests=113` (`5cfc58f1...`), Phase-1 host gates
+  `PASS=44 FAIL=0 SKIPPED=2`, public safety `PASS`, P4-00 `PASS tests=74`
+  (`953312d0...`) with the documented boundary-context hygiene.
+- Evidence: `.openrecomp-phase4/evidence/P4-03/`.
 
 ## P4-02 outcome (PASS)
 
@@ -133,16 +160,16 @@ compatibility markers reserved as `NOT_PROVEN`.
 
 ## Exact next action
 
-Execute P4-03 (Runtime service mediation): replace fixture-specific external
-handling with explicit typed/versioned runtime service interfaces so that
-unknown or unsupported services fail closed and generated code cannot
-silently call arbitrary host functionality, building on the P4-01 ABI
-contract and the P4-02 memory model. Add its sources and gate to
-`.openrecomp-phase4/SOURCE_SHA256SUMS.txt`, run the official gate twice with
-deterministic evidence, run the required regressions (P2-08, P4-01, P4-02,
-Phase-1 host gates, public safety, and P4-00 using the documented frozen-gate
-boundary-context hygiene), update the control plane and commit the P4-03
-boundary.
+Execute P4-04 (Deterministic I/O, timing and input): provide reusable bounded
+interfaces for deterministic console/file-style I/O as required by the
+fixture, time/timers and input/event delivery, with host nondeterminism
+explicitly controlled, recorded or rejected. Build on the P4-01 ABI, the
+P4-02 memory model and the P4-03 service mediation layer. Add its sources and
+gate to `.openrecomp-phase4/SOURCE_SHA256SUMS.txt`, run the official gate
+twice with deterministic evidence, run the required regressions (P2-08,
+P4-01, P4-02, P4-03, Phase-1 host gates, public safety, and P4-00 using the
+documented frozen-gate boundary-context hygiene), update the control plane
+and commit the P4-04 boundary.
 
 ## Constraints
 

@@ -1,0 +1,407 @@
+{
+  "checks": [
+    {
+      "check": "aliases:declared",
+      "status": "PASS"
+    },
+    {
+      "check": "aliases:version",
+      "status": "PASS"
+    },
+    {
+      "check": "bridge:arity",
+      "status": "PASS"
+    },
+    {
+      "check": "bridge:ok-exit",
+      "status": "PASS"
+    },
+    {
+      "check": "bridge:ok-stream",
+      "status": "PASS"
+    },
+    {
+      "check": "bridge:status-values",
+      "status": "PASS"
+    },
+    {
+      "check": "bridge:typed",
+      "status": "PASS"
+    },
+    {
+      "check": "bridge:unknown-numeric",
+      "status": "PASS"
+    },
+    {
+      "check": "capability:generated-service-macros-declared",
+      "status": "PASS"
+    },
+    {
+      "check": "capability:generated-source-compliant",
+      "status": "PASS"
+    },
+    {
+      "check": "capability:no-ambient-host-access",
+      "status": "PASS"
+    },
+    {
+      "check": "interfaces:arg-count",
+      "status": "PASS"
+    },
+    {
+      "check": "interfaces:catalog",
+      "status": "PASS"
+    },
+    {
+      "check": "interfaces:core-namespace",
+      "status": "PASS"
+    },
+    {
+      "check": "interfaces:terminating-exactly-one",
+      "status": "PASS"
+    },
+    {
+      "check": "interfaces:typed",
+      "status": "PASS"
+    },
+    {
+      "check": "interfaces:version-abi",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:arity",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:call-log",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:exit-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:exit-status",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:first-call-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:first-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:handler-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:identity-service",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:latch-blocks-handler",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:latch-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:no-alias-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:no-handler",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:post-termination",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:post-termination-log",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:stream-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:typed-negative",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:typed-overflow",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:unknown",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:version",
+      "status": "PASS"
+    },
+    {
+      "check": "registry-version-mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "registry:document-roundtrip",
+      "status": "PASS"
+    },
+    {
+      "check": "registry:fingerprint-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "registry:ids",
+      "status": "PASS"
+    },
+    {
+      "check": "registry:no-fixture-tokens",
+      "status": "PASS"
+    },
+    {
+      "check": "registry:resolve",
+      "status": "PASS"
+    },
+    {
+      "check": "registry:resolve-version-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:alias-bad-source-id",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:alias-negative-bound-arg",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bridge-missing-codes",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bridge-no-mediator",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bridge-no-profile-services",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:bridge-unmapped-profile-service",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:interface-empty-description",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:interface-incompatible-version",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:interface-outside-namespace",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:interface-unbounded-type",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:mediator-alias-to-unknown",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:mediator-duplicate-alias",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:mediator-terminating-handler",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:registry-bad-entry",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:registry-duplicate",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:registry-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:registry-unknown",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:sink-byte-overflow",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:sink-capacity",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:sink-wrong-stream",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:all-bytes-accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:bridge-all-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:bridge-exit",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:bridge-unknown-after-exit",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:call-count",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:deterministic-document",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:deterministic-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:deterministic-output",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:exit-accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:exit-status",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:frozen-exit-status",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:frozen-stream-length",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:no-aliases-fails-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:not-terminated-before-exit",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:output-byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:output-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase4-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-verified",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "bridge": {
+      "status_codes": {
+        "ABI_VERSION_MISMATCH": 12,
+        "AUDIO_INVALID": 11,
+        "FRAME_INVALID": 10,
+        "HOST_CALL_ARITY": 8,
+        "HOST_SERVICE_FAILED": 7,
+        "INPUT_INVALID": 9,
+        "MEMORY_ADDRESS_OVERFLOW": 3,
+        "MEMORY_ENDIANNESS_UNSUPPORTED": 4,
+        "MEMORY_OUT_OF_RANGE": 1,
+        "MEMORY_SEGMENT_OVERLAP": 5,
+        "MEMORY_WIDTH_UNSUPPORTED": 2,
+        "TRAP": 14,
+        "UNKNOWN_HOST_SERVICE": 6,
+        "UNSUPPORTED_OPERATION": 13
+      }
+    },
+    "fixture_replacement": {
+      "ambient_tokens": [],
+      "call_log_fingerprint": "74436e9b356d733c3136067f796c52ad3691943e0c9bae8fc8ade407e855e9cd",
+      "calls": 500,
+      "output_bytes": 499,
+      "output_sha256": "7745bb8852778e9f91b2ccf91c293918b9b52ae2c111f3b6a923678551c1fa26"
+    },
+    "interfaces": {
+      "catalog": [
+        "or.runtime.exit",
+        "or.runtime.stream_write"
+      ],
+      "registry_fingerprint": "f7a932890015f9a3d01905bdc76c93825be58650430defccb9bd83c55a14027d"
+    },
+    "mediator": {
+      "aliases": [
+        "p3.exit",
+        "p3.uart_write"
+      ],
+      "call_log_fingerprint": "12e18064e1a5a496616c27846f1a26a90432aca3c5cbc5302f1f2338b2e0b5e0"
+    },
+    "source_integrity": {
+      "phase3_entries": 24,
+      "phase4_entries": 10,
+      "root_entries": 134
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE4_RUNTIME_SERVICES_V1=PASS tests=86",
+    "stage": "OPENRECOMP_P4_03=PASS",
+    "terminal": "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN"
+  },
+  "passed": 86,
+  "stage": "P4-03",
+  "stage_name": "OPENRECOMP_PHASE4_RUNTIME_SERVICES_V1",
+  "status": "PASS",
+  "tests": 86
+}
