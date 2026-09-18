@@ -4,8 +4,8 @@ PHASE=4
 BASELINE_TAG=openrecomp-phase3-pass
 BASELINE_COMMIT=e16e4b29b90f379615f1af97e47747cd1d531796
 BASELINE_TREE=a940f0d84a32adaf191f7ff2bebfb24cc855cde0
-CURRENT_STAGE=P4-04
-LAST_PASSED_STAGE=P4-03
+CURRENT_STAGE=P4-05
+LAST_PASSED_STAGE=P4-04
 STATUS=ACTIVE
 GENERIC_RUNTIME_STATUS=NOT_PROVEN
 FINAL_VERDICT=NOT_PROVEN
@@ -74,7 +74,7 @@ QUEUE_FREEZE_STAGES=P4-01..P4-99
 | P4-01 | Generic Runtime ABI V1 | PASS | `.openrecomp-phase4/evidence/P4-01/` |
 | P4-02 | Guest memory/runtime model | PASS | `.openrecomp-phase4/evidence/P4-02/` |
 | P4-03 | Runtime service mediation | PASS | `.openrecomp-phase4/evidence/P4-03/` |
-| P4-04 | Deterministic I/O, timing and input | QUEUED | `.openrecomp-phase4/evidence/P4-04/` |
+| P4-04 | Deterministic I/O, timing and input | PASS | `.openrecomp-phase4/evidence/P4-04/` |
 | P4-05 | Platform Adapter Interface V1 | QUEUED | `.openrecomp-phase4/evidence/P4-05/` |
 | P4-06 | Graphics/audio abstraction boundary | QUEUED | `.openrecomp-phase4/evidence/P4-06/` |
 | P4-07 | Interactive legally-clean fixture | QUEUED | `.openrecomp-phase4/evidence/P4-07/` |
@@ -102,6 +102,48 @@ QUEUE_FREEZE_STAGES=P4-01..P4-99
    terminal/general compatibility markers stay reserved as `NOT_PROVEN`.
 6. The working tree has no unexpected untracked paths beyond the documented
    Phase-2/Phase-3 sets and the Phase-4 control plane itself.
+
+## P4-04 result (PASS)
+
+Stage: \OPENRECOMP_PHASE4_DETERMINISTIC_IO_V1\. Evidence:
+\.openrecomp-phase4/evidence/P4-04/\. Gate:
+\	ools/test_phase4_deterministic_io_v1.py\ (101 checks, sha256 Ǔd12b8...\).
+
+Markers issued:
+
+- Stage marker: \OPENRECOMP_P4_04=PASS- Gate marker: \OPENRECOMP_PHASE4_DETERMINISTIC_IO_V1=PASS tests=101- Terminal marker (reserved): \OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN- General compatibility marker (never promoted):
+  \OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN
+Delivered (additive Phase-4 files only; no frozen file modified; the P4-03
+base catalog is unchanged):
+
+- \.openrecomp-phase4/src/p4_deterministic_io_v1.py\: bounded deterministic
+  console (explicit EOF/FAULT input policy), deterministic file-style buffers
+  with no host filesystem access, a virtual clock advanced only by explicit
+  ticks, a bounded virtual-tick event queue, an explicit \RecordedInput  snapshot with a stable fingerprint, an \IoRuntime\ binding them, a
+  structural rejection of ambient host input (\mbient_input\ always fails
+  closed), and typed/versioned \or.runtime.stream_read\,
+  \or.runtime.clock_ticks\, \or.runtime.input_poll\ interfaces composed
+  onto the unmodified P4-03 base catalog.
+- \	ools/test_phase4_deterministic_io_v1.py\; Phase-4 manifest grown
+  additively to twelve entries.
+
+Verified: input/output capacity and exhaustion policies, virtual-only time,
+deterministic event ordering and delivery, record-document stability and
+sensitivity, the composed service registry, and the exact frozen Phase-3
+output interaction (499 bytes from P3-08) replaying byte-identically through
+the I/O-bound mediator. The module has no host clock/random/filesystem/
+process capability. Two official runs byte-identical (3378 bytes raw
+\e55ad6cb...\, empty stderr, exit 0) with \p4_04_tests.json\ identical
+across runs (\d9624d2...\).
+
+Regressions: P2-08 \PASS tests=169\, P4-01 \PASS tests=156(\81c96314...\), P4-02 \PASS tests=113\ (cfc58f1...\), P4-03
+\PASS tests=86\ (\cc2f73da...\), Phase-1 host gates
+\PASS=44 FAIL=0 SKIPPED=2\, public safety \PASS\, P4-00 \PASS tests=74(\953312d0...\) with the documented boundary-context hygiene.
+
+Limitations: the I/O layer is not yet consumed by the frozen native path
+(P4-08/P4-09 scope); input is limited to recorded console bytes and
+virtual-tick event plans; host devices, wall-clock time and real filesystem
+access are deliberately unsupported; \GENERIC_RUNTIME_STATUS=NOT_PROVEN\.
 
 ## P4-03 result (PASS)
 

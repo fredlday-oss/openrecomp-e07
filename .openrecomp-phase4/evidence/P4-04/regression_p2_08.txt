@@ -1,0 +1,170 @@
+PASS: abi-version-string
+PASS: abi-version-current
+PASS: abi-version-parse-roundtrip
+PASS: abi-version-str
+PASS: abi-version-compatible
+PASS: abi-version-incompatible-major
+PASS: abi-version-document
+PASS: abi-config-default-compatible
+PASS reject: abi-version-bad-text
+PASS reject: abi-config-incompatible
+PASS reject: config-incompatible-version
+PASS: state-construction-deterministic
+PASS: state-serialize-deterministic
+PASS: state-snapshot-version
+PASS: state-initially-not-failed
+PASS: state-starts-at-zero-steps
+PASS: repeated-run-identity
+PASS: repeated-run-serialize-identity
+PASS: deterministic-rng-repeatable
+PASS: deterministic-rng-seed-sensitive
+PASS: snapshot-ser-roundtrip-json
+PASS: snapshot-no-absolute-path
+PASS: memory-write-read-8
+PASS: memory-read-little-endian
+PASS: memory-read-big-endian-override
+PASS: memory-read-32
+PASS: memory-read-64
+PASS: memory-width-8
+PASS: memory-width-16
+PASS: memory-width-32
+PASS: memory-width-64
+PASS: memory-boundary-last-byte
+PASS: memory-boundary-zero
+PASS: memory-read-bytes-is-bytes
+PASS: memory-snapshot-is-bytes
+PASS: memory-fingerprint-stable
+PASS: memory-oob-read-result
+PASS: memory-oob-write-result
+PASS: memory-width-result
+PASS fault: memory-oob-read (MEMORY_OUT_OF_RANGE)
+PASS fault: memory-oob-read-wide (MEMORY_OUT_OF_RANGE)
+PASS fault: memory-oob-write (MEMORY_OUT_OF_RANGE)
+PASS fault: memory-address-overflow (MEMORY_ADDRESS_OVERFLOW)
+PASS fault: memory-address-beyond-64 (MEMORY_ADDRESS_OVERFLOW)
+PASS fault: memory-invalid-width (MEMORY_WIDTH_UNSUPPORTED)
+PASS fault: memory-invalid-endianness (MEMORY_ENDIANNESS_UNSUPPORTED)
+PASS reject: memory-zero-size
+PASS reject: memory-segment-overlap
+PASS fault: memory-segment-out-of-range (MEMORY_OUT_OF_RANGE)
+PASS: memory-segment-deterministic
+PASS: memory-no-public-buffer
+PASS: memory-snapshot-is-copy
+PASS: service-ids-canonical
+PASS: service-known-dispatch
+PASS: service-void-dispatch
+PASS: service-unknown-fails-closed
+PASS: service-arity-fails-closed
+PASS: service-handler-exception-fails-closed
+PASS: service-negative-result-fails-closed
+PASS: service-macro-name
+PASS: service-numeric-id
+PASS: service-document
+PASS reject: service-duplicate
+PASS reject: service-missing-handler
+PASS reject: service-handler-without-declaration
+PASS reject: service-bad-id
+PASS reject: service-negative-arity
+PASS: state-host-call-result
+PASS: state-host-call-record-count
+PASS: host-call-argument-preservation
+PASS: host-call-result-preservation
+PASS: host-call-sequence
+PASS: host-call-record-document
+PASS: state-unknown-service-fails-closed
+PASS: state-unknown-service-recorded
+PASS: input-canonical-trims-digital
+PASS: input-canonical-trims-analog
+PASS: input-canonical-equivalence
+PASS: input-digital-document
+PASS: input-roundtrip-identity
+PASS: input-analog-bits-explicit
+PASS reject: input-non-bool-digital
+PASS reject: input-analog-over-width
+PASS reject: input-negative-analog
+PASS reject: input-too-many-digital
+PASS reject: input-bad-analog-bits
+PASS reject: input-malformed-document
+PASS: frame-descriptor-deterministic
+PASS: frame-checksum-deterministic
+PASS: frame-checksum-payload-sensitive
+PASS: frame-fingerprint-stable
+PASS: frame-roundtrip-identity
+PASS: frame-descriptor-excludes-payload
+PASS: frame-index8-size
+PASS reject: frame-length-mismatch
+PASS reject: frame-zero-dimension
+PASS reject: frame-bad-format
+PASS reject: frame-malformed-document
+PASS: audio-descriptor-deterministic
+PASS: audio-checksum-deterministic
+PASS: audio-fingerprint-stable
+PASS: audio-roundtrip-identity
+PASS: audio-checksum-payload-sensitive
+PASS reject: audio-length-mismatch
+PASS reject: audio-zero-rate
+PASS reject: audio-bad-format
+PASS reject: audio-malformed-document
+PASS: trap-fails-closed
+PASS: trap-latched
+PASS: trap-first-failure-preserved
+PASS: failure-document-stable
+PASS: failure-codes-stable
+PASS: result-success-document
+PASS reject: result-inconsistent-success
+PASS reject: result-inconsistent-failure
+PASS reject: result-negative-value
+PASS fault: state-step-limit (TRAP)
+PASS: config-roundtrip
+PASS: config-serialize-stable
+PASS: config-abi-version-recorded
+PASS: abi-config-serialize-stable
+PASS: abi-config-document
+PASS reject: config-zero-memory
+PASS reject: config-bad-endianness
+PASS reject: abi-config-bad-services
+PASS: state-memory-deterministic
+PASS: state-host-call-log-deterministic
+PASS: state-frame-log-deterministic
+PASS: state-audio-log-deterministic
+PASS: no-nondeterministic-dependency:import time
+PASS: no-nondeterministic-dependency:import random
+PASS: no-nondeterministic-dependency:import secrets
+PASS: no-nondeterministic-dependency:import os
+PASS: no-nondeterministic-dependency:import subprocess
+PASS: no-nondeterministic-dependency:os.getpid
+PASS: no-nondeterministic-dependency:os.environ
+PASS: no-nondeterministic-dependency:uuid.uuid4
+PASS: no-nondeterministic-dependency:datetime.now
+PASS: no-host-pointer-mechanism:memoryview
+PASS: no-host-pointer-mechanism:ctypes
+PASS: no-host-pointer-mechanism:from_buffer
+PASS: no-host-pointer-mechanism:PyMemoryView
+PASS: no-p2-09-build-pipeline:subprocess
+PASS: no-p2-09-build-pipeline:BuildPipeline
+PASS: no-p2-09-build-pipeline:def build_
+PASS: no-p2-09-build-pipeline:link_executable
+PASS: no-p2-09-build-pipeline:object_file
+PASS: emitter-emits-abi-version
+PASS: emitter-emits-support-codes
+PASS: emitter-emits-service-macro
+PASS: emitter-emits-host-call
+PASS: emitter-declares-boundary-extern
+PASS: emitter-result-register
+PASS: emitter-host-call-fail-closed-branch
+PASS: emitter-host-call-continuation
+PASS: emitter-no-platform-api
+PASS: emitter-portable-includes
+PASS: emitter-deterministic
+PASS reject: emitter-undeclared-service
+PASS reject: emitter-host-call-without-runtime-abi
+PASS: emitter-default-no-runtime-surface
+PASS: emitter-default-includes-unchanged
+PASS: emitter-abi-opt-in-only
+PASS reject: emitter-host-call-non-external
+PASS reject: emitter-host-call-model-requires-source-or-call
+PASS reject: emitter-host-call-bad-service
+PASS reject: emitter-host-call-config-type
+PASS reject: emitter-runtime-abi-does-not-broaden-semantics
+PASS: compiled-runtime-abi-fixture
+OPENRECOMP_GENERIC_RUNTIME_ABI_V1=PASS tests=169

@@ -3,7 +3,8 @@
 STATUS: Phase 4 `ACTIVE` — P4-00 (Phase-4 boundary) `PASS`; P4-01 (Generic
 Runtime ABI V1) `PASS`; P4-02 (Guest memory/runtime model) `PASS`; P4-03
 (Runtime service mediation) `PASS`; P4-04 (Deterministic I/O, timing and
-input) is the executing stage. The frozen
+input) `PASS`; P4-05 (Platform Adapter Interface V1) is the executing stage.
+The frozen
 Phase-4 queue (`P4-01` .. `P4-99`) is frozen by `.openrecomp-phase4/STAGE_QUEUE.md`
 (`## Queue freeze`) at the P4-00 `PASS` boundary, before any P4-01
 implementation work. Phase 3 is complete and frozen at annotated tag
@@ -28,6 +29,32 @@ Reserved markers:
 - `OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN` (P4-99 may issue PASS
   for the bounded claim only)
 - `OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN` (never promoted)
+
+## P4-04 outcome (PASS)
+
+Markers: `OPENRECOMP_P4_04=PASS`,
+`OPENRECOMP_PHASE4_DETERMINISTIC_IO_V1=PASS tests=101`; terminal and general
+compatibility markers reserved as `NOT_PROVEN`.
+
+- New files: `.openrecomp-phase4/src/p4_deterministic_io_v1.py` (bounded
+  deterministic console, file-style buffers, virtual clock, virtual-tick
+  event queue, `RecordedInput` snapshot, `IoRuntime`, ambient-input
+  rejection, and `or.runtime.stream_read`/`clock_ticks`/`input_poll`
+  interfaces composed onto the unmodified P4-03 base catalog) and
+  `tools/test_phase4_deterministic_io_v1.py`; the Phase-4 manifest grew
+  additively to twelve entries.
+- The exact frozen Phase-3 output interaction (499 bytes from P3-08) replays
+  byte-identically through the I/O-bound mediator; no host
+  clock/random/filesystem/process capability exists in the module.
+- Two official runs byte-identical raw (`e55ad6cb...`, 3378 bytes) and LF,
+  empty stderr, exit 0; `p4_04_tests.json` identical across runs
+  (`ad9624d2...`).
+- Regressions: P2-08 `PASS tests=169`, P4-01 `PASS tests=156`
+  (`81c96314...`), P4-02 `PASS tests=113` (`5cfc58f1...`), P4-03
+  `PASS tests=86` (`cc2f73da...`), Phase-1 host gates
+  `PASS=44 FAIL=0 SKIPPED=2`, public safety `PASS`, P4-00 `PASS tests=74`
+  (`953312d0...`) with the documented boundary-context hygiene.
+- Evidence: `.openrecomp-phase4/evidence/P4-04/`.
 
 ## P4-03 outcome (PASS)
 
@@ -160,16 +187,17 @@ compatibility markers reserved as `NOT_PROVEN`.
 
 ## Exact next action
 
-Execute P4-04 (Deterministic I/O, timing and input): provide reusable bounded
-interfaces for deterministic console/file-style I/O as required by the
-fixture, time/timers and input/event delivery, with host nondeterminism
-explicitly controlled, recorded or rejected. Build on the P4-01 ABI, the
-P4-02 memory model and the P4-03 service mediation layer. Add its sources and
+Execute P4-05 (Platform Adapter Interface V1): define an architecture-neutral
+platform-adapter contract through which future platform-specific
+implementations can provide memory maps, services, timing, input,
+graphics/audio hooks or other platform behaviour without contaminating the
+recompiler core, building on the P4-01..P4-04 layers. Add its sources and
 gate to `.openrecomp-phase4/SOURCE_SHA256SUMS.txt`, run the official gate
 twice with deterministic evidence, run the required regressions (P2-08,
-P4-01, P4-02, P4-03, Phase-1 host gates, public safety, and P4-00 using the
-documented frozen-gate boundary-context hygiene), update the control plane
-and commit the P4-04 boundary.
+P4-01, P4-02, P4-03, P4-04, Phase-1 host gates, public safety, and P4-00
+using the documented frozen-gate boundary-context hygiene), update the
+control plane and commit the P4-05 boundary. Do not claim any console support
+merely because the adapter interface exists.
 
 ## Constraints
 

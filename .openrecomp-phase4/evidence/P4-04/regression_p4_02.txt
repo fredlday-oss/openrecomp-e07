@@ -1,0 +1,130 @@
+=== P4-02 Guest Memory Model Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest
+PASS: source:root-manifest-entries
+PASS: source:root-manifest-verified
+PASS: source:phase3-manifest
+PASS: source:phase3-manifest-entries
+PASS: source:phase4-manifest-verified
+
+--- region_structure ---
+PASS: region:code-permissions
+PASS: region:rodata-permissions
+PASS: region:data-permissions
+PASS: region:bss-permissions
+PASS: region:stack-heap-permissions
+PASS: region:kind-value
+PASS: reject:region-zero-size
+PASS: reject:region-address-wrap
+PASS: reject:region-file-data-too-large
+PASS: reject:region-bss-file-data
+PASS: reject:region-stack-file-data
+PASS: reject:region-w-x
+PASS: reject:region-code-not-executable
+PASS: reject:model-empty
+PASS: reject:model-duplicate-name
+PASS: reject:model-overlap
+PASS: reject:model-bad-endianness
+PASS: reject:model-bad-alignment
+PASS: model-adjacent-regions-allowed
+
+--- access_semantics ---
+PASS: access:read-8
+PASS: access:read-16
+PASS: access:read-32
+PASS: access:read-64
+PASS: access:big-endian-override
+PASS: access:data-little-endian
+PASS: access:data-big-endian
+PASS: access:unaligned-allowed
+PASS: access:fetch-code
+PASS: access:fetch-default-width
+PASS: access:write-mask
+PASS: access:write-bss
+PASS: access:write-stack
+PASS: access:write-heap
+PASS: access:read-after-write
+PASS: access:bytes-roundtrip
+PASS: access:bytes-zero-length
+PASS: access:bss-starts-zero
+PASS: fault:unmapped
+PASS: fault:gap-between-regions
+PASS: fault:unmapped-write
+PASS: fault:write-code
+PASS: fault:write-rodata
+PASS: fault:read-blind
+PASS: fault:write-blind
+PASS: fault:fetch-rodata
+PASS: fault:bad-width
+PASS: fault:bad-width-zero
+PASS: fault:bad-endianness
+PASS: fault:negative-address
+PASS: fault:bool-address
+PASS: fault:address-overflow
+PASS: fault:address-beyond-space
+PASS: fault:cross-region-end
+PASS: align:natural-ok
+PASS: align:fault
+PASS: align:fault-32
+PASS: align:byte-never-faults
+PASS: align:write-fault
+PASS: state:region-at
+PASS: state:snapshot-deterministic
+PASS: state:snapshot-copy
+PASS: state:fingerprint-stable
+PASS: state:fingerprint-sensitive
+PASS: state:document-regions
+PASS: state:document-roundtrip
+PASS: state:document-no-host-path
+
+--- abi_integration ---
+PASS: abi:fault-map-total
+PASS: abi:fault-map-codes-valid
+PASS: abi:fault-map-codes-p2-08
+PASS: abi:read-ok
+PASS: abi:read-width-64-rejected
+PASS: abi:read-permission
+PASS: abi:read-unmapped
+PASS: abi:write-ok
+PASS: abi:write-code
+PASS: abi:fetch-code
+PASS: abi:fetch-non-code
+PASS: reject:abi-unknown-failure-code
+PASS: reject:abi-bad-width-subset
+PASS: abi:differential-flat-memory
+
+--- frozen_instance ---
+PASS: instance:program-sha256
+PASS: instance:image-sha256
+PASS: instance:image-window
+PASS: instance:image-elf-magic
+PASS: instance:emitted-regions
+PASS: instance:model-image-identical
+PASS: instance:model-regions
+PASS: instance:model-coverage-equals-emitted
+PASS: instance:entry-word
+PASS: instance:text-readable
+PASS: instance:rodata-readable
+PASS: instance:data-readable
+PASS: instance:bss-zero
+PASS: instance:bss-zero-at-end
+PASS: instance:guest-stack-in-bss
+PASS: instance:write-text-fails-closed
+PASS: instance:write-rodata-fails-closed
+PASS: instance:write-headers-fails-closed
+PASS: instance:write-data-allowed
+PASS: instance:gap-before-rodata-unmapped
+PASS: instance:outside-image-unmapped
+PASS: instance:model-endianness
+PASS: instance:abi-entry-fetch
+PASS: instance:abi-width-64-rejected
+PASS: instance:abi-write-text-rejected
+PASS: instance:deterministic-fingerprint
+PASS: instance:deterministic-document
+
+=== RESULT ===
+OPENRECOMP_P4_02=PASS
+OPENRECOMP_PHASE4_GUEST_MEMORY_V1=PASS tests=113
+OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN
