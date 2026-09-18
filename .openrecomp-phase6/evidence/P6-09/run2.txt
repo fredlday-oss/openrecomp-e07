@@ -1,0 +1,127 @@
+=== P6-09 Independent MMC1 Reference Equivalence Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-exists
+PASS: source:manifest-verified
+
+--- frozen_chain ---
+PASS: chain:phase5-tag-object
+PASS: chain:phase5-commit
+PASS: chain:phase5-tree
+PASS: chain:descends
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+
+--- fixture ---
+PASS: fixture:proof-identity
+PASS: fixture:instruction-count
+PASS: fixture:supported-profile
+PASS: fixture:declared-exit-site
+PASS: fixture:executed-region
+
+--- schedule ---
+PASS: schedule:reference-costs-covered
+PASS: schedule:table-matches-fixture
+PASS: schedule:timing-constants
+
+--- equivalence ---
+PASS: p6_08:native-reproducible
+PASS: p6_08:native-runs
+PASS: p6_08:native-deterministic
+PASS: p6_08:reference-deterministic
+PASS: p6_08:equivalence
+PASS: p6_08:cpu-state
+PASS: p6_08:memory-digests
+PASS: p6_08:mapper-state
+PASS: p6_08:prg-banks
+PASS: p6_08:chr-banks
+PASS: p6_08:mirroring
+PASS: p6_08:controller-transcript
+PASS: p6_08:interrupts
+PASS: p6_08:services
+PASS: p6_08:exit-state
+PASS: all_buttons:native-reproducible
+PASS: all_buttons:native-runs
+PASS: all_buttons:native-deterministic
+PASS: all_buttons:reference-deterministic
+PASS: all_buttons:equivalence
+PASS: all_buttons:cpu-state
+PASS: all_buttons:memory-digests
+PASS: all_buttons:mapper-state
+PASS: all_buttons:prg-banks
+PASS: all_buttons:chr-banks
+PASS: all_buttons:mirroring
+PASS: all_buttons:controller-transcript
+PASS: all_buttons:interrupts
+PASS: all_buttons:services
+PASS: all_buttons:exit-state
+PASS: mixed_bits:native-reproducible
+PASS: mixed_bits:native-runs
+PASS: mixed_bits:native-deterministic
+PASS: mixed_bits:reference-deterministic
+PASS: mixed_bits:equivalence
+PASS: mixed_bits:cpu-state
+PASS: mixed_bits:memory-digests
+PASS: mixed_bits:mapper-state
+PASS: mixed_bits:prg-banks
+PASS: mixed_bits:chr-banks
+PASS: mixed_bits:mirroring
+PASS: mixed_bits:controller-transcript
+PASS: mixed_bits:interrupts
+PASS: mixed_bits:services
+PASS: mixed_bits:exit-state
+PASS: p6_08:host-program-identity
+PASS: p6_08:support-identity
+PASS: p6_08:observables-pinned
+PASS: p6_08:frames-pinned
+PASS: p6_08:reference-observables-pinned
+
+--- sensitivity ---
+PASS: sensitivity:cross-plan
+PASS: sensitivity:nmi-entry-cost
+PASS: sensitivity:frame-units
+
+--- negative ---
+PASS: reject:truncated-rom
+PASS: reject:unsupported-mapper
+PASS: reject:declared-battery
+PASS: reject:declared-prg-ram
+PASS: reject:empty-plan
+PASS: reject:plan-value-range
+PASS: reject:prg-ram-window-read
+PASS: reject:chr-rom-write
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:tools/test_nes_platform_v1.py:exit
+PASS: regression:tools/test_nes_platform_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_serial_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_serial_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_prg_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_prg_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_chr_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_chr_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_variant_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_variant_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:stderr
+
+--- evidence_hygiene ---
+PASS: hygiene:no-public-rom-bytes:equivalence.json
+PASS: hygiene:no-private-rom-bytes:equivalence.json
+PASS: hygiene:no-public-rom-bytes:sensitivity.json
+PASS: hygiene:no-private-rom-bytes:sensitivity.json
+PASS: hygiene:no-public-rom-bytes:schedule.json
+PASS: hygiene:no-private-rom-bytes:schedule.json
+PASS: hygiene:no-public-rom-bytes:regressions.json
+PASS: hygiene:no-private-rom-bytes:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P6_09=PASS
+OPENRECOMP_PHASE6_MMC1_REFERENCE_EQUIVALENCE_V1=PASS tests=100
+OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

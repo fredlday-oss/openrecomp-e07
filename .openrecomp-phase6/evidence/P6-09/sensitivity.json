@@ -1,0 +1,111 @@
+{
+  "cross_plan_mismatches": [
+    {
+      "field": "a",
+      "native": "0x5C",
+      "reference": "0xA0"
+    },
+    {
+      "field": "p",
+      "native": "0x25",
+      "reference": "0xA5"
+    },
+    {
+      "field": "ram_fnv1a64",
+      "native": "0x9B997E9AE6A788AD",
+      "reference": "0x79C9048EE4CE6BB7"
+    },
+    {
+      "field": "state_fnv1a64",
+      "native": "0x0524F07A3A18DF2E",
+      "reference": "0xF6A79330E8BD2849"
+    },
+    {
+      "field": "frames",
+      "native": [
+        "frame[0]=00,C42A06F7E7A28E25,39E9FBAE5A7B29A5",
+        "frame[1]=01,C42A06F7E7A28E25,39E9FBAE5A7B29A5",
+        "frame[2]=80,C42A06F7E7A28E25,39E9FBAE5A7B29A5",
+        "frame[3]=80,DF3335E91A6F6EA7,C2A1C3992E716B79",
+        "frame[4]=80,DF3335E91A6F6EA7,4AA2162BF39CD093",
+        "frame[5]=80,DF3335E91A6F6EA7,4AA2162BF39CD093",
+        "frame[6]=80,448A23DEF7AAF934,ACDA2ECE461DE700",
+        "frame[7]=80,448A23DEF7AAF934,ACDA2ECE461DE700",
+        "frame[8]=80,448A23DEF7AAF934,ACDA2ECE461DE700"
+      ],
+      "reference": [
+        "frame[0]=FF,C42A06F7E7A28E25,39E9FBAE5A7B29A5",
+        "frame[1]=FF,C42A06F7E7A28E25,39E9FBAE5A7B29A5",
+        "frame[2]=FF,C42A06F7E7A28E25,39E9FBAE5A7B29A5",
+        "frame[3]=FF,DF3335E91A6F6EA7,C2A1C3992E716B79",
+        "frame[4]=FF,DF3335E91A6F6EA7,4AA2162BF39CD093",
+        "frame[5]=FF,DF3335E91A6F6EA7,4AA2162BF39CD093",
+        "frame[6]=FF,448A23DEF7AAF934,ACDA2ECE461DE700",
+        "frame[7]=FF,448A23DEF7AAF934,ACDA2ECE461DE700",
+        "frame[8]=FF,448A23DEF7AAF934,ACDA2ECE461DE700"
+      ]
+    },
+    {
+      "field": "exit_word",
+      "native": "0101010101010000",
+      "reference": "FFFFFFFFFFFF0000"
+    }
+  ],
+  "stage": "P6-09",
+  "tampered_frame_units_fields": {
+    "a": "0x5C",
+    "chr_mode": "1",
+    "clock": "241746",
+    "error": "",
+    "exit": "1",
+    "exit_arg": "0x0000C089",
+    "failed": "0",
+    "frames": "9",
+    "mirroring": "3",
+    "mmc1_count": "0",
+    "mmc1_regs": "1F070703",
+    "mmc1_shift": "0",
+    "mmc1_writes": "5905",
+    "nmi": "6",
+    "p": "0x25",
+    "pc": "0xC089",
+    "ppu_fnv1a64": "0xACDA2ECE461DE700",
+    "prg_ram_enabled": "0",
+    "prg_window_8000": "3",
+    "prg_window_c000": "3",
+    "ram_fnv1a64": "0x69E20CF50F19B5D3",
+    "sp": "0xFF",
+    "state_fnv1a64": "0xE8FCB58600F0C59C",
+    "steps": "82731",
+    "x": "0x06",
+    "y": "0x04"
+  },
+  "tampered_nmi_cost_fields": {
+    "a": "0x5C",
+    "chr_mode": "1",
+    "clock": "241758",
+    "error": "",
+    "exit": "1",
+    "exit_arg": "0x0000C089",
+    "failed": "0",
+    "frames": "9",
+    "mirroring": "3",
+    "mmc1_count": "0",
+    "mmc1_regs": "1F070703",
+    "mmc1_shift": "0",
+    "mmc1_writes": "5905",
+    "nmi": "6",
+    "p": "0x25",
+    "pc": "0xC089",
+    "ppu_fnv1a64": "0xACDA2ECE461DE700",
+    "prg_ram_enabled": "0",
+    "prg_window_8000": "3",
+    "prg_window_c000": "3",
+    "ram_fnv1a64": "0x8F1F98C549EAC24C",
+    "sp": "0xFF",
+    "state_fnv1a64": "0x13FF8618B984777B",
+    "steps": "82731",
+    "x": "0x06",
+    "y": "0x04"
+  }
+}

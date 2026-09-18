@@ -303,6 +303,45 @@ reserved as `NOT_PROVEN`.
   and `RESULT.md`.
 - Evidence: `.openrecomp-phase6/evidence/P6-08/`.
 
+## P6-09 outcome (PASS)
+
+Markers: `OPENRECOMP_P6_09=PASS`,
+`OPENRECOMP_PHASE6_MMC1_REFERENCE_EQUIVALENCE_V1=PASS tests=100`; terminal and
+general markers reserved as `NOT_PROVEN`.
+
+- New independent reference driver (`.openrecomp-phase6/src/p6_reference_v1.py`)
+  and gate (`tools/test_phase6_mmc1_reference_equiv_v1.py`): the frozen
+  independently written `ReferenceNES6502` oracle over a local CPU bus /
+  PPU / APU / OAM DMA / controller / frame+vblank+NMI model, composing the
+  independently structured P6-02 .. P6-05 reference mapper models, with its own
+  base-cost schedule and the declared `$C089 jmp ($02FF)` run-exit service
+  interception.
+- Three declared input plans (`(00,01,80)`, `(FF,FF,FF)`, `(00,11,22)`) were
+  built through the native pipeline and run through the reference path; all
+  four comparison categories matched exactly per plan: CPU state, RAM / PPU /
+  state digests, mapper registers/shift/count/writes, PRG window banks, CHR
+  banks, mirroring, nine-line frame transcript, controller transcript,
+  interrupt counts (`frames=9`, `nmi=6`), `p6.exit` transcript
+  (`arg=0x0000C089`) and bounded final/exit state (`steps=82731`,
+  `clock=241746`).
+- Primary plan support source is byte-identical to the P6-08 identity
+  `c15980d4...`; host program `6c1ccac5...`; P6-08 pinned observables and
+  frame transcript re-verified; the reference reproduces the same pinned
+  observables.
+- Schedule cross-check: the reference's own cost table covers exactly the 40
+  fixture opcode forms / 262 instructions with zero mismatches against the
+  frozen audited cost table; timing constants verified.
+- Sensitivity: cross-plan comparison rejected; tampered NMI cost and frame
+  length change observables. Negative: truncated ROM, unsupported mapper,
+  battery, PRG-RAM, empty/out-of-range plan, PRG-RAM window read and CHR-ROM
+  write all fail closed without traceback.
+- Regressions: frozen NES tools plus P6-01 .. P6-05 gates pass with empty
+  stderr (earlier gates re-run into ignored scratch evidence).
+- Two official runs byte-identical raw (`0144086e...`, 4147 bytes) and LF
+  (`dcfbcb01...`), empty stderr, exit 0; `p6_09_tests.json` sha256
+  `cddf93dc...`.
+- Evidence: `.openrecomp-phase6/evidence/P6-09/`.
+
 ## Exact next action
 
-Proceed to P6-09 - Independent MMC1 reference equivalence.
+Proceed to P6-10 - Private TMNT compatibility run.
