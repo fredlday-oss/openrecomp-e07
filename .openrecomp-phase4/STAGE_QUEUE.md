@@ -19,7 +19,7 @@ The freeze is effective before any P4-01 implementation work.
 | P4-10 | Reproducible Phase-4 package | COMPLETE | Produce a clean byte-reproducible or explicitly reproducibility-bounded Phase-4 package containing all required source, generated artifacts, manifests, evidence and exact reproduction instructions. Verify from the audited tree |
 | P4-90 | Phase-4 whole regression audit | COMPLETE | Run the complete required Phase-1, Phase-2, Phase-3 and Phase-4 regression set from the audited Phase-4 tree. Frozen earlier proof boundaries must remain valid |
 | P4-91 | Evidence index + limitations | COMPLETE | Create a complete Phase-4 evidence index and explicit claim ledger separating: PROVEN, BOUNDED, UNPROVEN, UNSUPPORTED, NOT TESTED. Record every material limitation |
-| P4-99 | Final Phase-4 verdict | QUEUED | Issue a Phase-4 PASS only if the exact bounded generic-runtime/platform claim is supported by the audited tree and evidence. A Phase-4 PASS MUST NOT silently imply: arbitrary binary compatibility; arbitrary MIPS32 compatibility; PS1/PS2/N64/PSP/etc compatibility; game compatibility; commercial-title compatibility; cycle accuracy; hardware emulation; universal runtime completeness |
+| P4-99 | Final Phase-4 verdict | COMPLETE | Issue a Phase-4 PASS only if the exact bounded generic-runtime/platform claim is supported by the audited tree and evidence. A Phase-4 PASS MUST NOT silently imply: arbitrary binary compatibility; arbitrary MIPS32 compatibility; PS1/PS2/N64/PSP/etc compatibility; game compatibility; commercial-title compatibility; cycle accuracy; hardware emulation; universal runtime completeness |
 
 ## Queue freeze
 
@@ -70,16 +70,17 @@ Frozen-queue rules:
 - `OPENRECOMP_PHASE4_GRAPHICS_AUDIO_V1=PASS tests=72`
 - `OPENRECOMP_P4_07=PASS`
 - `OPENRECOMP_PHASE4_FIXTURE_V1=PASS tests=48`
-- terminal Phase-4 marker (reserved at P4-00 .. P4-91):
-  `OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN`
+- terminal Phase-4 marker: `OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=PASS`
+  (issued by P4-99 for the bounded audited claim; the reserved
+  pre-verdict value recorded throughout P4-00 .. P4-91 was `NOT_PROVEN`)
 - general compatibility marker (never promoted by Phase 4):
   `OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN`
 
 ## Terminal state
 
-- Reserved until P4-99: `OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN`.
-  P4-99 may issue `PASS` only for the exact bounded generic-runtime/platform
-  claim recorded in `SCOPE.md`.
+- Issued at P4-99: `OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=PASS` for the
+  bounded audited claim, with the P4-91 limitations and the explicit
+  unproven/unsupported/not-tested areas.
 - `OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN` is permanent for
   Phase 4: no console, game, commercial-title, arbitrary-binary or
   arbitrary-MIPS32 compatibility is claimed at any Phase-4 stage.

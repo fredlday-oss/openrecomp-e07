@@ -10,7 +10,8 @@ abstraction boundary) `PASS`; P4-07 (Interactive legally-clean fixture)
 (End-to-end generic-runtime native proof) `PASS`; P4-10 (Reproducible
 Phase-4 package) `PASS`; P4-90 (Phase-4 whole regression audit) `PASS`;
 P4-91 (Evidence index + limitations) `PASS`; P4-99 (Final Phase-4
-verdict) is the executing stage. The frozen
+verdict) `PASS`; the frozen Phase-4 queue is COMPLETE and the bounded
+terminal verdict was issued. The frozen
 Phase-4 queue (`P4-01` .. `P4-99`) is frozen by `.openrecomp-phase4/STAGE_QUEUE.md`
 (`## Queue freeze`) at the P4-00 `PASS` boundary, before any P4-01
 implementation work. Phase 3 is complete and frozen at annotated tag
@@ -35,6 +36,24 @@ Reserved markers:
 - `OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN` (P4-99 may issue PASS
   for the bounded claim only)
 - `OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN` (never promoted)
+
+## P4-99 outcome (FINAL VERDICT: PASS for the bounded audited claim)
+
+Markers: `OPENRECOMP_P4_99=PASS`,
+`OPENRECOMP_PHASE4_FINAL_VERDICT_V1=PASS tests=79`,
+`OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=PASS` (bounded claim);
+`OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN`.
+
+- The verdict was issued only after re-verifying source integrity, the frozen
+  Phase-1/2/3 chain, the complete `P4-00 .. P4-91` ledger, all stage records,
+  the package/fixture/translation/executable/equivalence identities and the
+  whole-regression record, per the frozen queue ordering.
+- Two official runs byte-identical raw and LF, empty stderr, exit 0;
+  `p4_99_tests.json` identical across runs.
+- Boundaries: bounded Phase-4 claim only; `FINAL_VERDICT`/general
+  compatibility `NOT_PROVEN`; `COREMARK_STATUS=NOT_PROVEN`; the P4-91 claim
+  ledger and limitations apply unchanged.
+- Evidence: `.openrecomp-phase4/evidence/P4-99/`.
 
 ## P4-91 outcome (PASS)
 

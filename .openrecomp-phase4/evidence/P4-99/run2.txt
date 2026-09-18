@@ -1,0 +1,96 @@
+=== P4-99 Phase-4 Final Verdict Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest
+PASS: source:phase3-manifest
+PASS: source:root-entries
+PASS: source:phase3-entries
+PASS: source:phase4-manifest-verified
+PASS: source:p3-99-result
+PASS: source:p3-99-gate
+
+--- frozen_chain ---
+PASS: chain:phase3-tag-annotated
+PASS: chain:phase3-tag-object
+PASS: chain:phase3-commit
+PASS: chain:phase3-tree
+PASS: chain:phase2-commit
+PASS: chain:phase1-commit
+PASS: chain:descends
+
+--- control_plane ---
+PASS: control-plane:current-stage
+PASS: control-plane:last-passed
+PASS: control-plane:ledger:P4-00
+PASS: control-plane:ledger:P4-01
+PASS: control-plane:ledger:P4-02
+PASS: control-plane:ledger:P4-03
+PASS: control-plane:ledger:P4-04
+PASS: control-plane:ledger:P4-05
+PASS: control-plane:ledger:P4-06
+PASS: control-plane:ledger:P4-07
+PASS: control-plane:ledger:P4-08
+PASS: control-plane:ledger:P4-09
+PASS: control-plane:ledger:P4-10
+PASS: control-plane:ledger:P4-90
+PASS: control-plane:ledger:P4-91
+PASS: control-plane:queue-complete
+PASS: control-plane:terminal-reserved-before-verdict
+PASS: control-plane:general-reserved
+
+--- stage_records ---
+PASS: record:P4-00
+PASS: record:P4-00:pass
+PASS: record:P4-00:no-failure
+PASS: record:P4-01
+PASS: record:P4-01:pass
+PASS: record:P4-01:no-failure
+PASS: record:P4-02
+PASS: record:P4-02:pass
+PASS: record:P4-02:no-failure
+PASS: record:P4-03
+PASS: record:P4-03:pass
+PASS: record:P4-03:no-failure
+PASS: record:P4-04
+PASS: record:P4-04:pass
+PASS: record:P4-04:no-failure
+PASS: record:P4-05
+PASS: record:P4-05:pass
+PASS: record:P4-05:no-failure
+PASS: record:P4-06
+PASS: record:P4-06:pass
+PASS: record:P4-06:no-failure
+PASS: record:P4-07
+PASS: record:P4-07:pass
+PASS: record:P4-07:no-failure
+PASS: record:P4-08
+PASS: record:P4-08:pass
+PASS: record:P4-08:no-failure
+PASS: record:P4-09
+PASS: record:P4-09:pass
+PASS: record:P4-09:no-failure
+PASS: record:P4-10
+PASS: record:P4-10:pass
+PASS: record:P4-10:no-failure
+PASS: record:P4-90
+PASS: record:P4-90:pass
+PASS: record:P4-90:no-failure
+PASS: record:P4-91
+PASS: record:P4-91:pass
+PASS: record:P4-91:no-failure
+
+--- identities ---
+PASS: identity:program
+PASS: identity:executable
+PASS: identity:equivalence
+PASS: identity:fixture-elf
+PASS: identity:package-stage-record
+PASS: identity:package-index
+PASS: identity:whole-regression
+PASS: identity:claims
+
+=== RESULT ===
+OPENRECOMP_P4_99=PASS
+OPENRECOMP_PHASE4_FINAL_VERDICT_V1=PASS tests=79
+OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=PASS
+OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN

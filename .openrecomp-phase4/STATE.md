@@ -5,12 +5,14 @@ BASELINE_TAG=openrecomp-phase3-pass
 BASELINE_COMMIT=e16e4b29b90f379615f1af97e47747cd1d531796
 BASELINE_TREE=a940f0d84a32adaf191f7ff2bebfb24cc855cde0
 CURRENT_STAGE=P4-99
-LAST_PASSED_STAGE=P4-91
-STATUS=ACTIVE
-GENERIC_RUNTIME_STATUS=NOT_PROVEN
+LAST_PASSED_STAGE=P4-99
+STATUS=COMPLETE
+GENERIC_RUNTIME_STATUS=BOUNDED_PROVEN
 FINAL_VERDICT=NOT_PROVEN
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P4-01..P4-99
+
+PHASE4_PROOF=PASS
 
 ## Phase-3 frozen boundary identities
 
@@ -83,7 +85,7 @@ QUEUE_FREEZE_STAGES=P4-01..P4-99
 | P4-10 | Reproducible Phase-4 package | PASS | `.openrecomp-phase4/evidence/P4-10/` |
 | P4-90 | Phase-4 whole regression audit | PASS | `.openrecomp-phase4/evidence/P4-90/` |
 | P4-91 | Evidence index + limitations | PASS | `.openrecomp-phase4/evidence/P4-91/` |
-| P4-99 | Final Phase-4 verdict | QUEUED | `.openrecomp-phase4/evidence/P4-99/` |
+| P4-99 | Final Phase-4 verdict | PASS | `.openrecomp-phase4/evidence/P4-99/` |
 
 ## P4-00 acceptance criteria
 
@@ -126,6 +128,44 @@ byte-identical official stdout (`8a9769d7...`) and the affected pins were
 refreshed (`determinism.json`, `changed_files.txt`, `repair_record.json`). No
 stage contract, queue row or claim changed, and the historical Phase-3 tag is
 untouched.
+
+## P4-99 result (FINAL VERDICT: PASS for the bounded audited claim)
+
+Stage: `OPENRECOMP_PHASE4_FINAL_VERDICT_V1`. Evidence:
+`.openrecomp-phase4/evidence/P4-99/`. Gate:
+`tools/test_phase4_final_verdict_v1.py` (79 checks, sha256 `6c357c18401ebff522810e8106fdd70032a7a2774ea63ad1377351aa3ca22abd`).
+
+Markers issued:
+
+- Stage marker: `OPENRECOMP_P4_99=PASS`
+- Gate marker: `OPENRECOMP_PHASE4_FINAL_VERDICT_V1=PASS tests=79`
+- Terminal marker: `OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=PASS` (issued for
+  the exact bounded audited claim; earlier stage gates keep emitting their
+  reserved `NOT_PROVEN` strings in their recorded stdout)
+- General compatibility marker: `OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN`
+
+The verdict was issued only after every precondition passed on the audited
+tree: source integrity (root 134 entries, Phase-3 24 entries, Phase-4 32
+entries), the frozen Phase-1/Phase-2/Phase-3 chain (Phase-3 tag object
+`ac315245...` -> commit `e16e4b29...`, tree `a940f0d8...`; P3-99 result
+`c893250b...` and gate `ba581490...`), the complete `P4-00 .. P4-91` ledger
+(all PASS), the committed stage records (all PASS, no failure), the package
+identity (indexed by P4-91), the fixture `acb4f4e5...`, the translation
+`abd138ea...`/`755a004630...`, the reproducible executable `c966e185...`,
+the independent-reference equivalence (`state_fnv1a64=0x5185479717fe4020`,
+`steps=6784`) and the whole-regression record (`f7bd0e30...`).
+
+Two consecutive official runs were byte-identical (raw and LF, empty stderr,
+exit 0) with `p4_99_tests.json` identical across runs.
+
+Verdict boundary: `PASS` for the bounded Phase-4 generic-runtime/platform
+claim only. `FINAL_VERDICT` (general/arbitrary compatibility) remains
+`NOT_PROVEN`, `GENERIC_RUNTIME_STATUS=BOUNDED_PROVEN`, `COREMARK_STATUS`
+remains `NOT_PROVEN`, and the P4-91 claim ledger (12 PROVEN, 3 BOUNDED, 9
+UNPROVEN, 6 UNSUPPORTED, 6 NOT TESTED, 8 evidenced limitations) applies
+unchanged. Per the frozen queue ordering (P4-90 before P4-99), re-running the
+P4-00 gate after this promotion would report the promoted terminal marker in
+the control plane; that is the intended terminal state and not a regression.
 
 ## P4-91 result (PASS)
 

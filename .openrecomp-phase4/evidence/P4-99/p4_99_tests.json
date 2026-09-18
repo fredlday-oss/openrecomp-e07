@@ -1,0 +1,343 @@
+{
+  "checks": [
+    {
+      "check": "chain:descends",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase1-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase2-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase3-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase3-tag-annotated",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase3-tag-object",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase3-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:current-stage",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:general-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:last-passed",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P4-00",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P4-01",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P4-02",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P4-03",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P4-04",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P4-05",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P4-06",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P4-07",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P4-08",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P4-09",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P4-10",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P4-90",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P4-91",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue-complete",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved-before-verdict",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:claims",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:equivalence",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:executable",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:fixture-elf",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:package-index",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:package-stage-record",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:program",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:whole-regression",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-00",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-00:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-00:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-01",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-01:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-01:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-02",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-02:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-02:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-03",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-03:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-03:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-04",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-04:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-04:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-05",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-05:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-05:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-06",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-06:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-06:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-07",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-07:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-07:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-08",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-08:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-08:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-09",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-09:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-09:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-10",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-10:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-10:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-90",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-90:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-90:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-91",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-91:no-failure",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P4-91:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "source:p3-99-gate",
+      "status": "PASS"
+    },
+    {
+      "check": "source:p3-99-result",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase4-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest",
+      "status": "PASS"
+    }
+  ],
+  "claim_boundary": "P4-99 issues the Phase-4 terminal verdict for the exact bounded generic-runtime/platform claim: the original interactive fixture is ingested, translated and emitted architecture-neutrally, built reproducibly and executed natively through the P4-01..P4-06 contracts with an independent reference matching every compared observable, packaged deterministically and whole-regression audited. No arbitrary binary/MIPS32/console/game/commercial compatibility, cycle accuracy, hardware emulation or universal runtime completeness is claimed; CoreMark is not a supported target.",
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "identities": {
+      "limitation_count": 8,
+      "package_sha256": "8790bfa9bfc632270c7cbc5e6cce5bf4d890fc7aa481c1bb02f44167adcc3e6f",
+      "proven_count": 12,
+      "state_fnv1a64": "0x5185479717fe4020",
+      "steps": 6784
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE4_FINAL_VERDICT_V1=PASS tests=79",
+    "stage": "OPENRECOMP_P4_99=PASS",
+    "terminal": "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=PASS"
+  },
+  "passed": 79,
+  "stage": "P4-99",
+  "stage_name": "OPENRECOMP_PHASE4_FINAL_VERDICT_V1",
+  "status": "PASS",
+  "tests": 79
+}
