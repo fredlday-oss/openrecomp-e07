@@ -3,8 +3,10 @@
 STATUS: Phase 4 `ACTIVE` — P4-00 (Phase-4 boundary) `PASS`; P4-01 (Generic
 Runtime ABI V1) `PASS`; P4-02 (Guest memory/runtime model) `PASS`; P4-03
 (Runtime service mediation) `PASS`; P4-04 (Deterministic I/O, timing and
-input) `PASS`; P4-05 (Platform Adapter Interface V1) `PASS`; P4-06
-(Graphics/audio abstraction boundary) is the executing stage. The frozen
+input) `PASS`; P4-05 (Platform Adapter Interface V1) `PASS` with a
+stage-internal repair recorded in `STATE.md`; P4-06 (Graphics/audio
+abstraction boundary) `PASS`; P4-07 (Interactive legally-clean fixture) is
+the executing stage. The frozen
 Phase-4 queue (`P4-01` .. `P4-99`) is frozen by `.openrecomp-phase4/STAGE_QUEUE.md`
 (`## Queue freeze`) at the P4-00 `PASS` boundary, before any P4-01
 implementation work. Phase 3 is complete and frozen at annotated tag
@@ -29,6 +31,33 @@ Reserved markers:
 - `OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN` (P4-99 may issue PASS
   for the bounded claim only)
 - `OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN` (never promoted)
+
+## P4-06 outcome (PASS)
+
+Markers: `OPENRECOMP_P4_06=PASS`,
+`OPENRECOMP_PHASE4_GRAPHICS_AUDIO_V1=PASS tests=72`; terminal and general
+compatibility markers reserved as `NOT_PROVEN`.
+
+- New files: `.openrecomp-phase4/src/p4_graphics_audio_v1.py` (graphics/audio
+  capability declarations over the P2-08 neutral formats, adapter interfaces,
+  deterministic headless reference boundaries with bounded ledgers,
+  accept-nothing null boundaries, P4-05 hook routing, no-mandatory-backend
+  contract claims) and `tools/test_phase4_graphics_audio_v1.py`; the Phase-4
+  manifest grew additively to sixteen entries.
+- P4-05 stage-internal repair (found by this stage): `bind_platform` handler
+  merging fixed at the source; P4-05 gate re-ran twice with byte-identical
+  stdout (`849af7fd...`), affected pins refreshed and recorded in
+  `P4-05/repair_record.json`, `P4-05/RESULT.md` and `STATE.md`.
+- P4-00 boundary hygiene refined to hold out every modified tracked Phase-4
+  path; P4-00 re-passed byte-identically (`953312d0...`).
+- Two official runs byte-identical raw (`d2a59e4a...`, 2783 bytes) and LF,
+  empty stderr, exit 0; `p4_06_tests.json` identical across runs
+  (`7e7bd2d5...`).
+- Regressions: P2-08 `PASS tests=169`, P4-01..P4-05 all PASS
+  (`81c96314...`, `5cfc58f1...`, `cc2f73da...`, `e55ad6cb...`,
+  `849af7fd...`), Phase-1 host gates `PASS=44 FAIL=0 SKIPPED=2`, public
+  safety `PASS`, P4-00 `PASS tests=74` (`953312d0...`).
+- Evidence: `.openrecomp-phase4/evidence/P4-06/`.
 
 ## P4-05 outcome (PASS)
 
@@ -214,17 +243,18 @@ compatibility markers reserved as `NOT_PROVEN`.
 
 ## Exact next action
 
-Execute P4-06 (Graphics/audio abstraction boundary): define reusable graphics
-and audio adapter boundaries suitable for later backend implementations,
-without making RT64, SDL, Vulkan, Direct3D or any particular renderer/audio
-system mandatory to the OpenRecomp core; backend-specific integrations remain
-future adapters only. Build on the P4-05 hook slots and the P2-08
-frame/audio contracts. Add sources and gate to
+Execute P4-07 (Interactive legally-clean fixture): introduce or build a
+legally clean/open fixture materially more demanding than CoreMark and
+exercising a meaningful subset of code, static/global data, stack, heap if
+required, runtime services, deterministic input/events, timing and observable
+output, with recorded license, provenance, exact source/toolchain/build flags
+and hashes. Do not use proprietary ROMs, commercial game binaries,
+copyrighted game assets or unverified fixtures. Add sources/gate to
 `.openrecomp-phase4/SOURCE_SHA256SUMS.txt`, run the official gate twice with
-deterministic evidence, run the required regressions (P2-08, P4-01..P4-05,
-Phase-1 host gates, public safety, and P4-00 using the documented frozen-gate
-boundary-context hygiene), update the control plane and commit the P4-06
-boundary.
+deterministic evidence, run the required regressions (P2-08, P4-01..P4-06,
+Phase-1 host gates, public safety, and P4-00 using the documented refined
+frozen-gate boundary-context hygiene), update the control plane and commit
+the P4-07 boundary.
 
 ## Constraints
 

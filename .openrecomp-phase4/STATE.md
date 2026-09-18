@@ -4,8 +4,8 @@ PHASE=4
 BASELINE_TAG=openrecomp-phase3-pass
 BASELINE_COMMIT=e16e4b29b90f379615f1af97e47747cd1d531796
 BASELINE_TREE=a940f0d84a32adaf191f7ff2bebfb24cc855cde0
-CURRENT_STAGE=P4-06
-LAST_PASSED_STAGE=P4-05
+CURRENT_STAGE=P4-07
+LAST_PASSED_STAGE=P4-06
 STATUS=ACTIVE
 GENERIC_RUNTIME_STATUS=NOT_PROVEN
 FINAL_VERDICT=NOT_PROVEN
@@ -76,7 +76,7 @@ QUEUE_FREEZE_STAGES=P4-01..P4-99
 | P4-03 | Runtime service mediation | PASS | `.openrecomp-phase4/evidence/P4-03/` |
 | P4-04 | Deterministic I/O, timing and input | PASS | `.openrecomp-phase4/evidence/P4-04/` |
 | P4-05 | Platform Adapter Interface V1 | PASS | `.openrecomp-phase4/evidence/P4-05/` |
-| P4-06 | Graphics/audio abstraction boundary | QUEUED | `.openrecomp-phase4/evidence/P4-06/` |
+| P4-06 | Graphics/audio abstraction boundary | PASS | `.openrecomp-phase4/evidence/P4-06/` |
 | P4-07 | Interactive legally-clean fixture | QUEUED | `.openrecomp-phase4/evidence/P4-07/` |
 | P4-08 | First platform-adapter execution proof | QUEUED | `.openrecomp-phase4/evidence/P4-08/` |
 | P4-09 | End-to-end generic-runtime native proof | QUEUED | `.openrecomp-phase4/evidence/P4-09/` |
@@ -102,6 +102,58 @@ QUEUE_FREEZE_STAGES=P4-01..P4-99
    terminal/general compatibility markers stay reserved as `NOT_PROVEN`.
 6. The working tree has no unexpected untracked paths beyond the documented
    Phase-2/Phase-3 sets and the Phase-4 control plane itself.
+
+## P4-05 stage-internal repair record (P4-06 boundary)
+
+`bind_platform` (P4-05) merged every P4-04 deterministic-I/O handler into
+the mediator unconditionally, so a platform adapter with a minimal service
+profile failed to bind with `unknown runtime service` instead of binding
+with only its declared interfaces. Found while binding the P4-06
+graphics/audio boundary hooks. Repaired at the source on the Phase-4 branch
+(handlers filtered to the bound registry's interfaces), the frozen P4-05
+gate re-ran twice with byte-identical stdout and the same 76 checks, and the
+affected P4-05 pins were refreshed (`determinism.json`, `changed_files.txt`,
+`repair_record.json`, `repair_run1/2.txt`). No stage contract, queue row or
+claim changed, and the historical Phase-3 tag is untouched.
+
+## P4-06 result (PASS)
+
+Stage: \OPENRECOMP_PHASE4_GRAPHICS_AUDIO_V1\. Evidence:
+\.openrecomp-phase4/evidence/P4-06/\. Gate:
+\	ools/test_phase4_graphics_audio_v1.py\ (72 checks, sha256 \c4b8698a...\).
+
+Markers issued:
+
+- Stage marker: \OPENRECOMP_P4_06=PASS- Gate marker: \OPENRECOMP_PHASE4_GRAPHICS_AUDIO_V1=PASS tests=72- Terminal marker (reserved): \OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN- General compatibility marker (never promoted):
+  \OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN
+Delivered (additive Phase-4 files only; the P4-05 repair is recorded above):
+
+- \.openrecomp-phase4/src/p4_graphics_audio_v1.py\: graphics/audio
+  capability declarations over the P2-08 neutral formats, adapter interfaces
+  with fail-closed submission validation, deterministic headless reference
+  boundaries with bounded presentation ledgers, accept-nothing null
+  boundaries, P4-05 hook routing, and a contract document recording
+  enderer_backend_mandatory: false\ / \udio_backend_mandatory: false\.
+- \	ools/test_phase4_graphics_audio_v1.py\; Phase-4 manifest grown
+  additively to sixteen entries.
+
+Verified: capability validation and bounded ledgers with exact checksums,
+fail-closed rejections for unsupported formats/dimensions/rates/capacity,
+deterministic documents/fingerprints, hook routing through a bound platform
+adapter, and no backend tokens or imports anywhere in the module. Two
+official runs byte-identical (2783 bytes raw \d2a59e4a...\, empty stderr,
+exit 0) with \p4_06_tests.json\ identical across runs (e7bd2d5...\).
+
+Regressions: P2-08 \PASS tests=169\, P4-01 \PASS tests=156(\81c96314...\), P4-02 \PASS tests=113\ (cfc58f1...\), P4-03
+\PASS tests=86\ (\cc2f73da...\), P4-04 \PASS tests=101(\e55ad6cb...\), P4-05 \PASS tests=76\ (\849af7fd...\, post-repair),
+Phase-1 host gates \PASS=44 FAIL=0 SKIPPED=2\, public safety \PASS\,
+P4-00 \PASS tests=74\ (\953312d0...\) with the refined boundary-context
+hygiene (all modified tracked Phase-4 paths held out).
+
+Limitations: contract and deterministic headless reference boundaries only;
+no real renderer/audio backend is integrated or required; rendering/audio
+correctness and device output are not claimed;
+\GENERIC_RUNTIME_STATUS=NOT_PROVEN\.
 
 ## P4-05 result (PASS)
 

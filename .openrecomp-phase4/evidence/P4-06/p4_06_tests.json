@@ -1,0 +1,352 @@
+{
+  "checks": [
+    {
+      "check": "audio-caps:rejects-channels",
+      "status": "PASS"
+    },
+    {
+      "check": "audio-caps:rejects-format",
+      "status": "PASS"
+    },
+    {
+      "check": "audio-caps:rejects-rate",
+      "status": "PASS"
+    },
+    {
+      "check": "audio-caps:rejects-samples",
+      "status": "PASS"
+    },
+    {
+      "check": "audio-caps:supports",
+      "status": "PASS"
+    },
+    {
+      "check": "audio:deterministic-document",
+      "status": "PASS"
+    },
+    {
+      "check": "audio:deterministic-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "audio:document-ledger",
+      "status": "PASS"
+    },
+    {
+      "check": "audio:null-capabilities-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "audio:null-document",
+      "status": "PASS"
+    },
+    {
+      "check": "audio:record-count",
+      "status": "PASS"
+    },
+    {
+      "check": "audio:record-fields",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:fingerprint-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:limits",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:name",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:no-backend-tokens",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:no-mandatory-backend",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:pixel-formats",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:sample-formats",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:version",
+      "status": "PASS"
+    },
+    {
+      "check": "graphics-caps:document",
+      "status": "PASS"
+    },
+    {
+      "check": "graphics-caps:empty-formats",
+      "status": "PASS"
+    },
+    {
+      "check": "graphics-caps:rejects-dimensions",
+      "status": "PASS"
+    },
+    {
+      "check": "graphics-caps:rejects-format",
+      "status": "PASS"
+    },
+    {
+      "check": "graphics-caps:supports",
+      "status": "PASS"
+    },
+    {
+      "check": "graphics:deterministic-document",
+      "status": "PASS"
+    },
+    {
+      "check": "graphics:deterministic-fingerprint",
+      "status": "PASS"
+    },
+    {
+      "check": "graphics:document-ledger",
+      "status": "PASS"
+    },
+    {
+      "check": "graphics:ledger-sensitive",
+      "status": "PASS"
+    },
+    {
+      "check": "graphics:null-capabilities-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "graphics:null-document",
+      "status": "PASS"
+    },
+    {
+      "check": "graphics:record-count",
+      "status": "PASS"
+    },
+    {
+      "check": "graphics:record-fields",
+      "status": "PASS"
+    },
+    {
+      "check": "hooks:adapter-valid",
+      "status": "PASS"
+    },
+    {
+      "check": "hooks:bound-audio",
+      "status": "PASS"
+    },
+    {
+      "check": "hooks:bound-graphics",
+      "status": "PASS"
+    },
+    {
+      "check": "hooks:claims-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "hooks:document-includes-boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "hooks:routed-audio",
+      "status": "PASS"
+    },
+    {
+      "check": "hooks:routed-graphics",
+      "status": "PASS"
+    },
+    {
+      "check": "hooks:types",
+      "status": "PASS"
+    },
+    {
+      "check": "independence:neutral-imports",
+      "status": "PASS"
+    },
+    {
+      "check": "independence:no-backend-tokens",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:audio-caps:bad-channels",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:audio-caps:bad-samples",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:audio-caps:duplicate-rates",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:audio-caps:unknown-format",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:audio-caps:zero-rate",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:audio:bad-capabilities",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:audio:capacity",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:audio:not-a-buffer",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:audio:null-rejects",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:audio:unsupported-format",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:audio:unsupported-rate",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:graphics-caps:oversized",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:graphics-caps:unknown-format",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:graphics-caps:zero-capacity",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:graphics-caps:zero-dimension",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:graphics:bad-capabilities",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:graphics:capacity",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:graphics:not-a-frame",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:graphics:null-rejects",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:graphics:unsupported-dimension",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:graphics:unsupported-format",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:hooks:bad-audio-boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:hooks:bad-boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase4-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest-verified",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "audio": {
+      "fingerprint": "2c70c2c7c6c21c339d2eb7e1628d1d069be76011e321103d57f38d574f343de8",
+      "ledger_sha256": "2130f5d662b8054c9807f8843579067277907787a74d86459abfea374e80effe"
+    },
+    "contract": {
+      "fingerprint": "38077ea26439c31995e94a12273de12ba5d9eccea4fccb82959209d0b9c10bca",
+      "pixel_formats": [
+        "RGBA8",
+        "BGRA8",
+        "RGB565",
+        "INDEX8",
+        "GRAY8"
+      ],
+      "sample_formats": [
+        "U8",
+        "S16LE",
+        "S16BE",
+        "S32LE",
+        "F32LE",
+        "F32BE"
+      ]
+    },
+    "graphics": {
+      "fingerprint": "0f505391ce719bf04e2245b3fe81282d196210025cfc9b409413bf7e3fa49875",
+      "ledger_sha256": "ad0197812ef703af3dfcf3ace85bae3c430b24b18166462eec998f68e2d524ff"
+    },
+    "integration": {
+      "audio_fingerprint": "d217d7ef53cbd219374f5ca7047881b2fbc9727b74da320e0f15685ffce7c6e3",
+      "backend_hits": [],
+      "graphics_fingerprint": "a0aa4ac23c6189bfbd05f02fd60b6b4f0389f82c27aacc851831486ea3c0e2b1",
+      "imports": [
+        "__future__",
+        "hashlib",
+        "dataclasses",
+        "typing",
+        "openrecomp",
+        "openrecomp.program_model",
+        "p4_platform_adapter_v1"
+      ]
+    },
+    "source_integrity": {
+      "phase3_entries": 24,
+      "phase4_entries": 16,
+      "root_entries": 134
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE4_GRAPHICS_AUDIO_V1=PASS tests=72",
+    "stage": "OPENRECOMP_P4_06=PASS",
+    "terminal": "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN"
+  },
+  "passed": 72,
+  "stage": "P4-06",
+  "stage_name": "OPENRECOMP_PHASE4_GRAPHICS_AUDIO_V1",
+  "status": "PASS",
+  "tests": 72
+}

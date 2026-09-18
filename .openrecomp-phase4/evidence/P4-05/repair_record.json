@@ -1,0 +1,42 @@
+{
+  "defect": "bind_platform merged every P4-04 deterministic-I/O handler into the mediator even when the adapter's service profile did not declare those interfaces, so an adapter with a minimal profile failed to bind with 'unknown runtime service' instead of binding with only its declared interfaces.",
+  "discovered_by": "P4-06 graphics/audio boundary adapter binding",
+  "fix": "handlers are filtered to the interfaces present in the bound registry; adapters still receive the deterministic-I/O handlers for the interfaces they declare.",
+  "new_module_sha256": "3a69b33c08d84453e8eb21fe96d41e47d23dd090b9d9360788b702e2903cec3f",
+  "official_stdout_sha256_raw": "849af7fd1f63930bdf3c8459906ce11578ea7f7224ed00423a52079df45bdde0",
+  "old_module_sha256": "8f3145b496f6bab61d7e5c9076ba0b4b61177601063f0e749d36281d498bccc3",
+  "p4_05_tests_sha256": "4ed9541be65fb543e0f1a1fba6956acd5b17d5430a9e4b649bd02bd2cd0fb5ef",
+  "repair": "bind_platform handler filtering",
+  "runs": [
+    {
+      "markers": [
+        "OPENRECOMP_P4_05=PASS",
+        "OPENRECOMP_PHASE4_PLATFORM_ADAPTER_V1=PASS tests=76",
+        "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "repair_run1",
+      "returncode": 0,
+      "stderr_empty": true,
+      "stdout_bytes_raw": 2631,
+      "stdout_sha256_lf": "773097951626137d713e6307c05593bb73831c1c0a1197246dcf9eef936a3e8c",
+      "stdout_sha256_raw": "849af7fd1f63930bdf3c8459906ce11578ea7f7224ed00423a52079df45bdde0"
+    },
+    {
+      "markers": [
+        "OPENRECOMP_P4_05=PASS",
+        "OPENRECOMP_PHASE4_PLATFORM_ADAPTER_V1=PASS tests=76",
+        "OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE4_GENERAL_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "repair_run2",
+      "returncode": 0,
+      "stderr_empty": true,
+      "stdout_bytes_raw": 2631,
+      "stdout_sha256_lf": "773097951626137d713e6307c05593bb73831c1c0a1197246dcf9eef936a3e8c",
+      "stdout_sha256_raw": "849af7fd1f63930bdf3c8459906ce11578ea7f7224ed00423a52079df45bdde0"
+    }
+  ],
+  "stage": "P4-05",
+  "stdout_unchanged": true
+}

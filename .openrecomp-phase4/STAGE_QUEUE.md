@@ -12,7 +12,7 @@ The freeze is effective before any P4-01 implementation work.
 | P4-03 | Runtime service mediation | COMPLETE | Replace fixture-specific external handling with explicit typed/versioned runtime service interfaces. Unknown or unsupported services fail closed. Generated code must not silently call arbitrary host functionality |
 | P4-04 | Deterministic I/O, timing and input | COMPLETE | Provide reusable bounded interfaces for deterministic console/file-style I/O as required by the fixture, time/timers and input/event delivery. Host nondeterminism must be explicitly controlled, recorded or rejected |
 | P4-05 | Platform Adapter Interface V1 | COMPLETE | Define an architecture-neutral platform-adapter contract through which future platform-specific implementations can provide memory maps, services, timing, input, graphics/audio hooks or other platform behaviour without contaminating the recompiler core. Do NOT claim support for any console merely because the adapter interface exists |
-| P4-06 | Graphics/audio abstraction boundary | QUEUED | Define reusable graphics and audio adapter boundaries suitable for later backend implementations. Do not make RT64, SDL, Vulkan, Direct3D or any particular renderer/audio system mandatory to the OpenRecomp core. Backend-specific integrations may be future adapters only unless explicitly required and proven by this phase |
+| P4-06 | Graphics/audio abstraction boundary | COMPLETE | Define reusable graphics and audio adapter boundaries suitable for later backend implementations. Do not make RT64, SDL, Vulkan, Direct3D or any particular renderer/audio system mandatory to the OpenRecomp core. Backend-specific integrations may be future adapters only unless explicitly required and proven by this phase |
 | P4-07 | Interactive legally-clean fixture | QUEUED | Introduce or build a legally clean/open fixture materially more demanding than CoreMark and exercising a meaningful subset of code, static/global data, stack, heap if required, runtime services, deterministic input/events, timing and observable output. Record license, provenance, exact source/toolchain/build flags and hashes. Do not use proprietary ROMs, commercial game binaries, copyrighted game assets or unverified fixtures for the Phase-4 proof |
 | P4-08 | First platform-adapter execution proof | QUEUED | Run the Phase-4 fixture through a real implementation of the new platform-adapter/runtime contracts, with generated code remaining architecture-neutral and unsupported behaviour failing closed |
 | P4-09 | End-to-end generic-runtime native proof | QUEUED | Demonstrate the bounded pipeline: fixture/input -> ingestion -> program recovery -> translation -> host emission -> native build -> generic runtime -> platform adapter -> deterministic execution. Verify the observable against an independent reference/model where technically appropriate. No target or behaviour may be guessed merely to achieve execution |
@@ -66,6 +66,8 @@ Frozen-queue rules:
 - `OPENRECOMP_PHASE4_DETERMINISTIC_IO_V1=PASS tests=101`
 - `OPENRECOMP_P4_05=PASS`
 - `OPENRECOMP_PHASE4_PLATFORM_ADAPTER_V1=PASS tests=76`
+- `OPENRECOMP_P4_06=PASS`
+- `OPENRECOMP_PHASE4_GRAPHICS_AUDIO_V1=PASS tests=72`
 - terminal Phase-4 marker (reserved at P4-00 .. P4-91):
   `OPENRECOMP_PHASE4_GENERIC_RUNTIME_PROOF=NOT_PROVEN`
 - general compatibility marker (never promoted by Phase 4):

@@ -107,3 +107,19 @@ modified, and the P4-01..P4-04 modules and catalogs are unchanged.
 ## Next stage
 
 P4-06 - Graphics/audio abstraction boundary.
+
+## Repair record (discovered by P4-06)
+
+`bind_platform` merged every P4-04 deterministic-I/O handler into the
+mediator even when the adapter's service profile did not declare those
+interfaces, so a minimal-profile adapter failed to bind with
+`unknown runtime service` instead of binding with only its declared
+interfaces. Discovered during P4-06 boundary-hook binding and repaired at the
+source in `p4_platform_adapter_v1.py`: handlers are filtered to the
+interfaces present in the bound registry (adapters still receive the
+deterministic-I/O handlers for the interfaces they declare). The frozen P4-05
+gate was re-run twice after the repair: exit 0, empty stderr, stdout
+byte-identical to the official capture (`849af7fd...`, 2631 bytes), same 76
+checks; the refreshed module pin is recorded in `determinism.json` and the
+old/new hashes and re-run captures in `repair_record.json` /
+`repair_run1.txt` / `repair_run2.txt`. No stage contract or claim changed.

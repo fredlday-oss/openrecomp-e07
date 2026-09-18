@@ -335,7 +335,10 @@ def bind_platform(adapter: PlatformAdapter, *, input_policy: dio.InputExhaustion
     profile = adapter.service_profile()
     interfaces = svc.standard_interfaces() + profile.interfaces
     registry = svc.ServiceRegistry(interfaces)
-    handlers: dict[str, Any] = dict(dio.io_handlers(io_runtime))
+    handlers: dict[str, Any] = {
+        key: value for key, value in dio.io_handlers(io_runtime).items()
+        if key in registry.service_ids
+    }
     handlers.update(dict(profile.handlers))
     mediator = svc.RuntimeServiceMediator(registry, aliases=profile.aliases,
                                           handlers=handlers)
