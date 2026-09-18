@@ -1,0 +1,72 @@
+=== P5-01 NES/iNES Ingestion and Inventory Gate ===
+
+--- public_fixture_build ---
+PASS: public:build-byte-identical
+PASS: public:metadata-identical
+PASS: public:rom-size
+PASS: public:rom-sha256
+PASS: public:prg-sha256
+PASS: public:chr-sha256
+PASS: public:prg-size
+PASS: public:chr-size
+PASS: public:mapper
+PASS: public:mirroring
+PASS: public:vectors
+PASS: public:instruction-count
+PASS: public:instructions-cross-checked
+PASS: public:header
+PASS: public:original-license
+
+--- public_ingestion ---
+PASS: public:ingest-mapper
+PASS: public:ingest-sizes
+PASS: public:ingest-exact-size
+PASS: public:ingest-vectors
+PASS: public:ingest-status
+PASS: public:ingest-container
+PASS: public:ingest-fingerprint-stable
+PASS: public:frozen-classify
+PASS: public:frozen-mapper
+PASS: public:frozen-mapper-reset
+PASS: public:frozen-cli
+
+--- private_fixture ---
+PASS: private:exists
+PASS: private:sha256
+PASS: private:size
+PASS: private:container
+PASS: private:mapper
+PASS: private:mirroring
+PASS: private:prg-chr
+PASS: private:hashes
+PASS: private:vectors-unavailable
+PASS: private:blocked
+PASS: private:no-trainer-battery
+PASS: reject:private:frozen-mapper-unsupported
+
+--- negative ---
+PASS: reject:bad-magic
+PASS: reject:truncated
+PASS: reject:oversized
+PASS: reject:zero-prg
+PASS: reject:nes2-extended-size
+PASS: reject:nes2-prg-msb
+PASS: unsupported:mapper-classified
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:tools/test_nes_platform_v1.py:exit
+PASS: regression:tools/test_nes_platform_v1.py:stderr
+
+--- evidence_hygiene ---
+PASS: hygiene:no-public-rom-bytes:ingestion.json
+PASS: hygiene:no-private-rom-bytes:ingestion.json
+PASS: hygiene:no-public-rom-bytes:regressions.json
+PASS: hygiene:no-private-rom-bytes:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P5_01=PASS
+OPENRECOMP_PHASE5_INGESTION_INVENTORY_V1=PASS tests=53
+OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

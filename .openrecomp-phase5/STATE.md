@@ -5,8 +5,8 @@ BASELINE_TAG=openrecomp-phase4-pass
 BASELINE_OBJECT=e7eaab18fee267b3d7962db13835c9e14dd77fc2
 BASELINE_COMMIT=b3c71fb690f00b4811e8ec30c28f7725141295d0
 BASELINE_TREE=f2ca3080915aa68f403526b89dfc17454687aed6
-CURRENT_STAGE=P5-01
-LAST_PASSED_STAGE=P5-00
+CURRENT_STAGE=P5-02
+LAST_PASSED_STAGE=P5-01
 STATUS=ACTIVE
 NES_PLATFORM_STATUS=NOT_PROVEN
 FINAL_VERDICT=NOT_PROVEN
@@ -73,7 +73,7 @@ QUEUE_FREEZE_STAGES=P5-01..P5-99
 | ID | Stage | Status | Evidence |
 | --- | --- | --- | --- |
 | P5-00 | Phase-5 boundary | PASS | `.openrecomp-phase5/evidence/P5-00/` |
-| P5-01 | NES/iNES ingestion and inventory | QUEUED | `.openrecomp-phase5/evidence/P5-01/` |
+| P5-01 | NES/iNES ingestion and inventory | PASS | `.openrecomp-phase5/evidence/P5-01/` |
 | P5-02 | 2A03/6502 decode + reachable instruction frontier | QUEUED | `.openrecomp-phase5/evidence/P5-02/` |
 | P5-03 | CPU semantics proof | QUEUED | `.openrecomp-phase5/evidence/P5-03/` |
 | P5-04 | ProgramModel / CFG / functions / translation units | QUEUED | `.openrecomp-phase5/evidence/P5-04/` |

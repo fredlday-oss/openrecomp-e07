@@ -1,0 +1,253 @@
+{
+  "private_fixture": {
+    "actual_size": 262160,
+    "battery": false,
+    "chr_bytes": 131072,
+    "chr_is_ram": false,
+    "chr_sha256": "f9e354d57423f5d883663ed56801066ce38ab1a64065a735db88d42aee6eac29",
+    "container": "nes2.0",
+    "declared_size": 262160,
+    "execution_status": "BLOCKED_UNSUPPORTED_MAPPER",
+    "four_screen": false,
+    "header_hex": "4e45531a081010080000000001000001",
+    "image_sha256": "2a9345e608ec0c57470dc6658ce8199ddea9c18076134d9ef2a56f91b0a066d1",
+    "mapper": 1,
+    "mapper_name": "unsupported",
+    "mirroring": "horizontal",
+    "nametable_arrangement": "vertical",
+    "nes2_fields": {
+      "chr_ram_nibble": 0,
+      "chr_rom_size_msb": 0,
+      "cpu_ppu_timing": 1,
+      "flags10": 0,
+      "flags11": 0,
+      "flags12": 1,
+      "flags13": 0,
+      "flags14": 0,
+      "flags15": 1,
+      "flags8": 0,
+      "flags9": 0,
+      "prg_nvram_nibble": 0,
+      "prg_ram_nibble": 0,
+      "prg_rom_size_msb": 0,
+      "submapper": 0
+    },
+    "playchoice": false,
+    "prg_bytes": 131072,
+    "prg_ram_bytes": 0,
+    "prg_sha256": "2fbc367a453504f01d7dec9fcc52c59b249fd8633ee8e5de6c7ec04abe0131bc",
+    "submapper": 0,
+    "trainer_bytes": 0,
+    "trainer_offset": null,
+    "tv_system": "ntsc",
+    "unsupported_metadata": [],
+    "vectors": null,
+    "vectors_source": "unavailable_unsupported_mapper",
+    "vs_unisystem": false
+  },
+  "public_builder": {
+    "assembler": ".openrecomp-phase5/src/p5_fixture_asm_v1.py",
+    "chr_sha256": "3280d50230de2e2205b1d6a9db40a3a41b0b1a4460cda736690ba8c8252f623e",
+    "chr_size": 8192,
+    "cpu_origin": 49152,
+    "data_spans": [
+      [
+        49661,
+        49669
+      ],
+      [
+        49669,
+        49677
+      ],
+      [
+        49677,
+        49685
+      ],
+      [
+        49685,
+        49693
+      ],
+      [
+        49693,
+        49701
+      ],
+      [
+        49701,
+        49709
+      ],
+      [
+        49709,
+        49717
+      ],
+      [
+        49717,
+        49725
+      ],
+      [
+        50168,
+        50176
+      ],
+      [
+        50176,
+        50184
+      ],
+      [
+        50184,
+        50186
+      ],
+      [
+        65530,
+        65532
+      ],
+      [
+        65532,
+        65534
+      ],
+      [
+        65534,
+        65536
+      ]
+    ],
+    "fixture": "openrecomp-phase5-public-fixture",
+    "header_hex": "4e45531a010100000000000000000000",
+    "instruction_count": 231,
+    "instructions_cross_checked": 231,
+    "labels": {
+      "APUSTATUS": 16405,
+      "EXIT_VEC": 767,
+      "IDX_BASE": 16,
+      "JOY1": 16406,
+      "JOY2": 16407,
+      "OAMADDR": 8195,
+      "OAMDATA": 8196,
+      "OAMDMA": 16404,
+      "PPUADDR": 8198,
+      "PPUCTRL": 8192,
+      "PPUDATA": 8199,
+      "PPUMASK": 8193,
+      "PPUSCROLL": 8197,
+      "PPUSTATUS": 8194,
+      "PTR_HI": 1,
+      "PTR_LO": 0,
+      "SPRITE_X": 515,
+      "TARGET_FRAMES": 8,
+      "checksum": 774,
+      "clear_ram": 49166,
+      "clv_ok": 49308,
+      "data_page": 50168,
+      "delay": 49397,
+      "edge_table": 50184,
+      "frames": 768,
+      "input0": 769,
+      "irq_count": 773,
+      "irq_handler": 49655,
+      "load_nametable": 49446,
+      "load_palette": 49422,
+      "main_loop": 49350,
+      "mark_ok": 49552,
+      "mix": 49539,
+      "nametable": 49693,
+      "nmi_count": 772,
+      "nmi_handler": 49558,
+      "no_a": 49605,
+      "no_left": 49625,
+      "no_record": 49589,
+      "no_right": 49615,
+      "nt_loop": 49458,
+      "pal_loop": 49434,
+      "palette": 49661,
+      "rc_loop": 49528,
+      "read_controller": 49521,
+      "reset": 49152,
+      "scratch": 775,
+      "script_done": 49363,
+      "setup_sprites": 49470,
+      "state_a": 770,
+      "state_x": 771,
+      "sub_bad": 49300,
+      "sum_loop": 49370,
+      "wait_one": 49411,
+      "wait_two": 49416,
+      "wait_vblank": 49408
+    },
+    "license": "Apache-2.0",
+    "mapper": 0,
+    "mirroring": "horizontal",
+    "origin": "original",
+    "prg_sha256": "66e01e755ac4f3f7608b01abef2ed08af237755a30bf28f3ec0915046ce11c9c",
+    "prg_size": 16384,
+    "rom_sha256": "272c94cdc79463cd1020ff14db1892ba56af07e4cfda97f5f1df89dd807772b9",
+    "rom_size": 24592,
+    "source": ".openrecomp-phase5/fixture/p5_public_fixture.asm",
+    "vectors": {
+      "irq": 49655,
+      "nmi": 49558,
+      "reset": 49152
+    }
+  },
+  "public_fixture": {
+    "actual_size": 24592,
+    "battery": false,
+    "chr_bytes": 8192,
+    "chr_is_ram": false,
+    "chr_sha256": "3280d50230de2e2205b1d6a9db40a3a41b0b1a4460cda736690ba8c8252f623e",
+    "container": "ines",
+    "declared_size": 24592,
+    "execution_status": "SUPPORTED_NROM",
+    "four_screen": false,
+    "header_hex": "4e45531a010100000000000000000000",
+    "image_sha256": "272c94cdc79463cd1020ff14db1892ba56af07e4cfda97f5f1df89dd807772b9",
+    "mapper": 0,
+    "mapper_name": "nrom",
+    "mirroring": "horizontal",
+    "nametable_arrangement": "vertical",
+    "nes2_fields": {},
+    "playchoice": false,
+    "prg_bytes": 16384,
+    "prg_ram_bytes": 0,
+    "prg_sha256": "66e01e755ac4f3f7608b01abef2ed08af237755a30bf28f3ec0915046ce11c9c",
+    "submapper": 0,
+    "trainer_bytes": 0,
+    "trainer_offset": null,
+    "tv_system": "ntsc",
+    "unsupported_metadata": [],
+    "vectors": {
+      "irq": 49655,
+      "nmi": 49558,
+      "reset": 49152
+    },
+    "vectors_source": "nrom_last_16k_mapped_0x8000_to_0xffff",
+    "vs_unisystem": false
+  },
+  "stage": "P5-01",
+  "unsupported_mapper_probe": {
+    "actual_size": 24592,
+    "battery": false,
+    "chr_bytes": 8192,
+    "chr_is_ram": false,
+    "chr_sha256": "3280d50230de2e2205b1d6a9db40a3a41b0b1a4460cda736690ba8c8252f623e",
+    "container": "ines",
+    "declared_size": 24592,
+    "execution_status": "BLOCKED_UNSUPPORTED_MAPPER",
+    "four_screen": false,
+    "header_hex": "4e45531a010150000000000000000000",
+    "image_sha256": "06cf7f68a70fb61c131447251b19747a57fd1f3d0ee0ca40bf9d9dd9d859f9b9",
+    "mapper": 5,
+    "mapper_name": "unsupported",
+    "mirroring": "horizontal",
+    "nametable_arrangement": "vertical",
+    "nes2_fields": {},
+    "playchoice": false,
+    "prg_bytes": 16384,
+    "prg_ram_bytes": 0,
+    "prg_sha256": "66e01e755ac4f3f7608b01abef2ed08af237755a30bf28f3ec0915046ce11c9c",
+    "submapper": 0,
+    "trainer_bytes": 0,
+    "trainer_offset": null,
+    "tv_system": "ntsc",
+    "unsupported_metadata": [],
+    "vectors": null,
+    "vectors_source": "unavailable_unsupported_mapper",
+    "vs_unisystem": false
+  }
+}

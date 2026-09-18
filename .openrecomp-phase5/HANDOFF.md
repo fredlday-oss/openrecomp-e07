@@ -1,7 +1,9 @@
 # OpenRecomp Phase 5 Handoff
 
-STATUS: Phase 5 `ACTIVE` - P5-00 (Phase-5 boundary) is being executed. Phase 4
-is complete and frozen at annotated tag `openrecomp-phase4-pass` (object
+STATUS: Phase 5 `ACTIVE` - P5-00 (Phase-5 boundary) and P5-01 (NES/iNES
+ingestion and inventory) are `PASS`; P5-02 (2A03/6502 decode + reachable
+instruction frontier) is the active stage. Phase 4 is complete and frozen at
+annotated tag `openrecomp-phase4-pass` (object
 `e7eaab18fee267b3d7962db13835c9e14dd77fc2`) =
 `b3c71fb690f00b4811e8ec30c28f7725141295d0`, tree
 `f2ca3080915aa68f403526b89dfc17454687aed6`, with
@@ -35,13 +37,29 @@ Reserved markers:
 - Fail closed on unsupported mappers/opcodes/hardware; never guess.
 - Never execute original guest CPU code directly on the host.
 
-## Exact next action
+## P5-01 outcome (PASS)
 
-Execute P5-00: run `tools/test_phase5_boundary_v1.py` twice through the
-Phase-5 stage runner, confirm the Phase-4 final verdict gate re-passes in the
-reconstructed context byte-identically, capture evidence, update STATE/HANDOFF,
-and commit the P5-00 boundary. Then proceed to P5-01 (NES/iNES ingestion and
-inventory).
+Markers: `OPENRECOMP_P5_01=PASS`,
+`OPENRECOMP_PHASE5_INGESTION_INVENTORY_V1=PASS tests=53`; terminal and
+general markers reserved as `NOT_PROVEN`.
+
+- Original Apache-2.0 public fixture authored and built deterministically:
+  NROM-128 mapper 0, 16 KiB PRG, 8 KiB original CHR, vectors
+  NMI `$C196` / RESET `$C000` / IRQ `$C1F7`, ROM SHA-256 `272c94cd...`
+  (24592 bytes); all 231 assembled instructions cross-check against the frozen
+  `adapters.nes6502` decoder.
+- New `.openrecomp-phase5/src/p5_ines_v1.py` fail-closed ingestion/inventory
+  layer; exact-size validation, NES 2.0 sub-field inventory, extended-size
+  rejection, mapper/submapper classification, NROM-only vector extraction.
+- Private TMNT inventoried by metadata/hash only: mapper 1, 128 KiB PRG,
+  128 KiB CHR, horizontal mirroring, `BLOCKED_UNSUPPORTED_MAPPER`; frozen
+  `make_mapper` fails closed.
+- Negative coverage: bad magic, truncated, oversized, zero PRG, NES 2.0
+  extended size and PRG-size MSB all fail closed without traceback.
+- Two official runs byte-identical raw (`6a895e0b...`, 2074 bytes) and LF
+  (`89a39695...`), empty stderr, exit 0; `p5_01_tests.json` identical
+  (`e2734be9...`).
+- Evidence: `.openrecomp-phase5/evidence/P5-01/`.
 
 ## P5-00 outcome (PASS)
 
@@ -64,5 +82,12 @@ reserved as `NOT_PROVEN`.
   recorded in `FIXTURE_POLICY.md`.
 - Two official runs byte-identical raw (`825932c5...`, 3025 bytes) and LF
   (`79bdbf3c...`), empty stderr, exit 0; `p5_00_tests.json` identical
-  (`e11a3cde...`).
+  (`4b87897f...`).
 - Evidence: `.openrecomp-phase5/evidence/P5-00/`.
+
+## Exact next action
+
+Execute P5-02 (2A03/6502 decode + reachable instruction frontier): decode the
+public fixture from its reset/NMI/IRQ roots with the frozen NES6502 frontend,
+produce the exact reachable/dead/unsupported opcode inventory, and classify
+every unreachable or unsupported byte fail-closed. Then proceed to P5-03.
