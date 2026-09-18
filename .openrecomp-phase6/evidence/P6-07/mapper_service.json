@@ -1,0 +1,119 @@
+{
+  "exercise": {
+    "chr_records": [
+      {
+        "bank": 0,
+        "byte": "0x65"
+      },
+      {
+        "bank": 1,
+        "byte": "0x65"
+      },
+      {
+        "bank": 2,
+        "byte": "0x76"
+      },
+      {
+        "bank": 3,
+        "byte": "0x76"
+      },
+      {
+        "bank": 4,
+        "byte": "0x87"
+      },
+      {
+        "bank": 5,
+        "byte": "0x87"
+      },
+      {
+        "bank": 6,
+        "byte": "0x98"
+      },
+      {
+        "bank": 7,
+        "byte": "0x98"
+      }
+    ],
+    "final_state": {
+      "chr_bank_0": 7,
+      "chr_bank_1": 7,
+      "chr_mode": 1,
+      "count": 1,
+      "cycles": 10001,
+      "last_write_cycle": 10000,
+      "mirroring": "horizontal",
+      "prg_ram_enabled": false,
+      "prg_window_8000_bank": 3,
+      "prg_window_c000_bank": 3,
+      "registers": {
+        "chr_bank_0": 7,
+        "chr_bank_1": 7,
+        "control": 31,
+        "prg_bank": 3
+      },
+      "shift": 1
+    },
+    "mirror_records": [
+      {
+        "mode": 0,
+        "offset": 0,
+        "table": 0
+      },
+      {
+        "mode": 1,
+        "offset": 0,
+        "table": 1
+      },
+      {
+        "mode": 2,
+        "offset": 0,
+        "table": 1
+      },
+      {
+        "mode": 3,
+        "offset": 0,
+        "table": 1
+      }
+    ],
+    "prg_records": [
+      {
+        "bank": 0,
+        "byte": "0x10",
+        "windows": [
+          0,
+          3
+        ]
+      },
+      {
+        "bank": 1,
+        "byte": "0x11",
+        "windows": [
+          1,
+          3
+        ]
+      },
+      {
+        "bank": 2,
+        "byte": "0x12",
+        "windows": [
+          2,
+          3
+        ]
+      },
+      {
+        "bank": 3,
+        "byte": "0x78",
+        "windows": [
+          3,
+          3
+        ]
+      }
+    ],
+    "suppression": {
+      "first": "shift",
+      "second": "suppressed",
+      "shift_count": 1
+    }
+  },
+  "stage": "P6-07"
+}

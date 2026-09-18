@@ -1,0 +1,94 @@
+=== P6-07 MMC1 Static-Recompilation Integration Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-exists
+PASS: source:manifest-verified
+
+--- frozen_chain ---
+PASS: chain:phase5-tag-object
+PASS: chain:phase5-commit
+PASS: chain:phase5-tree
+PASS: chain:descends
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+
+--- proof_fixture ---
+PASS: fixture:proof-identity
+PASS: fixture:base-identity-preserved
+PASS: fixture:ingest
+
+--- reachable_frontier ---
+PASS: frontier:instructions
+PASS: frontier:bytes
+PASS: frontier:code-span
+PASS: frontier:indirect-site
+PASS: frontier:interrupt-sites
+PASS: frontier:dynamic-returns
+
+--- neutral_structure ---
+PASS: structure:counts
+PASS: structure:fingerprints
+PASS: structure:boundaries
+PASS: structure:unresolved-indirect
+PASS: structure:dead-in-span
+
+--- mapper_service ---
+PASS: service:prg-banks
+PASS: service:chr-banks
+PASS: service:mirroring
+PASS: service:suppression
+PASS: service:mapper-state
+
+--- host_emission ---
+PASS: emit:host-deterministic
+PASS: emit:host-sha256
+PASS: emit:host-runtime-abi
+PASS: emit:support-deterministic
+PASS: emit:support-sha256
+PASS: emit:support-mmc1
+PASS: emit:support-abi
+
+--- negative ---
+PASS: reject:undeclared-indirect-pointer
+PASS: reject:unsupported-mapper-cartridge
+PASS: reject:declared-prg-ram-cartridge
+PASS: negative:frontier-fail-closed
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:tools/test_nes_platform_v1.py:exit
+PASS: regression:tools/test_nes_platform_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_serial_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_serial_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_prg_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_prg_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_chr_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_chr_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_variant_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_variant_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_fixture_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_fixture_v1.py:stderr
+PASS: regression:tools/test_phase6_boundary_v1.py:exit
+PASS: regression:tools/test_phase6_boundary_v1.py:stderr
+
+--- evidence_hygiene ---
+PASS: hygiene:no-public-rom-bytes:recompilation.json
+PASS: hygiene:no-private-rom-bytes:recompilation.json
+PASS: hygiene:no-public-rom-bytes:mapper_service.json
+PASS: hygiene:no-private-rom-bytes:mapper_service.json
+PASS: hygiene:no-public-rom-bytes:emission.json
+PASS: hygiene:no-private-rom-bytes:emission.json
+PASS: hygiene:no-public-rom-bytes:regressions.json
+PASS: hygiene:no-private-rom-bytes:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P6_07=PASS
+OPENRECOMP_PHASE6_MMC1_RECOMP_V1=PASS tests=65
+OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

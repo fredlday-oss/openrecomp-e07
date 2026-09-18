@@ -246,6 +246,37 @@ reserved as `NOT_PROVEN`.
   and `RESULT.md`.
 - Evidence: `.openrecomp-phase6/evidence/P6-06/`.
 
+## P6-07 outcome (PASS)
+
+Markers: `OPENRECOMP_P6_07=PASS`,
+`OPENRECOMP_PHASE6_MMC1_RECOMP_V1=PASS tests=65`; terminal and general markers
+reserved as `NOT_PROVEN`.
+
+- New bank-aware frontier (`p6_frontier_v1.py`): fixed last bank at
+  `$C000-$FFFF`, mapper-selected low bank at `$8000-$BFFF`; 262 reachable
+  instructions / 571 bytes, 0 dead, one unresolved indirect site at `$C089`
+  (`jmp ($02FF)`) with empty targets, no interrupt sites, 14 dynamic returns.
+- Neutral structure (`p6_structure_v1.py`) through the shared Phase-2 layers:
+  262 instructions, 64 blocks, 15 functions, 15 translation units, 17 call
+  sites, no boundary violations; pinned CFG/discovery/call-graph/units/
+  classification fingerprints.
+- MMC1 cartridge service (`p6_cartridge_v1.py`) implementing the Phase-5 bus
+  `cpu_read`/`cpu_write` protocol over the audited P6-02 .. P6-05 models with
+  an explicit `advance(cost)` cycle hook: PRG banks 0..3, CHR 4 KiB banks
+  0..7, all four mirroring modes, consecutive-write suppression and a
+  fail-closed `$6000-$7FFF` window.
+- Host emission (`p6_emit_v1.py`): deterministic C host program through the
+  frozen Phase-5 emitter (sha256 `6c1ccac5...`) with exactly one declared
+  run-exit site, plus deterministic MMC1 runtime support source (sha256
+  `c15980d4...`) implementing the typed runtime ABI over the MMC1 bus.
+- Negative coverage: an undeclared indirect pointer, an unsupported mapper
+  cartridge and a declared-PRG-RAM cartridge all fail closed.
+- Regressions: frozen NES tools plus P6-00 .. P6-06 gates pass with empty
+  stderr (earlier gates re-run into ignored scratch evidence).
+- Official run hashes are recorded in `p6_07_tests.json`, `official_runs.json`
+  and `RESULT.md`.
+- Evidence: `.openrecomp-phase6/evidence/P6-07/`.
+
 ## Exact next action
 
-Proceed to P6-07 - MMC1 static-recompilation integration.
+Proceed to P6-08 - Native execution of public MMC1 fixture.

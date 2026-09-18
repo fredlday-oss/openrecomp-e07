@@ -5,8 +5,8 @@ BASELINE_TAG=openrecomp-phase5-pass
 BASELINE_OBJECT=b5d6832ba2374b810f4c24500ed9093a9481fd8d
 BASELINE_COMMIT=e8d3627a622d0ca3196b117c5112f29fabdb49e7
 BASELINE_TREE=468fb9788350de393d3de2ca9471b7d874ee8dc9
-CURRENT_STAGE=P6-06
-LAST_PASSED_STAGE=P6-06
+CURRENT_STAGE=P6-07
+LAST_PASSED_STAGE=P6-07
 STATUS=ACTIVE
 MMC1_PLATFORM_STATUS=NOT_PROVEN
 FINAL_VERDICT=NOT_PROVEN
@@ -90,7 +90,7 @@ QUEUE_FREEZE_STAGES=P6-01..P6-99
 | P6-04 | MMC1 CHR banking and mirroring | PASS | `.openrecomp-phase6/evidence/P6-04/` |
 | P6-05 | MMC1 PRG-RAM and variant boundary | PASS | `.openrecomp-phase6/evidence/P6-05/` |
 | P6-06 | Public MMC1 proof fixture | PASS | `.openrecomp-phase6/evidence/P6-06/` |
-| P6-07 | MMC1 static-recompilation integration | QUEUED | - |
+| P6-07 | MMC1 static-recompilation integration | PASS | `.openrecomp-phase6/evidence/P6-07/` |
 | P6-08 | Native execution of public MMC1 fixture | QUEUED | - |
 | P6-09 | Independent MMC1 reference equivalence | QUEUED | - |
 | P6-10 | Private TMNT compatibility run | QUEUED | - |

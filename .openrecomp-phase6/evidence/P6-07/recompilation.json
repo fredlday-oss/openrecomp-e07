@@ -1,0 +1,257 @@
+{
+  "fixture_rom_sha256": "9e10dce532266592f9ccda781bc6d3a7354ab4951bd3db87e4f43d1c45056b70",
+  "frontier": {
+    "code_region": [
+      49152,
+      49723
+    ],
+    "code_span": {
+      "dead_addresses": [],
+      "dead_in_span": 0,
+      "linear_instructions": 262,
+      "reachable_in_span": 262,
+      "span": [
+        49152,
+        49723
+      ]
+    },
+    "image_sha256": "d3d77c9a4af8ee3774fcc93a87e55da4be77215dadefd8eaa4981b1a20a9077c",
+    "low_window_reachable_addresses": [],
+    "reachable": {
+      "bytes": 571,
+      "dynamic_return_sites": [
+        {
+          "address": 49305,
+          "instruction": "rts"
+        },
+        {
+          "address": 49319,
+          "instruction": "rts"
+        },
+        {
+          "address": 49333,
+          "instruction": "rts"
+        },
+        {
+          "address": 49347,
+          "instruction": "rts"
+        },
+        {
+          "address": 49379,
+          "instruction": "rts"
+        },
+        {
+          "address": 49439,
+          "instruction": "rts"
+        },
+        {
+          "address": 49529,
+          "instruction": "rts"
+        },
+        {
+          "address": 49543,
+          "instruction": "rts"
+        },
+        {
+          "address": 49567,
+          "instruction": "rts"
+        },
+        {
+          "address": 49591,
+          "instruction": "rts"
+        },
+        {
+          "address": 49637,
+          "instruction": "rts"
+        },
+        {
+          "address": 49655,
+          "instruction": "rts"
+        },
+        {
+          "address": 49716,
+          "instruction": "rti"
+        },
+        {
+          "address": 49722,
+          "instruction": "rti"
+        }
+      ],
+      "indirect_sites": [
+        {
+          "address": 49289,
+          "indirect": 767,
+          "instruction": "jmp"
+        }
+      ],
+      "instructions": 262,
+      "interrupt_sites": [],
+      "mode_histogram": {
+        "abs": 100,
+        "absx": 12,
+        "acc": 5,
+        "imm": 67,
+        "impl": 61,
+        "ind": 1,
+        "rel": 16
+      },
+      "opcode_histogram": {
+        "adc": 7,
+        "and": 4,
+        "bcs": 2,
+        "bit": 3,
+        "bne": 12,
+        "bpl": 2,
+        "clc": 7,
+        "cld": 1,
+        "cmp": 1,
+        "cpx": 4,
+        "cpy": 3,
+        "dex": 5,
+        "eor": 1,
+        "inc": 3,
+        "inx": 5,
+        "iny": 3,
+        "jmp": 2,
+        "jsr": 17,
+        "lda": 58,
+        "ldx": 10,
+        "ldy": 3,
+        "lsr": 5,
+        "ora": 1,
+        "pha": 8,
+        "pla": 8,
+        "rol": 1,
+        "rti": 2,
+        "rts": 12,
+        "sei": 1,
+        "sta": 62,
+        "tax": 1,
+        "tay": 1,
+        "txa": 1,
+        "txs": 1,
+        "tya": 5
+      }
+    },
+    "roots": {
+      "irq": 49717,
+      "nmi": 49656,
+      "reset": 49152
+    },
+    "source": "original public MMC1 proof fixture (Apache-2.0)",
+    "stage": "P6-07",
+    "window_note": "fixed last bank at $C000-$FFFF with PRG mode 3; the low bank is mapper-selected and never executed directly by the audited program"
+  },
+  "stage": "P6-07",
+  "structure": {
+    "blocks": 64,
+    "boundary_violations": [],
+    "call_graph_fingerprint": "de2a26697cc7edbfff3336a6836a8284440ff2c7f16def21f4231f6f7dbe3ca0",
+    "call_sites": [
+      {
+        "address": 49195,
+        "target": 49292
+      },
+      {
+        "address": 49200,
+        "target": 49334
+      },
+      {
+        "address": 49205,
+        "target": 49306
+      },
+      {
+        "address": 49210,
+        "target": 49320
+      },
+      {
+        "address": 49213,
+        "target": 49530
+      },
+      {
+        "address": 49216,
+        "target": 49544
+      },
+      {
+        "address": 49219,
+        "target": 49568
+      },
+      {
+        "address": 49222,
+        "target": 49592
+      },
+      {
+        "address": 49227,
+        "target": 49292
+      },
+      {
+        "address": 49247,
+        "target": 49348
+      },
+      {
+        "address": 49250,
+        "target": 49380
+      },
+      {
+        "address": 49253,
+        "target": 49440
+      },
+      {
+        "address": 49351,
+        "target": 49334
+      },
+      {
+        "address": 49383,
+        "target": 49306
+      },
+      {
+        "address": 49387,
+        "target": 49320
+      },
+      {
+        "address": 49445,
+        "target": 49292
+      },
+      {
+        "address": 49671,
+        "target": 49638
+      }
+    ],
+    "cfg_fingerprint": "f53b4f5c66ee98a9a588b6a5d7a581904edb60e787dd2a8c098610ac1ced3cc3",
+    "classification_fingerprint": "b144500c03b9a3e0bf27339428687460fd3228ed5d2401565d664f063902f3ba",
+    "discovery_fingerprint": "c58ba164bdbd01bc0bb9f3bc1fd59caabbc0a16947189c68c1264b3f896f0edd",
+    "function_entries": [
+      49152,
+      49292,
+      49306,
+      49320,
+      49334,
+      49348,
+      49380,
+      49440,
+      49530,
+      49544,
+      49568,
+      49592,
+      49638,
+      49656,
+      49717
+    ],
+    "indirect_classifications": [
+      {
+        "address": 49289,
+        "basis": "NONE",
+        "entry_address": 49152,
+        "kind": "INDIRECT_JUMP",
+        "op": "jmp",
+        "status": "UNRESOLVED_INDIRECT_JUMP",
+        "target_functions": [],
+        "targets": [],
+        "unit_id": "tu_fn_c000"
+      }
+    ],
+    "instructions": 262,
+    "translation_units": 15,
+    "units_fingerprint": "3b9557b7ceb55d5bfd86f5e2479f2d1578941928ed52bd5633e2860b155d9eba"
+  }
+}

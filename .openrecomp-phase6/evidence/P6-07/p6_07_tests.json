@@ -1,0 +1,778 @@
+{
+  "checks": [
+    {
+      "check": "chain:descends",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tag-object",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:compat-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:stage-row",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "emit:host-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "emit:host-runtime-abi",
+      "status": "PASS"
+    },
+    {
+      "check": "emit:host-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "emit:support-abi",
+      "status": "PASS"
+    },
+    {
+      "check": "emit:support-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "emit:support-mmc1",
+      "status": "PASS"
+    },
+    {
+      "check": "emit:support-sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:base-identity-preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:ingest",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:proof-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:code-span",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:dynamic-returns",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:indirect-site",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:instructions",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:interrupt-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:emission.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:mapper_service.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:recompilation.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:emission.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:mapper_service.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:recompilation.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:frontier-fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_platform_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_platform_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_boundary_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_boundary_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_chr_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_chr_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_fixture_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_fixture_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_inventory_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_inventory_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_prg_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_prg_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_serial_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_serial_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_variant_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_variant_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:declared-prg-ram-cartridge",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:undeclared-indirect-pointer",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unsupported-mapper-cartridge",
+      "status": "PASS"
+    },
+    {
+      "check": "service:chr-banks",
+      "status": "PASS"
+    },
+    {
+      "check": "service:mapper-state",
+      "status": "PASS"
+    },
+    {
+      "check": "service:mirroring",
+      "status": "PASS"
+    },
+    {
+      "check": "service:prg-banks",
+      "status": "PASS"
+    },
+    {
+      "check": "service:suppression",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:boundaries",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:counts",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:dead-in-span",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:fingerprints",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:unresolved-indirect",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "emission": {
+      "host_program_bytes": 54198,
+      "host_program_sha256": "6c1ccac5b49b6af231cef81115990c49d784edad5509615624078646866bf9f1",
+      "input_plan": [
+        0,
+        1,
+        128
+      ],
+      "support_bytes": 640616,
+      "support_sha256": "c15980d43ba9854c7e8dd5917a32a6e13ac3235d8fb7de06c50b91a2fb02ffb6"
+    },
+    "evidence_files": [
+      "emission.json",
+      "mapper_service.json",
+      "recompilation.json",
+      "regressions.json"
+    ],
+    "frontier": {
+      "code_region": [
+        49152,
+        49723
+      ],
+      "code_span": {
+        "dead_addresses": [],
+        "dead_in_span": 0,
+        "linear_instructions": 262,
+        "reachable_in_span": 262,
+        "span": [
+          49152,
+          49723
+        ]
+      },
+      "image_sha256": "d3d77c9a4af8ee3774fcc93a87e55da4be77215dadefd8eaa4981b1a20a9077c",
+      "low_window_reachable_addresses": [],
+      "reachable": {
+        "bytes": 571,
+        "dynamic_return_sites": [
+          {
+            "address": 49305,
+            "instruction": "rts"
+          },
+          {
+            "address": 49319,
+            "instruction": "rts"
+          },
+          {
+            "address": 49333,
+            "instruction": "rts"
+          },
+          {
+            "address": 49347,
+            "instruction": "rts"
+          },
+          {
+            "address": 49379,
+            "instruction": "rts"
+          },
+          {
+            "address": 49439,
+            "instruction": "rts"
+          },
+          {
+            "address": 49529,
+            "instruction": "rts"
+          },
+          {
+            "address": 49543,
+            "instruction": "rts"
+          },
+          {
+            "address": 49567,
+            "instruction": "rts"
+          },
+          {
+            "address": 49591,
+            "instruction": "rts"
+          },
+          {
+            "address": 49637,
+            "instruction": "rts"
+          },
+          {
+            "address": 49655,
+            "instruction": "rts"
+          },
+          {
+            "address": 49716,
+            "instruction": "rti"
+          },
+          {
+            "address": 49722,
+            "instruction": "rti"
+          }
+        ],
+        "indirect_sites": [
+          {
+            "address": 49289,
+            "indirect": 767,
+            "instruction": "jmp"
+          }
+        ],
+        "instructions": 262,
+        "interrupt_sites": [],
+        "mode_histogram": {
+          "abs": 100,
+          "absx": 12,
+          "acc": 5,
+          "imm": 67,
+          "impl": 61,
+          "ind": 1,
+          "rel": 16
+        },
+        "opcode_histogram": {
+          "adc": 7,
+          "and": 4,
+          "bcs": 2,
+          "bit": 3,
+          "bne": 12,
+          "bpl": 2,
+          "clc": 7,
+          "cld": 1,
+          "cmp": 1,
+          "cpx": 4,
+          "cpy": 3,
+          "dex": 5,
+          "eor": 1,
+          "inc": 3,
+          "inx": 5,
+          "iny": 3,
+          "jmp": 2,
+          "jsr": 17,
+          "lda": 58,
+          "ldx": 10,
+          "ldy": 3,
+          "lsr": 5,
+          "ora": 1,
+          "pha": 8,
+          "pla": 8,
+          "rol": 1,
+          "rti": 2,
+          "rts": 12,
+          "sei": 1,
+          "sta": 62,
+          "tax": 1,
+          "tay": 1,
+          "txa": 1,
+          "txs": 1,
+          "tya": 5
+        }
+      },
+      "roots": {
+        "irq": 49717,
+        "nmi": 49656,
+        "reset": 49152
+      },
+      "source": "original public MMC1 proof fixture (Apache-2.0)",
+      "stage": "P6-07",
+      "window_note": "fixed last bank at $C000-$FFFF with PRG mode 3; the low bank is mapper-selected and never executed directly by the audited program"
+    },
+    "mapper_service": {
+      "chr_records": [
+        {
+          "bank": 0,
+          "byte": "0x65"
+        },
+        {
+          "bank": 1,
+          "byte": "0x65"
+        },
+        {
+          "bank": 2,
+          "byte": "0x76"
+        },
+        {
+          "bank": 3,
+          "byte": "0x76"
+        },
+        {
+          "bank": 4,
+          "byte": "0x87"
+        },
+        {
+          "bank": 5,
+          "byte": "0x87"
+        },
+        {
+          "bank": 6,
+          "byte": "0x98"
+        },
+        {
+          "bank": 7,
+          "byte": "0x98"
+        }
+      ],
+      "final_state": {
+        "chr_bank_0": 7,
+        "chr_bank_1": 7,
+        "chr_mode": 1,
+        "count": 1,
+        "cycles": 10001,
+        "last_write_cycle": 10000,
+        "mirroring": "horizontal",
+        "prg_ram_enabled": false,
+        "prg_window_8000_bank": 3,
+        "prg_window_c000_bank": 3,
+        "registers": {
+          "chr_bank_0": 7,
+          "chr_bank_1": 7,
+          "control": 31,
+          "prg_bank": 3
+        },
+        "shift": 1
+      },
+      "mirror_records": [
+        {
+          "mode": 0,
+          "offset": 0,
+          "table": 0
+        },
+        {
+          "mode": 1,
+          "offset": 0,
+          "table": 1
+        },
+        {
+          "mode": 2,
+          "offset": 0,
+          "table": 1
+        },
+        {
+          "mode": 3,
+          "offset": 0,
+          "table": 1
+        }
+      ],
+      "prg_records": [
+        {
+          "bank": 0,
+          "byte": "0x10",
+          "windows": [
+            0,
+            3
+          ]
+        },
+        {
+          "bank": 1,
+          "byte": "0x11",
+          "windows": [
+            1,
+            3
+          ]
+        },
+        {
+          "bank": 2,
+          "byte": "0x12",
+          "windows": [
+            2,
+            3
+          ]
+        },
+        {
+          "bank": 3,
+          "byte": "0x78",
+          "windows": [
+            3,
+            3
+          ]
+        }
+      ],
+      "suppression": {
+        "first": "shift",
+        "second": "suppressed",
+        "shift_count": 1
+      }
+    },
+    "regressions": [
+      {
+        "extra": [],
+        "returncode": 0,
+        "script": "tools/test_nes_rom_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 959,
+        "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+        "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+      },
+      {
+        "extra": [],
+        "returncode": 0,
+        "script": "tools/test_nes_platform_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 750,
+        "stdout_sha256_lf": "bf33dbe99790623b8e80ee2e20a3d409b829fa981987ddfb159f45b665301e4c",
+        "stdout_sha256_raw": "61ae15280094542974e1b8a4439d9ff240515b8401b61f681e62b686ba4736e8"
+      },
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-07/regression_p6_01"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_inventory_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 3140,
+        "stdout_sha256_lf": "d153a32d2fb2ebad91a944b8d7abad8ee5b827fab924bbde26b5308d7ed851f6",
+        "stdout_sha256_raw": "2bfd8a5efe673085ea06cce7281d92414eebb46b10c51d5df2e9ecb16f4409d6"
+      },
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-07/regression_p6_02"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_serial_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2305,
+        "stdout_sha256_lf": "ed0061090d5b50be03cf80dd44c2cf48f6871ebc0506d9d14fecc3761e2dafc6",
+        "stdout_sha256_raw": "caf7bb5c0a6c09621b6b0bbe1ec2990c696f0d6e910feac220fa727bf0ebb2c1"
+      },
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-07/regression_p6_03"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_prg_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2444,
+        "stdout_sha256_lf": "949380183b9cee6802677b98f9473ae99ef5728ce106dc552f968148ca40203e",
+        "stdout_sha256_raw": "13b2b2f178ab260e583f14de9461c800c148ae4e8fd1072ad9f6af4405f05c55"
+      },
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-07/regression_p6_04"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_chr_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2949,
+        "stdout_sha256_lf": "4b6b1a0889c3b35d724229e9386a6ad5dd1c9923551d935c23ec14de76600b7d",
+        "stdout_sha256_raw": "cbcb3697a0c7c43915cf8d45aee5c5e060cbaec4609ed07353fe9b0ce379340d"
+      },
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-07/regression_p6_05"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_variant_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2761,
+        "stdout_sha256_lf": "d1a6b25f66f1eed6a38038fd693997abcd6e88b5000db199c8f111779dfe6246",
+        "stdout_sha256_raw": "315fd5eaf7ca5bc1ff190c38ebb50d66d6af7785c0f9bfb38e7dbbf11279d6d4"
+      },
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-07/regression_p6_06"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_fixture_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 3073,
+        "stdout_sha256_lf": "3fd40332c6b5055da61ed913c846752947d1a4119411f150d55968284e3fd2bb",
+        "stdout_sha256_raw": "2d32801cfec18390f4cb16f361c3fa6a1fd7a1c7d7a10232632d0b59a573beb9"
+      },
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-07/regression_p6_00"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_boundary_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 3201,
+        "stdout_sha256_lf": "ca7ab21017aa5f89699b718ef6541d9f440a3d75a17730eb6343b90d4a148ffd",
+        "stdout_sha256_raw": "9391a99a241f0813584587b0bc4db7559f18ebc500897ca8c43bcce03b64e972"
+      }
+    ],
+    "structure": {
+      "blocks": 64,
+      "boundary_violations": [],
+      "call_graph_fingerprint": "de2a26697cc7edbfff3336a6836a8284440ff2c7f16def21f4231f6f7dbe3ca0",
+      "call_sites": [
+        {
+          "address": 49195,
+          "target": 49292
+        },
+        {
+          "address": 49200,
+          "target": 49334
+        },
+        {
+          "address": 49205,
+          "target": 49306
+        },
+        {
+          "address": 49210,
+          "target": 49320
+        },
+        {
+          "address": 49213,
+          "target": 49530
+        },
+        {
+          "address": 49216,
+          "target": 49544
+        },
+        {
+          "address": 49219,
+          "target": 49568
+        },
+        {
+          "address": 49222,
+          "target": 49592
+        },
+        {
+          "address": 49227,
+          "target": 49292
+        },
+        {
+          "address": 49247,
+          "target": 49348
+        },
+        {
+          "address": 49250,
+          "target": 49380
+        },
+        {
+          "address": 49253,
+          "target": 49440
+        },
+        {
+          "address": 49351,
+          "target": 49334
+        },
+        {
+          "address": 49383,
+          "target": 49306
+        },
+        {
+          "address": 49387,
+          "target": 49320
+        },
+        {
+          "address": 49445,
+          "target": 49292
+        },
+        {
+          "address": 49671,
+          "target": 49638
+        }
+      ],
+      "cfg_fingerprint": "f53b4f5c66ee98a9a588b6a5d7a581904edb60e787dd2a8c098610ac1ced3cc3",
+      "classification_fingerprint": "b144500c03b9a3e0bf27339428687460fd3228ed5d2401565d664f063902f3ba",
+      "discovery_fingerprint": "c58ba164bdbd01bc0bb9f3bc1fd59caabbc0a16947189c68c1264b3f896f0edd",
+      "function_entries": [
+        49152,
+        49292,
+        49306,
+        49320,
+        49334,
+        49348,
+        49380,
+        49440,
+        49530,
+        49544,
+        49568,
+        49592,
+        49638,
+        49656,
+        49717
+      ],
+      "indirect_classifications": [
+        {
+          "address": 49289,
+          "basis": "NONE",
+          "entry_address": 49152,
+          "kind": "INDIRECT_JUMP",
+          "op": "jmp",
+          "status": "UNRESOLVED_INDIRECT_JUMP",
+          "target_functions": [],
+          "targets": [],
+          "unit_id": "tu_fn_c000"
+        }
+      ],
+      "instructions": 262,
+      "translation_units": 15,
+      "units_fingerprint": "3b9557b7ceb55d5bfd86f5e2479f2d1578941928ed52bd5633e2860b155d9eba"
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE6_MMC1_RECOMP_V1=PASS tests=65",
+    "stage": "OPENRECOMP_P6_07=PASS",
+    "terminal": "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN"
+  },
+  "passed": 65,
+  "stage": "P6-07",
+  "stage_name": "OPENRECOMP_PHASE6_MMC1_RECOMP_V1",
+  "status": "PASS",
+  "tests": 65
+}
