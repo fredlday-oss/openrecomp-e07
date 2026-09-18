@@ -57,6 +57,14 @@ def _read(path: pathlib.Path) -> bytes:
     return data
 
 
+SELF_REFERENTIAL_GATES = frozenset({
+    "test_phase5_package_v1.py",
+    "test_phase5_whole_regression_v1.py",
+    "test_phase5_evidence_index_v1.py",
+    "test_phase5_final_verdict_v1.py",
+})
+
+
 def _check_text(name: str, data: bytes) -> None:
     try:
         data.decode("utf-8")
@@ -84,8 +92,8 @@ def collect_members() -> dict[str, bytes]:
     for path in sorted((ROOT / ".openrecomp-phase5" / "src").glob("*.py")):
         members[f"src/{path.name}"] = _read(path)
     for path in sorted((ROOT / "tools").glob("test_phase5_*.py")):
-        if path.name == "test_phase5_package_v1.py":
-            continue  # the P5-12 gate verifies the package and cannot include itself
+        if path.name in SELF_REFERENTIAL_GATES:
+            continue  # the terminal gates verify the package and are hash-pinned elsewhere
         members[f"gates/{path.name}"] = _read(path)
     for stage in EVIDENCE_STAGES:
         directory = ROOT / ".openrecomp-phase5" / "evidence" / stage
