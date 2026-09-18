@@ -1,0 +1,15 @@
+P2-22 synthetic NES runtime-bridge fixture
+==========================================
+architecture: nes6502
+endianness: little
+address width: 16 bits
+entry: 0x8000
+core region end: 0x802a
+core region length: 42
+core region sha256: cc57bba3124f264cb6f4ec2b0e83cb82d3a9eeea551d18c098278c7eef827763
+origin: synthetic/original (no commercial ROM bytes)
+P2-21 core region preserved: yes
+labels: audio_trigger=0x8028, bne=0x8009, call=0x800b, dispatch=0x8012, frame_trigger=0x8027, halt=0x8029, helper=0x8018, input_probe=0x801a, jmpd=0x800e, loop=0x8002, start=0x8000
+
+core region bytes (hex):
+a2031869059d0004cad0f72018804c1280ea6c0003eaeaeae860a9018d1640a9008d1640ad1640eaea02

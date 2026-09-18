@@ -1,0 +1,57 @@
+=== P5-09 Native Execution Gate ===
+
+--- fixtures ---
+
+--- executions ---
+PASS: exec:none:reproducible
+PASS: exec:none:deterministic
+PASS: exec:none:ok
+PASS: exec:none:frames
+PASS: exec:none:input-transcript
+PASS: exec:none:frame-transcript-length
+PASS: exec:a:reproducible
+PASS: exec:a:deterministic
+PASS: exec:a:ok
+PASS: exec:a:frames
+PASS: exec:a:input-transcript
+PASS: exec:a:frame-transcript-length
+PASS: exec:right:reproducible
+PASS: exec:right:deterministic
+PASS: exec:right:ok
+PASS: exec:right:frames
+PASS: exec:right:input-transcript
+PASS: exec:right:frame-transcript-length
+PASS: exec:a_right:reproducible
+PASS: exec:a_right:deterministic
+PASS: exec:a_right:ok
+PASS: exec:a_right:frames
+PASS: exec:a_right:input-transcript
+PASS: exec:a_right:frame-transcript-length
+
+--- interactivity ---
+PASS: interactive:a-changes-ram
+PASS: interactive:a-changes-ppu
+PASS: interactive:right-changes-ram
+PASS: interactive:right-keeps-ppu
+PASS: interactive:combined-distinct
+PASS: interactive:plans-pairwise-distinct
+PASS: interactive:nametable-unchanged-by-input
+PASS: interactive:frame-inputs-visible
+PASS: interactive:right-frame-inputs
+
+--- regressions ---
+PASS: regression:tools/test_nes6502_host_emitter_v1.py:exit
+PASS: regression:tools/test_nes6502_host_emitter_v1.py:stderr
+PASS: regression:tools/test_nes_runtime_bridge_v1.py:exit
+PASS: regression:tools/test_nes_runtime_bridge_v1.py:stderr
+
+--- evidence ---
+PASS: hygiene:no-private-rom-sha:executions.json
+PASS: hygiene:no-private-rom-sha:interactivity.json
+PASS: hygiene:no-private-rom-sha:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P5_09=PASS
+OPENRECOMP_PHASE5_NATIVE_EXECUTION_V1=PASS tests=40
+OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

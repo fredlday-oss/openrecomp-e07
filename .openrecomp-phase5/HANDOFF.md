@@ -226,10 +226,27 @@ reserved as `NOT_PROVEN`.
   (`edb65ad5...`).
 - Evidence: `.openrecomp-phase5/evidence/P5-08/`.
 
+## P5-09 outcome (PASS)
+
+Markers: OPENRECOMP_P5_09=PASS,
+OPENRECOMP_PHASE5_NATIVE_EXECUTION_V1=PASS tests=40; terminal and general
+markers reserved as NOT_PROVEN.
+
+- Four declared controller plans executed natively (none / A / RIGHT / A+RIGHT)
+  over 11 virtual frames: every build reproducible, every run deterministic,
+  all ailed=0 exit=1 frames=11 nmi=8.
+- Guest per-frame transcript equals the exact bit-reversed plan bytes; A/RIGHT
+  observables change exactly as documented; nametable graphics uneffected by
+  input; all plans pairwise distinct.
+- Two official runs byte-identical raw (3b6f4b79..., 1814 bytes) and LF
+  (7c1aeca9...), empty stderr, exit 0; p5_09_tests.json identical
+  (ad3501b...).
+- Evidence: .openrecomp-phase5/evidence/P5-09/.
+
 ## Exact next action
 
-Execute P5-09 (native execution of the legal NES fixture): run the native
-translation under multiple declared controller input plans, prove the guest
-receives controller input at the documented frame boundaries, that
-input-derived guest state and PPU/OAM observables change accordingly, and
-that every plan is deterministic. Then proceed to P5-10.
+Execute P5-10 (independent NES reference equivalence): drive the frozen
+independent ReferenceNES6502 + NesMachine platform with the same declared
+input plans and scheduling policy, compare CPU state, RAM/PPU/VRAM/palette/OAM,
+frame transcript, interrupt counts and the canonical state digest against the
+native observable. Then proceed to P5-11.

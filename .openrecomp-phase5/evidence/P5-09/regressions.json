@@ -1,0 +1,23 @@
+{
+  "regressions": [
+    {
+      "returncode": 0,
+      "script": "tools/test_nes6502_host_emitter_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2235,
+      "stdout_sha256_lf": "e66406e043b9dab859f5cf56ea537f333be7b59619e8c7bbb06bad4fd45f57e4",
+      "stdout_sha256_raw": "dbc6c7f4e57c4b9615e3076294f5c49caee64d81ae44c4f7998c83b7fe965b33"
+    },
+    {
+      "returncode": 0,
+      "script": "tools/test_nes_runtime_bridge_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2250,
+      "stdout_sha256_lf": "b47158d283137da527b0f710a129861bec3154a52265cec71faf7847278b3b4d",
+      "stdout_sha256_raw": "4f2eef4d9f616e8136904601af549ccf8e1250230d81aa58026367bd2da00e4c"
+    }
+  ],
+  "stage": "P5-09"
+}

@@ -1,0 +1,31 @@
+P2-21 synthetic NES6502 fixture (host emitter path)
+===================================================
+architecture: nes6502
+endianness: little
+address width: 16 bits
+entry: 0x8000
+region end: 0x801a
+region byte length: 26
+region sha256: 0a236023c59fd5363d0ebdd6ffb18d9b4e792ebeaa11a72ca513b183539fa398
+origin: synthetic/original (no commercial ROM bytes)
+labels: bne=0x8009, call=0x800b, dispatch=0x8012, helper=0x8018, jmpd=0x800e, loop=0x8002, start=0x8000
+
+region bytes (hex):
+a2031869059d0004cad0f72018804c1280ea6c0003eaeaeae860
+
+decoded instructions:
+  0x8000  ldx          size=2 flow=NORMAL target=None fields={'word': 162, 'src': 'imm', 'imm8': 3, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8002  clc          size=1 flow=NORMAL target=None fields={'word': 24, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8003  adc          size=2 flow=NORMAL target=None fields={'word': 105, 'src': 'imm', 'imm8': 5, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8005  sta_abs_x    size=3 flow=NORMAL target=None fields={'word': 157, 'dst': 'abs,x', 'abs,x': 1024, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8008  dex          size=1 flow=NORMAL target=None fields={'word': 202, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8009  bne          size=2 flow=BRANCH target=32770 fields={'word': 208, 'rel': -9, 'target': 32770, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x800b  jsr          size=3 flow=CALL target=32792 fields={'word': 32, 'a16': 32792, 'target': 32792, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x800e  jmp          size=3 flow=JUMP target=32786 fields={'word': 76, 'dst': 'abs', 'abs': 32786, 'target': 32786, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8011  nop          size=1 flow=NORMAL target=None fields={'word': 234, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8012  jmp_indirect size=3 flow=INDIRECT_JUMP target=None fields={'word': 108, 'dst': '(indirect)', 'indirect': 768, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8015  nop          size=1 flow=NORMAL target=None fields={'word': 234, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8016  nop          size=1 flow=NORMAL target=None fields={'word': 234, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8017  nop          size=1 flow=NORMAL target=None fields={'word': 234, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8018  inx          size=1 flow=NORMAL target=None fields={'word': 232, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}
+  0x8019  rts          size=1 flow=RETURN target=None fields={'word': 96, 'a': 'a', 'x': 'x', 'y': 'y', 'sp': 'sp', 'c': 'c', 'z': 'z', 'n': 'n', 'tmp': 'tmp', 'ea': 'ea', 'zero_offset': 0}

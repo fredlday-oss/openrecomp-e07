@@ -1,0 +1,204 @@
+{
+  "checks": [
+    {
+      "check": "exec:a:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:a:frame-transcript-length",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:a:frames",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:a:input-transcript",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:a:ok",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:a:reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:a_right:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:a_right:frame-transcript-length",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:a_right:frames",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:a_right:input-transcript",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:a_right:ok",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:a_right:reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:none:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:none:frame-transcript-length",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:none:frames",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:none:input-transcript",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:none:ok",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:none:reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:right:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:right:frame-transcript-length",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:right:frames",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:right:input-transcript",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:right:ok",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:right:reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-sha:executions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-sha:interactivity.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-sha:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "interactive:a-changes-ppu",
+      "status": "PASS"
+    },
+    {
+      "check": "interactive:a-changes-ram",
+      "status": "PASS"
+    },
+    {
+      "check": "interactive:combined-distinct",
+      "status": "PASS"
+    },
+    {
+      "check": "interactive:frame-inputs-visible",
+      "status": "PASS"
+    },
+    {
+      "check": "interactive:nametable-unchanged-by-input",
+      "status": "PASS"
+    },
+    {
+      "check": "interactive:plans-pairwise-distinct",
+      "status": "PASS"
+    },
+    {
+      "check": "interactive:right-changes-ram",
+      "status": "PASS"
+    },
+    {
+      "check": "interactive:right-frame-inputs",
+      "status": "PASS"
+    },
+    {
+      "check": "interactive:right-keeps-ppu",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes6502_host_emitter_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes6502_host_emitter_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_runtime_bridge_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_runtime_bridge_v1.py:stderr",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "evidence_files": [
+      "executions.json",
+      "interactivity.json",
+      "regressions.json"
+    ],
+    "regressions": [
+      {
+        "returncode": 0,
+        "script": "tools/test_nes6502_host_emitter_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2235,
+        "stdout_sha256_lf": "e66406e043b9dab859f5cf56ea537f333be7b59619e8c7bbb06bad4fd45f57e4",
+        "stdout_sha256_raw": "dbc6c7f4e57c4b9615e3076294f5c49caee64d81ae44c4f7998c83b7fe965b33"
+      },
+      {
+        "returncode": 0,
+        "script": "tools/test_nes_runtime_bridge_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2250,
+        "stdout_sha256_lf": "b47158d283137da527b0f710a129861bec3154a52265cec71faf7847278b3b4d",
+        "stdout_sha256_raw": "4f2eef4d9f616e8136904601af549ccf8e1250230d81aa58026367bd2da00e4c"
+      }
+    ]
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE5_NATIVE_EXECUTION_V1=PASS tests=40",
+    "stage": "OPENRECOMP_P5_09=PASS",
+    "terminal": "OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN"
+  },
+  "passed": 40,
+  "stage": "P5-09",
+  "stage_name": "OPENRECOMP_PHASE5_NATIVE_EXECUTION_V1",
+  "status": "PASS",
+  "tests": 40
+}

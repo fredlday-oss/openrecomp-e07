@@ -1,0 +1,243 @@
+{
+  "executions": {
+    "a": {
+      "classification": "EXECUTABLE_REPRODUCIBLE",
+      "deterministic": true,
+      "executable_sha256": "805e50fc2f077889efd5e785ad3491476c8cb8a80de961e00a0be90fcb6d1ee8",
+      "fields": {
+        "a": "0x00",
+        "clock": "298320",
+        "error": "",
+        "exit": "1",
+        "exit_arg": "0x0000C0FD",
+        "exit_word": "8080808080808080",
+        "failed": "0",
+        "frames": "11",
+        "nmi": "8",
+        "p": "0x67",
+        "pc": "0xC0FD",
+        "ppu_fnv1a64": "0x9FCA88822543982B",
+        "ram_fnv1a64": "0xB565FB978010A6F9",
+        "sp": "0xFF",
+        "state_fnv1a64": "0x33BA5B7977F5308B",
+        "steps": "90895",
+        "x": "0x08",
+        "y": "0x01"
+      },
+      "frames": [
+        "frame[0]=01,C42A06F7E7A28E25,39E9FBAE5A7B29A5",
+        "frame[1]=01,C42A06F7E7A28E25,39E9FBAE5A7B29A5",
+        "frame[2]=01,C42A06F7E7A28E25,39E9FBAE5A7B29A5",
+        "frame[3]=01,3DBFA299A64BD805,470FE6BE14FF72F9",
+        "frame[4]=01,3DBFA299A64BD805,94F8EF6AB0C7C010",
+        "frame[5]=01,3DBFA299A64BD805,433ECD1D2CF10819",
+        "frame[6]=01,3DBFA299A64BD805,09278337038DF016",
+        "frame[7]=01,3DBFA299A64BD805,B76D60E97FB7381F",
+        "frame[8]=01,3DBFA299A64BD805,7D5617035654201C",
+        "frame[9]=01,3DBFA299A64BD805,2B9BF4B5D27D6825",
+        "frame[10]=01,3DBFA299A64BD805,F184AACFA91A5022"
+      ],
+      "plan": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "stdout_sha256": "08cc4af70e704df3ae84e0d06f9bd25a2ab569ad38c22cae45ebe6bb306c4ddf"
+    },
+    "a_right": {
+      "classification": "EXECUTABLE_REPRODUCIBLE",
+      "deterministic": true,
+      "executable_sha256": "23ab21b3d79ccdf4d58a4c34bf716e96b3306a96410b68698be79dfa4174a5c8",
+      "fields": {
+        "a": "0x00",
+        "clock": "298330",
+        "error": "",
+        "exit": "1",
+        "exit_arg": "0x0000C0FD",
+        "exit_word": "8181818181818181",
+        "failed": "0",
+        "frames": "11",
+        "nmi": "8",
+        "p": "0x67",
+        "pc": "0xC0FD",
+        "ppu_fnv1a64": "0x9FCA88822543982B",
+        "ram_fnv1a64": "0xFF19F34C6C7EEC95",
+        "sp": "0xFF",
+        "state_fnv1a64": "0xE36BFB885BFE62B1",
+        "steps": "90901",
+        "x": "0x08",
+        "y": "0x01"
+      },
+      "frames": [
+        "frame[0]=81,C42A06F7E7A28E25,39E9FBAE5A7B29A5",
+        "frame[1]=81,C42A06F7E7A28E25,39E9FBAE5A7B29A5",
+        "frame[2]=81,C42A06F7E7A28E25,39E9FBAE5A7B29A5",
+        "frame[3]=81,3DBFA299A64BD805,470FE6BE14FF72F9",
+        "frame[4]=81,3DBFA299A64BD805,94F8EF6AB0C7C010",
+        "frame[5]=81,3DBFA299A64BD805,433ECD1D2CF10819",
+        "frame[6]=81,3DBFA299A64BD805,09278337038DF016",
+        "frame[7]=81,3DBFA299A64BD805,B76D60E97FB7381F",
+        "frame[8]=81,3DBFA299A64BD805,7D5617035654201C",
+        "frame[9]=81,3DBFA299A64BD805,2B9BF4B5D27D6825",
+        "frame[10]=81,3DBFA299A64BD805,F184AACFA91A5022"
+      ],
+      "plan": [
+        129,
+        129,
+        129,
+        129,
+        129,
+        129,
+        129,
+        129
+      ],
+      "stdout_sha256": "c81df47faa4198b68b517dd3c8e006b6fee81de2b79a655ece9139e789cdeddc"
+    },
+    "none": {
+      "classification": "EXECUTABLE_REPRODUCIBLE",
+      "deterministic": true,
+      "executable_sha256": "a8fd85021dd52220f4afe99341c313e62394e3367f4fbe76a807a8c563354ec8",
+      "fields": {
+        "a": "0x00",
+        "clock": "298315",
+        "error": "",
+        "exit": "1",
+        "exit_arg": "0x0000C0FD",
+        "exit_word": "0000000000000000",
+        "failed": "0",
+        "frames": "11",
+        "nmi": "8",
+        "p": "0x27",
+        "pc": "0xC0FD",
+        "ppu_fnv1a64": "0xCF103950DA2AD813",
+        "ram_fnv1a64": "0xD274F78FE0904D46",
+        "sp": "0xFF",
+        "state_fnv1a64": "0x48306098348F5680",
+        "steps": "90900",
+        "x": "0x08",
+        "y": "0x01"
+      },
+      "frames": [
+        "frame[0]=00,C42A06F7E7A28E25,39E9FBAE5A7B29A5",
+        "frame[1]=00,C42A06F7E7A28E25,39E9FBAE5A7B29A5",
+        "frame[2]=00,C42A06F7E7A28E25,39E9FBAE5A7B29A5",
+        "frame[3]=00,3DBFA299A64BD805,470FE6BE14FF72F9",
+        "frame[4]=00,3DBFA299A64BD805,CF103950DA2AD813",
+        "frame[5]=00,3DBFA299A64BD805,CF103950DA2AD813",
+        "frame[6]=00,3DBFA299A64BD805,CF103950DA2AD813",
+        "frame[7]=00,3DBFA299A64BD805,CF103950DA2AD813",
+        "frame[8]=00,3DBFA299A64BD805,CF103950DA2AD813",
+        "frame[9]=00,3DBFA299A64BD805,CF103950DA2AD813",
+        "frame[10]=00,3DBFA299A64BD805,CF103950DA2AD813"
+      ],
+      "plan": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "stdout_sha256": "5ad68be7772c1be8e0ea90339feadf5bd4b45042b1206677cbdb98b8123b681c"
+    },
+    "right": {
+      "classification": "EXECUTABLE_REPRODUCIBLE",
+      "deterministic": true,
+      "executable_sha256": "9fff61324ec5370fdca5d04936c6a293eb68219ba0dea23d011653d3f1867e9e",
+      "fields": {
+        "a": "0x00",
+        "clock": "298325",
+        "error": "",
+        "exit": "1",
+        "exit_arg": "0x0000C0FD",
+        "exit_word": "0101010101010101",
+        "failed": "0",
+        "frames": "11",
+        "nmi": "8",
+        "p": "0x27",
+        "pc": "0xC0FD",
+        "ppu_fnv1a64": "0xCF103950DA2AD813",
+        "ram_fnv1a64": "0x76BA10458682141A",
+        "sp": "0xFF",
+        "state_fnv1a64": "0xE2656035ED1FD2EE",
+        "steps": "90906",
+        "x": "0x08",
+        "y": "0x01"
+      },
+      "frames": [
+        "frame[0]=80,C42A06F7E7A28E25,39E9FBAE5A7B29A5",
+        "frame[1]=80,C42A06F7E7A28E25,39E9FBAE5A7B29A5",
+        "frame[2]=80,C42A06F7E7A28E25,39E9FBAE5A7B29A5",
+        "frame[3]=80,3DBFA299A64BD805,470FE6BE14FF72F9",
+        "frame[4]=80,3DBFA299A64BD805,CF103950DA2AD813",
+        "frame[5]=80,3DBFA299A64BD805,CF103950DA2AD813",
+        "frame[6]=80,3DBFA299A64BD805,CF103950DA2AD813",
+        "frame[7]=80,3DBFA299A64BD805,CF103950DA2AD813",
+        "frame[8]=80,3DBFA299A64BD805,CF103950DA2AD813",
+        "frame[9]=80,3DBFA299A64BD805,CF103950DA2AD813",
+        "frame[10]=80,3DBFA299A64BD805,CF103950DA2AD813"
+      ],
+      "plan": [
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+      ],
+      "stdout_sha256": "52affdd70fb6ee8e0b16a287fc71597d0eda6c6489a09f9c41163e5e18dd157f"
+    }
+  },
+  "plans": {
+    "a": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "a_right": [
+      129,
+      129,
+      129,
+      129,
+      129,
+      129,
+      129,
+      129
+    ],
+    "none": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "right": [
+      128,
+      128,
+      128,
+      128,
+      128,
+      128,
+      128,
+      128
+    ]
+  },
+  "stage": "P5-09"
+}

@@ -1,0 +1,25 @@
+P2-21 expected vs actual observable
+===================================
+expected (independent reference interpreter + semantic derivation):
+failed=1
+error=unresolved indirect jump
+reg[0]=15
+reg[1]=0
+reg[2]=1025
+reg[3]=0
+reg[4]=15
+reg[5]=1
+reg[6]=0
+ram_checksum=1430085296
+actual (native executable stdout):
+failed=1
+error=unresolved indirect jump
+reg[0]=15
+reg[1]=0
+reg[2]=1025
+reg[3]=0
+reg[4]=15
+reg[5]=1
+reg[6]=0
+ram_checksum=1430085296
+EXPECTED == ACTUAL: YES

@@ -5,8 +5,8 @@ BASELINE_TAG=openrecomp-phase4-pass
 BASELINE_OBJECT=e7eaab18fee267b3d7962db13835c9e14dd77fc2
 BASELINE_COMMIT=b3c71fb690f00b4811e8ec30c28f7725141295d0
 BASELINE_TREE=f2ca3080915aa68f403526b89dfc17454687aed6
-CURRENT_STAGE=P5-09
-LAST_PASSED_STAGE=P5-08
+CURRENT_STAGE=P5-10
+LAST_PASSED_STAGE=P5-09
 STATUS=ACTIVE
 NES_PLATFORM_STATUS=NOT_PROVEN
 FINAL_VERDICT=NOT_PROVEN
@@ -81,7 +81,7 @@ QUEUE_FREEZE_STAGES=P5-01..P5-99
 | P5-06 | PPU boundary / deterministic graphics model | PASS | `.openrecomp-phase5/evidence/P5-06/` |
 | P5-07 | APU/input/timing/interrupt boundary | PASS | `.openrecomp-phase5/evidence/P5-07/` |
 | P5-08 | Host emission + NES platform adapter | PASS | `.openrecomp-phase5/evidence/P5-08/` |
-| P5-09 | Native execution of legal NES fixture | QUEUED | `.openrecomp-phase5/evidence/P5-09/` |
+| P5-09 | Native execution of legal NES fixture | PASS | `.openrecomp-phase5/evidence/P5-09/` |
 | P5-10 | Independent NES reference equivalence | QUEUED | `.openrecomp-phase5/evidence/P5-10/` |
 | P5-11 | Private TMNT compatibility run | QUEUED | `.openrecomp-phase5/evidence/P5-11/` |
 | P5-12 | Reproducible NES package | QUEUED | `.openrecomp-phase5/evidence/P5-12/` |
