@@ -421,6 +421,52 @@ markers reserved as `NOT_PROVEN`.
   `bffc7358...` in both runs.
 - Evidence: `.openrecomp-phase6/evidence/P6-11/`.
 
+## P6-12 outcome (PASS)
+
+Markers: `OPENRECOMP_P6_12=PASS`,
+`OPENRECOMP_PHASE6_ROM_TO_NATIVE_WORKFLOW_V1=PASS tests=111`; terminal and
+general markers reserved as `NOT_PROVEN`.
+
+- New reusable workflow (`.openrecomp-phase6/src/p6_workflow_v1.py`) and gate
+  (`tools/test_phase6_workflow_v1.py`): one deterministic command accepts a
+  local ROM path, inventories it by metadata/hash only, classifies mapper and
+  MMC1 variant support, recovers the documented reachable frontier, classifies
+  undocumented opcodes and unresolved indirect targets, statically recompiles
+  only a contiguous fully documented fixed-bank region with no runtime-bank
+  ambiguity, generates the host program plus MMC1 runtime support sources into
+  a caller-owned workspace, builds through the shared Phase-2 pipeline and
+  executes the generated native binary through the typed runtime ABI. No ROM
+  file is copied or packaged; the original guest image is never executed on the
+  host.
+- Public MMC1 proof fixture end-to-end: inventory `SUPPORTED_MMC1`, power-on
+  registers `0C 00 00 00` / windows `(0, 3)`, documented frontier `OK` with 262
+  instructions / 571 bytes in `$C000-$C23B`, one declared `jmp ($02FF)` run-exit
+  thunk at `$C089`, translation `TRANSLATED`; generated host program
+  `6c1ccac5...` and support `c15980d4...` (byte-identical to P6-07); native
+  build `EXECUTABLE_REPRODUCIBLE` with executable `0ba034bd...` (identical to
+  P6-08); three byte-identical native runs reproducing every P6-08 observable
+  (`steps=82731`, `frames=9`, `nmi=6`, `mmc1_regs=1F070703`, transcript
+  `0101010101010000`); `platform_runtime=BOUNDED_NES_PLATFORM_MODEL_ACTIVE`;
+  no blockers.
+- Explicit fail-closed classifications: unsupported mapper (mapper 2),
+  malformed container, unsupported MMC1 variant (battery/PRG-RAM) and missing
+  or invalid invocation inputs all terminate without traceback with exact
+  codes/classifications and `NOT_ATTEMPTED` translation/build/execution.
+- Private image (metadata/hash only) stops exactly at the frozen P6-10/P6-11
+  frontier: undocumented opcode `0x7C` at `0xC570`, unresolved `jmp ($E2)`
+  sites `0x86E8`/`0x8956`/`0x8F3C` and the 1048 power-on low-window candidates;
+  runtime platform remains `NOT_TESTED`; no native execution.
+- Workspace hygiene: no ROM-extension file and no byte-identical ROM copy in
+  the workflow workspace; CLI stdout byte-identical across runs with empty
+  stderr; full and analysis reports deterministic across repeated runs.
+- Regressions: frozen NES tools plus P6-01 (`2bfd8a5e...`), P6-05
+  (`315fd5ea...`) and P6-09 (`0144086e...`, `tests=100`) all exit 0 with empty
+  stderr and byte-identical to the P6-11 captures.
+- Two official runs byte-identical raw (`d6291136...`, 4375 bytes) and LF
+  (`275fa999...`), empty stderr, exit 0; `p6_12_tests.json` sha256
+  `85664a79...` in both runs.
+- Evidence: `.openrecomp-phase6/evidence/P6-12/`.
+
 ## Exact next action
 
-Proceed to P6-12 - Reusable ROM-to-native workflow.
+Proceed to P6-13 - Second private TMNT compatibility run.

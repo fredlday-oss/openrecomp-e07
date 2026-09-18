@@ -1,0 +1,554 @@
+{
+  "checks": [
+    {
+      "check": "anchor:p6-07-host-program",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:p6-07-support",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:p6-08-executable",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:p6-08-observables",
+      "status": "PASS"
+    },
+    {
+      "check": "build:executable-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "build:status",
+      "status": "PASS"
+    },
+    {
+      "check": "build:toolchain",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:descends",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tag-object",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "cli:exit-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "cli:report-equivalent",
+      "status": "PASS"
+    },
+    {
+      "check": "cli:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "cli:stdout-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:compat-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:stage-row",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:no-guest-on-host",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:status",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:proof-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:candidate",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:documented",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:region",
+      "status": "PASS"
+    },
+    {
+      "check": "generated:host-file",
+      "status": "PASS"
+    },
+    {
+      "check": "generated:host-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "generated:plan",
+      "status": "PASS"
+    },
+    {
+      "check": "generated:status",
+      "status": "PASS"
+    },
+    {
+      "check": "generated:support-file",
+      "status": "PASS"
+    },
+    {
+      "check": "generated:support-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "generated:written",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:anchors.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:blockers.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:workflow.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:anchors.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:blockers.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-public-rom-bytes:workflow.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-rom-copy-in-workspace",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-rom-extension-in-workspace",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect:declared-run-exit",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:battery-variant",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:malformed",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:mapper2",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:mapper2-not-attempted",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:a",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:chr_mode",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:clock",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:error",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:exit_arg",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:exit_word",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:failed",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:frames",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:frames-transcript",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:mirroring",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:mmc1_count",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:mmc1_regs",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:mmc1_shift",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:mmc1_writes",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:nmi",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:p",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:pc",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:ppu_fnv1a64",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:prg_ram_enabled",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:prg_window_8000",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:prg_window_c000",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:ram_fnv1a64",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:sp",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:state_fnv1a64",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:steps",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:x",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:y",
+      "status": "PASS"
+    },
+    {
+      "check": "opcode:supported",
+      "status": "PASS"
+    },
+    {
+      "check": "platform:model-active",
+      "status": "PASS"
+    },
+    {
+      "check": "private:blocker-classes",
+      "status": "PASS"
+    },
+    {
+      "check": "private:candidate-counts",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity",
+      "status": "PASS"
+    },
+    {
+      "check": "private:indirect-frontier",
+      "status": "PASS"
+    },
+    {
+      "check": "private:opcode-frontier",
+      "status": "PASS"
+    },
+    {
+      "check": "private:platform-not-tested",
+      "status": "PASS"
+    },
+    {
+      "check": "private:public-claim-none",
+      "status": "PASS"
+    },
+    {
+      "check": "private:supported-mmc1",
+      "status": "PASS"
+    },
+    {
+      "check": "private:translation-blocked",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p6-09-reference-equivalence-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_platform_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_platform_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_inventory_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_inventory_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_reference_equiv_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_reference_equiv_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_variant_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_mmc1_variant_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:budget-range",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:empty-plan",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:missing-path",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:plan-value-range",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:run-count-range",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "translation:translated",
+      "status": "PASS"
+    },
+    {
+      "check": "workflow:deterministic-analysis",
+      "status": "PASS"
+    },
+    {
+      "check": "workflow:deterministic-full",
+      "status": "PASS"
+    },
+    {
+      "check": "workflow:input-classification",
+      "status": "PASS"
+    },
+    {
+      "check": "workflow:inventory",
+      "status": "PASS"
+    },
+    {
+      "check": "workflow:mapper-platform",
+      "status": "PASS"
+    },
+    {
+      "check": "workflow:power-on-state",
+      "status": "PASS"
+    },
+    {
+      "check": "workflow:status",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "evidence_files": [
+      "anchors.json",
+      "blockers.json",
+      "regressions.json",
+      "workflow.json"
+    ],
+    "regressions": [
+      {
+        "extra": [],
+        "markers": [
+          "OPENRECOMP_NES_ROM_V1=PASS tests=12"
+        ],
+        "returncode": 0,
+        "script": "tools/test_nes_rom_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 959,
+        "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+        "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+      },
+      {
+        "extra": [],
+        "markers": [
+          "OPENRECOMP_NES_PLATFORM_V1=PASS tests=10"
+        ],
+        "returncode": 0,
+        "script": "tools/test_nes_platform_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 750,
+        "stdout_sha256_lf": "bf33dbe99790623b8e80ee2e20a3d409b829fa981987ddfb159f45b665301e4c",
+        "stdout_sha256_raw": "61ae15280094542974e1b8a4439d9ff240515b8401b61f681e62b686ba4736e8"
+      },
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-12/regression_p6_01"
+        ],
+        "markers": [
+          "OPENRECOMP_P6_01=PASS",
+          "OPENRECOMP_PHASE6_MMC1_INVENTORY_V1=PASS tests=85",
+          "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_inventory_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 3140,
+        "stdout_sha256_lf": "d153a32d2fb2ebad91a944b8d7abad8ee5b827fab924bbde26b5308d7ed851f6",
+        "stdout_sha256_raw": "2bfd8a5efe673085ea06cce7281d92414eebb46b10c51d5df2e9ecb16f4409d6"
+      },
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-12/regression_p6_05"
+        ],
+        "markers": [
+          "OPENRECOMP_P6_05=PASS",
+          "OPENRECOMP_PHASE6_MMC1_VARIANT_V1=PASS tests=61",
+          "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_variant_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2761,
+        "stdout_sha256_lf": "d1a6b25f66f1eed6a38038fd693997abcd6e88b5000db199c8f111779dfe6246",
+        "stdout_sha256_raw": "315fd5eaf7ca5bc1ff190c38ebb50d66d6af7785c0f9bfb38e7dbbf11279d6d4"
+      },
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-12/regression_p6_09"
+        ],
+        "markers": [
+          "OPENRECOMP_P6_09=PASS",
+          "OPENRECOMP_PHASE6_MMC1_REFERENCE_EQUIVALENCE_V1=PASS tests=100",
+          "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_reference_equiv_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 4147,
+        "stdout_sha256_lf": "dcfbcb016a2a4bd3be64fc88e296fe7fcbef5ddd3a33deac23323b9758f8bb72",
+        "stdout_sha256_raw": "0144086e742cdc5441a5a10d1d7da8f5f8d1012281e2769fd5515d66c7f6952a"
+      }
+    ]
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE6_ROM_TO_NATIVE_WORKFLOW_V1=PASS tests=111",
+    "stage": "OPENRECOMP_P6_12=PASS",
+    "terminal": "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN"
+  },
+  "passed": 111,
+  "stage": "P6-12",
+  "stage_name": "OPENRECOMP_PHASE6_ROM_TO_NATIVE_WORKFLOW_V1",
+  "status": "PASS",
+  "tests": 111
+}

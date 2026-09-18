@@ -1,0 +1,148 @@
+=== P6-12 Reusable ROM-to-Native Workflow Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-exists
+PASS: source:manifest-verified
+
+--- frozen_chain ---
+PASS: chain:phase5-tag-object
+PASS: chain:phase5-commit
+PASS: chain:phase5-tree
+PASS: chain:descends
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+
+--- workflow_public_fixture ---
+PASS: fixture:proof-identity
+PASS: workflow:deterministic-full
+PASS: workflow:deterministic-analysis
+PASS: workflow:status
+PASS: workflow:input-classification
+PASS: workflow:inventory
+PASS: workflow:mapper-platform
+PASS: workflow:power-on-state
+
+--- workflow_frontier ---
+PASS: frontier:documented
+PASS: frontier:region
+PASS: frontier:candidate
+PASS: opcode:supported
+PASS: indirect:declared-run-exit
+PASS: translation:translated
+
+--- generated_sources ---
+PASS: generated:status
+PASS: generated:host-identity
+PASS: generated:support-identity
+PASS: generated:plan
+PASS: generated:written
+PASS: generated:host-file
+PASS: generated:support-file
+
+--- native_build ---
+PASS: build:status
+PASS: build:executable-identity
+PASS: build:toolchain
+
+--- native_execution ---
+PASS: execution:status
+PASS: execution:no-guest-on-host
+PASS: observable:failed
+PASS: observable:error
+PASS: observable:exit
+PASS: observable:steps
+PASS: observable:pc
+PASS: observable:a
+PASS: observable:x
+PASS: observable:y
+PASS: observable:sp
+PASS: observable:p
+PASS: observable:frames
+PASS: observable:nmi
+PASS: observable:clock
+PASS: observable:exit_arg
+PASS: observable:ram_fnv1a64
+PASS: observable:ppu_fnv1a64
+PASS: observable:state_fnv1a64
+PASS: observable:mmc1_regs
+PASS: observable:mmc1_shift
+PASS: observable:mmc1_count
+PASS: observable:mmc1_writes
+PASS: observable:prg_window_8000
+PASS: observable:prg_window_c000
+PASS: observable:chr_mode
+PASS: observable:mirroring
+PASS: observable:prg_ram_enabled
+PASS: observable:exit_word
+PASS: observable:frames-transcript
+PASS: platform:model-active
+
+--- record_anchors ---
+PASS: anchor:p6-07-host-program
+PASS: anchor:p6-07-support
+PASS: anchor:p6-08-executable
+PASS: anchor:p6-08-observables
+
+--- determinism_hygiene ---
+PASS: hygiene:no-rom-copy-in-workspace
+PASS: hygiene:no-rom-extension-in-workspace
+PASS: cli:exit-zero
+PASS: cli:stderr-empty
+PASS: cli:stdout-identical
+PASS: cli:report-equivalent
+
+--- negative_classification ---
+PASS: negative:mapper2
+PASS: negative:mapper2-not-attempted
+PASS: negative:malformed
+PASS: negative:battery-variant
+
+--- negative_private ---
+PASS: private:identity
+PASS: private:supported-mmc1
+PASS: private:opcode-frontier
+PASS: private:candidate-counts
+PASS: private:indirect-frontier
+PASS: private:translation-blocked
+PASS: private:platform-not-tested
+PASS: private:blocker-classes
+PASS: private:public-claim-none
+
+--- negative_invocation ---
+PASS: reject:missing-path
+PASS: reject:empty-plan
+PASS: reject:plan-value-range
+PASS: reject:budget-range
+PASS: reject:run-count-range
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:tools/test_nes_platform_v1.py:exit
+PASS: regression:tools/test_nes_platform_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_inventory_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_variant_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_variant_v1.py:stderr
+PASS: regression:tools/test_phase6_mmc1_reference_equiv_v1.py:exit
+PASS: regression:tools/test_phase6_mmc1_reference_equiv_v1.py:stderr
+PASS: regression:p6-09-reference-equivalence-marker
+
+--- evidence_hygiene ---
+PASS: hygiene:no-public-rom-bytes:workflow.json
+PASS: hygiene:no-private-rom-bytes:workflow.json
+PASS: hygiene:no-public-rom-bytes:blockers.json
+PASS: hygiene:no-private-rom-bytes:blockers.json
+PASS: hygiene:no-public-rom-bytes:anchors.json
+PASS: hygiene:no-private-rom-bytes:anchors.json
+PASS: hygiene:no-public-rom-bytes:regressions.json
+PASS: hygiene:no-private-rom-bytes:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P6_12=PASS
+OPENRECOMP_PHASE6_ROM_TO_NATIVE_WORKFLOW_V1=PASS tests=111
+OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

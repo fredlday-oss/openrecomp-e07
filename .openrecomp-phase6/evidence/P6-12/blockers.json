@@ -1,0 +1,54 @@
+{
+  "malformed": [
+    {
+      "classification": "unsupported_container",
+      "code": "BLOCKED_UNSUPPORTED_CONTAINER",
+      "detail": "iNES/NES 2.0 ingestion rejected the image: phase5 ingestion rejected the image: ROM image must be at least 16 bytes, got 14",
+      "stage": "ingestion"
+    }
+  ],
+  "private_image": [
+    {
+      "classification": "unsupported_opcode",
+      "code": "BLOCKED_UNSUPPORTED_OPCODE",
+      "detail": "documented-control-flow walk fails closed at 0xc570 (0xc570: undocumented 6502 opcode 0x7c) after 1250 candidate instructions; no code/data boundary evidence is declared",
+      "stage": "opcode_frontier"
+    },
+    {
+      "classification": "unresolved_indirect_control_flow",
+      "code": "BLOCKED_UNRESOLVED_INDIRECT_CONTROL_FLOW",
+      "detail": "unresolved indirect jump sites at 0x86e8, 0x8956, 0x8f3c through zero-page pointer(s) 0x00e2; runtime jump-table targets must not be guessed",
+      "stage": "indirect_control_flow"
+    },
+    {
+      "classification": "bank_state_unresolved",
+      "code": "BLOCKED_BANK_STATE_UNRESOLVED",
+      "detail": "1048 candidate instructions reach the mapper-switched $8000-$BFFF window under the power-on PRG bank only; runtime bank-state evidence is required to resolve the actual bank sequence",
+      "stage": "bank_state"
+    },
+    {
+      "classification": "platform_runtime_not_tested",
+      "code": "NOT_TESTED",
+      "detail": "PPU/APU/input/timing requirements beyond the bounded Phase-5/6 platform model cannot be assessed until translation completes",
+      "stage": "runtime_platform"
+    }
+  ],
+  "private_stop_reason": "BLOCKED_UNSUPPORTED_OPCODE (opcode_frontier): documented-control-flow walk fails closed at 0xc570 (0xc570: undocumented 6502 opcode 0x7c) after 1250 candidate instructions; no code/data boundary evidence is declared",
+  "stage": "P6-12",
+  "unsupported_mapper": [
+    {
+      "classification": "unsupported_mapper",
+      "code": "BLOCKED_UNSUPPORTED_MAPPER",
+      "detail": "mapper 2 is outside the audited MMC1/mapper-1 platform path; no hardware behaviour is inferred",
+      "stage": "mapper_platform"
+    }
+  ],
+  "unsupported_variant": [
+    {
+      "classification": "unsupported_mmc1_variant",
+      "code": "BLOCKED_UNSUPPORTED_MMC1_VARIANT",
+      "detail": "mapper-1 image is outside the supported subset: battery_or_prg_ram, prg_ram_declared",
+      "stage": "mapper_platform"
+    }
+  ]
+}
