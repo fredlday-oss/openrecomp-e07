@@ -1,0 +1,54 @@
+=== P5-10 Independent NES Reference Equivalence Gate ===
+
+--- fixtures ---
+
+--- equivalence ---
+PASS: none:native-reproducible
+PASS: none:native-deterministic
+PASS: none:equivalent
+PASS: none:cpu-state
+PASS: none:digests
+PASS: none:interrupts
+PASS: none:exit
+PASS: a:native-reproducible
+PASS: a:native-deterministic
+PASS: a:equivalent
+PASS: a:cpu-state
+PASS: a:digests
+PASS: a:interrupts
+PASS: a:exit
+PASS: right:native-reproducible
+PASS: right:native-deterministic
+PASS: right:equivalent
+PASS: right:cpu-state
+PASS: right:digests
+PASS: right:interrupts
+PASS: right:exit
+PASS: a_right:native-reproducible
+PASS: a_right:native-deterministic
+PASS: a_right:equivalent
+PASS: a_right:cpu-state
+PASS: a_right:digests
+PASS: a_right:interrupts
+PASS: a_right:exit
+
+--- sensitivity ---
+PASS: sensitivity:nmi-cost
+PASS: sensitivity:frame-length
+
+--- regressions ---
+PASS: regression:tools/test_nes_headless_v1.py:exit
+PASS: regression:tools/test_nes_headless_v1.py:stderr
+PASS: regression:tools/test_nes6502_state_v1.py:exit
+PASS: regression:tools/test_nes6502_state_v1.py:stderr
+
+--- evidence ---
+PASS: hygiene:no-private-rom-sha:equivalence.json
+PASS: hygiene:no-private-rom-sha:sensitivity.json
+PASS: hygiene:no-private-rom-sha:regressions.json
+
+=== RESULT ===
+OPENRECOMP_P5_10=PASS
+OPENRECOMP_PHASE5_REFERENCE_EQUIVALENCE_V1=PASS tests=37
+OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

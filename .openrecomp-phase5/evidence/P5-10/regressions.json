@@ -1,0 +1,23 @@
+{
+  "regressions": [
+    {
+      "returncode": 0,
+      "script": "tools/test_nes_headless_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 493,
+      "stdout_sha256_lf": "0d7e577bccbc4f70ef733c75e1862e8ab0d21502f80d539f8e9a2acb8c810e1e",
+      "stdout_sha256_raw": "ce686ce57375dd9edafd75fda2bba7a09b792dd1d34d7f6e04f19de0721cc879"
+    },
+    {
+      "returncode": 0,
+      "script": "tools/test_nes6502_state_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 544,
+      "stdout_sha256_lf": "0670baf6397c1002b02c00927c77348d9127ae897b81ec524367ce7891f33e00",
+      "stdout_sha256_raw": "a7a4ba6960e1c3ae286c26fbcd94cc2da1cd0db218a353c4615469269c1d35e6"
+    }
+  ],
+  "stage": "P5-10"
+}

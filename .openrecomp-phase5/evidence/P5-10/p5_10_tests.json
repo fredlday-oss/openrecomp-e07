@@ -1,0 +1,192 @@
+{
+  "checks": [
+    {
+      "check": "a:cpu-state",
+      "status": "PASS"
+    },
+    {
+      "check": "a:digests",
+      "status": "PASS"
+    },
+    {
+      "check": "a:equivalent",
+      "status": "PASS"
+    },
+    {
+      "check": "a:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "a:interrupts",
+      "status": "PASS"
+    },
+    {
+      "check": "a:native-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "a:native-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "a_right:cpu-state",
+      "status": "PASS"
+    },
+    {
+      "check": "a_right:digests",
+      "status": "PASS"
+    },
+    {
+      "check": "a_right:equivalent",
+      "status": "PASS"
+    },
+    {
+      "check": "a_right:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "a_right:interrupts",
+      "status": "PASS"
+    },
+    {
+      "check": "a_right:native-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "a_right:native-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-sha:equivalence.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-sha:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-sha:sensitivity.json",
+      "status": "PASS"
+    },
+    {
+      "check": "none:cpu-state",
+      "status": "PASS"
+    },
+    {
+      "check": "none:digests",
+      "status": "PASS"
+    },
+    {
+      "check": "none:equivalent",
+      "status": "PASS"
+    },
+    {
+      "check": "none:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "none:interrupts",
+      "status": "PASS"
+    },
+    {
+      "check": "none:native-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "none:native-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes6502_state_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes6502_state_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_headless_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_headless_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "right:cpu-state",
+      "status": "PASS"
+    },
+    {
+      "check": "right:digests",
+      "status": "PASS"
+    },
+    {
+      "check": "right:equivalent",
+      "status": "PASS"
+    },
+    {
+      "check": "right:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "right:interrupts",
+      "status": "PASS"
+    },
+    {
+      "check": "right:native-deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "right:native-reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "sensitivity:frame-length",
+      "status": "PASS"
+    },
+    {
+      "check": "sensitivity:nmi-cost",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "evidence_files": [
+      "equivalence.json",
+      "regressions.json",
+      "sensitivity.json"
+    ],
+    "regressions": [
+      {
+        "returncode": 0,
+        "script": "tools/test_nes_headless_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 493,
+        "stdout_sha256_lf": "0d7e577bccbc4f70ef733c75e1862e8ab0d21502f80d539f8e9a2acb8c810e1e",
+        "stdout_sha256_raw": "ce686ce57375dd9edafd75fda2bba7a09b792dd1d34d7f6e04f19de0721cc879"
+      },
+      {
+        "returncode": 0,
+        "script": "tools/test_nes6502_state_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 544,
+        "stdout_sha256_lf": "0670baf6397c1002b02c00927c77348d9127ae897b81ec524367ce7891f33e00",
+        "stdout_sha256_raw": "a7a4ba6960e1c3ae286c26fbcd94cc2da1cd0db218a353c4615469269c1d35e6"
+      }
+    ]
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE5_REFERENCE_EQUIVALENCE_V1=PASS tests=37",
+    "stage": "OPENRECOMP_P5_10=PASS",
+    "terminal": "OPENRECOMP_PHASE5_NES_PLATFORM_PROOF=NOT_PROVEN"
+  },
+  "passed": 37,
+  "stage": "P5-10",
+  "stage_name": "OPENRECOMP_PHASE5_REFERENCE_EQUIVALENCE_V1",
+  "status": "PASS",
+  "tests": 37
+}
