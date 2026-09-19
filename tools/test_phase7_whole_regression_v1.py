@@ -181,27 +181,89 @@ def run_script(script: str, *extra: str) -> dict[str, Any]:
     }
 
 
+P6_90_CONTEXT = "69cb116f87be0a0ac444097c940bfc2ba50716bc"
+
+# Untracked residue the frozen Phase-5/Phase-6 reconstructions require; each is
+# linked from this worktree into the temporary pre-verdict worktree.
+P6_90_RESIDUE_LINKS = (
+    (".openrecomp-phase2/backups", ".openrecomp-phase2/backups"),
+    (".openrecomp-phase2/scratch", ".openrecomp-phase2/scratch"),
+    (".openrecomp-phase3/tools", ".openrecomp-phase3/tools"),
+    (".openrecomp-phase3/external", ".openrecomp-phase3/external"),
+    ("artifacts/mips32_translation_v1", "artifacts/mips32_translation_v1"),
+    ("artifacts/mips32_translation_evidence_closure_v1",
+     "artifacts/mips32_translation_evidence_closure_v1"),
+)
+P6_90_RESIDUE_FILES = ("tools/test_build_package_reproducibility_v1.py",)
+
+
 def run_p6_90() -> dict[str, Any]:
-    """Re-run the frozen Phase-6 whole regression in this worktree."""
-    completed = subprocess.run(
-        [sys.executable, "tools/test_phase6_whole_regression_v1.py",
-         "--evidence-dir", ".openrecomp-phase7/scratch/P7-90/p6_90"],
-        cwd=str(ROOT), capture_output=True)
-    stdout = completed.stdout
-    stderr = completed.stderr
-    markers = [line for line in stdout.decode("utf-8", errors="replace").splitlines()
-               if line.startswith("OPENRECOMP_") and "=" in line]
-    return {
-        "script": "tools/test_phase6_whole_regression_v1.py",
-        "context": "current worktree",
-        "returncode": completed.returncode,
-        "stdout_bytes": len(stdout),
-        "stdout_sha256_raw": sha256_bytes(stdout),
-        "stdout_sha256_lf": sha256_bytes(stdout.replace(b"\r\n", b"\n")),
-        "stderr_bytes": len(stderr),
-        "stderr_empty": not stderr,
-        "markers": markers,
-    }
+    """Re-run the frozen Phase-6 whole regression in a pre-verdict worktree.
+
+    The frozen P6-00 gate verifies the reserved Phase-6 terminal marker, so
+    the post-verdict tree cannot re-run it; the reconstruction uses the
+    documented pre-verdict baseline commit and links the untracked Phase-2/
+    Phase-3/artifacts residue needed by the nested Phase-5 reconstruction.
+    """
+    import tempfile
+    tmp = pathlib.Path(tempfile.mkdtemp(prefix="p7_90_p6_recon_"))
+    created = False
+    linked: list[pathlib.Path] = []
+    try:
+        added = git(["worktree", "add", "--detach", str(tmp), P6_90_CONTEXT])
+        if added.returncode != 0:
+            raise AssertionError(
+                f"p6-recon:worktree-add: {added.stderr.strip()[:200]}")
+        created = True
+        for relative, source_relative in P6_90_RESIDUE_LINKS:
+            target = tmp / relative
+            source = ROOT / source_relative
+            if not source.exists():
+                continue
+            target.parent.mkdir(parents=True, exist_ok=True)
+            result = subprocess.run(
+                ["cmd", "/c", "mklink", "/J", str(target), str(source)],
+                capture_output=True, text=True)
+            if result.returncode != 0:
+                raise AssertionError(
+                    f"p6-recon:link:{relative}: "
+                    f"{result.stdout.strip()[:160]}")
+            linked.append(target)
+        for relative in P6_90_RESIDUE_FILES:
+            source = ROOT / relative
+            if source.is_file():
+                (tmp / relative).write_bytes(source.read_bytes())
+        completed = subprocess.run(
+            [sys.executable, "tools/test_phase6_whole_regression_v1.py",
+             "--evidence-dir", "scratch/p6_90"],
+            cwd=str(tmp), capture_output=True)
+        stdout = completed.stdout
+        stderr = completed.stderr
+        markers = [line for line in stdout.decode("utf-8", errors="replace").splitlines()
+                   if line.startswith("OPENRECOMP_") and "=" in line]
+        return {
+            "script": "tools/test_phase6_whole_regression_v1.py",
+            "context": "pre-verdict reconstruction worktree",
+            "context_commit": P6_90_CONTEXT,
+            "returncode": completed.returncode,
+            "stdout_bytes": len(stdout),
+            "stdout_sha256_raw": sha256_bytes(stdout),
+            "stdout_sha256_lf": sha256_bytes(stdout.replace(b"\r\n", b"\n")),
+            "stderr_bytes": len(stderr),
+            "stderr_empty": not stderr,
+            "markers": markers,
+        }
+    finally:
+        for target in linked:
+            subprocess.run(["cmd", "/c", "rmdir", str(target)],
+                           capture_output=True)
+        if created:
+            removed = git(["worktree", "remove", "--force", str(tmp)])
+            if removed.returncode != 0:
+                shutil.rmtree(tmp, ignore_errors=True)
+        else:
+            shutil.rmtree(tmp, ignore_errors=True)
+        git(["worktree", "prune"])
 
 
 def main() -> int:
