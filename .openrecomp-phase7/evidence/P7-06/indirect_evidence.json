@@ -1,0 +1,3867 @@
+{
+  "bank_model": {
+    "nodes_visited": 20718,
+    "proven_instructions": 530,
+    "status": "BLOCKED_UNDECODABLE",
+    "unresolved_instructions": 14027,
+    "unresolved_limited": true
+  },
+  "claim": "indirect-jump evidence with explicit RESOLVED_EXACT / RESOLVED_FINITE_SET / UNRESOLVED / IMPOSSIBLE states; targets are enumerated from proven value sources only and never guessed",
+  "counts": {
+    "RESOLVED_FINITE_SET": 3
+  },
+  "fixture": "private_tmnt",
+  "image_sha256": "2a9345e608ec0c57470dc6658ce8199ddea9c18076134d9ef2a56f91b0a066d1",
+  "image_size": 262160,
+  "prg_banks": 8,
+  "public_claim": "none; private local analysis must not enter the public package",
+  "sites": [
+    {
+      "bank_provenance": {
+        "candidate_banks": [
+          0
+        ],
+        "evaluated_banks": [
+          0
+        ],
+        "identities": [
+          {
+            "address": 34536,
+            "bank": 0,
+            "length": 3,
+            "op": "jmp",
+            "provenance": "PROVEN",
+            "window": "low"
+          }
+        ],
+        "proven_banks": [
+          0
+        ],
+        "state": "PROVEN"
+      },
+      "chain": [
+        {
+          "address": 34509,
+          "op": "dec"
+        },
+        {
+          "address": 34512,
+          "op": "bne"
+        },
+        {
+          "address": 34514,
+          "op": "inc"
+        },
+        {
+          "address": 34517,
+          "op": "jsr"
+        },
+        {
+          "address": 34520,
+          "op": "lda"
+        },
+        {
+          "address": 34523,
+          "op": "and"
+        },
+        {
+          "address": 34525,
+          "op": "tay"
+        },
+        {
+          "address": 34526,
+          "op": "lda"
+        },
+        {
+          "address": 34529,
+          "op": "sta"
+        },
+        {
+          "address": 34531,
+          "op": "lda"
+        },
+        {
+          "address": 34534,
+          "op": "sta"
+        }
+      ],
+      "chain_length": 11,
+      "chain_relevant_length": 7,
+      "chain_unique": true,
+      "classification": "RESOLVED_FINITE_SET",
+      "definitions": {
+        "0xe2": {
+          "chain_index": 8,
+          "instruction": {
+            "address": 34529,
+            "op": "sta"
+          },
+          "source": {
+            "base": 36792,
+            "index": "y",
+            "kind": "table",
+            "source_address": 34526
+          }
+        },
+        "0xe3": {
+          "chain_index": 10,
+          "instruction": {
+            "address": 34534,
+            "op": "sta"
+          },
+          "source": {
+            "base": 36793,
+            "index": "y",
+            "kind": "table",
+            "source_address": 34531
+          }
+        }
+      },
+      "evaluated_banks": [
+        0
+      ],
+      "feasible_targets": [
+        [
+          0,
+          34555
+        ],
+        [
+          0,
+          34717
+        ],
+        [
+          0,
+          34737
+        ],
+        [
+          0,
+          34818
+        ]
+      ],
+      "index_domain": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "index_domain_size": 4,
+      "index_register": "y",
+      "infeasible_count": 0,
+      "instruction": {
+        "length": 3,
+        "op": "jmp"
+      },
+      "per_bank": {
+        "0": {
+          "candidates": 4,
+          "feasible": 4,
+          "row_digest": "001d1b89786b68763e926a612bb5c14a6fb173eadf65842e439dc9642ee11ceb",
+          "sample_rows": [
+            {
+              "feasible": true,
+              "index": 0,
+              "op": "lda",
+              "target": 34555,
+              "target_bank": 0
+            },
+            {
+              "feasible": true,
+              "index": 2,
+              "op": "dec",
+              "target": 34717,
+              "target_bank": 0
+            },
+            {
+              "feasible": true,
+              "index": 4,
+              "op": "lda",
+              "target": 34737,
+              "target_bank": 0
+            },
+            {
+              "feasible": true,
+              "index": 6,
+              "op": "lda",
+              "target": 34818,
+              "target_bank": 0
+            }
+          ],
+          "targets": [
+            [
+              0,
+              34555
+            ],
+            [
+              0,
+              34717
+            ],
+            [
+              0,
+              34737
+            ],
+            [
+              0,
+              34818
+            ]
+          ]
+        }
+      },
+      "pointer": 226,
+      "pointer_reads": [
+        {
+          "address": 34464,
+          "op": "lda"
+        },
+        {
+          "address": 34473,
+          "op": "sbc"
+        },
+        {
+          "address": 34631,
+          "op": "lda"
+        },
+        {
+          "address": 34657,
+          "op": "ora"
+        },
+        {
+          "address": 34813,
+          "op": "lda"
+        },
+        {
+          "address": 34970,
+          "op": "sbc"
+        },
+        {
+          "address": 34985,
+          "op": "lda"
+        },
+        {
+          "address": 34991,
+          "op": "adc"
+        },
+        {
+          "address": 35028,
+          "op": "sbc"
+        },
+        {
+          "address": 35536,
+          "op": "inc"
+        },
+        {
+          "address": 35538,
+          "op": "lda"
+        },
+        {
+          "address": 35544,
+          "op": "adc"
+        },
+        {
+          "address": 35940,
+          "op": "ldy"
+        },
+        {
+          "address": 35976,
+          "op": "dec"
+        },
+        {
+          "address": 36047,
+          "op": "dec"
+        },
+        {
+          "address": 36932,
+          "op": "ldx"
+        },
+        {
+          "address": 36934,
+          "op": "ldy"
+        }
+      ],
+      "reason": "pointer values from proven sources yield 4 feasible (target_bank, target) pairs across 1 evaluated physical bank(s)",
+      "site": 34536,
+      "source_kinds": {
+        "0xe2": "table",
+        "0xe3": "table"
+      },
+      "state": "RESOLVED_FINITE_SET",
+      "table_base": 36792,
+      "table_high": 36793,
+      "table_pair": true,
+      "window": "low",
+      "writes": [
+        {
+          "address": 34529,
+          "byte": "0xe2",
+          "op": "sta"
+        },
+        {
+          "address": 34534,
+          "byte": "0xe3",
+          "op": "sta"
+        }
+      ]
+    },
+    {
+      "bank_provenance": {
+        "candidate_banks": [
+          0
+        ],
+        "evaluated_banks": [
+          0
+        ],
+        "identities": [
+          {
+            "address": 35158,
+            "bank": 0,
+            "length": 3,
+            "op": "jmp",
+            "provenance": "UNRESOLVED",
+            "window": "low"
+          }
+        ],
+        "proven_banks": [],
+        "state": "UNRESOLVED"
+      },
+      "chain": [
+        {
+          "address": 35135,
+          "op": "and"
+        },
+        {
+          "address": 35137,
+          "op": "lsr"
+        },
+        {
+          "address": 35138,
+          "op": "lsr"
+        },
+        {
+          "address": 35139,
+          "op": "lsr"
+        },
+        {
+          "address": 35140,
+          "op": "tax"
+        },
+        {
+          "address": 35141,
+          "op": "lda"
+        },
+        {
+          "address": 35144,
+          "op": "sta"
+        },
+        {
+          "address": 35146,
+          "op": "lda"
+        },
+        {
+          "address": 35149,
+          "op": "sta"
+        },
+        {
+          "address": 35151,
+          "op": "ldx"
+        },
+        {
+          "address": 35154,
+          "op": "lda"
+        },
+        {
+          "address": 35156,
+          "op": "and"
+        }
+      ],
+      "chain_length": 12,
+      "chain_relevant_length": 12,
+      "chain_unique": true,
+      "classification": "RESOLVED_FINITE_SET",
+      "definitions": {
+        "0xe2": {
+          "chain_index": 6,
+          "instruction": {
+            "address": 35144,
+            "op": "sta"
+          },
+          "source": {
+            "base": 36812,
+            "index": "x",
+            "kind": "table",
+            "source_address": 35141
+          }
+        },
+        "0xe3": {
+          "chain_index": 8,
+          "instruction": {
+            "address": 35149,
+            "op": "sta"
+          },
+          "source": {
+            "base": 36813,
+            "index": "x",
+            "kind": "table",
+            "source_address": 35146
+          }
+        }
+      },
+      "evaluated_banks": [
+        0
+      ],
+      "feasible_targets": [
+        [
+          0,
+          36099
+        ],
+        [
+          0,
+          36138
+        ],
+        [
+          0,
+          36216
+        ],
+        [
+          0,
+          36462
+        ]
+      ],
+      "index_domain": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "index_domain_size": 4,
+      "index_register": "x",
+      "infeasible_count": 0,
+      "instruction": {
+        "length": 3,
+        "op": "jmp"
+      },
+      "per_bank": {
+        "0": {
+          "candidates": 4,
+          "feasible": 4,
+          "row_digest": "cadd3394943154b318582a0977c5d87a89c40ebcaaae27f25ddbf35a43488016",
+          "sample_rows": [
+            {
+              "feasible": true,
+              "index": 0,
+              "op": "jsr",
+              "target": 36099,
+              "target_bank": 0
+            },
+            {
+              "feasible": true,
+              "index": 2,
+              "op": "sta",
+              "target": 36138,
+              "target_bank": 0
+            },
+            {
+              "feasible": true,
+              "index": 4,
+              "op": "cmp",
+              "target": 36216,
+              "target_bank": 0
+            },
+            {
+              "feasible": true,
+              "index": 6,
+              "op": "cmp",
+              "target": 36462,
+              "target_bank": 0
+            }
+          ],
+          "targets": [
+            [
+              0,
+              36099
+            ],
+            [
+              0,
+              36138
+            ],
+            [
+              0,
+              36216
+            ],
+            [
+              0,
+              36462
+            ]
+          ]
+        }
+      },
+      "pointer": 226,
+      "pointer_reads": [
+        {
+          "address": 34464,
+          "op": "lda"
+        },
+        {
+          "address": 34473,
+          "op": "sbc"
+        },
+        {
+          "address": 34631,
+          "op": "lda"
+        },
+        {
+          "address": 34657,
+          "op": "ora"
+        },
+        {
+          "address": 34813,
+          "op": "lda"
+        },
+        {
+          "address": 34970,
+          "op": "sbc"
+        },
+        {
+          "address": 34985,
+          "op": "lda"
+        },
+        {
+          "address": 34991,
+          "op": "adc"
+        },
+        {
+          "address": 35028,
+          "op": "sbc"
+        },
+        {
+          "address": 35536,
+          "op": "inc"
+        },
+        {
+          "address": 35538,
+          "op": "lda"
+        },
+        {
+          "address": 35544,
+          "op": "adc"
+        },
+        {
+          "address": 35940,
+          "op": "ldy"
+        },
+        {
+          "address": 35976,
+          "op": "dec"
+        },
+        {
+          "address": 36047,
+          "op": "dec"
+        },
+        {
+          "address": 36932,
+          "op": "ldx"
+        },
+        {
+          "address": 36934,
+          "op": "ldy"
+        }
+      ],
+      "reason": "pointer values from proven sources yield 4 feasible (target_bank, target) pairs across 1 evaluated physical bank(s)",
+      "site": 35158,
+      "source_kinds": {
+        "0xe2": "table",
+        "0xe3": "table"
+      },
+      "state": "RESOLVED_FINITE_SET",
+      "table_base": 36812,
+      "table_high": 36813,
+      "table_pair": true,
+      "window": "low",
+      "writes": [
+        {
+          "address": 35144,
+          "byte": "0xe2",
+          "op": "sta"
+        },
+        {
+          "address": 35149,
+          "byte": "0xe3",
+          "op": "sta"
+        }
+      ]
+    },
+    {
+      "bank_provenance": {
+        "candidate_banks": [],
+        "evaluated_banks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "identities": [],
+        "proven_banks": [],
+        "state": "MODEL_UNREACHED"
+      },
+      "chain": [
+        {
+          "address": 36642,
+          "op": "lda"
+        },
+        {
+          "address": 36645,
+          "op": "sta"
+        },
+        {
+          "address": 36647,
+          "op": "lda"
+        },
+        {
+          "address": 36649,
+          "op": "sta"
+        },
+        {
+          "address": 36652,
+          "op": "txa"
+        },
+        {
+          "address": 36653,
+          "op": "asl"
+        },
+        {
+          "address": 36654,
+          "op": "tax"
+        },
+        {
+          "address": 36655,
+          "op": "lda"
+        },
+        {
+          "address": 36658,
+          "op": "sta"
+        },
+        {
+          "address": 36660,
+          "op": "lda"
+        },
+        {
+          "address": 36663,
+          "op": "sta"
+        },
+        {
+          "address": 36665,
+          "op": "ldx"
+        }
+      ],
+      "chain_length": 12,
+      "chain_relevant_length": 12,
+      "chain_unique": true,
+      "classification": "RESOLVED_FINITE_SET",
+      "definitions": {
+        "0xe2": {
+          "chain_index": 8,
+          "instruction": {
+            "address": 36658,
+            "op": "sta"
+          },
+          "source": {
+            "base": 36800,
+            "index": "x",
+            "kind": "table",
+            "source_address": 36655
+          }
+        },
+        "0xe3": {
+          "chain_index": 10,
+          "instruction": {
+            "address": 36663,
+            "op": "sta"
+          },
+          "source": {
+            "base": 36801,
+            "index": "x",
+            "kind": "table",
+            "source_address": 36660
+          }
+        }
+      },
+      "evaluated_banks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "feasible_targets": [
+        [
+          0,
+          33165
+        ],
+        [
+          0,
+          33737
+        ],
+        [
+          0,
+          36096
+        ],
+        [
+          0,
+          36097
+        ],
+        [
+          0,
+          36099
+        ],
+        [
+          0,
+          36138
+        ],
+        [
+          0,
+          36144
+        ],
+        [
+          0,
+          36160
+        ],
+        [
+          0,
+          36192
+        ],
+        [
+          0,
+          36216
+        ],
+        [
+          0,
+          36344
+        ],
+        [
+          0,
+          36462
+        ],
+        [
+          0,
+          36671
+        ],
+        [
+          0,
+          36685
+        ],
+        [
+          0,
+          36701
+        ],
+        [
+          0,
+          36729
+        ],
+        [
+          0,
+          36939
+        ],
+        [
+          0,
+          37267
+        ],
+        [
+          0,
+          38061
+        ],
+        [
+          0,
+          38476
+        ],
+        [
+          0,
+          39336
+        ],
+        [
+          0,
+          40333
+        ],
+        [
+          0,
+          43360
+        ],
+        [
+          0,
+          43407
+        ],
+        [
+          0,
+          44289
+        ],
+        [
+          0,
+          44336
+        ],
+        [
+          0,
+          44384
+        ],
+        [
+          0,
+          45118
+        ],
+        [
+          2,
+          33968
+        ],
+        [
+          2,
+          34000
+        ],
+        [
+          2,
+          34464
+        ],
+        [
+          2,
+          34481
+        ],
+        [
+          2,
+          35009
+        ],
+        [
+          2,
+          35537
+        ],
+        [
+          2,
+          35553
+        ],
+        [
+          2,
+          35569
+        ],
+        [
+          2,
+          37057
+        ],
+        [
+          2,
+          37905
+        ],
+        [
+          2,
+          38625
+        ],
+        [
+          2,
+          40128
+        ],
+        [
+          2,
+          40970
+        ],
+        [
+          2,
+          41201
+        ],
+        [
+          2,
+          41665
+        ],
+        [
+          2,
+          41712
+        ],
+        [
+          3,
+          33926
+        ],
+        [
+          3,
+          34178
+        ],
+        [
+          3,
+          34190
+        ],
+        [
+          3,
+          34450
+        ],
+        [
+          3,
+          34974
+        ],
+        [
+          3,
+          34990
+        ],
+        [
+          3,
+          35465
+        ],
+        [
+          3,
+          35466
+        ],
+        [
+          3,
+          36495
+        ],
+        [
+          3,
+          36510
+        ],
+        [
+          3,
+          36514
+        ],
+        [
+          3,
+          36735
+        ],
+        [
+          3,
+          36999
+        ],
+        [
+          3,
+          37263
+        ],
+        [
+          3,
+          37885
+        ],
+        [
+          3,
+          40606
+        ],
+        [
+          3,
+          40701
+        ],
+        [
+          3,
+          41102
+        ],
+        [
+          3,
+          44682
+        ],
+        [
+          3,
+          44718
+        ],
+        [
+          3,
+          44792
+        ],
+        [
+          3,
+          44793
+        ],
+        [
+          3,
+          44797
+        ],
+        [
+          3,
+          44800
+        ],
+        [
+          3,
+          44920
+        ],
+        [
+          3,
+          44959
+        ],
+        [
+          3,
+          45053
+        ],
+        [
+          3,
+          46077
+        ],
+        [
+          4,
+          33152
+        ],
+        [
+          4,
+          33666
+        ],
+        [
+          4,
+          37264
+        ],
+        [
+          5,
+          33025
+        ],
+        [
+          5,
+          33100
+        ],
+        [
+          5,
+          33961
+        ],
+        [
+          5,
+          34050
+        ],
+        [
+          5,
+          34052
+        ],
+        [
+          5,
+          34053
+        ],
+        [
+          5,
+          34817
+        ],
+        [
+          5,
+          36782
+        ],
+        [
+          5,
+          36824
+        ],
+        [
+          5,
+          36906
+        ],
+        [
+          5,
+          36984
+        ],
+        [
+          5,
+          36985
+        ],
+        [
+          5,
+          36986
+        ],
+        [
+          5,
+          37008
+        ],
+        [
+          5,
+          37013
+        ],
+        [
+          5,
+          39200
+        ],
+        [
+          5,
+          40192
+        ],
+        [
+          5,
+          40197
+        ],
+        [
+          5,
+          40963
+        ],
+        [
+          5,
+          41994
+        ],
+        [
+          5,
+          42240
+        ],
+        [
+          5,
+          42244
+        ],
+        [
+          5,
+          43286
+        ],
+        [
+          5,
+          43304
+        ],
+        [
+          5,
+          45057
+        ],
+        [
+          5,
+          45068
+        ],
+        [
+          5,
+          45209
+        ],
+        [
+          5,
+          48388
+        ],
+        [
+          5,
+          48398
+        ],
+        [
+          5,
+          48528
+        ],
+        [
+          5,
+          48554
+        ],
+        [
+          5,
+          48625
+        ],
+        [
+          6,
+          33152
+        ],
+        [
+          6,
+          34046
+        ],
+        [
+          6,
+          34180
+        ],
+        [
+          6,
+          34694
+        ],
+        [
+          6,
+          34814
+        ],
+        [
+          6,
+          34951
+        ],
+        [
+          6,
+          35839
+        ],
+        [
+          6,
+          36750
+        ],
+        [
+          6,
+          36862
+        ],
+        [
+          6,
+          37009
+        ],
+        [
+          6,
+          37374
+        ],
+        [
+          6,
+          37521
+        ],
+        [
+          6,
+          38142
+        ],
+        [
+          6,
+          38808
+        ],
+        [
+          6,
+          38911
+        ],
+        [
+          6,
+          40959
+        ],
+        [
+          6,
+          41890
+        ],
+        [
+          6,
+          42147
+        ],
+        [
+          6,
+          43262
+        ],
+        [
+          6,
+          43518
+        ],
+        [
+          6,
+          43775
+        ],
+        [
+          6,
+          44030
+        ],
+        [
+          6,
+          44542
+        ],
+        [
+          6,
+          45264
+        ],
+        [
+          6,
+          45567
+        ],
+        [
+          6,
+          46773
+        ],
+        [
+          6,
+          47288
+        ],
+        [
+          6,
+          47615
+        ],
+        [
+          6,
+          48059
+        ],
+        [
+          6,
+          48316
+        ],
+        [
+          6,
+          49151
+        ],
+        [
+          7,
+          32769
+        ],
+        [
+          7,
+          32773
+        ],
+        [
+          7,
+          32853
+        ],
+        [
+          7,
+          38197
+        ],
+        [
+          7,
+          38685
+        ],
+        [
+          7,
+          38725
+        ],
+        [
+          7,
+          39456
+        ],
+        [
+          7,
+          43360
+        ],
+        [
+          7,
+          43392
+        ],
+        [
+          7,
+          43415
+        ],
+        [
+          7,
+          43423
+        ],
+        [
+          7,
+          43432
+        ],
+        [
+          7,
+          43433
+        ],
+        [
+          7,
+          43434
+        ],
+        [
+          7,
+          43441
+        ],
+        [
+          7,
+          43470
+        ],
+        [
+          7,
+          43479
+        ],
+        [
+          7,
+          43484
+        ],
+        [
+          7,
+          43489
+        ],
+        [
+          7,
+          49160
+        ],
+        [
+          7,
+          49344
+        ],
+        [
+          7,
+          49347
+        ],
+        [
+          7,
+          49352
+        ],
+        [
+          7,
+          49363
+        ],
+        [
+          7,
+          49372
+        ],
+        [
+          7,
+          49373
+        ],
+        [
+          7,
+          49382
+        ],
+        [
+          7,
+          49394
+        ],
+        [
+          7,
+          49407
+        ],
+        [
+          7,
+          49656
+        ],
+        [
+          7,
+          49696
+        ],
+        [
+          7,
+          49740
+        ],
+        [
+          7,
+          49857
+        ],
+        [
+          7,
+          49904
+        ],
+        [
+          7,
+          49905
+        ],
+        [
+          7,
+          50208
+        ],
+        [
+          7,
+          50252
+        ],
+        [
+          7,
+          50371
+        ],
+        [
+          7,
+          50416
+        ],
+        [
+          7,
+          50885
+        ],
+        [
+          7,
+          50928
+        ],
+        [
+          7,
+          51198
+        ],
+        [
+          7,
+          51205
+        ],
+        [
+          7,
+          51404
+        ],
+        [
+          7,
+          51457
+        ],
+        [
+          7,
+          51461
+        ],
+        [
+          7,
+          51485
+        ],
+        [
+          7,
+          51593
+        ],
+        [
+          7,
+          51716
+        ],
+        [
+          7,
+          51717
+        ],
+        [
+          7,
+          52486
+        ],
+        [
+          7,
+          52722
+        ],
+        [
+          7,
+          52930
+        ],
+        [
+          7,
+          52932
+        ],
+        [
+          7,
+          52973
+        ],
+        [
+          7,
+          53226
+        ],
+        [
+          7,
+          53257
+        ],
+        [
+          7,
+          53259
+        ],
+        [
+          7,
+          53270
+        ],
+        [
+          7,
+          53379
+        ],
+        [
+          7,
+          53456
+        ],
+        [
+          7,
+          53475
+        ],
+        [
+          7,
+          53489
+        ],
+        [
+          7,
+          53501
+        ],
+        [
+          7,
+          53504
+        ],
+        [
+          7,
+          53970
+        ],
+        [
+          7,
+          54860
+        ],
+        [
+          7,
+          55254
+        ],
+        [
+          7,
+          55628
+        ],
+        [
+          7,
+          55744
+        ],
+        [
+          7,
+          55768
+        ],
+        [
+          7,
+          55769
+        ],
+        [
+          7,
+          55794
+        ],
+        [
+          7,
+          56496
+        ],
+        [
+          7,
+          56535
+        ],
+        [
+          7,
+          56768
+        ],
+        [
+          7,
+          57344
+        ],
+        [
+          7,
+          57497
+        ],
+        [
+          7,
+          57600
+        ],
+        [
+          7,
+          57698
+        ],
+        [
+          7,
+          57792
+        ],
+        [
+          7,
+          57848
+        ],
+        [
+          7,
+          57990
+        ],
+        [
+          7,
+          58022
+        ],
+        [
+          7,
+          58244
+        ],
+        [
+          7,
+          58276
+        ],
+        [
+          7,
+          58338
+        ],
+        [
+          7,
+          58355
+        ],
+        [
+          7,
+          58576
+        ],
+        [
+          7,
+          58627
+        ],
+        [
+          7,
+          58680
+        ],
+        [
+          7,
+          58852
+        ],
+        [
+          7,
+          59936
+        ],
+        [
+          7,
+          60748
+        ],
+        [
+          7,
+          61362
+        ],
+        [
+          7,
+          61441
+        ],
+        [
+          7,
+          61444
+        ],
+        [
+          7,
+          61445
+        ],
+        [
+          7,
+          61688
+        ],
+        [
+          7,
+          61696
+        ],
+        [
+          7,
+          61921
+        ],
+        [
+          7,
+          61936
+        ],
+        [
+          7,
+          62152
+        ],
+        [
+          7,
+          62173
+        ],
+        [
+          7,
+          62240
+        ],
+        [
+          7,
+          62400
+        ],
+        [
+          7,
+          62692
+        ],
+        [
+          7,
+          62965
+        ],
+        [
+          7,
+          63478
+        ],
+        [
+          7,
+          63489
+        ],
+        [
+          7,
+          63552
+        ],
+        [
+          7,
+          63553
+        ],
+        [
+          7,
+          63612
+        ],
+        [
+          7,
+          63626
+        ],
+        [
+          7,
+          63630
+        ],
+        [
+          7,
+          63636
+        ],
+        [
+          7,
+          63638
+        ],
+        [
+          7,
+          63642
+        ],
+        [
+          7,
+          63646
+        ],
+        [
+          7,
+          63694
+        ],
+        [
+          7,
+          63741
+        ],
+        [
+          7,
+          63759
+        ],
+        [
+          7,
+          63880
+        ],
+        [
+          7,
+          63992
+        ],
+        [
+          7,
+          64513
+        ],
+        [
+          7,
+          64639
+        ],
+        [
+          7,
+          64645
+        ],
+        [
+          7,
+          64760
+        ],
+        [
+          7,
+          64761
+        ],
+        [
+          7,
+          65008
+        ],
+        [
+          7,
+          65089
+        ],
+        [
+          7,
+          65096
+        ],
+        [
+          7,
+          65100
+        ],
+        [
+          7,
+          65104
+        ],
+        [
+          7,
+          65105
+        ],
+        [
+          7,
+          65106
+        ],
+        [
+          7,
+          65107
+        ],
+        [
+          7,
+          65123
+        ],
+        [
+          7,
+          65152
+        ],
+        [
+          7,
+          65154
+        ],
+        [
+          7,
+          65155
+        ],
+        [
+          7,
+          65157
+        ],
+        [
+          7,
+          65158
+        ],
+        [
+          7,
+          65160
+        ],
+        [
+          7,
+          65161
+        ],
+        [
+          7,
+          65162
+        ],
+        [
+          7,
+          65171
+        ],
+        [
+          7,
+          65174
+        ],
+        [
+          7,
+          65175
+        ],
+        [
+          7,
+          65179
+        ],
+        [
+          7,
+          65280
+        ],
+        [
+          7,
+          65350
+        ],
+        [
+          7,
+          65424
+        ],
+        [
+          7,
+          65440
+        ],
+        [
+          7,
+          65446
+        ],
+        [
+          7,
+          65458
+        ],
+        [
+          7,
+          65463
+        ],
+        [
+          7,
+          65465
+        ],
+        [
+          7,
+          65466
+        ],
+        [
+          7,
+          65469
+        ],
+        [
+          7,
+          65470
+        ],
+        [
+          7,
+          65471
+        ]
+      ],
+      "index_domain": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        22,
+        24,
+        26,
+        28,
+        30,
+        32,
+        34,
+        36,
+        38,
+        40,
+        42,
+        44,
+        46,
+        48,
+        50,
+        52,
+        54,
+        56,
+        58,
+        60,
+        62,
+        64,
+        66,
+        68,
+        70,
+        72,
+        74,
+        76,
+        78,
+        80,
+        82,
+        84,
+        86,
+        88,
+        90,
+        92,
+        94,
+        96,
+        98,
+        100,
+        102,
+        104,
+        106,
+        108,
+        110,
+        112,
+        114,
+        116,
+        118,
+        120,
+        122,
+        124,
+        126,
+        128,
+        130,
+        132,
+        134,
+        136,
+        138,
+        140,
+        142,
+        144,
+        146,
+        148,
+        150,
+        152,
+        154,
+        156,
+        158,
+        160,
+        162,
+        164,
+        166,
+        168,
+        170,
+        172,
+        174,
+        176,
+        178,
+        180,
+        182,
+        184,
+        186,
+        188,
+        190,
+        192,
+        194,
+        196,
+        198,
+        200,
+        202,
+        204,
+        206,
+        208,
+        210,
+        212,
+        214,
+        216,
+        218,
+        220,
+        222,
+        224,
+        226,
+        228,
+        230,
+        232,
+        234,
+        236,
+        238,
+        240,
+        242,
+        244,
+        246,
+        248,
+        250,
+        252,
+        254
+      ],
+      "index_domain_size": 128,
+      "index_register": "x",
+      "infeasible_count": 442,
+      "instruction": {
+        "length": 3,
+        "op": "jmp"
+      },
+      "per_bank": {
+        "0": {
+          "candidates": 128,
+          "feasible": 48,
+          "row_digest": "70c7fbc571b66c3c0d16bd21b714281498307ad782a510409c4e4d0d4a5d949c",
+          "sample_rows": [
+            {
+              "feasible": true,
+              "index": 0,
+              "op": "lda",
+              "target": 36671,
+              "target_bank": 0
+            },
+            {
+              "feasible": true,
+              "index": 2,
+              "op": "lda",
+              "target": 36671,
+              "target_bank": 0
+            },
+            {
+              "feasible": true,
+              "index": 4,
+              "op": "lda",
+              "target": 36685,
+              "target_bank": 0
+            },
+            {
+              "feasible": true,
+              "index": 6,
+              "op": "lda",
+              "target": 36729,
+              "target_bank": 0
+            },
+            {
+              "feasible": true,
+              "index": 8,
+              "op": "ldx",
+              "target": 36701,
+              "target_bank": 0
+            },
+            {
+              "feasible": true,
+              "index": 10,
+              "op": "lda",
+              "target": 36671,
+              "target_bank": 0
+            },
+            {
+              "feasible": true,
+              "index": 12,
+              "op": "jsr",
+              "target": 36099,
+              "target_bank": 0
+            },
+            {
+              "feasible": true,
+              "index": 14,
+              "op": "sta",
+              "target": 36138,
+              "target_bank": 0
+            }
+          ],
+          "targets": [
+            [
+              0,
+              33165
+            ],
+            [
+              0,
+              33737
+            ],
+            [
+              0,
+              36096
+            ],
+            [
+              0,
+              36097
+            ],
+            [
+              0,
+              36099
+            ],
+            [
+              0,
+              36138
+            ],
+            [
+              0,
+              36144
+            ],
+            [
+              0,
+              36160
+            ],
+            [
+              0,
+              36192
+            ],
+            [
+              0,
+              36216
+            ],
+            [
+              0,
+              36344
+            ],
+            [
+              0,
+              36462
+            ],
+            [
+              0,
+              36671
+            ],
+            [
+              0,
+              36685
+            ],
+            [
+              0,
+              36701
+            ],
+            [
+              0,
+              36729
+            ],
+            [
+              0,
+              36939
+            ],
+            [
+              0,
+              37267
+            ],
+            [
+              0,
+              38061
+            ],
+            [
+              0,
+              38476
+            ],
+            [
+              0,
+              39336
+            ],
+            [
+              0,
+              40333
+            ],
+            [
+              0,
+              43360
+            ],
+            [
+              0,
+              43407
+            ],
+            [
+              0,
+              44289
+            ],
+            [
+              0,
+              44336
+            ],
+            [
+              0,
+              44384
+            ],
+            [
+              0,
+              45118
+            ],
+            [
+              7,
+              49352
+            ],
+            [
+              7,
+              51457
+            ],
+            [
+              7,
+              51461
+            ],
+            [
+              7,
+              51485
+            ],
+            [
+              7,
+              51593
+            ],
+            [
+              7,
+              52486
+            ],
+            [
+              7,
+              53270
+            ],
+            [
+              7,
+              53379
+            ],
+            [
+              7,
+              57990
+            ],
+            [
+              7,
+              58022
+            ],
+            [
+              7,
+              58244
+            ],
+            [
+              7,
+              58276
+            ],
+            [
+              7,
+              61441
+            ]
+          ]
+        },
+        "1": {
+          "candidates": 128,
+          "feasible": 0,
+          "row_digest": "537cd11046af101bbe366e9838055f9e33c748fcce78c9daba07f0a443275525",
+          "sample_rows": [
+            {
+              "feasible": false,
+              "index": 0,
+              "reason": "target outside the PRG windows",
+              "target": 2821,
+              "target_bank": 1
+            },
+            {
+              "feasible": false,
+              "index": 2,
+              "reason": "target outside the PRG windows",
+              "target": 7962,
+              "target_bank": 1
+            },
+            {
+              "feasible": false,
+              "index": 4,
+              "reason": "target outside the PRG windows",
+              "target": 23,
+              "target_bank": 1
+            },
+            {
+              "feasible": false,
+              "index": 6,
+              "reason": "target outside the PRG windows",
+              "target": 808,
+              "target_bank": 1
+            },
+            {
+              "feasible": false,
+              "index": 8,
+              "reason": "target outside the PRG windows",
+              "target": 2858,
+              "target_bank": 1
+            },
+            {
+              "feasible": false,
+              "index": 10,
+              "reason": "target outside the PRG windows",
+              "target": 7962,
+              "target_bank": 1
+            },
+            {
+              "feasible": false,
+              "index": 12,
+              "reason": "target outside the PRG windows",
+              "target": 6176,
+              "target_bank": 1
+            },
+            {
+              "feasible": false,
+              "index": 14,
+              "reason": "target outside the PRG windows",
+              "target": 2833,
+              "target_bank": 1
+            }
+          ],
+          "targets": []
+        },
+        "2": {
+          "candidates": 128,
+          "feasible": 59,
+          "row_digest": "c277e647de94e72b7e6cf0c5008a536a5b9a0e4728b9b88370ce0f7e4fe4725d",
+          "sample_rows": [
+            {
+              "feasible": false,
+              "index": 0,
+              "reason": "target outside the PRG windows",
+              "target": 2560,
+              "target_bank": 2
+            },
+            {
+              "feasible": true,
+              "index": 2,
+              "op": "cpy",
+              "target": 41712,
+              "target_bank": 2
+            },
+            {
+              "feasible": true,
+              "index": 4,
+              "op": "inc",
+              "target": 63489,
+              "target_bank": 7
+            },
+            {
+              "feasible": true,
+              "index": 6,
+              "op": "sbc",
+              "target": 41201,
+              "target_bank": 2
+            },
+            {
+              "feasible": false,
+              "index": 8,
+              "reason": "target outside the PRG windows",
+              "target": 4352,
+              "target_bank": 2
+            },
+            {
+              "feasible": true,
+              "index": 10,
+              "op": "asl",
+              "target": 63638,
+              "target_bank": 7
+            },
+            {
+              "feasible": true,
+              "index": 12,
+              "op": "cmp",
+              "target": 37905,
+              "target_bank": 2
+            },
+            {
+              "feasible": false,
+              "index": 14,
+              "reason": "target outside the PRG windows",
+              "target": 12544,
+              "target_bank": 2
+            }
+          ],
+          "targets": [
+            [
+              2,
+              33968
+            ],
+            [
+              2,
+              34000
+            ],
+            [
+              2,
+              34464
+            ],
+            [
+              2,
+              34481
+            ],
+            [
+              2,
+              35009
+            ],
+            [
+              2,
+              35537
+            ],
+            [
+              2,
+              35553
+            ],
+            [
+              2,
+              35569
+            ],
+            [
+              2,
+              37057
+            ],
+            [
+              2,
+              37905
+            ],
+            [
+              2,
+              38625
+            ],
+            [
+              2,
+              40128
+            ],
+            [
+              2,
+              40970
+            ],
+            [
+              2,
+              41201
+            ],
+            [
+              2,
+              41665
+            ],
+            [
+              2,
+              41712
+            ],
+            [
+              7,
+              49160
+            ],
+            [
+              7,
+              49656
+            ],
+            [
+              7,
+              49904
+            ],
+            [
+              7,
+              49905
+            ],
+            [
+              7,
+              50416
+            ],
+            [
+              7,
+              50928
+            ],
+            [
+              7,
+              51205
+            ],
+            [
+              7,
+              51716
+            ],
+            [
+              7,
+              51717
+            ],
+            [
+              7,
+              53501
+            ],
+            [
+              7,
+              53504
+            ],
+            [
+              7,
+              57344
+            ],
+            [
+              7,
+              57600
+            ],
+            [
+              7,
+              57848
+            ],
+            [
+              7,
+              61444
+            ],
+            [
+              7,
+              61445
+            ],
+            [
+              7,
+              61688
+            ],
+            [
+              7,
+              61696
+            ],
+            [
+              7,
+              63489
+            ],
+            [
+              7,
+              63552
+            ],
+            [
+              7,
+              63553
+            ],
+            [
+              7,
+              63626
+            ],
+            [
+              7,
+              63636
+            ],
+            [
+              7,
+              63638
+            ],
+            [
+              7,
+              63642
+            ],
+            [
+              7,
+              63694
+            ],
+            [
+              7,
+              64513
+            ],
+            [
+              7,
+              65008
+            ]
+          ]
+        },
+        "3": {
+          "candidates": 128,
+          "feasible": 58,
+          "row_digest": "8e44c87146aa19e2a5230f79debaa94d502bc495f6047cda4bca382482d654d7",
+          "sample_rows": [
+            {
+              "feasible": false,
+              "index": 0,
+              "reason": "undecodable target: 0x8185: undocumented 6502 opcode 0xab",
+              "target": 33157,
+              "target_bank": 3
+            },
+            {
+              "feasible": true,
+              "index": 2,
+              "op": "rol",
+              "target": 34178,
+              "target_bank": 3
+            },
+            {
+              "feasible": true,
+              "index": 4,
+              "op": "adc",
+              "target": 33926,
+              "target_bank": 3
+            },
+            {
+              "feasible": false,
+              "index": 6,
+              "reason": "undecodable target: 0x8685: undocumented 6502 opcode 0xdc",
+              "target": 34437,
+              "target_bank": 3
+            },
+            {
+              "feasible": true,
+              "index": 8,
+              "op": "ora",
+              "target": 34190,
+              "target_bank": 3
+            },
+            {
+              "feasible": false,
+              "index": 10,
+              "reason": "target outside the PRG windows",
+              "target": 32390,
+              "target_bank": 3
+            },
+            {
+              "feasible": false,
+              "index": 12,
+              "reason": "undecodable target: 0x867f: undocumented 6502 opcode 0x9b",
+              "target": 34431,
+              "target_bank": 3
+            },
+            {
+              "feasible": false,
+              "index": 14,
+              "reason": "undecodable target: 0x8f8e: undocumented 6502 opcode 0x83",
+              "target": 36750,
+              "target_bank": 3
+            }
+          ],
+          "targets": [
+            [
+              3,
+              33926
+            ],
+            [
+              3,
+              34178
+            ],
+            [
+              3,
+              34190
+            ],
+            [
+              3,
+              34450
+            ],
+            [
+              3,
+              34974
+            ],
+            [
+              3,
+              34990
+            ],
+            [
+              3,
+              35465
+            ],
+            [
+              3,
+              35466
+            ],
+            [
+              3,
+              36495
+            ],
+            [
+              3,
+              36510
+            ],
+            [
+              3,
+              36514
+            ],
+            [
+              3,
+              36735
+            ],
+            [
+              3,
+              36999
+            ],
+            [
+              3,
+              37263
+            ],
+            [
+              3,
+              37885
+            ],
+            [
+              3,
+              40606
+            ],
+            [
+              3,
+              40701
+            ],
+            [
+              3,
+              41102
+            ],
+            [
+              3,
+              44682
+            ],
+            [
+              3,
+              44718
+            ],
+            [
+              3,
+              44792
+            ],
+            [
+              3,
+              44793
+            ],
+            [
+              3,
+              44797
+            ],
+            [
+              3,
+              44800
+            ],
+            [
+              3,
+              44920
+            ],
+            [
+              3,
+              44959
+            ],
+            [
+              3,
+              45053
+            ],
+            [
+              3,
+              46077
+            ],
+            [
+              7,
+              63612
+            ],
+            [
+              7,
+              63630
+            ],
+            [
+              7,
+              63646
+            ],
+            [
+              7,
+              63741
+            ],
+            [
+              7,
+              63759
+            ],
+            [
+              7,
+              63880
+            ],
+            [
+              7,
+              63992
+            ],
+            [
+              7,
+              64639
+            ],
+            [
+              7,
+              64645
+            ],
+            [
+              7,
+              64760
+            ],
+            [
+              7,
+              64761
+            ]
+          ]
+        },
+        "4": {
+          "candidates": 128,
+          "feasible": 97,
+          "row_digest": "9f5d516a42abd4bc200215513bacc6211256297437841a1651375033fd67b2fd",
+          "sample_rows": [
+            {
+              "feasible": true,
+              "index": 0,
+              "op": "jmp",
+              "target": 49344,
+              "target_bank": 7
+            },
+            {
+              "feasible": true,
+              "index": 2,
+              "op": "rol",
+              "target": 62965,
+              "target_bank": 7
+            },
+            {
+              "feasible": true,
+              "index": 4,
+              "op": "rol",
+              "target": 62965,
+              "target_bank": 7
+            },
+            {
+              "feasible": false,
+              "index": 6,
+              "reason": "target outside the PRG windows",
+              "target": 1284,
+              "target_bank": 4
+            },
+            {
+              "feasible": false,
+              "index": 8,
+              "reason": "target outside the PRG windows",
+              "target": 1541,
+              "target_bank": 4
+            },
+            {
+              "feasible": false,
+              "index": 10,
+              "reason": "target outside the PRG windows",
+              "target": 5488,
+              "target_bank": 4
+            },
+            {
+              "feasible": false,
+              "index": 12,
+              "reason": "target outside the PRG windows",
+              "target": 5653,
+              "target_bank": 4
+            },
+            {
+              "feasible": false,
+              "index": 14,
+              "reason": "undecodable target: 0xccc0: undocumented 6502 opcode 0x57",
+              "target": 52416,
+              "target_bank": 7
+            }
+          ],
+          "targets": [
+            [
+              4,
+              33152
+            ],
+            [
+              4,
+              33666
+            ],
+            [
+              4,
+              37264
+            ],
+            [
+              7,
+              49344
+            ],
+            [
+              7,
+              49347
+            ],
+            [
+              7,
+              49363
+            ],
+            [
+              7,
+              49372
+            ],
+            [
+              7,
+              49373
+            ],
+            [
+              7,
+              49382
+            ],
+            [
+              7,
+              49394
+            ],
+            [
+              7,
+              51404
+            ],
+            [
+              7,
+              52722
+            ],
+            [
+              7,
+              53456
+            ],
+            [
+              7,
+              53475
+            ],
+            [
+              7,
+              53489
+            ],
+            [
+              7,
+              53970
+            ],
+            [
+              7,
+              55744
+            ],
+            [
+              7,
+              55768
+            ],
+            [
+              7,
+              55769
+            ],
+            [
+              7,
+              55794
+            ],
+            [
+              7,
+              56535
+            ],
+            [
+              7,
+              56768
+            ],
+            [
+              7,
+              57792
+            ],
+            [
+              7,
+              58338
+            ],
+            [
+              7,
+              58355
+            ],
+            [
+              7,
+              58576
+            ],
+            [
+              7,
+              58852
+            ],
+            [
+              7,
+              61921
+            ],
+            [
+              7,
+              61936
+            ],
+            [
+              7,
+              62152
+            ],
+            [
+              7,
+              62173
+            ],
+            [
+              7,
+              62400
+            ],
+            [
+              7,
+              62692
+            ],
+            [
+              7,
+              62965
+            ],
+            [
+              7,
+              63478
+            ]
+          ]
+        },
+        "5": {
+          "candidates": 128,
+          "feasible": 46,
+          "row_digest": "91688304df8d21823ade4d51a93aad30e406c1084199f091ed2a546b922c4f4f",
+          "sample_rows": [
+            {
+              "feasible": true,
+              "index": 0,
+              "op": "bcs",
+              "target": 45068,
+              "target_bank": 5
+            },
+            {
+              "feasible": false,
+              "index": 2,
+              "reason": "undecodable target: 0xb9eb: undocumented 6502 opcode 0x82",
+              "target": 47595,
+              "target_bank": 5
+            },
+            {
+              "feasible": false,
+              "index": 4,
+              "reason": "target outside the PRG windows",
+              "target": 1120,
+              "target_bank": 5
+            },
+            {
+              "feasible": true,
+              "index": 6,
+              "op": "lda",
+              "target": 58680,
+              "target_bank": 7
+            },
+            {
+              "feasible": true,
+              "index": 8,
+              "op": "ora",
+              "target": 45057,
+              "target_bank": 5
+            },
+            {
+              "feasible": false,
+              "index": 10,
+              "reason": "target outside the PRG windows",
+              "target": 8195,
+              "target_bank": 5
+            },
+            {
+              "feasible": true,
+              "index": 12,
+              "op": "sta",
+              "target": 36824,
+              "target_bank": 5
+            },
+            {
+              "feasible": false,
+              "index": 14,
+              "reason": "target outside the PRG windows",
+              "target": 2761,
+              "target_bank": 5
+            }
+          ],
+          "targets": [
+            [
+              5,
+              33025
+            ],
+            [
+              5,
+              33100
+            ],
+            [
+              5,
+              33961
+            ],
+            [
+              5,
+              34050
+            ],
+            [
+              5,
+              34052
+            ],
+            [
+              5,
+              34053
+            ],
+            [
+              5,
+              34817
+            ],
+            [
+              5,
+              36782
+            ],
+            [
+              5,
+              36824
+            ],
+            [
+              5,
+              36906
+            ],
+            [
+              5,
+              36984
+            ],
+            [
+              5,
+              36985
+            ],
+            [
+              5,
+              36986
+            ],
+            [
+              5,
+              37008
+            ],
+            [
+              5,
+              37013
+            ],
+            [
+              5,
+              39200
+            ],
+            [
+              5,
+              40192
+            ],
+            [
+              5,
+              40197
+            ],
+            [
+              5,
+              40963
+            ],
+            [
+              5,
+              41994
+            ],
+            [
+              5,
+              42240
+            ],
+            [
+              5,
+              42244
+            ],
+            [
+              5,
+              43286
+            ],
+            [
+              5,
+              43304
+            ],
+            [
+              5,
+              45057
+            ],
+            [
+              5,
+              45068
+            ],
+            [
+              5,
+              45209
+            ],
+            [
+              5,
+              48388
+            ],
+            [
+              5,
+              48398
+            ],
+            [
+              5,
+              48528
+            ],
+            [
+              5,
+              48554
+            ],
+            [
+              5,
+              48625
+            ],
+            [
+              7,
+              53257
+            ],
+            [
+              7,
+              53259
+            ],
+            [
+              7,
+              56496
+            ],
+            [
+              7,
+              57497
+            ],
+            [
+              7,
+              58627
+            ],
+            [
+              7,
+              58680
+            ],
+            [
+              7,
+              61362
+            ],
+            [
+              7,
+              61441
+            ],
+            [
+              7,
+              65440
+            ]
+          ]
+        },
+        "6": {
+          "candidates": 128,
+          "feasible": 73,
+          "row_digest": "d1d911aa14955a882a431e7b46ba4dce71009fddcfd9cc43f9cd2ade8b30a211",
+          "sample_rows": [
+            {
+              "feasible": false,
+              "index": 0,
+              "reason": "target outside the PRG windows",
+              "target": 4630,
+              "target_bank": 6
+            },
+            {
+              "feasible": false,
+              "index": 2,
+              "reason": "target outside the PRG windows",
+              "target": 19,
+              "target_bank": 6
+            },
+            {
+              "feasible": false,
+              "index": 4,
+              "reason": "target outside the PRG windows",
+              "target": 255,
+              "target_bank": 6
+            },
+            {
+              "feasible": false,
+              "index": 6,
+              "reason": "target outside the PRG windows",
+              "target": 6168,
+              "target_bank": 6
+            },
+            {
+              "feasible": false,
+              "index": 8,
+              "reason": "target outside the PRG windows",
+              "target": 6682,
+              "target_bank": 6
+            },
+            {
+              "feasible": false,
+              "index": 10,
+              "reason": "target outside the PRG windows",
+              "target": 7705,
+              "target_bank": 6
+            },
+            {
+              "feasible": false,
+              "index": 12,
+              "reason": "target outside the PRG windows",
+              "target": 6940,
+              "target_bank": 6
+            },
+            {
+              "feasible": false,
+              "index": 14,
+              "reason": "target outside the PRG windows",
+              "target": 6680,
+              "target_bank": 6
+            }
+          ],
+          "targets": [
+            [
+              6,
+              33152
+            ],
+            [
+              6,
+              34046
+            ],
+            [
+              6,
+              34180
+            ],
+            [
+              6,
+              34694
+            ],
+            [
+              6,
+              34814
+            ],
+            [
+              6,
+              34951
+            ],
+            [
+              6,
+              35839
+            ],
+            [
+              6,
+              36750
+            ],
+            [
+              6,
+              36862
+            ],
+            [
+              6,
+              37009
+            ],
+            [
+              6,
+              37374
+            ],
+            [
+              6,
+              37521
+            ],
+            [
+              6,
+              38142
+            ],
+            [
+              6,
+              38808
+            ],
+            [
+              6,
+              38911
+            ],
+            [
+              6,
+              40959
+            ],
+            [
+              6,
+              41890
+            ],
+            [
+              6,
+              42147
+            ],
+            [
+              6,
+              43262
+            ],
+            [
+              6,
+              43518
+            ],
+            [
+              6,
+              43775
+            ],
+            [
+              6,
+              44030
+            ],
+            [
+              6,
+              44542
+            ],
+            [
+              6,
+              45264
+            ],
+            [
+              6,
+              45567
+            ],
+            [
+              6,
+              46773
+            ],
+            [
+              6,
+              47288
+            ],
+            [
+              6,
+              47615
+            ],
+            [
+              6,
+              48059
+            ],
+            [
+              6,
+              48316
+            ],
+            [
+              6,
+              49151
+            ],
+            [
+              7,
+              49407
+            ],
+            [
+              7,
+              49857
+            ],
+            [
+              7,
+              50371
+            ],
+            [
+              7,
+              50885
+            ],
+            [
+              7,
+              51198
+            ],
+            [
+              7,
+              65089
+            ],
+            [
+              7,
+              65096
+            ],
+            [
+              7,
+              65100
+            ],
+            [
+              7,
+              65104
+            ],
+            [
+              7,
+              65105
+            ],
+            [
+              7,
+              65106
+            ],
+            [
+              7,
+              65107
+            ],
+            [
+              7,
+              65123
+            ],
+            [
+              7,
+              65152
+            ],
+            [
+              7,
+              65154
+            ],
+            [
+              7,
+              65155
+            ],
+            [
+              7,
+              65157
+            ],
+            [
+              7,
+              65158
+            ],
+            [
+              7,
+              65160
+            ],
+            [
+              7,
+              65161
+            ],
+            [
+              7,
+              65162
+            ],
+            [
+              7,
+              65171
+            ],
+            [
+              7,
+              65174
+            ],
+            [
+              7,
+              65175
+            ],
+            [
+              7,
+              65179
+            ],
+            [
+              7,
+              65280
+            ],
+            [
+              7,
+              65350
+            ],
+            [
+              7,
+              65424
+            ],
+            [
+              7,
+              65446
+            ],
+            [
+              7,
+              65458
+            ],
+            [
+              7,
+              65463
+            ],
+            [
+              7,
+              65465
+            ],
+            [
+              7,
+              65466
+            ],
+            [
+              7,
+              65469
+            ],
+            [
+              7,
+              65470
+            ],
+            [
+              7,
+              65471
+            ]
+          ]
+        },
+        "7": {
+          "candidates": 128,
+          "feasible": 67,
+          "row_digest": "2a3bed7cd0377a5fdbc11beaf9ad521c3bb2eeb959f6147d9e6c5190a06db6b1",
+          "sample_rows": [
+            {
+              "feasible": false,
+              "index": 0,
+              "reason": "target outside the PRG windows",
+              "target": 8196,
+              "target_bank": 7
+            },
+            {
+              "feasible": true,
+              "index": 2,
+              "op": "sec",
+              "target": 52932,
+              "target_bank": 7
+            },
+            {
+              "feasible": true,
+              "index": 4,
+              "op": "cpy",
+              "target": 62240,
+              "target_bank": 7
+            },
+            {
+              "feasible": false,
+              "index": 6,
+              "reason": "target outside the PRG windows",
+              "target": 19606,
+              "target_bank": 7
+            },
+            {
+              "feasible": true,
+              "index": 8,
+              "op": "lda",
+              "target": 52973,
+              "target_bank": 7
+            },
+            {
+              "feasible": false,
+              "index": 10,
+              "reason": "target outside the PRG windows",
+              "target": 1193,
+              "target_bank": 7
+            },
+            {
+              "feasible": true,
+              "index": 12,
+              "op": "brk",
+              "target": 50208,
+              "target_bank": 7
+            },
+            {
+              "feasible": false,
+              "index": 14,
+              "reason": "target outside the PRG windows",
+              "target": 8398,
+              "target_bank": 7
+            }
+          ],
+          "targets": [
+            [
+              7,
+              32769
+            ],
+            [
+              7,
+              32773
+            ],
+            [
+              7,
+              32853
+            ],
+            [
+              7,
+              38197
+            ],
+            [
+              7,
+              38685
+            ],
+            [
+              7,
+              38725
+            ],
+            [
+              7,
+              39456
+            ],
+            [
+              7,
+              43360
+            ],
+            [
+              7,
+              43392
+            ],
+            [
+              7,
+              43415
+            ],
+            [
+              7,
+              43423
+            ],
+            [
+              7,
+              43432
+            ],
+            [
+              7,
+              43433
+            ],
+            [
+              7,
+              43434
+            ],
+            [
+              7,
+              43441
+            ],
+            [
+              7,
+              43470
+            ],
+            [
+              7,
+              43479
+            ],
+            [
+              7,
+              43484
+            ],
+            [
+              7,
+              43489
+            ],
+            [
+              7,
+              49696
+            ],
+            [
+              7,
+              49740
+            ],
+            [
+              7,
+              50208
+            ],
+            [
+              7,
+              50252
+            ],
+            [
+              7,
+              52930
+            ],
+            [
+              7,
+              52932
+            ],
+            [
+              7,
+              52973
+            ],
+            [
+              7,
+              53226
+            ],
+            [
+              7,
+              54860
+            ],
+            [
+              7,
+              55254
+            ],
+            [
+              7,
+              55628
+            ],
+            [
+              7,
+              57698
+            ],
+            [
+              7,
+              59936
+            ],
+            [
+              7,
+              60748
+            ],
+            [
+              7,
+              62240
+            ]
+          ]
+        }
+      },
+      "pointer": 226,
+      "pointer_reads": [
+        {
+          "address": 34464,
+          "op": "lda"
+        },
+        {
+          "address": 34473,
+          "op": "sbc"
+        },
+        {
+          "address": 34631,
+          "op": "lda"
+        },
+        {
+          "address": 34657,
+          "op": "ora"
+        },
+        {
+          "address": 34813,
+          "op": "lda"
+        },
+        {
+          "address": 34970,
+          "op": "sbc"
+        },
+        {
+          "address": 34985,
+          "op": "lda"
+        },
+        {
+          "address": 34991,
+          "op": "adc"
+        },
+        {
+          "address": 35028,
+          "op": "sbc"
+        },
+        {
+          "address": 35536,
+          "op": "inc"
+        },
+        {
+          "address": 35538,
+          "op": "lda"
+        },
+        {
+          "address": 35544,
+          "op": "adc"
+        },
+        {
+          "address": 35940,
+          "op": "ldy"
+        },
+        {
+          "address": 35976,
+          "op": "dec"
+        },
+        {
+          "address": 36047,
+          "op": "dec"
+        },
+        {
+          "address": 36932,
+          "op": "ldx"
+        },
+        {
+          "address": 36934,
+          "op": "ldy"
+        }
+      ],
+      "reason": "pointer values from proven sources yield 300 feasible (target_bank, target) pairs across 8 evaluated physical bank(s)",
+      "site": 36668,
+      "source_kinds": {
+        "0xe2": "table",
+        "0xe3": "table"
+      },
+      "state": "RESOLVED_FINITE_SET",
+      "table_base": 36800,
+      "table_high": 36801,
+      "table_pair": true,
+      "window": "low",
+      "writes": [
+        {
+          "address": 36658,
+          "byte": "0xe2",
+          "op": "sta"
+        },
+        {
+          "address": 36663,
+          "byte": "0xe3",
+          "op": "sta"
+        }
+      ]
+    }
+  ],
+  "stage": "P7-06",
+  "unit_states": {
+    "exact": "RESOLVED_EXACT",
+    "finite": "RESOLVED_FINITE_SET",
+    "impossible": "IMPOSSIBLE",
+    "unresolved": "UNRESOLVED"
+  }
+}

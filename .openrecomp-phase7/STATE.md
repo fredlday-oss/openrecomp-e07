@@ -8,8 +8,8 @@ BASELINE_COMMIT=1643817d43196c43155805249137e4b4e4a21eb1
 BASELINE_TREE=cda3f535be43dc6f3d4b457d11d356ae39ea34af
 BASELINE_TERMINAL=OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=PASS
 BASELINE_GENERAL=OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
-CURRENT_STAGE=P7-05
-LAST_PASSED_STAGE=P7-05
+CURRENT_STAGE=P7-06
+LAST_PASSED_STAGE=P7-06
 STATUS=ACTIVE
 TRANSLATION_FRONTIER_STATUS=NOT_PROVEN
 QUEUE_FREEZE=FROZEN
@@ -96,7 +96,7 @@ OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN
 | P7-03 | Public undocumented-opcode proof fixture | PASS | `.openrecomp-phase7/evidence/P7-03/` |
 | P7-04 | Bank-aware cartridge reachability model | PASS | `.openrecomp-phase7/evidence/P7-04/` |
 | P7-05 | Bank-aware ProgramModel / CFG integration | PASS | `.openrecomp-phase7/evidence/P7-05/` |
-| P7-06 | Indirect jump evidence model | QUEUED | - |
+| P7-06 | Indirect jump evidence model | PASS | `.openrecomp-phase7/evidence/P7-06/` |
 | P7-07 | Public indirect-control-flow proof fixture | QUEUED | - |
 | P7-08 | Translation frontier integration | QUEUED | - |
 | P7-09 | Native execution of public Phase-7 fixture | QUEUED | - |

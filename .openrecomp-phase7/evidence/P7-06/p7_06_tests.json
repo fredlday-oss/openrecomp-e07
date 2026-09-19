@@ -1,0 +1,274 @@
+{
+  "checks": [
+    {
+      "check": "anchor:decoder-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:p7-01-record-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:p7-05-record-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:compat-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:playability-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:stage-row",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:indirect_evidence.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-rom-extension-in-scratch",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:missing-private-path",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:short-image-rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x86e8:bank-provenance",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x86e8:chain",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x86e8:classification",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x86e8:domain",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x86e8:infeasible",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x86e8:pointer",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x86e8:table",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x86e8:targets",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x8956:bank-provenance",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x8956:chain",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x8956:classification",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x8956:domain",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x8956:infeasible",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x8956:pointer",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x8956:table",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x8956:targets",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x8f3c:bank-provenance",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x8f3c:chain",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x8f3c:classification",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x8f3c:domain",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x8f3c:feasible-count",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x8f3c:infeasible",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x8f3c:pointer",
+      "status": "PASS"
+    },
+    {
+      "check": "private:0x8f3c:table",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bank-model",
+      "status": "PASS"
+    },
+    {
+      "check": "private:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "private:image-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "private:no-rom-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "private:site-addresses",
+      "status": "PASS"
+    },
+    {
+      "check": "private:three-finite-sets",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-05:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-05:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-05:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "unit:impossible",
+      "status": "PASS"
+    },
+    {
+      "check": "unit:resolved-exact",
+      "status": "PASS"
+    },
+    {
+      "check": "unit:resolved-finite-set",
+      "status": "PASS"
+    },
+    {
+      "check": "unit:unresolved",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "private_counts": {
+      "RESOLVED_FINITE_SET": 3
+    },
+    "private_site_digest": "6435262651904915edca2ef285fa91b7ca36b5d8bfb075683833f680a2c65f00",
+    "regressions": [
+      {
+        "command": [
+          "python",
+          "tools/test_nes_rom_v1.py"
+        ],
+        "markers": [
+          "OPENRECOMP_NES_ROM_V1=PASS tests=12"
+        ],
+        "returncode": 0,
+        "script": "tools/test_nes_rom_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 959,
+        "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+        "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+      },
+      {
+        "command": [
+          "python",
+          "tools/test_phase7_bank_structure_v1.py",
+          "--evidence-dir",
+          ".openrecomp-phase7/scratch/P7-06/regression_p7_05"
+        ],
+        "markers": [
+          "OPENRECOMP_P7_05=PASS",
+          "OPENRECOMP_PHASE7_BANK_STRUCTURE_V1=PASS tests=38",
+          "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+          "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase7_bank_structure_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 1917,
+        "stdout_sha256_lf": "74c0bb5412f101e7d0ec027c21e8bbb8d43dc799b26141ef3bf15a8ed0dc961e",
+        "stdout_sha256_raw": "70bd60cafacba93b19faac42a598a70d17767e21df24f7e56c6f8f76c4c1ec17"
+      }
+    ],
+    "unit_states": {
+      "exact": "RESOLVED_EXACT",
+      "finite": "RESOLVED_FINITE_SET",
+      "impossible": "IMPOSSIBLE",
+      "unresolved": "UNRESOLVED"
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE7_INDIRECT_MODEL_V1=PASS tests=51",
+    "playability": "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P7_06=PASS",
+    "terminal": "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN"
+  },
+  "passed": 51,
+  "stage": "P7-06",
+  "stage_name": "OPENRECOMP_PHASE7_INDIRECT_MODEL_V1",
+  "status": "PASS",
+  "tests": 51
+}

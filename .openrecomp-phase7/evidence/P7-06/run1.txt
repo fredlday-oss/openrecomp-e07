@@ -1,0 +1,75 @@
+=== P7-06 Indirect Jump Evidence Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-verified
+
+--- anchors ---
+PASS: anchor:p7-01-record-pass
+PASS: anchor:p7-05-record-pass
+PASS: anchor:decoder-unchanged
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+PASS: control-plane:playability-reserved
+
+--- private_sites ---
+PASS: private:deterministic
+PASS: private:image-identity
+PASS: private:three-finite-sets
+PASS: private:site-addresses
+PASS: private:0x86e8:pointer
+PASS: private:0x86e8:classification
+PASS: private:0x86e8:chain
+PASS: private:0x86e8:bank-provenance
+PASS: private:0x86e8:table
+PASS: private:0x86e8:domain
+PASS: private:0x86e8:targets
+PASS: private:0x86e8:infeasible
+PASS: private:0x8956:pointer
+PASS: private:0x8956:classification
+PASS: private:0x8956:chain
+PASS: private:0x8956:bank-provenance
+PASS: private:0x8956:table
+PASS: private:0x8956:domain
+PASS: private:0x8956:targets
+PASS: private:0x8956:infeasible
+PASS: private:0x8f3c:pointer
+PASS: private:0x8f3c:classification
+PASS: private:0x8f3c:chain
+PASS: private:0x8f3c:bank-provenance
+PASS: private:0x8f3c:table
+PASS: private:0x8f3c:domain
+PASS: private:0x8f3c:feasible-count
+PASS: private:0x8f3c:infeasible
+PASS: private:bank-model
+PASS: private:no-rom-bytes
+
+--- unit_states ---
+PASS: unit:resolved-exact
+PASS: unit:resolved-finite-set
+PASS: unit:unresolved
+PASS: unit:impossible
+
+--- fail_closed ---
+PASS: negative:short-image-rejected
+PASS: negative:missing-private-path
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:p7-05:exit
+PASS: regression:p7-05:stderr
+PASS: regression:p7-05:marker
+
+--- evidence ---
+PASS: hygiene:no-private-rom-bytes:indirect_evidence.json
+PASS: hygiene:no-rom-extension-in-scratch
+
+=== RESULT ===
+OPENRECOMP_P7_06=PASS
+OPENRECOMP_PHASE7_INDIRECT_MODEL_V1=PASS tests=51
+OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
+OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN

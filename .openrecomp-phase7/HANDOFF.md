@@ -227,10 +227,36 @@ general and playability markers reserved as `NOT_PROVEN`.
   `670fd4bc...`.
 - Evidence: `.openrecomp-phase7/evidence/P7-05/`.
 
+## P7-06 outcome (PASS)
+
+Marker: `OPENRECOMP_PHASE7_INDIRECT_MODEL_V1=PASS tests=51`; terminal,
+general and playability markers reserved as `NOT_PROVEN`.
+
+- New indirect-jump evidence model
+  `.openrecomp-phase7/src/p7_indirect_evidence_v1.py`: unique-chain reaching
+  definitions, constant/ROM/paired-table value sources, bounded 8-bit index
+  domain simulation, per-bank candidate enumeration and target validation,
+  explicit `RESOLVED_EXACT`/`RESOLVED_FINITE_SET`/`UNRESOLVED`/`IMPOSSIBLE`
+  states; targets are never guessed.
+- Private `$E2` sites all classify `RESOLVED_FINITE_SET`:
+  - `0x86E8`: bank 0 `PROVEN`, table `$8FB8`/`$8FB9`, domain `{0,2,4,6}`,
+    4 feasible targets, 0 infeasible;
+  - `0x8956`: bank 0 candidate (`UNRESOLVED` provenance), table
+    `$8FCC`/`$8FCD`, domain `{0,2,4,6}`, 4 feasible targets;
+  - `0x8F3C`: `MODEL_UNREACHED`, all 8 banks evaluated, table
+    `$8FC0`/`$8FC1`, 128 index values, 300 feasible pairs, 442 infeasible.
+- Public unit states proven on original synthetic images: exact single
+  target, masked finite set, unresolved RAM-sourced pointer, impossible
+  out-of-window pointer.
+- Two official runs byte-identical raw (`2e407ded...`, 2170 bytes) and LF
+  (`d8fc208e...`), empty stderr, exit 0; `p7_06_tests.json` sha256
+  `700c9d33...`.
+- Evidence: `.openrecomp-phase7/evidence/P7-06/`.
+
 ## Exact next action
 
-Start P7-06 (indirect jump evidence model): build deterministic analysis for
-the three `$E2` indirect sites (`0x86E8`/`0x8956`/`0x8F3C`) tracking pointer
-writes, reads, bank state, memory provenance and feasible target sets;
-represent `RESOLVED_EXACT`, `RESOLVED_FINITE_SET`, `UNRESOLVED` and
-`IMPOSSIBLE` explicitly; never guess targets. Do not push.
+Start P7-07 (public indirect-control-flow proof fixture): author an original
+Apache-2.0 fixture covering the supported indirect-resolution mechanism with
+exact single target, multiple feasible targets, the unresolved/fail-closed
+case and relevant bank switching, with differential/reference verification.
+Do not push.
