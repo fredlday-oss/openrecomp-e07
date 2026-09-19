@@ -1,0 +1,73 @@
+=== P7-01 TMNT Frontier Re-derivation Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-verified
+
+--- anchors ---
+PASS: anchor:present:.openrecomp-phase6/evidence/P6-10/tmnt_pipeline.json
+PASS: anchor:hash:.openrecomp-phase6/evidence/P6-10/tmnt_pipeline.json
+PASS: anchor:present:.openrecomp-phase6/evidence/P6-10/blockers.json
+PASS: anchor:hash:.openrecomp-phase6/evidence/P6-10/blockers.json
+PASS: anchor:present:.openrecomp-phase6/evidence/P6-12/blockers.json
+PASS: anchor:hash:.openrecomp-phase6/evidence/P6-12/blockers.json
+PASS: anchor:present:.openrecomp-phase6/evidence/P6-13/frontier_record.json
+PASS: anchor:hash:.openrecomp-phase6/evidence/P6-13/frontier_record.json
+PASS: anchor:present:.openrecomp-phase6/evidence/P6-13/private_workflow.json
+PASS: anchor:hash:.openrecomp-phase6/evidence/P6-13/private_workflow.json
+PASS: anchor:p7-00-record-pass
+PASS: anchor:p6-99-record
+PASS: anchor:private-image
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+PASS: control-plane:playability-reserved
+PASS: control-plane:queue-freeze
+
+--- rederivation ---
+PASS: rederive:deterministic
+PASS: rederive:comparisons
+PASS: rederive:digests-stable
+
+--- classifications ---
+PASS: classify:image-identity
+PASS: classify:ingestion-supported
+PASS: classify:mapper-blocker-absent
+PASS: classify:power-on-state
+PASS: classify:candidate-counts
+PASS: classify:candidate-boundaries
+PASS: classify:opcode-histogram-forms
+PASS: classify:opcode-stop
+PASS: classify:opcode-frontier
+PASS: classify:frontier-fail-closed
+PASS: classify:indirect-unresolved
+PASS: classify:indirect-sites
+PASS: classify:indirect-in-candidate
+PASS: classify:blockers
+PASS: classify:progress
+PASS: classify:runtime-support-identity
+PASS: classify:public-claim-none
+
+--- negative ---
+PASS: negative:missing-path
+PASS: negative:malformed-container
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:p7-00:exit
+PASS: regression:p7-00:stderr
+PASS: regression:p7-00:marker
+
+--- evidence ---
+PASS: hygiene:no-private-rom-bytes:frontier_rederivation.json
+PASS: hygiene:no-rom-extension-in-scratch
+PASS: hygiene:workspace-no-generated-rom-files
+
+=== RESULT ===
+OPENRECOMP_P7_01=PASS
+OPENRECOMP_PHASE7_FRONTIER_REDERIVATION_V1=PASS tests=49
+OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
+OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN

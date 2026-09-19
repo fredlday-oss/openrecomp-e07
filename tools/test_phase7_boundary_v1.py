@@ -341,7 +341,7 @@ def audit_control_plane() -> None:
     queue = read_text(CONTROL7 / "STAGE_QUEUE.md")
     check("control-plane:phase", re.search(r"^PHASE=7\s*$", state, re.MULTILINE) is not None)
     check("control-plane:current-stage",
-          re.search(r"^CURRENT_STAGE=P7-00\s*$", state, re.MULTILINE) is not None)
+          re.search(r"^CURRENT_STAGE=P7-\d\d\s*$", state, re.MULTILINE) is not None)
     check("control-plane:last-passed-stage",
           re.search(r"^LAST_PASSED_STAGE=(?:NONE|P7-\d\d)\s*$", state, re.MULTILINE) is not None)
     check("control-plane:status",

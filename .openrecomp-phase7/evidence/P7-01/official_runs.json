@@ -1,0 +1,60 @@
+{
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "command": [
+        "python",
+        "tools/test_phase7_frontier_rederive_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase7/evidence/P7-01"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P7_01=",
+        "OPENRECOMP_PHASE7_FRONTIER_REDERIVATION_V1=",
+        "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=",
+        "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=",
+        "OPENRECOMP_PHASE7_TMMT_PLAYABILITY="
+      ],
+      "name": "run1",
+      "p7_01_tests_sha256": "8c518674626f9f97a4a75700cb69805ca4b964c06268e4ea65804d3d7ee88d05",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2589,
+      "stdout_bytes_lf": 2516,
+      "stdout_sha256_lf": "bd28ad98b72eff864701d9f42826b764da0a0d1cc3d38003e1fb219a16a13b3e",
+      "stdout_sha256_raw": "fc9f6a0e1b8ed1501026964f3401ba6385239fd0fc3daf8d0f6d0c47d8f4a6e8"
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_phase7_frontier_rederive_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase7/evidence/P7-01"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P7_01=",
+        "OPENRECOMP_PHASE7_FRONTIER_REDERIVATION_V1=",
+        "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=",
+        "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=",
+        "OPENRECOMP_PHASE7_TMMT_PLAYABILITY="
+      ],
+      "name": "run2",
+      "p7_01_tests_sha256": "8c518674626f9f97a4a75700cb69805ca4b964c06268e4ea65804d3d7ee88d05",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2589,
+      "stdout_bytes_lf": 2516,
+      "stdout_sha256_lf": "bd28ad98b72eff864701d9f42826b764da0a0d1cc3d38003e1fb219a16a13b3e",
+      "stdout_sha256_raw": "fc9f6a0e1b8ed1501026964f3401ba6385239fd0fc3daf8d0f6d0c47d8f4a6e8"
+    }
+  ],
+  "stage": "P7-01",
+  "stderr_empty_both": true
+}

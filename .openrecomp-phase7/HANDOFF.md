@@ -81,10 +81,42 @@ playability markers are reserved as `NOT_PROVEN`.
   `86f2bcd0...`.
 - Evidence: `.openrecomp-phase7/evidence/P7-00/`.
 
+## P7-01 outcome (PASS)
+
+Markers: `OPENRECOMP_P7_01=PASS`,
+`OPENRECOMP_PHASE7_FRONTIER_REDERIVATION_V1=PASS tests=49`; terminal,
+general and playability markers reserved as `NOT_PROVEN`.
+
+- The private TMNT frontier was re-derived from scratch through the frozen
+  Phase-6 pipeline and workflow; all eight comparison classes are true:
+  pipeline projection, workflow projection, P6-13 frontier record, P6-10
+  blockers, P6-12 private blockers, runtime support identity `2e3fa4ba...`,
+  image identity `2a9345e6...` (262160 bytes) and mapper-blocker supersession.
+- Confirmed exactly: undocumented opcode `0x7C` at `0xC570` (predecessor
+  `jsr` at `0xC56D`; walk stops after 1250 candidate instructions / 2711
+  bytes; 202 fixed, 1048 low window; 42 opcode forms; `pending_at_stop=11`);
+  unresolved `jmp ($00E2)` at `0x86E8`/`0x8956`/`0x8F3C` with empty targets;
+  blockers `unsupported_opcode`/`unresolved_indirect_control_flow`/
+  `bank_state_unresolved`/`platform_runtime_not_tested`.
+- No mapper blocker has returned: ingestion `SUPPORTED_MMC1`, variant
+  `SUPPORTED_PROFILE`, P6-01 mapper blocker still `SUPERSEDED`.
+- Translation/generated sources/native build/native execution remain
+  `NOT_ATTEMPTED`/`NOT_GENERATED`; runtime platform `NOT_TESTED`.
+- Two official runs byte-identical raw (`fc9f6a0e...`, 2589 bytes) and LF
+  (`bd28ad98...`), empty stderr, exit 0; `p7_01_tests.json` sha256
+  `8c518674...` in both runs.
+- The P7-00 boundary gate was re-run as a regression from this later stage
+  (`OPENRECOMP_P7_00=PASS`); its `control-plane:current-stage` check was
+  relaxed from an exact `P7-00` pin to the `P7-\d\d` stage shape so frozen
+  boundaries remain re-runnable. No P7-00 evidence changed.
+- Evidence: `.openrecomp-phase7/evidence/P7-01/`.
+
 ## Exact next action
 
-Start P7-01 (TMNT frontier re-derivation): reproduce the Phase-6 private TMNT
-frontier from scratch with deterministic classifications, confirm the
-`0x7C` byte at `0xC570`, the three `$E2` indirect sites
-`0x86E8`/`0x8956`/`0x8F3C` and the bank-window candidate frontier, and prove
-no mapper blocker has returned. No translation changes. Do not push.
+Start P7-02 (undocumented opcode `0x7C` classification): determine exactly
+what the `0x7C` byte at `0xC570` represents in this binary/context from
+evidence (surrounding decoded instructions, control-flow context, CPU variant,
+independent reference research/tests, public documentation), classify it as
+`SUPPORTED_PROVEN` / `RECOGNIZED_UNSUPPORTED` / `DATA_NOT_CODE` /
+`UNREACHABLE` / `AMBIGUOUS` or another justified fail-closed category, and
+make no universal undocumented-opcode claim. Do not push.
