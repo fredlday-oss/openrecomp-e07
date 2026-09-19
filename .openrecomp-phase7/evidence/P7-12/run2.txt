@@ -1,0 +1,51 @@
+=== P7-12 Translation Closure Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-verified
+
+--- anchors ---
+PASS: anchor:p7-03-record-pass
+PASS: anchor:p7-11-record-pass
+PASS: anchor:decoder-unchanged
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+PASS: control-plane:playability-reserved
+
+--- public_fixture_closure ---
+PASS: public:deterministic
+PASS: public:one-table
+PASS: public:table-structure
+PASS: public:closure-follows-targets
+PASS: public:targets-reached
+
+--- private_closure ---
+PASS: private:one-table
+PASS: private:table-structure
+PASS: private:frontier-advances
+PASS: private:no-rom-bytes
+
+--- fail_closed ---
+PASS: negative:non-consuming-callee-no-table
+PASS: negative:empty-table-no-closure
+PASS: negative:budget-fail-closed
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:p7-11:exit
+PASS: regression:p7-11:stderr
+PASS: regression:p7-11:marker
+
+--- evidence ---
+PASS: hygiene:no-private-rom-bytes:inline_closure.json
+PASS: hygiene:no-rom-extension-in-scratch
+
+=== RESULT ===
+OPENRECOMP_P7_12=PASS
+OPENRECOMP_PHASE7_TRANSLATION_CLOSURE_V1=PASS tests=27
+OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
+OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN

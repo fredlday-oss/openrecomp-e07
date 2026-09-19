@@ -1,0 +1,54 @@
+{
+  "claim": "the added control-flow behaviour is exactly the evidence-required inline-dispatch closure and is proven on the public fixture before private application",
+  "mechanism": {
+    "closure_rule": "skip the classified table bytes, follow the callee and the proven finite target set, resume after the table",
+    "definition": "jsr whose fallthrough is undocumented, whose callee consumes the pushed return address and whose fallthrough decodes as an in-window little-endian pointer table",
+    "fail_closed": "undocumented bytes, unresolved indirect jumps and budgets still stop the walk"
+  },
+  "private_image": {
+    "baseline_instructions": 1250,
+    "closure_instructions": 1255,
+    "delta_instructions": 5,
+    "stop": {
+      "address": 47979,
+      "kind": "undocumented_opcode",
+      "reason": "0xbb6b: undocumented 6502 opcode 0xe3"
+    },
+    "table": {
+      "byte_length": 12,
+      "call_site": 50541,
+      "callee": 50975,
+      "entries": 6,
+      "resume_address": 50556,
+      "table_base": 50544,
+      "targets": [
+        50556,
+        50756,
+        50809,
+        50822,
+        52004,
+        50870
+      ]
+    }
+  },
+  "public_claim": "original Apache-2.0 public fixture for the bounded inline-dispatch classification mechanism only",
+  "public_fixture": {
+    "baseline_instructions": 15,
+    "closure_instructions": 41,
+    "delta_instructions": 26,
+    "table": {
+      "byte_length": 6,
+      "call_site": 49176,
+      "callee": 49408,
+      "entries": 3,
+      "resume_address": 49185,
+      "table_base": 49179,
+      "targets": [
+        49276,
+        49296,
+        49312
+      ]
+    }
+  },
+  "stage": "P7-12"
+}

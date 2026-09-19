@@ -1,0 +1,60 @@
+{
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "command": [
+        "python",
+        "tools/test_phase7_translation_closure_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase7/evidence/P7-12"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P7_12=",
+        "OPENRECOMP_PHASE7_TRANSLATION_CLOSURE_V1=",
+        "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=",
+        "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=",
+        "OPENRECOMP_PHASE7_TMMT_PLAYABILITY="
+      ],
+      "name": "run1",
+      "p7_12_tests_sha256": "9afb4236186644108099e87b8789beda70451668cd5c394d9bef8c259908b6d9",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1448,
+      "stdout_bytes_lf": 1397,
+      "stdout_sha256_lf": "7156ce51fcd580993b0fdffd631db90731611ad4b64ce4d3a1f5712315762ec3",
+      "stdout_sha256_raw": "0c8493017263764219bf0668fec7381d60cc1961a6286d3726b04b7229013956"
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_phase7_translation_closure_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase7/evidence/P7-12"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P7_12=",
+        "OPENRECOMP_PHASE7_TRANSLATION_CLOSURE_V1=",
+        "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=",
+        "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=",
+        "OPENRECOMP_PHASE7_TMMT_PLAYABILITY="
+      ],
+      "name": "run2",
+      "p7_12_tests_sha256": "9afb4236186644108099e87b8789beda70451668cd5c394d9bef8c259908b6d9",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1448,
+      "stdout_bytes_lf": 1397,
+      "stdout_sha256_lf": "7156ce51fcd580993b0fdffd631db90731611ad4b64ce4d3a1f5712315762ec3",
+      "stdout_sha256_raw": "0c8493017263764219bf0668fec7381d60cc1961a6286d3726b04b7229013956"
+    }
+  ],
+  "stage": "P7-12",
+  "stderr_empty_both": true
+}

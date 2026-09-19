@@ -1,0 +1,212 @@
+{
+  "checks": [
+    {
+      "check": "anchor:decoder-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:p7-03-record-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:p7-11-record-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:compat-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:playability-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:stage-row",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:inline_closure.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-rom-extension-in-scratch",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:budget-fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:empty-table-no-closure",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:non-consuming-callee-no-table",
+      "status": "PASS"
+    },
+    {
+      "check": "private:frontier-advances",
+      "status": "PASS"
+    },
+    {
+      "check": "private:no-rom-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "private:one-table",
+      "status": "PASS"
+    },
+    {
+      "check": "private:table-structure",
+      "status": "PASS"
+    },
+    {
+      "check": "public:closure-follows-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "public:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "public:one-table",
+      "status": "PASS"
+    },
+    {
+      "check": "public:table-structure",
+      "status": "PASS"
+    },
+    {
+      "check": "public:targets-reached",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-11:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-11:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-11:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-verified",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "private": {
+      "baseline_instructions": 1250,
+      "closure_instructions": 1255,
+      "delta_instructions": 5,
+      "stop": {
+        "address": 47979,
+        "kind": "undocumented_opcode",
+        "reason": "0xbb6b: undocumented 6502 opcode 0xe3"
+      },
+      "table": {
+        "byte_length": 12,
+        "call_site": 50541,
+        "callee": 50975,
+        "entries": 6,
+        "resume_address": 50556,
+        "table_base": 50544,
+        "targets": [
+          50556,
+          50756,
+          50809,
+          50822,
+          52004,
+          50870
+        ]
+      }
+    },
+    "public": {
+      "baseline_instructions": 15,
+      "closure_instructions": 41,
+      "delta_instructions": 26,
+      "table": {
+        "byte_length": 6,
+        "call_site": 49176,
+        "callee": 49408,
+        "entries": 3,
+        "resume_address": 49185,
+        "table_base": 49179,
+        "targets": [
+          49276,
+          49296,
+          49312
+        ]
+      }
+    },
+    "regressions": [
+      {
+        "command": [
+          "python",
+          "tools/test_nes_rom_v1.py"
+        ],
+        "markers": [
+          "OPENRECOMP_NES_ROM_V1=PASS tests=12"
+        ],
+        "returncode": 0,
+        "script": "tools/test_nes_rom_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 959,
+        "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+        "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+      },
+      {
+        "command": [
+          "python",
+          "tools/test_phase7_private_frontier_v1.py",
+          "--evidence-dir",
+          ".openrecomp-phase7/scratch/P7-12/regression_p7_11"
+        ],
+        "markers": [
+          "OPENRECOMP_P7_11=PASS",
+          "OPENRECOMP_PHASE7_PRIVATE_FRONTIER_RUN_V1=PASS tests=24",
+          "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+          "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase7_private_frontier_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 1255,
+        "stdout_sha256_lf": "dff3c3c6fc2c1d8c76b30d8c56f0b3451861b765021b76e81332595f365137e6",
+        "stdout_sha256_raw": "5595d97801aeb230b2e74137e053a3a4330eb0cd6ed46aa3a934ae65d1f5483e"
+      }
+    ]
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE7_TRANSLATION_CLOSURE_V1=PASS tests=27",
+    "playability": "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P7_12=PASS",
+    "terminal": "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN"
+  },
+  "passed": 27,
+  "stage": "P7-12",
+  "stage_name": "OPENRECOMP_PHASE7_TRANSLATION_CLOSURE_V1",
+  "status": "PASS",
+  "tests": 27
+}
