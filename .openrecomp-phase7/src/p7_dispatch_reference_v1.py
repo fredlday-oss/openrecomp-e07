@@ -45,6 +45,7 @@ P7_COSTS: dict[int, int] = {
     0x0A: 2,   # asl a
     0x18: 2,   # clc
     0x20: 6,   # jsr
+    0x29: 2,   # and #
     0x40: 6,   # rti
     0x4C: 3,   # jmp abs
     0x60: 6,   # rts
@@ -55,12 +56,16 @@ P7_COSTS: dict[int, int] = {
     0x8D: 4,   # sta abs
     0x9A: 2,   # txs
     0xA2: 2,   # ldx #
+    0xA5: 3,   # lda zp
     0xA8: 2,   # tay
     0xA9: 2,   # lda #
     0xB1: 5,   # lda (zp),y
+    0xB9: 4,   # lda abs,y
     0xC8: 2,   # iny
+    0xC9: 2,   # cmp #
     0xD8: 2,   # cld
     0xE8: 2,   # inx
+    0xF0: 2,   # beq
 }
 
 

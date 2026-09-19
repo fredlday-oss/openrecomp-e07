@@ -1,0 +1,305 @@
+{
+  "checks": [
+    {
+      "check": "anchor:decoder-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:p7-06-record-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "bank:proven",
+      "status": "PASS"
+    },
+    {
+      "check": "bank:site-0x8013-proven",
+      "status": "PASS"
+    },
+    {
+      "check": "bank:site-0x8025-proven",
+      "status": "PASS"
+    },
+    {
+      "check": "bank:site-0x8030-proven",
+      "status": "PASS"
+    },
+    {
+      "check": "boolean-selector:rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:compat-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:playability-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:stage-row",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "differential:exact-target-executed",
+      "status": "PASS"
+    },
+    {
+      "check": "differential:finite-target-executed",
+      "status": "PASS"
+    },
+    {
+      "check": "differential:unresolved-runtime-target",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:counts",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:exact-site",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:finite-site",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:unresolved-site",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cross-checked",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:inventory",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:license-and-origin",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:source-provenance:p7_indirect_flow_bank.asm",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:source-provenance:p7_indirect_flow_fixture.asm",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:three-sites",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:indirect_fixture.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-rom-extension-in-scratch",
+      "status": "PASS"
+    },
+    {
+      "check": "negative-selector:rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:impossible-table",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:short-image",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:selector-0:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:selector-0:markers",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:selector-1:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:selector-1:markers",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:selector-2:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:selector-2:markers",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-06:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-06:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-06:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-verified",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "evidence": {
+      "counts": {
+        "RESOLVED_EXACT": 1,
+        "RESOLVED_FINITE_SET": 1,
+        "UNRESOLVED": 1
+      },
+      "exact_target": [
+        [
+          1,
+          32819
+        ]
+      ],
+      "finite_targets": [
+        [
+          1,
+          33024
+        ],
+        [
+          1,
+          33040
+        ],
+        [
+          1,
+          33056
+        ],
+        [
+          1,
+          33072
+        ]
+      ],
+      "unresolved_reason": "pointer byte value source is not statically known: value source op 'lda' is not statically resolved; value source op 'lda' is not statically resolved"
+    },
+    "fixture": {
+      "exit_site": 49669,
+      "rom_sha256": "1c9ad6582576a5c7c12a27b8a0077257c7c414142cd81ffdc92cb4a8ff1c9248",
+      "rom_size": 73744,
+      "sites": [
+        32787,
+        32805,
+        32816
+      ]
+    },
+    "reference_runs": {
+      "0": {
+        "clock": 105,
+        "executed_count": 38,
+        "markers": {
+          "marker": 224,
+          "plain_out": 0,
+          "resume_out": 240,
+          "selector": 1
+        },
+        "steps": 37
+      },
+      "1": {
+        "clock": 120,
+        "executed_count": 43,
+        "markers": {
+          "marker": 242,
+          "plain_out": 0,
+          "resume_out": 240,
+          "selector": 2
+        },
+        "steps": 42
+      },
+      "2": {
+        "clock": 99,
+        "executed_count": 36,
+        "markers": {
+          "marker": 0,
+          "plain_out": 0,
+          "resume_out": 240,
+          "selector": 0
+        },
+        "steps": 35
+      }
+    },
+    "regressions": [
+      {
+        "command": [
+          "python",
+          "tools/test_nes_rom_v1.py"
+        ],
+        "markers": [
+          "OPENRECOMP_NES_ROM_V1=PASS tests=12"
+        ],
+        "returncode": 0,
+        "script": "tools/test_nes_rom_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 959,
+        "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+        "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+      },
+      {
+        "command": [
+          "python",
+          "tools/test_phase7_indirect_evidence_v1.py",
+          "--evidence-dir",
+          ".openrecomp-phase7/scratch/P7-07/regression_p7_06"
+        ],
+        "markers": [
+          "OPENRECOMP_P7_06=PASS",
+          "OPENRECOMP_PHASE7_INDIRECT_MODEL_V1=PASS tests=51",
+          "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+          "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase7_indirect_evidence_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2170,
+        "stdout_sha256_lf": "d8fc208e2d1fb1514cdf5947d5423fc0fc0ae9ca92758f2258bf8770753d2a16",
+        "stdout_sha256_raw": "2e407ded7e3e015beb00f45762399c0de6de168c5267d93b0770f3d59c3781e7"
+      }
+    ]
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE7_INDIRECT_FIXTURE_V1=PASS tests=42",
+    "playability": "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P7_07=PASS",
+    "terminal": "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN"
+  },
+  "passed": 42,
+  "stage": "P7-07",
+  "stage_name": "OPENRECOMP_PHASE7_INDIRECT_FIXTURE_V1",
+  "status": "PASS",
+  "tests": 42
+}

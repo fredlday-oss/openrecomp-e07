@@ -253,10 +253,30 @@ general and playability markers reserved as `NOT_PROVEN`.
   `700c9d33...`.
 - Evidence: `.openrecomp-phase7/evidence/P7-06/`.
 
+## P7-07 outcome (PASS)
+
+Marker: `OPENRECOMP_PHASE7_INDIRECT_FIXTURE_V1=PASS tests=42`; terminal,
+general and playability markers reserved as `NOT_PROVEN`.
+
+- Original Apache-2.0 public fixture (`p7_indirect_flow_fixture.asm` +
+  `p7_indirect_flow_bank.asm`, ROM sha256 `1c9ad658...`) with three `$E2`
+  dispatch sites in bank 1: exact (`$8013` -> `$8033`), masked four-entry
+  finite set (`$8025` -> `$8100/$8110/$8120/$8130`) and unresolved
+  RAM-sourced pointer (`$8030`), all with `PROVEN` bank-1 provenance.
+- Reference execution through the frozen independent 6502 core/MMC1 platform
+  for selectors 0/1/2: markers `$E0/$01/$F0`, `$F2/$02/$F0`, `$00/$00/$F0`;
+  both exact and finite model-predicted targets were executed; the
+  unresolved runtime path correctly resolves only at runtime.
+- Negative: invalid selector types rejected, zeroed table -> `IMPOSSIBLE`,
+  short image fails closed.
+- Two official runs byte-identical raw (`30175c6a...`, 2006 bytes) and LF
+  (`1890e432...`), empty stderr, exit 0; `p7_07_tests.json` sha256
+  `4b3491a7...`.
+- Evidence: `.openrecomp-phase7/evidence/P7-07/`.
+
 ## Exact next action
 
-Start P7-07 (public indirect-control-flow proof fixture): author an original
-Apache-2.0 fixture covering the supported indirect-resolution mechanism with
-exact single target, multiple feasible targets, the unresolved/fail-closed
-case and relevant bank switching, with differential/reference verification.
-Do not push.
+Start P7-08 (translation frontier integration): integrate proven P7-02..P7-07
+results into the static recompilation pipeline, recompute the
+reachable/dead/unsupported frontier, emit host code only for proven
+executable paths and keep unknown control flow fail closed. Do not push.

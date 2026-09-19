@@ -1,0 +1,336 @@
+{
+  "bank_report": {
+    "proven_instructions": 50,
+    "status": "OK",
+    "unresolved_instructions": 0
+  },
+  "claim": "indirect-jump evidence with explicit RESOLVED_EXACT / RESOLVED_FINITE_SET / UNRESOLVED / IMPOSSIBLE states; targets are enumerated from proven value sources only and never guessed",
+  "evidence": {
+    "counts": {
+      "RESOLVED_EXACT": 1,
+      "RESOLVED_FINITE_SET": 1,
+      "UNRESOLVED": 1
+    },
+    "sites": [
+      {
+        "bank_provenance": {
+          "candidate_banks": [
+            1
+          ],
+          "evaluated_banks": [
+            1
+          ],
+          "identities": [
+            {
+              "address": 32787,
+              "bank": 1,
+              "length": 3,
+              "op": "jmp",
+              "provenance": "PROVEN",
+              "window": "low"
+            }
+          ],
+          "proven_banks": [
+            1
+          ],
+          "state": "PROVEN"
+        },
+        "classification": "RESOLVED_EXACT",
+        "definitions": {
+          "0xe2": {
+            "chain_index": 1,
+            "instruction": {
+              "address": 32781,
+              "op": "sta"
+            },
+            "source": {
+              "address": 32779,
+              "kind": "constant",
+              "value": 51
+            }
+          },
+          "0xe3": {
+            "chain_index": 3,
+            "instruction": {
+              "address": 32785,
+              "op": "sta"
+            },
+            "source": {
+              "address": 32783,
+              "kind": "constant",
+              "value": 128
+            }
+          }
+        },
+        "evaluated_banks": [
+          1
+        ],
+        "feasible_targets": [
+          [
+            1,
+            32819
+          ]
+        ],
+        "index_domain": null,
+        "infeasible_count": 0,
+        "reason": "pointer values from proven sources yield 1 feasible (target_bank, target) pairs across 1 evaluated physical bank(s)",
+        "site": 32787,
+        "writes": [
+          {
+            "address": 32781,
+            "byte": "0xe2",
+            "op": "sta"
+          },
+          {
+            "address": 32785,
+            "byte": "0xe3",
+            "op": "sta"
+          }
+        ]
+      },
+      {
+        "bank_provenance": {
+          "candidate_banks": [
+            1
+          ],
+          "evaluated_banks": [
+            1
+          ],
+          "identities": [
+            {
+              "address": 32805,
+              "bank": 1,
+              "length": 3,
+              "op": "jmp",
+              "provenance": "PROVEN",
+              "window": "low"
+            }
+          ],
+          "proven_banks": [
+            1
+          ],
+          "state": "PROVEN"
+        },
+        "classification": "RESOLVED_FINITE_SET",
+        "definitions": {
+          "0xe2": {
+            "chain_index": 4,
+            "instruction": {
+              "address": 32798,
+              "op": "sta"
+            },
+            "source": {
+              "base": 33280,
+              "index": "y",
+              "kind": "table",
+              "source_address": 32795
+            }
+          },
+          "0xe3": {
+            "chain_index": 6,
+            "instruction": {
+              "address": 32803,
+              "op": "sta"
+            },
+            "source": {
+              "base": 33281,
+              "index": "y",
+              "kind": "table",
+              "source_address": 32800
+            }
+          }
+        },
+        "evaluated_banks": [
+          1
+        ],
+        "feasible_targets": [
+          [
+            1,
+            33024
+          ],
+          [
+            1,
+            33040
+          ],
+          [
+            1,
+            33056
+          ],
+          [
+            1,
+            33072
+          ]
+        ],
+        "index_domain": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "infeasible_count": 0,
+        "reason": "pointer values from proven sources yield 4 feasible (target_bank, target) pairs across 1 evaluated physical bank(s)",
+        "site": 32805,
+        "writes": [
+          {
+            "address": 32798,
+            "byte": "0xe2",
+            "op": "sta"
+          },
+          {
+            "address": 32803,
+            "byte": "0xe3",
+            "op": "sta"
+          }
+        ]
+      },
+      {
+        "bank_provenance": {
+          "candidate_banks": [
+            1
+          ],
+          "evaluated_banks": [
+            1
+          ],
+          "identities": [
+            {
+              "address": 32816,
+              "bank": 1,
+              "length": 3,
+              "op": "jmp",
+              "provenance": "PROVEN",
+              "window": "low"
+            }
+          ],
+          "proven_banks": [
+            1
+          ],
+          "state": "PROVEN"
+        },
+        "classification": "UNRESOLVED",
+        "definitions": {
+          "0xe2": {
+            "chain_index": 1,
+            "instruction": {
+              "address": 32810,
+              "op": "sta"
+            },
+            "source": {
+              "kind": "unknown",
+              "reason": "value source op 'lda' is not statically resolved"
+            }
+          },
+          "0xe3": {
+            "chain_index": 3,
+            "instruction": {
+              "address": 32814,
+              "op": "sta"
+            },
+            "source": {
+              "kind": "unknown",
+              "reason": "value source op 'lda' is not statically resolved"
+            }
+          }
+        },
+        "evaluated_banks": [],
+        "feasible_targets": [],
+        "index_domain": null,
+        "infeasible_count": 0,
+        "reason": "pointer byte value source is not statically known: value source op 'lda' is not statically resolved; value source op 'lda' is not statically resolved",
+        "site": 32816,
+        "writes": [
+          {
+            "address": 32810,
+            "byte": "0xe2",
+            "op": "sta"
+          },
+          {
+            "address": 32814,
+            "byte": "0xe3",
+            "op": "sta"
+          }
+        ]
+      }
+    ]
+  },
+  "expected_markers": {
+    "0": {
+      "fixed": 240,
+      "kind": 224,
+      "target": 1
+    },
+    "1": {
+      "fixed": 240,
+      "kind": 242,
+      "target": 2
+    },
+    "2": {
+      "fixed": 240,
+      "kind": 0,
+      "target": 0
+    }
+  },
+  "fixture": {
+    "chr_banks": 1,
+    "chr_sha256": "3810a719f65dc6aa3c4a6f39269f2156eda4a3110ba68889398f6fb285b44761",
+    "exit_site": 49669,
+    "license": "Apache-2.0",
+    "name": "openrecomp-phase7-indirect-flow-fixture",
+    "prg_banks": 4,
+    "prg_sha256": "1b256d613919a467924c3087818119d1b0ba761d9a4b2271652a9da67748cdd9",
+    "rom_sha256": "1c9ad6582576a5c7c12a27b8a0077257c7c414142cd81ffdc92cb4a8ff1c9248",
+    "rom_size": 73744,
+    "selector_immediate_address": 49183,
+    "sites": [
+      32787,
+      32805,
+      32816
+    ],
+    "source_sha256": "9a6c2f502b1abd97bd720c2a22bc89c726169dbeef231f81fc953346e3c0abfd",
+    "sources": [
+      ".openrecomp-phase7/fixture/p7_indirect_flow_fixture.asm",
+      ".openrecomp-phase7/fixture/p7_indirect_flow_bank.asm"
+    ],
+    "vectors": {
+      "irq": 49729,
+      "nmi": 49728,
+      "reset": 49152
+    }
+  },
+  "public_claim": "original Apache-2.0 public fixture for the bounded indirect-control-flow resolution proof only",
+  "reference_runs": {
+    "0": {
+      "clock": 105,
+      "executed_count": 38,
+      "markers": {
+        "marker": 224,
+        "plain_out": 0,
+        "resume_out": 240,
+        "selector": 1
+      },
+      "steps": 37
+    },
+    "1": {
+      "clock": 120,
+      "executed_count": 43,
+      "markers": {
+        "marker": 242,
+        "plain_out": 0,
+        "resume_out": 240,
+        "selector": 2
+      },
+      "steps": 42
+    },
+    "2": {
+      "clock": 99,
+      "executed_count": 36,
+      "markers": {
+        "marker": 0,
+        "plain_out": 0,
+        "resume_out": 240,
+        "selector": 0
+      },
+      "steps": 35
+    }
+  },
+  "stage": "P7-07"
+}

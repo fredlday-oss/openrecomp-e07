@@ -470,6 +470,9 @@ def analyze_image(image: bytes, prg: bytes, prg_banks: int, sites: list[int],
             "pointer_reads": pointer_reads,
             "bank_provenance": _site_bank_provenance(bank_identities, site,
                                                      prg_banks),
+            "feasible_targets": [],
+            "infeasible_count": 0,
+            "evaluated_banks": [],
         }
         if POINTER not in definitions or POINTER_HIGH not in definitions:
             record["classification"] = UNRESOLVED

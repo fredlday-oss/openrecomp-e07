@@ -1,0 +1,68 @@
+=== P7-07 Public Indirect-Flow Fixture Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-verified
+
+--- anchors ---
+PASS: anchor:p7-06-record-pass
+PASS: anchor:decoder-unchanged
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+PASS: control-plane:playability-reserved
+
+--- fixture_build ---
+PASS: fixture:deterministic
+PASS: fixture:license-and-origin
+PASS: fixture:source-provenance:p7_indirect_flow_fixture.asm
+PASS: fixture:source-provenance:p7_indirect_flow_bank.asm
+PASS: fixture:cross-checked
+PASS: fixture:inventory
+PASS: fixture:three-sites
+
+--- bank_and_evidence ---
+PASS: bank:proven
+PASS: bank:site-0x8013-proven
+PASS: bank:site-0x8025-proven
+PASS: bank:site-0x8030-proven
+PASS: evidence:counts
+PASS: evidence:exact-site
+PASS: evidence:finite-site
+PASS: evidence:unresolved-site
+
+--- reference_runs ---
+PASS: reference:selector-0:exit
+PASS: reference:selector-0:markers
+PASS: reference:selector-1:exit
+PASS: reference:selector-1:markers
+PASS: reference:selector-2:exit
+PASS: reference:selector-2:markers
+PASS: differential:exact-target-executed
+PASS: differential:finite-target-executed
+PASS: differential:unresolved-runtime-target
+
+--- negative ---
+PASS: negative-selector:rejected
+PASS: boolean-selector:rejected
+PASS: negative:impossible-table
+PASS: negative:short-image
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:p7-06:exit
+PASS: regression:p7-06:stderr
+PASS: regression:p7-06:marker
+
+--- evidence ---
+PASS: hygiene:no-private-rom-bytes:indirect_fixture.json
+PASS: hygiene:no-rom-extension-in-scratch
+
+=== RESULT ===
+OPENRECOMP_P7_07=PASS
+OPENRECOMP_PHASE7_INDIRECT_FIXTURE_V1=PASS tests=42
+OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
+OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN
