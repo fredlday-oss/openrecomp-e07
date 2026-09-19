@@ -140,11 +140,47 @@ terminal, general and playability markers reserved as `NOT_PROVEN`.
   `f94b8364...` in both runs.
 - Evidence: `.openrecomp-phase7/evidence/P7-02/`.
 
+## P7-03 outcome (PASS)
+
+Marker: `OPENRECOMP_PHASE7_OPCODE_FIXTURE_V1=PASS tests=49`; terminal, general
+and playability markers reserved as `NOT_PROVEN`.
+
+- Original Apache-2.0 public fixture
+  `.openrecomp-phase7/fixture/p7_inline_dispatch_fixture.asm` built
+  deterministically with the frozen Phase-5 assembler and cross-checked
+  against the frozen decoder: ROM sha256 `66c4d8c7...` (40976 bytes), 2 x
+  16 KiB PRG / 1 x 8 KiB CHR, mapper 1, horizontal, vectors NMI `$C140` /
+  RESET `$C000` / IRQ `$C141`.
+- The fixture reproduces the inline-dispatch idiom: `jsr $C100` at `$C018`
+  followed by a three-entry inline pointer table at `$C01B` whose first byte
+  is `0x7C`, return-address-consuming dispatcher, documented resume at
+  `$C021`, targets `$C07C`/`$C090`/`$C0A0`, exit thunk `jmp ($02FF)` at
+  `$C130`.
+- The frozen P7-02 classifier returns `DATA_NOT_CODE` at the table base with
+  the expected structural evidence; no undocumented-opcode semantics were
+  added and the decoder is unchanged (151 documented opcodes, `0x7C` absent).
+- Differential verification: the independent static pointer model predicts
+  `$C07C`/`$C090`/`$C0A0` for selectors 0/1/2 and the frozen independent 6502
+  reference core over the frozen MMC1 platform executes the fixture with exit
+  reached and markers `$10`/`$11`/`$12`; out-of-range selector 3 and bad
+  selector types fail closed; a tampered dispatcher classifies `AMBIGUOUS`.
+- Two official runs byte-identical raw (`6edadcda...`, 2329 bytes) and LF
+  (`59ffed5c...`), empty stderr, exit 0; `p7_03_tests.json` sha256
+  `29405ee8...` in both runs.
+- Evidence: `.openrecomp-phase7/evidence/P7-03/`.
+
+## Evidence-completion fix (P7-01/P7-02)
+
+The P7-01 and P7-02 stage gates did not write their extra evidence sidecars;
+fixed in commit `phase7: write stage evidence sidecars in P7-01/P7-02 gates`
+(`frontier_rederivation.json` and `opcode_classification.json` are now
+present). Both stages were re-run officially with byte-identical stdout and
+identical `p7_01_tests.json`/`p7_02_tests.json` hashes.
+
 ## Exact next action
 
-Start P7-03 (public undocumented-opcode proof fixture): because P7-02 proved
-the byte is data rather than an executable instruction, author an original
-Apache-2.0 NES fixture that reproduces the inline-dispatch classification
-mechanism (call site with inline pointer table, return-address-consuming
-dispatcher, documented code resume) and prove the classification mechanism
-end-to-end rather than adding false opcode semantics. Do not push.
+Start P7-04 (bank-aware cartridge reachability model): model executable
+reachability across MMC1 PRG bank states, track fixed and switchable windows
+explicitly, associate code addresses with cartridge bank state where
+required, never merge different physical bank contents that share CPU address
+ranges, and fail closed on ambiguous bank provenance. Do not push.

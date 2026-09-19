@@ -1,0 +1,75 @@
+=== P7-03 Public Classification Fixture Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-verified
+
+--- anchors ---
+PASS: anchor:p7-01-record-pass
+PASS: anchor:p7-02-record-pass
+PASS: anchor:decoder-unchanged
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+PASS: control-plane:playability-reserved
+
+--- fixture_build ---
+PASS: fixture:deterministic
+PASS: fixture:license-and-origin
+PASS: fixture:source-provenance
+PASS: fixture:assembled-cross-checked
+PASS: fixture:mapper-configuration
+PASS: fixture:inventory-supported
+PASS: fixture:vectors
+
+--- classification_mechanism ---
+PASS: classify:data-not-code
+PASS: classify:predecessor
+PASS: classify:callee-consumes
+PASS: classify:inline-table
+PASS: classify:code-resume
+PASS: classify:table-first-byte
+
+--- independent_dispatch_reference ---
+PASS: costs:cross-check-shared
+PASS: dispatch:predicted-selector-0
+PASS: reference:exit-selector-0
+PASS: reference:marker-selector-0
+PASS: reference:target-executed-selector-0
+PASS: dispatch:predicted-selector-1
+PASS: reference:exit-selector-1
+PASS: reference:marker-selector-1
+PASS: reference:target-executed-selector-1
+PASS: dispatch:predicted-selector-2
+PASS: reference:exit-selector-2
+PASS: reference:marker-selector-2
+PASS: reference:target-executed-selector-2
+PASS: differential:static-models-agree
+PASS: differential:dynamic-matches-static
+PASS: edge:out-of-range-selector-fail-closed
+
+--- negative ---
+PASS: negative:tampered-dispatcher-ambiguous
+PASS: negative:bad-selector--1
+PASS: negative:bad-selector-True
+PASS: negative:bad-selector-'1'
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:p7-02:exit
+PASS: regression:p7-02:stderr
+PASS: regression:p7-02:marker
+
+--- evidence ---
+PASS: hygiene:no-private-rom-bytes:classification_fixture.json
+PASS: hygiene:no-rom-extension-in-scratch
+PASS: hygiene:public-fixture-not-written-to-worktree
+
+=== RESULT ===
+OPENRECOMP_P7_03=PASS
+OPENRECOMP_PHASE7_OPCODE_FIXTURE_V1=PASS tests=49
+OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
+OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN

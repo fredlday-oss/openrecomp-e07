@@ -1,0 +1,238 @@
+{
+  "chr_banks": 1,
+  "chr_sha256": "5fe9a00381da1fb105be549320eae615b35f8afc820bdd34803198403d1161ec",
+  "classification": {
+    "address": 49179,
+    "callee": {
+      "address": 49408,
+      "consumes_return_address": true,
+      "indirect_jump": true,
+      "indirect_reads": 2,
+      "instructions": [
+        {
+          "address": 49408,
+          "length": 1,
+          "op": "asl"
+        },
+        {
+          "address": 49409,
+          "length": 1,
+          "op": "tay"
+        },
+        {
+          "address": 49410,
+          "length": 1,
+          "op": "iny"
+        },
+        {
+          "address": 49411,
+          "length": 1,
+          "op": "pla"
+        },
+        {
+          "address": 49412,
+          "length": 2,
+          "op": "sta",
+          "zp": 0
+        },
+        {
+          "address": 49414,
+          "length": 1,
+          "op": "pla"
+        },
+        {
+          "address": 49415,
+          "length": 2,
+          "op": "sta",
+          "zp": 1
+        },
+        {
+          "address": 49417,
+          "length": 2,
+          "mode": "indirect,y",
+          "op": "lda"
+        },
+        {
+          "address": 49419,
+          "length": 2,
+          "op": "sta",
+          "zp": 2
+        },
+        {
+          "address": 49421,
+          "length": 1,
+          "op": "iny"
+        },
+        {
+          "address": 49422,
+          "length": 2,
+          "mode": "indirect,y",
+          "op": "lda"
+        },
+        {
+          "address": 49424,
+          "length": 2,
+          "op": "sta",
+          "zp": 3
+        },
+        {
+          "address": 49426,
+          "length": 3,
+          "mode": "indirect",
+          "op": "jmp"
+        }
+      ],
+      "pulls": 2,
+      "terminated": true
+    },
+    "classification": "DATA_NOT_CODE",
+    "code_resume": {
+      "address": 49185,
+      "first_op": "lda",
+      "second_address": 49187,
+      "second_op": "sta"
+    },
+    "inline_table": {
+      "all_targets_decode": true,
+      "all_targets_in_code_window": true,
+      "base": 49179,
+      "byte_length": 6,
+      "entries": 3,
+      "entry_detail": [
+        {
+          "first_op": "lda",
+          "index": 0,
+          "table_offset": 49179,
+          "target": 49276
+        },
+        {
+          "first_op": "lda",
+          "index": 1,
+          "table_offset": 49181,
+          "target": 49296
+        },
+        {
+          "first_op": "lda",
+          "index": 2,
+          "table_offset": 49183,
+          "target": 49312
+        }
+      ],
+      "resume_address": 49185,
+      "targets": [
+        49276,
+        49296,
+        49312
+      ]
+    },
+    "predecessors": [
+      {
+        "address": 49176,
+        "edge": "fallthrough",
+        "op": "jsr"
+      }
+    ]
+  },
+  "cost_cross_check": {
+    "all_match": true,
+    "shared_opcodes": [
+      24,
+      32,
+      64,
+      76,
+      96,
+      104,
+      108,
+      120,
+      141,
+      154,
+      162,
+      168,
+      169,
+      200,
+      216,
+      232
+    ]
+  },
+  "decoder_unchanged": {
+    "documented_opcodes": 151,
+    "opcode_0x7c_supported": false
+  },
+  "fixture": "openrecomp-phase7-inline-dispatch-classification-fixture",
+  "license": "Apache-2.0",
+  "mapper": 1,
+  "mechanism": {
+    "call_site": 49176,
+    "dispatch_entry": 49408,
+    "dispatcher_pla_addresses": [
+      49411,
+      49414
+    ],
+    "exit_site": 49456,
+    "plain_sub": 49328,
+    "resume_code": 49185,
+    "selector_immediate_address": 49174,
+    "table_base": 49179,
+    "targets": [
+      49276,
+      49296,
+      49312
+    ]
+  },
+  "mirroring": "horizontal",
+  "origin": "original",
+  "predictions": {
+    "0": 49276,
+    "1": 49296,
+    "2": 49312
+  },
+  "prg_banks": 2,
+  "prg_sha256": "ddf925c0b4e900a6f6242a093c3da347c8200c9b39fcd00d9bcb3ff2642fde10",
+  "public_claim": "original Apache-2.0 public fixture for the bounded inline-dispatch classification mechanism only",
+  "reference_runs": {
+    "0": {
+      "clock": 102,
+      "executed_count": 33,
+      "exit_reached": true,
+      "marker": 16,
+      "pc": 49456,
+      "plain_out": 34,
+      "predicted_target": 49276,
+      "selector_out": 1,
+      "steps": 32
+    },
+    "1": {
+      "clock": 102,
+      "executed_count": 33,
+      "exit_reached": true,
+      "marker": 17,
+      "pc": 49456,
+      "plain_out": 34,
+      "predicted_target": 49296,
+      "selector_out": 1,
+      "steps": 32
+    },
+    "2": {
+      "clock": 102,
+      "executed_count": 33,
+      "exit_reached": true,
+      "marker": 18,
+      "pc": 49456,
+      "plain_out": 34,
+      "predicted_target": 49312,
+      "selector_out": 1,
+      "steps": 32
+    }
+  },
+  "rom_sha256": "66c4d8c759e622e214f25eb1cb1a6f67b928d3031e1d21a4db0367f06ccd6d8c",
+  "rom_size": 40976,
+  "semantics_added": false,
+  "source": ".openrecomp-phase7/fixture/p7_inline_dispatch_fixture.asm",
+  "source_sha256": "f7059d20e638b32767a19d3e87b45f2ed056dd574cb744e26d479510ddffff8d",
+  "stage": "P7-03",
+  "vectors": {
+    "irq": 49473,
+    "nmi": 49472,
+    "reset": 49152
+  }
+}

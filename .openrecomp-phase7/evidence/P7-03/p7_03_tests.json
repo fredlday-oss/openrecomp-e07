@@ -1,0 +1,273 @@
+{
+  "checks": [
+    {
+      "check": "anchor:decoder-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:p7-01-record-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:p7-02-record-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:callee-consumes",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:code-resume",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:data-not-code",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:inline-table",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:predecessor",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:table-first-byte",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:compat-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:playability-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:stage-row",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "costs:cross-check-shared",
+      "status": "PASS"
+    },
+    {
+      "check": "differential:dynamic-matches-static",
+      "status": "PASS"
+    },
+    {
+      "check": "differential:static-models-agree",
+      "status": "PASS"
+    },
+    {
+      "check": "dispatch:predicted-selector-0",
+      "status": "PASS"
+    },
+    {
+      "check": "dispatch:predicted-selector-1",
+      "status": "PASS"
+    },
+    {
+      "check": "dispatch:predicted-selector-2",
+      "status": "PASS"
+    },
+    {
+      "check": "edge:out-of-range-selector-fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:assembled-cross-checked",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:inventory-supported",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:license-and-origin",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:mapper-configuration",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:source-provenance",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:vectors",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:classification_fixture.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-rom-extension-in-scratch",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:public-fixture-not-written-to-worktree",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:bad-selector-'1'",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:bad-selector--1",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:bad-selector-True",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:tampered-dispatcher-ambiguous",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:exit-selector-0",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:exit-selector-1",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:exit-selector-2",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:marker-selector-0",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:marker-selector-1",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:marker-selector-2",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:target-executed-selector-0",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:target-executed-selector-1",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:target-executed-selector-2",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-02:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-02:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-02:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-verified",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "classification": {
+      "classification": "DATA_NOT_CODE",
+      "resume_address": 49185,
+      "targets": [
+        49276,
+        49296,
+        49312
+      ]
+    },
+    "fixture": {
+      "chr_sha256": "5fe9a00381da1fb105be549320eae615b35f8afc820bdd34803198403d1161ec",
+      "instruction_count": 44,
+      "prg_sha256": "ddf925c0b4e900a6f6242a093c3da347c8200c9b39fcd00d9bcb3ff2642fde10",
+      "rom_sha256": "66c4d8c759e622e214f25eb1cb1a6f67b928d3031e1d21a4db0367f06ccd6d8c",
+      "rom_size": 40976,
+      "source_sha256": "f7059d20e638b32767a19d3e87b45f2ed056dd574cb744e26d479510ddffff8d"
+    },
+    "regressions": [
+      {
+        "command": [
+          "python",
+          "tools/test_nes_rom_v1.py"
+        ],
+        "markers": [
+          "OPENRECOMP_NES_ROM_V1=PASS tests=12"
+        ],
+        "returncode": 0,
+        "script": "tools/test_nes_rom_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 959,
+        "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+        "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+      },
+      {
+        "command": [
+          "python",
+          "tools/test_phase7_opcode_classification_v1.py",
+          "--evidence-dir",
+          ".openrecomp-phase7/scratch/P7-03/regression_p7_02"
+        ],
+        "markers": [
+          "OPENRECOMP_P7_02=PASS",
+          "OPENRECOMP_PHASE7_OPCODE_CLASSIFICATION_V1=PASS tests=37",
+          "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+          "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase7_opcode_classification_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 1802,
+        "stdout_sha256_lf": "6ffe5e57f2b36ca0ceac68257f01b3eb81d47026f910ad9392b9ff6f64908332",
+        "stdout_sha256_raw": "1a10323c5785bd3cb8fcb526a4b1eed47b68f4c540e4f6ea935d219bf007bad1"
+      }
+    ]
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE7_OPCODE_FIXTURE_V1=PASS tests=49",
+    "playability": "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P7_03=PASS",
+    "terminal": "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN"
+  },
+  "passed": 49,
+  "stage": "P7-03",
+  "stage_name": "OPENRECOMP_PHASE7_OPCODE_FIXTURE_V1",
+  "status": "PASS",
+  "tests": 49
+}
