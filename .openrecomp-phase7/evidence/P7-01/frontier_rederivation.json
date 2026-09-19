@@ -1,0 +1,383 @@
+{
+  "anchors": {
+    ".openrecomp-phase6/evidence/P6-10/blockers.json": "6b8b789cb691da742c270b81c98849bbda952642ad393cc5a4af230bc97e41c5",
+    ".openrecomp-phase6/evidence/P6-10/tmnt_pipeline.json": "0b8c9014fa11f9e363f1cfb1c569048f786b8baec2117769adb862b375a3ebdc",
+    ".openrecomp-phase6/evidence/P6-12/blockers.json": "b5cb9ef40625195baef160717ae15647091d6b6b0a13c2f24b9c8dab5c4ea579",
+    ".openrecomp-phase6/evidence/P6-13/frontier_record.json": "e49a0b3422d6a65b5b50ce820db5c9f9d02ef3662aa114f5287db3a8232bf484",
+    ".openrecomp-phase6/evidence/P6-13/private_workflow.json": "07ce9a558582ed1178b08ff158e2bff41ce9939e0416aaf07fb0dc64f180dd0e"
+  },
+  "blockers": [
+    {
+      "classification": "unsupported_opcode",
+      "code": "BLOCKED_UNSUPPORTED_OPCODE",
+      "detail": "documented-control-flow walk fails closed at 0xc570 (0xc570: undocumented 6502 opcode 0x7c) after 1250 candidate instructions; no code/data boundary evidence is declared",
+      "stage": "opcode_frontier"
+    },
+    {
+      "classification": "unresolved_indirect_control_flow",
+      "code": "BLOCKED_UNRESOLVED_INDIRECT_CONTROL_FLOW",
+      "detail": "unresolved indirect jump sites at 0x86e8, 0x8956, 0x8f3c through zero-page pointer(s) 0x00e2; runtime jump-table targets must not be guessed",
+      "stage": "indirect_control_flow"
+    },
+    {
+      "classification": "bank_state_unresolved",
+      "code": "BLOCKED_BANK_STATE_UNRESOLVED",
+      "detail": "1048 candidate instructions reach the mapper-switched $8000-$BFFF window under the power-on PRG bank only; runtime bank-state evidence is required to resolve the actual bank sequence",
+      "stage": "bank_state"
+    },
+    {
+      "classification": "platform_runtime_not_tested",
+      "code": "NOT_TESTED",
+      "detail": "PPU/APU/input/timing requirements beyond the bounded Phase-5/6 platform model cannot be assessed until translation completes",
+      "stage": "runtime_platform"
+    }
+  ],
+  "classification": "PRIVATE_LOCAL_COMPATIBILITY_FIXTURE",
+  "comparisons": {
+    "frontier_record_equal": true,
+    "image_identity": true,
+    "mapper_blocker_superseded": true,
+    "p6_10_blockers_equal": true,
+    "p6_12_private_blockers_equal": true,
+    "pipeline_projection_equal": true,
+    "runtime_support_identity": true,
+    "workflow_projection_equal": true
+  },
+  "frontier_record_sha256": "527bd556fad05ced528b46312ad993250d1fc4a68d9cafbc64dffafbe0fcced7",
+  "generated_source_progress": "NOT_GENERATED",
+  "image_sha256": "2a9345e608ec0c57470dc6658ce8199ddea9c18076134d9ef2a56f91b0a066d1",
+  "image_size": 262160,
+  "indirect_control_flow_frontier": {
+    "sites": [
+      {
+        "address": 34536,
+        "classification": "UNRESOLVED_INDIRECT_JUMP",
+        "instruction": "jmp",
+        "pointer": 226,
+        "targets": []
+      },
+      {
+        "address": 35158,
+        "classification": "UNRESOLVED_INDIRECT_JUMP",
+        "instruction": "jmp",
+        "pointer": 226,
+        "targets": []
+      },
+      {
+        "address": 36668,
+        "classification": "UNRESOLVED_INDIRECT_JUMP",
+        "instruction": "jmp",
+        "pointer": 226,
+        "targets": []
+      }
+    ],
+    "status": "UNRESOLVED"
+  },
+  "ingestion_result": "SUPPORTED_MMC1",
+  "mapper_platform_status": "SUPPORTED_MMC1",
+  "native_build_progress": "NOT_ATTEMPTED",
+  "native_execution_progress": "NOT_ATTEMPTED",
+  "opcode_frontier": {
+    "documented_forms": 42,
+    "status": "BLOCKED_UNSUPPORTED_OPCODE",
+    "unsupported": [
+      {
+        "address": 50544,
+        "kind": "undocumented_opcode",
+        "reason": "0xc570: undocumented 6502 opcode 0x7c"
+      }
+    ]
+  },
+  "pipeline_projection_sha256": "77fa4c60d937f68e133bab5a62ef3bd06407773ffd6e3f27cf8d3a7147ffe40c",
+  "power_on_prg_window": [
+    0,
+    7
+  ],
+  "power_on_registers": {
+    "chr_bank_0": 0,
+    "chr_bank_1": 0,
+    "control": 12,
+    "prg_bank": 0
+  },
+  "public_claim": "none; private local analysis must not enter the public package",
+  "reachable_static_frontier": {
+    "candidate": {
+      "basis": "power-on MMC1 frame (fixed last bank at $C000-$FFFF, PRG register bank in the $8000-$BFFF window); documented static control flow only, indirect jumps never guessed",
+      "budget": 20000,
+      "bytes": 2711,
+      "claim": "CANDIDATE / NOT PROVEN",
+      "distinct_opcode_forms": 42,
+      "dynamic_returns": [
+        {
+          "address": 34379,
+          "instruction": "rts"
+        },
+        {
+          "address": 34424,
+          "instruction": "rts"
+        },
+        {
+          "address": 34647,
+          "instruction": "rts"
+        },
+        {
+          "address": 34794,
+          "instruction": "rts"
+        },
+        {
+          "address": 34805,
+          "instruction": "rts"
+        },
+        {
+          "address": 34966,
+          "instruction": "rts"
+        },
+        {
+          "address": 34980,
+          "instruction": "rts"
+        },
+        {
+          "address": 35001,
+          "instruction": "rts"
+        },
+        {
+          "address": 35017,
+          "instruction": "rts"
+        },
+        {
+          "address": 35023,
+          "instruction": "rts"
+        },
+        {
+          "address": 35041,
+          "instruction": "rts"
+        },
+        {
+          "address": 35049,
+          "instruction": "rts"
+        },
+        {
+          "address": 35110,
+          "instruction": "rts"
+        },
+        {
+          "address": 35204,
+          "instruction": "rts"
+        },
+        {
+          "address": 35272,
+          "instruction": "rts"
+        },
+        {
+          "address": 35653,
+          "instruction": "rts"
+        },
+        {
+          "address": 35821,
+          "instruction": "rts"
+        },
+        {
+          "address": 35883,
+          "instruction": "rts"
+        },
+        {
+          "address": 35953,
+          "instruction": "rts"
+        },
+        {
+          "address": 36036,
+          "instruction": "rts"
+        },
+        {
+          "address": 36079,
+          "instruction": "rts"
+        },
+        {
+          "address": 36090,
+          "instruction": "rts"
+        },
+        {
+          "address": 36098,
+          "instruction": "rts"
+        },
+        {
+          "address": 36700,
+          "instruction": "rts"
+        },
+        {
+          "address": 36765,
+          "instruction": "rts"
+        },
+        {
+          "address": 36778,
+          "instruction": "rts"
+        },
+        {
+          "address": 36791,
+          "instruction": "rts"
+        },
+        {
+          "address": 36901,
+          "instruction": "rts"
+        },
+        {
+          "address": 36958,
+          "instruction": "rts"
+        },
+        {
+          "address": 36980,
+          "instruction": "rts"
+        },
+        {
+          "address": 37030,
+          "instruction": "rts"
+        },
+        {
+          "address": 37049,
+          "instruction": "rts"
+        },
+        {
+          "address": 37254,
+          "instruction": "rts"
+        },
+        {
+          "address": 50194,
+          "instruction": "rti"
+        },
+        {
+          "address": 50227,
+          "instruction": "rts"
+        },
+        {
+          "address": 50271,
+          "instruction": "rts"
+        },
+        {
+          "address": 50341,
+          "instruction": "rts"
+        },
+        {
+          "address": 50413,
+          "instruction": "rts"
+        },
+        {
+          "address": 50457,
+          "instruction": "rts"
+        },
+        {
+          "address": 50468,
+          "instruction": "rts"
+        },
+        {
+          "address": 50505,
+          "instruction": "rts"
+        },
+        {
+          "address": 52956,
+          "instruction": "rts"
+        }
+      ],
+      "fixed_window_instructions": 202,
+      "indirect_sites": [
+        {
+          "address": 34536,
+          "instruction": "jmp",
+          "pointer": 226
+        },
+        {
+          "address": 35158,
+          "instruction": "jmp",
+          "pointer": 226
+        },
+        {
+          "address": 36668,
+          "instruction": "jmp",
+          "pointer": 226
+        }
+      ],
+      "instructions": 1250,
+      "interrupt_sites": [],
+      "low_window_instructions": 1048,
+      "low_window_range": [
+        34330,
+        37267
+      ],
+      "mode_histogram": {
+        "abs": 223,
+        "absx": 199,
+        "absy": 18,
+        "acc": 53,
+        "imm": 203,
+        "impl": 179,
+        "ind": 3,
+        "indy": 35,
+        "rel": 158,
+        "zp": 170,
+        "zpx": 9
+      },
+      "opcode_histogram": {
+        "adc": 17,
+        "and": 53,
+        "asl": 16,
+        "bcc": 19,
+        "bcs": 26,
+        "beq": 56,
+        "bmi": 11,
+        "bne": 45,
+        "bpl": 1,
+        "clc": 13,
+        "cmp": 55,
+        "cpx": 25,
+        "cpy": 1,
+        "dec": 12,
+        "dex": 2,
+        "dey": 8,
+        "eor": 1,
+        "inc": 25,
+        "inx": 4,
+        "iny": 27,
+        "jmp": 63,
+        "jsr": 52,
+        "lda": 257,
+        "ldx": 19,
+        "ldy": 13,
+        "lsr": 39,
+        "ora": 20,
+        "pha": 10,
+        "pla": 11,
+        "rol": 6,
+        "ror": 2,
+        "rti": 1,
+        "rts": 41,
+        "sbc": 9,
+        "sec": 11,
+        "sta": 213,
+        "stx": 2,
+        "sty": 13,
+        "tax": 13,
+        "tay": 20,
+        "txa": 8,
+        "tya": 10
+      },
+      "outside_targets": [],
+      "pending_at_stop": 11,
+      "stop": {
+        "address": 50544,
+        "kind": "undocumented_opcode",
+        "predecessor": {
+          "address": 50541,
+          "instruction": "jsr"
+        },
+        "reason": "0xc570: undocumented 6502 opcode 0x7c"
+      },
+      "truncated": false
+    },
+    "documented_error": "reachable decode failed at 0xc570: 0xc570: undocumented 6502 opcode 0x7c",
+    "documented_status": "FAIL_CLOSED"
+  },
+  "runtime_platform_progress": "NOT_TESTED",
+  "runtime_support_sha256": "2e3fa4bac6c0630840535aff2827c5f453b2372d0acb90551c72a58309d8a3e7",
+  "stage": "P7-01",
+  "translation_progress": "NOT_ATTEMPTED",
+  "workflow_projection_sha256": "bfbacc856dbd4c7c41ebc9f12d2ee7744c6fd8d522ce24f464fc77f9eedd36cc"
+}

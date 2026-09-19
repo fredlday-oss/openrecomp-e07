@@ -1,0 +1,233 @@
+{
+  "address": 50544,
+  "call_site": 50541,
+  "callee": {
+    "address": 50975,
+    "consumes_return_address": true,
+    "indirect_jump": true,
+    "indirect_reads": 2,
+    "instructions": [
+      {
+        "address": 50975,
+        "length": 1,
+        "op": "asl"
+      },
+      {
+        "address": 50976,
+        "length": 2,
+        "op": "sty",
+        "zp": 3
+      },
+      {
+        "address": 50978,
+        "length": 1,
+        "op": "tay"
+      },
+      {
+        "address": 50979,
+        "length": 1,
+        "op": "iny"
+      },
+      {
+        "address": 50980,
+        "length": 1,
+        "op": "pla"
+      },
+      {
+        "address": 50981,
+        "length": 2,
+        "op": "sta",
+        "zp": 0
+      },
+      {
+        "address": 50983,
+        "length": 1,
+        "op": "pla"
+      },
+      {
+        "address": 50984,
+        "length": 2,
+        "op": "sta",
+        "zp": 1
+      },
+      {
+        "address": 50986,
+        "length": 2,
+        "mode": "indirect,y",
+        "op": "lda"
+      },
+      {
+        "address": 50988,
+        "length": 2,
+        "op": "sta",
+        "zp": 2
+      },
+      {
+        "address": 50990,
+        "length": 1,
+        "op": "iny"
+      },
+      {
+        "address": 50991,
+        "length": 2,
+        "mode": "indirect,y",
+        "op": "lda"
+      },
+      {
+        "address": 50993,
+        "length": 2,
+        "op": "ldy",
+        "zp": 3
+      },
+      {
+        "address": 50995,
+        "length": 2,
+        "op": "sta",
+        "zp": 3
+      },
+      {
+        "address": 50997,
+        "length": 3,
+        "mode": "indirect",
+        "op": "jmp"
+      }
+    ],
+    "pulls": 2,
+    "terminated": true
+  },
+  "classification": "DATA_NOT_CODE",
+  "code_resume": {
+    "address": 50556,
+    "first_op": "lda",
+    "nested_table": {
+      "all_targets_decode": true,
+      "all_targets_in_code_window": true,
+      "base": 50561,
+      "byte_length": 8,
+      "entries": 4,
+      "entry_detail": [
+        {
+          "first_op": "lda",
+          "index": 0,
+          "table_offset": 50561,
+          "target": 50569
+        },
+        {
+          "first_op": "lda",
+          "index": 1,
+          "table_offset": 50563,
+          "target": 50612
+        },
+        {
+          "first_op": "jsr",
+          "index": 2,
+          "table_offset": 50565,
+          "target": 50686
+        },
+        {
+          "first_op": "lda",
+          "index": 3,
+          "table_offset": 50567,
+          "target": 50732
+        }
+      ],
+      "resume_address": 50569,
+      "targets": [
+        50569,
+        50612,
+        50686,
+        50732
+      ]
+    },
+    "second_address": 50558,
+    "second_op": "jsr",
+    "second_target": 50975
+  },
+  "corroboration": {
+    "coherent_documented_stream": false,
+    "forced_three_byte_undocumented_address": 50553,
+    "forced_three_byte_undocumented_offset": 9,
+    "linear_undocumented_address": 50553,
+    "linear_undocumented_offset": 9
+  },
+  "documented_opcode_count": 151,
+  "fixture": "private_tmnt",
+  "image_sha256": "2a9345e608ec0c57470dc6658ce8199ddea9c18076134d9ef2a56f91b0a066d1",
+  "image_size": 262160,
+  "inline_table": {
+    "all_targets_decode": true,
+    "all_targets_in_code_window": true,
+    "base": 50544,
+    "byte_length": 12,
+    "entries": 6,
+    "entry_detail": [
+      {
+        "first_op": "lda",
+        "index": 0,
+        "table_offset": 50544,
+        "target": 50556
+      },
+      {
+        "first_op": "ldx",
+        "index": 1,
+        "table_offset": 50546,
+        "target": 50756
+      },
+      {
+        "first_op": "jsr",
+        "index": 2,
+        "table_offset": 50548,
+        "target": 50809
+      },
+      {
+        "first_op": "lda",
+        "index": 3,
+        "table_offset": 50550,
+        "target": 50822
+      },
+      {
+        "first_op": "lda",
+        "index": 4,
+        "table_offset": 50552,
+        "target": 52004
+      },
+      {
+        "first_op": "jmp",
+        "index": 5,
+        "table_offset": 50554,
+        "target": 50870
+      }
+    ],
+    "resume_address": 50556,
+    "targets": [
+      50556,
+      50756,
+      50809,
+      50822,
+      52004,
+      50870
+    ]
+  },
+  "method": "inline_dispatch_table_v1",
+  "opcode": "0x7c",
+  "opcode_semantics_required": false,
+  "predecessors": [
+    {
+      "address": 50541,
+      "edge": "fallthrough",
+      "op": "jsr"
+    }
+  ],
+  "public_claim": "none; private local analysis must not enter the public package",
+  "reason": "the byte is the low byte of the first 16-bit code pointer in the inline dispatch table consumed by the callee's pulled-return-address pointer; documented code resumes after the table",
+  "reference_basis": {
+    "cpu_variant": "NES Ricoh 2A03 NMOS 6502 core (no decimal-mode arithmetic)",
+    "documented_semantics_used": "PLA, STA zp, LDA (zp),Y, JMP (indirect) and 16-bit little-endian pointer arithmetic - all documented 6502 behaviour performed by the analysed callee",
+    "independent_mechanism_tests": "the stage gate proves the same classifier on original synthetic public images: full inline-dispatch idiom -> DATA_NOT_CODE, non-consuming callee -> AMBIGUOUS, no table -> AMBIGUOUS, branch/literal predecessor -> AMBIGUOUS",
+    "opcode_table_basis": "the classification is structural (control-flow predecessor, callee return-address consumption and pointer-table layout) and does not depend on any undocumented-opcode table entry",
+    "public_documentation": "the documented 6502 instruction set is public; no copyrighted or console-derived material is used"
+  },
+  "semantics_added": false,
+  "stage": "P7-02",
+  "universal_claim": false
+}

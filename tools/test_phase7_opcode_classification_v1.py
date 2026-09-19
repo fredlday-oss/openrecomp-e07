@@ -419,6 +419,8 @@ def main() -> int:
         "findings": FINDINGS,
         "failure": failure,
     }
+    for name, data in EVIDENCE_WRITES.items():
+        (EVIDENCE_DIR / name).write_bytes(data)
     (EVIDENCE_DIR / "p7_02_tests.json").write_text(
         json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8",
         newline="\n")
