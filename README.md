@@ -200,6 +200,14 @@ See [`docs/UNREAL_NATIVE_AOT_HOST_V1.md`](docs/UNREAL_NATIVE_AOT_HOST_V1.md), [`
 
 The reusable open-core milestone track and optional host-integration/portability track are separated in [`docs/FUNDING_SCOPE.md`](docs/FUNDING_SCOPE.md). Funding applications should distinguish already-completed evidence from proposed work and avoid treating a proprietary engine as a dependency of the architecture-neutral core.
 
+## Support OpenRecomp
+
+OpenRecomp is developed independently. Sponsorship helps fund development hardware, compute, cross-platform testing, compiler and runtime work, reproducibility infrastructure, public documentation and rights-safe validation material.
+
+You can support the project through [GitHub Sponsors](https://github.com/sponsors/fredlday-oss).
+
+Sponsorship funds the work, but it does **not** determine technical outcomes, compatibility claims, evidence classifications or PASS/FAIL results. See [SPONSORS.md](SPONSORS.md) for the project sponsorship principles and acknowledgement policy.
+
 ## Development process
 
 OpenRecomp uses a human-led process that may include automated and AI-assisted development/review tools. Material machine assistance is disclosed, but generated output is never treated as proof by itself. Acceptance remains evidence-driven through tests, runtime checks and review.
