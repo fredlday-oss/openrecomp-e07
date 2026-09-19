@@ -1,0 +1,151 @@
+{
+  "checks": [
+    {
+      "check": "anchor:p6-91-claim-record",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:p7-90-record-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:five-sections",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:general-unproven",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:limitations",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:markers",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:phase7-proven",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:private-unproven",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:stage-records",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:vocabulary",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:compat-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:playability-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:stage-row",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:claim_record.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:evidence_index.json",
+      "status": "PASS"
+    },
+    {
+      "check": "index:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "index:hashes",
+      "status": "PASS"
+    },
+    {
+      "check": "index:independent-walk",
+      "status": "PASS"
+    },
+    {
+      "check": "index:size",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-14:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-14:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-14:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:compat-marker-promotion",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:general-promotion",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:phase7-demotion",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:playability-promotion",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:private-promotion",
+      "status": "PASS"
+    },
+    {
+      "check": "scope:bounded-claim-only",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-verified",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "bounded_count": 5,
+    "evidence_files": 158,
+    "index_digest": "b8a72b7573bb29bc26ab6aa732d2fe92b307c7fd7f727f8258cf143ad03d435f",
+    "proven_count": 11,
+    "regression_p7_14": {
+      "returncode": 0,
+      "script": "tools/test_phase7_workflow_v1.py",
+      "stderr_empty": true,
+      "stdout_bytes": 1518,
+      "stdout_sha256_raw": "d53e840443598b37a2d04e4afb8dbc58772e2af7f4d06ca5f7b1ca695e881699"
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE7_EVIDENCE_INDEX_V1=PASS tests=30",
+    "playability": "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P7_91=PASS",
+    "terminal": "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN"
+  },
+  "passed": 30,
+  "stage": "P7-91",
+  "stage_name": "OPENRECOMP_PHASE7_EVIDENCE_INDEX_V1",
+  "status": "PASS",
+  "tests": 30
+}

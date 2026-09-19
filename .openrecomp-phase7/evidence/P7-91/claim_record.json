@@ -1,0 +1,167 @@
+{
+  "bounded_claims": [
+    "the 0x7C classification is bounded to the analyzed private address and public fixture context; no universal undocumented-opcode claim",
+    "bank-aware reachability covers the audited MMC1 subset and the proven layout model; it does not prove arbitrary bank sequences",
+    "the indirect target sets are feasible sets over proven value sources, not runtime-exact selector behavior",
+    "native execution and reference equivalence cover the public Phase-7 fixtures only",
+    "the closure rule covers the audited inline-dispatch form only"
+  ],
+  "compatibility_marker": "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+  "evidence_files": 158,
+  "index_digest": "b8a72b7573bb29bc26ab6aa732d2fe92b307c7fd7f727f8258cf143ad03d435f",
+  "ledger": {
+    "general_nes": {
+      "note": "no general, commercial or arbitrary-6502 compatibility is claimed",
+      "status": "UNPROVEN"
+    },
+    "phase5_public_nrom": {
+      "basis": "frozen Phase-6 claim ledger (Phase-5 public NROM static-recompilation proof)",
+      "bounded_count": 4,
+      "proven_count": 7,
+      "status": "PROVEN"
+    },
+    "phase6_public_mmc1": {
+      "basis": "frozen Phase-6 claim ledger (bounded audited public MMC1 platform proof)",
+      "bounded_count": 5,
+      "proven_count": 11,
+      "status": "PROVEN"
+    },
+    "phase7_public_translation": {
+      "basis": "public Phase-7 fixtures, models and verified native/reference paths only",
+      "bounded_count": 5,
+      "proven_count": 11,
+      "status": "PROVEN"
+    },
+    "private_tmnt_compatibility": {
+      "blockers": [
+        "unclassified undocumented byte 0xE3 at 0xBB6B",
+        "14027 unresolved-limited bank candidate identities",
+        "runtime platform NOT_TESTED"
+      ],
+      "observations": [
+        "frontier re-derived byte-identically (P7-01)",
+        "0x7C at 0xC570 classified DATA_NOT_CODE (6-entry table, resume 0xC57C) without semantics added",
+        "three $E2 sites RESOLVED_FINITE_SET with 4/4/300 feasible targets",
+        "closure advances the frontier from 0xC570 to 0xBB6B (undocumented 0xE3)"
+      ],
+      "playability": "NOT_PROVEN",
+      "status": "UNPROVEN"
+    }
+  },
+  "limitations": [
+    "no general NES compatibility claim",
+    "no commercial-game or TMNT playability claim",
+    "no universal undocumented-opcode support",
+    "no all-indirect-control-flow recovery claim",
+    "no arbitrary bank-switched binary support claim",
+    "no cycle accuracy claim (dispatch specialization changes emitted cost)",
+    "no full PPU/APU accuracy claim",
+    "no FDS or arbitrary-6502 compatibility claim"
+  ],
+  "playability_marker": "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN",
+  "proven_claims": [
+    "evidence-based classification of the 0x7C byte at 0xC570 as DATA_NOT_CODE (inline dispatch table) with no undocumented-opcode semantics added",
+    "original Apache-2.0 public classification fixture with a documented inline-dispatch mechanism and classifier proofs over public synthetic images (DATA_NOT_CODE / AMBIGUOUS / REACHABLE_CODE / UNREACHABLE)",
+    "bank-aware MMC1 reachability model with physical-bank code identities, proven/UNRESOLVED provenance, statically proven constant bank commits and explicit non-merging of banks sharing CPU addresses",
+    "bank-aware neutral CFG/function/translation-unit structure per proven bank with real cross-bank call entries and no fabricated cross-bank edges",
+    "indirect-jump evidence model with explicit RESOLVED_EXACT / RESOLVED_FINITE_SET / UNRESOLVED / IMPOSSIBLE states, pointer write/read provenance and bounded table-derived target enumeration",
+    "original Apache-2.0 public indirect-control-flow fixture exercising exact, finite-set and unresolved dispatch with reference execution",
+    "translation frontier integration that emits host code only for proven paths, specializes resolved indirect dispatch and excludes unresolved sites (runtime fail-closed)",
+    "native execution of the public Phase-7 fixture (exact and finite paths succeed; unresolved path fails closed) through generated host code only",
+    "exact bounded reference equivalence for the proven public paths over CPU/RAM/PPU/mapper/controller/interrupt/transcript state (documented 2-cycle dispatch-specialization timing delta excluded)",
+    "evidence-driven inline-dispatch closure proven on the public fixture before private application",
+    "reusable bank-aware ROM-to-native workflow (inventory, classification, bank frontier, indirect classification, generated build or explicit fail-closed blockers) with no source ROM copying"
+  ],
+  "public_claim": "the exact bounded public translation/control-flow claim only; all general markers remain NOT_PROVEN",
+  "stage": "P7-91",
+  "stage_records": {
+    "P7-00": {
+      "sha256": "d0ef5d68a42459d47c64bda3a078db8ab97cf73bd45da9e6141cb8fab02593de",
+      "status": "PASS",
+      "tests": 96
+    },
+    "P7-01": {
+      "sha256": "8c518674626f9f97a4a75700cb69805ca4b964c06268e4ea65804d3d7ee88d05",
+      "status": "PASS",
+      "tests": 49
+    },
+    "P7-02": {
+      "sha256": "f94b83640a4679529c681ca6a170e340052d4b898d314cd80d99c40733be0efa",
+      "status": "PASS",
+      "tests": 37
+    },
+    "P7-03": {
+      "sha256": "29405ee81d96278ddd6535388f8cc70cc2ba4dbb1ccb5db694e04c0850640f2c",
+      "status": "PASS",
+      "tests": 49
+    },
+    "P7-04": {
+      "sha256": "12ddbd033d9ecf73946777c8ac095c411575b6a401d6b8a23de1e07a495bd35d",
+      "status": "PASS",
+      "tests": 289
+    },
+    "P7-05": {
+      "sha256": "670fd4bc26dcc5c831be739455c1d1a5ad5775593c7e92b2b3fe6fccfc757355",
+      "status": "PASS",
+      "tests": 38
+    },
+    "P7-06": {
+      "sha256": "700c9d332836f224a35ab7c82c1bf19b3dd2c843efdc3a8ad17320e8d388415c",
+      "status": "PASS",
+      "tests": 51
+    },
+    "P7-07": {
+      "sha256": "4b3491a7595cbcdc9a9f4e4f7f2ee91b10c50b082692bd47285d10b278490b52",
+      "status": "PASS",
+      "tests": 42
+    },
+    "P7-08": {
+      "sha256": "30bde79aa0653229647557da1a0ee474a4b9459b39650314ea001aa4eaaac0d0",
+      "status": "PASS",
+      "tests": 28
+    },
+    "P7-09": {
+      "sha256": "d84bc50ee2a9520241cc863662aea3b4829c49137c8b5e1ef77601b7cefa7c28",
+      "status": "PASS",
+      "tests": 34
+    },
+    "P7-10": {
+      "sha256": "94c484c0cd91569f3428be918b9df95804f883e6eb20b9ec165d5d97dab8c0d1",
+      "status": "PASS",
+      "tests": 35
+    },
+    "P7-11": {
+      "sha256": "ba137a655a5cc069d6584b590a685517eca06722755ea56ef529543a72f37ce5",
+      "status": "PASS",
+      "tests": 24
+    },
+    "P7-12": {
+      "sha256": "9afb4236186644108099e87b8789beda70451668cd5c394d9bef8c259908b6d9",
+      "status": "PASS",
+      "tests": 27
+    },
+    "P7-13": {
+      "sha256": "8713d1e520b689f303ebefcae530b901b4c0de7f0552d9807f5a0fb345c044d3",
+      "status": "PASS",
+      "tests": 22
+    },
+    "P7-14": {
+      "sha256": "8e2ead4a0dd3fa0d11722e5122b58d4a049ecf64289f3eed7de79d7194577ea2",
+      "status": "PASS",
+      "tests": 33
+    },
+    "P7-90": {
+      "sha256": "c0b4433bdba9cc2bd80186652fcef4dddb824500839497821e05c99b6fda88d5",
+      "status": "PASS",
+      "tests": 72
+    }
+  },
+  "terminal_marker": "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN",
+  "vocabulary": [
+    "PROVEN",
+    "BOUNDED",
+    "UNPROVEN",
+    "UNSUPPORTED",
+    "NOT TESTED"
+  ]
+}
