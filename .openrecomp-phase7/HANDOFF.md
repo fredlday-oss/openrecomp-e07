@@ -111,12 +111,40 @@ general and playability markers reserved as `NOT_PROVEN`.
   boundaries remain re-runnable. No P7-00 evidence changed.
 - Evidence: `.openrecomp-phase7/evidence/P7-01/`.
 
+## P7-02 outcome (PASS)
+
+Marker: `OPENRECOMP_PHASE7_OPCODE_CLASSIFICATION_V1=PASS tests=37`;
+terminal, general and playability markers reserved as `NOT_PROVEN`.
+
+- Classification: the `0x7C` byte at `0xC570` is `DATA_NOT_CODE` - the low
+  byte of the first 16-bit code pointer in an inline dispatch table following
+  `jsr $C71F` at `0xC56D`.
+- Evidence chain: only static predecessor is the `jsr` fallthrough; the
+  callee at `0xC71F` pulls the pushed return address (`pla`/`sta $00`,
+  `pla`/`sta $01`), reads pointer pairs through `lda ($00),y` and dispatches
+  through `jmp ($0002)`; the inline table at `0xC570` has exactly six
+  in-window targets (`$C57C`, `$C644`, `$C679`, `$C686`, `$CB24`, `$C6B6`)
+  and documented code resumes at `0xC57C`; a nested table at `0xC581` has
+  four targets (`$C589`, `$C5B4`, `$C5FE`, `$C62C`); the byte stream after
+  `0xC570` is not a coherent documented stream (undocumented byte within
+  nine bytes).
+- No undocumented-opcode semantics were added; the frozen decoder is
+  unchanged (151 documented opcodes, `0x7C` still rejected) and no universal
+  claim is made.
+- The classifier is proven on original synthetic public images: full idiom ->
+  `DATA_NOT_CODE`; non-consuming callee, missing table and literal
+  predecessor -> `AMBIGUOUS`; reachable documented address -> `REACHABLE_CODE`;
+  no predecessor -> `UNREACHABLE`.
+- Two official runs byte-identical raw (`1a10323c...`, 1802 bytes) and LF
+  (`6ffe5e57...`), empty stderr, exit 0; `p7_02_tests.json` sha256
+  `f94b8364...` in both runs.
+- Evidence: `.openrecomp-phase7/evidence/P7-02/`.
+
 ## Exact next action
 
-Start P7-02 (undocumented opcode `0x7C` classification): determine exactly
-what the `0x7C` byte at `0xC570` represents in this binary/context from
-evidence (surrounding decoded instructions, control-flow context, CPU variant,
-independent reference research/tests, public documentation), classify it as
-`SUPPORTED_PROVEN` / `RECOGNIZED_UNSUPPORTED` / `DATA_NOT_CODE` /
-`UNREACHABLE` / `AMBIGUOUS` or another justified fail-closed category, and
-make no universal undocumented-opcode claim. Do not push.
+Start P7-03 (public undocumented-opcode proof fixture): because P7-02 proved
+the byte is data rather than an executable instruction, author an original
+Apache-2.0 NES fixture that reproduces the inline-dispatch classification
+mechanism (call site with inline pointer table, return-address-consuming
+dispatcher, documented code resume) and prove the classification mechanism
+end-to-end rather than adding false opcode semantics. Do not push.

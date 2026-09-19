@@ -1,0 +1,61 @@
+=== P7-02 Undocumented Opcode Classification Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-verified
+
+--- anchors ---
+PASS: anchor:p7-01-record-pass
+PASS: anchor:p6-10-pipeline
+PASS: anchor:p6-13-frontier
+PASS: anchor:private-image
+PASS: anchor:decoder-unchanged
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+PASS: control-plane:playability-reserved
+
+--- classification ---
+PASS: classify:deterministic
+PASS: classify:data-not-code
+PASS: classify:method
+PASS: classify:predecessor
+PASS: classify:call-site
+PASS: classify:return-consumption
+PASS: classify:inline-table
+PASS: classify:code-resume
+PASS: classify:nested-table
+PASS: classify:corroboration
+PASS: classify:reference-basis
+PASS: classify:no-semantics-added
+
+--- mechanism_tests_public_synthetic ---
+PASS: synthetic:full-idiom-data-not-code
+PASS: synthetic:non-consuming-callee-ambiguous
+PASS: synthetic:no-table-ambiguous
+PASS: synthetic:literal-predecessor-ambiguous
+PASS: synthetic:reachable-code
+PASS: synthetic:unreachable
+
+--- fail_closed ---
+PASS: negative:missing-path
+PASS: negative:malformed-container
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:p7-01:exit
+PASS: regression:p7-01:stderr
+PASS: regression:p7-01:marker
+
+--- evidence ---
+PASS: hygiene:no-private-rom-bytes:opcode_classification.json
+PASS: hygiene:no-rom-extension-in-scratch
+
+=== RESULT ===
+OPENRECOMP_P7_02=PASS
+OPENRECOMP_PHASE7_OPCODE_CLASSIFICATION_V1=PASS tests=37
+OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
+OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN
