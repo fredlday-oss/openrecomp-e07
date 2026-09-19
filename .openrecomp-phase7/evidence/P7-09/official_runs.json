@@ -1,0 +1,60 @@
+{
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "command": [
+        "python",
+        "tools/test_phase7_native_execution_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase7/evidence/P7-09"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P7_09=",
+        "OPENRECOMP_PHASE7_NATIVE_EXECUTION_V1=",
+        "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=",
+        "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=",
+        "OPENRECOMP_PHASE7_TMMT_PLAYABILITY="
+      ],
+      "name": "run1",
+      "p7_09_tests_sha256": "d84bc50ee2a9520241cc863662aea3b4829c49137c8b5e1ef77601b7cefa7c28",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1712,
+      "stdout_bytes_lf": 1652,
+      "stdout_sha256_lf": "e393a62ca468fd50a32badae9a9d07ee05a3d6496ab249e982b0713517a35440",
+      "stdout_sha256_raw": "ac9c15e202f0b1d248785fd642671b020e51db3e3ae1db3493b4dede0637333c"
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_phase7_native_execution_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase7/evidence/P7-09"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P7_09=",
+        "OPENRECOMP_PHASE7_NATIVE_EXECUTION_V1=",
+        "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=",
+        "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=",
+        "OPENRECOMP_PHASE7_TMMT_PLAYABILITY="
+      ],
+      "name": "run2",
+      "p7_09_tests_sha256": "d84bc50ee2a9520241cc863662aea3b4829c49137c8b5e1ef77601b7cefa7c28",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1712,
+      "stdout_bytes_lf": 1652,
+      "stdout_sha256_lf": "e393a62ca468fd50a32badae9a9d07ee05a3d6496ab249e982b0713517a35440",
+      "stdout_sha256_raw": "ac9c15e202f0b1d248785fd642671b020e51db3e3ae1db3493b4dede0637333c"
+    }
+  ],
+  "stage": "P7-09",
+  "stderr_empty_both": true
+}

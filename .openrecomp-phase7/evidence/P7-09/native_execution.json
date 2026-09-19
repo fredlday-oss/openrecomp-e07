@@ -1,0 +1,171 @@
+{
+  "fixture": {
+    "rom_sha256": "1c9ad6582576a5c7c12a27b8a0077257c7c414142cd81ffdc92cb4a8ff1c9248",
+    "sites": [
+      32787,
+      32805,
+      32816
+    ]
+  },
+  "guest_execution": {
+    "host_code_only": true,
+    "note": "the original 6502 image is data in the runtime support; execution is emitted host code"
+  },
+  "public_claim": "original Apache-2.0 public fixture for the bounded indirect-control-flow resolution proof only",
+  "stage": "P7-09",
+  "variants": {
+    "exact": {
+      "classification": "EXECUTABLE_REPRODUCIBLE",
+      "executable_reproducible": true,
+      "executable_sha256": "23679fb850d427951dc4f685b5322ccc9de3c4f50df5cd18fa97f2a2b83426ab",
+      "fields": {
+        "a": "0xF0",
+        "chr_mode": "0",
+        "clock": "108",
+        "error": "",
+        "exit": "1",
+        "exit_arg": "0x0000C205",
+        "exit_word": "0000000000000000",
+        "failed": "0",
+        "frames": "1",
+        "mirroring": "0",
+        "mmc1_count": "0",
+        "mmc1_regs": "0C000001",
+        "mmc1_shift": "0",
+        "mmc1_writes": "5",
+        "nmi": "0",
+        "p": "0xA4",
+        "pc": "0xC205",
+        "ppu_fnv1a64": "0x39E9FBAE5A7B29A5",
+        "prg_ram_enabled": "0",
+        "prg_window_8000": "1",
+        "prg_window_c000": "3",
+        "ram_fnv1a64": "0xAA5AB26EB40CAD39",
+        "sp": "0xFD",
+        "state_fnv1a64": "0x9F99C6AE48D9D1FD",
+        "steps": "38",
+        "x": "0xFF",
+        "y": "0x00"
+      },
+      "frames": [
+        "frame[0]=00,C42A06F7E7A28E25,39E9FBAE5A7B29A5"
+      ],
+      "frontier": [
+        {
+          "address": 32816,
+          "bank": 1,
+          "classification": "UNRESOLVED",
+          "reason": "pointer byte value source is not statically known: value source op 'lda' is not statically resolved; value source op 'lda' is not statically resolved"
+        }
+      ],
+      "frontier_count": 1,
+      "instructions": 61,
+      "name": "exact",
+      "program_sha256": "231a3a09924e94c7977ffaae71712ad9d48e443495c633ae2b6b96a8539b0b38",
+      "selector": 0,
+      "support_sha256": "5ea325b2dea6eb348638e129c51e242aaaa047be83860ba38302e3963ef8b6a7"
+    },
+    "finite": {
+      "classification": "EXECUTABLE_REPRODUCIBLE",
+      "executable_reproducible": true,
+      "executable_sha256": "7da08a48b96394acb0c569c5c71142225c5fb6e0fa6c74b802978dae49405e77",
+      "fields": {
+        "a": "0xF0",
+        "chr_mode": "0",
+        "clock": "123",
+        "error": "",
+        "exit": "1",
+        "exit_arg": "0x0000C205",
+        "exit_word": "0000000000000000",
+        "failed": "0",
+        "frames": "1",
+        "mirroring": "0",
+        "mmc1_count": "0",
+        "mmc1_regs": "0C000001",
+        "mmc1_shift": "0",
+        "mmc1_writes": "5",
+        "nmi": "0",
+        "p": "0xA5",
+        "pc": "0xC205",
+        "ppu_fnv1a64": "0x39E9FBAE5A7B29A5",
+        "prg_ram_enabled": "0",
+        "prg_window_8000": "1",
+        "prg_window_c000": "3",
+        "ram_fnv1a64": "0x7F6B5F2544B66B7F",
+        "sp": "0xFD",
+        "state_fnv1a64": "0xB9A21356FD7EF677",
+        "steps": "43",
+        "x": "0xFF",
+        "y": "0x02"
+      },
+      "frames": [
+        "frame[0]=00,C42A06F7E7A28E25,39E9FBAE5A7B29A5"
+      ],
+      "frontier": [
+        {
+          "address": 32816,
+          "bank": 1,
+          "classification": "UNRESOLVED",
+          "reason": "pointer byte value source is not statically known: value source op 'lda' is not statically resolved; value source op 'lda' is not statically resolved"
+        }
+      ],
+      "frontier_count": 1,
+      "instructions": 61,
+      "name": "finite",
+      "program_sha256": "7d92e788d641e07cbfbea004416cf56906f4256ddbadeedabc91fa075cf608f0",
+      "selector": 1,
+      "support_sha256": "bdbf914355ee6163c88c1377897385de40ec374e8d17781d90be49e1a2a2ec8f"
+    },
+    "unresolved": {
+      "classification": "EXECUTABLE_REPRODUCIBLE",
+      "executable_reproducible": true,
+      "executable_sha256": "ea6bef2371f7246219298788167c763cb82effbe868510191deb66d3266f31d8",
+      "fields": {
+        "a": "0xC2",
+        "chr_mode": "0",
+        "clock": "88",
+        "error": "pc outside the emitted image",
+        "exit": "0",
+        "exit_arg": "0x00000000",
+        "exit_word": "0000000000000000",
+        "failed": "1",
+        "frames": "1",
+        "mirroring": "0",
+        "mmc1_count": "0",
+        "mmc1_regs": "0C000001",
+        "mmc1_shift": "0",
+        "mmc1_writes": "5",
+        "nmi": "0",
+        "p": "0xA5",
+        "pc": "0x8030",
+        "ppu_fnv1a64": "0x39E9FBAE5A7B29A5",
+        "prg_ram_enabled": "0",
+        "prg_window_8000": "1",
+        "prg_window_c000": "3",
+        "ram_fnv1a64": "0x926BF9A6800E99ED",
+        "sp": "0xFD",
+        "state_fnv1a64": "0xDC477A5ECD19B3B2",
+        "steps": "33",
+        "x": "0xFF",
+        "y": "0x00"
+      },
+      "frames": [
+        "frame[0]=00,C42A06F7E7A28E25,39E9FBAE5A7B29A5"
+      ],
+      "frontier": [
+        {
+          "address": 32816,
+          "bank": 1,
+          "classification": "UNRESOLVED",
+          "reason": "pointer byte value source is not statically known: value source op 'lda' is not statically resolved; value source op 'lda' is not statically resolved"
+        }
+      ],
+      "frontier_count": 1,
+      "instructions": 61,
+      "name": "unresolved",
+      "program_sha256": "eca42bb47921b01d476bb216dc10e751e49180f4c234f19aff6488bb0d439266",
+      "selector": 2,
+      "support_sha256": "8e307cafcb368192d25cc5344947b31bf9fbfa25676dac752b6a4cc75b893ea0"
+    }
+  }
+}

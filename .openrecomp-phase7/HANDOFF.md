@@ -296,10 +296,34 @@ terminal, general and playability markers reserved as `NOT_PROVEN`.
   `30bde79a...`.
 - Evidence: `.openrecomp-phase7/evidence/P7-08/`.
 
+## P7-09 outcome (PASS)
+
+Marker: `OPENRECOMP_PHASE7_NATIVE_EXECUTION_V1=PASS tests=34`; terminal,
+general and playability markers reserved as `NOT_PROVEN`.
+
+- Three native variants of the public indirect-flow fixture built
+  reproducibly and run 3x byte-identically each:
+  - exact (selector 0): `failed=0`, `exit=1`, `pc=$C205`, `steps=38`,
+    `clock=108`, RAM digest `0xAA5AB26E...`; executable `23679fb8...`
+    (byte-identical to the P7-08 build);
+  - finite (selector 1, index 2 -> `$8110`): `steps=43`, `clock=123`, RAM
+    digest `0x7F6B5F25...` (distinct path proof); executable `7da08a48...`;
+  - unresolved (selector 2): `failed=1`, `error=pc outside the emitted
+    image`, `pc=$8030` (fail closed, no host case emitted); executable
+    `ea6bef23...`.
+- All variants show the MMC1 runtime bank commit
+  (`mmc1_regs=0C000001`, PRG windows `(1,3)`); execution is generated host
+  code only.
+- Two official runs byte-identical raw (`ac9c15e2...`, 1712 bytes) and LF
+  (`e393a62c...`), empty stderr, exit 0; `p7_09_tests.json` sha256
+  `d84bc50e...`.
+- Evidence: `.openrecomp-phase7/evidence/P7-09/`.
+
 ## Exact next action
 
-Start P7-09 (native execution of the public Phase-7 fixture): build and run
-the generated native host code for the public fixture paths, exercising the
-newly proven instruction/classification behaviour, bank-aware control flow,
-resolved indirect dispatch and runtime/platform interaction, then record the
-deterministic observables. Do not push.
+Start P7-10 (independent reference equivalence): compare the generated native
+execution against the independently structured reference for the public
+fixture variants over CPU state, RAM, mapper/bank state, PPU state where
+relevant, controller transcript, interrupt counts, indirect-control-flow
+transcript, translation/service transcript and bounded final state, requiring
+exact bounded equivalence. Do not push.
