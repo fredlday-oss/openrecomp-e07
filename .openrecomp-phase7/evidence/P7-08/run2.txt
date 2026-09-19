@@ -1,0 +1,56 @@
+=== P7-08 Translation Frontier Integration Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-verified
+
+--- anchors ---
+PASS: anchor:p7-07-record-pass
+PASS: anchor:decoder-unchanged
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+PASS: control-plane:playability-reserved
+
+--- indirect_fixture_integration ---
+PASS: integration:evidence-counts
+PASS: integration:dispatch-resolved
+PASS: integration:frontier-unresolved-only
+PASS: integration:unresolved-excluded
+PASS: integration:no-fabrication
+
+--- host_emission ---
+PASS: emit:deterministic
+PASS: emit:proven-paths-only
+
+--- native_build ---
+PASS: build:classification
+PASS: build:executable-present
+PASS: build:toolchain
+
+--- classification_data_exclusion ---
+PASS: classification:data-not-code
+PASS: classification:frontier-fail-closed
+
+--- negative ---
+PASS: negative:bad-assignment-fail-closed
+PASS: negative:tampered-table-infeasible
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:p7-07:exit
+PASS: regression:p7-07:stderr
+PASS: regression:p7-07:marker
+
+--- evidence ---
+PASS: hygiene:no-private-rom-bytes:translation_frontier.json
+PASS: hygiene:no-rom-extension-in-scratch
+
+=== RESULT ===
+OPENRECOMP_P7_08=PASS
+OPENRECOMP_PHASE7_TRANSLATION_INTEGRATION_V1=PASS tests=28
+OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
+OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN

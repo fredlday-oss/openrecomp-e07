@@ -274,9 +274,32 @@ general and playability markers reserved as `NOT_PROVEN`.
   `4b3491a7...`.
 - Evidence: `.openrecomp-phase7/evidence/P7-07/`.
 
+## P7-08 outcome (PASS)
+
+Marker: `OPENRECOMP_PHASE7_TRANSLATION_INTEGRATION_V1=PASS tests=28`;
+terminal, general and playability markers reserved as `NOT_PROVEN`.
+
+- New integration `.openrecomp-phase7/src/p7_frontier_integration_v1.py`:
+  bank-aware frontier walk with resolved indirect dispatch specialization and
+  fail-closed exclusion of unresolved sites; host emission only for proven
+  paths through the frozen Phase-5/6 emitters.
+- Public indirect-flow fixture: 61 proven identities across banks 1 and 3
+  (12 dynamic target nodes), 2 resolved dispatch sites, 1 fail-closed site
+  (`$8030` excluded); host program `231a3a09...` (61 instructions), support
+  `5ea325b2...`; native build `EXECUTABLE_REPRODUCIBLE` with executable
+  sha256 `23679fb8...`.
+- Data exclusion: the P7-03 classification fixture's inline table stays
+  `DATA_NOT_CODE` and the bank-aware frontier fails closed exactly there.
+- Negative: out-of-set assignment target and tampered table both fail closed.
+- Two official runs byte-identical raw (`b32eb763...`, 1610 bytes) and LF
+  (`d12eaf4c...`), empty stderr, exit 0; `p7_08_tests.json` sha256
+  `30bde79a...`.
+- Evidence: `.openrecomp-phase7/evidence/P7-08/`.
+
 ## Exact next action
 
-Start P7-08 (translation frontier integration): integrate proven P7-02..P7-07
-results into the static recompilation pipeline, recompute the
-reachable/dead/unsupported frontier, emit host code only for proven
-executable paths and keep unknown control flow fail closed. Do not push.
+Start P7-09 (native execution of the public Phase-7 fixture): build and run
+the generated native host code for the public fixture paths, exercising the
+newly proven instruction/classification behaviour, bank-aware control flow,
+resolved indirect dispatch and runtime/platform interaction, then record the
+deterministic observables. Do not push.

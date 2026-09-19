@@ -1,0 +1,65 @@
+{
+  "claim": "host code is emitted only for proven executable paths; resolved indirect dispatches are specialized to their proven targets and unresolved control flow is excluded",
+  "classification_fixture": {
+    "bank_status": "BLOCKED_UNDECODABLE",
+    "classification": "DATA_NOT_CODE",
+    "stop": {
+      "address": 49179,
+      "bank": 1,
+      "reason": "NES6502Error: 0xc01b: undocumented 6502 opcode 0x7c"
+    }
+  },
+  "frontier_recomputation": {
+    "excluded_bank_identities": [
+      "1:0x8030"
+    ],
+    "fail_closed_sites": 1,
+    "note": "path specialization follows proven resolved targets and stops at unresolved indirect sites; unresolved sites are excluded from emission (fail closed)",
+    "proven_identities": 61,
+    "resolved_dispatch_sites": 2
+  },
+  "indirect_fixture": {
+    "bank_report": {
+      "proven_instructions": 50,
+      "status": "OK"
+    },
+    "emission": {
+      "host_program_sha256": "231a3a09924e94c7977ffaae71712ad9d48e443495c633ae2b6b96a8539b0b38",
+      "instructions": 61,
+      "support_sha256": "5ea325b2dea6eb348638e129c51e242aaaa047be83860ba38302e3963ef8b6a7"
+    },
+    "evidence_counts": {
+      "RESOLVED_EXACT": 1,
+      "RESOLVED_FINITE_SET": 1,
+      "UNRESOLVED": 1
+    },
+    "native_build": {
+      "executable_sha256": "23679fb850d427951dc4f685b5322ccc9de3c4f50df5cd18fa97f2a2b83426ab"
+    },
+    "rom_sha256": "1c9ad6582576a5c7c12a27b8a0077257c7c414142cd81ffdc92cb4a8ff1c9248",
+    "sites": [
+      32787,
+      32805,
+      32816
+    ],
+    "specialization": {
+      "banks": [
+        1,
+        3
+      ],
+      "dynamic_nodes": 12,
+      "frontier": [
+        {
+          "address": 32816,
+          "bank": 1,
+          "classification": "UNRESOLVED",
+          "reason": "pointer byte value source is not statically known: value source op 'lda' is not statically resolved; value source op 'lda' is not statically resolved"
+        }
+      ],
+      "identity_count": 61,
+      "identity_digest": "8a76d587a83c184e742afcee612c5bc496de78da91e3dbbadfbe5e22952630fc"
+    }
+  },
+  "public_claim": "original Apache-2.0 public fixture for the bounded indirect-control-flow resolution proof only",
+  "stage": "P7-08"
+}

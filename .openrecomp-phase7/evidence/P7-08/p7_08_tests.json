@@ -1,0 +1,206 @@
+{
+  "checks": [
+    {
+      "check": "anchor:decoder-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:p7-07-record-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "build:classification",
+      "status": "PASS"
+    },
+    {
+      "check": "build:executable-present",
+      "status": "PASS"
+    },
+    {
+      "check": "build:toolchain",
+      "status": "PASS"
+    },
+    {
+      "check": "classification:data-not-code",
+      "status": "PASS"
+    },
+    {
+      "check": "classification:frontier-fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:compat-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:playability-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:stage-row",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "emit:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "emit:proven-paths-only",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:translation_frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-rom-extension-in-scratch",
+      "status": "PASS"
+    },
+    {
+      "check": "integration:dispatch-resolved",
+      "status": "PASS"
+    },
+    {
+      "check": "integration:evidence-counts",
+      "status": "PASS"
+    },
+    {
+      "check": "integration:frontier-unresolved-only",
+      "status": "PASS"
+    },
+    {
+      "check": "integration:no-fabrication",
+      "status": "PASS"
+    },
+    {
+      "check": "integration:unresolved-excluded",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:bad-assignment-fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:tampered-table-infeasible",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-07:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-07:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-07:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-verified",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "build": {
+      "executable_sha256": "23679fb850d427951dc4f685b5322ccc9de3c4f50df5cd18fa97f2a2b83426ab"
+    },
+    "classification_exclusion": {
+      "bank_status": "BLOCKED_UNDECODABLE",
+      "classification": "DATA_NOT_CODE",
+      "stop": {
+        "address": 49179,
+        "bank": 1,
+        "reason": "NES6502Error: 0xc01b: undocumented 6502 opcode 0x7c"
+      }
+    },
+    "emission": {
+      "host_program_sha256": "231a3a09924e94c7977ffaae71712ad9d48e443495c633ae2b6b96a8539b0b38",
+      "instructions": 61,
+      "support_sha256": "5ea325b2dea6eb348638e129c51e242aaaa047be83860ba38302e3963ef8b6a7"
+    },
+    "indirect_integration": {
+      "banks": [
+        1,
+        3
+      ],
+      "dynamic_nodes": 12,
+      "frontier": [
+        {
+          "address": 32816,
+          "bank": 1,
+          "classification": "UNRESOLVED",
+          "reason": "pointer byte value source is not statically known: value source op 'lda' is not statically resolved; value source op 'lda' is not statically resolved"
+        }
+      ],
+      "identity_count": 61,
+      "identity_digest": "8a76d587a83c184e742afcee612c5bc496de78da91e3dbbadfbe5e22952630fc"
+    },
+    "regressions": [
+      {
+        "command": [
+          "python",
+          "tools/test_nes_rom_v1.py"
+        ],
+        "markers": [
+          "OPENRECOMP_NES_ROM_V1=PASS tests=12"
+        ],
+        "returncode": 0,
+        "script": "tools/test_nes_rom_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 959,
+        "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+        "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+      },
+      {
+        "command": [
+          "python",
+          "tools/test_phase7_indirect_fixture_v1.py",
+          "--evidence-dir",
+          ".openrecomp-phase7/scratch/P7-08/regression_p7_07"
+        ],
+        "markers": [
+          "OPENRECOMP_P7_07=PASS",
+          "OPENRECOMP_PHASE7_INDIRECT_FIXTURE_V1=PASS tests=42",
+          "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+          "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase7_indirect_fixture_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2006,
+        "stdout_sha256_lf": "1890e432f7897ea182de14dd3497a8afb27139b87d2374fca8ea086b5d9accb7",
+        "stdout_sha256_raw": "30175c6a64bdf8292ad31a1240eee8a0ab742224d5fc3aa9981025152380541e"
+      }
+    ]
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE7_TRANSLATION_INTEGRATION_V1=PASS tests=28",
+    "playability": "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P7_08=PASS",
+    "terminal": "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN"
+  },
+  "passed": 28,
+  "stage": "P7-08",
+  "stage_name": "OPENRECOMP_PHASE7_TRANSLATION_INTEGRATION_V1",
+  "status": "PASS",
+  "tests": 28
+}
