@@ -1,0 +1,191 @@
+{
+  "bank_switching": {
+    "bank_frontier": {
+      "code_by_bank": [
+        {
+          "bank": 1,
+          "proven": 4,
+          "unresolved": 0
+        },
+        {
+          "bank": 3,
+          "proven": 22,
+          "unresolved": 0
+        }
+      ],
+      "proven_instructions": 26,
+      "status": "OK",
+      "stop": null,
+      "unresolved_instructions": 0,
+      "unresolved_limited": false
+    },
+    "blockers": [],
+    "generated_sources": {
+      "host_program_sha256": "7b3396f5e26f49909ac6edb35763de478f57634bf9adf05e95031c5d6c5401fe",
+      "instructions": 26,
+      "status": "GENERATED",
+      "support_sha256": "74566a6cd46dbcd78142dac78886d1660e196e32bd163500a13f490008b2f5e3"
+    },
+    "indirect_control_flow": {
+      "counts": {},
+      "pointer": "0xe2",
+      "run_exit_sites": [
+        49188
+      ],
+      "sites": [],
+      "unsupported_pointers": []
+    },
+    "inline_closure": {
+      "instructions": 19,
+      "stop": {
+        "address": 32768,
+        "kind": "undocumented_opcode",
+        "reason": "0x8000: undocumented 6502 opcode 0x03"
+      },
+      "tables": []
+    },
+    "native_build": {
+      "classification": "EXECUTABLE_REPRODUCIBLE",
+      "executable_reproducible": true,
+      "executable_sha256": "687ea75781c3d97ba276515f9e2f468326244991a57ee27e56d5c3745affe8e0",
+      "status": "BUILT"
+    },
+    "status": "COMPLETED"
+  },
+  "hygiene": {
+    "no_byte_identical_copy": true,
+    "no_rom_extension_files": true,
+    "source_rom_copied": false
+  },
+  "indirect_flow": {
+    "bank_frontier": {
+      "code_by_bank": [
+        {
+          "bank": 1,
+          "proven": 23,
+          "unresolved": 0
+        },
+        {
+          "bank": 3,
+          "proven": 27,
+          "unresolved": 0
+        }
+      ],
+      "proven_instructions": 50,
+      "status": "OK",
+      "stop": null,
+      "unresolved_instructions": 0,
+      "unresolved_limited": false
+    },
+    "blockers": [
+      {
+        "classification": "unresolved_indirect_control_flow",
+        "code": "UNRESOLVED_INDIRECT_SITE",
+        "detail": "site 0x8030 is UNRESOLVED: pointer byte value source is not statically known: value source op 'lda' is not statically resolved; value source op 'lda' is not statically resolved",
+        "stage": "indirect_control_flow"
+      }
+    ],
+    "generated_sources": {
+      "host_program_sha256": "b13208a86bf0784f7889ece1d2c69d8deec23078b871922c4f4b6343a7139be8",
+      "instructions": 61,
+      "status": "GENERATED",
+      "support_sha256": "5ea325b2dea6eb348638e129c51e242aaaa047be83860ba38302e3963ef8b6a7"
+    },
+    "indirect_control_flow": {
+      "counts": {
+        "RESOLVED_EXACT": 1,
+        "RESOLVED_FINITE_SET": 1,
+        "UNRESOLVED": 1
+      },
+      "pointer": "0xe2",
+      "run_exit_sites": [
+        49669
+      ],
+      "sites": [
+        {
+          "bank_provenance": "PROVEN",
+          "classification": "RESOLVED_EXACT",
+          "feasible_targets": [
+            [
+              1,
+              32819
+            ]
+          ],
+          "reason": "pointer values from proven sources yield 1 feasible (target_bank, target) pairs across 1 evaluated physical bank(s)",
+          "site": 32787
+        },
+        {
+          "bank_provenance": "PROVEN",
+          "classification": "RESOLVED_FINITE_SET",
+          "feasible_targets": [
+            [
+              1,
+              33024
+            ],
+            [
+              1,
+              33040
+            ],
+            [
+              1,
+              33056
+            ],
+            [
+              1,
+              33072
+            ]
+          ],
+          "reason": "pointer values from proven sources yield 4 feasible (target_bank, target) pairs across 1 evaluated physical bank(s)",
+          "site": 32805
+        },
+        {
+          "bank_provenance": "PROVEN",
+          "classification": "UNRESOLVED",
+          "feasible_targets": [],
+          "reason": "pointer byte value source is not statically known: value source op 'lda' is not statically resolved; value source op 'lda' is not statically resolved",
+          "site": 32816
+        }
+      ],
+      "unsupported_pointers": []
+    },
+    "native_build": {
+      "classification": "EXECUTABLE_REPRODUCIBLE",
+      "executable_reproducible": true,
+      "executable_sha256": "f90585deac86933fb8be18cc9583c1bd9590804061f9377615bc4da0fccff0df",
+      "status": "BUILT"
+    },
+    "status": "COMPLETED_WITH_FRONTIER"
+  },
+  "private_image": {
+    "blockers": [
+      {
+        "classification": "unsupported_pointer",
+        "code": "UNSUPPORTED_INDIRECT_POINTER",
+        "detail": "indirect sites with pointers other than 0x00E2 are not resolved: 0x812f, 0x8662, 0x8664, 0x8671, 0x8953, 0xba26, 0xc12f, 0xc18e, 0xc238, 0xc2e0, 0xc6b6, 0xc6d1, 0xc6d5, 0xc707, 0xc713, 0xc735, 0xc773, 0xc789, 0xc795, 0xc7c4, 0xc7eb, 0xc7f3, 0xc7ff, 0xc953, 0xce74, 0xce99, 0xcec4, 0xcee0, 0xcef8, 0xefc7",
+        "stage": "indirect_control_flow"
+      },
+      {
+        "classification": "unresolved_bank_provenance",
+        "code": "BANK_FRONTIER_INCOMPLETE",
+        "detail": "bank-aware frontier is BLOCKED_UNDECODABLE at 0xc570 with 14027 unresolved-limited candidate identities",
+        "stage": "bank_state"
+      },
+      {
+        "classification": "unresolved_indirect_control_flow",
+        "code": "UNRESOLVED_INDIRECT_SITE",
+        "detail": "site 0xc6e8 is UNRESOLVED: site is not a reachable indirect jmp",
+        "stage": "indirect_control_flow"
+      },
+      {
+        "classification": "unresolved_indirect_control_flow",
+        "code": "UNRESOLVED_INDIRECT_SITE",
+        "detail": "site 0xc956 is UNRESOLVED: site is not a reachable indirect jmp",
+        "stage": "indirect_control_flow"
+      }
+    ],
+    "status": "FAIL_CLOSED"
+  },
+  "public_claim": "bounded reusable workflow only; no general compatibility claim",
+  "stage": "P7-14",
+  "workflow": "p7_rom_to_native_v1"
+}

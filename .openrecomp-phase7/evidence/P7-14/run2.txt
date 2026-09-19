@@ -1,0 +1,57 @@
+=== P7-14 Bank-Aware ROM-to-Native Workflow Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-verified
+
+--- anchors ---
+PASS: anchor:p7-13-record-pass
+PASS: anchor:decoder-unchanged
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+PASS: control-plane:playability-reserved
+
+--- public_bank_switching ---
+PASS: bank:deterministic
+PASS: bank:status
+PASS: bank:inventory
+PASS: bank:frontier
+PASS: bank:translation
+PASS: bank:native-build
+PASS: bank:no-rom-copy
+
+--- public_indirect_flow ---
+PASS: indirect:deterministic
+PASS: indirect:status
+PASS: indirect:classification
+PASS: indirect:sites
+PASS: indirect:assignment-policy
+PASS: indirect:generated-and-built
+PASS: indirect:blocker-recorded
+PASS: indirect:no-rom-copy
+
+--- private_image ---
+PASS: private:fail-closed
+PASS: private:blockers
+PASS: private:identity-only
+PASS: private:no-rom-copy
+
+--- regressions ---
+PASS: regression:nes-rom-tool:exit
+PASS: regression:nes-rom-tool:stderr
+PASS: regression:p7-13:exit
+PASS: regression:p7-13:stderr
+PASS: regression:p7-13:marker
+
+--- evidence ---
+PASS: hygiene:no-private-rom-bytes:workflow.json
+PASS: hygiene:no-rom-extension-in-scratch
+
+=== RESULT ===
+OPENRECOMP_P7_14=PASS
+OPENRECOMP_PHASE7_BANK_WORKFLOW_V1=PASS tests=33
+OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
+OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN

@@ -8,8 +8,8 @@ BASELINE_COMMIT=1643817d43196c43155805249137e4b4e4a21eb1
 BASELINE_TREE=cda3f535be43dc6f3d4b457d11d356ae39ea34af
 BASELINE_TERMINAL=OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=PASS
 BASELINE_GENERAL=OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
-CURRENT_STAGE=P7-13
-LAST_PASSED_STAGE=P7-13
+CURRENT_STAGE=P7-14
+LAST_PASSED_STAGE=P7-14
 STATUS=ACTIVE
 TRANSLATION_FRONTIER_STATUS=NOT_PROVEN
 QUEUE_FREEZE=FROZEN
@@ -104,7 +104,7 @@ OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN
 | P7-11 | Private TMNT frontier run | PASS | `.openrecomp-phase7/evidence/P7-11/` |
 | P7-12 | Evidence-driven translation closure | PASS | `.openrecomp-phase7/evidence/P7-12/` |
 | P7-13 | Second private TMNT run | PASS | `.openrecomp-phase7/evidence/P7-13/` |
-| P7-14 | Reusable bank-aware ROM-to-native workflow | QUEUED | - |
+| P7-14 | Reusable bank-aware ROM-to-native workflow | PASS | `.openrecomp-phase7/evidence/P7-14/` |
 | P7-90 | Whole regression | QUEUED | - |
 | P7-91 | Evidence index and compatibility matrix | QUEUED | - |
 | P7-99 | Final Phase-7 verdict | QUEUED | - |

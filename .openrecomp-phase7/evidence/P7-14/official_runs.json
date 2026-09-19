@@ -1,0 +1,60 @@
+{
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "command": [
+        "python",
+        "tools/test_phase7_workflow_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase7/evidence/P7-14"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P7_14=",
+        "OPENRECOMP_PHASE7_BANK_WORKFLOW_V1=",
+        "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=",
+        "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=",
+        "OPENRECOMP_PHASE7_TMMT_PLAYABILITY="
+      ],
+      "name": "run1",
+      "p7_14_tests_sha256": "8e2ead4a0dd3fa0d11722e5122b58d4a049ecf64289f3eed7de79d7194577ea2",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1518,
+      "stdout_bytes_lf": 1461,
+      "stdout_sha256_lf": "69216467b0463b3f14c71284dddb43300942f4fce5a88fbd89f4cca8aa8438b8",
+      "stdout_sha256_raw": "d53e840443598b37a2d04e4afb8dbc58772e2af7f4d06ca5f7b1ca695e881699"
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_phase7_workflow_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase7/evidence/P7-14"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P7_14=",
+        "OPENRECOMP_PHASE7_BANK_WORKFLOW_V1=",
+        "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=",
+        "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=",
+        "OPENRECOMP_PHASE7_TMMT_PLAYABILITY="
+      ],
+      "name": "run2",
+      "p7_14_tests_sha256": "8e2ead4a0dd3fa0d11722e5122b58d4a049ecf64289f3eed7de79d7194577ea2",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1518,
+      "stdout_bytes_lf": 1461,
+      "stdout_sha256_lf": "69216467b0463b3f14c71284dddb43300942f4fce5a88fbd89f4cca8aa8438b8",
+      "stdout_sha256_raw": "d53e840443598b37a2d04e4afb8dbc58772e2af7f4d06ca5f7b1ca695e881699"
+    }
+  ],
+  "stage": "P7-14",
+  "stderr_empty_both": true
+}
