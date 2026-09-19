@@ -2,6 +2,8 @@
 
 OpenRecomp is an open-source, architecture-neutral static recompilation framework with deterministic validation and explicit host interfaces.
 
+Project updates: [OpenRecomp on X](https://x.com/openrecomp).
+
 The project separates binary analysis, a versioned intermediate representation (IR), executable module packaging, reference execution, ahead-of-time translation and host integration so the reusable core is not tied to a single game, console or engine.
 
 Unreal Engine is an optional consumer of the versioned native-module interface, not a dependency of the OpenRecomp core.
@@ -10,9 +12,19 @@ Unreal Engine is an optional consumer of the versioned native-module interface, 
 
 **OpenRecomp v0.2.0** is the first formal public research/developer milestone. It freezes the current evidence-backed open-core architecture and reviewer-facing validation state; it is not a claim of general guest-binary compatibility or a production-quality optimizing compiler.
 
-Post-v0.2.0 development is tracked separately from the immutable release notes. Current development adds bounded multi-fixture MIPS32 expansion evidence, a reusable `OpenRecompRuntime` Unreal plugin, a bounded UE5.8 Windows x64 Development packaged-build validation, and a one-command Linux external-reviewer reproducibility gate without changing IR V1 or Native AOT ABI V1.
+Post-v0.2.0 development is tracked separately from the immutable release notes. Since v0.2.0, the project has added bounded multi-fixture MIPS32 expansion evidence, a reusable `OpenRecompRuntime` Unreal plugin, a bounded UE5.8 Windows x64 Development packaged-build validation, a one-command Linux external-reviewer reproducibility gate, a bounded end-to-end NES/NROM static-recompilation proof, a bounded MMC1 platform proof, and a deterministic ROM-to-native workflow for supported NES inputs. General NES compatibility and commercial-game playability remain explicitly unproven.
 
 See [`docs/RELEASE_V0_2_0.md`](docs/RELEASE_V0_2_0.md) for the bounded v0.2.0 release notes and [`docs/RELEASE_CHECKLIST_V0_2_0.md`](docs/RELEASE_CHECKLIST_V0_2_0.md) for its publication/reproducibility gate.
+
+## Post-v0.2.0 NES development status
+
+The NES track is deliberately evidence-bounded and does not turn OpenRecomp into a general-purpose emulator or claim arbitrary-ROM compatibility.
+
+- **Phase 5 — NES/NROM platform proof: PASS (bounded).** An original Apache-2.0 NROM fixture was ingested, analyzed, translated, emitted as host-native code, executed through the generic runtime, and matched an independently structured reference path on deterministic observables.
+- **Phase 6 — MMC1 platform proof: PASS (bounded).** The public MMC1 fixture exercised serial register behavior, PRG/CHR banking, mirroring, native execution and independent reference equivalence. A reusable local ROM-to-native workflow now classifies unsupported inputs fail-closed and never requires packaging the source ROM.
+- **Private TMNT compatibility target: UNPROVEN for playability.** MMC1 is no longer the blocking layer. The current private frontier is translation/control-flow related: undocumented opcode byte `0x7C` at `0xC570`, three unresolved `jmp ($E2)` sites at `0x86E8`, `0x8956` and `0x8F3C`, plus 1,048 candidate instructions in the bank-switched `$8000-$BFFF` window. Native execution and interactive behavior have not been reached for this private title.
+- **Phase 7 — translation/control-flow frontier: current development track.** The goal is bank-aware reachability, evidence-backed classification of the `0x7C` frontier, and bounded indirect-control-flow recovery without guessing targets or hardware behavior.
+- **General NES compatibility: NOT PROVEN.** No Phase-5/6/7 result implies all games, all mappers, cycle accuracy, full PPU/APU accuracy, FDS compatibility or arbitrary 6502 binary compatibility.
 
 ## Current evidence status
 
