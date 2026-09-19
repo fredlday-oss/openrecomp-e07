@@ -177,10 +177,33 @@ fixed in commit `phase7: write stage evidence sidecars in P7-01/P7-02 gates`
 present). Both stages were re-run officially with byte-identical stdout and
 identical `p7_01_tests.json`/`p7_02_tests.json` hashes.
 
+## P7-04 outcome (PASS)
+
+Marker: `OPENRECOMP_PHASE7_BANK_REACHABILITY_V1=PASS tests=289`; terminal,
+general and playability markers reserved as `NOT_PROVEN`.
+
+- New bank-aware model `.openrecomp-phase7/src/p7_bank_reachability_v1.py`
+  with code identity `(physical bank, cpu address)`, explicit fixed/
+  switchable windows via the frozen PRG reference model (240 layout
+  combinations matched), separate control/PRG provenance, statically proven
+  constant bank commits, fail-closed `UNRESOLVED` expansion, bounded
+  unresolved candidates and explicit `multi_bank_cpu_addresses` non-merging.
+- Original Apache-2.0 synthetic fixtures
+  `.openrecomp-phase7/src/p7_bank_fixtures_v1.py` prove: proven bank commit
+  and switchable call (bank 2 `PROVEN`), bit-7 reset handling, unknown-value
+  expansion (all banks candidates, `$8000` under 4 banks, never merged),
+  consecutive-write suppression ambiguity, window-spanning fail close and the
+  frozen public Phase-6 MMC1 proof fixture (28 proven fixed-bank
+  instructions, unresolved-limited loops).
+- `tools/test_phase7_bank_reachability_v1.py`: 289 checks; two official runs
+  byte-identical raw (`4ff35a0c...`, 10014 bytes) and LF (`897f6904...`),
+  empty stderr, exit 0; `p7_04_tests.json` sha256 `12ddbd03...`.
+- Evidence: `.openrecomp-phase7/evidence/P7-04/`.
+
 ## Exact next action
 
-Start P7-04 (bank-aware cartridge reachability model): model executable
-reachability across MMC1 PRG bank states, track fixed and switchable windows
-explicitly, associate code addresses with cartridge bank state where
-required, never merge different physical bank contents that share CPU address
-ranges, and fail closed on ambiguous bank provenance. Do not push.
+Start P7-05 (bank-aware ProgramModel / CFG integration): extend the neutral
+program representation only as needed to distinguish banked code identities,
+recover CFG/function/translation-unit structure without fabricating
+cross-bank edges, preserve architecture-neutral boundaries where possible,
+and include a public redistributable bank-switching fixture. Do not push.

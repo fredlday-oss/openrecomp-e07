@@ -1,0 +1,60 @@
+{
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "command": [
+        "python",
+        "tools/test_phase7_bank_reachability_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase7/evidence/P7-04"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P7_04=",
+        "OPENRECOMP_PHASE7_BANK_REACHABILITY_V1=",
+        "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=",
+        "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=",
+        "OPENRECOMP_PHASE7_TMMT_PLAYABILITY="
+      ],
+      "name": "run1",
+      "p7_04_tests_sha256": "12ddbd033d9ecf73946777c8ac095c411575b6a401d6b8a23de1e07a495bd35d",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 10014,
+      "stdout_bytes_lf": 9691,
+      "stdout_sha256_lf": "897f6904474dce95a7bce78a78cf6571301f94570e3493a9ede7b2afde54f99e",
+      "stdout_sha256_raw": "4ff35a0ca6eb7953c5e07f7267b84e2162e4e517979f9dc55a98078f321a2ce6"
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_phase7_bank_reachability_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase7/evidence/P7-04"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P7_04=",
+        "OPENRECOMP_PHASE7_BANK_REACHABILITY_V1=",
+        "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=",
+        "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=",
+        "OPENRECOMP_PHASE7_TMMT_PLAYABILITY="
+      ],
+      "name": "run2",
+      "p7_04_tests_sha256": "12ddbd033d9ecf73946777c8ac095c411575b6a401d6b8a23de1e07a495bd35d",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 10014,
+      "stdout_bytes_lf": 9691,
+      "stdout_sha256_lf": "897f6904474dce95a7bce78a78cf6571301f94570e3493a9ede7b2afde54f99e",
+      "stdout_sha256_raw": "4ff35a0ca6eb7953c5e07f7267b84e2162e4e517979f9dc55a98078f321a2ce6"
+    }
+  ],
+  "stage": "P7-04",
+  "stderr_empty_both": true
+}

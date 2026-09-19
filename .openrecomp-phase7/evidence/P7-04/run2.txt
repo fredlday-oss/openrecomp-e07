@@ -1,0 +1,323 @@
+=== P7-04 Bank-Aware Reachability Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-verified
+
+--- anchors ---
+PASS: anchor:p7-03-record-pass
+PASS: anchor:decoder-unchanged
+PASS: anchor:p6-public-proof-identity
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+PASS: control-plane:playability-reserved
+
+--- layout_model ---
+PASS: layout:mode-banks-1-00-0
+PASS: layout:mode-banks-1-00-1
+PASS: layout:mode-banks-1-00-2
+PASS: layout:mode-banks-1-00-3
+PASS: layout:mode-banks-1-00-5
+PASS: layout:mode-banks-1-00-7
+PASS: layout:mode-banks-1-04-0
+PASS: layout:mode-banks-1-04-1
+PASS: layout:mode-banks-1-04-2
+PASS: layout:mode-banks-1-04-3
+PASS: layout:mode-banks-1-04-5
+PASS: layout:mode-banks-1-04-7
+PASS: layout:mode-banks-1-08-0
+PASS: layout:mode-banks-1-08-1
+PASS: layout:mode-banks-1-08-2
+PASS: layout:mode-banks-1-08-3
+PASS: layout:mode-banks-1-08-5
+PASS: layout:mode-banks-1-08-7
+PASS: layout:mode-banks-1-0a-0
+PASS: layout:mode-banks-1-0a-1
+PASS: layout:mode-banks-1-0a-2
+PASS: layout:mode-banks-1-0a-3
+PASS: layout:mode-banks-1-0a-5
+PASS: layout:mode-banks-1-0a-7
+PASS: layout:mode-banks-1-0c-0
+PASS: layout:mode-banks-1-0c-1
+PASS: layout:mode-banks-1-0c-2
+PASS: layout:mode-banks-1-0c-3
+PASS: layout:mode-banks-1-0c-5
+PASS: layout:mode-banks-1-0c-7
+PASS: layout:mode-banks-1-0e-0
+PASS: layout:mode-banks-1-0e-1
+PASS: layout:mode-banks-1-0e-2
+PASS: layout:mode-banks-1-0e-3
+PASS: layout:mode-banks-1-0e-5
+PASS: layout:mode-banks-1-0e-7
+PASS: layout:mode-banks-1-0f-0
+PASS: layout:mode-banks-1-0f-1
+PASS: layout:mode-banks-1-0f-2
+PASS: layout:mode-banks-1-0f-3
+PASS: layout:mode-banks-1-0f-5
+PASS: layout:mode-banks-1-0f-7
+PASS: layout:mode-banks-1-1f-0
+PASS: layout:mode-banks-1-1f-1
+PASS: layout:mode-banks-1-1f-2
+PASS: layout:mode-banks-1-1f-3
+PASS: layout:mode-banks-1-1f-5
+PASS: layout:mode-banks-1-1f-7
+PASS: layout:mode-banks-2-00-0
+PASS: layout:mode-banks-2-00-1
+PASS: layout:mode-banks-2-00-2
+PASS: layout:mode-banks-2-00-3
+PASS: layout:mode-banks-2-00-5
+PASS: layout:mode-banks-2-00-7
+PASS: layout:mode-banks-2-04-0
+PASS: layout:mode-banks-2-04-1
+PASS: layout:mode-banks-2-04-2
+PASS: layout:mode-banks-2-04-3
+PASS: layout:mode-banks-2-04-5
+PASS: layout:mode-banks-2-04-7
+PASS: layout:mode-banks-2-08-0
+PASS: layout:mode-banks-2-08-1
+PASS: layout:mode-banks-2-08-2
+PASS: layout:mode-banks-2-08-3
+PASS: layout:mode-banks-2-08-5
+PASS: layout:mode-banks-2-08-7
+PASS: layout:mode-banks-2-0a-0
+PASS: layout:mode-banks-2-0a-1
+PASS: layout:mode-banks-2-0a-2
+PASS: layout:mode-banks-2-0a-3
+PASS: layout:mode-banks-2-0a-5
+PASS: layout:mode-banks-2-0a-7
+PASS: layout:mode-banks-2-0c-0
+PASS: layout:mode-banks-2-0c-1
+PASS: layout:mode-banks-2-0c-2
+PASS: layout:mode-banks-2-0c-3
+PASS: layout:mode-banks-2-0c-5
+PASS: layout:mode-banks-2-0c-7
+PASS: layout:mode-banks-2-0e-0
+PASS: layout:mode-banks-2-0e-1
+PASS: layout:mode-banks-2-0e-2
+PASS: layout:mode-banks-2-0e-3
+PASS: layout:mode-banks-2-0e-5
+PASS: layout:mode-banks-2-0e-7
+PASS: layout:mode-banks-2-0f-0
+PASS: layout:mode-banks-2-0f-1
+PASS: layout:mode-banks-2-0f-2
+PASS: layout:mode-banks-2-0f-3
+PASS: layout:mode-banks-2-0f-5
+PASS: layout:mode-banks-2-0f-7
+PASS: layout:mode-banks-2-1f-0
+PASS: layout:mode-banks-2-1f-1
+PASS: layout:mode-banks-2-1f-2
+PASS: layout:mode-banks-2-1f-3
+PASS: layout:mode-banks-2-1f-5
+PASS: layout:mode-banks-2-1f-7
+PASS: layout:mode-banks-4-00-0
+PASS: layout:mode-banks-4-00-1
+PASS: layout:mode-banks-4-00-2
+PASS: layout:mode-banks-4-00-3
+PASS: layout:mode-banks-4-00-5
+PASS: layout:mode-banks-4-00-7
+PASS: layout:mode-banks-4-04-0
+PASS: layout:mode-banks-4-04-1
+PASS: layout:mode-banks-4-04-2
+PASS: layout:mode-banks-4-04-3
+PASS: layout:mode-banks-4-04-5
+PASS: layout:mode-banks-4-04-7
+PASS: layout:mode-banks-4-08-0
+PASS: layout:mode-banks-4-08-1
+PASS: layout:mode-banks-4-08-2
+PASS: layout:mode-banks-4-08-3
+PASS: layout:mode-banks-4-08-5
+PASS: layout:mode-banks-4-08-7
+PASS: layout:mode-banks-4-0a-0
+PASS: layout:mode-banks-4-0a-1
+PASS: layout:mode-banks-4-0a-2
+PASS: layout:mode-banks-4-0a-3
+PASS: layout:mode-banks-4-0a-5
+PASS: layout:mode-banks-4-0a-7
+PASS: layout:mode-banks-4-0c-0
+PASS: layout:mode-banks-4-0c-1
+PASS: layout:mode-banks-4-0c-2
+PASS: layout:mode-banks-4-0c-3
+PASS: layout:mode-banks-4-0c-5
+PASS: layout:mode-banks-4-0c-7
+PASS: layout:mode-banks-4-0e-0
+PASS: layout:mode-banks-4-0e-1
+PASS: layout:mode-banks-4-0e-2
+PASS: layout:mode-banks-4-0e-3
+PASS: layout:mode-banks-4-0e-5
+PASS: layout:mode-banks-4-0e-7
+PASS: layout:mode-banks-4-0f-0
+PASS: layout:mode-banks-4-0f-1
+PASS: layout:mode-banks-4-0f-2
+PASS: layout:mode-banks-4-0f-3
+PASS: layout:mode-banks-4-0f-5
+PASS: layout:mode-banks-4-0f-7
+PASS: layout:mode-banks-4-1f-0
+PASS: layout:mode-banks-4-1f-1
+PASS: layout:mode-banks-4-1f-2
+PASS: layout:mode-banks-4-1f-3
+PASS: layout:mode-banks-4-1f-5
+PASS: layout:mode-banks-4-1f-7
+PASS: layout:mode-banks-8-00-0
+PASS: layout:mode-banks-8-00-1
+PASS: layout:mode-banks-8-00-2
+PASS: layout:mode-banks-8-00-3
+PASS: layout:mode-banks-8-00-5
+PASS: layout:mode-banks-8-00-7
+PASS: layout:mode-banks-8-04-0
+PASS: layout:mode-banks-8-04-1
+PASS: layout:mode-banks-8-04-2
+PASS: layout:mode-banks-8-04-3
+PASS: layout:mode-banks-8-04-5
+PASS: layout:mode-banks-8-04-7
+PASS: layout:mode-banks-8-08-0
+PASS: layout:mode-banks-8-08-1
+PASS: layout:mode-banks-8-08-2
+PASS: layout:mode-banks-8-08-3
+PASS: layout:mode-banks-8-08-5
+PASS: layout:mode-banks-8-08-7
+PASS: layout:mode-banks-8-0a-0
+PASS: layout:mode-banks-8-0a-1
+PASS: layout:mode-banks-8-0a-2
+PASS: layout:mode-banks-8-0a-3
+PASS: layout:mode-banks-8-0a-5
+PASS: layout:mode-banks-8-0a-7
+PASS: layout:mode-banks-8-0c-0
+PASS: layout:mode-banks-8-0c-1
+PASS: layout:mode-banks-8-0c-2
+PASS: layout:mode-banks-8-0c-3
+PASS: layout:mode-banks-8-0c-5
+PASS: layout:mode-banks-8-0c-7
+PASS: layout:mode-banks-8-0e-0
+PASS: layout:mode-banks-8-0e-1
+PASS: layout:mode-banks-8-0e-2
+PASS: layout:mode-banks-8-0e-3
+PASS: layout:mode-banks-8-0e-5
+PASS: layout:mode-banks-8-0e-7
+PASS: layout:mode-banks-8-0f-0
+PASS: layout:mode-banks-8-0f-1
+PASS: layout:mode-banks-8-0f-2
+PASS: layout:mode-banks-8-0f-3
+PASS: layout:mode-banks-8-0f-5
+PASS: layout:mode-banks-8-0f-7
+PASS: layout:mode-banks-8-1f-0
+PASS: layout:mode-banks-8-1f-1
+PASS: layout:mode-banks-8-1f-2
+PASS: layout:mode-banks-8-1f-3
+PASS: layout:mode-banks-8-1f-5
+PASS: layout:mode-banks-8-1f-7
+PASS: layout:mode-banks-16-00-0
+PASS: layout:mode-banks-16-00-1
+PASS: layout:mode-banks-16-00-2
+PASS: layout:mode-banks-16-00-3
+PASS: layout:mode-banks-16-00-5
+PASS: layout:mode-banks-16-00-7
+PASS: layout:mode-banks-16-04-0
+PASS: layout:mode-banks-16-04-1
+PASS: layout:mode-banks-16-04-2
+PASS: layout:mode-banks-16-04-3
+PASS: layout:mode-banks-16-04-5
+PASS: layout:mode-banks-16-04-7
+PASS: layout:mode-banks-16-08-0
+PASS: layout:mode-banks-16-08-1
+PASS: layout:mode-banks-16-08-2
+PASS: layout:mode-banks-16-08-3
+PASS: layout:mode-banks-16-08-5
+PASS: layout:mode-banks-16-08-7
+PASS: layout:mode-banks-16-0a-0
+PASS: layout:mode-banks-16-0a-1
+PASS: layout:mode-banks-16-0a-2
+PASS: layout:mode-banks-16-0a-3
+PASS: layout:mode-banks-16-0a-5
+PASS: layout:mode-banks-16-0a-7
+PASS: layout:mode-banks-16-0c-0
+PASS: layout:mode-banks-16-0c-1
+PASS: layout:mode-banks-16-0c-2
+PASS: layout:mode-banks-16-0c-3
+PASS: layout:mode-banks-16-0c-5
+PASS: layout:mode-banks-16-0c-7
+PASS: layout:mode-banks-16-0e-0
+PASS: layout:mode-banks-16-0e-1
+PASS: layout:mode-banks-16-0e-2
+PASS: layout:mode-banks-16-0e-3
+PASS: layout:mode-banks-16-0e-5
+PASS: layout:mode-banks-16-0e-7
+PASS: layout:mode-banks-16-0f-0
+PASS: layout:mode-banks-16-0f-1
+PASS: layout:mode-banks-16-0f-2
+PASS: layout:mode-banks-16-0f-3
+PASS: layout:mode-banks-16-0f-5
+PASS: layout:mode-banks-16-0f-7
+PASS: layout:mode-banks-16-1f-0
+PASS: layout:mode-banks-16-1f-1
+PASS: layout:mode-banks-16-1f-2
+PASS: layout:mode-banks-16-1f-3
+PASS: layout:mode-banks-16-1f-5
+PASS: layout:mode-banks-16-1f-7
+PASS: layout:partial-unknown-control
+PASS: layout:partial-mode3-fixed-high
+PASS: layout:partial-mode2-fixed-low
+
+--- proven_bank_case ---
+PASS: proven:deterministic
+PASS: proven:status
+PASS: proven:target-bank-only
+PASS: proven:bank-0-unreached
+PASS: proven:bank-1-unreached
+PASS: proven:switch-recorded
+PASS: proven:no-merge
+
+--- reset_bit_case ---
+PASS: reset-bit:proven-target
+
+--- unknown_value_case ---
+PASS: unknown:status
+PASS: unknown:expanded
+PASS: unknown:all-banks-candidates
+PASS: unknown:bank-0-routine-candidate
+PASS: unknown:bank-1-routine-candidate
+PASS: unknown:bank-2-routine-candidate
+PASS: unknown:bank-3-routine-candidate
+PASS: unknown:no-merge
+PASS: unknown:writers-recorded
+
+--- suppression_case ---
+PASS: suppression:status-ok
+PASS: suppression:ambiguous-write
+PASS: suppression:expanded
+
+--- span_case ---
+PASS: span:fail-closed
+
+--- p6_public_case ---
+PASS: p6-public:status
+PASS: p6-public:fixed-window-proven
+PASS: p6-public:proven-in-fixed-window
+PASS: p6-public:ambiguous-writers-recorded
+
+--- fail_closed ---
+PASS: negative:bad-bank-count
+PASS: negative:bad-prg-size
+PASS: negative:bad-root
+PASS: negative:bad-budget
+PASS: negative:bad-unresolved-limit
+PASS: negative:tiny-budget-fails-closed
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:p7-03:exit
+PASS: regression:p7-03:stderr
+PASS: regression:p7-03:marker
+
+--- evidence ---
+PASS: hygiene:no-private-rom-bytes:bank_reachability.json
+PASS: hygiene:no-rom-extension-in-scratch
+
+=== RESULT ===
+OPENRECOMP_P7_04=PASS
+OPENRECOMP_PHASE7_BANK_REACHABILITY_V1=PASS tests=289
+OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
+OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN
