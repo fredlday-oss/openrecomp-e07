@@ -1,0 +1,118 @@
+=== P7-00 Phase-7 Boundary Gate ===
+
+--- control_plane ---
+PASS: control-plane:exists:STATE.md
+PASS: control-plane:exists:HANDOFF.md
+PASS: control-plane:exists:STAGE_QUEUE.md
+PASS: control-plane:exists:CONTROL_POLICY.md
+PASS: control-plane:exists:EVIDENCE_SCHEMA.md
+PASS: control-plane:exists:SCOPE.md
+PASS: control-plane:exists:FIXTURE_POLICY.md
+PASS: control-plane:evidence-dir
+PASS: control-plane:src-dir
+PASS: control-plane:phase
+PASS: control-plane:current-stage
+PASS: control-plane:last-passed-stage
+PASS: control-plane:status
+PASS: control-plane:baseline
+PASS: control-plane:baseline-tag-status
+PASS: control-plane:baseline-commit
+PASS: control-plane:baseline-tree
+PASS: control-plane:baseline-terminal
+PASS: control-plane:baseline-general
+PASS: control-plane:frontier-status-reserved
+PASS: control-plane:queue-ids-frozen
+PASS: control-plane:queue-names-frozen
+PASS: control-plane:queue-statuses-valid
+PASS: control-plane:queue-at-most-one-active
+PASS: control-plane:queue-freeze-section
+PASS: control-plane:queue-freeze-record
+PASS: control-plane:ledger-ids-frozen
+PASS: control-plane:ledger-statuses-valid
+PASS: control-plane:complete-set-matches-ledger
+PASS: control-plane:terminal-marker-reserved
+PASS: control-plane:compat-marker-reserved
+PASS: control-plane:playability-marker-reserved
+PASS: control-plane:freeze-record
+PASS: control-plane:queue-freeze-stages
+PASS: control-plane:scope-terminal
+PASS: control-plane:scope-nonclaims
+PASS: control-plane:rom-policy
+PASS: control-plane:tag-reconciliation
+PASS: control-plane:fixture-policy-private
+PASS: control-plane:fixture-policy-public
+PASS: control-plane:separated-fixtures
+
+--- source_integrity ---
+PASS: source:manifest-exists
+PASS: source:manifest-verified
+
+--- frozen_chain ---
+PASS: chain:phase5-tag-annotated
+PASS: chain:phase5-tag-object
+PASS: chain:phase5-commit
+PASS: chain:phase5-tree
+PASS: chain:phase4
+PASS: chain:phase3
+PASS: chain:phase2-phase1
+PASS: chain:phase6-branch-commit
+PASS: chain:phase6-commit
+PASS: chain:phase6-tree
+PASS: chain:phase6-descends-phase5
+PASS: chain:head-descends-phase6
+PASS: chain:phase6-tag-absent-reconciled
+PASS: chain:phase6-tag-absence-recorded
+PASS: chain:on-phase7-branch
+
+--- phase6_verdict ---
+PASS: verdict6:gate-hash
+PASS: verdict6:record-present
+PASS: verdict6:record-hash
+PASS: verdict6:record-status
+PASS: verdict6:record-terminal
+PASS: verdict6:record-general
+PASS: verdict6:terminal-marker-promoted
+PASS: verdict6:general-marker-never-promoted
+PASS: verdict6:private-not-promoted
+PASS: verdict6:whole-regression
+PASS: verdict6:claim-ledger-separated
+
+--- p6_99_reconstruction ---
+PASS: recon:returncode-zero
+PASS: recon:stderr-empty
+PASS: recon:stdout-bytes
+PASS: recon:stdout-raw-hash
+PASS: recon:stdout-lf-hash
+PASS: recon:record-hash
+PASS: recon:identical
+PASS: recon:markers
+
+--- rom_safety ---
+PASS: rom:exists
+PASS: rom:outside-worktree
+PASS: rom:size
+PASS: rom:sha256
+PASS: rom:md5
+PASS: rom:no-tracked-images
+PASS: rom:no-worktree-images
+PASS: rom:no-private-copy
+PASS: rom:gitignore:.nes
+PASS: rom:gitignore:.fds
+PASS: rom:gitignore:.unf
+PASS: rom:gitignore:.unif
+PASS: rom:ignored:probe.nes
+PASS: rom:ignored:probe.fds
+PASS: rom:ignored:probe.unf
+PASS: rom:ignored:probe.unif
+PASS: rom:ignored:Roms/probe.rom
+PASS: rom:ignored:roms/probe.rom
+
+--- worktree_hygiene ---
+PASS: hygiene:no-unexpected-paths
+
+=== RESULT ===
+OPENRECOMP_P7_00=PASS
+OPENRECOMP_PHASE7_BOUNDARY_V1=PASS tests=96
+OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
+OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN

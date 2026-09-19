@@ -1,0 +1,60 @@
+{
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "command": [
+        "python",
+        "tools/test_phase7_boundary_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase7/evidence/P7-00"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P7_00=",
+        "OPENRECOMP_PHASE7_BOUNDARY_V1=",
+        "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=",
+        "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=",
+        "OPENRECOMP_PHASE7_TMMT_PLAYABILITY="
+      ],
+      "name": "run1",
+      "p7_00_tests_sha256": "d0ef5d68a42459d47c64bda3a078db8ab97cf73bd45da9e6141cb8fab02593de",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 3690,
+      "stdout_bytes_lf": 3572,
+      "stdout_sha256_lf": "66052b58e6224ae558497e39c3c71d2b4c1a79d3f19c476b5769540fe6cc019b",
+      "stdout_sha256_raw": "8d5b206b158ed3198243bc5845b6dba8eaa66edfc60420bb6ac870e3dc5476ca"
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_phase7_boundary_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase7/evidence/P7-00"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P7_00=",
+        "OPENRECOMP_PHASE7_BOUNDARY_V1=",
+        "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=",
+        "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=",
+        "OPENRECOMP_PHASE7_TMMT_PLAYABILITY="
+      ],
+      "name": "run2",
+      "p7_00_tests_sha256": "d0ef5d68a42459d47c64bda3a078db8ab97cf73bd45da9e6141cb8fab02593de",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 3690,
+      "stdout_bytes_lf": 3572,
+      "stdout_sha256_lf": "66052b58e6224ae558497e39c3c71d2b4c1a79d3f19c476b5769540fe6cc019b",
+      "stdout_sha256_raw": "8d5b206b158ed3198243bc5845b6dba8eaa66edfc60420bb6ac870e3dc5476ca"
+    }
+  ],
+  "stage": "P7-00",
+  "stderr_empty_both": true
+}

@@ -1,0 +1,423 @@
+{
+  "checks": [
+    {
+      "check": "chain:head-descends-phase6",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:on-phase7-branch",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase2-phase1",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase3",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase4",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tag-annotated",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tag-object",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase6-branch-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase6-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase6-descends-phase5",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase6-tag-absence-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase6-tag-absent-reconciled",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase6-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:baseline",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:baseline-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:baseline-general",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:baseline-tag-status",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:baseline-terminal",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:baseline-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:compat-marker-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:complete-set-matches-ledger",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:current-stage",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:evidence-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:CONTROL_POLICY.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:EVIDENCE_SCHEMA.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:FIXTURE_POLICY.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:HANDOFF.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:SCOPE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:STAGE_QUEUE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:exists:STATE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:fixture-policy-private",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:fixture-policy-public",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:freeze-record",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:frontier-status-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:last-passed-stage",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger-ids-frozen",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger-statuses-valid",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:phase",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:playability-marker-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue-at-most-one-active",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue-freeze-record",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue-freeze-section",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue-freeze-stages",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue-ids-frozen",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue-names-frozen",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue-statuses-valid",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:rom-policy",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:scope-nonclaims",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:scope-terminal",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:separated-fixtures",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:src-dir",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:status",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:tag-reconciliation",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-marker-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-unexpected-paths",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:identical",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:markers",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:record-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:returncode-zero",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:stdout-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:stdout-lf-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:stdout-raw-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:exists",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:gitignore:.fds",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:gitignore:.nes",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:gitignore:.unf",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:gitignore:.unif",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:ignored:Roms/probe.rom",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:ignored:probe.fds",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:ignored:probe.nes",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:ignored:probe.unf",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:ignored:probe.unif",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:ignored:roms/probe.rom",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:md5",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:no-private-copy",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:no-tracked-images",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:no-worktree-images",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:outside-worktree",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "rom:size",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict6:claim-ledger-separated",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict6:gate-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict6:general-marker-never-promoted",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict6:private-not-promoted",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict6:record-general",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict6:record-hash",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict6:record-present",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict6:record-status",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict6:record-terminal",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict6:terminal-marker-promoted",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict6:whole-regression",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "control_plane_digest": "86f2bcd01afebfb6799bb333c9868739fd9950c1025e899c3c8a688c38a43fa6",
+    "p6_99_reconstruction": {
+      "identical_raw": true,
+      "identical_stderr": true,
+      "raw_bytes": 3750,
+      "returncode_zero_both": true,
+      "stderr_empty_both": true,
+      "stdout_sha256_lf": "4fafd3842eb1df3d7f44f166cec6bd064d28e71121fffdb882e7ca1969c2978a",
+      "stdout_sha256_raw": "d7e96e11d94202fff91380dc4020e5523aa7d87dacfb3f05ee35cbf469d3a365",
+      "tests_sha256": "e7e462f15ca64a2d8db130ec664ac309d5ebfef1c128fd392111d19e4be30ea4"
+    },
+    "phase6_baseline_commit": "1643817d43196c43155805249137e4b4e4a21eb1",
+    "phase6_baseline_tree": "cda3f535be43dc6f3d4b457d11d356ae39ea34af",
+    "phase6_tag_present": false,
+    "phase7_manifest_entries": 2,
+    "private_rom_copies": [],
+    "private_rom_sha256": "2a9345e608ec0c57470dc6658ce8199ddea9c18076134d9ef2a56f91b0a066d1",
+    "rom_extension_files": [],
+    "worktree_problems": []
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE7_BOUNDARY_V1=PASS tests=96",
+    "playability": "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P7_00=PASS",
+    "terminal": "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN"
+  },
+  "passed": 96,
+  "stage": "P7-00",
+  "stage_name": "OPENRECOMP_PHASE7_BOUNDARY_V1",
+  "status": "PASS",
+  "tests": 96
+}
