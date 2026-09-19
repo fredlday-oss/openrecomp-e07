@@ -559,6 +559,41 @@ markers reserved as `NOT_PROVEN`.
   `e72f78f8...` in both runs.
 - Evidence: `.openrecomp-phase6/evidence/P6-91/`.
 
+## P6-99 outcome (PASS, terminal)
+
+Markers: `OPENRECOMP_P6_99=PASS`,
+`OPENRECOMP_PHASE6_FINAL_VERDICT_V1=PASS tests=108`,
+`OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=PASS` (bounded audited public MMC1
+claim only), `OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN`
+(permanent).
+
+- New gate (`tools/test_phase6_final_verdict_v1.py`): verifies source
+  integrity, the frozen Phase-1..5 chain, the complete Phase-6 stage ledger
+  (P6-00 .. P6-13, P6-90, P6-91 all PASS), every pinned identity (fixture,
+  host program, support, executable, observables, reference equivalence,
+  platform decision, workflow, private frontier, whole regression, evidence
+  index and claim counts) and the claim scope guard.
+- Scope guard is fail-closed against synthetic promotions: general NES
+  compatibility promotion, private compatibility promotion, general marker
+  promotion and bounded-claim demotion all reject deterministically.
+- Terminal state: `STATE.md` `STATUS=COMPLETE`,
+  `MMC1_PLATFORM_STATUS=PROVEN`, `FINAL_VERDICT=PASS`; `STAGE_QUEUE.md`
+  row `P6-99` `COMPLETE` and the bounded terminal marker issued `PASS`;
+  general marker never promoted.
+- Terminal tag: not created - the frozen Phase-6 control policy does not
+  require one; the terminal boundary is the P6-99 verdict commit on branch
+  `phase6/nes-compat-v1` (pre-verdict baseline
+  `69cb116f87be0a0ac444097c940bfc2ba50716bc`).
+- Retained limitations: TMNT remains not playable with its four exact
+  blockers; no MMC1 variant beyond V-001; no cycle accuracy; bounded
+  PPU/APU/input/timing model only; no FDS or arbitrary-6502 support.
+- Two official runs byte-identical raw (`d7e96e11...`, 3750 bytes) and LF
+  (`4fafd384...`), empty stderr, exit 0; `p6_99_tests.json` sha256
+  `e7e462f1...` in both runs.
+- Evidence: `.openrecomp-phase6/evidence/P6-99/`.
+
 ## Exact next action
 
-Proceed to P6-99 - Final Phase-6 verdict.
+None. Phase 6 is COMPLETE at the terminal `PASS` boundary for the bounded
+audited public MMC1 claim; `OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY`
+remains `NOT_PROVEN` permanently. Do not push.

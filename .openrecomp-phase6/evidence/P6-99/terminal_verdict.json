@@ -1,0 +1,53 @@
+{
+  "identities": {
+    "evidence_files": 181,
+    "executable_sha256": "0ba034bd1e7c081bb0ee07a8d8606ba425f1f0139db65eab9fb57c4ff30f6255",
+    "host_program_sha256": "6c1ccac5b49b6af231cef81115990c49d784edad5509615624078646866bf9f1",
+    "observables": {
+      "clock": "241746",
+      "exit": "1",
+      "exit_word": "0101010101010000",
+      "failed": "0",
+      "frames": "9",
+      "mmc1_regs": "1F070703",
+      "nmi": "6",
+      "pc": "0xC089",
+      "steps": "82731"
+    },
+    "private_blockers": [
+      "unsupported_opcode",
+      "unresolved_indirect_control_flow",
+      "bank_state_unresolved",
+      "platform_runtime_not_tested"
+    ],
+    "private_image_sha256": "2a9345e608ec0c57470dc6658ce8199ddea9c18076134d9ef2a56f91b0a066d1",
+    "public_mmc1_fixture_sha256": "9e10dce532266592f9ccda781bc6d3a7354ab4951bd3db87e4f43d1c45056b70",
+    "support_sha256": "c15980d43ba9854c7e8dd5917a32a6e13ac3235d8fb7de06c50b91a2fb02ffb6"
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE6_FINAL_VERDICT_V1=PASS",
+    "stage": "OPENRECOMP_P6_99=PASS",
+    "terminal": "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=PASS"
+  },
+  "scope": {
+    "asserted": "the exact bounded audited public MMC1 static-recompilation claim",
+    "not_asserted": [
+      "general NES compatibility",
+      "all MMC1 boards, revisions or wiring variants",
+      "all NES games",
+      "commercial-game compatibility",
+      "cycle accuracy",
+      "full PPU accuracy",
+      "full APU accuracy",
+      "Famicom Disk System compatibility",
+      "arbitrary 6502 compatibility"
+    ]
+  },
+  "stage": "P6-99",
+  "terminal_tag": {
+    "created": false,
+    "reason": "the frozen Phase-6 control policy does not require a terminal tag; the terminal boundary is the verdict commit"
+  },
+  "verdict": "PASS"
+}

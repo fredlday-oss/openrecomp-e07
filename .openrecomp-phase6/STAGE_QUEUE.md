@@ -22,7 +22,7 @@ The freeze is effective before any P6-01 implementation work.
 | P6-13 | Second private TMNT compatibility run | COMPLETE | Re-run the complete local pipeline. Record whether generated native execution is reached. If interactive/playable behaviour occurs, record it as a private bounded observation only. If not, produce the exact remaining compatibility frontier |
 | P6-90 | Whole regression | COMPLETE | Re-run the required Phase-1, Phase-2, Phase-3, Phase-4, Phase-5 and Phase-6 gates from the audited tree. Preserve frozen historical evidence. Require deterministic outputs |
 | P6-91 | Evidence index and compatibility matrix | COMPLETE | Produce a complete PROVEN / BOUNDED / UNPROVEN / UNSUPPORTED / NOT TESTED ledger. Separate the public NROM proof, the public MMC1 proof, the private TMNT observations and general NES compatibility. Record every remaining limitation |
-| P6-99 | Final Phase-6 verdict | QUEUED | Issue `OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=PASS` only if the exact audited public MMC1 static-recompilation claim is proven. Always retain `OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN`. A PASS must not imply all MMC1 boards/revisions, all NES games, commercial-game compatibility, cycle accuracy, full PPU/APU accuracy, FDS compatibility or arbitrary 6502 compatibility |
+| P6-99 | Final Phase-6 verdict | COMPLETE | Issue `OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=PASS` only if the exact audited public MMC1 static-recompilation claim is proven. Always retain `OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN`. A PASS must not imply all MMC1 boards/revisions, all NES games, commercial-game compatibility, cycle accuracy, full PPU/APU accuracy, FDS compatibility or arbitrary 6502 compatibility |
 
 ## Queue freeze
 
@@ -58,16 +58,18 @@ Frozen-queue rules:
 - queue freeze: rows `P6-01` .. `P6-99` are frozen by the `## Queue freeze`
   section above (P6-00 `PASS` boundary, control-plane record)
 - `OPENRECOMP_P6_00=PASS`
-- terminal Phase-6 marker: `OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF` - reserved
-  as `NOT_PROVEN` until P6-99 may issue `PASS` for the bounded audited public
-  MMC1 claim only
+- terminal Phase-6 marker: `OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=PASS` -
+  issued at P6-99 for the exact bounded audited public MMC1 claim only
+  (reserved `NOT_PROVEN` at every earlier stage)
 - general NES compatibility marker (never promoted by Phase 6):
   `OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN`
 
 ## Terminal state
 
-- Reserved at P6-00: `OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN` until
-  the P6-99 verdict.
+- Issued at P6-99: `OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=PASS` for the
+  exact bounded audited public MMC1 static-recompilation claim; no broader
+  MMC1, NES-game, commercial-title, mapper, board-revision, cycle-accuracy or
+  full-PPU/APU accuracy claim is authorized by that verdict.
 - `OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN` is permanent for
   Phase 6: no general NES, mapper, board-revision, game, commercial-title,
   cycle-accuracy, full-PPU/APU or arbitrary-6502 compatibility is claimed at

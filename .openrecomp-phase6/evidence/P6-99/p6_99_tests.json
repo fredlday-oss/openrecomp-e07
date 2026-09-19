@@ -1,0 +1,498 @@
+{
+  "checks": [
+    {
+      "check": "chain:descends",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase2-phase1",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase3",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase4",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tag-annotated",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tag-object",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:current-stage",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:general-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:last-passed",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P6-00",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P6-01",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P6-02",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P6-03",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P6-04",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P6-05",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P6-06",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P6-07",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P6-08",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P6-09",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P6-10",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P6-11",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P6-12",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P6-13",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P6-90",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P6-91",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:mmc1-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P6-00",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P6-01",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P6-02",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P6-03",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P6-04",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P6-05",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P6-06",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P6-07",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P6-08",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P6-09",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P6-10",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P6-11",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P6-12",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P6-13",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P6-90",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P6-91",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved-before-verdict",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:terminal_verdict.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:verdict_record.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:private-hash-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:claim-counts",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:claim-sections",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:evidence-index",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:limitations",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:native-executable",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:native-observables",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:platform-decision",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:private-frontier",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:private-second-run",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:public-mmc1-fixture",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:reference-equivalence",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:translation",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:whole-regression",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:workflow",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-00:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-00:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-01:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-01:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-02:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-02:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-03:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-03:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-04:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-04:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-05:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-05:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-06:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-06:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-07:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-07:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-08:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-08:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-09:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-09:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-10:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-10:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-11:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-11:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-12:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-12:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-13:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-13:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-90:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-90:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-91:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-91:present",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:compat-marker-promotion",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:general-promotion",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:phase6-demotion",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:private-promotion",
+      "status": "PASS"
+    },
+    {
+      "check": "scope:bounded-claim-only",
+      "status": "PASS"
+    },
+    {
+      "check": "source:p3-99",
+      "status": "PASS"
+    },
+    {
+      "check": "source:p4-99",
+      "status": "PASS"
+    },
+    {
+      "check": "source:p5-99",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase4-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase5-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase6-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:private-image",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "evidence_files": [
+      "terminal_verdict.json",
+      "verdict_record.json"
+    ],
+    "ledger_stages": [
+      "P6-00",
+      "P6-01",
+      "P6-02",
+      "P6-03",
+      "P6-04",
+      "P6-05",
+      "P6-06",
+      "P6-07",
+      "P6-08",
+      "P6-09",
+      "P6-10",
+      "P6-11",
+      "P6-12",
+      "P6-13",
+      "P6-90",
+      "P6-91"
+    ],
+    "verdict": {
+      "evidence_files": 181,
+      "executable_sha256": "0ba034bd1e7c081bb0ee07a8d8606ba425f1f0139db65eab9fb57c4ff30f6255",
+      "host_program_sha256": "6c1ccac5b49b6af231cef81115990c49d784edad5509615624078646866bf9f1",
+      "observables": {
+        "clock": "241746",
+        "exit": "1",
+        "exit_word": "0101010101010000",
+        "failed": "0",
+        "frames": "9",
+        "mmc1_regs": "1F070703",
+        "nmi": "6",
+        "pc": "0xC089",
+        "steps": "82731"
+      },
+      "private_blockers": [
+        "unsupported_opcode",
+        "unresolved_indirect_control_flow",
+        "bank_state_unresolved",
+        "platform_runtime_not_tested"
+      ],
+      "private_image_sha256": "2a9345e608ec0c57470dc6658ce8199ddea9c18076134d9ef2a56f91b0a066d1",
+      "public_mmc1_fixture_sha256": "9e10dce532266592f9ccda781bc6d3a7354ab4951bd3db87e4f43d1c45056b70",
+      "support_sha256": "c15980d43ba9854c7e8dd5917a32a6e13ac3235d8fb7de06c50b91a2fb02ffb6"
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE6_FINAL_VERDICT_V1=PASS tests=108",
+    "stage": "OPENRECOMP_P6_99=PASS",
+    "terminal": "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=PASS"
+  },
+  "passed": 108,
+  "stage": "P6-99",
+  "stage_name": "OPENRECOMP_PHASE6_FINAL_VERDICT_V1",
+  "status": "PASS",
+  "tests": 108
+}
