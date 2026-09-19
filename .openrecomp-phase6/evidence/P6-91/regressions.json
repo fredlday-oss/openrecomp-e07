@@ -1,0 +1,37 @@
+{
+  "regressions": [
+    {
+      "extra": [
+        "--evidence-dir",
+        ".openrecomp-phase6/scratch/P6-91/regression_p6_13"
+      ],
+      "markers": [
+        "OPENRECOMP_P6_13=PASS",
+        "OPENRECOMP_PHASE6_PRIVATE_COMPAT_RUN2_V1=PASS tests=66",
+        "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "returncode": 0,
+      "script": "tools/test_phase6_private_workflow_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 3261,
+      "stdout_sha256_lf": "5cf90e87f72be3c260768ddfe502ab7a67d4d4c2eab40fe466354e3bb81a5896",
+      "stdout_sha256_raw": "404dd00bbda65374ba750367ffcf29aaf923e423d6e6ac5419be09213ff23db2"
+    },
+    {
+      "extra": [],
+      "markers": [
+        "OPENRECOMP_NES_ROM_V1=PASS tests=12"
+      ],
+      "returncode": 0,
+      "script": "tools/test_nes_rom_v1.py",
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 959,
+      "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+      "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+    }
+  ],
+  "stage": "P6-91"
+}

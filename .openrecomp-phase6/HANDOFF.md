@@ -528,6 +528,37 @@ markers reserved as `NOT_PROVEN`.
   `930f6ec5...` in both runs.
 - Evidence: `.openrecomp-phase6/evidence/P6-90/`.
 
+## P6-91 outcome (PASS)
+
+Markers: `OPENRECOMP_P6_91=PASS`,
+`OPENRECOMP_PHASE6_EVIDENCE_INDEX_V1=PASS tests=93`; terminal and general
+markers reserved as `NOT_PROVEN`.
+
+- New index module (`.openrecomp-phase6/src/p6_evidence_index_v1.py`) and gate
+  (`tools/test_phase6_evidence_index_v1.py`): 181 evidence files indexed with
+  path/size/sha256/tracked status and verified against an independent
+  filesystem walk; control-plane and manifest hashes verified; frozen
+  boundaries and cross-stage anchors (P5-91/P5-99/P6-10/P6-12/P6-13/P6-90)
+  verified unchanged; every Phase-6 stage record PASS.
+- Claim ledger with the frozen vocabulary and four separated areas:
+  Phase-5 public NROM `PROVEN` (7 proven / 4 bounded), Phase-6 public MMC1
+  `PROVEN` (11 proven / 5 bounded), private TMNT `UNPROVEN` (4 observations,
+  4 exact blockers), general NES `UNPROVEN` with 8 unproven / 9 unsupported /
+  8 not-tested areas; six recorded limitations.
+- Exact remaining TMNT blockers recorded: undocumented `0x7C` at `0xC570`,
+  three `jmp ($E2)` sites (`0x86E8`/`0x8956`/`0x8F3C`), 1048 power-on
+  low-window candidates and `NOT_TESTED` runtime platform; public claim
+  `none`.
+- Terminal marker remains `OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN`;
+  general compatibility remains
+  `OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN`.
+- Regressions: P6-13 re-ran `PASS tests=66` and the frozen NES ROM tool
+  `PASS tests=12`, both with empty stderr.
+- Two official runs byte-identical raw (`dd143bff...`, 4042 bytes) and LF
+  (`1963f454...`), empty stderr, exit 0; `p6_91_tests.json` sha256
+  `e72f78f8...` in both runs.
+- Evidence: `.openrecomp-phase6/evidence/P6-91/`.
+
 ## Exact next action
 
-Proceed to P6-91 - Evidence index and compatibility matrix.
+Proceed to P6-99 - Final Phase-6 verdict.

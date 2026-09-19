@@ -1,0 +1,1517 @@
+{
+  "boundaries": {
+    "phase1_commit": "46c2f971e1a42cf49bd936bad94697b81bf31002",
+    "phase2_commit": "01b1d7cba8c931fca95d041389cfb1902b7c89fe",
+    "phase3_commit": "e16e4b29b90f379615f1af97e47747cd1d531796",
+    "phase3_tag_object": "ac31524504b1b5cc63aabcfd5132a3eb4275e8e9",
+    "phase3_tree": "a940f0d84a32adaf191f7ff2bebfb24cc855cde0",
+    "phase4_commit": "b3c71fb690f00b4811e8ec30c28f7725141295d0",
+    "phase4_tag_object": "e7eaab18fee267b3d7962db13835c9e14dd77fc2",
+    "phase4_tree": "f2ca3080915aa68f403526b89dfc17454687aed6",
+    "phase5_commit": "e8d3627a622d0ca3196b117c5112f29fabdb49e7",
+    "phase5_public_nrom_rom_sha256": "272c94cdc79463cd1020ff14db1892ba56af07e4cfda97f5f1df89dd807772b9",
+    "phase5_tag": "openrecomp-phase5-pass",
+    "phase5_tag_object": "b5d6832ba2374b810f4c24500ed9093a9481fd8d",
+    "phase5_tree": "468fb9788350de393d3de2ca9471b7d874ee8dc9",
+    "phase6_executable_sha256": "0ba034bd1e7c081bb0ee07a8d8606ba425f1f0139db65eab9fb57c4ff30f6255",
+    "phase6_host_program_sha256": "6c1ccac5b49b6af231cef81115990c49d784edad5509615624078646866bf9f1",
+    "phase6_public_mmc1_rom_sha256": "9e10dce532266592f9ccda781bc6d3a7354ab4951bd3db87e4f43d1c45056b70",
+    "phase6_support_sha256": "c15980d43ba9854c7e8dd5917a32a6e13ac3235d8fb7de06c50b91a2fb02ffb6",
+    "private_image_sha256": "2a9345e608ec0c57470dc6658ce8199ddea9c18076134d9ef2a56f91b0a066d1",
+    "private_image_size": 262160
+  },
+  "control_plane": [
+    {
+      "path": ".openrecomp-phase6/CONTROL_POLICY.md",
+      "sha256": "1e8d22b3a934f349976c5e1f03d61075e84212057b15a91ceaf08984eb373043",
+      "size": 7168
+    },
+    {
+      "path": ".openrecomp-phase6/EVIDENCE_SCHEMA.md",
+      "sha256": "bc5a525e417a500e552686a57852d3211390a574d8d4c6a9392734acb87721cb",
+      "size": 3911
+    },
+    {
+      "path": ".openrecomp-phase6/FIXTURE_POLICY.md",
+      "sha256": "94c16678a35c5e6c612042cac79987bef688c3b6e11f2191291b26b536a8faa2",
+      "size": 3654
+    },
+    {
+      "path": ".openrecomp-phase6/HANDOFF.md",
+      "sha256": "ffd74ebfea112ceec51595d1d9af3550d3235fc2984f5e76599971a29d09c2e7",
+      "size": 29993
+    },
+    {
+      "path": ".openrecomp-phase6/SCOPE.md",
+      "sha256": "f5baff59a1899e03d6db4dc8fc642d92578bcf2f05426e6789574e740e8cf761",
+      "size": 4409
+    },
+    {
+      "path": ".openrecomp-phase6/SOURCE_SHA256SUMS.txt",
+      "sha256": "e165b58ab714a63bb98ae2224229ab206851c2f41762376dc89e53c1d26ac48c",
+      "size": 4219
+    },
+    {
+      "path": ".openrecomp-phase6/STAGE_QUEUE.md",
+      "sha256": "fd8432b6d19f60aeb1ac7b5be967efd1071bc39c9e12f73d407bcff599274188",
+      "size": 7876
+    },
+    {
+      "path": ".openrecomp-phase6/STATE.md",
+      "sha256": "d2f4faa12a208cf79e4f427354099bc5edd9e6bb2d61a3d595c3ed1f8e1d6d1a",
+      "size": 6434
+    }
+  ],
+  "evidence_files": 181,
+  "files": [
+    {
+      "path": ".openrecomp-phase6/evidence/P6-00/changed_files.txt",
+      "sha256": "598c0dbcf721ae21c79ade1518792621de38d890f4520c266b6b9c97ccbdf11d",
+      "size": 842,
+      "stage": "P6-00",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-00/control_plane_manifest.txt",
+      "sha256": "02008750eb7666d63f04759d7f1363f67491442a2a5d742d765873190a260dac",
+      "size": 694,
+      "stage": "P6-00",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-00/determinism.json",
+      "sha256": "fbaf0490536452f07e58adaae633dd714f1417f9e1792c8e19333326b2d00e47",
+      "size": 1202,
+      "stage": "P6-00",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-00/official_runs.json",
+      "sha256": "d927ec3ea557c50c84699e5e85f3c8b654dec7454337d8f7ccd0635174086f8a",
+      "size": 1865,
+      "stage": "P6-00",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-00/p6_00_tests.json",
+      "sha256": "24c15b25fabc0f1ed3d7621f709800f95dea4e7f4925a0965803752b3d04b257",
+      "size": 8024,
+      "stage": "P6-00",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-00/RESULT.md",
+      "sha256": "bcd9af4dd6b9926b6c858e6b5378d3b3d5b449c06511af7256e6447827b4d92e",
+      "size": 6217,
+      "stage": "P6-00",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-00/run1.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-00",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-00/run1.txt",
+      "sha256": "ca7ab21017aa5f89699b718ef6541d9f440a3d75a17730eb6343b90d4a148ffd",
+      "size": 3095,
+      "stage": "P6-00",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-00/run2.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-00",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-00/run2.txt",
+      "sha256": "ca7ab21017aa5f89699b718ef6541d9f440a3d75a17730eb6343b90d4a148ffd",
+      "size": 3095,
+      "stage": "P6-00",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-01/changed_files.txt",
+      "sha256": "e5684dbeda046e4a9c8ce5a220fe9e49fd9d22a90263140e9c05ef99fa7a3f3e",
+      "size": 1062,
+      "stage": "P6-01",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-01/determinism.json",
+      "sha256": "1b6c3310218f82b438180ddeab2a165079aa0bf658a23002aadfbec0fe885be8",
+      "size": 1208,
+      "stage": "P6-01",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-01/ingestion.json",
+      "sha256": "3f58ad18b9b7a520b71e326d402f948f31608aaae84bf7c5f797213f97060391",
+      "size": 6819,
+      "stage": "P6-01",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-01/mmc1_requirements.json",
+      "sha256": "fa6f2bf37d64f14141393f2156e831221ffffb2177c9aec6fa69a7ffc833214b",
+      "size": 9194,
+      "stage": "P6-01",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-01/official_runs.json",
+      "sha256": "d81aaf92a78811536027e299f53acfe216e4966c5215b711db276924123f70e1",
+      "size": 1889,
+      "stage": "P6-01",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-01/p6_01_tests.json",
+      "sha256": "69900ee9dcdb77606544d20659f167e93bca2d5733f926eaf456b02fecae12ad",
+      "size": 7992,
+      "stage": "P6-01",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-01/regressions.json",
+      "sha256": "31b558f7ba7fee72c8a4dd3751da15bd2f107312ed29d67e4662eae6a9c30e66",
+      "size": 747,
+      "stage": "P6-01",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-01/RESULT.md",
+      "sha256": "7d11d91fe486ca9cc41c7a66f853f5378a67199029793c1816aeba5c6cdee469",
+      "size": 6104,
+      "stage": "P6-01",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-01/run1.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-01",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-01/run1.txt",
+      "sha256": "d153a32d2fb2ebad91a944b8d7abad8ee5b827fab924bbde26b5308d7ed851f6",
+      "size": 3028,
+      "stage": "P6-01",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-01/run2.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-01",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-01/run2.txt",
+      "sha256": "d153a32d2fb2ebad91a944b8d7abad8ee5b827fab924bbde26b5308d7ed851f6",
+      "size": 3028,
+      "stage": "P6-01",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-02/changed_files.txt",
+      "sha256": "9cf4384730c8c91e69eb1ae8aa20dee0c2d41e6e4e537a4f30ef98abfe058e23",
+      "size": 938,
+      "stage": "P6-02",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-02/determinism.json",
+      "sha256": "27c531a4a59b1d095a60b0cf5f0a6d59f3963937ffc0d6c0cc739576535889ea",
+      "size": 1205,
+      "stage": "P6-02",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-02/official_runs.json",
+      "sha256": "d0ad33da218505b31aa8fc523d04785ff82e1062fe5f0c27d9c2b428ea3fef8f",
+      "size": 1877,
+      "stage": "P6-02",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-02/p6_02_tests.json",
+      "sha256": "86ca0e02c0031a7d0f51847979ea0966622d407cff0deb0d072e4db8748fb9e5",
+      "size": 6851,
+      "stage": "P6-02",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-02/reference_comparison.json",
+      "sha256": "7246036b70259a3893062ded605a2b88b271aea497e602d10f798c922af44a06",
+      "size": 515,
+      "stage": "P6-02",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-02/regressions.json",
+      "sha256": "05a75efd8f6edf4923325b9d34c8b7d3a375d87c4a9f7cb80771527a6db0facd",
+      "size": 1729,
+      "stage": "P6-02",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-02/RESULT.md",
+      "sha256": "e08d883e748546b6cf2293eb892f2c04ca1b3572dd10cddd861d0dac76b5e4ca",
+      "size": 4837,
+      "stage": "P6-02",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-02/run1.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-02",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-02/run1.txt",
+      "sha256": "ed0061090d5b50be03cf80dd44c2cf48f6871ebc0506d9d14fecc3761e2dafc6",
+      "size": 2231,
+      "stage": "P6-02",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-02/run2.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-02",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-02/run2.txt",
+      "sha256": "ed0061090d5b50be03cf80dd44c2cf48f6871ebc0506d9d14fecc3761e2dafc6",
+      "size": 2231,
+      "stage": "P6-02",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-02/serial_protocol.json",
+      "sha256": "f0a5f0f40bdd2ac1f26a8d11d3f72a71169b91e5e3c670aee4870989407585f9",
+      "size": 659,
+      "stage": "P6-02",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-03/changed_files.txt",
+      "sha256": "653b898596880a483ae18698079a3fbfa66032331f39db05b5de24cff2f7a74d",
+      "size": 975,
+      "stage": "P6-03",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-03/determinism.json",
+      "sha256": "9da77899e0e08c1ac65e1d3f085160b6235681d6e8420bf13d7d3107a9503a48",
+      "size": 1202,
+      "stage": "P6-03",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-03/official_runs.json",
+      "sha256": "80e88fe6d7cd010fbf4749c13fe281ad6d18d94ca9e9684eca3becb6f267530d",
+      "size": 1865,
+      "stage": "P6-03",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-03/p6_03_tests.json",
+      "sha256": "d789ee8937ee458b267321bb3f00b45fb22270ed60698c2a2a3ecb826d3b4531",
+      "size": 7467,
+      "stage": "P6-03",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-03/prg_banking.json",
+      "sha256": "03b92c1b620beb82721fc7a4decf178849a14f37dbfe21c7bfd86963afb453d3",
+      "size": 1145,
+      "stage": "P6-03",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-03/reference_comparison.json",
+      "sha256": "6b41c1b7be4448db3883657b2c2780ef5cf72e1187b995faf3673e8273d07840",
+      "size": 229,
+      "stage": "P6-03",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-03/regressions.json",
+      "sha256": "c4de9b55d21839f3a365ebfdcd51be62417008903e9ec7e8628746479c54e139",
+      "size": 2201,
+      "stage": "P6-03",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-03/RESULT.md",
+      "sha256": "ec0796339e1583227424d6156591f359dd19ff0c415142254d9d610259aeb5ac",
+      "size": 4310,
+      "stage": "P6-03",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-03/run1.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-03",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-03/run1.txt",
+      "sha256": "949380183b9cee6802677b98f9473ae99ef5728ce106dc552f968148ca40203e",
+      "size": 2367,
+      "stage": "P6-03",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-03/run2.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-03",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-03/run2.txt",
+      "sha256": "949380183b9cee6802677b98f9473ae99ef5728ce106dc552f968148ca40203e",
+      "size": 2367,
+      "stage": "P6-03",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-04/changed_files.txt",
+      "sha256": "27263f87459739016057c1e22e582858fa918900496b0693c04458f352f9db83",
+      "size": 1026,
+      "stage": "P6-04",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-04/chr_banking.json",
+      "sha256": "ea986f56494a1189240ef75dc7089c26bc993e678c6cedd5c545de18f0e8c8d2",
+      "size": 760,
+      "stage": "P6-04",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-04/determinism.json",
+      "sha256": "fca49dcb06699fcfeb9033eac507b4ec76447c9738c7e1445745aa801048dfa7",
+      "size": 1202,
+      "stage": "P6-04",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-04/mirroring.json",
+      "sha256": "fb02c32e2b9da12e6681c6697ec2787c5abd6cbd118a2b2bc31627e93c563904",
+      "size": 389,
+      "stage": "P6-04",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-04/official_runs.json",
+      "sha256": "ecb440f96b4ded1b3479602e67720b656e075d0974f171382439c68e6379a58c",
+      "size": 1865,
+      "stage": "P6-04",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-04/p6_04_tests.json",
+      "sha256": "b705944ec84042c41ffa3fd21d86658f1aa309e28f6cc174e5a4d8ef92820253",
+      "size": 9163,
+      "stage": "P6-04",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-04/reference_comparison.json",
+      "sha256": "f849c0f8f862b915757e18a1c574ef3e86be4328a4e9195f5494888c75de568d",
+      "size": 245,
+      "stage": "P6-04",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-04/regressions.json",
+      "sha256": "c71007dff33d8d85a4cef6a97db5f3596a01694fb931d3fc936b907e51e70dd1",
+      "size": 2670,
+      "stage": "P6-04",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-04/RESULT.md",
+      "sha256": "f321f190080e1fae61e5db59164ef39b1fe4be3fa2289ee0f5ea843344c7e7df",
+      "size": 4658,
+      "stage": "P6-04",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-04/run1.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-04",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-04/run1.txt",
+      "sha256": "4b6b1a0889c3b35d724229e9386a6ad5dd1c9923551d935c23ec14de76600b7d",
+      "size": 2859,
+      "stage": "P6-04",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-04/run2.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-04",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-04/run2.txt",
+      "sha256": "4b6b1a0889c3b35d724229e9386a6ad5dd1c9923551d935c23ec14de76600b7d",
+      "size": 2859,
+      "stage": "P6-04",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-05/changed_files.txt",
+      "sha256": "fc276180bf599b60246073e99703edf5bd6c71c10d7fe64f67e6b6ead33d8cb5",
+      "size": 867,
+      "stage": "P6-05",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-05/determinism.json",
+      "sha256": "160b6306e8ffcb8c368c68b6db68f9aa6d8f699839645d492d2d1f58ac490055",
+      "size": 1206,
+      "stage": "P6-05",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-05/official_runs.json",
+      "sha256": "106a1a29efeb0fee3764fa5d104e31cfcf8c852f0299961bc33fd04d7e8d3d58",
+      "size": 1881,
+      "stage": "P6-05",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-05/p6_05_tests.json",
+      "sha256": "deb10bca4db4efc7acc93b781ffc6f0e5ef7a1182ba4649da4c691cb8406ea85",
+      "size": 11042,
+      "stage": "P6-05",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-05/prg_ram.json",
+      "sha256": "01f927e110c11718fc64c5792449402c4ec940b1a6a257ce2c34adc1cc2ef533",
+      "size": 545,
+      "stage": "P6-05",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-05/regressions.json",
+      "sha256": "bdc0444f22a5d5b2a773cab0cbe6d94fd88e35b3cafe7c5bbb8504c072ca8a50",
+      "size": 3139,
+      "stage": "P6-05",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-05/RESULT.md",
+      "sha256": "40f969e3e0ed5e728708555136af2461af04088caa80ae4fdfca5425a7a98d0a",
+      "size": 3902,
+      "stage": "P6-05",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-05/run1.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-05",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-05/run1.txt",
+      "sha256": "d1a6b25f66f1eed6a38038fd693997abcd6e88b5000db199c8f111779dfe6246",
+      "size": 2677,
+      "stage": "P6-05",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-05/run2.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-05",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-05/run2.txt",
+      "sha256": "d1a6b25f66f1eed6a38038fd693997abcd6e88b5000db199c8f111779dfe6246",
+      "size": 2677,
+      "stage": "P6-05",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-05/variants.json",
+      "sha256": "521daac5a5be83e31dd15ccb666de6cca28be3ed94cd44ce662fb0ce8e13682d",
+      "size": 5107,
+      "stage": "P6-05",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-06/behaviours.json",
+      "sha256": "c7480ebeb5f4cc192a0cbcd45170d998151afae7b5acb3e94f20aa080c1e5a88",
+      "size": 3186,
+      "stage": "P6-06",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-06/changed_files.txt",
+      "sha256": "07df329bb1b83efb5cfe0ad5d7d87eee810f65ebdfcc4cabf011754c695f533a",
+      "size": 891,
+      "stage": "P6-06",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-06/determinism.json",
+      "sha256": "8784da8a37d6bc140d2eeb500faae591aa5f88edb96039ecad7b3e9987643bbb",
+      "size": 1206,
+      "stage": "P6-06",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-06/official_runs.json",
+      "sha256": "e6773e4db0dad21cc173921c7f83871cd39c5f32561165b27aa4653868f08185",
+      "size": 1881,
+      "stage": "P6-06",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-06/p6_06_tests.json",
+      "sha256": "a8b37306876210051d662c07a85f413667cbb000e5ce16e6d178a126de3e4b4d",
+      "size": 13582,
+      "stage": "P6-06",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-06/proof_fixture.json",
+      "sha256": "68cb373cba520a7877b688cf4917c37b9e9c91e84f5e611727e7ac99b55512ef",
+      "size": 8104,
+      "stage": "P6-06",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-06/regressions.json",
+      "sha256": "a37d46c5346f3df4ce5f137058fa480ccf45ff32055bfae802fb068deb243ce4",
+      "size": 3612,
+      "stage": "P6-06",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-06/RESULT.md",
+      "sha256": "e48f424feca89f52a5c64a466e676dfe5e30c2cfe42173bb23ccccd8e12be016",
+      "size": 4896,
+      "stage": "P6-06",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-06/run1.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-06",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-06/run1.txt",
+      "sha256": "3fd40332c6b5055da61ed913c846752947d1a4119411f150d55968284e3fd2bb",
+      "size": 2977,
+      "stage": "P6-06",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-06/run2.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-06",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-06/run2.txt",
+      "sha256": "3fd40332c6b5055da61ed913c846752947d1a4119411f150d55968284e3fd2bb",
+      "size": 2977,
+      "stage": "P6-06",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-07/changed_files.txt",
+      "sha256": "39e2fc37e7f552bf1e213169d85d380b3c6c4bc4552dd817d75c1b8d595b7983",
+      "size": 1015,
+      "stage": "P6-07",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-07/determinism.json",
+      "sha256": "edd19b230b158dbb308203c61db43f582134d633353b545f585cfdff93103b03",
+      "size": 1208,
+      "stage": "P6-07",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-07/emission.json",
+      "sha256": "60cc0c987ed0863ac88772f109ad2f83146769b12cfe8b83bd550634580083a9",
+      "size": 723,
+      "stage": "P6-07",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-07/mapper_service.json",
+      "sha256": "983f9c8e1412f9b05357ed6118bdeb6e1eb63c6b6c3fe4dfc03d13ec83ea8597",
+      "size": 1914,
+      "stage": "P6-07",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-07/official_runs.json",
+      "sha256": "7054413585be6f805f2f4579e5a9562dd60d8047136d897ff47669aeaf85da64",
+      "size": 1883,
+      "stage": "P6-07",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-07/p6_07_tests.json",
+      "sha256": "32a688a0e428abdd9355b8f647e59736db44344b850f8c1a9927c46b19df71de",
+      "size": 18846,
+      "stage": "P6-07",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-07/recompilation.json",
+      "sha256": "739caad9a470f7341183c71fd19a21333b37623ec43c8b32b973f102bfa7f557",
+      "size": 5405,
+      "stage": "P6-07",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-07/regressions.json",
+      "sha256": "61799812b06578ea474fb3002f474b0ac06fee14767a70b2405377b70ef10ec2",
+      "size": 4085,
+      "stage": "P6-07",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-07/RESULT.md",
+      "sha256": "bcc9e76606397aef5f26a44c5939d8bb984ed13cd78b3da614c741d7e2227b85",
+      "size": 5180,
+      "stage": "P6-07",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-07/run1.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-07",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-07/run1.txt",
+      "sha256": "161b1867351b51cb2c4721e97f148b718845b5b178235bae1956290de8a20d0e",
+      "size": 3076,
+      "stage": "P6-07",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-07/run2.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-07",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-07/run2.txt",
+      "sha256": "161b1867351b51cb2c4721e97f148b718845b5b178235bae1956290de8a20d0e",
+      "size": 3076,
+      "stage": "P6-07",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-08/build.json",
+      "sha256": "f82302d7c8d9f550490cca0cb231b35de4860fdca096b91afeaa0db9780cac74",
+      "size": 448,
+      "stage": "P6-08",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-08/changed_files.txt",
+      "sha256": "11d91ceee4b997edd1e489bddfd1b350cc597a01d044ab698b082b47a16d9ab0",
+      "size": 780,
+      "stage": "P6-08",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-08/determinism.json",
+      "sha256": "a8af9f40dd4ee1720333462d415aa9aff600389bf6b6836c85dd916edb88d3e7",
+      "size": 1205,
+      "stage": "P6-08",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-08/executions.json",
+      "sha256": "4f1344ccfeaba67b8da1e18b34b3c7e4054629ffdfad04a3ccb449ff7e89eae4",
+      "size": 1254,
+      "stage": "P6-08",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-08/official_runs.json",
+      "sha256": "8984850a35cc3083979e2f73d549ef0247b92045ce69bca802e514363c3021af",
+      "size": 1877,
+      "stage": "P6-08",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-08/p6_08_tests.json",
+      "sha256": "4636f194f5e5cce599ed83bbce94800cd9a0bff2d59e0e2623c097e64205941a",
+      "size": 9752,
+      "stage": "P6-08",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-08/regressions.json",
+      "sha256": "1fd7fa248c373e20d94379c705a0e9ffd90308caf8ae4e63e217b28b2a03da34",
+      "size": 1733,
+      "stage": "P6-08",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-08/RESULT.md",
+      "sha256": "0b621f0aa21a5c3e3c9cf0e33a17beec79732a9342128db7e8386cd2f69cc4cd",
+      "size": 4003,
+      "stage": "P6-08",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-08/run1.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-08",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-08/run1.txt",
+      "sha256": "33de32c6580f864728b32e39e73d785493d91114ae94397f81a15a4c197618e2",
+      "size": 2814,
+      "stage": "P6-08",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-08/run2.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-08",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-08/run2.txt",
+      "sha256": "33de32c6580f864728b32e39e73d785493d91114ae94397f81a15a4c197618e2",
+      "size": 2814,
+      "stage": "P6-08",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-09/changed_files.txt",
+      "sha256": "3eaae49ea337ab14aba9bb3f9de373e977ff31efb4933aa80aff1612b00c6659",
+      "size": 836,
+      "stage": "P6-09",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-09/determinism.json",
+      "sha256": "280784107c3cf5347ab5a959bf7ad87c635d31bcb7c59ef6a149ad678ada3521",
+      "size": 1214,
+      "stage": "P6-09",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-09/equivalence.json",
+      "sha256": "344c40042da8660facb1ce40d76bf187f4f33d7206ef03c2e4a77cc006dd723d",
+      "size": 13764,
+      "stage": "P6-09",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-09/official_runs.json",
+      "sha256": "08ce1b02f4e2f551c0372ad06cbdfbcd6763ec463a4f5f4b4d72160ca45978f4",
+      "size": 1925,
+      "stage": "P6-09",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-09/p6_09_tests.json",
+      "sha256": "cddf93dce73250e9ab6f74a394625d3e23fe62afa1632ca353438a5d301b949f",
+      "size": 14419,
+      "stage": "P6-09",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-09/regressions.json",
+      "sha256": "bf696f6123aba9b0b8b298b46f4057489314cc24171c69dc142be0ff92ff0020",
+      "size": 3143,
+      "stage": "P6-09",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-09/RESULT.md",
+      "sha256": "e6c744ea27f94024e50ccbd003661532fb5cc3c4356cab55b6c7f7dec23bd4a0",
+      "size": 6369,
+      "stage": "P6-09",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-09/run1.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-09",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-09/run1.txt",
+      "sha256": "dcfbcb016a2a4bd3be64fc88e296fe7fcbef5ddd3a33deac23323b9758f8bb72",
+      "size": 4020,
+      "stage": "P6-09",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-09/run2.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-09",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-09/run2.txt",
+      "sha256": "dcfbcb016a2a4bd3be64fc88e296fe7fcbef5ddd3a33deac23323b9758f8bb72",
+      "size": 4020,
+      "stage": "P6-09",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-09/schedule.json",
+      "sha256": "199c831aa3bfa6cf0733d747f87a77a9439a8a2bd64600d9e1e4c8b1e0ba9c79",
+      "size": 1410,
+      "stage": "P6-09",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-09/sensitivity.json",
+      "sha256": "c59a0a91d6d915462a5c69320507dfa5f39f50c99c1fedf07f65bbdd26acb64b",
+      "size": 3020,
+      "stage": "P6-09",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-10/blockers.json",
+      "sha256": "6b8b789cb691da742c270b81c98849bbda952642ad393cc5a4af230bc97e41c5",
+      "size": 1507,
+      "stage": "P6-10",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-10/changed_files.txt",
+      "sha256": "0c52296110590431260b0e55fe93a77ff87068ffd3056d6685123ac6c9be42fe",
+      "size": 779,
+      "stage": "P6-10",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-10/determinism.json",
+      "sha256": "d084e62b637a16f768409a941ad43740a96513590f52796cc8d06ac39bbb3202",
+      "size": 1206,
+      "stage": "P6-10",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-10/official_runs.json",
+      "sha256": "6a83c13847a0a95ca4bd3ed5587705b41580fe76da8d5f20b7524e082e37c906",
+      "size": 1885,
+      "stage": "P6-10",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-10/p6_10_tests.json",
+      "sha256": "bf18298cb2a90e70802ff79bd84185ac984534578dd0e06016cb2dcbf8468507",
+      "size": 8079,
+      "stage": "P6-10",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-10/regressions.json",
+      "sha256": "6b8f56d7689ac30ab6d4e89664285b023cd7d0397ffae3e42235dd7ae4439ece",
+      "size": 2214,
+      "stage": "P6-10",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-10/RESULT.md",
+      "sha256": "214da72674b8ea45f1d5b2bfb8313113f7bf12bb7bfcdac09a392836cf839f02",
+      "size": 6531,
+      "stage": "P6-10",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-10/run1.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-10",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-10/run1.txt",
+      "sha256": "9b061b7ea851550a028b3ad0542202d50b715be49fac12a454076a38e5ac2406",
+      "size": 2789,
+      "stage": "P6-10",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-10/run2.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-10",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-10/run2.txt",
+      "sha256": "9b061b7ea851550a028b3ad0542202d50b715be49fac12a454076a38e5ac2406",
+      "size": 2789,
+      "stage": "P6-10",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-10/tmnt_pipeline.json",
+      "sha256": "0b8c9014fa11f9e363f1cfb1c569048f786b8baec2117769adb862b375a3ebdc",
+      "size": 10822,
+      "stage": "P6-10",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-11/changed_files.txt",
+      "sha256": "9f50d7f237688a817e8e5dd48dd102061be840e3b7544cc4900c68568828122b",
+      "size": 752,
+      "stage": "P6-11",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-11/determinism.json",
+      "sha256": "a8b356a0117a69bf82c4d2bc6c7dee01b8cf324905454fa7839d693b869df0ef",
+      "size": 1212,
+      "stage": "P6-11",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-11/official_runs.json",
+      "sha256": "caba8d5d7e057cc01f9d7c7935bea4ad45715ed63d40d83a4f99dbd535a377cd",
+      "size": 1905,
+      "stage": "P6-11",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-11/p6_11_tests.json",
+      "sha256": "bffc7358ec66bc654d6d3b734cfd742ed21e63785ea25d2c180f10ccaf1e16df",
+      "size": 9129,
+      "stage": "P6-11",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-11/platform_expansion.json",
+      "sha256": "23327296a87c83724bd1d86cdae628391d17a9a2c4ab1b122d4d59091d9a7497",
+      "size": 3798,
+      "stage": "P6-11",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-11/platform_sources.json",
+      "sha256": "db6474aceeb39c1ae19b0cd67f5f4ebc48961ccd90946b266d2c20dd1f8d1595",
+      "size": 4693,
+      "stage": "P6-11",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-11/regressions.json",
+      "sha256": "a36395ee0022dd038c5aa0c684d5e452c81412a557f3db99e6b07aa864ea2673",
+      "size": 3119,
+      "stage": "P6-11",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-11/RESULT.md",
+      "sha256": "4795ccd14b89d33acfb31c0383433248442f758a6da8e2f2dd008757f7bd886d",
+      "size": 7980,
+      "stage": "P6-11",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-11/run1.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-11",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-11/run1.txt",
+      "sha256": "d428bb64f0f6cf1a09e754c327fb9fea2a9d27b375384ec2919d65ed9348dc8f",
+      "size": 2790,
+      "stage": "P6-11",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-11/run2.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-11",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-11/run2.txt",
+      "sha256": "d428bb64f0f6cf1a09e754c327fb9fea2a9d27b375384ec2919d65ed9348dc8f",
+      "size": 2790,
+      "stage": "P6-11",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-12/anchors.json",
+      "sha256": "1176ae64adcaa57f7241061405cc8f1910251c29063bae0cd052a4fe434eb1b2",
+      "size": 675,
+      "stage": "P6-12",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-12/blockers.json",
+      "sha256": "b5cb9ef40625195baef160717ae15647091d6b6b0a13c2f24b9c8dab5c4ea579",
+      "size": 2423,
+      "stage": "P6-12",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-12/changed_files.txt",
+      "sha256": "777ffc1277837e6e18f3728aa9c2038cdec3760769a8e7a8b40cdc74e1c5ff25",
+      "size": 816,
+      "stage": "P6-12",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-12/determinism.json",
+      "sha256": "abd5db42214668dcd642e80ad47b6426eedc6ebf3391665ea48b790d3046d61e",
+      "size": 1202,
+      "stage": "P6-12",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-12/official_runs.json",
+      "sha256": "37882a6fd35d81cae18b9e9954d583269c4a0daba36a90d5b80811ded7fbc4dc",
+      "size": 1893,
+      "stage": "P6-12",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-12/p6_12_tests.json",
+      "sha256": "85664a79fa5e3f4f1f85efee506c846ccac396db2d0773253035b54a0062d6f3",
+      "size": 12788,
+      "stage": "P6-12",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-12/regressions.json",
+      "sha256": "02d7c7fb24df19cd4c68624cd9c9168b24838a97f4fd540f05fc4a22e7dce3e1",
+      "size": 3119,
+      "stage": "P6-12",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-12/RESULT.md",
+      "sha256": "39c7861af4e69a323897db6ed9bfe691fdb29c4adcd26f2f5fc590bc4e857644",
+      "size": 10099,
+      "stage": "P6-12",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-12/run1.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-12",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-12/run1.txt",
+      "sha256": "275fa9993fd0c30c29cd888171ed5f42cac4bab2995c071bc5b06327829efe19",
+      "size": 4227,
+      "stage": "P6-12",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-12/run2.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-12",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-12/run2.txt",
+      "sha256": "275fa9993fd0c30c29cd888171ed5f42cac4bab2995c071bc5b06327829efe19",
+      "size": 4227,
+      "stage": "P6-12",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-12/workflow.json",
+      "sha256": "4ae486db95cc80418e8ac146396139f67367d22edaae2cd5b2495ef87ca5aeae",
+      "size": 9032,
+      "stage": "P6-12",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-13/anchors.json",
+      "sha256": "478179fc4e8a62db888a7d7f51018098c7cf3ea0e09ed5bff9808b78eb5b06cc",
+      "size": 498,
+      "stage": "P6-13",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-13/changed_files.txt",
+      "sha256": "502d40e4f01ca5c72e7f27893c5b146029d22bb09b445a92f1091229bd1a0900",
+      "size": 796,
+      "stage": "P6-13",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-13/determinism.json",
+      "sha256": "9bc84ed333454b22fb2b4a76eb3c0e68f22fc7305e185bb8b16f5d6a079ce4a6",
+      "size": 1210,
+      "stage": "P6-13",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-13/frontier_record.json",
+      "sha256": "e49a0b3422d6a65b5b50ce820db5c9f9d02ef3662aa114f5287db3a8232bf484",
+      "size": 8896,
+      "stage": "P6-13",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-13/official_runs.json",
+      "sha256": "a5c5f1f0deb708816304784a8844d2f678a0a034a6aa52cfd13502d283e23282",
+      "size": 1903,
+      "stage": "P6-13",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-13/p6_13_tests.json",
+      "sha256": "c9e815d6140af86c0af600ee7227a9733ff52254eb1fb9891b9cfffbfc5d902d",
+      "size": 9562,
+      "stage": "P6-13",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-13/private_workflow.json",
+      "sha256": "07ce9a558582ed1178b08ff158e2bff41ce9939e0416aaf07fb0dc64f180dd0e",
+      "size": 12587,
+      "stage": "P6-13",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-13/regressions.json",
+      "sha256": "a10e70c5c3151b6a22fb3d65f71efe3aab673d5487d91b40b8d086aa1b92f278",
+      "size": 3119,
+      "stage": "P6-13",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-13/RESULT.md",
+      "sha256": "ca6ed1eff6a5dd4812e2f616c126ec863c11662f13752198149d6c460e1490b6",
+      "size": 7429,
+      "stage": "P6-13",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-13/run1.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-13",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-13/run1.txt",
+      "sha256": "5cf90e87f72be3c260768ddfe502ab7a67d4d4c2eab40fe466354e3bb81a5896",
+      "size": 3156,
+      "stage": "P6-13",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-13/run2.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-13",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-13/run2.txt",
+      "sha256": "5cf90e87f72be3c260768ddfe502ab7a67d4d4c2eab40fe466354e3bb81a5896",
+      "size": 3156,
+      "stage": "P6-13",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-90/changed_files.txt",
+      "sha256": "f6f4b4d31c7dedcf4e7258ac193333692a8c6e4d15be9f25e9680f45e2920ade",
+      "size": 637,
+      "stage": "P6-90",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-90/determinism.json",
+      "sha256": "31bd5bc25c38a011aa650fe9d1e214d6bd8a6cf9edf040f8ed301acdde9dca7c",
+      "size": 1210,
+      "stage": "P6-90",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-90/official_runs.json",
+      "sha256": "a4d28ea24252e595066e6fdbb0ac24fffd7474ce2b8f906ba6d08c7ce0fda1a4",
+      "size": 1897,
+      "stage": "P6-90",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-90/p6_90_tests.json",
+      "sha256": "930f6ec57ea62b8e2e5aceb0fff2fc1369eafc876f51f6bf7f933b64bd8cb37f",
+      "size": 19645,
+      "stage": "P6-90",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-90/RESULT.md",
+      "sha256": "0f1729588aa56e4994a39e3a8b0b39b69aadbd4ed7c7e73cf161ec579db42b28",
+      "size": 7354,
+      "stage": "P6-90",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-90/run1.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-90",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-90/run1.txt",
+      "sha256": "a693d703e574618fa7f99100a0f0c33d63ddc1fc064cd2cb9d97d2eb5c24adec",
+      "size": 2726,
+      "stage": "P6-90",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-90/run2.err.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "stage": "P6-90",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-90/run2.txt",
+      "sha256": "a693d703e574618fa7f99100a0f0c33d63ddc1fc064cd2cb9d97d2eb5c24adec",
+      "size": 2726,
+      "stage": "P6-90",
+      "tracked": true
+    },
+    {
+      "path": ".openrecomp-phase6/evidence/P6-90/whole_regression.json",
+      "sha256": "ed4d03cc3fe6e748e24521d465422b81f2d0ef13cc65388e2c86e90f4c5700b7",
+      "size": 14392,
+      "stage": "P6-90",
+      "tracked": true
+    }
+  ],
+  "phase5_public_result": {
+    "claim_record_sha256": "ef926dacb99315400a2631abbbaca909ccc794cec766deedd246bca9c4db2149",
+    "evidence": ".openrecomp-phase5/evidence/P5-99/",
+    "state": "PASS"
+  },
+  "phase6_manifest": [
+    {
+      "path": ".openrecomp-phase6/fixture/p6_public_fixture.asm",
+      "sha256": "322c9d5579a39b041446d887a5dff1cc2fdd9ae52d38157920e1b7e0525f0ded"
+    },
+    {
+      "path": ".openrecomp-phase6/fixture/p6_public_mmc1_proof.asm",
+      "sha256": "17f12ba0cb7b5d5a220ed205b28e66ff62e33959b8e62f47dae9c598fa533528"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_cartridge_v1.py",
+      "sha256": "8999387faccbd99f59a56f1a9682ab883dc4cfe190e1d77b3b9b9298ff82fa9e"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_emit_v1.py",
+      "sha256": "457fcb0ced2449661c8bb2050df97cb31abab4dec1df2a10654d8107be1b4b3a"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_evidence_index_v1.py",
+      "sha256": "27751ef26d743cfc093c820f25bf6354373902210e60ddb230c0b67a3c7bbdba"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_fixture_build_v1.py",
+      "sha256": "8f47f78ee40e2277767e789f6ac8756395a65d5120115d095b4878199d54ebbb"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_fixture_proof_v1.py",
+      "sha256": "a80969de5bdeef4cb9630bbd157d8bd0a972b518c64755ec4422459cfa8da3a9"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_frontier_v1.py",
+      "sha256": "66079da0ad7536969e0ceac7bc40810aa666229e9b61e12e61f67741fa47011f"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_ines_v1.py",
+      "sha256": "f686d944f7859d3781b03f71a65b0a5b23c8507720b1832ae5da99c0a4720b89"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_mapper1_chr_reference_v1.py",
+      "sha256": "abb6c6f5ae15b4fe3d2ff771a6944faed79105c650bc0eac1520219e91b5f833"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_mapper1_chr_v1.py",
+      "sha256": "8ac6323f80fa4a376891c9fd295e9d8d39fafd2dfadf24b9596db93904a691ec"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_mapper1_prg_reference_v1.py",
+      "sha256": "ac93affb86b88b18c585690324f2e7c3d0125625b5c12239ad4836ffa6849307"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_mapper1_prg_v1.py",
+      "sha256": "b68d3c0274a27ff6577515203969b78b19530bd1436480431351cb1c3499bdac"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_mapper1_variant_v1.py",
+      "sha256": "de38ca1ff2132bc84e0aa56763b050c78405a3d26dc346d7e531736f9226559e"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_mmc1_spec_v1.py",
+      "sha256": "e80e7ff5dc1db3abb3a7272d8f7d7bee09b8899799de7ab28c640e03673b76c6"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_mmc1_serial_v1.py",
+      "sha256": "7e3a579cb33a0980275d0c62236e946fcee14bd1a92d90888bea056acca4b325"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_mmc1_serial_reference_v1.py",
+      "sha256": "133bedab1d6c886eba0f46dc790ab24d56419b155ff4b2596dd15366c37935bb"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_private_fixture_v1.py",
+      "sha256": "4f3a99d190d8349f50a902e70e1f270109b30285dc222386e36412fc2bd5647d"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_private_run_v1.py",
+      "sha256": "083cef8e0813d557ed69940fde2ee0da43be07a3911cdf5dfa3c8cea12faa471"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_reference_v1.py",
+      "sha256": "31e27b9175d643c9ac80b6ef0c41ee9cd85c1d940cf2c9a425f0cbb1ce743321"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_stage_runner_v1.py",
+      "sha256": "2167f6e2210b11d716c11c4416b2a43c34a2643c684dc0dffe7b5985014de3d0"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_structure_v1.py",
+      "sha256": "a50dbe6f8262fcb6dcedc093ae62bf0c8e5fb6f2ac4dba660083793cc58d00a4"
+    },
+    {
+      "path": ".openrecomp-phase6/src/p6_workflow_v1.py",
+      "sha256": "cce3ade04540da3d6ba204cdd5adbcd6ea4b5f20dd109d53fad39e69e85b7cec"
+    },
+    {
+      "path": "tools/test_phase6_boundary_v1.py",
+      "sha256": "0bc63e46c60f81a6b9dc86cb3eb61c91ea4cb10614822e4687384b776b958018"
+    },
+    {
+      "path": "tools/test_phase6_evidence_expansion_v1.py",
+      "sha256": "6e58c689855c284ab2ce41ef660bb8fe957c6e62b5e19de2e8849e5d396f45ff"
+    },
+    {
+      "path": "tools/test_phase6_evidence_index_v1.py",
+      "sha256": "9fa9fba2d510d1ddc6621e8a01e6600013c28698fc77de3288dec803dc1a9122"
+    },
+    {
+      "path": "tools/test_phase6_mmc1_chr_v1.py",
+      "sha256": "84bfd9ae96a20c77d971329c96cc5f8a1d0945aee062da8aa9295701343f94e1"
+    },
+    {
+      "path": "tools/test_phase6_mmc1_fixture_v1.py",
+      "sha256": "3ae2a24671ecdf73a2ffdf61cf07963f531cef6876be67445078925d0b6cecee"
+    },
+    {
+      "path": "tools/test_phase6_mmc1_inventory_v1.py",
+      "sha256": "57e4e07cfbe5ff3778b8e4672d9a8d2a23178167543ca02acba913c1102a27ce"
+    },
+    {
+      "path": "tools/test_phase6_mmc1_native_v1.py",
+      "sha256": "fea9cd42cdf84118d5f1395c4acbef68698b7df6fff5078bd0a2ba97dd4d47f4"
+    },
+    {
+      "path": "tools/test_phase6_mmc1_prg_v1.py",
+      "sha256": "db2e5aa4171cc309ebe5f0c5464f3949a918585235d4c86a6e42fdd0a7144e04"
+    },
+    {
+      "path": "tools/test_phase6_mmc1_recompile_v1.py",
+      "sha256": "406fc38573289268b5b1c558322cabd8a70499a52872d405b26de80a4ffa9731"
+    },
+    {
+      "path": "tools/test_phase6_mmc1_reference_equiv_v1.py",
+      "sha256": "d0c2ed15cb629b45899d6c0fb9232cd7dfae33cde0cf5fac2c269ca601a80dc9"
+    },
+    {
+      "path": "tools/test_phase6_mmc1_serial_v1.py",
+      "sha256": "c1073c456db1ab3ed97955482dc8da6b25528ed13b265200f880a89adeb9efd9"
+    },
+    {
+      "path": "tools/test_phase6_mmc1_variant_v1.py",
+      "sha256": "78efb6ab1398642ba21e1c3276291368d33fc12ca48e1b5db83ab97d31e11116"
+    },
+    {
+      "path": "tools/test_phase6_private_tmnt_v1.py",
+      "sha256": "bf6d8915996736662978df4f4a4d3c5c4bdc62a09b2233284b22ad876d083143"
+    },
+    {
+      "path": "tools/test_phase6_private_workflow_v1.py",
+      "sha256": "659760912a492118788ba6f6431088569f8a153c37db894468f695129c17b433"
+    },
+    {
+      "path": "tools/test_phase6_whole_regression_v1.py",
+      "sha256": "aa660251f6ed55d6b54353fea10762119bb8ca5c52d857e38c6c2b7790df83cf"
+    },
+    {
+      "path": "tools/test_phase6_workflow_v1.py",
+      "sha256": "b5bf3da0af9d9338cdb95947c20a8ead9076fcd2348df65745b763b8d5adccda"
+    }
+  ],
+  "private_observation_note": "the private fixture appears only as hashes/metadata/counts/addresses/classifications; no ROM bytes are indexed or copied",
+  "stage": "P6-91",
+  "stages": [
+    "P6-00",
+    "P6-01",
+    "P6-02",
+    "P6-03",
+    "P6-04",
+    "P6-05",
+    "P6-06",
+    "P6-07",
+    "P6-08",
+    "P6-09",
+    "P6-10",
+    "P6-11",
+    "P6-12",
+    "P6-13",
+    "P6-90"
+  ]
+}

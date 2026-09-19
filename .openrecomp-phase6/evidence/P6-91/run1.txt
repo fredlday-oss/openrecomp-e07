@@ -1,0 +1,118 @@
+=== P6-91 Evidence Index + Compatibility Matrix Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-exists
+PASS: source:manifest-verified
+
+--- frozen_chain ---
+PASS: chain:phase5-tag-object
+PASS: chain:phase5-commit
+PASS: chain:phase5-tree
+PASS: chain:descends
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+
+--- anchors ---
+PASS: anchor:present:.openrecomp-phase5/evidence/P5-91/claim_record.json
+PASS: anchor:hash:.openrecomp-phase5/evidence/P5-91/claim_record.json
+PASS: anchor:present:.openrecomp-phase5/evidence/P5-99/p5_99_tests.json
+PASS: anchor:hash:.openrecomp-phase5/evidence/P5-99/p5_99_tests.json
+PASS: anchor:present:.openrecomp-phase6/evidence/P6-10/tmnt_pipeline.json
+PASS: anchor:hash:.openrecomp-phase6/evidence/P6-10/tmnt_pipeline.json
+PASS: anchor:present:.openrecomp-phase6/evidence/P6-12/workflow.json
+PASS: anchor:hash:.openrecomp-phase6/evidence/P6-12/workflow.json
+PASS: anchor:present:.openrecomp-phase6/evidence/P6-13/frontier_record.json
+PASS: anchor:hash:.openrecomp-phase6/evidence/P6-13/frontier_record.json
+PASS: anchor:present:.openrecomp-phase6/evidence/P6-13/private_workflow.json
+PASS: anchor:hash:.openrecomp-phase6/evidence/P6-13/private_workflow.json
+PASS: anchor:present:.openrecomp-phase6/evidence/P6-90/whole_regression.json
+PASS: anchor:hash:.openrecomp-phase6/evidence/P6-90/whole_regression.json
+PASS: anchor:phase5-claim-record
+PASS: anchor:private-blockers-stable
+
+--- evidence_index ---
+PASS: index:deterministic
+PASS: index:evidence-count
+PASS: index:stages
+PASS: index:complete
+PASS: index:hashes
+PASS: index:control-plane
+PASS: index:phase6-manifest
+PASS: index:boundaries
+PASS: index:phase5-result
+PASS: index:no-rom-bytes
+
+--- claim_ledger ---
+PASS: ledger:deterministic
+PASS: ledger:sections-distinct
+PASS: ledger:phase5-phase6-separate
+PASS: ledger:phase6-proven
+PASS: ledger:phase6-bounded
+PASS: ledger:private-observations
+PASS: ledger:private-identity
+PASS: ledger:private-blockers-count
+PASS: ledger:private-blockers-exact
+PASS: ledger:private-no-public-claim
+PASS: ledger:general-unproven
+PASS: ledger:general-unsupported
+PASS: ledger:general-not-tested
+PASS: ledger:markers-reserved
+PASS: ledger:vocabulary
+PASS: ledger:limitations
+
+--- stage_records ---
+PASS: record:P6-00:present
+PASS: record:P6-00:pass
+PASS: record:P6-01:present
+PASS: record:P6-01:pass
+PASS: record:P6-02:present
+PASS: record:P6-02:pass
+PASS: record:P6-03:present
+PASS: record:P6-03:pass
+PASS: record:P6-04:present
+PASS: record:P6-04:pass
+PASS: record:P6-05:present
+PASS: record:P6-05:pass
+PASS: record:P6-06:present
+PASS: record:P6-06:pass
+PASS: record:P6-07:present
+PASS: record:P6-07:pass
+PASS: record:P6-08:present
+PASS: record:P6-08:pass
+PASS: record:P6-09:present
+PASS: record:P6-09:pass
+PASS: record:P6-10:present
+PASS: record:P6-10:pass
+PASS: record:P6-11:present
+PASS: record:P6-11:pass
+PASS: record:P6-12:present
+PASS: record:P6-12:pass
+PASS: record:P6-13:present
+PASS: record:P6-13:pass
+PASS: record:P6-90:present
+PASS: record:P6-90:pass
+
+--- regressions ---
+PASS: regression:tools/test_phase6_private_workflow_v1.py:exit
+PASS: regression:tools/test_phase6_private_workflow_v1.py:stderr
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:p6-13-marker
+
+--- evidence_hygiene ---
+PASS: hygiene:no-private-rom-bytes:evidence_index.json
+PASS: hygiene:no-private-bank-bytes:evidence_index.json
+PASS: hygiene:no-private-rom-bytes:claim_record.json
+PASS: hygiene:no-private-bank-bytes:claim_record.json
+PASS: hygiene:no-private-rom-bytes:regressions.json
+PASS: hygiene:no-private-bank-bytes:regressions.json
+PASS: hygiene:private-observation-recorded
+
+=== RESULT ===
+OPENRECOMP_P6_91=PASS
+OPENRECOMP_PHASE6_EVIDENCE_INDEX_V1=PASS tests=93
+OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

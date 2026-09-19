@@ -1,0 +1,448 @@
+{
+  "checks": [
+    {
+      "check": "anchor:hash:.openrecomp-phase5/evidence/P5-91/claim_record.json",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:hash:.openrecomp-phase5/evidence/P5-99/p5_99_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:hash:.openrecomp-phase6/evidence/P6-10/tmnt_pipeline.json",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:hash:.openrecomp-phase6/evidence/P6-12/workflow.json",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:hash:.openrecomp-phase6/evidence/P6-13/frontier_record.json",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:hash:.openrecomp-phase6/evidence/P6-13/private_workflow.json",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:hash:.openrecomp-phase6/evidence/P6-90/whole_regression.json",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:phase5-claim-record",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:present:.openrecomp-phase5/evidence/P5-91/claim_record.json",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:present:.openrecomp-phase5/evidence/P5-99/p5_99_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:present:.openrecomp-phase6/evidence/P6-10/tmnt_pipeline.json",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:present:.openrecomp-phase6/evidence/P6-12/workflow.json",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:present:.openrecomp-phase6/evidence/P6-13/frontier_record.json",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:present:.openrecomp-phase6/evidence/P6-13/private_workflow.json",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:present:.openrecomp-phase6/evidence/P6-90/whole_regression.json",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:private-blockers-stable",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:descends",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tag-object",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:compat-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:stage-row",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-bank-bytes:claim_record.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-bank-bytes:evidence_index.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-bank-bytes:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:claim_record.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:evidence_index.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:regressions.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:private-observation-recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "index:boundaries",
+      "status": "PASS"
+    },
+    {
+      "check": "index:complete",
+      "status": "PASS"
+    },
+    {
+      "check": "index:control-plane",
+      "status": "PASS"
+    },
+    {
+      "check": "index:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "index:evidence-count",
+      "status": "PASS"
+    },
+    {
+      "check": "index:hashes",
+      "status": "PASS"
+    },
+    {
+      "check": "index:no-rom-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "index:phase5-result",
+      "status": "PASS"
+    },
+    {
+      "check": "index:phase6-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stages",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:general-not-tested",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:general-unproven",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:general-unsupported",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:limitations",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:markers-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:phase5-phase6-separate",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:phase6-bounded",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:phase6-proven",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:private-blockers-count",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:private-blockers-exact",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:private-identity",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:private-no-public-claim",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:private-observations",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:sections-distinct",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:vocabulary",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-00:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-00:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-01:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-01:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-02:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-02:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-03:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-03:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-04:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-04:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-05:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-05:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-06:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-06:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-07:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-07:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-08:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-08:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-09:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-09:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-10:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-10:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-11:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-11:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-12:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-12:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-13:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-13:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-90:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P6-90:present",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p6-13-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_private_workflow_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase6_private_workflow_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-verified",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "evidence_files": [
+      "claim_record.json",
+      "evidence_index.json",
+      "regressions.json"
+    ],
+    "indexed_files": 181,
+    "regressions": [
+      {
+        "extra": [
+          "--evidence-dir",
+          ".openrecomp-phase6/scratch/P6-91/regression_p6_13"
+        ],
+        "markers": [
+          "OPENRECOMP_P6_13=PASS",
+          "OPENRECOMP_PHASE6_PRIVATE_COMPAT_RUN2_V1=PASS tests=66",
+          "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase6_private_workflow_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 3261,
+        "stdout_sha256_lf": "5cf90e87f72be3c260768ddfe502ab7a67d4d4c2eab40fe466354e3bb81a5896",
+        "stdout_sha256_raw": "404dd00bbda65374ba750367ffcf29aaf923e423d6e6ac5419be09213ff23db2"
+      },
+      {
+        "extra": [],
+        "markers": [
+          "OPENRECOMP_NES_ROM_V1=PASS tests=12"
+        ],
+        "returncode": 0,
+        "script": "tools/test_nes_rom_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 959,
+        "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+        "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+      }
+    ],
+    "stage_records": [
+      "P6-00",
+      "P6-01",
+      "P6-02",
+      "P6-03",
+      "P6-04",
+      "P6-05",
+      "P6-06",
+      "P6-07",
+      "P6-08",
+      "P6-09",
+      "P6-10",
+      "P6-11",
+      "P6-12",
+      "P6-13",
+      "P6-90"
+    ]
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE6_EVIDENCE_INDEX_V1=PASS tests=93",
+    "stage": "OPENRECOMP_P6_91=PASS",
+    "terminal": "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN"
+  },
+  "passed": 93,
+  "stage": "P6-91",
+  "stage_name": "OPENRECOMP_PHASE6_EVIDENCE_INDEX_V1",
+  "status": "PASS",
+  "tests": 93
+}
