@@ -1,0 +1,246 @@
+{
+  "fixture": {
+    "chr_banks": 1,
+    "chr_sha256": "b919136d11838847928b96bd95de4fbcf0ef65a1a1503d7b5cc34dcdbdc36d71",
+    "exit_site": 49188,
+    "license": "Apache-2.0",
+    "name": "openrecomp-phase7-bank-switching-structure-fixture",
+    "prg_banks": 4,
+    "prg_sha256": "73295576b741bdd6849e41dcd2529a28999577c64bda2391a11cfb67fd36d377",
+    "rom_sha256": "902a9c4281a7616a67f12df08b2b3526867f1bff831c982530c53cc769cbd53a",
+    "rom_size": 73744,
+    "source": ".openrecomp-phase7/fixture/p7_bank_switching_fixture.asm",
+    "source_sha256": "2ffa5a65e0cf9fb9ae6a76e4b8493f86e014b750bfbd2f0380c741553445d447",
+    "vectors": {
+      "irq": 49473,
+      "nmi": 49472,
+      "reset": 49152
+    }
+  },
+  "non_fabrication_claim": "cross-bank edges are exactly the proven bank-qualified reachability edges; mutated or missing edges fail closed",
+  "public_claim": "original Apache-2.0 public fixture for the bounded bank-aware structure proof only",
+  "reachability": {
+    "code_by_bank": [
+      {
+        "address_digest": "10177042104af27f7b5acf0305f39e7ff0c228e20bcedd62cf0b2111e677f8ba",
+        "address_samples": [
+          32768,
+          32771,
+          32773,
+          32776
+        ],
+        "bank": 1,
+        "bytes": 9,
+        "cpu_range": [
+          32768,
+          32776
+        ],
+        "instructions": 4,
+        "proven_instructions": 4,
+        "provenance": "PROVEN",
+        "unresolved_instructions": 0
+      },
+      {
+        "address_digest": "aee5452954916842e554be6c1632375053bbed42684e7b324c63d60e11447308",
+        "address_samples": [
+          49152,
+          49153,
+          49154,
+          49156,
+          49157,
+          49159,
+          49162,
+          49164,
+          49167,
+          49169,
+          49172,
+          49174,
+          49177,
+          49179,
+          49182,
+          49185
+        ],
+        "bank": 3,
+        "bytes": 47,
+        "cpu_range": [
+          49152,
+          49473
+        ],
+        "instructions": 22,
+        "proven_instructions": 22,
+        "provenance": "PROVEN",
+        "unresolved_instructions": 0
+      }
+    ],
+    "cross_bank_edges": [
+      {
+        "dst_address": 49408,
+        "dst_bank": 3,
+        "kind": "call",
+        "provenance": "PROVEN",
+        "src_address": 32768,
+        "src_bank": 1
+      },
+      {
+        "dst_address": 32768,
+        "dst_bank": 1,
+        "kind": "call",
+        "provenance": "PROVEN",
+        "src_address": 49182,
+        "src_bank": 3
+      }
+    ],
+    "multi_bank_cpu_addresses": {},
+    "proven_instructions": 26,
+    "status": "OK",
+    "unresolved_instructions": 0
+  },
+  "reference": {
+    "executed_count": 24,
+    "markers": {
+      "marker": 119,
+      "plain_out": 0,
+      "resume_out": 66,
+      "selector": 119
+    },
+    "steps": 23
+  },
+  "stage": "P7-05",
+  "structure": {
+    "architecture": "nes6502",
+    "bank_count": 2,
+    "banks": [
+      {
+        "bank": 1,
+        "bank_sha256": "14c01ff248a5fdbf5d21debef25e855e099172d766ce57900fda4b04d1224a9e",
+        "blocks": 2,
+        "call_edges": [
+          {
+            "callee": null,
+            "caller": "fn_8000",
+            "kind": "EXTERNAL_DIRECT"
+          }
+        ],
+        "call_graph_fingerprint": "f94f641efd586b7f6f7a4ae4ccfc9b317f0dcc7d26ff94dbbb00a73e50dc463d",
+        "call_sites": [
+          {
+            "address": 32768,
+            "op": "jsr",
+            "target": 49408
+          }
+        ],
+        "cfg_fingerprint": "b0498dd1d58042c4e41a2c29a6cc1877def74703528f70e5281beb15c5d7ea27",
+        "classification_fingerprint": "536e2a40d313e905922dcf30b3e26778f40b28ba4f0e6fad70618268a16fde68",
+        "cross_bank_entries": [
+          32768
+        ],
+        "discovery_fingerprint": "61838d2cae95213f007a578ddf07d86518213d61ed86982e5fef1f8471a49ce9",
+        "entry_addresses": [
+          32768
+        ],
+        "external_targets": [
+          {
+            "address": 32768,
+            "dst_bank": 3,
+            "kind": "call",
+            "op": "jsr",
+            "target": 49408
+          }
+        ],
+        "function_entries": [
+          32768
+        ],
+        "functions": 1,
+        "indirect_sites": [],
+        "proven_instructions": 4,
+        "translation_units": 1,
+        "units_fingerprint": "4dce67b00aad3a2097ed703ecf06c2c9777ef04807c17652531ef86daba9fd8d",
+        "unowned_control_flow": []
+      },
+      {
+        "bank": 3,
+        "bank_sha256": "a1bb851af909cbdc7377e783ca67b1a7ecf666dab7e85b2fc482f72c53fa399c",
+        "blocks": 5,
+        "call_edges": [
+          {
+            "callee": null,
+            "caller": "fn_c000",
+            "kind": "EXTERNAL_DIRECT"
+          }
+        ],
+        "call_graph_fingerprint": "c7065bebbcb00feb7470159dfc48b15cd25d0d9888bcdf4de5ef4fcf34c66d44",
+        "call_sites": [
+          {
+            "address": 49182,
+            "op": "jsr",
+            "target": 32768
+          }
+        ],
+        "cfg_fingerprint": "0000336951c6a0b5271f8754cd4dc93accb0d19f21e42f2eb7f267e3e06faf2d",
+        "classification_fingerprint": "67955d930e8915ee14bffa73887cf9c4c3501f24dd9771ec5b14c226b1d18ecf",
+        "cross_bank_entries": [
+          49408
+        ],
+        "discovery_fingerprint": "f48e3db7166da8aa9ae88407b864116cb838fea5eec31a25051cafe87a39582f",
+        "entry_addresses": [
+          49152,
+          49408,
+          49472,
+          49473
+        ],
+        "external_targets": [
+          {
+            "address": 49182,
+            "dst_bank": 1,
+            "kind": "call",
+            "op": "jsr",
+            "target": 32768
+          }
+        ],
+        "function_entries": [
+          49152,
+          49408,
+          49472,
+          49473
+        ],
+        "functions": 4,
+        "indirect_sites": [
+          {
+            "address": 49188,
+            "kind": "INDIRECT_JUMP",
+            "op": "jmp",
+            "status": "UNRESOLVED_INDIRECT_JUMP",
+            "targets": [],
+            "unit_id": "tu_fn_c000"
+          }
+        ],
+        "proven_instructions": 22,
+        "translation_units": 4,
+        "units_fingerprint": "4a5a744032fcb618f1d9b2dce4912935d643d1f29362e96329d6c9b5e03ba2d0",
+        "unowned_control_flow": []
+      }
+    ],
+    "claim": "bank-qualified neutral structure; only PROVEN physical-bank code identities are represented and no cross-bank edge is fabricated",
+    "cross_bank_edge_count": 2,
+    "cross_bank_edges": [
+      {
+        "dst_address": 49408,
+        "dst_bank": 3,
+        "kind": "call",
+        "provenance": "PROVEN",
+        "src_address": 32768,
+        "src_bank": 1
+      },
+      {
+        "dst_address": 32768,
+        "dst_bank": 1,
+        "kind": "call",
+        "provenance": "PROVEN",
+        "src_address": 49182,
+        "src_bank": 3
+      }
+    ],
+    "rejected_unresolved_identities": [],
+    "stage": "P7-05"
+  }
+}

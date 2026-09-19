@@ -1,0 +1,270 @@
+{
+  "checks": [
+    {
+      "check": "anchor:decoder-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:p7-03-record-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:p7-04-record-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:compat-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:playability-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:stage-row",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:assembled-cross-checked",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:inventory",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:license-and-origin",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:source-provenance",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:bank_structure.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-rom-extension-in-scratch",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:blocked-reachability-rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:missing-cross-bank-edge-rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:mutated-cross-bank-edge-rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:truncated-prg-rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "reachability:banks",
+      "status": "PASS"
+    },
+    {
+      "check": "reachability:cross-bank-calls",
+      "status": "PASS"
+    },
+    {
+      "check": "reachability:no-merge",
+      "status": "PASS"
+    },
+    {
+      "check": "reachability:status",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:cross-bank-code-executed",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:markers",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-04:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-04:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-04:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:bank-instruction-counts",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:cross-entries",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:external-targets",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:neutral-fingerprints",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:no-unresolved-identities",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:two-banks",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:unresolved-indirect-sites",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "fixture": {
+      "exit_site": 49188,
+      "prg_sha256": "73295576b741bdd6849e41dcd2529a28999577c64bda2391a11cfb67fd36d377",
+      "rom_sha256": "902a9c4281a7616a67f12df08b2b3526867f1bff831c982530c53cc769cbd53a",
+      "rom_size": 73744
+    },
+    "reference": {
+      "executed_count": 24,
+      "markers": {
+        "marker": 119,
+        "plain_out": 0,
+        "resume_out": 66,
+        "selector": 119
+      },
+      "steps": 23
+    },
+    "regressions": [
+      {
+        "command": [
+          "python",
+          "tools/test_nes_rom_v1.py"
+        ],
+        "markers": [
+          "OPENRECOMP_NES_ROM_V1=PASS tests=12"
+        ],
+        "returncode": 0,
+        "script": "tools/test_nes_rom_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 959,
+        "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+        "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+      },
+      {
+        "command": [
+          "python",
+          "tools/test_phase7_bank_reachability_v1.py",
+          "--evidence-dir",
+          ".openrecomp-phase7/scratch/P7-05/regression_p7_04"
+        ],
+        "markers": [
+          "OPENRECOMP_P7_04=PASS",
+          "OPENRECOMP_PHASE7_BANK_REACHABILITY_V1=PASS tests=289",
+          "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+          "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase7_bank_reachability_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 10014,
+        "stdout_sha256_lf": "897f6904474dce95a7bce78a78cf6571301f94570e3493a9ede7b2afde54f99e",
+        "stdout_sha256_raw": "4ff35a0ca6eb7953c5e07f7267b84e2162e4e517979f9dc55a98078f321a2ce6"
+      }
+    ],
+    "structure": {
+      "banks": [
+        {
+          "bank": 1,
+          "blocks": 2,
+          "cross_bank_entries": [
+            32768
+          ],
+          "functions": 1,
+          "instructions": 4,
+          "units": 1
+        },
+        {
+          "bank": 3,
+          "blocks": 5,
+          "cross_bank_entries": [
+            49408
+          ],
+          "functions": 4,
+          "instructions": 22,
+          "units": 4
+        }
+      ],
+      "cross_bank_edges": [
+        {
+          "dst_address": 49408,
+          "dst_bank": 3,
+          "kind": "call",
+          "provenance": "PROVEN",
+          "src_address": 32768,
+          "src_bank": 1
+        },
+        {
+          "dst_address": 32768,
+          "dst_bank": 1,
+          "kind": "call",
+          "provenance": "PROVEN",
+          "src_address": 49182,
+          "src_bank": 3
+        }
+      ]
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE7_BANK_STRUCTURE_V1=PASS tests=38",
+    "playability": "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P7_05=PASS",
+    "terminal": "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN"
+  },
+  "passed": 38,
+  "stage": "P7-05",
+  "stage_name": "OPENRECOMP_PHASE7_BANK_STRUCTURE_V1",
+  "status": "PASS",
+  "tests": 38
+}

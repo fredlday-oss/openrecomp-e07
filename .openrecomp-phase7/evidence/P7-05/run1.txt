@@ -1,0 +1,66 @@
+=== P7-05 Bank-Aware Structure Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-verified
+
+--- anchors ---
+PASS: anchor:p7-03-record-pass
+PASS: anchor:p7-04-record-pass
+PASS: anchor:decoder-unchanged
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+PASS: control-plane:playability-reserved
+
+--- fixture_build ---
+PASS: fixture:deterministic
+PASS: fixture:license-and-origin
+PASS: fixture:source-provenance
+PASS: fixture:assembled-cross-checked
+PASS: fixture:inventory
+
+--- bank_reachability ---
+PASS: reachability:status
+PASS: reachability:banks
+PASS: reachability:cross-bank-calls
+PASS: reachability:no-merge
+
+--- bank_structure ---
+PASS: structure:two-banks
+PASS: structure:bank-instruction-counts
+PASS: structure:cross-entries
+PASS: structure:external-targets
+PASS: structure:neutral-fingerprints
+PASS: structure:unresolved-indirect-sites
+PASS: structure:no-unresolved-identities
+
+--- reference_execution ---
+PASS: reference:exit
+PASS: reference:markers
+PASS: reference:cross-bank-code-executed
+
+--- no_fabrication ---
+PASS: negative:mutated-cross-bank-edge-rejected
+PASS: negative:missing-cross-bank-edge-rejected
+PASS: negative:blocked-reachability-rejected
+PASS: negative:truncated-prg-rejected
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:p7-04:exit
+PASS: regression:p7-04:stderr
+PASS: regression:p7-04:marker
+
+--- evidence ---
+PASS: hygiene:no-private-rom-bytes:bank_structure.json
+PASS: hygiene:no-rom-extension-in-scratch
+
+=== RESULT ===
+OPENRECOMP_P7_05=PASS
+OPENRECOMP_PHASE7_BANK_STRUCTURE_V1=PASS tests=38
+OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
+OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN

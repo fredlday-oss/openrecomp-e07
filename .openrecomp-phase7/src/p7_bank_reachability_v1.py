@@ -199,6 +199,7 @@ def analyze(prg: bytes, prg_banks: int, roots: list[int], *,
 
     pending: list[tuple[int, tuple]] = [(root, start_state) for root in roots]
     visited: set[tuple] = set()
+    edge_set: set[tuple[int, int, int, int, str, str]] = set()
     code: dict[tuple[int, int], dict[str, Any]] = {}
     covered: dict[int, set[int]] = {bank: set() for bank in range(prg_banks)}
     bank_switches: list[dict[str, Any]] = []
@@ -368,6 +369,34 @@ def analyze(prg: bytes, prg_banks: int, roots: list[int], *,
                 indirect_sites.append({"address": pc, "bank": bank,
                                        "instruction": insn["op"],
                                        "pointer": insn.get("indirect")})
+            fallthrough = (pc + insn["length"]) & 0xFFFF
+            op = insn["op"]
+            if op == "jsr":
+                successors_detail = [("call", insn["a16"]),
+                                     ("fallthrough", fallthrough)]
+            elif op == "jmp" and "indirect" not in insn:
+                successors_detail = [("jump", insn["target"])]
+            elif op in BRANCH_OPS:
+                successors_detail = [("branch", insn["target"]),
+                                     ("fallthrough", fallthrough)]
+            elif op == "brk":
+                successors_detail = [("fallthrough", (pc + 2) & 0xFFFF)]
+            elif op in ("rts", "rti", "jmp"):
+                successors_detail = []
+            else:
+                successors_detail = [("fallthrough", fallthrough)]
+            t_low, t_high = window_banks_partial(next_state[0], next_state[1],
+                                                 prg_banks)
+            for kind, target in successors_detail:
+                if not LOW_WINDOW[0] <= target <= HIGH_WINDOW[1]:
+                    continue
+                target_bank = (t_low if target <= LOW_WINDOW[1] else t_high)
+                edge_provenance = (PROVEN if provenance == PROVEN
+                                   and target_bank is not None
+                                   else UNRESOLVED)
+                edge_set.add((bank, pc, -1 if target_bank is None
+                              else target_bank, target, kind,
+                              edge_provenance))
             for target in targets:
                 pending.append((target, next_state))
         if status != "OK":
@@ -422,6 +451,20 @@ def analyze(prg: bytes, prg_banks: int, roots: list[int], *,
         "unresolved_limited": unresolved_limited,
         "unresolved_limit": unresolved_limit,
         "code_by_bank": code_by_bank,
+        "instructions": [
+            {"bank": bank, "address": address, "op": entry["op"],
+             "length": entry["length"], "window": entry["window"],
+             "provenance": entry["provenance"]}
+            for (bank, address), entry in sorted(code.items())
+        ],
+        "edges": [
+            {"src_bank": src_bank, "src_address": src_address,
+             "dst_bank": (None if dst_bank == -1 else dst_bank),
+             "dst_address": dst_address, "kind": kind,
+             "provenance": edge_provenance}
+            for (src_bank, src_address, dst_bank, dst_address, kind,
+                 edge_provenance) in sorted(edge_set)
+        ],
         "identity_digest": digest,
         "bank_switches": bank_switches,
         "unresolved_mapper_writes": unresolved_writes,

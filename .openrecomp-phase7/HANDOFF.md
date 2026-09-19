@@ -200,10 +200,37 @@ general and playability markers reserved as `NOT_PROVEN`.
   empty stderr, exit 0; `p7_04_tests.json` sha256 `12ddbd03...`.
 - Evidence: `.openrecomp-phase7/evidence/P7-04/`.
 
+## P7-05 outcome (PASS)
+
+Marker: `OPENRECOMP_PHASE7_BANK_STRUCTURE_V1=PASS tests=38`; terminal,
+general and playability markers reserved as `NOT_PROVEN`.
+
+- Original Apache-2.0 public bank-switching fixture
+  `.openrecomp-phase7/fixture/p7_bank_switching_fixture.asm` (ROM sha256
+  `902a9c42...`, 4 x 16 KiB PRG / 1 x 8 KiB CHR) commits bank 1 from the
+  fixed bank and calls `$8000`; the bank-1 routine calls the fixed helper
+  `$C100`.
+- Bank-aware neutral structure `.openrecomp-phase7/src/p7_bank_structure_v1.py`
+  builds one CFG/function/unit structure per proven physical bank (bank 1: 4
+  instructions, 1 function; bank 3: 22 instructions, >= 4 functions) with
+  cross-bank call entries `$8000` (bank 1) and `$C100` (bank 3), two proven
+  cross-bank edges, one unresolved indirect site at `$C024` with no
+  fabricated targets and no merged CPU addresses.
+- The bank model gained additive bank-qualified `instructions`/`edges`
+  outputs; the P7 reference driver now syncs its decode image to the live
+  MMC1 window state (switchable-window execution); P7-03 reference behavior
+  re-verified unchanged.
+- Fail-closed: mutated edge, missing edge, non-OK reachability and truncated
+  PRG all rejected.
+- Two official runs byte-identical raw (`70bd60ca...`, 1917 bytes) and LF
+  (`74c0bb54...`), empty stderr, exit 0; `p7_05_tests.json` sha256
+  `670fd4bc...`.
+- Evidence: `.openrecomp-phase7/evidence/P7-05/`.
+
 ## Exact next action
 
-Start P7-05 (bank-aware ProgramModel / CFG integration): extend the neutral
-program representation only as needed to distinguish banked code identities,
-recover CFG/function/translation-unit structure without fabricating
-cross-bank edges, preserve architecture-neutral boundaries where possible,
-and include a public redistributable bank-switching fixture. Do not push.
+Start P7-06 (indirect jump evidence model): build deterministic analysis for
+the three `$E2` indirect sites (`0x86E8`/`0x8956`/`0x8F3C`) tracking pointer
+writes, reads, bank state, memory provenance and feasible target sets;
+represent `RESOLVED_EXACT`, `RESOLVED_FINITE_SET`, `UNRESOLVED` and
+`IMPOSSIBLE` explicitly; never guess targets. Do not push.

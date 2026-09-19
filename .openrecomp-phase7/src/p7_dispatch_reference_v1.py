@@ -35,6 +35,7 @@ from nes_headless_v1 import NesReference6502  # noqa: E402
 
 FIXED_WINDOW_BASE = 0xC000
 FIXED_WINDOW_END = 0xFFFF
+PRG_BANK_BYTES = 0x4000
 JSR_LENGTH = 3
 
 # Phase-7 base-cost schedule for the opcodes executed by the original public
@@ -103,16 +104,26 @@ def run(rom: bytes, inventory: dict[str, Any], *, exit_site: int,
     clock = 0
     steps = 0
     executed: list[int] = []
+
+    def sync_windows() -> None:
+        """Keep the decode image mapped to the current MMC1 bank state."""
+        low, high = platform.prg_window_banks()
+        cpu.memory[0x8000:0xC000] = platform.prg[
+            low * PRG_BANK_BYTES:(low + 1) * PRG_BANK_BYTES]
+        cpu.memory[0xC000:0x10000] = platform.prg[
+            high * PRG_BANK_BYTES:(high + 1) * PRG_BANK_BYTES]
+
     while steps < max_steps:
+        sync_windows()
         pc = state.pc & 0xFFFF
         executed.append(pc)
         if pc == exit_site:
             break
-        cost = P7_COSTS.get(image[pc])
+        cost = P7_COSTS.get(cpu.memory[pc])
         if cost is None:
             raise P7DispatchError(
-                f"opcode 0x{image[pc]:02x} at 0x{pc:04x} has no Phase-7 "
-                "reference cost")
+                f"opcode 0x{cpu.memory[pc]:02x} at 0x{pc:04x} has no "
+                "Phase-7 reference cost")
         platform.clock = clock
         cpu.step()
         clock += cost
@@ -123,10 +134,10 @@ def run(rom: bytes, inventory: dict[str, Any], *, exit_site: int,
         raise P7DispatchError("reference step limit reached without exit")
 
     outside = sorted(address for address in set(executed)
-                     if not FIXED_WINDOW_BASE <= address <= FIXED_WINDOW_END)
+                     if not 0x8000 <= address <= 0xFFFF)
     if outside:
         raise P7DispatchError(
-            f"executed code outside the fixed window: {outside[:4]}")
+            f"executed code outside the PRG windows: {outside[:4]}")
     ram = bytes(platform.ram)
     p = (state.p | 0x20) & 0xFF
     return {
