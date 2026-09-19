@@ -1,0 +1,131 @@
+=== P7-99 Final Phase-7 Verdict Gate ===
+
+--- source_integrity ---
+PASS: source:root-manifest
+PASS: source:phase3-manifest
+PASS: source:phase4-manifest-verified
+PASS: source:phase5-manifest-verified
+PASS: source:phase6-manifest-verified
+PASS: source:phase7-manifest-verified
+PASS: source:p6-99-record
+PASS: source:private-image
+
+--- frozen_chain ---
+PASS: chain:phase5
+PASS: chain:phase4
+PASS: chain:phase3
+PASS: chain:phase2-phase1
+PASS: chain:phase6
+PASS: chain:descends
+
+--- control_plane ---
+PASS: control-plane:current-stage
+PASS: control-plane:last-passed
+PASS: control-plane:terminal-reserved
+PASS: control-plane:general-reserved
+PASS: control-plane:playability-reserved
+PASS: control-plane:queue:P7-00
+PASS: control-plane:queue:P7-01
+PASS: control-plane:queue:P7-02
+PASS: control-plane:queue:P7-03
+PASS: control-plane:queue:P7-04
+PASS: control-plane:queue:P7-05
+PASS: control-plane:queue:P7-06
+PASS: control-plane:queue:P7-07
+PASS: control-plane:queue:P7-08
+PASS: control-plane:queue:P7-09
+PASS: control-plane:queue:P7-10
+PASS: control-plane:queue:P7-11
+PASS: control-plane:queue:P7-12
+PASS: control-plane:queue:P7-13
+PASS: control-plane:queue:P7-14
+PASS: control-plane:queue:P7-90
+PASS: control-plane:queue:P7-91
+PASS: control-plane:ledger:P7-00
+PASS: control-plane:ledger:P7-01
+PASS: control-plane:ledger:P7-02
+PASS: control-plane:ledger:P7-03
+PASS: control-plane:ledger:P7-04
+PASS: control-plane:ledger:P7-05
+PASS: control-plane:ledger:P7-06
+PASS: control-plane:ledger:P7-07
+PASS: control-plane:ledger:P7-08
+PASS: control-plane:ledger:P7-09
+PASS: control-plane:ledger:P7-10
+PASS: control-plane:ledger:P7-11
+PASS: control-plane:ledger:P7-12
+PASS: control-plane:ledger:P7-13
+PASS: control-plane:ledger:P7-14
+PASS: control-plane:ledger:P7-90
+PASS: control-plane:ledger:P7-91
+
+--- stage_records ---
+PASS: record:P7-00:present
+PASS: record:P7-00:pass
+PASS: record:P7-01:present
+PASS: record:P7-01:pass
+PASS: record:P7-02:present
+PASS: record:P7-02:pass
+PASS: record:P7-03:present
+PASS: record:P7-03:pass
+PASS: record:P7-04:present
+PASS: record:P7-04:pass
+PASS: record:P7-05:present
+PASS: record:P7-05:pass
+PASS: record:P7-06:present
+PASS: record:P7-06:pass
+PASS: record:P7-07:present
+PASS: record:P7-07:pass
+PASS: record:P7-08:present
+PASS: record:P7-08:pass
+PASS: record:P7-09:present
+PASS: record:P7-09:pass
+PASS: record:P7-10:present
+PASS: record:P7-10:pass
+PASS: record:P7-11:present
+PASS: record:P7-11:pass
+PASS: record:P7-12:present
+PASS: record:P7-12:pass
+PASS: record:P7-13:present
+PASS: record:P7-13:pass
+PASS: record:P7-14:present
+PASS: record:P7-14:pass
+PASS: record:P7-90:present
+PASS: record:P7-90:pass
+PASS: record:P7-91:present
+PASS: record:P7-91:pass
+
+--- public_identities ---
+PASS: identity:P7-03-fixture
+PASS: identity:P7-05-fixture
+PASS: identity:P7-07-fixture
+PASS: identity:host-program
+PASS: identity:native-executable
+PASS: identity:p7-09-exact
+PASS: identity:p7-09-finite
+PASS: identity:p7-09-unresolved
+PASS: identity:p7-09-fail-closed
+PASS: identity:reference-equivalence
+PASS: identity:private-frontier
+PASS: identity:closure
+PASS: identity:private-run2
+PASS: identity:workflow
+
+--- claim_scope_guard ---
+PASS: scope:bounded-claim-only
+PASS: reject:general-promotion
+PASS: reject:private-promotion
+PASS: reject:playability-promotion
+PASS: reject:compat-marker-promotion
+PASS: reject:phase7-demotion
+
+--- evidence ---
+PASS: hygiene:no-private-rom-bytes:terminal_verdict.json
+PASS: hygiene:no-private-rom-bytes:verdict_record.json
+
+=== RESULT ===
+OPENRECOMP_P7_99=PASS
+OPENRECOMP_PHASE7_FINAL_VERDICT_V1=PASS tests=109
+OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=PASS
+OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
+OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN

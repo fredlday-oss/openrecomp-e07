@@ -339,11 +339,48 @@ general and playability markers reserved as `NOT_PROVEN`.
   `94c484c0...`.
 - Evidence: `.openrecomp-phase7/evidence/P7-10/`.
 
+## P7-11..P7-14, P7-90, P7-91 (PASS)
+
+- P7-11: private frontier re-run (530 proven / 14027 unresolved-limited,
+  `DATA_NOT_CODE` at `0xC570`, three `$E2` sites `RESOLVED_FINITE_SET`).
+- P7-12: inline-dispatch closure (1250 -> 1255, stop `0xBB6B`) proven on the
+  public fixture first.
+- P7-13: second private run (native execution not reached; exact blockers
+  recorded).
+- P7-14: reusable workflow (`COMPLETED`, `COMPLETED_WITH_FRONTIER`,
+  `FAIL_CLOSED` for the private image; no ROM copies).
+- P7-90: whole regression (`tests=72`; Phase-1 host gates and all 15
+  Phase-7 gates byte-identical; frozen P6-90 record verified).
+- P7-91: evidence index and claim ledger (`tests=30`; 11 proven / 5 bounded
+  Phase-7 public claims; five separated areas; scope guard).
+- Evidence: `.openrecomp-phase7/evidence/P7-11/` .. `P7-91/`.
+
+## P7-99 outcome (PASS, terminal)
+
+Markers: `OPENRECOMP_P7_99=PASS`,
+`OPENRECOMP_PHASE7_FINAL_VERDICT_V1=PASS tests=109`,
+`OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=PASS` (exact bounded audited
+public translation/control-flow claim only),
+`OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN` (permanent),
+`OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN` (permanent).
+
+- Terminal state: `STATE.md` `STATUS=COMPLETE`,
+  `TRANSLATION_FRONTIER_STATUS=PROVEN`, `FINAL_VERDICT=PASS`;
+  `STAGE_QUEUE.md` row `P7-99` `COMPLETE` and the terminal marker issued.
+- Terminal tag: not created (the frozen Phase-7 control policy does not
+  require one); the terminal boundary is the P7-99 verdict commit on branch
+  `phase7/nes-translation-frontier-v1`.
+- Retained limitations: TMNT not playable (unclassified `0xE3` at `0xBB6B`,
+  unresolved bank-state candidates, platform `NOT_TESTED`); no general NES,
+  commercial, cycle-accuracy, full-PPU/APU, FDS or arbitrary-6502 claim.
+- Two official runs byte-identical raw (`05ca5efb...`, 3833 bytes) and LF
+  (`b3e219e1...`), empty stderr, exit 0; `p7_99_tests.json` sha256
+  `b9d77b29...` in both runs.
+- Evidence: `.openrecomp-phase7/evidence/P7-99/`.
+
 ## Exact next action
 
-Start P7-11 (private TMNT frontier run with Phase-7 support): re-run the
-private image through the P7 bank-aware frontier and indirect-evidence
-machinery, record only hashes/metadata/derived evidence, and determine
-whether the `0xC570` blocker disappears, the three `$E2` sites resolve, the
-reachable bank-window frontier expands, translation completes or native
-execution is reached. Do not push.
+None. Phase 7 is COMPLETE at the terminal `PASS` boundary for the bounded
+audited public translation/control-flow claim;
+`OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY` remains `NOT_PROVEN`
+permanently. Do not push.

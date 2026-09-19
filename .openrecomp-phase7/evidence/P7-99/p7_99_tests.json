@@ -1,0 +1,475 @@
+{
+  "checks": [
+    {
+      "check": "chain:descends",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase2-phase1",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase3",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase4",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase6",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:current-stage",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:general-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:last-passed",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P7-00",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P7-01",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P7-02",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P7-03",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P7-04",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P7-05",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P7-06",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P7-07",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P7-08",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P7-09",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P7-10",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P7-11",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P7-12",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P7-13",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P7-14",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P7-90",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:ledger:P7-91",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:playability-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P7-00",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P7-01",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P7-02",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P7-03",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P7-04",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P7-05",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P7-06",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P7-07",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P7-08",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P7-09",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P7-10",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P7-11",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P7-12",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P7-13",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P7-14",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P7-90",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:queue:P7-91",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:terminal_verdict.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:verdict_record.json",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:P7-03-fixture",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:P7-05-fixture",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:P7-07-fixture",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:closure",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:host-program",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:native-executable",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:p7-09-exact",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:p7-09-fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:p7-09-finite",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:p7-09-unresolved",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:private-frontier",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:private-run2",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:reference-equivalence",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:workflow",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-00:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-00:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-01:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-01:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-02:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-02:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-03:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-03:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-04:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-04:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-05:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-05:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-06:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-06:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-07:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-07:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-08:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-08:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-09:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-09:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-10:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-10:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-11:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-11:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-12:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-12:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-13:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-13:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-14:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-14:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-90:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-90:present",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-91:pass",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P7-91:present",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:compat-marker-promotion",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:general-promotion",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:phase7-demotion",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:playability-promotion",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:private-promotion",
+      "status": "PASS"
+    },
+    {
+      "check": "scope:bounded-claim-only",
+      "status": "PASS"
+    },
+    {
+      "check": "source:p6-99-record",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase3-manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase4-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase5-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase6-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:phase7-manifest-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "source:private-image",
+      "status": "PASS"
+    },
+    {
+      "check": "source:root-manifest",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "verdict": {
+      "bounded_claims": 5,
+      "evidence_files": 158,
+      "executable_sha256": "23679fb850d427951dc4f685b5322ccc9de3c4f50df5cd18fa97f2a2b83426ab",
+      "host_program_sha256": "231a3a09924e94c7977ffaae71712ad9d48e443495c633ae2b6b96a8539b0b38",
+      "p7_09_executables": {
+        "exact": "23679fb850d427951dc4f685b5322ccc9de3c4f50df5cd18fa97f2a2b83426ab",
+        "finite": "7da08a48b96394acb0c569c5c71142225c5fb6e0fa6c74b802978dae49405e77",
+        "unresolved": "ea6bef2371f7246219298788167c763cb82effbe868510191deb66d3266f31d8"
+      },
+      "private_image_sha256": "2a9345e608ec0c57470dc6658ce8199ddea9c18076134d9ef2a56f91b0a066d1",
+      "proven_claims": 11,
+      "public_fixtures": {
+        "P7-03": "66c4d8c759e622e214f25eb1cb1a6f67b928d3031e1d21a4db0367f06ccd6d8c",
+        "P7-05": "902a9c4281a7616a67f12df08b2b3526867f1bff831c982530c53cc769cbd53a",
+        "P7-07": "1c9ad6582576a5c7c12a27b8a0077257c7c414142cd81ffdc92cb4a8ff1c9248"
+      },
+      "support_sha256": "5ea325b2dea6eb348638e129c51e242aaaa047be83860ba38302e3963ef8b6a7"
+    }
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE7_FINAL_VERDICT_V1=PASS tests=109",
+    "playability": "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P7_99=PASS",
+    "terminal": "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=PASS"
+  },
+  "passed": 109,
+  "stage": "P7-99",
+  "stage_name": "OPENRECOMP_PHASE7_FINAL_VERDICT_V1",
+  "status": "PASS",
+  "tests": 109
+}

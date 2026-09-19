@@ -1,0 +1,60 @@
+{
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "command": [
+        "python",
+        "tools/test_phase7_final_verdict_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase7/evidence/P7-99"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P7_99=",
+        "OPENRECOMP_PHASE7_FINAL_VERDICT_V1=",
+        "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=",
+        "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=",
+        "OPENRECOMP_PHASE7_TMMT_PLAYABILITY="
+      ],
+      "name": "run1",
+      "p7_99_tests_sha256": "b9d77b29fc35d3c32a87f6c4956c0ed7246595b549de271427b238d718aa36d9",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 3833,
+      "stdout_bytes_lf": 3702,
+      "stdout_sha256_lf": "b3e219e1fff2cde16811c35a36b2ccc63a62b33ac94efc76280b6e853ba8799c",
+      "stdout_sha256_raw": "05ca5efb13fe9bccd50f70e8fd54b93b83bb94e911889e4c1c5ba769c1235222"
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_phase7_final_verdict_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase7/evidence/P7-99"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P7_99=",
+        "OPENRECOMP_PHASE7_FINAL_VERDICT_V1=",
+        "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=",
+        "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=",
+        "OPENRECOMP_PHASE7_TMMT_PLAYABILITY="
+      ],
+      "name": "run2",
+      "p7_99_tests_sha256": "b9d77b29fc35d3c32a87f6c4956c0ed7246595b549de271427b238d718aa36d9",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 3833,
+      "stdout_bytes_lf": 3702,
+      "stdout_sha256_lf": "b3e219e1fff2cde16811c35a36b2ccc63a62b33ac94efc76280b6e853ba8799c",
+      "stdout_sha256_raw": "05ca5efb13fe9bccd50f70e8fd54b93b83bb94e911889e4c1c5ba769c1235222"
+    }
+  ],
+  "stage": "P7-99",
+  "stderr_empty_both": true
+}

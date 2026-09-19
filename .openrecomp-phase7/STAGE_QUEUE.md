@@ -23,7 +23,7 @@ The freeze is effective before any P7-01 implementation work.
 | P7-14 | Reusable bank-aware ROM-to-native workflow | COMPLETE | Extend the Phase-6 workflow to support the proven Phase-7 bank-aware translation and control-flow mechanisms. Input: local ROM path. Output: inventory, compatibility classification, bank-aware frontier, indirect-control-flow classification, generated native source/build when supported, or an explicit fail-closed blocker. Never copy or package the source ROM |
 | P7-90 | Whole regression | COMPLETE | Re-run the required Phase-1 through Phase-7 gates from the audited tree, re-verify the frozen boundaries, require deterministic outputs, and modify no frozen history |
 | P7-91 | Evidence index and compatibility matrix | COMPLETE | Produce the complete PROVEN / BOUNDED / UNPROVEN / UNSUPPORTED / NOT TESTED ledger, keeping the Phase-5 NROM proof, the Phase-6 MMC1 proof, the Phase-7 translation/control-flow proof, the private TMNT observations and general NES compatibility separate; record all remaining limitations |
-| P7-99 | Final Phase-7 verdict | QUEUED | Issue `OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=PASS` only if the exact bounded public translation/control-flow claim is proven. Always retain `OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN`; TMNT playability remains `NOT_PROVEN` unless actual generated-native, meaningful interactive execution has been demonstrated. The general final verdict remains NOT_PROVEN for arbitrary/general compatibility |
+| P7-99 | Final Phase-7 verdict | COMPLETE | Issue `OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=PASS` only if the exact bounded public translation/control-flow claim is proven. Always retain `OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN`; TMNT playability remains `NOT_PROVEN` unless actual generated-native, meaningful interactive execution has been demonstrated. The general final verdict remains NOT_PROVEN for arbitrary/general compatibility |
 
 ## Queue freeze
 
@@ -67,9 +67,9 @@ Frozen-queue rules:
 - queue freeze: rows `P7-01` .. `P7-99` are frozen by the `## Queue freeze`
   section above (P7-00 `PASS` boundary, control-plane record)
 - `OPENRECOMP_P7_00=PASS`
-- terminal Phase-7 marker: `OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF` -
-  reserved as `NOT_PROVEN` until P7-99 may issue `PASS` for the exact bounded
-  public translation/control-flow claim only
+- terminal Phase-7 marker: `OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=PASS` -
+  issued at P7-99 for the exact bounded public translation/control-flow claim
+  only (reserved `NOT_PROVEN` at every earlier stage)
 - general NES compatibility marker (never promoted by Phase 7):
   `OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN`
 - private TMNT playability marker (never promoted without actual
@@ -78,12 +78,16 @@ Frozen-queue rules:
 
 ## Terminal state
 
-- Reserved at P7-00: `OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN`
-  until the P7-99 verdict.
+- Issued at P7-99: `OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=PASS` for
+  the exact bounded audited public translation/control-flow claim only; no
+  general NES, commercial, undocumented-opcode-universality, all-indirect,
+  arbitrary-bank-switched, cycle-accuracy, full-PPU/APU, FDS or arbitrary-6502
+  compatibility is authorized by that verdict.
 - `OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN` is permanent for
   Phase 7: no general NES, mapper, board-revision, game, commercial-title,
   cycle-accuracy, full-PPU/APU or arbitrary-6502 compatibility is claimed at
   any Phase-7 stage.
 - `OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN` is permanent unless actual
   generated-native meaningful interactive execution has been demonstrated and
-  recorded as a private bounded observation.
+  recorded as a private bounded observation; it was not demonstrated in
+  Phase 7.

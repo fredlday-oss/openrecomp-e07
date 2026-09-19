@@ -1,0 +1,48 @@
+{
+  "identities": {
+    "bounded_claims": 5,
+    "evidence_files": 158,
+    "executable_sha256": "23679fb850d427951dc4f685b5322ccc9de3c4f50df5cd18fa97f2a2b83426ab",
+    "host_program_sha256": "231a3a09924e94c7977ffaae71712ad9d48e443495c633ae2b6b96a8539b0b38",
+    "p7_09_executables": {
+      "exact": "23679fb850d427951dc4f685b5322ccc9de3c4f50df5cd18fa97f2a2b83426ab",
+      "finite": "7da08a48b96394acb0c569c5c71142225c5fb6e0fa6c74b802978dae49405e77",
+      "unresolved": "ea6bef2371f7246219298788167c763cb82effbe868510191deb66d3266f31d8"
+    },
+    "private_image_sha256": "2a9345e608ec0c57470dc6658ce8199ddea9c18076134d9ef2a56f91b0a066d1",
+    "proven_claims": 11,
+    "public_fixtures": {
+      "P7-03": "66c4d8c759e622e214f25eb1cb1a6f67b928d3031e1d21a4db0367f06ccd6d8c",
+      "P7-05": "902a9c4281a7616a67f12df08b2b3526867f1bff831c982530c53cc769cbd53a",
+      "P7-07": "1c9ad6582576a5c7c12a27b8a0077257c7c414142cd81ffdc92cb4a8ff1c9248"
+    },
+    "support_sha256": "5ea325b2dea6eb348638e129c51e242aaaa047be83860ba38302e3963ef8b6a7"
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE7_FINAL_VERDICT_V1=PASS",
+    "playability": "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P7_99=PASS",
+    "terminal": "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=PASS"
+  },
+  "scope": {
+    "asserted": "the exact bounded audited public Phase-7 translation/control-flow claim (classification of 0x7C as data, bank-aware reachability and structure, indirect evidence with explicit states, public fixtures, integration, native execution and bounded reference equivalence, inline-dispatch closure and reusable workflow)",
+    "not_asserted": [
+      "general NES compatibility",
+      "commercial-game compatibility",
+      "TMNT playability",
+      "all undocumented 6502 opcodes",
+      "all indirect-control-flow recovery",
+      "arbitrary bank-switched binaries",
+      "cycle accuracy",
+      "full PPU/APU accuracy",
+      "arbitrary 6502 compatibility"
+    ]
+  },
+  "stage": "P7-99",
+  "terminal_tag": {
+    "created": false,
+    "reason": "the frozen Phase-7 control policy does not require a terminal tag; the terminal boundary is the verdict commit"
+  },
+  "verdict": "PASS"
+}
