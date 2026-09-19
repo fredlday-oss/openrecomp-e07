@@ -1,0 +1,42 @@
+=== P7-13 Second Private TMNT Frontier Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-verified
+
+--- anchors ---
+PASS: anchor:p7-12-record-pass
+PASS: anchor:decoder-unchanged
+PASS: anchor:private-image
+
+--- control_plane ---
+PASS: control-plane:stage-row
+PASS: control-plane:terminal-reserved
+PASS: control-plane:compat-reserved
+PASS: control-plane:playability-reserved
+
+--- second_private_run ---
+PASS: private:deterministic
+PASS: private:closure-progress
+PASS: private:new-frontier
+PASS: private:bank-frontier
+PASS: private:progress-status
+PASS: private:stop-reasons
+PASS: private:no-rom-bytes
+
+--- regressions ---
+PASS: regression:tools/test_nes_rom_v1.py:exit
+PASS: regression:tools/test_nes_rom_v1.py:stderr
+PASS: regression:p7-12:exit
+PASS: regression:p7-12:stderr
+PASS: regression:p7-12:marker
+
+--- evidence ---
+PASS: hygiene:no-private-rom-bytes:private_frontier_run2.json
+PASS: hygiene:no-rom-extension-in-scratch
+
+=== RESULT ===
+OPENRECOMP_P7_13=PASS
+OPENRECOMP_PHASE7_PRIVATE_FRONTIER_RUN2_V1=PASS tests=22
+OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
+OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN

@@ -1,0 +1,196 @@
+{
+  "checks": [
+    {
+      "check": "anchor:decoder-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:p7-12-record-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:private-image",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:compat-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:playability-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:stage-row",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:private_frontier_run2.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-rom-extension-in-scratch",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bank-frontier",
+      "status": "PASS"
+    },
+    {
+      "check": "private:closure-progress",
+      "status": "PASS"
+    },
+    {
+      "check": "private:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "private:new-frontier",
+      "status": "PASS"
+    },
+    {
+      "check": "private:no-rom-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "private:progress-status",
+      "status": "PASS"
+    },
+    {
+      "check": "private:stop-reasons",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-12:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-12:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-12:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-verified",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "closure": {
+      "baseline_instructions": 1250,
+      "delta_instructions": 5,
+      "instructions": 1255,
+      "stop": {
+        "address": 47979,
+        "kind": "undocumented_opcode",
+        "reason": "0xbb6b: undocumented 6502 opcode 0xe3"
+      },
+      "tables": [
+        {
+          "byte_length": 12,
+          "call_site": 50541,
+          "callee": 50975,
+          "entries": 6,
+          "resume_address": 50556,
+          "table_base": 50544,
+          "targets": [
+            50556,
+            50756,
+            50809,
+            50822,
+            52004,
+            50870
+          ]
+        }
+      ]
+    },
+    "regressions": [
+      {
+        "command": [
+          "python",
+          "tools/test_nes_rom_v1.py"
+        ],
+        "markers": [
+          "OPENRECOMP_NES_ROM_V1=PASS tests=12"
+        ],
+        "returncode": 0,
+        "script": "tools/test_nes_rom_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 959,
+        "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+        "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+      },
+      {
+        "command": [
+          "python",
+          "tools/test_phase7_translation_closure_v1.py",
+          "--evidence-dir",
+          ".openrecomp-phase7/scratch/P7-13/regression_p7_12"
+        ],
+        "markers": [
+          "OPENRECOMP_P7_12=PASS",
+          "OPENRECOMP_PHASE7_TRANSLATION_CLOSURE_V1=PASS tests=27",
+          "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+          "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase7_translation_closure_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 1448,
+        "stdout_sha256_lf": "7156ce51fcd580993b0fdffd631db90731611ad4b64ce4d3a1f5712315762ec3",
+        "stdout_sha256_raw": "0c8493017263764219bf0668fec7381d60cc1961a6286d3726b04b7229013956"
+      }
+    ],
+    "stop_reasons": [
+      {
+        "classification": "undocumented_opcode_unclassified",
+        "code": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+        "detail": "closure walk advances past 0xC570 and stops at 0xbb6b (0xbb6b: undocumented 6502 opcode 0xe3); the byte is not yet classified",
+        "stage": "opcode_frontier"
+      },
+      {
+        "classification": "bank_state_unresolved",
+        "code": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+        "detail": "14027 unresolved candidate identities across banks remain (bounded expansion)",
+        "stage": "bank_state"
+      },
+      {
+        "classification": "platform_runtime_not_tested",
+        "code": "NOT_TESTED",
+        "detail": "platform behaviour remains untestable until a complete proven translation exists",
+        "stage": "runtime_platform"
+      }
+    ]
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE7_PRIVATE_FRONTIER_RUN2_V1=PASS tests=22",
+    "playability": "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P7_13=PASS",
+    "terminal": "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN"
+  },
+  "passed": 22,
+  "stage": "P7-13",
+  "stage_name": "OPENRECOMP_PHASE7_PRIVATE_FRONTIER_RUN2_V1",
+  "status": "PASS",
+  "tests": 22
+}

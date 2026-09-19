@@ -1,0 +1,117 @@
+{
+  "classification": "PRIVATE_LOCAL_COMPATIBILITY_FIXTURE",
+  "closure": {
+    "baseline_instructions": 1250,
+    "delta_instructions": 5,
+    "instructions": 1255,
+    "stop": {
+      "address": 47979,
+      "kind": "undocumented_opcode",
+      "reason": "0xbb6b: undocumented 6502 opcode 0xe3"
+    },
+    "tables": [
+      {
+        "byte_length": 12,
+        "call_site": 50541,
+        "callee": 50975,
+        "entries": 6,
+        "resume_address": 50556,
+        "table_base": 50544,
+        "targets": [
+          50556,
+          50756,
+          50809,
+          50822,
+          52004,
+          50870
+        ]
+      }
+    ]
+  },
+  "image_sha256": "2a9345e608ec0c57470dc6658ce8199ddea9c18076134d9ef2a56f91b0a066d1",
+  "image_size": 262160,
+  "indirect_evidence_counts": {
+    "RESOLVED_FINITE_SET": 3
+  },
+  "interactive_behaviour_reached": false,
+  "native_build_progress": "NOT_ATTEMPTED",
+  "native_execution_progress": "NOT_ATTEMPTED",
+  "native_execution_reached": false,
+  "p7_bank_frontier": {
+    "code_by_bank": [
+      {
+        "bank": 0,
+        "proven": 428,
+        "unresolved": 1897
+      },
+      {
+        "bank": 1,
+        "proven": 0,
+        "unresolved": 1641
+      },
+      {
+        "bank": 2,
+        "proven": 0,
+        "unresolved": 1706
+      },
+      {
+        "bank": 3,
+        "proven": 0,
+        "unresolved": 1578
+      },
+      {
+        "bank": 4,
+        "proven": 0,
+        "unresolved": 1603
+      },
+      {
+        "bank": 5,
+        "proven": 0,
+        "unresolved": 1899
+      },
+      {
+        "bank": 6,
+        "proven": 0,
+        "unresolved": 1670
+      },
+      {
+        "bank": 7,
+        "proven": 102,
+        "unresolved": 2033
+      }
+    ],
+    "nodes_visited": 20718,
+    "proven_instructions": 530,
+    "status": "BLOCKED_UNDECODABLE",
+    "stop": {
+      "address": 50544,
+      "bank": 7,
+      "reason": "NES6502Error: 0xc570: undocumented 6502 opcode 0x7c"
+    },
+    "unresolved_instructions": 14027,
+    "unresolved_limited": true
+  },
+  "public_claim": "none; private local analysis must not enter the public package",
+  "stage": "P7-13",
+  "stop_reasons": [
+    {
+      "classification": "undocumented_opcode_unclassified",
+      "code": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+      "detail": "closure walk advances past 0xC570 and stops at 0xbb6b (0xbb6b: undocumented 6502 opcode 0xe3); the byte is not yet classified",
+      "stage": "opcode_frontier"
+    },
+    {
+      "classification": "bank_state_unresolved",
+      "code": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+      "detail": "14027 unresolved candidate identities across banks remain (bounded expansion)",
+      "stage": "bank_state"
+    },
+    {
+      "classification": "platform_runtime_not_tested",
+      "code": "NOT_TESTED",
+      "detail": "platform behaviour remains untestable until a complete proven translation exists",
+      "stage": "runtime_platform"
+    }
+  ],
+  "translation_progress": "NOT_ATTEMPTED"
+}
