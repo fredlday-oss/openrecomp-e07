@@ -1,0 +1,58 @@
+{
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "command": [
+        "python",
+        "tools/test_phase6_whole_regression_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase6/evidence/P6-90"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P6_90=",
+        "OPENRECOMP_PHASE6_WHOLE_REGRESSION_V1=",
+        "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=",
+        "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY="
+      ],
+      "name": "run1",
+      "p6_90_tests_sha256": "930f6ec57ea62b8e2e5aceb0fff2fc1369eafc876f51f6bf7f933b64bd8cb37f",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2836,
+      "stdout_bytes_lf": 2726,
+      "stdout_sha256_lf": "a693d703e574618fa7f99100a0f0c33d63ddc1fc064cd2cb9d97d2eb5c24adec",
+      "stdout_sha256_raw": "120d002830037ac26d5780e0cdb820f8dbd4bd55415e6f2b9aabb08cda8c97fa"
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_phase6_whole_regression_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase6/evidence/P6-90"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P6_90=",
+        "OPENRECOMP_PHASE6_WHOLE_REGRESSION_V1=",
+        "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=",
+        "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY="
+      ],
+      "name": "run2",
+      "p6_90_tests_sha256": "930f6ec57ea62b8e2e5aceb0fff2fc1369eafc876f51f6bf7f933b64bd8cb37f",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2836,
+      "stdout_bytes_lf": 2726,
+      "stdout_sha256_lf": "a693d703e574618fa7f99100a0f0c33d63ddc1fc064cd2cb9d97d2eb5c24adec",
+      "stdout_sha256_raw": "120d002830037ac26d5780e0cdb820f8dbd4bd55415e6f2b9aabb08cda8c97fa"
+    }
+  ],
+  "stage": "P6-90",
+  "stderr_empty_both": true
+}

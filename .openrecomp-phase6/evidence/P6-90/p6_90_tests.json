@@ -1,0 +1,655 @@
+{
+  "checks": [
+    {
+      "check": "chain:descends",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase1-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase2-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase3-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase3-tag-object",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase3-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase4-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase4-tag-object",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase4-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-commit",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tag-annotated",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tag-object",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:phase5-tree",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-00:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-00:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-00:stdout-official",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-01:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-01:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-01:stdout-official",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-02:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-02:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-02:stdout-official",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-03:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-03:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-03:stdout-official",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-04:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-04:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-04:stdout-official",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-05:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-05:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-05:stdout-official",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-06:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-06:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-06:stdout-official",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-07:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-07:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-07:stdout-official",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-08:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-08:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-08:stdout-official",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-09:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-09:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-09:stdout-official",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-10:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-10:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-10:stdout-official",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-11:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-11:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-11:stdout-official",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-12:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-12:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-12:stdout-official",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-13:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-13:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:P6-13:stdout-official",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-in-evidence",
+      "status": "PASS"
+    },
+    {
+      "check": "immutability:no-tracked-evidence-modified",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:phase3",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:phase4-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:phase5-verified",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:root",
+      "status": "PASS"
+    },
+    {
+      "check": "p5-90:markers",
+      "status": "PASS"
+    },
+    {
+      "check": "p5-90:returncode",
+      "status": "PASS"
+    },
+    {
+      "check": "p5-90:stderr-empty",
+      "status": "PASS"
+    },
+    {
+      "check": "p5-90:stdout-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "p5-90:stdout-official",
+      "status": "PASS"
+    },
+    {
+      "check": "p5-90:tests-record",
+      "status": "PASS"
+    },
+    {
+      "check": "phase1:counts",
+      "status": "PASS"
+    },
+    {
+      "check": "phase1:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "phase1:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "phase1:source-integrity",
+      "status": "PASS"
+    },
+    {
+      "check": "record:p2-terminal-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "record:p3-99",
+      "status": "PASS"
+    },
+    {
+      "check": "record:p3-terminal",
+      "status": "PASS"
+    },
+    {
+      "check": "record:p4-99",
+      "status": "PASS"
+    },
+    {
+      "check": "record:p4-terminal",
+      "status": "PASS"
+    },
+    {
+      "check": "record:p5-99",
+      "status": "PASS"
+    },
+    {
+      "check": "record:p5-official-capture",
+      "status": "PASS"
+    },
+    {
+      "check": "record:p5-terminal",
+      "status": "PASS"
+    },
+    {
+      "check": "record:phase5-terminal-marker",
+      "status": "PASS"
+    },
+    {
+      "check": "restore:frozen-clean",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-exists",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-verified",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "evidence_files": [
+      "whole_regression.json"
+    ],
+    "manifest_counts": {
+      "phase3": 24,
+      "phase4": 32,
+      "phase5": 28,
+      "phase6": 37,
+      "root": 134
+    },
+    "p5_90_reconstruction": {
+      "context_commit": "ee6a98af45552b50e0e7826006ccb3e4c95c525c",
+      "markers": [
+        "OPENRECOMP_P5_90=PASS"
+      ],
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2039,
+      "stdout_sha256_lf": "5cbea86f0baaeb395679f453711e1ffe2f1a895d83db66337a581ac60e1ce565",
+      "stdout_sha256_raw": "e487dbc0221d813d1d1138065be422bf8440d96f64d0dee5cd94d80f123ff5c5",
+      "tests_sha256": "431d4e5a9766b2c3aff214146541f1346ef3d65ae8721b1cead93db298172262"
+    },
+    "phase1_host_gates": {
+      "counts_present": true,
+      "marker_present": true,
+      "returncode": 0,
+      "source_integrity_marker": true,
+      "source_integrity_returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 5417,
+      "stdout_sha256_lf": "0371f7ef9bd63a81d2fced42238d0a1e6fbb1731d719f4b277e4a4dc5a11de38",
+      "stdout_sha256_raw": "2a9d1bba538b91605d61c3c47d8208cc7012cdfe49042f088c409dc54729cc35"
+    },
+    "restored_frozen_sidecars": [],
+    "stage_gates": [
+      {
+        "fail_lines": [],
+        "markers": [
+          "OPENRECOMP_P6_00=PASS",
+          "OPENRECOMP_PHASE6_BOUNDARY_V1=PASS tests=85",
+          "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN"
+        ],
+        "official_stdout_sha256_raw": "9391a99a241f0813584587b0bc4db7559f18ebc500897ca8c43bcce03b64e972",
+        "returncode": 0,
+        "script": "tools/test_phase6_boundary_v1.py",
+        "stage": "P6-00",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 3201,
+        "stdout_matches_official": true,
+        "stdout_sha256_lf": "ca7ab21017aa5f89699b718ef6541d9f440a3d75a17730eb6343b90d4a148ffd",
+        "stdout_sha256_raw": "9391a99a241f0813584587b0bc4db7559f18ebc500897ca8c43bcce03b64e972"
+      },
+      {
+        "fail_lines": [],
+        "markers": [
+          "OPENRECOMP_P6_01=PASS",
+          "OPENRECOMP_PHASE6_MMC1_INVENTORY_V1=PASS tests=85",
+          "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN"
+        ],
+        "official_stdout_sha256_raw": "2bfd8a5efe673085ea06cce7281d92414eebb46b10c51d5df2e9ecb16f4409d6",
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_inventory_v1.py",
+        "stage": "P6-01",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 3140,
+        "stdout_matches_official": true,
+        "stdout_sha256_lf": "d153a32d2fb2ebad91a944b8d7abad8ee5b827fab924bbde26b5308d7ed851f6",
+        "stdout_sha256_raw": "2bfd8a5efe673085ea06cce7281d92414eebb46b10c51d5df2e9ecb16f4409d6"
+      },
+      {
+        "fail_lines": [],
+        "markers": [
+          "OPENRECOMP_P6_02=PASS",
+          "OPENRECOMP_PHASE6_MMC1_SERIAL_V1=PASS tests=47",
+          "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN"
+        ],
+        "official_stdout_sha256_raw": "caf7bb5c0a6c09621b6b0bbe1ec2990c696f0d6e910feac220fa727bf0ebb2c1",
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_serial_v1.py",
+        "stage": "P6-02",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2305,
+        "stdout_matches_official": true,
+        "stdout_sha256_lf": "ed0061090d5b50be03cf80dd44c2cf48f6871ebc0506d9d14fecc3761e2dafc6",
+        "stdout_sha256_raw": "caf7bb5c0a6c09621b6b0bbe1ec2990c696f0d6e910feac220fa727bf0ebb2c1"
+      },
+      {
+        "fail_lines": [],
+        "markers": [
+          "OPENRECOMP_P6_03=PASS",
+          "OPENRECOMP_PHASE6_MMC1_PRG_V1=PASS tests=50",
+          "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN"
+        ],
+        "official_stdout_sha256_raw": "13b2b2f178ab260e583f14de9461c800c148ae4e8fd1072ad9f6af4405f05c55",
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_prg_v1.py",
+        "stage": "P6-03",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2444,
+        "stdout_matches_official": true,
+        "stdout_sha256_lf": "949380183b9cee6802677b98f9473ae99ef5728ce106dc552f968148ca40203e",
+        "stdout_sha256_raw": "13b2b2f178ab260e583f14de9461c800c148ae4e8fd1072ad9f6af4405f05c55"
+      },
+      {
+        "fail_lines": [],
+        "markers": [
+          "OPENRECOMP_P6_04=PASS",
+          "OPENRECOMP_PHASE6_MMC1_CHR_V1=PASS tests=61",
+          "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN"
+        ],
+        "official_stdout_sha256_raw": "cbcb3697a0c7c43915cf8d45aee5c5e060cbaec4609ed07353fe9b0ce379340d",
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_chr_v1.py",
+        "stage": "P6-04",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2949,
+        "stdout_matches_official": true,
+        "stdout_sha256_lf": "4b6b1a0889c3b35d724229e9386a6ad5dd1c9923551d935c23ec14de76600b7d",
+        "stdout_sha256_raw": "cbcb3697a0c7c43915cf8d45aee5c5e060cbaec4609ed07353fe9b0ce379340d"
+      },
+      {
+        "fail_lines": [],
+        "markers": [
+          "OPENRECOMP_P6_05=PASS",
+          "OPENRECOMP_PHASE6_MMC1_VARIANT_V1=PASS tests=61",
+          "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN"
+        ],
+        "official_stdout_sha256_raw": "315fd5eaf7ca5bc1ff190c38ebb50d66d6af7785c0f9bfb38e7dbbf11279d6d4",
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_variant_v1.py",
+        "stage": "P6-05",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2761,
+        "stdout_matches_official": true,
+        "stdout_sha256_lf": "d1a6b25f66f1eed6a38038fd693997abcd6e88b5000db199c8f111779dfe6246",
+        "stdout_sha256_raw": "315fd5eaf7ca5bc1ff190c38ebb50d66d6af7785c0f9bfb38e7dbbf11279d6d4"
+      },
+      {
+        "fail_lines": [],
+        "markers": [
+          "OPENRECOMP_P6_06=PASS",
+          "OPENRECOMP_PHASE6_MMC1_FIXTURE_V1=PASS tests=67",
+          "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN"
+        ],
+        "official_stdout_sha256_raw": "2d32801cfec18390f4cb16f361c3fa6a1fd7a1c7d7a10232632d0b59a573beb9",
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_fixture_v1.py",
+        "stage": "P6-06",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 3073,
+        "stdout_matches_official": true,
+        "stdout_sha256_lf": "3fd40332c6b5055da61ed913c846752947d1a4119411f150d55968284e3fd2bb",
+        "stdout_sha256_raw": "2d32801cfec18390f4cb16f361c3fa6a1fd7a1c7d7a10232632d0b59a573beb9"
+      },
+      {
+        "fail_lines": [],
+        "markers": [
+          "OPENRECOMP_P6_07=PASS",
+          "OPENRECOMP_PHASE6_MMC1_RECOMP_V1=PASS tests=65",
+          "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN"
+        ],
+        "official_stdout_sha256_raw": "d7842d364d5bbb5053936e5a073cee0c37a9d3379168b50d4fac42ce7b0127a0",
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_recompile_v1.py",
+        "stage": "P6-07",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 3170,
+        "stdout_matches_official": true,
+        "stdout_sha256_lf": "161b1867351b51cb2c4721e97f148b718845b5b178235bae1956290de8a20d0e",
+        "stdout_sha256_raw": "d7842d364d5bbb5053936e5a073cee0c37a9d3379168b50d4fac42ce7b0127a0"
+      },
+      {
+        "fail_lines": [],
+        "markers": [
+          "OPENRECOMP_P6_08=PASS",
+          "OPENRECOMP_PHASE6_MMC1_NATIVE_V1=PASS tests=74",
+          "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN"
+        ],
+        "official_stdout_sha256_raw": "178c5a79eef7989aff512597a1c50892f6237c6c8f015fe3ed64d2bd6143fbde",
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_native_v1.py",
+        "stage": "P6-08",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2913,
+        "stdout_matches_official": true,
+        "stdout_sha256_lf": "33de32c6580f864728b32e39e73d785493d91114ae94397f81a15a4c197618e2",
+        "stdout_sha256_raw": "178c5a79eef7989aff512597a1c50892f6237c6c8f015fe3ed64d2bd6143fbde"
+      },
+      {
+        "fail_lines": [],
+        "markers": [
+          "OPENRECOMP_P6_09=PASS",
+          "OPENRECOMP_PHASE6_MMC1_REFERENCE_EQUIVALENCE_V1=PASS tests=100",
+          "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN"
+        ],
+        "official_stdout_sha256_raw": "0144086e742cdc5441a5a10d1d7da8f5f8d1012281e2769fd5515d66c7f6952a",
+        "returncode": 0,
+        "script": "tools/test_phase6_mmc1_reference_equiv_v1.py",
+        "stage": "P6-09",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 4147,
+        "stdout_matches_official": true,
+        "stdout_sha256_lf": "dcfbcb016a2a4bd3be64fc88e296fe7fcbef5ddd3a33deac23323b9758f8bb72",
+        "stdout_sha256_raw": "0144086e742cdc5441a5a10d1d7da8f5f8d1012281e2769fd5515d66c7f6952a"
+      },
+      {
+        "fail_lines": [],
+        "markers": [
+          "OPENRECOMP_P6_10=PASS",
+          "OPENRECOMP_PHASE6_PRIVATE_COMPAT_V1=PASS tests=62",
+          "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN"
+        ],
+        "official_stdout_sha256_raw": "45186d8b764977a44988a4bc8c1dcf2c6ee1e823b2bf0055e265b858c44ac23c",
+        "returncode": 0,
+        "script": "tools/test_phase6_private_tmnt_v1.py",
+        "stage": "P6-10",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2886,
+        "stdout_matches_official": true,
+        "stdout_sha256_lf": "9b061b7ea851550a028b3ad0542202d50b715be49fac12a454076a38e5ac2406",
+        "stdout_sha256_raw": "45186d8b764977a44988a4bc8c1dcf2c6ee1e823b2bf0055e265b858c44ac23c"
+      },
+      {
+        "fail_lines": [],
+        "markers": [
+          "OPENRECOMP_P6_11=PASS",
+          "OPENRECOMP_PHASE6_PLATFORM_EXPANSION_V1=PASS tests=56",
+          "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN"
+        ],
+        "official_stdout_sha256_raw": "627a8ce1d3e00800535e34a8a7e71b8f7d77bb5b7a744f090177a286b333a870",
+        "returncode": 0,
+        "script": "tools/test_phase6_evidence_expansion_v1.py",
+        "stage": "P6-11",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2871,
+        "stdout_matches_official": true,
+        "stdout_sha256_lf": "d428bb64f0f6cf1a09e754c327fb9fea2a9d27b375384ec2919d65ed9348dc8f",
+        "stdout_sha256_raw": "627a8ce1d3e00800535e34a8a7e71b8f7d77bb5b7a744f090177a286b333a870"
+      },
+      {
+        "fail_lines": [],
+        "markers": [
+          "OPENRECOMP_P6_12=PASS",
+          "OPENRECOMP_PHASE6_ROM_TO_NATIVE_WORKFLOW_V1=PASS tests=111",
+          "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN"
+        ],
+        "official_stdout_sha256_raw": "d62911363f127844fe5dd4fc2854c8064d458ac1a4c3aeec47f4fcbb7398cd76",
+        "returncode": 0,
+        "script": "tools/test_phase6_workflow_v1.py",
+        "stage": "P6-12",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 4375,
+        "stdout_matches_official": true,
+        "stdout_sha256_lf": "275fa9993fd0c30c29cd888171ed5f42cac4bab2995c071bc5b06327829efe19",
+        "stdout_sha256_raw": "d62911363f127844fe5dd4fc2854c8064d458ac1a4c3aeec47f4fcbb7398cd76"
+      },
+      {
+        "fail_lines": [],
+        "markers": [
+          "OPENRECOMP_P6_13=PASS",
+          "OPENRECOMP_PHASE6_PRIVATE_COMPAT_RUN2_V1=PASS tests=66",
+          "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN"
+        ],
+        "official_stdout_sha256_raw": "404dd00bbda65374ba750367ffcf29aaf923e423d6e6ac5419be09213ff23db2",
+        "returncode": 0,
+        "script": "tools/test_phase6_private_workflow_v1.py",
+        "stage": "P6-13",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 3261,
+        "stdout_matches_official": true,
+        "stdout_sha256_lf": "5cf90e87f72be3c260768ddfe502ab7a67d4d4c2eab40fe466354e3bb81a5896",
+        "stdout_sha256_raw": "404dd00bbda65374ba750367ffcf29aaf923e423d6e6ac5419be09213ff23db2"
+      }
+    ]
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE6_WHOLE_REGRESSION_V1=PASS tests=83",
+    "stage": "OPENRECOMP_P6_90=PASS",
+    "terminal": "OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN"
+  },
+  "passed": 83,
+  "stage": "P6-90",
+  "stage_name": "OPENRECOMP_PHASE6_WHOLE_REGRESSION_V1",
+  "status": "PASS",
+  "tests": 83
+}

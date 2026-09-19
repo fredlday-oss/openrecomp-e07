@@ -1,0 +1,110 @@
+=== P6-90 Phase-6 Whole Regression Audit Gate ===
+
+--- source_integrity ---
+PASS: source:manifest-exists
+PASS: source:manifest-verified
+
+--- frozen_chain ---
+PASS: chain:phase5-tag-annotated
+PASS: chain:phase5-tag-object
+PASS: chain:phase5-commit
+PASS: chain:phase5-tree
+PASS: chain:phase4-tag-object
+PASS: chain:phase4-commit
+PASS: chain:phase4-tree
+PASS: chain:phase3-tag-object
+PASS: chain:phase3-commit
+PASS: chain:phase3-tree
+PASS: chain:phase2-commit
+PASS: chain:phase1-commit
+PASS: chain:descends
+
+--- frozen_manifests ---
+PASS: manifest:root
+PASS: manifest:phase3
+PASS: manifest:phase4-verified
+PASS: manifest:phase5-verified
+
+--- frozen_terminal_records ---
+PASS: record:p3-99
+PASS: record:p3-terminal
+PASS: record:p2-terminal-marker
+PASS: record:p4-99
+PASS: record:p4-terminal
+PASS: record:p5-99
+PASS: record:p5-terminal
+PASS: record:p5-official-capture
+PASS: record:phase5-terminal-marker
+
+--- phase1_host_gates ---
+PASS: phase1:exit
+PASS: phase1:marker
+PASS: phase1:counts
+PASS: phase1:source-integrity
+
+--- phase5_whole_regression_reconstruction ---
+PASS: p5-90:returncode
+PASS: p5-90:stderr-empty
+PASS: p5-90:stdout-bytes
+PASS: p5-90:stdout-official
+PASS: p5-90:tests-record
+PASS: p5-90:markers
+
+--- phase6_stage_gates ---
+PASS: gate:P6-00:exit
+PASS: gate:P6-00:stderr
+PASS: gate:P6-00:stdout-official
+PASS: gate:P6-01:exit
+PASS: gate:P6-01:stderr
+PASS: gate:P6-01:stdout-official
+PASS: gate:P6-02:exit
+PASS: gate:P6-02:stderr
+PASS: gate:P6-02:stdout-official
+PASS: gate:P6-03:exit
+PASS: gate:P6-03:stderr
+PASS: gate:P6-03:stdout-official
+PASS: gate:P6-04:exit
+PASS: gate:P6-04:stderr
+PASS: gate:P6-04:stdout-official
+PASS: gate:P6-05:exit
+PASS: gate:P6-05:stderr
+PASS: gate:P6-05:stdout-official
+PASS: gate:P6-06:exit
+PASS: gate:P6-06:stderr
+PASS: gate:P6-06:stdout-official
+PASS: gate:P6-07:exit
+PASS: gate:P6-07:stderr
+PASS: gate:P6-07:stdout-official
+PASS: gate:P6-08:exit
+PASS: gate:P6-08:stderr
+PASS: gate:P6-08:stdout-official
+PASS: gate:P6-09:exit
+PASS: gate:P6-09:stderr
+PASS: gate:P6-09:stdout-official
+PASS: gate:P6-10:exit
+PASS: gate:P6-10:stderr
+PASS: gate:P6-10:stdout-official
+PASS: gate:P6-11:exit
+PASS: gate:P6-11:stderr
+PASS: gate:P6-11:stdout-official
+PASS: gate:P6-12:exit
+PASS: gate:P6-12:stderr
+PASS: gate:P6-12:stdout-official
+PASS: gate:P6-13:exit
+PASS: gate:P6-13:stderr
+PASS: gate:P6-13:stdout-official
+
+--- frozen_restore ---
+PASS: restore:frozen-clean
+
+--- evidence_immutability ---
+PASS: immutability:no-tracked-evidence-modified
+
+--- evidence ---
+PASS: hygiene:no-private-rom-in-evidence
+
+=== RESULT ===
+OPENRECOMP_P6_90=PASS
+OPENRECOMP_PHASE6_WHOLE_REGRESSION_V1=PASS tests=83
+OPENRECOMP_PHASE6_MMC1_PLATFORM_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE6_GENERAL_NES_COMPATIBILITY=NOT_PROVEN

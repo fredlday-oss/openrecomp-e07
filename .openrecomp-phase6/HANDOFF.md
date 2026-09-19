@@ -498,6 +498,36 @@ markers reserved as `NOT_PROVEN`.
   `c9e815d6...` in both runs.
 - Evidence: `.openrecomp-phase6/evidence/P6-13/`.
 
+## P6-90 outcome (PASS)
+
+Markers: `OPENRECOMP_P6_90=PASS`,
+`OPENRECOMP_PHASE6_WHOLE_REGRESSION_V1=PASS tests=83`; terminal and general
+markers reserved as `NOT_PROVEN`.
+
+- New gate (`tools/test_phase6_whole_regression_v1.py`): re-verifies the
+  frozen Phase-1..5 boundaries, manifests and terminal records; re-runs the
+  Phase-1 host gates; re-runs the frozen Phase-5 whole regression (P5-90) in
+  its deterministic pre-P5-90 reconstructed context with byte-identical
+  official stdout; and re-runs every Phase-6 stage gate P6-00 .. P6-13 with
+  byte-identical official stdout, empty stderr and exit 0.
+- Frozen chain confirmed: P5 tag object `b5d6832b...` -> commit `e8d3627a...`
+  -> tree `468fb978...`; P4/P3/P2/P1 boundaries and root/Phase-3/Phase-4/
+  Phase-5/Phase-6 manifests verified; P3-99/P4-99/P5-99 records and terminal
+  markers PASS with P5-99 stdout capture `bc1f1e97...` (2971 bytes, tests=87).
+- Re-executed: Phase-1 host gates (`PASS=44 FAIL=0 SKIPPED=2`); Phase-5 whole
+  regression in reconstruction at `ee6a98af45...` (P5-00..P5-12 byte-identical,
+  stdout `e487dbc0...`, tests `431d4e5a...`; the P4-99 final verdict gate is
+  re-executed through P5-00); all 14 Phase-6 stage gates reproduced their
+  official captures byte-for-byte (P6-00 3201 B .. P6-13 3261 B).
+- Evidence immutability clean; no frozen sidecars refreshed; no ROM bytes in
+  evidence; Phase-2/Phase-3 stage-gate coverage boundary documented in the
+  RESULT (frozen records and re-executed verdict chains; no frozen file
+  changed).
+- Two official runs byte-identical raw (`120d0028...`, 2836 bytes) and LF
+  (`a693d703...`), empty stderr, exit 0; `p6_90_tests.json` sha256
+  `930f6ec5...` in both runs.
+- Evidence: `.openrecomp-phase6/evidence/P6-90/`.
+
 ## Exact next action
 
-Proceed to P6-90 - Whole regression.
+Proceed to P6-91 - Evidence index and compatibility matrix.
