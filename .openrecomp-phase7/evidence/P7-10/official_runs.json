@@ -1,0 +1,60 @@
+{
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "command": [
+        "python",
+        "tools/test_phase7_reference_equivalence_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase7/evidence/P7-10"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P7_10=",
+        "OPENRECOMP_PHASE7_REFERENCE_EQUIVALENCE_V1=",
+        "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=",
+        "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=",
+        "OPENRECOMP_PHASE7_TMMT_PLAYABILITY="
+      ],
+      "name": "run1",
+      "p7_10_tests_sha256": "94c484c0cd91569f3428be918b9df95804f883e6eb20b9ec165d5d97dab8c0d1",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1693,
+      "stdout_bytes_lf": 1632,
+      "stdout_sha256_lf": "fa724d622bec7ff97bb221d5108d1e312182e384d49747e2114f8429d17e950b",
+      "stdout_sha256_raw": "72ac30cbd57bedf1b883c09a3ded1831fe8975609da003a7ed1062d527d7c47c"
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_phase7_reference_equivalence_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase7/evidence/P7-10"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P7_10=",
+        "OPENRECOMP_PHASE7_REFERENCE_EQUIVALENCE_V1=",
+        "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=",
+        "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=",
+        "OPENRECOMP_PHASE7_TMMT_PLAYABILITY="
+      ],
+      "name": "run2",
+      "p7_10_tests_sha256": "94c484c0cd91569f3428be918b9df95804f883e6eb20b9ec165d5d97dab8c0d1",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1693,
+      "stdout_bytes_lf": 1632,
+      "stdout_sha256_lf": "fa724d622bec7ff97bb221d5108d1e312182e384d49747e2114f8429d17e950b",
+      "stdout_sha256_raw": "72ac30cbd57bedf1b883c09a3ded1831fe8975609da003a7ed1062d527d7c47c"
+    }
+  ],
+  "stage": "P7-10",
+  "stderr_empty_both": true
+}

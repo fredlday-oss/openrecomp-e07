@@ -319,11 +319,31 @@ general and playability markers reserved as `NOT_PROVEN`.
   `d84bc50e...`.
 - Evidence: `.openrecomp-phase7/evidence/P7-09/`.
 
+## P7-10 outcome (PASS)
+
+Marker: `OPENRECOMP_PHASE7_REFERENCE_EQUIVALENCE_V1=PASS tests=35`; terminal,
+general and playability markers reserved as `NOT_PROVEN`.
+
+- The P7 reference driver now reproduces the full native observable field
+  recipe (digests, frames, NMI, transcripts) and was extended with live
+  window syncing earlier.
+- Exact and finite paths: every native field equals the reference field
+  (CPU, RAM, PPU, mapper, controller, interrupts, exit word, frames,
+  indirect/service transcripts); the only excluded observable is `clock`
+  with an exact -2 per executed resolved indirect site (dispatch
+  specialization; cycle accuracy out of scope).
+- Unresolved path: documented policy divergence - native fails closed at
+  `$8030`, reference executes and reaches `$C200`.
+- Two official runs byte-identical raw (`72ac30cb...`, 1693 bytes) and LF
+  (`fa724d62...`), empty stderr, exit 0; `p7_10_tests.json` sha256
+  `94c484c0...`.
+- Evidence: `.openrecomp-phase7/evidence/P7-10/`.
+
 ## Exact next action
 
-Start P7-10 (independent reference equivalence): compare the generated native
-execution against the independently structured reference for the public
-fixture variants over CPU state, RAM, mapper/bank state, PPU state where
-relevant, controller transcript, interrupt counts, indirect-control-flow
-transcript, translation/service transcript and bounded final state, requiring
-exact bounded equivalence. Do not push.
+Start P7-11 (private TMNT frontier run with Phase-7 support): re-run the
+private image through the P7 bank-aware frontier and indirect-evidence
+machinery, record only hashes/metadata/derived evidence, and determine
+whether the `0xC570` blocker disappears, the three `$E2` sites resolve, the
+reachable bank-window frontier expands, translation completes or native
+execution is reached. Do not push.

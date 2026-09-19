@@ -1,0 +1,253 @@
+{
+  "claim": "exact bounded equivalence for the proven public paths; the unresolved path diverges by design (native fails closed)",
+  "equivalence_scope": [
+    "CPU state",
+    "RAM",
+    "PPU state",
+    "mapper/bank state",
+    "controller transcript",
+    "interrupt counts",
+    "indirect-control-flow transcript",
+    "translation/service transcript",
+    "bounded final state"
+  ],
+  "excluded_observable": {
+    "clock": "dispatch specialization reduces the emitted cost by 2 cycles per executed resolved indirect site; cycle accuracy is explicitly out of scope"
+  },
+  "fixture": {
+    "exit_site": 49669,
+    "rom_sha256": "1c9ad6582576a5c7c12a27b8a0077257c7c414142cd81ffdc92cb4a8ff1c9248",
+    "sites": [
+      32787,
+      32805,
+      32816
+    ]
+  },
+  "public_claim": "original Apache-2.0 public fixture for the bounded indirect-control-flow resolution proof only",
+  "stage": "P7-10",
+  "variants": {
+    "exact": {
+      "build_classification": "EXECUTABLE_REPRODUCIBLE",
+      "clock_delta": -2,
+      "excluded_from_equality": [
+        "clock"
+      ],
+      "executable_sha256": "23679fb850d427951dc4f685b5322ccc9de3c4f50df5cd18fa97f2a2b83426ab",
+      "frames": [
+        "frame[0]=00,C42A06F7E7A28E25,39E9FBAE5A7B29A5"
+      ],
+      "indirect_transcript": [
+        {
+          "pointer": 32819,
+          "site": 32787,
+          "target": 32819
+        }
+      ],
+      "native_fields": {
+        "a": "0xF0",
+        "chr_mode": "0",
+        "clock": "108",
+        "error": "",
+        "exit": "1",
+        "exit_arg": "0x0000C205",
+        "exit_word": "0000000000000000",
+        "failed": "0",
+        "frames": "1",
+        "mirroring": "0",
+        "mmc1_count": "0",
+        "mmc1_regs": "0C000001",
+        "mmc1_shift": "0",
+        "mmc1_writes": "5",
+        "nmi": "0",
+        "p": "0xA4",
+        "pc": "0xC205",
+        "ppu_fnv1a64": "0x39E9FBAE5A7B29A5",
+        "prg_ram_enabled": "0",
+        "prg_window_8000": "1",
+        "prg_window_c000": "3",
+        "ram_fnv1a64": "0xAA5AB26EB40CAD39",
+        "sp": "0xFD",
+        "state_fnv1a64": "0x9F99C6AE48D9D1FD",
+        "steps": "38",
+        "x": "0xFF",
+        "y": "0x00"
+      },
+      "reference_fields": {
+        "a": "0xF0",
+        "chr_mode": "0",
+        "clock": "110",
+        "error": "",
+        "exit": "1",
+        "exit_arg": "0x0000C205",
+        "failed": "0",
+        "frames": "1",
+        "mirroring": "0",
+        "mmc1_count": "0",
+        "mmc1_regs": "0C000001",
+        "mmc1_shift": "0",
+        "mmc1_writes": "5",
+        "nmi": "0",
+        "p": "0xA4",
+        "pc": "0xC205",
+        "ppu_fnv1a64": "0x39E9FBAE5A7B29A5",
+        "prg_ram_enabled": "0",
+        "prg_window_8000": "1",
+        "prg_window_c000": "3",
+        "ram_fnv1a64": "0xAA5AB26EB40CAD39",
+        "sp": "0xFD",
+        "state_fnv1a64": "0x9F99C6AE48D9D1FD",
+        "steps": "38",
+        "x": "0xFF",
+        "y": "0x00"
+      },
+      "selector": 0,
+      "timing_note": "a resolved jmp ($E2) is emitted as a direct jump; -2 cycles per executed resolved site (cycle accuracy is out of scope)"
+    },
+    "finite": {
+      "build_classification": "EXECUTABLE_REPRODUCIBLE",
+      "clock_delta": -2,
+      "excluded_from_equality": [
+        "clock"
+      ],
+      "executable_sha256": "7da08a48b96394acb0c569c5c71142225c5fb6e0fa6c74b802978dae49405e77",
+      "frames": [
+        "frame[0]=00,C42A06F7E7A28E25,39E9FBAE5A7B29A5"
+      ],
+      "indirect_transcript": [
+        {
+          "pointer": 33040,
+          "site": 32805,
+          "target": 33040
+        }
+      ],
+      "native_fields": {
+        "a": "0xF0",
+        "chr_mode": "0",
+        "clock": "123",
+        "error": "",
+        "exit": "1",
+        "exit_arg": "0x0000C205",
+        "exit_word": "0000000000000000",
+        "failed": "0",
+        "frames": "1",
+        "mirroring": "0",
+        "mmc1_count": "0",
+        "mmc1_regs": "0C000001",
+        "mmc1_shift": "0",
+        "mmc1_writes": "5",
+        "nmi": "0",
+        "p": "0xA5",
+        "pc": "0xC205",
+        "ppu_fnv1a64": "0x39E9FBAE5A7B29A5",
+        "prg_ram_enabled": "0",
+        "prg_window_8000": "1",
+        "prg_window_c000": "3",
+        "ram_fnv1a64": "0x7F6B5F2544B66B7F",
+        "sp": "0xFD",
+        "state_fnv1a64": "0xB9A21356FD7EF677",
+        "steps": "43",
+        "x": "0xFF",
+        "y": "0x02"
+      },
+      "reference_fields": {
+        "a": "0xF0",
+        "chr_mode": "0",
+        "clock": "125",
+        "error": "",
+        "exit": "1",
+        "exit_arg": "0x0000C205",
+        "failed": "0",
+        "frames": "1",
+        "mirroring": "0",
+        "mmc1_count": "0",
+        "mmc1_regs": "0C000001",
+        "mmc1_shift": "0",
+        "mmc1_writes": "5",
+        "nmi": "0",
+        "p": "0xA5",
+        "pc": "0xC205",
+        "ppu_fnv1a64": "0x39E9FBAE5A7B29A5",
+        "prg_ram_enabled": "0",
+        "prg_window_8000": "1",
+        "prg_window_c000": "3",
+        "ram_fnv1a64": "0x7F6B5F2544B66B7F",
+        "sp": "0xFD",
+        "state_fnv1a64": "0xB9A21356FD7EF677",
+        "steps": "43",
+        "x": "0xFF",
+        "y": "0x02"
+      },
+      "selector": 1,
+      "timing_note": "a resolved jmp ($E2) is emitted as a direct jump; -2 cycles per executed resolved site (cycle accuracy is out of scope)"
+    },
+    "unresolved": {
+      "build_classification": "EXECUTABLE_REPRODUCIBLE",
+      "indirect_transcript": [
+        {
+          "pointer": 49664,
+          "site": 32816,
+          "target": 49664
+        }
+      ],
+      "native_fields": {
+        "a": "0xC2",
+        "chr_mode": "0",
+        "clock": "88",
+        "error": "pc outside the emitted image",
+        "exit": "0",
+        "exit_arg": "0x00000000",
+        "exit_word": "0000000000000000",
+        "failed": "1",
+        "frames": "1",
+        "mirroring": "0",
+        "mmc1_count": "0",
+        "mmc1_regs": "0C000001",
+        "mmc1_shift": "0",
+        "mmc1_writes": "5",
+        "nmi": "0",
+        "p": "0xA5",
+        "pc": "0x8030",
+        "ppu_fnv1a64": "0x39E9FBAE5A7B29A5",
+        "prg_ram_enabled": "0",
+        "prg_window_8000": "1",
+        "prg_window_c000": "3",
+        "ram_fnv1a64": "0x926BF9A6800E99ED",
+        "sp": "0xFD",
+        "state_fnv1a64": "0xDC477A5ECD19B3B2",
+        "steps": "33",
+        "x": "0xFF",
+        "y": "0x00"
+      },
+      "policy": "native emits no host case for the unresolved site and fails closed at 0x8030; the reference executes it and reaches the runtime target $C200",
+      "reference_fields": {
+        "a": "0xF0",
+        "chr_mode": "0",
+        "clock": "104",
+        "error": "",
+        "exit": "1",
+        "exit_arg": "0x0000C205",
+        "failed": "0",
+        "frames": "1",
+        "mirroring": "0",
+        "mmc1_count": "0",
+        "mmc1_regs": "0C000001",
+        "mmc1_shift": "0",
+        "mmc1_writes": "5",
+        "nmi": "0",
+        "p": "0xA5",
+        "pc": "0xC205",
+        "ppu_fnv1a64": "0x39E9FBAE5A7B29A5",
+        "prg_ram_enabled": "0",
+        "prg_window_8000": "1",
+        "prg_window_c000": "3",
+        "ram_fnv1a64": "0x2985E44C4627527D",
+        "sp": "0xFD",
+        "state_fnv1a64": "0xC6328419232F53B0",
+        "steps": "36",
+        "x": "0xFF",
+        "y": "0x00"
+      },
+      "selector": 2
+    }
+  }
+}
