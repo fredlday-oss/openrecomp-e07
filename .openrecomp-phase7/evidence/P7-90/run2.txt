@@ -1,0 +1,94 @@
+=== P7-90 Whole Regression Gate ===
+
+--- source_integrity ---
+PASS: source:phase7-manifest-verified
+PASS: source:root-manifest
+PASS: source:phase3-manifest
+PASS: source:phase4-manifest-verified
+PASS: source:phase5-manifest-verified
+PASS: source:phase6-manifest-verified
+PASS: source:p6-99-record
+
+--- frozen_chain ---
+PASS: chain:phase5
+PASS: chain:phase4
+PASS: chain:phase3
+PASS: chain:phase2-phase1
+PASS: chain:phase6
+PASS: chain:phase7-descends
+
+--- phase1_host_gates ---
+PASS: phase1:exit
+PASS: phase1:stderr
+PASS: phase1:stdout-hash
+
+--- phase6_whole_regression ---
+PASS: p6-90:exists:p6_90_tests.json
+PASS: p6-90:exists:official_runs.json
+PASS: p6-90:exists:whole_regression.json
+PASS: p6-90:record-pass
+PASS: p6-90:official-capture
+PASS: p6-90:stage-gates
+PASS: p6-90:phase5-regression
+PASS: p6-90:p6-99-chain
+PASS: phase6:record
+
+--- phase7_stage_gates ---
+PASS: P7-00:exit
+PASS: P7-00:stderr
+PASS: P7-00:stdout-matches-official
+PASS: P7-01:exit
+PASS: P7-01:stderr
+PASS: P7-01:stdout-matches-official
+PASS: P7-02:exit
+PASS: P7-02:stderr
+PASS: P7-02:stdout-matches-official
+PASS: P7-03:exit
+PASS: P7-03:stderr
+PASS: P7-03:stdout-matches-official
+PASS: P7-04:exit
+PASS: P7-04:stderr
+PASS: P7-04:stdout-matches-official
+PASS: P7-05:exit
+PASS: P7-05:stderr
+PASS: P7-05:stdout-matches-official
+PASS: P7-06:exit
+PASS: P7-06:stderr
+PASS: P7-06:stdout-matches-official
+PASS: P7-07:exit
+PASS: P7-07:stderr
+PASS: P7-07:stdout-matches-official
+PASS: P7-08:exit
+PASS: P7-08:stderr
+PASS: P7-08:stdout-matches-official
+PASS: P7-09:exit
+PASS: P7-09:stderr
+PASS: P7-09:stdout-matches-official
+PASS: P7-10:exit
+PASS: P7-10:stderr
+PASS: P7-10:stdout-matches-official
+PASS: P7-11:exit
+PASS: P7-11:stderr
+PASS: P7-11:stdout-matches-official
+PASS: P7-12:exit
+PASS: P7-12:stderr
+PASS: P7-12:stdout-matches-official
+PASS: P7-13:exit
+PASS: P7-13:stderr
+PASS: P7-13:stdout-matches-official
+PASS: P7-14:exit
+PASS: P7-14:stderr
+PASS: P7-14:stdout-matches-official
+PASS: phase7:all-gates-ran
+
+--- final_markers ---
+PASS: markers:phase7-90
+
+--- evidence ---
+
+=== RESULT ===
+OPENRECOMP_P7_90=PASS
+OPENRECOMP_PHASE7_WHOLE_REGRESSION_V1=PASS tests=72
+OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
+OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN
