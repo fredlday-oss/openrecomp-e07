@@ -1,0 +1,60 @@
+{
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "command": [
+        "python",
+        "tools/test_phase7_private_frontier_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase7/evidence/P7-11"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P7_11=",
+        "OPENRECOMP_PHASE7_PRIVATE_FRONTIER_RUN_V1=",
+        "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=",
+        "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=",
+        "OPENRECOMP_PHASE7_TMMT_PLAYABILITY="
+      ],
+      "name": "run1",
+      "p7_11_tests_sha256": "ba137a655a5cc069d6584b590a685517eca06722755ea56ef529543a72f37ce5",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1255,
+      "stdout_bytes_lf": 1211,
+      "stdout_sha256_lf": "dff3c3c6fc2c1d8c76b30d8c56f0b3451861b765021b76e81332595f365137e6",
+      "stdout_sha256_raw": "5595d97801aeb230b2e74137e053a3a4330eb0cd6ed46aa3a934ae65d1f5483e"
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_phase7_private_frontier_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase7/evidence/P7-11"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P7_11=",
+        "OPENRECOMP_PHASE7_PRIVATE_FRONTIER_RUN_V1=",
+        "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=",
+        "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=",
+        "OPENRECOMP_PHASE7_TMMT_PLAYABILITY="
+      ],
+      "name": "run2",
+      "p7_11_tests_sha256": "ba137a655a5cc069d6584b590a685517eca06722755ea56ef529543a72f37ce5",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1255,
+      "stdout_bytes_lf": 1211,
+      "stdout_sha256_lf": "dff3c3c6fc2c1d8c76b30d8c56f0b3451861b765021b76e81332595f365137e6",
+      "stdout_sha256_raw": "5595d97801aeb230b2e74137e053a3a4330eb0cd6ed46aa3a934ae65d1f5483e"
+    }
+  ],
+  "stage": "P7-11",
+  "stderr_empty_both": true
+}

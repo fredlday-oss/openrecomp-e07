@@ -1,0 +1,347 @@
+{
+  "blockers": [
+    {
+      "code": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+      "detail": "classified data table at 0xC570 not yet skipped: needs the evidence-backed closure rule",
+      "stage": "frontier"
+    },
+    {
+      "code": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+      "detail": "14027 unresolved candidate identities across banks remain (bounded expansion)",
+      "stage": "bank_state"
+    },
+    {
+      "code": "NOT_TESTED",
+      "detail": "platform behaviour remains untestable until a complete proven translation exists",
+      "stage": "runtime_platform"
+    }
+  ],
+  "classification": "PRIVATE_LOCAL_COMPATIBILITY_FIXTURE",
+  "classification_0xc570": {
+    "classification": "DATA_NOT_CODE",
+    "code_resume": {
+      "address": 50556,
+      "first_op": "lda",
+      "nested_table": {
+        "all_targets_decode": true,
+        "all_targets_in_code_window": true,
+        "base": 50561,
+        "byte_length": 8,
+        "entries": 4,
+        "entry_detail": [
+          {
+            "first_op": "lda",
+            "index": 0,
+            "table_offset": 50561,
+            "target": 50569
+          },
+          {
+            "first_op": "lda",
+            "index": 1,
+            "table_offset": 50563,
+            "target": 50612
+          },
+          {
+            "first_op": "jsr",
+            "index": 2,
+            "table_offset": 50565,
+            "target": 50686
+          },
+          {
+            "first_op": "lda",
+            "index": 3,
+            "table_offset": 50567,
+            "target": 50732
+          }
+        ],
+        "resume_address": 50569,
+        "targets": [
+          50569,
+          50612,
+          50686,
+          50732
+        ]
+      },
+      "second_address": 50558,
+      "second_op": "jsr",
+      "second_target": 50975
+    },
+    "inline_table": {
+      "all_targets_decode": true,
+      "all_targets_in_code_window": true,
+      "base": 50544,
+      "byte_length": 12,
+      "entries": 6,
+      "entry_detail": [
+        {
+          "first_op": "lda",
+          "index": 0,
+          "table_offset": 50544,
+          "target": 50556
+        },
+        {
+          "first_op": "ldx",
+          "index": 1,
+          "table_offset": 50546,
+          "target": 50756
+        },
+        {
+          "first_op": "jsr",
+          "index": 2,
+          "table_offset": 50548,
+          "target": 50809
+        },
+        {
+          "first_op": "lda",
+          "index": 3,
+          "table_offset": 50550,
+          "target": 50822
+        },
+        {
+          "first_op": "lda",
+          "index": 4,
+          "table_offset": 50552,
+          "target": 52004
+        },
+        {
+          "first_op": "jmp",
+          "index": 5,
+          "table_offset": 50554,
+          "target": 50870
+        }
+      ],
+      "resume_address": 50556,
+      "targets": [
+        50556,
+        50756,
+        50809,
+        50822,
+        52004,
+        50870
+      ]
+    },
+    "semantics_added": false
+  },
+  "deltas": {
+    "bank_window_frontier": {
+      "delta": "EXPANDED",
+      "p6_candidate_instructions": 1250,
+      "p6_low_window_instructions": 1048,
+      "p7_banks": 8,
+      "p7_proven_instructions": 530,
+      "p7_unresolved_instructions": 14027,
+      "p7_unresolved_limited": true
+    },
+    "c570_blocker": {
+      "closure_applied": false,
+      "note": "the frontier walk still stops at the classified data table; the evidence-backed closure rule is left to P7-12",
+      "p6_status": "BLOCKED_UNSUPPORTED_OPCODE",
+      "p7_classification": "DATA_NOT_CODE",
+      "p7_status": "PERSISTS_CLASSIFIED_AS_DATA_NOT_CODE",
+      "resume_address": 50556,
+      "table_byte_length": 12,
+      "table_entries": 6
+    },
+    "e2_sites": {
+      "note": "each site now carries an explicit proven value-source chain and a finite feasible target set",
+      "p6_status": "UNRESOLVED_INDIRECT_JUMP",
+      "p7_status": "ALL_RESOLVED_FINITE_SET",
+      "sites": [
+        {
+          "bank_provenance": "PROVEN",
+          "candidate_banks": [
+            0
+          ],
+          "classification": "RESOLVED_FINITE_SET",
+          "evaluated_banks": [
+            0
+          ],
+          "feasible_target_count": 4,
+          "index_domain_size": 4,
+          "infeasible_count": 0,
+          "proven_banks": [
+            0
+          ],
+          "site": 34536
+        },
+        {
+          "bank_provenance": "UNRESOLVED",
+          "candidate_banks": [
+            0
+          ],
+          "classification": "RESOLVED_FINITE_SET",
+          "evaluated_banks": [
+            0
+          ],
+          "feasible_target_count": 4,
+          "index_domain_size": 4,
+          "infeasible_count": 0,
+          "proven_banks": [],
+          "site": 35158
+        },
+        {
+          "bank_provenance": "MODEL_UNREACHED",
+          "candidate_banks": [],
+          "classification": "RESOLVED_FINITE_SET",
+          "evaluated_banks": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "feasible_target_count": 300,
+          "index_domain_size": 128,
+          "infeasible_count": 442,
+          "proven_banks": [],
+          "site": 36668
+        }
+      ]
+    },
+    "native_build": {
+      "status": "NOT_ATTEMPTED"
+    },
+    "native_execution": {
+      "status": "NOT_ATTEMPTED"
+    },
+    "translation": {
+      "reason": "the proven frontier is incomplete (classified data table not skipped, unresolved bank candidates remain)",
+      "status": "NOT_ATTEMPTED"
+    }
+  },
+  "image_sha256": "2a9345e608ec0c57470dc6658ce8199ddea9c18076134d9ef2a56f91b0a066d1",
+  "image_size": 262160,
+  "indirect_evidence": {
+    "counts": {
+      "RESOLVED_FINITE_SET": 3
+    },
+    "sites": [
+      {
+        "bank_provenance": "PROVEN",
+        "candidate_banks": [
+          0
+        ],
+        "classification": "RESOLVED_FINITE_SET",
+        "evaluated_banks": [
+          0
+        ],
+        "feasible_target_count": 4,
+        "index_domain_size": 4,
+        "infeasible_count": 0,
+        "proven_banks": [
+          0
+        ],
+        "site": 34536
+      },
+      {
+        "bank_provenance": "UNRESOLVED",
+        "candidate_banks": [
+          0
+        ],
+        "classification": "RESOLVED_FINITE_SET",
+        "evaluated_banks": [
+          0
+        ],
+        "feasible_target_count": 4,
+        "index_domain_size": 4,
+        "infeasible_count": 0,
+        "proven_banks": [],
+        "site": 35158
+      },
+      {
+        "bank_provenance": "MODEL_UNREACHED",
+        "candidate_banks": [],
+        "classification": "RESOLVED_FINITE_SET",
+        "evaluated_banks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "feasible_target_count": 300,
+        "index_domain_size": 128,
+        "infeasible_count": 442,
+        "proven_banks": [],
+        "site": 36668
+      }
+    ]
+  },
+  "p6_frontier": {
+    "candidate_instructions": 1250,
+    "indirect_sites": [
+      34536,
+      35158,
+      36668
+    ],
+    "low_window_instructions": 1048,
+    "stop_address": 50544,
+    "stop_reason": "0xc570: undocumented 6502 opcode 0x7c"
+  },
+  "p6_pipeline_native_build_status": "NOT_ATTEMPTED",
+  "p6_pipeline_translation_status": "NOT_ATTEMPTED",
+  "p7_bank_frontier": {
+    "code_by_bank": [
+      {
+        "bank": 0,
+        "proven": 428,
+        "unresolved": 1897
+      },
+      {
+        "bank": 1,
+        "proven": 0,
+        "unresolved": 1641
+      },
+      {
+        "bank": 2,
+        "proven": 0,
+        "unresolved": 1706
+      },
+      {
+        "bank": 3,
+        "proven": 0,
+        "unresolved": 1578
+      },
+      {
+        "bank": 4,
+        "proven": 0,
+        "unresolved": 1603
+      },
+      {
+        "bank": 5,
+        "proven": 0,
+        "unresolved": 1899
+      },
+      {
+        "bank": 6,
+        "proven": 0,
+        "unresolved": 1670
+      },
+      {
+        "bank": 7,
+        "proven": 102,
+        "unresolved": 2033
+      }
+    ],
+    "nodes_visited": 20718,
+    "proven_instructions": 530,
+    "status": "BLOCKED_UNDECODABLE",
+    "stop": {
+      "address": 50544,
+      "bank": 7,
+      "reason": "NES6502Error: 0xc570: undocumented 6502 opcode 0x7c"
+    },
+    "unresolved_instructions": 14027,
+    "unresolved_limited": true
+  },
+  "prg_banks": 8,
+  "public_claim": "none; private local analysis must not enter the public package",
+  "source_path": "D:\\OpenRecomp\\Roms\\phase1\\nes\\primary\\tmnt.nes",
+  "stage": "P7-11"
+}

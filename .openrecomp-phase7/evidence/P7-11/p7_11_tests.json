@@ -1,0 +1,253 @@
+{
+  "checks": [
+    {
+      "check": "anchor:decoder-unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:p7-10-record-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "anchor:private-image",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:compat-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:playability-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:stage-row",
+      "status": "PASS"
+    },
+    {
+      "check": "control-plane:terminal-reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-private-rom-bytes:private_frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "hygiene:no-rom-extension-in-scratch",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bank-frontier",
+      "status": "PASS"
+    },
+    {
+      "check": "private:blockers",
+      "status": "PASS"
+    },
+    {
+      "check": "private:data-classification",
+      "status": "PASS"
+    },
+    {
+      "check": "private:delta-record",
+      "status": "PASS"
+    },
+    {
+      "check": "private:deterministic",
+      "status": "PASS"
+    },
+    {
+      "check": "private:e2-resolved",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity",
+      "status": "PASS"
+    },
+    {
+      "check": "private:no-rom-bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "private:p6-anchor",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-06:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-06:marker",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p7-06:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:exit",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_nes_rom_v1.py:stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest-verified",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "findings": {
+    "deltas": {
+      "bank_window_frontier": {
+        "delta": "EXPANDED",
+        "p6_candidate_instructions": 1250,
+        "p6_low_window_instructions": 1048,
+        "p7_banks": 8,
+        "p7_proven_instructions": 530,
+        "p7_unresolved_instructions": 14027,
+        "p7_unresolved_limited": true
+      },
+      "c570_blocker": {
+        "closure_applied": false,
+        "note": "the frontier walk still stops at the classified data table; the evidence-backed closure rule is left to P7-12",
+        "p6_status": "BLOCKED_UNSUPPORTED_OPCODE",
+        "p7_classification": "DATA_NOT_CODE",
+        "p7_status": "PERSISTS_CLASSIFIED_AS_DATA_NOT_CODE",
+        "resume_address": 50556,
+        "table_byte_length": 12,
+        "table_entries": 6
+      },
+      "e2_sites": {
+        "note": "each site now carries an explicit proven value-source chain and a finite feasible target set",
+        "p6_status": "UNRESOLVED_INDIRECT_JUMP",
+        "p7_status": "ALL_RESOLVED_FINITE_SET",
+        "sites": [
+          {
+            "bank_provenance": "PROVEN",
+            "candidate_banks": [
+              0
+            ],
+            "classification": "RESOLVED_FINITE_SET",
+            "evaluated_banks": [
+              0
+            ],
+            "feasible_target_count": 4,
+            "index_domain_size": 4,
+            "infeasible_count": 0,
+            "proven_banks": [
+              0
+            ],
+            "site": 34536
+          },
+          {
+            "bank_provenance": "UNRESOLVED",
+            "candidate_banks": [
+              0
+            ],
+            "classification": "RESOLVED_FINITE_SET",
+            "evaluated_banks": [
+              0
+            ],
+            "feasible_target_count": 4,
+            "index_domain_size": 4,
+            "infeasible_count": 0,
+            "proven_banks": [],
+            "site": 35158
+          },
+          {
+            "bank_provenance": "MODEL_UNREACHED",
+            "candidate_banks": [],
+            "classification": "RESOLVED_FINITE_SET",
+            "evaluated_banks": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "feasible_target_count": 300,
+            "index_domain_size": 128,
+            "infeasible_count": 442,
+            "proven_banks": [],
+            "site": 36668
+          }
+        ]
+      },
+      "native_build": {
+        "status": "NOT_ATTEMPTED"
+      },
+      "native_execution": {
+        "status": "NOT_ATTEMPTED"
+      },
+      "translation": {
+        "reason": "the proven frontier is incomplete (classified data table not skipped, unresolved bank candidates remain)",
+        "status": "NOT_ATTEMPTED"
+      }
+    },
+    "frontier": {
+      "proven": 530,
+      "sites": {
+        "RESOLVED_FINITE_SET": 3
+      },
+      "unresolved": 14027
+    },
+    "regressions": [
+      {
+        "command": [
+          "python",
+          "tools/test_nes_rom_v1.py"
+        ],
+        "markers": [
+          "OPENRECOMP_NES_ROM_V1=PASS tests=12"
+        ],
+        "returncode": 0,
+        "script": "tools/test_nes_rom_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 959,
+        "stdout_sha256_lf": "d4276e830fdb5fcc9e0a74ce6b6d60371fa4117473142b22562a7c6a5938a88a",
+        "stdout_sha256_raw": "5c18053d34ba8043d195caa866d4a3ed32dcd2508f9e5f282f9c6821902f84bd"
+      },
+      {
+        "command": [
+          "python",
+          "tools/test_phase7_indirect_evidence_v1.py",
+          "--evidence-dir",
+          ".openrecomp-phase7/scratch/P7-11/regression_p7_06"
+        ],
+        "markers": [
+          "OPENRECOMP_P7_06=PASS",
+          "OPENRECOMP_PHASE7_INDIRECT_MODEL_V1=PASS tests=51",
+          "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN",
+          "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+          "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN"
+        ],
+        "returncode": 0,
+        "script": "tools/test_phase7_indirect_evidence_v1.py",
+        "stderr_bytes": 0,
+        "stderr_empty": true,
+        "stdout_bytes": 2170,
+        "stdout_sha256_lf": "d8fc208e2d1fb1514cdf5947d5423fc0fc0ae9ca92758f2258bf8770753d2a16",
+        "stdout_sha256_raw": "2e407ded7e3e015beb00f45762399c0de6de168c5267d93b0770f3d59c3781e7"
+      }
+    ]
+  },
+  "markers": {
+    "compatibility": "OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN",
+    "gate": "OPENRECOMP_PHASE7_PRIVATE_FRONTIER_RUN_V1=PASS tests=24",
+    "playability": "OPENRECOMP_PHASE7_TMMT_PLAYABILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P7_11=PASS",
+    "terminal": "OPENRECOMP_PHASE7_TRANSLATION_FRONTIER_PROOF=NOT_PROVEN"
+  },
+  "passed": 24,
+  "stage": "P7-11",
+  "stage_name": "OPENRECOMP_PHASE7_PRIVATE_FRONTIER_RUN_V1",
+  "status": "PASS",
+  "tests": 24
+}
