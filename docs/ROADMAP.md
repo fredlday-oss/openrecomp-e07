@@ -91,13 +91,13 @@ Completed evidence includes:
 - bounded variant/PRG-RAM handling with fail-closed unsupported cases;
 - generated native execution and independent MMC1 reference equivalence;
 - a deterministic ROM-to-native workflow that classifies unsupported container/mapper/variant/opcode/control-flow/bank-state/toolchain cases explicitly;
-- private TMNT compatibility analysis with no ROM redistribution.
+- private commercial MMC1 compatibility analysis with no ROM redistribution.
 
-The private TMNT target is **not** claimed playable. MMC1 is no longer the blocker; the current private frontier is translation/control-flow related.
+The private commercial MMC1 compatibility fixture is **not** claimed playable. MMC1 is no longer the blocker; the current private frontier is translation/control-flow related.
 
 ## Phase 7 — NES translation/control-flow frontier — current
 
-Phase 7 focuses on the exact frontier exposed by the private TMNT compatibility run while keeping the public proof based on redistributable fixtures.
+Phase 7 focuses on the exact frontier exposed by the private commercial MMC1 compatibility run while keeping the public proof based on redistributable fixtures.
 
 Planned work includes:
 
@@ -106,10 +106,10 @@ Planned work includes:
 - bounded indirect-control-flow recovery for the three observed `jmp ($E2)` sites without guessing targets;
 - public fixtures for any newly supported semantics/control-flow mechanism;
 - generated native execution and independent-reference equivalence for the bounded Phase-7 public proof;
-- repeated private TMNT frontier runs to identify the next exact blocker;
+- repeated private commercial-fixture frontier runs to identify the next exact blocker;
 - extension of the reusable ROM-to-native workflow only for mechanisms actually proven by evidence.
 
-TMNT playability is not required for Phase-7 PASS and must remain unproven unless meaningful generated-native interactive execution is actually demonstrated.
+Commercial-fixture playability is not required for Phase-7 PASS and must remain unproven unless meaningful generated-native interactive execution is actually demonstrated.
 
 ## Phase 8 — return to MIPS32 end-to-end native recompilation — planned
 
