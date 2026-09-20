@@ -12,12 +12,12 @@ BASELINE_TAG_STATUS=ABSENT_RECONCILED
 BASELINE_TAG_RECONCILIATION=P7-99 records that the frozen Phase-6 control policy required and created no terminal tag; the authoritative Phase-6 terminal boundary is the P6-99 verdict commit 1643817d43196c43155805249137e4b4e4a21eb1, tree cda3f535be43dc6f3d4b457d11d356ae39ea34af. No tag is fabricated.
 PHASE7_V2_LINE=OUTSIDE_BASELINE
 CURRENT_STAGE=P8-99
-LAST_PASSED_STAGE=P8-91
-STATUS=ACTIVE
+LAST_PASSED_STAGE=P8-99
+STATUS=COMPLETE
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P8-01..P8-99
-FINAL_VERDICT=NOT_PROVEN
-OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN
+FINAL_VERDICT=PASS
+OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS
 OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN
 
 ## Baseline rule
@@ -85,7 +85,7 @@ Exact observed version strings are recorded in
 | P8-12 | Phase-8 evidence closure | PASS | .openrecomp-phase8/evidence/P8-12/ |
 | P8-90 | Whole-project regression | PASS | .openrecomp-phase8/evidence/P8-90/ |
 | P8-91 | Evidence index + proof matrix | PASS | .openrecomp-phase8/evidence/P8-91/ |
-| P8-99 | Final bounded verdict | QUEUED | - |
+| P8-99 | Final bounded verdict | PASS | `.openrecomp-phase8/evidence/P8-99/` |
 
 ## P8-00 acceptance criteria
 
@@ -415,7 +415,30 @@ BOUNDED/PASS (exercised ISA/ABI/memory/runtime behaviours) and NOT_PROVEN
 (general MIPS32, arbitrary ELF, broader ABI/OS/runtime claims); no committed
 Phase-8 material contains private identities, paths or binary artefacts.
 
-## Current boundary
+## P8-99 result (terminal)
 
-P8-00..P8-12, P8-90 and P8-91 are complete. The final bounded verdict (P8-99)
-is active; the terminal objective remains unproven until that audit passes.
+PASS. Gate `tools/test_phase8_final_verdict_v1.py` (92 checks, run twice,
+byte-identical stdout, empty stderr, exit 0). Evidence:
+`.openrecomp-phase8/evidence/P8-99/`. Markers issued:
+
+- `OPENRECOMP_P8_99=PASS`
+- `OPENRECOMP_PHASE8_FINAL_VERDICT_V1=PASS tests=92`
+- `OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS` (exact bounded
+  audited public fixture and behaviour only)
+- `OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN` (permanent)
+
+The audit verified the frozen Phase-7 baseline, every required Phase-8 stage
+record `P8-00`..`P8-12`, `P8-90`, `P8-91`, the exact public fixture
+provenance and toolchain identity, native/reference agreement with no
+excluded observables, the evidence index and claim ledger, the public-safety
+verification, and the general-compatibility scope guards.
+
+## Terminal state
+
+Phase 8 is COMPLETE for the exact bounded audited public claim:
+`OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS`.
+`OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN` is permanent:
+no general MIPS32, arbitrary-ELF, complete-ISA/o32-ABI, Linux/dynamic-linking,
+exception, arbitrary-indirect-flow, PS1/PS2/game/commercial, cycle-accuracy
+or cross-platform claim is made. The general final verdict remains
+`NOT_PROVEN`.

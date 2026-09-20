@@ -20,7 +20,7 @@ the P8-00 `PASS` boundary, effective before any P8-01 implementation work.
 | P8-12 | Phase-8 evidence closure | PASS | Re-run the bounded public MIPS32 path from clean inputs and verify fixture identity, analysis-cache correctness, generated-source identity, native result identity, reference equivalence, workflow reproducibility and source/manifests/evidence consistency. Record explicitly if zero implementation delta is needed |
 | P8-90 | Whole-project regression | PASS | Run the expensive historical frozen regression chain: verify Phase-1 through Phase-7 frozen behaviour plus all Phase-8 official gates. Do not optimize this gate at the expense of audit strength. Capture exact test/gate counts and deterministic evidence |
 | P8-91 | Evidence index + proof matrix | PASS | Build the final Phase-8 evidence index separating PROVEN (the exact public Phase-8 real-ELF bounded native path), BOUNDED/PASS (specific ISA/ABI/memory/runtime behaviours actually exercised) and NOT_PROVEN (general MIPS32 compatibility, arbitrary ELF compatibility, unsupported ISA families, broader ABI/OS/runtime claims). Verify no public evidence contains unauthorized/private binary material |
-| P8-99 | Final bounded verdict | QUEUED | Audit every Phase-8 stage; require all required stage records PASS, P8-90 and P8-91 PASS, exact frozen public fixture provenance, native/reference agreement and general-compatibility scope guards. Only then emit `OPENRECOMP_P8_99=PASS`, `OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS` and `OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN`. Otherwise emit `OPENRECOMP_P8_99=FAIL`, the terminal proof `NOT_PROVEN` and the general marker `NOT_PROVEN`. Do not soften a failed audit |
+| P8-99 | Final bounded verdict | PASS | Audit every Phase-8 stage; require all required stage records PASS, P8-90 and P8-91 PASS, exact frozen public fixture provenance, native/reference agreement and general-compatibility scope guards. Only then emit `OPENRECOMP_P8_99=PASS`, `OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS` and `OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN`. Otherwise emit `OPENRECOMP_P8_99=FAIL`, the terminal proof `NOT_PROVEN` and the general marker `NOT_PROVEN`. Do not soften a failed audit |
 
 ## Queue freeze
 
@@ -75,3 +75,19 @@ Frozen-queue rules:
   bounded fixture/behaviour; otherwise `OPENRECOMP_P8_99=FAIL`,
   `OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN`,
   `OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN`.
+
+## Terminal state
+
+- Issued at P8-99: `OPENRECOMP_P8_99=PASS` and
+  `OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS` for the exact
+  bounded audited public fixture (tiny-AES-c AES-128-ECB,
+  `0a90f477...`) and its audited behaviour only; see
+  `.openrecomp-phase8/evidence/P8-99/terminal_verdict.json`.
+- `OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN` is permanent:
+  no general MIPS32, arbitrary-ELF, complete-ISA/o32-ABI, Linux/dynamic
+  linking, exception, arbitrary-indirect-flow, PS1/PS2/game/commercial,
+  cycle-accuracy or cross-platform compatibility is claimed at any Phase-8
+  stage or by the terminal verdict.
+- Phase 8 is COMPLETE; no further stage is queued. Any future work starts a
+  new scoped effort and must not weaken the frozen Phase-1..Phase-7 evidence
+  or the Phase-8 evidence chain.

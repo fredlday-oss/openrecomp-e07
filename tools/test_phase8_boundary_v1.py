@@ -228,8 +228,19 @@ def main() -> int:
             check(f"control:file:{rel}", (ROOT / rel).is_file(), rel)
 
         state = (P8 / "STATE.md").read_text(encoding="utf-8")
-        for marker in (TERMINAL_MARKER, GENERAL_MARKER):
-            check(f"state:marker:{marker.split('=')[0]}", marker in state, marker)
+        terminal_name = TERMINAL_MARKER.split("=")[0]
+        terminal_reserved = f"{terminal_name}=NOT_PROVEN" in state
+        terminal_promoted = (
+            f"{terminal_name}=PASS" in state
+            and "FINAL_VERDICT=PASS" in state
+            and "STATUS=COMPLETE" in state
+        )
+        check(
+            f"state:marker:{terminal_name}",
+            terminal_reserved or terminal_promoted,
+            "reserved or consistently promoted",
+        )
+        check(f"state:marker:{GENERAL_MARKER.split('=')[0]}", GENERAL_MARKER in state, GENERAL_MARKER)
         check("state:baseline-tag-object", f"BASELINE_TAG_OBJECT={BASELINE_TAG_OBJECT}" in state, BASELINE_TAG_OBJECT)
         check("state:baseline-commit", f"BASELINE_COMMIT={BASELINE_COMMIT}" in state, BASELINE_COMMIT)
         check("state:baseline-tree", f"BASELINE_TREE={BASELINE_TREE}" in state, BASELINE_TREE)

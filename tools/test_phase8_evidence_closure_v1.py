@@ -121,7 +121,12 @@ def main() -> int:
         check("manifest:verifies", manifest_run.returncode == 0 and "=PASS entries=" in manifest_run.stdout, "phase-8 source manifest verified")
         state = (ROOT / ".openrecomp-phase8" / "STATE.md").read_text(encoding="utf-8")
         check("state:queue-frozen", "QUEUE_FREEZE=FROZEN" in state, "FROZEN")
-        check("state:terminal-reserved", f"{TERMINAL_MARKER}={NOT_PROVEN}" in state, NOT_PROVEN)
+        terminal_ok = f"{TERMINAL_MARKER}={NOT_PROVEN}" in state or (
+            f"{TERMINAL_MARKER}=PASS" in state
+            and "FINAL_VERDICT=PASS" in state
+            and "STATUS=COMPLETE" in state
+        )
+        check("state:terminal-reserved", terminal_ok, "reserved or consistently promoted")
         check("state:general-permanent", f"{GENERAL_MARKER}={NOT_PROVEN}" in state, NOT_PROVEN)
         for stage in STAGES:
             check(f"ledger:{stage}", "| " + stage in state, stage)

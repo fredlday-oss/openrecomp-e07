@@ -1,6 +1,10 @@
 # OpenRecomp Phase 8 Handoff
 
-STATUS: Phase 8 `ACTIVE` at P8-90 after P8-00..P8-12 `PASS`. The branch
+STATUS: Phase 8 `COMPLETE` -- `OPENRECOMP_P8_99=PASS` and
+`OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS` were issued for the
+exact bounded audited public fixture and behaviour only;
+`OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN` is permanent.
+The branch
 `phase8/mips32-end-to-end-native-v1` starts exactly at annotated tag
 `openrecomp-phase7-pass`: tag object `b07e0f691262ed3ae0bc2fd6ebb3e3d3c5222800`,
 commit `2917aa6549ab975cffdeb50120514c1723f7e493`, tree
@@ -227,9 +231,22 @@ permanent.
 - the P8-91 gate passed twice with byte-identical stdout, empty stderr and
   exit 0. Evidence is under .openrecomp-phase8/evidence/P8-91/.
 
+## P8-99 outcome (terminal)
+
+- the audit re-verified the frozen Phase-7 baseline, every required Phase-8
+  stage record, the exact public fixture provenance and toolchain identity,
+  native/reference agreement with no excluded observables, the evidence
+  index/claim ledger, the public-safety verification and the
+  general-compatibility scope guards;
+- markers issued: OPENRECOMP_P8_99=PASS,
+  OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS (exact bounded
+  audited public claim), OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN
+  (permanent);
+- the P8-99 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under .openrecomp-phase8/evidence/P8-99/.
+
 ## Exact next action
 
-Complete P8-99: audit every Phase-8 stage record, require all required stage
-records PASS, P8-90 and P8-91 PASS, exact frozen public fixture provenance,
-native/reference agreement and the general-compatibility scope guards; only
-then issue the terminal bounded verdict.
+None. Phase 8 is COMPLETE at the terminal bounded PASS boundary. Any future
+work starts a new scoped effort and must not weaken the frozen
+Phase-1..Phase-7 evidence or the Phase-8 evidence chain. Do not push.
