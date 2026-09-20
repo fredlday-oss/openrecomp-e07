@@ -1,0 +1,152 @@
+{
+  "checks": [
+    {
+      "check": "index:entries",
+      "detail": "116",
+      "status": "PASS"
+    },
+    {
+      "check": "index:stages",
+      "detail": "[\"P8-00\", \"P8-01\", \"P8-02\", \"P8-03\", \"P8-04\", \"P8-05\", \"P8-06\", \"P8-07\", \"P8-08\", \"P8-09\", \"P8-10\", \"P8-11\", \"P8-12\", \"P8-90\", \"README.md\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "index:result:P8-00",
+      "detail": "P8-00",
+      "status": "PASS"
+    },
+    {
+      "check": "index:result:P8-01",
+      "detail": "P8-01",
+      "status": "PASS"
+    },
+    {
+      "check": "index:result:P8-02",
+      "detail": "P8-02",
+      "status": "PASS"
+    },
+    {
+      "check": "index:result:P8-03",
+      "detail": "P8-03",
+      "status": "PASS"
+    },
+    {
+      "check": "index:result:P8-04",
+      "detail": "P8-04",
+      "status": "PASS"
+    },
+    {
+      "check": "index:result:P8-05",
+      "detail": "P8-05",
+      "status": "PASS"
+    },
+    {
+      "check": "index:result:P8-06",
+      "detail": "P8-06",
+      "status": "PASS"
+    },
+    {
+      "check": "index:result:P8-07",
+      "detail": "P8-07",
+      "status": "PASS"
+    },
+    {
+      "check": "index:result:P8-08",
+      "detail": "P8-08",
+      "status": "PASS"
+    },
+    {
+      "check": "index:result:P8-09",
+      "detail": "P8-09",
+      "status": "PASS"
+    },
+    {
+      "check": "index:result:P8-10",
+      "detail": "P8-10",
+      "status": "PASS"
+    },
+    {
+      "check": "index:result:P8-11",
+      "detail": "P8-11",
+      "status": "PASS"
+    },
+    {
+      "check": "index:result:P8-12",
+      "detail": "P8-12",
+      "status": "PASS"
+    },
+    {
+      "check": "index:result:P8-90",
+      "detail": "P8-90",
+      "status": "PASS"
+    },
+    {
+      "check": "proven:fixture",
+      "detail": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65",
+      "status": "PASS"
+    },
+    {
+      "check": "proven:evidence-paths",
+      "detail": "evidence present",
+      "status": "PASS"
+    },
+    {
+      "check": "bounded:isa-ops",
+      "detail": "22",
+      "status": "PASS"
+    },
+    {
+      "check": "bounded:evidence-paths",
+      "detail": "evidence present",
+      "status": "PASS"
+    },
+    {
+      "check": "not-proven:general",
+      "detail": "general non-claim present",
+      "status": "PASS"
+    },
+    {
+      "check": "not-proven:scope",
+      "detail": "10",
+      "status": "PASS"
+    },
+    {
+      "check": "unsupported:scope",
+      "detail": "5",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:no-private-material",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:no-rom-or-native-binaries",
+      "detail": "no ROM/native-binary suffixes in committed material",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:external-ignored",
+      "detail": "upstream source trees untracked",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:upstream-untracked",
+      "detail": "upstream source ignored by git",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "markers": {
+    "gate": "OPENRECOMP_PHASE8_EVIDENCE_INDEX_V1=PASS tests=27",
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P8_91=PASS",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "passed": 27,
+  "stage": "P8-91",
+  "stage_name": "Evidence index and proof matrix",
+  "status": "PASS",
+  "tests": 27
+}

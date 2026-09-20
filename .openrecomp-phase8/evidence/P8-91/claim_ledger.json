@@ -1,0 +1,102 @@
+{
+  "bounded_pass": {
+    "delay_slots": {
+      "description": "23 folded delay slots (16 non-nop) executed before every transfer with the link register materialized at call sites",
+      "evidence": [
+        ".openrecomp-phase8/evidence/P8-03/RESULT.md",
+        ".openrecomp-phase8/evidence/P8-04/RESULT.md"
+      ]
+    },
+    "exercised_isa": {
+      "description": "reachable MIPS32 op set with exact semantics and independent verification",
+      "evidence": [
+        ".openrecomp-phase8/evidence/P8-02/RESULT.md",
+        ".openrecomp-phase8/evidence/P8-04/RESULT.md"
+      ],
+      "ops": [
+        "addiu",
+        "addu",
+        "andi",
+        "beq",
+        "bne",
+        "j",
+        "jal",
+        "jr",
+        "lb",
+        "lbu",
+        "lui",
+        "lw",
+        "movz",
+        "nop",
+        "or",
+        "ori",
+        "sb",
+        "sll",
+        "sra",
+        "srl",
+        "sw",
+        "xor"
+      ]
+    },
+    "memory_and_runtime": {
+      "description": "flat guest image with explicit region permissions, 16 KiB stack, bounded checked access, one write-only byte output service, return-to-host termination",
+      "evidence": [
+        ".openrecomp-phase8/evidence/P8-05/RESULT.md"
+      ]
+    },
+    "observable_record": {
+      "description": "exit status, 32 boundary registers, register digest, memory digest, transcript length/digest, read/write/host-call/denied counts",
+      "evidence": [
+        ".openrecomp-phase8/evidence/P8-08/RESULT.md",
+        ".openrecomp-phase8/evidence/P8-09/RESULT.md"
+      ]
+    },
+    "workflow_and_hardening": {
+      "description": "reusable deterministic workflow with explicit fail-closed categories and focused negative coverage",
+      "evidence": [
+        ".openrecomp-phase8/evidence/P8-10/RESULT.md",
+        ".openrecomp-phase8/evidence/P8-11/RESULT.md"
+      ]
+    }
+  },
+  "frozen_phases_modified": false,
+  "general_marker": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+  "not_proven": [
+    "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY",
+    "arbitrary MIPS32 ELF compatibility",
+    "complete MIPS32 ISA support (division/HI-LO, halfword and partial-word memory, branch-likely, coprocessors, floating point, traps, privileged execution)",
+    "complete o32 ABI support beyond the audited fixtures call/stack/link-register pattern",
+    "arbitrary Linux binaries, dynamic linking, kernel or syscall emulation",
+    "exceptions and precise exception semantics",
+    "arbitrary indirect-control-flow recovery (unresolved sites fail closed)",
+    "PS1, PS2, game or commercial-binary compatibility",
+    "cycle accuracy or performance claims",
+    "cross-platform build or execution claims"
+  ],
+  "proven": [
+    {
+      "claim": "For the exact frozen public fixture (tiny-AES-c AES-128-ECB, SHA-256 0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65, built by the recorded Zig 0.13.0 toolchain from OpenRecomp-authored freestanding port files), the bounded ELF -> native path is proven: existing ELF ingestion, MIPS32 decode/semantics, shared neutral ProgramModel/CFG/function/call-graph/translation-unit structure with delay-slot folding, architecture-neutral host emission, the generic runtime ABI memory/service boundary, a reproducible native build, deterministic execution and full observable equivalence against an independently structured MIPS32 reference (no excluded observables).",
+      "evidence": [
+        ".openrecomp-phase8/evidence/P8-01/RESULT.md",
+        ".openrecomp-phase8/evidence/P8-03/RESULT.md",
+        ".openrecomp-phase8/evidence/P8-04/RESULT.md",
+        ".openrecomp-phase8/evidence/P8-06/RESULT.md",
+        ".openrecomp-phase8/evidence/P8-07/RESULT.md",
+        ".openrecomp-phase8/evidence/P8-08/RESULT.md",
+        ".openrecomp-phase8/evidence/P8-09/RESULT.md",
+        ".openrecomp-phase8/evidence/P8-12/RESULT.md",
+        ".openrecomp-phase8/evidence/P8-90/RESULT.md"
+      ],
+      "scope": "one audited bounded fixture and one audited observable record"
+    }
+  ],
+  "stage": "P8-91",
+  "terminal_marker": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN",
+  "unsupported": [
+    "unsupported ELF containers (ELF64, big-endian, ET_REL, ET_DYN, dynamic/relocated)",
+    "unsupported MIPS32 encodings with no rule (div/divu, mult/multu, mul, movn, jalr, swl/swr, lwl/lwr, lh/lhu/sh, beql/bnel)",
+    "non-return indirect control flow without evidence",
+    "non-stack, non-image or GP-relative memory access",
+    "unresolved stale analysis-cache or object-cache entries"
+  ]
+}

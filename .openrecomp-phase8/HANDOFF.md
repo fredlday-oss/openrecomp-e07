@@ -213,10 +213,23 @@ permanent.
 - the P8-90 gate passed twice with byte-identical stdout, empty stderr and
   exit 0. Evidence is under .openrecomp-phase8/evidence/P8-90/.
 
+## P8-91 outcome
+
+- evidence_index.json indexes every committed Phase-8 evidence file;
+- claim_ledger.json separates PROVEN (the exact bounded public real-ELF
+  native path), BOUNDED/PASS (22-op ISA set, delay-slot folding, runtime
+  contract, observable record, workflow/hardening) and NOT_PROVEN (general
+  MIPS32, arbitrary ELF, complete ISA/o32 ABI, Linux/dynamic linking,
+  exceptions, arbitrary indirect flow, PS1/PS2/game/commercial, cycle
+  accuracy, cross-platform);
+- public-safety verification finds no private identity, path or ROM/native
+  binary material in the committed Phase-8 tree;
+- the P8-91 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under .openrecomp-phase8/evidence/P8-91/.
+
 ## Exact next action
 
-Complete P8-91: build the final Phase-8 evidence index and claim/proof matrix
-separating PROVEN (the exact bounded public real-ELF native path),
-BOUNDED/PASS (specific exercised ISA/ABI/memory/runtime behaviours) and
-NOT_PROVEN (general MIPS32, arbitrary ELF, broader ABI/OS/runtime claims);
-verify no public evidence contains unauthorized or private binary material.
+Complete P8-99: audit every Phase-8 stage record, require all required stage
+records PASS, P8-90 and P8-91 PASS, exact frozen public fixture provenance,
+native/reference agreement and the general-compatibility scope guards; only
+then issue the terminal bounded verdict.
