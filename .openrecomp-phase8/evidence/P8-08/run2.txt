@@ -1,0 +1,30 @@
+PASS: fixture:sha256
+PASS: emission:program-fingerprint
+PASS: build:status-ok
+PASS: build:executable-reproducible
+PASS: build:executable-exists
+PASS: execution:1:exit
+PASS: execution:1:stderr-empty
+PASS: execution:2:exit
+PASS: execution:2:stderr-empty
+PASS: execution:3:exit
+PASS: execution:3:stderr-empty
+PASS: execution:byte-identical
+PASS: observable:fixture
+PASS: observable:failed
+PASS: observable:error-empty
+PASS: observable:exit-status
+PASS: observable:register-count
+PASS: observable:zero-register
+PASS: observable:transcript-length
+PASS: observable:transcript-digest
+PASS: observable:host-calls-match-transcript
+PASS: observable:no-denied-accesses
+PASS: observable:reads-positive
+PASS: observable:writes-positive
+PASS: observable:register-digest-consistent
+PASS: observable:memory-digest-present
+OPENRECOMP_P8_08=PASS
+OPENRECOMP_PHASE8_NATIVE_EXECUTION_V1=PASS tests=26
+OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN

@@ -1,0 +1,115 @@
+{
+  "build": {
+    "classification": "EXECUTABLE_REPRODUCIBLE",
+    "executable_bytes": 226304,
+    "executable_sha256": "612cad0e9f59a3e334fa6c1d76d6d3c43bfeda71dd1de533d4c216589697429c"
+  },
+  "emission": {
+    "emission_version": "1.0.0",
+    "files": [
+      {
+        "bytes": 97830,
+        "name": "program.c",
+        "sha256": "6a957bd1639cebf8b702725682b3423accf0e01191a5fa73e9dc9849c9ff3294"
+      },
+      {
+        "bytes": 166198,
+        "name": "p8_image_v1.c",
+        "sha256": "d5d95845cf6574b7791996bdacd4d1f6994359c9e6c6911e71f1e006fb9b6d8d"
+      },
+      {
+        "bytes": 7662,
+        "name": "p8_runtime_support.c",
+        "sha256": "9b5e70f524741612fc25a2def189fe436c757ceb4e064daa3c4f76088b9595c5"
+      },
+      {
+        "bytes": 4172,
+        "name": "p8_driver.c",
+        "sha256": "e918de647ed34d9eaf451b93beb6b4f490676484c737484b7d8602f500f2ecea"
+      }
+    ],
+    "program_fingerprint": "6a957bd1639cebf8b702725682b3423accf0e01191a5fa73e9dc9849c9ff3294",
+    "program_functions": [
+      "fn_fn_1000",
+      "fn_fn_101c",
+      "fn_fn_11b8",
+      "fn_fn_11dc",
+      "fn_fn_2290",
+      "fn_fn_2360",
+      "fn_fn_2490"
+    ]
+  },
+  "executions": [
+    {
+      "index": 1,
+      "stdout_bytes": 784,
+      "stdout_sha256": "6b2d7dba7d4fca8c423b0228aa15139e7e997a99f9f3d5227ec3c4cb7d560045"
+    },
+    {
+      "index": 2,
+      "stdout_bytes": 784,
+      "stdout_sha256": "6b2d7dba7d4fca8c423b0228aa15139e7e997a99f9f3d5227ec3c4cb7d560045"
+    },
+    {
+      "index": 3,
+      "stdout_bytes": 784,
+      "stdout_sha256": "6b2d7dba7d4fca8c423b0228aa15139e7e997a99f9f3d5227ec3c4cb7d560045"
+    }
+  ],
+  "fixture": {
+    "sha256": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65"
+  },
+  "markers": {
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "observable": {
+    "denied": 0,
+    "error": "",
+    "exit_status": "0x00000000",
+    "expected_transcript_text": "69c4e0d86a7b0430d8cdb78070b4c55a",
+    "failed": "0",
+    "host_calls": 33,
+    "memory_digest": "0x231c4a49e79c5e56",
+    "reads": 1136,
+    "registers": {
+      "r00": "0x00000000",
+      "r01": "0x10000000",
+      "r02": "0x00000000",
+      "r03": "0x00006634",
+      "r04": "0x0000000a",
+      "r05": "0x0000662c",
+      "r06": "0x00006630",
+      "r07": "0x0000000a",
+      "r08": "0x000024c0",
+      "r09": "0x0000255e",
+      "r10": "0x00000010",
+      "r11": "0x0000009f",
+      "r12": "0x000000ca",
+      "r13": "0x0000009f",
+      "r14": "0x000000f5",
+      "r15": "0x0000003d",
+      "r16": "0x00000000",
+      "r17": "0x00000000",
+      "r18": "0x00000000",
+      "r19": "0x00000000",
+      "r20": "0x00000000",
+      "r21": "0x00000000",
+      "r22": "0x00000000",
+      "r23": "0x00000000",
+      "r24": "0x0000002b",
+      "r25": "0x0000000b",
+      "r26": "0x00000000",
+      "r27": "0x00000000",
+      "r28": "0x000000ef",
+      "r29": "0x00006710",
+      "r30": "0x00000000",
+      "r31": "0x00000000"
+    },
+    "registers_digest": "0x7ee0f4a187050726",
+    "transcript_digest": "0xca6dcb87f8ac9814",
+    "transcript_len": 33,
+    "writes": 681
+  },
+  "stage": "P8-08"
+}

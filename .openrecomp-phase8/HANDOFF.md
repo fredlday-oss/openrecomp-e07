@@ -135,9 +135,23 @@ permanent.
 - the P8-07 gate passed twice with byte-identical stdout, empty stderr and
   exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-07/`.
 
+## P8-08 outcome
+
+- the emission set was rebuilt reproducibly and executed three times with
+  byte-identical stdout, exit code 0 and empty stderr;
+- observable record: `failed=0`, `exit_status=0x00000000`, full 32-register
+  boundary state (digest `0x7ee0f4a187050726`), memory digest
+  `0x231c4a49e79c5e56`, transcript 33 bytes / digest `0xca6dcb87f8ac9814`
+  equal to FNV-1a 64 of the FIPS-197 AES-128 known-answer line, reads 1136,
+  writes 681, host calls 33, denied 0;
+- the P8-08 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-08/`.
+
 ## Exact next action
 
-Complete P8-08: execute the generated native program, define the bounded
-observable record (exit value, agreed-boundary registers, memory digest,
-output transcript, event counts), run the official gate twice and require
-deterministic, byte-identical result evidence.
+Complete P8-09: build or use an independently structured MIPS32 reference
+path that does not call the generated/translated semantics, execute the
+frozen ELF under it, and compare every required observable (registers, memory
+digest, transcript, event counts, exit value) against the P8-08 native
+record; any intentional difference must be explicitly characterized,
+justified and proven bounded.

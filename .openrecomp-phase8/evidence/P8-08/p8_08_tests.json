@@ -1,0 +1,147 @@
+{
+  "checks": [
+    {
+      "check": "fixture:sha256",
+      "detail": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:program-fingerprint",
+      "detail": "6a957bd1639cebf8b702725682b3423accf0e01191a5fa73e9dc9849c9ff3294",
+      "status": "PASS"
+    },
+    {
+      "check": "build:status-ok",
+      "detail": "ok",
+      "status": "PASS"
+    },
+    {
+      "check": "build:executable-reproducible",
+      "detail": "EXECUTABLE_REPRODUCIBLE",
+      "status": "PASS"
+    },
+    {
+      "check": "build:executable-exists",
+      "detail": "program.exe",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:1:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:1:stderr-empty",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:2:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:2:stderr-empty",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:3:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:3:stderr-empty",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "execution:byte-identical",
+      "detail": "6b2d7dba7d4fca8c423b0228aa15139e7e997a99f9f3d5227ec3c4cb7d560045",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:fixture",
+      "detail": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:failed",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:error-empty",
+      "detail": "''",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:exit-status",
+      "detail": "0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:register-count",
+      "detail": "32",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:zero-register",
+      "detail": "0x0",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:transcript-length",
+      "detail": "33",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:transcript-digest",
+      "detail": "0xca6dcb87f8ac9814",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:host-calls-match-transcript",
+      "detail": "33 vs 33",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:no-denied-accesses",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:reads-positive",
+      "detail": "1136",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:writes-positive",
+      "detail": "681",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:register-digest-consistent",
+      "detail": "0x7ee0f4a187050726",
+      "status": "PASS"
+    },
+    {
+      "check": "observable:memory-digest-present",
+      "detail": "0x231c4a49e79c5e56",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "markers": {
+    "gate": "OPENRECOMP_PHASE8_NATIVE_EXECUTION_V1=PASS tests=26",
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P8_08=PASS",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "passed": 26,
+  "stage": "P8-08",
+  "stage_name": "Deterministic native execution",
+  "status": "PASS",
+  "tests": 26
+}
