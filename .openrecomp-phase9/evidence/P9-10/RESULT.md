@@ -86,16 +86,23 @@ empty stderr, both runs byte-identical: stdout 1385 bytes (LF), sha256
 
 Sidecar identities:
 
-- `p9_10_tests.json` `d7bc84b17173c5c3414aa788bb4f98f420b7f610d182532c6472f86bbad6d2e5`;
+- `p9_10_tests.json` `7ce2a36d5476aa97dc9cd5831425fcbd701ef38f3c24245276b6e995e5de972a`;
 - `emission.json` `984666240d3f6ec02973fb720cac5d57af6210da6cbb4aa25f1c7f195ea06f97`;
 - `native_execution.json` `6b332695c6f1a74c5d0fca4a6acb5266dc07deaec7262cc1d4a6f355fdf02b5c`;
 - `reference.json` `69a51a42811b0cf4afbfaeb05d8d7479172dac25475aa0f94f55328b820f90d0`;
-- `equivalence.json` `11a3596fffd6d14bc4d2486bc038750c9db1371217b75bbd2122df528a8c9b1c`;
-- `official_runs.json` `c34025a308c738fd78009725c494a9b00feb1df898984032f2f6b9261f507ace`;
-- `determinism.json` `7c5d70742b277f4351a6bf87706b8510d65242ab0a1df98554c730798be88276`;
+- `equivalence.json` `11a3596fffd6d14bc4d2486bc038750c9db1371217b75bbd2122df5288c9b1c`;
+- `official_runs.json` `09947fc5b8efba4d85569431c7c5b6d4b3933b0df02e245ca35046f71016e68e`;
+- `determinism.json` `0f849a537f539213b0236a3ccc63e6217d52709399b005518f4791851e8e8f23`;
 - `run1.txt` = `run2.txt` `caa9746a21ae1d2dc49378f6d4dbfc8d29f34e96a90949c6f3ed07cf0b32b565`;
 - `run1.err.txt` = `run2.err.txt` empty
   (`e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`).
+
+## Evidence-hygiene adjustment (P9-12 preparation)
+
+The `build:executable` check detail recorded the absolute build path. It now
+records the repository-relative path. Check labels, their count and the
+official stdout are unchanged (`caa9746a...`); the affected sidecar hashes were
+refreshed. No semantic evidence changed.
 
 ## Claim-ledger delta
 

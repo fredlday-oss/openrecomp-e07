@@ -298,3 +298,28 @@ image and memory-map contract).
   path;
 - source/evidence manifest re-verification and a public-safety scan over the
   Phase-9 evidence.
+
+## P9-12 outcome
+
+- additive `.openrecomp-phase9/src/p9_analysis_cache_v1.py` (immutable-hash
+  cache with `CACHE_MISS`/`CACHE_STALE`/`CACHE_CORRUPT` rejection);
+- bounded workflow with explicit categories completes the public fixture and
+  fails closed on bad container, truncated container, unresolved indirect
+  control flow, uncovered semantics and memory-map overlap; unknown
+  GPU/SPU/CD-ROM commands and BIOS services fail closed;
+- two clean rebuilds reproduce executable `5c016be2...` and the exact P9-10
+  observable record; stdout byte-identical; full reference agreement;
+- manifests and frozen Phase-3 module hashes re-verify; public-safety scan of
+  129 evidence files is clean;
+- the P9-10 evidence-hygiene adjustment (repository-relative build path) was
+  re-issued with unchanged stdout;
+- the P9-12 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase9/evidence/P9-12/`.
+
+## Known work for P9-90
+
+- re-run the frozen Phase-1 host gates, all fifteen frozen Phase-7 gates in a
+  reconstructed pre-verdict worktree and all thirteen Phase-8 official gates,
+  plus every completed Phase-9 official gate, with byte-identical stdout;
+- capture exact counts and deterministic evidence in
+  `.openrecomp-phase9/evidence/P9-90/`.

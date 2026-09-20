@@ -1,0 +1,150 @@
+{
+  "checks": [
+    {
+      "check": "cache:corrupt-rejected",
+      "detail": "CACHE_CORRUPT",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:repaired",
+      "detail": "recomputed",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:round-trip",
+      "detail": "round trip",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:stale-rejected",
+      "detail": "CACHE_MISS",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:module:.openrecomp-phase3/src/p3_code_frontier_v1.py",
+      "detail": "f02c4e7507087e052f1a899ef67d87f8ed82ecc4954e8214ccea922a2e361d71",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:module:.openrecomp-phase3/src/p3_decode_mips32_v1.py",
+      "detail": "c808a23afad5771a42f3f7eee9450b84fc6131d0416961a3ed8e78a9f5126b0b",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:module:.openrecomp-phase8/src/p8_structure_v1.py",
+      "detail": "24109660cfa1876b9ffabe141374d1a1b26c74d6fc0f68260bfb440617077a1b",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:p8",
+      "detail": "OPENRECOMP_PHASE8_SOURCE_INTEGRITY=PASS entries=30",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:p9",
+      "detail": "OPENRECOMP_PHASE9_SOURCE_INTEGRITY=PASS entries=32",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:bad-container",
+      "detail": "expected UNSUPPORTED_PSX_CONTAINER got UNSUPPORTED_PSX_CONTAINER",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:bios-unimplemented",
+      "detail": "UNIMPLEMENTED_SERVICE",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:cdrom-unknown-command",
+      "detail": "{\"address\": \"0x1f801801\", \"blocker\": true, \"class\": \"UNKNOWN_COMMAND\", \"command\": \"0xfe\", \"direction\": \"write\", \"disc_image\": \"none\", \"emulated\": false, \"reason\": \"command outside the bounded contract\", \"register\": \"COMMAND\", \"sequence\": 0, \"value\": \"0x000000fe\", \"width_bits\": 8}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:gpu-unknown-command",
+      "detail": "{\"address\": \"0x1f801810\", \"class\": \"UNKNOWN_COMMAND\", \"command\": \"0x10\", \"direction\": \"write\", \"emulated\": false, \"known\": false, \"port\": \"GP0\", \"sequence\": 0, \"value\": \"0x10000000\", \"width_bits\": 32}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:memory-map-overlap",
+      "detail": "expected UNSUPPORTED_MEMORY_RUNTIME got UNSUPPORTED_MEMORY_RUNTIME",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:spu-unknown-register",
+      "detail": "{\"address\": \"0x1f801dc0\", \"blocker\": true, \"category\": \"UNKNOWN_SPU_REGISTER\", \"direction\": \"write\", \"emulated\": false, \"reason\": \"register outside the bounded SPU contract\", \"register\": \"UNKNOWN_SPU_REGISTER\", \"sequence\": 0, \"value\": \"0x00000001\", \"width_bits\": 16}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:truncated-container",
+      "detail": "expected UNSUPPORTED_PSX_CONTAINER got UNSUPPORTED_PSX_CONTAINER",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:uncovered-semantics",
+      "detail": "expected UNSUPPORTED_ISA_SEMANTIC got UNSUPPORTED_ISA_SEMANTIC",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unresolved-indirect",
+      "detail": "expected UNRESOLVED_INDIRECT_CONTROL_FLOW got UNRESOLVED_INDIRECT_CONTROL_FLOW",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:files-scanned",
+      "detail": "129",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:no-host-paths",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:no-payload-leaks",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "workflow:completed",
+      "detail": "execution",
+      "status": "PASS"
+    },
+    {
+      "check": "workflow:executable-identity",
+      "detail": "5c016be2f043760ef6ac1a7c37c60bbe335c271f307b8e05275f75e0ee2ceb9d",
+      "status": "PASS"
+    },
+    {
+      "check": "workflow:observable-identity",
+      "detail": "{\"cdrom_digest\": \"0x0dc54fdf2d1b3c3c\", \"cdrom_events\": 1, \"denied\": 0, \"error\": \"\", \"exit_status\": \"0x00000002\", \"failed\": 0, \"gpu_digest\": \"0x6a326cbc723c24b1\", \"gpu_events\": 2, \"host_calls\": 0, \"input_digest\": \"0xe35ba7548adde99a\", \"input_events\": 2, \"memory_digest\": \"0x28d892afac2d8496\", \"reads\": 1, \"registers_digest\": \"0x17f2292e1363f17f\", \"spu_digest\": \"0x55788edbf95cf3ea\", \"spu_events\": 1, \"writes\": 4}",
+      "status": "PASS"
+    },
+    {
+      "check": "workflow:rebuild-identity",
+      "detail": "5c016be2f043760ef6ac1a7c37c60bbe335c271f307b8e05275f75e0ee2ceb9d",
+      "status": "PASS"
+    },
+    {
+      "check": "workflow:rebuild-stdout",
+      "detail": "byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "workflow:reference-agreement",
+      "detail": "{}",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 27,
+  "private_fixture": {
+    "is_pass_criterion": false,
+    "present": true
+  },
+  "stage": "P9-12",
+  "stage_name": "Hardening and reproducibility",
+  "status": "PASS",
+  "tests": 27
+}

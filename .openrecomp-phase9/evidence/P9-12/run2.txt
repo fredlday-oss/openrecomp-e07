@@ -1,0 +1,32 @@
+PASS: cache:corrupt-rejected
+PASS: cache:repaired
+PASS: cache:round-trip
+PASS: cache:stale-rejected
+PASS: frozen:module:.openrecomp-phase3/src/p3_code_frontier_v1.py
+PASS: frozen:module:.openrecomp-phase3/src/p3_decode_mips32_v1.py
+PASS: frozen:module:.openrecomp-phase8/src/p8_structure_v1.py
+PASS: manifest:p8
+PASS: manifest:p9
+PASS: negative:bad-container
+PASS: negative:bios-unimplemented
+PASS: negative:cdrom-unknown-command
+PASS: negative:gpu-unknown-command
+PASS: negative:memory-map-overlap
+PASS: negative:spu-unknown-register
+PASS: negative:truncated-container
+PASS: negative:uncovered-semantics
+PASS: negative:unresolved-indirect
+PASS: safety:files-scanned
+PASS: safety:no-host-paths
+PASS: safety:no-payload-leaks
+PASS: workflow:completed
+PASS: workflow:executable-identity
+PASS: workflow:observable-identity
+PASS: workflow:rebuild-identity
+PASS: workflow:rebuild-stdout
+PASS: workflow:reference-agreement
+OPENRECOMP_P9_12=PASS
+OPENRECOMP_PHASE9_HARDENING_V1=PASS tests=27
+OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN

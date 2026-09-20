@@ -10,8 +10,8 @@ BASELINE_TAG_RECONCILIATION=Phase 8 created no annotated terminal tag. The autho
 BASELINE_TERMINAL=OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS
 BASELINE_GENERAL=OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P9-11
-LAST_PASSED_STAGE=P9-11
+CURRENT_STAGE=P9-12
+LAST_PASSED_STAGE=P9-12
 STATUS=IN_PROGRESS
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P9-01..P9-99
@@ -93,7 +93,7 @@ OpenRecomp-authored or openly licensed PS1 fixture.
 | P9-09 | CD-ROM/file-service boundary | PASS | `.openrecomp-phase9/evidence/P9-09/` |
 | P9-10 | Native build + deterministic execution | PASS | `.openrecomp-phase9/evidence/P9-10/` |
 | P9-11 | Private Hercules validation | PASS | `.openrecomp-phase9/evidence/P9-11/` |
-| P9-12 | Hardening + reproducibility | QUEUED | - |
+| P9-12 | Hardening + reproducibility | PASS | `.openrecomp-phase9/evidence/P9-12/` |
 | P9-90 | Whole-project regression | QUEUED | - |
 | P9-91 | Evidence closure + claim ledger | QUEUED | - |
 | P9-99 | Final bounded verdict | QUEUED | - |
@@ -376,3 +376,25 @@ jumps), first blocker `break` at `0x80013390`, fail-closed structure
 0 discoverable I/O-range accesses, and bounded execution
 `NOT_ATTEMPTED_BLOCKED_BY_FIRST_UNRESOLVED`. No private bytes are committed
 and no marker was promoted. The next stage is `P9-12`.
+
+## P9-12 result
+
+PASS. Gate `tools/test_phase9_hardening_v1.py` (27 checks, run twice via
+`p9_stage_runner_v1.py`, byte-identical stdout, empty stderr, exit 0).
+Evidence: `.openrecomp-phase9/evidence/P9-12/`. Markers issued:
+
+- `OPENRECOMP_P9_12=PASS`
+- `OPENRECOMP_PHASE9_HARDENING_V1=PASS tests=27`
+- `OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN` (reserved)
+- `OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` (permanent)
+- `OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` (permanent)
+
+`.openrecomp-phase9/src/p9_analysis_cache_v1.py` implements the frozen
+immutable-hash cache contract with stale/corrupt rejection. The bounded
+workflow completes the public fixture and fails closed on five negative
+categories plus boundary blockers; two clean rebuilds reproduce the P9-10
+executable (`5c016be2...`) and observable record exactly; the Phase-9 and
+frozen Phase-8 manifests and Phase-3 module hashes re-verify; the public-safety
+scan covered 129 evidence files with zero payload and host-path leaks. The
+P9-10 `build:executable` detail was made repository-relative and its official
+runs re-issued with unchanged stdout. The next stage is `P9-90`.

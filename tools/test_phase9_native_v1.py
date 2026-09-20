@@ -189,7 +189,7 @@ def main() -> int:
         )
         check("build:status", all(run.manifest.build_status is bp.BuildStatus.OK for run in comparison.runs), str([run.manifest.build_status.value for run in comparison.runs]))
         executable = WORKSPACE / "run1" / "program.exe"
-        check("build:executable", executable.is_file(), str(executable))
+        check("build:executable", executable.is_file(), executable.relative_to(ROOT).as_posix())
         executable_sha = sha256(executable.read_bytes())
 
         # --- deterministic execution ----------------------------------------
