@@ -109,3 +109,27 @@ image and memory-map contract).
   original public fixture, and the reachable frontier + first unresolved
   blocker for the private fixture;
 - unresolved indirect control flow must fail closed.
+
+## P9-03 outcome
+
+- additive bridge `.openrecomp-phase9/src/p9_image_bridge_v1.py` and original
+  public fixture `.openrecomp-phase9/fixture/p9_public_fixture_v1.py`;
+- public fixture: 46 reachable words (all supported, no unresolved), 39
+  neutral instructions, 9 blocks, 8 edges, 3 functions, 2 internal call
+  edges, 3 translation units, entry `fn_80010000`, pinned fingerprints;
+- injected `jalr` fails closed as one unresolved indirect call;
+- private Hercules frontier: 4068 reachable words (96 recognized-unsupported),
+  22 indirect calls, 18 indirect jumps, 3 traps; first blocker `break` at
+  `0x80013390`; structure bridge fail-closed `CONTROL_WITHOUT_DELAY_SLOT`;
+- the P9-03 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase9/evidence/P9-03/`.
+
+## Known work for P9-04
+
+- classify every reachable instruction of the public fixture exactly once
+  against the frozen Phase-8 semantics/emitter paths;
+- add only directly required, independently verified semantics (expected:
+  none for the public fixture);
+- explicitly classify the private fixture's reachable unsupported words
+  (`lwl/lwr/swl/swr`, `jalr`, `addi`, `break`, `syscall`) and any COP0/GTE or
+  unusual MIPS-I forms without inventing behaviour.

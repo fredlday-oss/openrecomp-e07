@@ -10,8 +10,8 @@ BASELINE_TAG_RECONCILIATION=Phase 8 created no annotated terminal tag. The autho
 BASELINE_TERMINAL=OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS
 BASELINE_GENERAL=OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P9-02
-LAST_PASSED_STAGE=P9-02
+CURRENT_STAGE=P9-03
+LAST_PASSED_STAGE=P9-03
 STATUS=IN_PROGRESS
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P9-01..P9-99
@@ -84,7 +84,7 @@ OpenRecomp-authored or openly licensed PS1 fixture.
 | P9-00 | Phase-9 boundary + acceleration control plane | PASS | `.openrecomp-phase9/evidence/P9-00/` |
 | P9-01 | PS-X EXE ingestion | PASS | `.openrecomp-phase9/evidence/P9-01/` |
 | P9-02 | PS1 executable image + memory-map contract | PASS | `.openrecomp-phase9/evidence/P9-02/` |
-| P9-03 | Existing MIPS32 pipeline integration | QUEUED | - |
+| P9-03 | Existing MIPS32 pipeline integration | PASS | `.openrecomp-phase9/evidence/P9-03/` |
 | P9-04 | Reachable translation-frontier closure | QUEUED | - |
 | P9-05 | PS1 BIOS/service boundary | QUEUED | - |
 | P9-06 | PS1 GPU/runtime boundary | QUEUED | - |
@@ -179,3 +179,25 @@ explicit permissions, the explicit bounded stack window, and fail-closed
 classifications for KUSEG/scratchpad/I/O/BIOS/KSEG2. The private fixture
 contributed a non-reconstructive contract summary only. The next stage is
 `P9-03`.
+
+## P9-03 result
+
+PASS. Gate `tools/test_phase9_pipeline_v1.py` (66 checks, run twice via
+`p9_stage_runner_v1.py`, byte-identical stdout, empty stderr, exit 0).
+Evidence: `.openrecomp-phase9/evidence/P9-03/`. Markers issued:
+
+- `OPENRECOMP_P9_03=PASS`
+- `OPENRECOMP_PHASE9_PIPELINE_V1=PASS tests=66`
+- `OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN` (reserved)
+- `OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` (permanent)
+- `OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` (permanent)
+
+The additive bridge `.openrecomp-phase9/src/p9_image_bridge_v1.py` and the
+original public fixture `.openrecomp-phase9/fixture/p9_public_fixture_v1.py`
+were established. The public fixture reaches a complete neutral structure
+(46 reachable words, 39 neutral instructions, 9 blocks, 3 functions, 3
+translation units, 2 internal call edges, no unresolved sites); an injected
+`jalr` fails closed as an unresolved indirect call; the private Hercules
+frontier is characterized (4068 reachable, first blocker `break` at
+`0x80013390`, structure bridge fail-closed `CONTROL_WITHOUT_DELAY_SLOT`).
+The next stage is `P9-04`.
