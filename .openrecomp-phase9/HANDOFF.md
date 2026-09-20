@@ -251,3 +251,26 @@ image and memory-map contract).
   transcripts, counters);
 - write an independently structured PS-X EXE reference interpreter and require
   full observable agreement before equivalence is claimed.
+
+## P9-10 outcome
+
+- additive emission module, OpenRecomp-authored PS1 platform runtime support
+  and observable driver, and an independent PS-X EXE reference interpreter;
+- deterministic four-file emission set; clean reproducible build
+  (executable `5c016be2...`); byte-identical repeated execution;
+- native/reference agreement on all observables and all 32 registers with no
+  excluded observables (exit `0x00000002`, registers digest
+  `0x17f2292e1363f17f`, memory digest `0x28d892afac2d8496`, GPU 2 /
+  `0x6a326cbc...`, input 2 / `0xe35ba754...`, SPU 1 / `0x55788edb...`,
+  CD-ROM 1 / `0x0dc54fdf...`, reads 1, writes 4, denied 0);
+- the P9-10 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase9/evidence/P9-10/`.
+
+## Known work for P9-11
+
+- run the private Hercules fixture through the complete bounded path;
+- record the exact reachable frontier, the first unresolved blocker
+  (`break` at `0x80013390`), and the boundary classifications;
+- confirm no proprietary bytes or reconstructive derived data are committed
+  and that private-fixture results never promote the public claim or the
+  permanent non-claims.

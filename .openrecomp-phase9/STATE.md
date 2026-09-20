@@ -10,8 +10,8 @@ BASELINE_TAG_RECONCILIATION=Phase 8 created no annotated terminal tag. The autho
 BASELINE_TERMINAL=OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS
 BASELINE_GENERAL=OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P9-09
-LAST_PASSED_STAGE=P9-09
+CURRENT_STAGE=P9-10
+LAST_PASSED_STAGE=P9-10
 STATUS=IN_PROGRESS
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P9-01..P9-99
@@ -91,7 +91,7 @@ OpenRecomp-authored or openly licensed PS1 fixture.
 | P9-07 | Input/timer/event boundary | PASS | `.openrecomp-phase9/evidence/P9-07/` |
 | P9-08 | SPU/audio boundary | PASS | `.openrecomp-phase9/evidence/P9-08/` |
 | P9-09 | CD-ROM/file-service boundary | PASS | `.openrecomp-phase9/evidence/P9-09/` |
-| P9-10 | Native build + deterministic execution | QUEUED | - |
+| P9-10 | Native build + deterministic execution | PASS | `.openrecomp-phase9/evidence/P9-10/` |
 | P9-11 | Private Hercules validation | QUEUED | - |
 | P9-12 | Hardening + reproducibility | QUEUED | - |
 | P9-90 | Whole-project regression | QUEUED | - |
@@ -331,3 +331,27 @@ correction note. The official stdout identity of every affected gate is
 unchanged; the corrected public fixture SHA-256 is
 `17466bc17edde54f4d371ae22281b9fb31cd9114c3c293aa7da103751c32c3da`
 (2240 bytes; recorded in the P9-10 evidence).
+
+## P9-10 result
+
+PASS. Gate `tools/test_phase9_native_v1.py` (49 checks, run twice via
+`p9_stage_runner_v1.py`, byte-identical stdout, empty stderr, exit 0).
+Evidence: `.openrecomp-phase9/evidence/P9-10/`. Markers issued:
+
+- `OPENRECOMP_P9_10=PASS`
+- `OPENRECOMP_PHASE9_NATIVE_EXECUTION_V1=PASS tests=49`
+- `OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN` (reserved)
+- `OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` (permanent)
+- `OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` (permanent)
+
+`.openrecomp-phase9/src/p9_emission_v1.py`, the OpenRecomp-authored runtime
+`.openrecomp-phase9/runtime/p9_runtime_support.c` and
+`.openrecomp-phase9/runtime/p9_observable_driver.c`, and the independent
+reference `.openrecomp-phase9/src/p9_reference_psx_v1.py` were established.
+The public fixture emits deterministically, builds reproducibly (executable
+`5c016be2...`) and executes with byte-identical output; the native and
+reference observables agree exactly (exit `0x00000002`, registers digest
+`0x17f2292e1363f17f`, memory digest `0x28d892afac2d8496`, GPU/input/SPU/
+CD-ROM event digests `0x6a326cbc...`/`0xe35ba754...`/`0x55788edb...`/
+`0x0dc54fdf...`, reads 1, writes 4, denied 0, no excluded observables). The
+next stage is `P9-11`.

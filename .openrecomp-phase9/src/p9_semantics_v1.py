@@ -56,6 +56,18 @@ def build_emitter_config(entry_function: str, **kwargs: Any) -> HostEmitterConfi
     return p8_semantics.build_emitter_config(entry_function, **kwargs)
 
 
+def runtime_services() -> Any:
+    """The bounded PS1 host-service surface.
+
+    The bounded fixture reaches only memory-mapped platform ports, which are
+    served by the P9 runtime support's address translation; no explicit
+    generic-runtime host service is required. The empty table is explicit.
+    """
+    from openrecomp import runtime_abi as rt_abi
+
+    return rt_abi.RuntimeServiceTable([])
+
+
 def coverage(structure: Any) -> dict[str, Any]:
     """Classify every reachable neutral instruction exactly once.
 

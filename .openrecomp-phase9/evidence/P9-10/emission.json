@@ -1,0 +1,64 @@
+{
+  "emission_version": "1.0.0",
+  "files": [
+    {
+      "bytes": 7581,
+      "name": "program.c",
+      "sha256": "5b4326639cdb1c84534a3d4c923dd2c6cb51f45670b67179ea5cebbd246bf2e2"
+    },
+    {
+      "bytes": 4266,
+      "name": "p9_image_v1.c",
+      "sha256": "30d4be5d15f3552a295d49bb10841b7bde18b3d02dd1dd6bf8a19038ef6c1d4f"
+    },
+    {
+      "bytes": 18677,
+      "name": "p9_runtime_support.c",
+      "sha256": "17be91b8c06254f401059ca31d4593a1440bb2b337305f177738d0c5a06813c6"
+    },
+    {
+      "bytes": 7895,
+      "name": "p9_driver.c",
+      "sha256": "147a16d981efeec5a8126fe7b01f8c2859af57f2db1f85a1d6c90eef522b8691"
+    }
+  ],
+  "platform_ports": {
+    "P9_CDROM_BASE": "0x1f801800",
+    "P9_CDROM_COMMAND": "0x1f801801",
+    "P9_CDROM_INDEX_STATUS": "0x1f801800",
+    "P9_GP0_ADDR": "0x1f801810",
+    "P9_GP0_READ": "0x1f801810",
+    "P9_GP1_ADDR": "0x1f801814",
+    "P9_GP1_READ": "0x1f801814",
+    "P9_IO_BASE": "0x1f801000",
+    "P9_IO_SIZE": "0x00002000",
+    "P9_I_MASK": "0x1f801074",
+    "P9_I_STAT": "0x1f801070",
+    "P9_JOY_BAUD": "0x1f80104e",
+    "P9_JOY_CTRL": "0x1f80104a",
+    "P9_JOY_DATA": "0x1f801040",
+    "P9_JOY_MODE": "0x1f801048",
+    "P9_JOY_STAT": "0x1f801044",
+    "P9_RAM_KSEG0_BASE": "0x80000000",
+    "P9_RAM_KSEG1_BASE": "0xa0000000",
+    "P9_SPU_BASE": "0x1f801c00",
+    "P9_SPU_CD_AUDIO_BASE": "0x1f801db0",
+    "P9_SPU_CONTROL_BASE": "0x1f801d80",
+    "P9_SPU_TRANSFER_BASE": "0x1f801da0",
+    "P9_TIMER0_COUNTER": "0x1f801100",
+    "P9_TIMER0_MODE": "0x1f801104",
+    "P9_TIMER0_TARGET": "0x1f801108",
+    "P9_TIMER1_COUNTER": "0x1f801110",
+    "P9_TIMER1_MODE": "0x1f801114",
+    "P9_TIMER1_TARGET": "0x1f801118",
+    "P9_TIMER2_COUNTER": "0x1f801120",
+    "P9_TIMER2_MODE": "0x1f801124",
+    "P9_TIMER2_TARGET": "0x1f801128"
+  },
+  "program_fingerprint": "5b4326639cdb1c84534a3d4c923dd2c6cb51f45670b67179ea5cebbd246bf2e2",
+  "program_functions": [
+    "fn_fn_80010000",
+    "fn_fn_80010028",
+    "fn_fn_800100b4"
+  ]
+}
