@@ -433,6 +433,18 @@ provenance and toolchain identity, native/reference agreement with no
 excluded observables, the evidence index and claim ledger, the public-safety
 verification, and the general-compatibility scope guards.
 
+## Post-verdict stabilization (documented)
+
+Close to the terminal boundary two gate re-runnability defects were fixed
+without changing any Phase-8 semantic evidence: the P8-00 boundary gate now
+accepts the consistently promoted terminal state and a completed P8-99 queue
+row (its official stdout is unchanged), and the P8-90 reconstruction detail
+no longer records non-deterministic `git worktree` progress output. The full
+chain (P8-90, P8-91, P8-99) was then re-run twice each on the stabilized tree
+with byte-identical stdout and the affected sidecar hashes were re-recorded;
+the verdict below is re-issued on the exact committed tree. See
+`.openrecomp-phase8/evidence/P8-99/RESULT.md` for the record.
+
 ## Terminal state
 
 Phase 8 is COMPLETE for the exact bounded audited public claim:

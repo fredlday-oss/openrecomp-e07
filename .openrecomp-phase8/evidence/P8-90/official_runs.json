@@ -1,41 +1,11 @@
 {
-  "schema": "openrecomp-phase8-official-runs-v1",
-  "stage": "P8-90",
-  "command": "python tools/test_phase8_whole_regression_v1.py",
-  "runs": [
-    {
-      "name": "run1",
-      "exit_code": 0,
-      "stdout_file": "run1.txt",
-      "stdout_bytes": 8873,
-      "stdout_sha256_raw": "29652124b5d29baa4eec705eccd6a56f771a25d92dd710a3230e66bce9885d20",
-      "stdout_sha256_lf": "54b911a8c0ae0864b7a7be1e19e86868d47929e13cd4146af70c3d0d0eb0e6c6",
-      "stderr_file": "run1.err.txt",
-      "stderr_bytes": 0,
-      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "name": "run2",
-      "exit_code": 0,
-      "stdout_file": "run2.txt",
-      "stdout_bytes": 8873,
-      "stdout_sha256_raw": "29652124b5d29baa4eec705eccd6a56f771a25d92dd710a3230e66bce9885d20",
-      "stdout_sha256_lf": "54b911a8c0ae0864b7a7be1e19e86868d47929e13cd4146af70c3d0d0eb0e6c6",
-      "stderr_file": "run2.err.txt",
-      "stderr_bytes": 0,
-      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    }
-  ],
   "byte_identical": true,
+  "command": "python tools/test_phase8_whole_regression_v1.py",
   "markers": {
-    "stage": "OPENRECOMP_P8_90=PASS",
     "gate": "OPENRECOMP_PHASE8_WHOLE_REGRESSION_V1=PASS tests=215",
-    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN",
-    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN"
-  },
-  "sidecars": {
-    "whole_regression.json": "b97e35c69f649d446c01d1c833e7e7da2a8886a37d58bf9249b66189f4b5f5e7",
-    "p8_90_tests.json": "fae269c57410444fda440346985ae9d944123cf67e96c75652dcf590bd6189c9"
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P8_90=PASS",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
   },
   "reverified": {
     "phase1_host_gates": "PASS=44 FAIL=0 SKIPPED=2 (stdout 2a9d1bba...)",
@@ -43,5 +13,35 @@
     "phase7_stage_gates": 15,
     "phase8_stage_gates": 13,
     "total_reverified_tests": 1463
-  }
+  },
+  "runs": [
+    {
+      "exit_code": 0,
+      "name": "run1",
+      "stderr_bytes": 0,
+      "stderr_file": "run1.err.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 8873,
+      "stdout_file": "run1.txt",
+      "stdout_sha256_lf": "54b911a8c0ae0864b7a7be1e19e86868d47929e13cd4146af70c3d0d0eb0e6c6",
+      "stdout_sha256_raw": "29652124b5d29baa4eec705eccd6a56f771a25d92dd710a3230e66bce9885d20"
+    },
+    {
+      "exit_code": 0,
+      "name": "run2",
+      "stderr_bytes": 0,
+      "stderr_file": "run2.err.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 8873,
+      "stdout_file": "run2.txt",
+      "stdout_sha256_lf": "54b911a8c0ae0864b7a7be1e19e86868d47929e13cd4146af70c3d0d0eb0e6c6",
+      "stdout_sha256_raw": "29652124b5d29baa4eec705eccd6a56f771a25d92dd710a3230e66bce9885d20"
+    }
+  ],
+  "schema": "openrecomp-phase8-official-runs-v1",
+  "sidecars": {
+    "p8_90_tests.json": "782597be2f9bd4b4a834d55094a3304616675857b88e4b84abc509bbdd658912",
+    "whole_regression.json": "b97e35c69f649d446c01d1c833e7e7da2a8886a37d58bf9249b66189f4b5f5e7"
+  },
+  "stage": "P8-90"
 }

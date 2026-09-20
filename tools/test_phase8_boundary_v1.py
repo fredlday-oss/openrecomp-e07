@@ -261,7 +261,7 @@ def main() -> int:
         found = tuple(re.findall(r"^\| (P8-[0-9]{2}) \|", queue, flags=re.MULTILINE))
         check("queue:exact-stage-order", found == FROZEN_STAGES, ",".join(found))
         check("queue:p8-00-pass", bool(re.search(r"^\| P8-00 \| [^|]+ \| PASS \|", queue, re.MULTILINE)), "P8-00 PASS")
-        check("queue:p8-99-queued", bool(re.search(r"^\| P8-99 \| [^|]+ \| QUEUED \|", queue, re.MULTILINE)), "P8-99 QUEUED")
+        check("queue:p8-99-queued", bool(re.search(r"^\| P8-99 \| [^|]+ \| (QUEUED|PASS) \|", queue, re.MULTILINE)), "P8-99 queued or complete")
         check("queue:no-extra-status", queue.count("| ACTIVE |") == 0, "no active row before P8-01 gate")
 
         policy = re.sub(r"\s+", " ", (P8 / "CONTROL_POLICY.md").read_text(encoding="utf-8"))

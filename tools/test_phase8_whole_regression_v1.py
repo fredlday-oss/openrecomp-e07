@@ -221,7 +221,11 @@ def main() -> int:
                 encoding="utf-8",
             )
             created = added.returncode == 0
-            check("p7-recon:worktree", created, added.stderr.strip()[:200] or P7_90_COMMIT)
+            check(
+                "p7-recon:worktree",
+                created,
+                P7_90_COMMIT if created else (added.stderr.strip()[:200] or "worktree add failed"),
+            )
             recon_head = subprocess.run(
                 ["git", "-C", str(recon), "rev-parse", "HEAD"],
                 capture_output=True,

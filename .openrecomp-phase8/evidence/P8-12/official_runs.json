@@ -1,40 +1,39 @@
 {
-  "schema": "openrecomp-phase8-official-runs-v1",
-  "stage": "P8-12",
+  "byte_identical": true,
   "command": "python tools/test_phase8_evidence_closure_v1.py",
+  "markers": {
+    "gate": "OPENRECOMP_PHASE8_EVIDENCE_CLOSURE_V1=PASS tests=130",
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P8_12=PASS",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
   "runs": [
     {
-      "name": "run1",
       "exit_code": 0,
-      "stdout_file": "run1.txt",
-      "stdout_bytes": 4764,
-      "stdout_sha256_raw": "6e95c115159e5e1668d8afa942e99f316ee6745b6239c82c935e89595e1a4bd6",
-      "stdout_sha256_lf": "76b4004951fe941ece1d4538ef7a81deaa156dd74888600f4219deab9564291e",
-      "stderr_file": "run1.err.txt",
+      "name": "run1",
       "stderr_bytes": 0,
-      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "stderr_file": "run1.err.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 4764,
+      "stdout_file": "run1.txt",
+      "stdout_sha256_lf": "76b4004951fe941ece1d4538ef7a81deaa156dd74888600f4219deab9564291e",
+      "stdout_sha256_raw": "6e95c115159e5e1668d8afa942e99f316ee6745b6239c82c935e89595e1a4bd6"
     },
     {
-      "name": "run2",
       "exit_code": 0,
-      "stdout_file": "run2.txt",
-      "stdout_bytes": 4764,
-      "stdout_sha256_raw": "6e95c115159e5e1668d8afa942e99f316ee6745b6239c82c935e89595e1a4bd6",
-      "stdout_sha256_lf": "76b4004951fe941ece1d4538ef7a81deaa156dd74888600f4219deab9564291e",
-      "stderr_file": "run2.err.txt",
+      "name": "run2",
       "stderr_bytes": 0,
-      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "stderr_file": "run2.err.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 4764,
+      "stdout_file": "run2.txt",
+      "stdout_sha256_lf": "76b4004951fe941ece1d4538ef7a81deaa156dd74888600f4219deab9564291e",
+      "stdout_sha256_raw": "6e95c115159e5e1668d8afa942e99f316ee6745b6239c82c935e89595e1a4bd6"
     }
   ],
-  "byte_identical": true,
-  "markers": {
-    "stage": "OPENRECOMP_P8_12=PASS",
-    "gate": "OPENRECOMP_PHASE8_EVIDENCE_CLOSURE_V1=PASS tests=130",
-    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN",
-    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN"
-  },
+  "schema": "openrecomp-phase8-official-runs-v1",
   "sidecars": {
-    "closure.json": "a5c812c40c88e2bce2661be3c2b29b5cbe46b46cb4ea4eaeb16477021c68df99",
-    "p8_12_tests.json": "214f340028c842655fd1aa48fd4bb39e7b3c8e61fee37f0f3851c5fb4d7f3d6c"
-  }
+    "p8_12_tests.json": "d6166869c2195e9ec284060d1a42105acec3a863902afc84bd91fc31a930b05d"
+  },
+  "stage": "P8-12"
 }

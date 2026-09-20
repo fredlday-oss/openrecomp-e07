@@ -55,6 +55,27 @@ Sidecar identities: `terminal_verdict.json`
 `p8_99_tests.json`
 `9450c473d3578f327301b0f4a758fbeb3dfc0a8d8151a01241fda92809f101e3`.
 
+## Post-verdict stabilization record
+
+After the verdict was first issued, two re-runnability defects were found and
+fixed in the Phase-8 gate sources (no Phase-8 semantic evidence changed):
+
+- the P8-00 boundary gate asserted the reserved terminal state and a `QUEUED`
+  P8-99 queue row, which cannot hold on the promoted terminal tree; it now
+  accepts a consistently promoted terminal state and a completed P8-99 row
+  (its official stdout is unchanged, `8bc1af62...`);
+- the P8-90 whole-regression gate recorded raw `git worktree add` progress
+  output in one check detail, which is not deterministic; it now records the
+  frozen commit identity instead.
+
+After those fixes the complete chain was re-run on the stabilized tree:
+P8-90 twice (`PASS tests=215`, stdout `29652124...`), P8-91 twice
+(`PASS tests=27`, stdout `4e7b72ed...`) and this P8-99 audit twice
+(`PASS tests=92`, stdout `00d50af7...`), all byte-identical with empty
+stderr. The verdict is therefore re-issued on the exact committed tree; the
+P8-12/P8-90/P8-91 sidecar hashes in their `official_runs.json` records were
+refreshed accordingly.
+
 ## Verdict boundary
 
 The terminal marker is `PASS` for the exact bounded audited public fixture
