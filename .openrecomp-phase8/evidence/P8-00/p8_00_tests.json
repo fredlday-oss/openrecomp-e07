@@ -1,0 +1,362 @@
+{
+  "baseline": {
+    "branch": "phase8/mips32-end-to-end-native-v1",
+    "commit": "2917aa6549ab975cffdeb50120514c1723f7e493",
+    "tag": "openrecomp-phase7-pass",
+    "tag_object": "b07e0f691262ed3ae0bc2fd6ebb3e3d3c5222800",
+    "tree": "59529c130d759ceb1ca9e6c65a510fa373656b01"
+  },
+  "checks": [
+    {
+      "check": "acceleration:cache-contract",
+      "detail": "cache key schema",
+      "passed": true
+    },
+    {
+      "check": "acceleration:fast-vs-terminal",
+      "detail": "fast/terminal gate policy",
+      "passed": true
+    },
+    {
+      "check": "acceleration:incremental-build",
+      "detail": "incremental build",
+      "passed": true
+    },
+    {
+      "check": "baseline:tag-commit",
+      "detail": "2917aa6549ab975cffdeb50120514c1723f7e493",
+      "passed": true
+    },
+    {
+      "check": "baseline:tag-object",
+      "detail": "b07e0f691262ed3ae0bc2fd6ebb3e3d3c5222800",
+      "passed": true
+    },
+    {
+      "check": "baseline:tag-tree",
+      "detail": "59529c130d759ceb1ca9e6c65a510fa373656b01",
+      "passed": true
+    },
+    {
+      "check": "baseline:tag-type",
+      "detail": "annotated tag",
+      "passed": true
+    },
+    {
+      "check": "branch:boundary-tree-identical",
+      "detail": "59529c130d759ceb1ca9e6c65a510fa373656b01",
+      "passed": true
+    },
+    {
+      "check": "branch:descends-from-baseline",
+      "detail": "2917aa6549ab975cffdeb50120514c1723f7e493",
+      "passed": true
+    },
+    {
+      "check": "branch:head-at-boundary-or-descendant",
+      "detail": "2917aa6549ab975cffdeb50120514c1723f7e493",
+      "passed": true
+    },
+    {
+      "check": "branch:name",
+      "detail": "phase8/mips32-end-to-end-native-v1",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase8/.gitignore",
+      "detail": ".openrecomp-phase8/.gitignore",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase8/ACCELERATION_POLICY.md",
+      "detail": ".openrecomp-phase8/ACCELERATION_POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase8/CONTROL_POLICY.md",
+      "detail": ".openrecomp-phase8/CONTROL_POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase8/EVIDENCE_SCHEMA.md",
+      "detail": ".openrecomp-phase8/EVIDENCE_SCHEMA.md",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase8/FIXTURE_POLICY.md",
+      "detail": ".openrecomp-phase8/FIXTURE_POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase8/HANDOFF.md",
+      "detail": ".openrecomp-phase8/HANDOFF.md",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase8/SCOPE.md",
+      "detail": ".openrecomp-phase8/SCOPE.md",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase8/STAGE_QUEUE.md",
+      "detail": ".openrecomp-phase8/STAGE_QUEUE.md",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase8/STATE.md",
+      "detail": ".openrecomp-phase8/STATE.md",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase8/evidence/README.md",
+      "detail": ".openrecomp-phase8/evidence/README.md",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase8/src/p8_source_manifest_v1.py",
+      "detail": ".openrecomp-phase8/src/p8_source_manifest_v1.py",
+      "passed": true
+    },
+    {
+      "check": "fixture:licence",
+      "detail": "licence requirement",
+      "passed": true
+    },
+    {
+      "check": "fixture:no-proprietary",
+      "detail": "no proprietary material",
+      "passed": true
+    },
+    {
+      "check": "frozen:no-new-prior-residue",
+      "detail": "none",
+      "passed": true
+    },
+    {
+      "check": "frozen:no-prior-tracked-change-outside-documented-residue",
+      "detail": ".openrecomp-phase3/evidence/P3-00/p3_00_tests.json,.openrecomp-phase3/evidence/P3-00/residue_manifest.txt",
+      "passed": true
+    },
+    {
+      "check": "frozen:p7-terminal:.openrecomp-phase7/HANDOFF.md",
+      "detail": "65a56a974f0e651b74b7c0c3399b55c8a45ca1513ddebcb2cde0de3f0447c89a",
+      "passed": true
+    },
+    {
+      "check": "frozen:p7-terminal:.openrecomp-phase7/SOURCE_SHA256SUMS.txt",
+      "detail": "d5da028111b4e8d9cf24e961270393d34aba2a8f6e7d63279739a0afa69fef7a",
+      "passed": true
+    },
+    {
+      "check": "frozen:p7-terminal:.openrecomp-phase7/STAGE_QUEUE.md",
+      "detail": "6162bda0a5ec2c92b817d31bb2968a2f32f10df3ce80139cd8d68c1946ced377",
+      "passed": true
+    },
+    {
+      "check": "frozen:p7-terminal:.openrecomp-phase7/STATE.md",
+      "detail": "23c423e9163e3f7fc873b06e293ee96bd85a18b22ca655a24d62d35453f6eb33",
+      "passed": true
+    },
+    {
+      "check": "frozen:p7-terminal:.openrecomp-phase7/evidence/P7-99/RESULT.md",
+      "detail": "88648d7fdecf06e5dd9c089a1a2f032ddcbb4df4c1ff13df30144d87ea398a73",
+      "passed": true
+    },
+    {
+      "check": "frozen:p7-terminal:.openrecomp-phase7/evidence/P7-99/p7_99_tests.json",
+      "detail": "b9d77b29fc35d3c32a87f6c4956c0ed7246595b549de271427b238d718aa36d9",
+      "passed": true
+    },
+    {
+      "check": "frozen:p7-terminal:.openrecomp-phase7/evidence/P7-99/terminal_verdict.json",
+      "detail": "1f26733ed712299e3ad9d278432856e76facd473df92590c22f57e6dacf01955",
+      "passed": true
+    },
+    {
+      "check": "frozen:p7-terminal:.openrecomp-phase7/evidence/P7-99/verdict_record.json",
+      "detail": "51ff2374c067ddb7c1063880d33118b807104bae8861c8d87b1e66e1abbb1d00",
+      "passed": true
+    },
+    {
+      "check": "phase6:absent-reconciled-record",
+      "detail": "ABSENT_RECONCILED",
+      "passed": true
+    },
+    {
+      "check": "phase6:no-fabricated-tag",
+      "detail": "no fabrication marker",
+      "passed": true
+    },
+    {
+      "check": "phase6:tag-absent",
+      "detail": "absent",
+      "passed": true
+    },
+    {
+      "check": "policy:additive",
+      "detail": "prior phases immutable",
+      "passed": true
+    },
+    {
+      "check": "policy:commit-only-pass",
+      "detail": "commit policy",
+      "passed": true
+    },
+    {
+      "check": "policy:no-guessing",
+      "detail": "fail closed",
+      "passed": true
+    },
+    {
+      "check": "policy:no-history-rewrite",
+      "detail": "history rewrite forbidden",
+      "passed": true
+    },
+    {
+      "check": "policy:serial-frontier",
+      "detail": "one frontier",
+      "passed": true
+    },
+    {
+      "check": "policy:two-official-runs",
+      "detail": "two-run determinism",
+      "passed": true
+    },
+    {
+      "check": "queue:exact-stage-order",
+      "detail": "P8-00,P8-01,P8-02,P8-03,P8-04,P8-05,P8-06,P8-07,P8-08,P8-09,P8-10,P8-11,P8-12,P8-90,P8-91,P8-99",
+      "passed": true
+    },
+    {
+      "check": "queue:no-extra-status",
+      "detail": "no active row before P8-01 gate",
+      "passed": true
+    },
+    {
+      "check": "queue:p8-00-pass",
+      "detail": "P8-00 PASS",
+      "passed": true
+    },
+    {
+      "check": "queue:p8-99-queued",
+      "detail": "P8-99 QUEUED",
+      "passed": true
+    },
+    {
+      "check": "scope:general-non-claim",
+      "detail": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+      "passed": true
+    },
+    {
+      "check": "scope:no-linux-kernel",
+      "detail": "kernel-emulation boundary",
+      "passed": true
+    },
+    {
+      "check": "scope:terminal-marker",
+      "detail": "terminal claim",
+      "passed": true
+    },
+    {
+      "check": "source:manifest",
+      "detail": "OPENRECOMP_PHASE8_SOURCE_INTEGRITY=PASS entries=2",
+      "passed": true
+    },
+    {
+      "check": "state:baseline-commit",
+      "detail": "2917aa6549ab975cffdeb50120514c1723f7e493",
+      "passed": true
+    },
+    {
+      "check": "state:baseline-tag-object",
+      "detail": "b07e0f691262ed3ae0bc2fd6ebb3e3d3c5222800",
+      "passed": true
+    },
+    {
+      "check": "state:baseline-tree",
+      "detail": "59529c130d759ceb1ca9e6c65a510fa373656b01",
+      "passed": true
+    },
+    {
+      "check": "state:current-stage",
+      "detail": "P8-01",
+      "passed": true
+    },
+    {
+      "check": "state:last-passed",
+      "detail": "P8-00",
+      "passed": true
+    },
+    {
+      "check": "state:marker:OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY",
+      "detail": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+      "passed": true
+    },
+    {
+      "check": "state:marker:OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF",
+      "detail": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN",
+      "passed": true
+    },
+    {
+      "check": "state:queue-frozen",
+      "detail": "FROZEN",
+      "passed": true
+    },
+    {
+      "check": "state:v2-line-outside-baseline",
+      "detail": "OUTSIDE_BASELINE",
+      "passed": true
+    },
+    {
+      "check": "toolchain:clang",
+      "detail": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+      "passed": true
+    },
+    {
+      "check": "toolchain:clang-cl",
+      "detail": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+      "passed": true
+    },
+    {
+      "check": "toolchain:cmake",
+      "detail": "cmake version 4.4.3",
+      "passed": true
+    },
+    {
+      "check": "toolchain:git",
+      "detail": "git version 2.55.0.windows.3",
+      "passed": true
+    },
+    {
+      "check": "toolchain:lld-link",
+      "detail": "LLD 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+      "passed": true
+    },
+    {
+      "check": "toolchain:ninja",
+      "detail": "1.13.2",
+      "passed": true
+    },
+    {
+      "check": "toolchain:python",
+      "detail": "Python 3.11.9",
+      "passed": true
+    },
+    {
+      "check": "toolchain:zig",
+      "detail": "0.13.0",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "markers": {
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "passed": 68,
+  "stage": "P8-00",
+  "stage_name": "Phase-8 boundary and acceleration control plane",
+  "status": "PASS",
+  "tests": 68
+}
