@@ -1,6 +1,6 @@
 # OpenRecomp Phase 8 Handoff
 
-STATUS: Phase 8 `ACTIVE` at P8-01 after P8-00 `PASS`. The branch
+STATUS: Phase 8 `ACTIVE` at P8-02 after P8-00 and P8-01 `PASS`. The branch
 `phase8/mips32-end-to-end-native-v1` starts exactly at annotated tag
 `openrecomp-phase7-pass`: tag object `b07e0f691262ed3ae0bc2fd6ebb3e3d3c5222800`,
 commit `2917aa6549ab975cffdeb50120514c1723f7e493`, tree
@@ -33,12 +33,29 @@ permanent.
 - the P8-00 gate passed twice with byte-identical stdout, empty stderr, and
   exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-00/`.
 
+## P8-01 outcome
+
+- frozen fixture: upstream `tiny-AES-c` AES-128-ECB at pinned commit
+  `23856752fbd139da0b8ca6e471a13d5bcc99a08d`, The Unlicense, built with the
+  Phase-3-recorded Zig 0.13.0 toolchain from OpenRecomp-authored freestanding
+  port files;
+- ELF SHA-256
+  `0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65`,
+  12904 bytes, ELF32 LE `EM_MIPS` `ET_EXEC`, O32/MIPS32/non-PIC, entry
+  `0x2490`; two isolated builds byte-identical;
+- existing-pipeline reconnaissance: 509 reachable words (508 supported,
+  1 `movz` at `0x2440`), 23 delay slots (16 non-nop), 5 branches / 8 direct
+  calls / 3 jumps / 7 returns, no indirect control flow, no unresolved sites;
+- the P8-01 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-01/`.
+
 ## Exact next action
 
-Complete P8-01: select and freeze one legally redistributable
-compiler-produced real MIPS32 ELF. Record source/provenance, licence, pinned
-revision, acquisition/build path, SHA-256, size, ELF identity
-(class/endianness/machine/type/ABI/ISA/entry/segments/sections) and immutable
-fixture identity; prefer a fixture complex enough to exercise real
-compiler-produced behaviour but small enough to keep the Phase-8 loop fast.
-No native or equivalence claim is made at P8-01.
+Complete P8-02: re-derive the complete current pipeline frontier for the
+frozen fixture through the existing ELF ingestion, target policy, decode,
+semantics inventory, executable-region discovery and reachable-code frontier;
+classify every gap into already supported, recognized but unsupported,
+unresolved control flow, ABI/runtime gap, memory-image gap, translation gap,
+host-emission gap and toolchain/build gap; produce a deterministic frontier
+report. PASS means the frontier itself is completely and reproducibly
+characterized, not that the ELF is executable.

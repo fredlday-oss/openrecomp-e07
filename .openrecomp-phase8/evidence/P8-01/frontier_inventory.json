@@ -1,0 +1,288 @@
+{
+  "control_flow_counts": {
+    "conditional-branches": 5,
+    "direct-calls": 8,
+    "indirect-calls": 0,
+    "indirect-jumps": 0,
+    "jumps": 3,
+    "returns": 7,
+    "unsupported-control-transfers": 0
+  },
+  "delay_slots": [
+    {
+      "delay": "0x0000100c",
+      "delay_op": "nop",
+      "delay_word": "0x00000000",
+      "non_nop": false,
+      "owner": "0x00001008",
+      "owner_op": "jal"
+    },
+    {
+      "delay": "0x00001018",
+      "delay_op": "addiu",
+      "delay_word": "0x27bd0008",
+      "non_nop": true,
+      "owner": "0x00001014",
+      "owner_op": "jr"
+    },
+    {
+      "delay": "0x000010b8",
+      "delay_op": "addiu",
+      "delay_word": "0x2406002c",
+      "non_nop": true,
+      "owner": "0x000010b4",
+      "owner_op": "j"
+    },
+    {
+      "delay": "0x00001124",
+      "delay_op": "addiu",
+      "delay_word": "0x24420004",
+      "non_nop": true,
+      "owner": "0x00001120",
+      "owner_op": "beq"
+    },
+    {
+      "delay": "0x00001140",
+      "delay_op": "nop",
+      "delay_word": "0x00000000",
+      "non_nop": false,
+      "owner": "0x0000113c",
+      "owner_op": "beq"
+    },
+    {
+      "delay": "0x0000114c",
+      "delay_op": "or",
+      "delay_word": "0x01605025",
+      "non_nop": true,
+      "owner": "0x00001148",
+      "owner_op": "j"
+    },
+    {
+      "delay": "0x00001154",
+      "delay_op": "nop",
+      "delay_word": "0x00000000",
+      "non_nop": false,
+      "owner": "0x00001150",
+      "owner_op": "jr"
+    },
+    {
+      "delay": "0x000011cc",
+      "delay_op": "or",
+      "delay_word": "0x00202825",
+      "non_nop": true,
+      "owner": "0x000011c8",
+      "owner_op": "jal"
+    },
+    {
+      "delay": "0x000011d8",
+      "delay_op": "addiu",
+      "delay_word": "0x27bd0008",
+      "non_nop": true,
+      "owner": "0x000011d4",
+      "owner_op": "jr"
+    },
+    {
+      "delay": "0x00001428",
+      "delay_op": "sb",
+      "delay_word": "0xa0950007",
+      "non_nop": true,
+      "owner": "0x00001424",
+      "owner_op": "beq"
+    },
+    {
+      "delay": "0x000014ec",
+      "delay_op": "sb",
+      "delay_word": "0xa0220000",
+      "non_nop": true,
+      "owner": "0x000014e8",
+      "owner_op": "bne"
+    },
+    {
+      "delay": "0x0000160c",
+      "delay_op": "sb",
+      "delay_word": "0xa097000f",
+      "non_nop": true,
+      "owner": "0x00001608",
+      "owner_op": "j"
+    },
+    {
+      "delay": "0x000016fc",
+      "delay_op": "addiu",
+      "delay_word": "0x27bd0030",
+      "non_nop": true,
+      "owner": "0x000016f8",
+      "owner_op": "jr"
+    },
+    {
+      "delay": "0x00002298",
+      "delay_op": "sb",
+      "delay_word": "0xa0240000",
+      "non_nop": true,
+      "owner": "0x00002294",
+      "owner_op": "jr"
+    },
+    {
+      "delay": "0x000023c8",
+      "delay_op": "or",
+      "delay_word": "0x02202025",
+      "non_nop": true,
+      "owner": "0x000023c4",
+      "owner_op": "jal"
+    },
+    {
+      "delay": "0x000023d8",
+      "delay_op": "or",
+      "delay_word": "0x02002825",
+      "non_nop": true,
+      "owner": "0x000023d4",
+      "owner_op": "jal"
+    },
+    {
+      "delay": "0x00002410",
+      "delay_op": "nop",
+      "delay_word": "0x00000000",
+      "non_nop": false,
+      "owner": "0x0000240c",
+      "owner_op": "jal"
+    },
+    {
+      "delay": "0x00002424",
+      "delay_op": "nop",
+      "delay_word": "0x00000000",
+      "non_nop": false,
+      "owner": "0x00002420",
+      "owner_op": "jal"
+    },
+    {
+      "delay": "0x00002448",
+      "delay_op": "or",
+      "delay_word": "0x02209025",
+      "non_nop": true,
+      "owner": "0x00002444",
+      "owner_op": "bne"
+    },
+    {
+      "delay": "0x00002450",
+      "delay_op": "addiu",
+      "delay_word": "0x2404000a",
+      "non_nop": true,
+      "owner": "0x0000244c",
+      "owner_op": "jal"
+    },
+    {
+      "delay": "0x00002480",
+      "delay_op": "addiu",
+      "delay_word": "0x27bd0108",
+      "non_nop": true,
+      "owner": "0x0000247c",
+      "owner_op": "jr"
+    },
+    {
+      "delay": "0x000024a4",
+      "delay_op": "nop",
+      "delay_word": "0x00000000",
+      "non_nop": false,
+      "owner": "0x000024a0",
+      "owner_op": "jal"
+    },
+    {
+      "delay": "0x000024b0",
+      "delay_op": "nop",
+      "delay_word": "0x00000000",
+      "non_nop": false,
+      "owner": "0x000024ac",
+      "owner_op": "jr"
+    }
+  ],
+  "diagnostics": {
+    "delay-slot-reached-by-fallthrough": [],
+    "target-into-delay-slot": []
+  },
+  "reachable_unsupported": [
+    [
+      "0x00002440",
+      "movz"
+    ]
+  ],
+  "stage": "P8-01",
+  "summary": {
+    "control_flow_site_counts": {
+      "conditional-branches": 5,
+      "direct-calls": 8,
+      "indirect-calls": 0,
+      "indirect-jumps": 0,
+      "jumps": 3,
+      "returns": 7,
+      "unsupported-control-transfers": 0
+    },
+    "decoded_words": 1322,
+    "exception_site_count": 0,
+    "invalid_words": 3,
+    "reachable_invalid_words": 0,
+    "reachable_supported_words": 508,
+    "reachable_unsupported_words": 1,
+    "reachable_words": 509,
+    "recognized_unsupported_words": 1,
+    "reserved_encoding_words": 3,
+    "supported_histogram": {
+      "addiu": 115,
+      "addu": 57,
+      "andi": 50,
+      "beq": 14,
+      "bne": 26,
+      "j": 7,
+      "jal": 19,
+      "jr": 17,
+      "lb": 6,
+      "lbu": 297,
+      "lui": 14,
+      "lw": 88,
+      "nop": 33,
+      "or": 52,
+      "ori": 4,
+      "sb": 193,
+      "sll": 30,
+      "sltu": 4,
+      "sra": 12,
+      "srl": 18,
+      "sw": 79,
+      "xor": 186
+    },
+    "supported_reachable_histogram": {
+      "addiu": 38,
+      "addu": 30,
+      "andi": 22,
+      "beq": 3,
+      "bne": 2,
+      "j": 3,
+      "jal": 8,
+      "jr": 7,
+      "lb": 2,
+      "lbu": 132,
+      "lui": 13,
+      "lw": 22,
+      "nop": 7,
+      "or": 11,
+      "ori": 4,
+      "sb": 88,
+      "sll": 9,
+      "sra": 4,
+      "srl": 6,
+      "sw": 26,
+      "xor": 71
+    },
+    "supported_words": 1321,
+    "total_words": 1325,
+    "unknown_encoding_words": 0,
+    "unreachable_words": 816,
+    "unresolved_site_counts": {},
+    "unsupported_histogram": {
+      "movz": 1
+    },
+    "unsupported_reachable_histogram": {
+      "movz": 1
+    },
+    "unsupported_unreachable_histogram": {}
+  },
+  "unresolved": []
+}

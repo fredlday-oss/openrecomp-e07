@@ -11,8 +11,8 @@ BASELINE_GENERAL=OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
 BASELINE_TAG_STATUS=ABSENT_RECONCILED
 BASELINE_TAG_RECONCILIATION=P7-99 records that the frozen Phase-6 control policy required and created no terminal tag; the authoritative Phase-6 terminal boundary is the P6-99 verdict commit 1643817d43196c43155805249137e4b4e4a21eb1, tree cda3f535be43dc6f3d4b457d11d356ae39ea34af. No tag is fabricated.
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P8-01
-LAST_PASSED_STAGE=P8-00
+CURRENT_STAGE=P8-02
+LAST_PASSED_STAGE=P8-01
 STATUS=ACTIVE
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P8-01..P8-99
@@ -71,7 +71,7 @@ Exact observed version strings are recorded in
 | ID | Stage | Status | Evidence |
 | --- | --- | --- | --- |
 | P8-00 | Phase-8 boundary + acceleration control plane | PASS | `.openrecomp-phase8/evidence/P8-00/` |
-| P8-01 | Real redistributable MIPS32 ELF fixture | QUEUED | - |
+| P8-01 | Real redistributable MIPS32 ELF fixture | PASS | `.openrecomp-phase8/evidence/P8-01/` |
 | P8-02 | Existing MIPS32 pipeline re-derivation | QUEUED | - |
 | P8-03 | Real-ELF ProgramModel / CFG integration | QUEUED | - |
 | P8-04 | Translation frontier closure | QUEUED | - |
@@ -131,8 +131,44 @@ committed P8-00 sidecars are the boundary-time records
 (`boundary_mode=AT_BOUNDARY`); later re-runs regenerate them in their own
 descendant context without changing stdout.
 
+## Frozen real-ELF fixture identity (P8-01)
+
+- Program: upstream `tiny-AES-c` AES-128-ECB, repository
+  `https://github.com/kokke/tiny-AES-c`, pinned commit
+  `23856752fbd139da0b8ca6e471a13d5bcc99a08d`.
+- Licence: The Unlicense (public-domain dedication), upstream
+  `unlicense.txt`.
+- OpenRecomp-authored freestanding port under `.openrecomp-phase8/fixture/`
+  (entry stub, linker script, bounded port support, FIPS-197 AES-128
+  known-answer harness, minimal `string.h` shim).
+- Toolchain: Zig 0.13.0 (clang 18.1.5 / LLD 18.1.6) at the Phase-3 recorded
+  archive/executable identity; profile `-O1`, freestanding, non-PIC,
+  soft-float, static, `mipsel-linux-musl`, `-march=mips32 -mabi=32`.
+- ELF: SHA-256
+  `0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65`,
+  12904 bytes, ELF32 little-endian `EM_MIPS` `ET_EXEC`, flags `0x50001001`,
+  entry `0x2490`; `.text` `0x1000`+5300, `.rodata` `0x24c0`+571, `.data`
+  `0x2700`+8, `.bss` `0x2710`+16384.
+- Frontier: 509 reachable words (508 supported + 1 `movz` at `0x2440`), 816
+  unreachable, 23 delay slots (16 non-nop), 5 branches / 8 direct calls /
+  3 jumps / 7 returns, no indirect control flow, no unresolved sites.
+- Upstream sources and the built ELF remain untracked and are represented by
+  provenance, metadata and hashes only.
+
+## P8-01 result
+
+PASS. Gate `tools/test_phase8_fixture_v1.py` (89 checks, run twice,
+byte-identical stdout, empty stderr, exit 0). Evidence:
+`.openrecomp-phase8/evidence/P8-01/`. Markers issued:
+
+- `OPENRECOMP_P8_01=PASS`
+- `OPENRECOMP_PHASE8_REAL_ELF_FIXTURE_V1=PASS tests=89`
+- `OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN`
+- `OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN`
+
 ## Current boundary
 
-P8-00 established and verified the control plane only. It added no MIPS32
-capability. The queue is frozen, P8-01 (real redistributable MIPS32 ELF
-fixture) is active, and the terminal objective remains unproven.
+P8-00 established the control plane and P8-01 froze the real-ELF fixture and
+its reproducible build. No translation, native build or equivalence claim
+exists yet. P8-02 (existing MIPS32 pipeline re-derivation) is active and the
+terminal objective remains unproven.

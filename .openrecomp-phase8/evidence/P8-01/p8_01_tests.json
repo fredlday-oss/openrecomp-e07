@@ -1,0 +1,462 @@
+{
+  "checks": [
+    {
+      "check": "upstream:exists:README.md",
+      "detail": "README.md",
+      "status": "PASS"
+    },
+    {
+      "check": "upstream:sha256:README.md",
+      "detail": "2b6ed49d4b5d7c852b815375a07f758f123206aea5ad231ed011519cde0d76c5",
+      "status": "PASS"
+    },
+    {
+      "check": "upstream:exists:aes.c",
+      "detail": "aes.c",
+      "status": "PASS"
+    },
+    {
+      "check": "upstream:sha256:aes.c",
+      "detail": "2cf709c77dcb742ef0845e20e7382da38193c630f18b035f8a7796651ea48af1",
+      "status": "PASS"
+    },
+    {
+      "check": "upstream:exists:aes.h",
+      "detail": "aes.h",
+      "status": "PASS"
+    },
+    {
+      "check": "upstream:sha256:aes.h",
+      "detail": "40f381d86c7b84648eb96053e604cf17cfeab532233b2eeedfa6afc3752f313d",
+      "status": "PASS"
+    },
+    {
+      "check": "upstream:exists:unlicense.txt",
+      "detail": "unlicense.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "upstream:sha256:unlicense.txt",
+      "detail": "640514163b17f977adc997cb16f51871122cfb0555ebad1a3f01e167b7ba8857",
+      "status": "PASS"
+    },
+    {
+      "check": "upstream:commit-record",
+      "detail": "23856752fbd139da0b8ca6e471a13d5bcc99a08d",
+      "status": "PASS"
+    },
+    {
+      "check": "upstream:license-text",
+      "detail": "unlicense",
+      "status": "PASS"
+    },
+    {
+      "check": "port:exists:include/string.h",
+      "detail": "include/string.h",
+      "status": "PASS"
+    },
+    {
+      "check": "port:exists:p8_aes_main.c",
+      "detail": "p8_aes_main.c",
+      "status": "PASS"
+    },
+    {
+      "check": "port:exists:p8_mips32.ld",
+      "detail": "p8_mips32.ld",
+      "status": "PASS"
+    },
+    {
+      "check": "port:exists:p8_port_support.c",
+      "detail": "p8_port_support.c",
+      "status": "PASS"
+    },
+    {
+      "check": "port:exists:p8_start.S",
+      "detail": "p8_start.S",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:zig-exists",
+      "detail": "D:\\OpenRecomp\\worktrees\\phase2-opencode\\.openrecomp-phase3\\tools\\zig\\zig.exe",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:zig-sha256",
+      "detail": "2e44af5bbf7a72ef8cbdae370284687c95d65a19affa469d2ad0364d905b8e84",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:zig-version",
+      "detail": "0.13.0",
+      "status": "PASS"
+    },
+    {
+      "check": "build:candidate-a",
+      "detail": ".openrecomp-phase8\\build\\P8-01\\candidate-a\\p8_aes128_mips32_O1.elf",
+      "status": "PASS"
+    },
+    {
+      "check": "build:candidate-b",
+      "detail": ".openrecomp-phase8\\build\\P8-01\\candidate-b\\p8_aes128_mips32_O1.elf",
+      "status": "PASS"
+    },
+    {
+      "check": "build:byte-identical",
+      "detail": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65",
+      "status": "PASS"
+    },
+    {
+      "check": "build:size",
+      "detail": "12904",
+      "status": "PASS"
+    },
+    {
+      "check": "build:sha256",
+      "detail": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65",
+      "status": "PASS"
+    },
+    {
+      "check": "build:warnings-documented",
+      "detail": "linker-abicalls-mix",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:abi",
+      "detail": "O32",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:dynamic",
+      "detail": "False",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:elf_class",
+      "detail": "ELF32",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:endianness",
+      "detail": "little",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:entry",
+      "detail": "0x00002490",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:flags",
+      "detail": "0x50001001",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:isa",
+      "detail": "MIPS32 (EF_MIPS_ARCH_32)",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:machine_name",
+      "detail": "EM_MIPS",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:pic",
+      "detail": "False",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:relocations",
+      "detail": "False",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:static",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "identity:type_name",
+      "detail": "ET_EXEC",
+      "status": "PASS"
+    },
+    {
+      "check": "section:.bss",
+      "detail": "{\"kind\": \"ZERO_FILL\", \"permissions\": \"rw-\", \"size\": 16384, \"vaddr\": \"0x2710\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "section:.data",
+      "detail": "{\"kind\": \"FILE_BACKED\", \"permissions\": \"rw-\", \"size\": 8, \"vaddr\": \"0x2700\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "section:.rodata",
+      "detail": "{\"kind\": \"FILE_BACKED\", \"permissions\": \"r--\", \"size\": 571, \"vaddr\": \"0x24c0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "section:.text",
+      "detail": "{\"kind\": \"FILE_BACKED\", \"permissions\": \"r-x\", \"size\": 5300, \"vaddr\": \"0x1000\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "summary:decoded_words",
+      "detail": "1322",
+      "status": "PASS"
+    },
+    {
+      "check": "summary:invalid_words",
+      "detail": "3",
+      "status": "PASS"
+    },
+    {
+      "check": "summary:reachable_invalid_words",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "summary:reachable_supported_words",
+      "detail": "508",
+      "status": "PASS"
+    },
+    {
+      "check": "summary:reachable_unsupported_words",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "summary:reachable_words",
+      "detail": "509",
+      "status": "PASS"
+    },
+    {
+      "check": "summary:recognized_unsupported_words",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "summary:reserved_encoding_words",
+      "detail": "3",
+      "status": "PASS"
+    },
+    {
+      "check": "summary:supported_words",
+      "detail": "1321",
+      "status": "PASS"
+    },
+    {
+      "check": "summary:total_words",
+      "detail": "1325",
+      "status": "PASS"
+    },
+    {
+      "check": "summary:unknown_encoding_words",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "summary:unreachable_words",
+      "detail": "816",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:addiu",
+      "detail": "38",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:addu",
+      "detail": "30",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:andi",
+      "detail": "22",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:beq",
+      "detail": "3",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:bne",
+      "detail": "2",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:j",
+      "detail": "3",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:jal",
+      "detail": "8",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:jr",
+      "detail": "7",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:lb",
+      "detail": "2",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:lbu",
+      "detail": "132",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:lui",
+      "detail": "13",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:lw",
+      "detail": "22",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:movz",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:nop",
+      "detail": "7",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:or",
+      "detail": "11",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:ori",
+      "detail": "4",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:sb",
+      "detail": "88",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:sll",
+      "detail": "9",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:sra",
+      "detail": "4",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:srl",
+      "detail": "6",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:sw",
+      "detail": "26",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable-op:xor",
+      "detail": "71",
+      "status": "PASS"
+    },
+    {
+      "check": "reachable:unsupported",
+      "detail": "[[\"0x00002440\", \"movz\"]]",
+      "status": "PASS"
+    },
+    {
+      "check": "control-flow:conditional-branches",
+      "detail": "5",
+      "status": "PASS"
+    },
+    {
+      "check": "control-flow:direct-calls",
+      "detail": "8",
+      "status": "PASS"
+    },
+    {
+      "check": "control-flow:indirect-calls",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "control-flow:indirect-jumps",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "control-flow:jumps",
+      "detail": "3",
+      "status": "PASS"
+    },
+    {
+      "check": "control-flow:returns",
+      "detail": "7",
+      "status": "PASS"
+    },
+    {
+      "check": "control-flow:unsupported-control-transfers",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "control-flow:unresolved-empty",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "control-flow:no-target-into-delay-slot",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "control-flow:no-delay-slot-fallthrough",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "delay-slots:total",
+      "detail": "23",
+      "status": "PASS"
+    },
+    {
+      "check": "delay-slots:non-nop",
+      "detail": "16",
+      "status": "PASS"
+    },
+    {
+      "check": "delay-slots:all-before-control",
+      "detail": "owner+4",
+      "status": "PASS"
+    },
+    {
+      "check": "source:manifest",
+      "detail": "OPENRECOMP_PHASE8_SOURCE_INTEGRITY=PASS entries=8",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "markers": {
+    "gate": "OPENRECOMP_PHASE8_REAL_ELF_FIXTURE_V1=PASS tests=89",
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P8_01=PASS",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "passed": 89,
+  "stage": "P8-01",
+  "stage_name": "Real redistributable MIPS32 ELF fixture",
+  "status": "PASS",
+  "tests": 89
+}

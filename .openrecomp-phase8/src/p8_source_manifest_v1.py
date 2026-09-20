@@ -19,6 +19,7 @@ MANIFEST = ROOT / ".openrecomp-phase8" / "SOURCE_SHA256SUMS.txt"
 PATTERNS = (
     ".openrecomp-phase8/src/*.py",
     ".openrecomp-phase8/fixture/*",
+    ".openrecomp-phase8/fixture/**/*",
     "tools/test_phase8_*.py",
 )
 

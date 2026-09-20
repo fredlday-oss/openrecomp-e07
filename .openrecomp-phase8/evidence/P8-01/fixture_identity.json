@@ -1,0 +1,257 @@
+{
+  "fixture": {
+    "commands": [
+      [
+        "<zig>",
+        "cc",
+        "--target=mipsel-linux-musl",
+        "-march=mips32",
+        "-mabi=32",
+        "-msoft-float",
+        "-mno-abicalls",
+        "-G0",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-stack-protector",
+        "-fomit-frame-pointer",
+        "-fno-pic",
+        "-O1",
+        "-nostdlib",
+        "-static",
+        "-DECB=1",
+        "-DAES128=1",
+        "-I.openrecomp-phase8/external/tiny-AES-c",
+        "-I.openrecomp-phase8/fixture",
+        "-I.openrecomp-phase8/fixture/include",
+        "-include",
+        "stddef.h",
+        "-c",
+        ".openrecomp-phase8/external/tiny-AES-c/aes.c",
+        "-o",
+        ".openrecomp-phase8/build/P8-01/candidate-a/obj/00_aes.c.o"
+      ],
+      [
+        "<zig>",
+        "cc",
+        "--target=mipsel-linux-musl",
+        "-march=mips32",
+        "-mabi=32",
+        "-msoft-float",
+        "-mno-abicalls",
+        "-G0",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-stack-protector",
+        "-fomit-frame-pointer",
+        "-fno-pic",
+        "-O1",
+        "-nostdlib",
+        "-static",
+        "-DECB=1",
+        "-DAES128=1",
+        "-I.openrecomp-phase8/external/tiny-AES-c",
+        "-I.openrecomp-phase8/fixture",
+        "-I.openrecomp-phase8/fixture/include",
+        "-include",
+        "stddef.h",
+        "-c",
+        ".openrecomp-phase8/fixture/p8_port_support.c",
+        "-o",
+        ".openrecomp-phase8/build/P8-01/candidate-a/obj/01_p8_port_support.c.o"
+      ],
+      [
+        "<zig>",
+        "cc",
+        "--target=mipsel-linux-musl",
+        "-march=mips32",
+        "-mabi=32",
+        "-msoft-float",
+        "-mno-abicalls",
+        "-G0",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-stack-protector",
+        "-fomit-frame-pointer",
+        "-fno-pic",
+        "-O1",
+        "-nostdlib",
+        "-static",
+        "-DECB=1",
+        "-DAES128=1",
+        "-I.openrecomp-phase8/external/tiny-AES-c",
+        "-I.openrecomp-phase8/fixture",
+        "-I.openrecomp-phase8/fixture/include",
+        "-include",
+        "stddef.h",
+        "-c",
+        ".openrecomp-phase8/fixture/p8_aes_main.c",
+        "-o",
+        ".openrecomp-phase8/build/P8-01/candidate-a/obj/02_p8_aes_main.c.o"
+      ],
+      [
+        "<zig>",
+        "cc",
+        "--target=mipsel-linux-musl",
+        "-march=mips32",
+        "-mabi=32",
+        "-msoft-float",
+        "-mno-abicalls",
+        "-G0",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-stack-protector",
+        "-fomit-frame-pointer",
+        "-fno-pic",
+        "-O1",
+        "-nostdlib",
+        "-static",
+        "-DECB=1",
+        "-DAES128=1",
+        "-I.openrecomp-phase8/external/tiny-AES-c",
+        "-I.openrecomp-phase8/fixture",
+        "-I.openrecomp-phase8/fixture/include",
+        "-c",
+        ".openrecomp-phase8/fixture/p8_start.S",
+        "-o",
+        ".openrecomp-phase8/build/P8-01/candidate-a/obj/90_0_p8_start.S.o"
+      ],
+      [
+        "<zig>",
+        "ld.lld",
+        "-m",
+        "elf32ltsmip",
+        "-T",
+        ".openrecomp-phase8/fixture/p8_mips32.ld",
+        "--strip-debug",
+        "--build-id=none",
+        "-o",
+        ".openrecomp-phase8/build/P8-01/candidate-a/p8_aes128_mips32_O1.elf",
+        ".openrecomp-phase8/build/P8-01/candidate-a/obj/00_aes.c.o",
+        ".openrecomp-phase8/build/P8-01/candidate-a/obj/01_p8_port_support.c.o",
+        ".openrecomp-phase8/build/P8-01/candidate-a/obj/02_p8_aes_main.c.o",
+        ".openrecomp-phase8/build/P8-01/candidate-a/obj/90_0_p8_start.S.o"
+      ]
+    ],
+    "elf": {
+      "name": "p8_aes128_mips32_O1.elf",
+      "sha256": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65",
+      "size": 12904
+    },
+    "fixture_id": "p8-01-tiny-aes-c-aes128-ecb-mips32-o1",
+    "flags": [
+      "cc",
+      "--target=mipsel-linux-musl",
+      "-march=mips32",
+      "-mabi=32",
+      "-msoft-float",
+      "-mno-abicalls",
+      "-G0",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fomit-frame-pointer",
+      "-fno-pic",
+      "-O1",
+      "-nostdlib",
+      "-static",
+      "-DECB=1",
+      "-DAES128=1"
+    ],
+    "includes": [
+      ".openrecomp-phase8/external/tiny-AES-c",
+      ".openrecomp-phase8/fixture",
+      ".openrecomp-phase8/fixture/include"
+    ],
+    "port_files": [
+      "include/string.h",
+      "p8_aes_main.c",
+      "p8_mips32.ld",
+      "p8_port_support.c",
+      "p8_start.S"
+    ],
+    "profile": "-O1 freestanding non-PIC soft-float MIPS32/O32 static",
+    "toolchain": {
+      "archive_sha256": "d859994725ef9402381e557c60bb57497215682e355204d754ee3df75ee3c158",
+      "executable_sha256": "2e44af5bbf7a72ef8cbdae370284687c95d65a19affa469d2ad0364d905b8e84",
+      "name": "zig",
+      "url": "https://ziglang.org/download/0.13.0/zig-windows-x86_64-0.13.0.zip",
+      "version": "0.13.0"
+    },
+    "upstream": {
+      "commit": "23856752fbd139da0b8ca6e471a13d5bcc99a08d",
+      "files": {
+        "README.md": "2b6ed49d4b5d7c852b815375a07f758f123206aea5ad231ed011519cde0d76c5",
+        "aes.c": "2cf709c77dcb742ef0845e20e7382da38193c630f18b035f8a7796651ea48af1",
+        "aes.h": "40f381d86c7b84648eb96053e604cf17cfeab532233b2eeedfa6afc3752f313d",
+        "unlicense.txt": "640514163b17f977adc997cb16f51871122cfb0555ebad1a3f01e167b7ba8857"
+      },
+      "license": "The Unlicense (public-domain dedication), upstream file unlicense.txt; the fixture is built from the pinned upstream revision and is not a supported AES product.",
+      "repository": "https://github.com/kokke/tiny-AES-c"
+    },
+    "warning_kinds": [
+      "linker-abicalls-mix"
+    ]
+  },
+  "frozen_upstream_inventory": {
+    "known_elf_sha256": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65",
+    "size": 12904
+  },
+  "identity": {
+    "abi": "O32",
+    "dynamic": false,
+    "elf_class": "ELF32",
+    "endianness": "little",
+    "entry": "0x00002490",
+    "entry_region": 2,
+    "entry_section": ".text",
+    "executable_section": ".text",
+    "flags": "0x50001001",
+    "flags_interpretation": "EF_MIPS_ABI_O32 | EF_MIPS_ARCH_32 | EF_MIPS_NOREORDER (non-PIC)",
+    "isa": "MIPS32 (EF_MIPS_ARCH_32)",
+    "machine": 8,
+    "machine_name": "EM_MIPS",
+    "pic": false,
+    "relocations": false,
+    "required_sections": [
+      ".text",
+      ".rodata",
+      ".data",
+      ".bss"
+    ],
+    "static": true,
+    "target": "mips32-o32-soft-float-static",
+    "type": 2,
+    "type_name": "ET_EXEC"
+  },
+  "markers": {
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "sections": {
+    ".bss": {
+      "kind": "ZERO_FILL",
+      "permissions": "rw-",
+      "size": 16384,
+      "vaddr": "0x2710"
+    },
+    ".data": {
+      "kind": "FILE_BACKED",
+      "permissions": "rw-",
+      "size": 8,
+      "vaddr": "0x2700"
+    },
+    ".rodata": {
+      "kind": "FILE_BACKED",
+      "permissions": "r--",
+      "size": 571,
+      "vaddr": "0x24c0"
+    },
+    ".text": {
+      "kind": "FILE_BACKED",
+      "permissions": "r-x",
+      "size": 5300,
+      "vaddr": "0x1000"
+    }
+  },
+  "stage": "P8-01"
+}
