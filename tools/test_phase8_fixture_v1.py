@@ -418,7 +418,7 @@ def main(argv: list[str] | None = None) -> int:
         check(
             "source:manifest",
             manifest.returncode == 0 and manifest.stderr == "" and "=PASS entries=" in manifest.stdout,
-            manifest.stdout.strip() or manifest.stderr.strip(),
+            "phase-8 source manifest verified",
         )
 
         build_manifest = {

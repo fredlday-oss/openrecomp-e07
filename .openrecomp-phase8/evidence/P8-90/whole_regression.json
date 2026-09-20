@@ -1,0 +1,164 @@
+{
+  "decision": "PASS",
+  "markers": {
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "phase1_host_gates": {
+    "markers": [
+      "OPENRECOMP_PHASE1_HOST_GATES_PASS=44 FAIL=0 SKIPPED=2"
+    ],
+    "stdout_sha256_raw": "2a9d1bba538b91605d61c3c47d8208cc7012cdfe49042f088c409dc54729cc35"
+  },
+  "phase6_90_record": {
+    "coverage": "frozen committed record verified (live re-run requires a ~80 minute pre-verdict reconstruction and is documented as the coverage boundary)",
+    "record_sha256": "930f6ec57ea62b8e2e5aceb0fff2fc1369eafc876f51f6bf7f933b64bd8cb37f",
+    "stdout_sha256_raw": "120d002830037ac26d5780e0cdb820f8dbd4bd55415e6f2b9aabb08cda8c97fa"
+  },
+  "phase7_stage_gates": [
+    {
+      "stage": "P7-00",
+      "stdout_sha256_raw": "8d5b206b158ed3198243bc5845b6dba8eaa66edfc60420bb6ac870e3dc5476ca",
+      "tests": 96
+    },
+    {
+      "stage": "P7-01",
+      "stdout_sha256_raw": "fc9f6a0e1b8ed1501026964f3401ba6385239fd0fc3daf8d0f6d0c47d8f4a6e8",
+      "tests": 49
+    },
+    {
+      "stage": "P7-02",
+      "stdout_sha256_raw": "1a10323c5785bd3cb8fcb526a4b1eed47b68f4c540e4f6ea935d219bf007bad1",
+      "tests": 37
+    },
+    {
+      "stage": "P7-03",
+      "stdout_sha256_raw": "6edadcda6370684194deade84a4fdcea3c56cd66890eb085a575a7054959254e",
+      "tests": 49
+    },
+    {
+      "stage": "P7-04",
+      "stdout_sha256_raw": "4ff35a0ca6eb7953c5e07f7267b84e2162e4e517979f9dc55a98078f321a2ce6",
+      "tests": 289
+    },
+    {
+      "stage": "P7-05",
+      "stdout_sha256_raw": "70bd60cafacba93b19faac42a598a70d17767e21df24f7e56c6f8f76c4c1ec17",
+      "tests": 38
+    },
+    {
+      "stage": "P7-06",
+      "stdout_sha256_raw": "2e407ded7e3e015beb00f45762399c0de6de168c5267d93b0770f3d59c3781e7",
+      "tests": 51
+    },
+    {
+      "stage": "P7-07",
+      "stdout_sha256_raw": "30175c6a64bdf8292ad31a1240eee8a0ab742224d5fc3aa9981025152380541e",
+      "tests": 42
+    },
+    {
+      "stage": "P7-08",
+      "stdout_sha256_raw": "b32eb763404e2097e2fa940519ce69cb5c8350830f177c98f8df6b2fb4ed8664",
+      "tests": 28
+    },
+    {
+      "stage": "P7-09",
+      "stdout_sha256_raw": "ac9c15e202f0b1d248785fd642671b020e51db3e3ae1db3493b4dede0637333c",
+      "tests": 34
+    },
+    {
+      "stage": "P7-10",
+      "stdout_sha256_raw": "72ac30cbd57bedf1b883c09a3ded1831fe8975609da003a7ed1062d527d7c47c",
+      "tests": 35
+    },
+    {
+      "stage": "P7-11",
+      "stdout_sha256_raw": "5595d97801aeb230b2e74137e053a3a4330eb0cd6ed46aa3a934ae65d1f5483e",
+      "tests": 24
+    },
+    {
+      "stage": "P7-12",
+      "stdout_sha256_raw": "0c8493017263764219bf0668fec7381d60cc1961a6286d3726b04b7229013956",
+      "tests": 27
+    },
+    {
+      "stage": "P7-13",
+      "stdout_sha256_raw": "a18cbb4a3b137e087ff02daa9b2234c462593ec9d2fe711b762154af4b8f89e4",
+      "tests": 22
+    },
+    {
+      "stage": "P7-14",
+      "stdout_sha256_raw": "d53e840443598b37a2d04e4afb8dbc58772e2af7f4d06ca5f7b1ca695e881699",
+      "tests": 33
+    }
+  ],
+  "phase8_stage_gates": [
+    {
+      "stage": "P8-00",
+      "stdout_sha256_raw": "8bc1af6294db8b70b92792362226cb56666f6affaffa3ffd657ce7caba503562",
+      "tests": 68
+    },
+    {
+      "stage": "P8-01",
+      "stdout_sha256_raw": "747559538a5ceb244f14bdb325f1ab7e3fdbc645a90dd95923f75a6b2550f6f1",
+      "tests": 89
+    },
+    {
+      "stage": "P8-02",
+      "stdout_sha256_raw": "6a453bc09ea27133eb821462f3ce0838cd00b7b055937aa0901b3c0d06db3043",
+      "tests": 43
+    },
+    {
+      "stage": "P8-03",
+      "stdout_sha256_raw": "42385791c9384a814c09dbf6c9ebd5367843f0d45f0bd38fef9f817d60c45307",
+      "tests": 52
+    },
+    {
+      "stage": "P8-04",
+      "stdout_sha256_raw": "0cd067e19ae98a3cfb726d31d1bd17049e236521f9e3432dbc983fd0f40c97d3",
+      "tests": 30
+    },
+    {
+      "stage": "P8-05",
+      "stdout_sha256_raw": "03581cad9183a094d25add494542159edea84ab95d9565b975ceae81662c4231",
+      "tests": 36
+    },
+    {
+      "stage": "P8-06",
+      "stdout_sha256_raw": "f2e884a3020f66ddbc66c7dee252ae54d4d906fea3af7390956483ab1b1a4647",
+      "tests": 25
+    },
+    {
+      "stage": "P8-07",
+      "stdout_sha256_raw": "40d6e1daa9bdd00dec485fb5f9c18b32a39d0fd34ad5e0b21f2fe0b93a4aa913",
+      "tests": 24
+    },
+    {
+      "stage": "P8-08",
+      "stdout_sha256_raw": "ead0ca26a6b64842a43ac0c552fd63e66ef0e8d72279a8f9ba27e7057a49ea2e",
+      "tests": 26
+    },
+    {
+      "stage": "P8-09",
+      "stdout_sha256_raw": "0526f26cf99555e8c208eda38606c2d0090c6708915a6b94415265b57cac6d56",
+      "tests": 24
+    },
+    {
+      "stage": "P8-10",
+      "stdout_sha256_raw": "7449ea88014e34901818f6f34648e033213e9aeed9d6e554f93ff78a30c247ad",
+      "tests": 15
+    },
+    {
+      "stage": "P8-11",
+      "stdout_sha256_raw": "64ffa42360c6be319ab4d3bfc76b3ce755d67cc897671800071dd128023c6375",
+      "tests": 47
+    },
+    {
+      "stage": "P8-12",
+      "stdout_sha256_raw": "6e95c115159e5e1668d8afa942e99f316ee6745b6239c82c935e89595e1a4bd6",
+      "tests": 130
+    }
+  ],
+  "stage": "P8-90",
+  "total_reverified_tests": 1463
+}

@@ -11,8 +11,8 @@ BASELINE_GENERAL=OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
 BASELINE_TAG_STATUS=ABSENT_RECONCILED
 BASELINE_TAG_RECONCILIATION=P7-99 records that the frozen Phase-6 control policy required and created no terminal tag; the authoritative Phase-6 terminal boundary is the P6-99 verdict commit 1643817d43196c43155805249137e4b4e4a21eb1, tree cda3f535be43dc6f3d4b457d11d356ae39ea34af. No tag is fabricated.
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P8-90
-LAST_PASSED_STAGE=P8-12
+CURRENT_STAGE=P8-91
+LAST_PASSED_STAGE=P8-90
 STATUS=ACTIVE
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P8-01..P8-99
@@ -83,7 +83,7 @@ Exact observed version strings are recorded in
 | P8-10 | Reusable real-MIPS32 ELF-to-native workflow | PASS | .openrecomp-phase8/evidence/P8-10/ |
 | P8-11 | Fail-closed hardening | PASS | .openrecomp-phase8/evidence/P8-11/ |
 | P8-12 | Phase-8 evidence closure | PASS | .openrecomp-phase8/evidence/P8-12/ |
-| P8-90 | Whole-project regression | QUEUED | - |
+| P8-90 | Whole-project regression | PASS | .openrecomp-phase8/evidence/P8-90/ |
 | P8-91 | Evidence index + proof matrix | QUEUED | - |
 | P8-99 | Final bounded verdict | QUEUED | - |
 
@@ -380,9 +380,26 @@ sidecar hashes verify; the analysis cache rejects stale keys; the clean
 re-run reproduces the emission, executable, observable and reference
 identities exactly, twice.
 
+## P8-90 result
+
+PASS. Gate `tools/test_phase8_whole_regression_v1.py` (215 checks, run twice,
+byte-identical stdout, empty stderr, exit 0). Evidence:
+`.openrecomp-phase8/evidence/P8-90/`. Markers issued:
+
+- `OPENRECOMP_P8_90=PASS`
+- `OPENRECOMP_PHASE8_WHOLE_REGRESSION_V1=PASS tests=215`
+- `OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN`
+- `OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN`
+
+The frozen Phase-7 boundary, terminal evidence and P7-90/P6-90 record hashes
+re-verify; the Phase-1 host gates re-run byte-identically; all fifteen
+Phase-7 stage gates re-run live in a reconstructed pre-verdict worktree with
+byte-identical stdout; all thirteen Phase-8 gates re-run live with
+byte-identical official captures. Total re-verified stage-gate tests: 1463
+(852 Phase-7 + 611 Phase-8).
+
 ## Current boundary
 
-P8-00..P8-12 are complete. The remaining frozen stages are the whole-project
-regression (P8-90), the evidence index and proof matrix (P8-91) and the final
-bounded verdict (P8-99); the terminal objective remains unproven. P8-90 is
-active.
+P8-00..P8-12 and P8-90 are complete. The remaining frozen stages are the
+evidence index and proof matrix (P8-91) and the final bounded verdict
+(P8-99); the terminal objective remains unproven. P8-91 is active.

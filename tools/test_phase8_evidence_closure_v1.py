@@ -118,7 +118,7 @@ def main() -> int:
             text=True,
             encoding="utf-8",
         )
-        check("manifest:verifies", manifest_run.returncode == 0 and "=PASS entries=" in manifest_run.stdout, manifest_run.stdout.strip())
+        check("manifest:verifies", manifest_run.returncode == 0 and "=PASS entries=" in manifest_run.stdout, "phase-8 source manifest verified")
         state = (ROOT / ".openrecomp-phase8" / "STATE.md").read_text(encoding="utf-8")
         check("state:queue-frozen", "QUEUE_FREEZE=FROZEN" in state, "FROZEN")
         check("state:terminal-reserved", f"{TERMINAL_MARKER}={NOT_PROVEN}" in state, NOT_PROVEN)

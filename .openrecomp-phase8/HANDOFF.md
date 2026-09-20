@@ -198,9 +198,25 @@ permanent.
 - the P8-12 gate passed twice with byte-identical stdout, empty stderr and
   exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-12/`.
 
+## P8-90 outcome
+
+- frozen Phase-7 baseline, terminal evidence and the P7-90/P6-90 record hash
+  chain re-verify; the Phase-6 tag remains absent and no prior-phase tracked
+  file changed;
+- Phase-1 host gates re-run byte-identically (2a9d1bba...,
+  PASS=44 FAIL=0 SKIPPED=2);
+- all fifteen Phase-7 stage gates re-run live in a reconstructed pre-verdict
+  worktree at 519c0e73... with scratch evidence, byte-identical stdout and
+  exact counts (852 tests); the temporary worktree is removed;
+- all thirteen Phase-8 gates re-run live with byte-identical committed
+  captures (611 tests); total re-verified stage-gate tests 1463;
+- the P8-90 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under .openrecomp-phase8/evidence/P8-90/.
+
 ## Exact next action
 
-Complete P8-90: run the expensive whole-project regression -- the frozen
-Phase-1..Phase-7 gates and boundaries plus all Phase-8 official gates -- with
-exact counts and deterministic evidence. Do not optimize this gate at the
-expense of audit strength.
+Complete P8-91: build the final Phase-8 evidence index and claim/proof matrix
+separating PROVEN (the exact bounded public real-ELF native path),
+BOUNDED/PASS (specific exercised ISA/ABI/memory/runtime behaviours) and
+NOT_PROVEN (general MIPS32, arbitrary ELF, broader ABI/OS/runtime claims);
+verify no public evidence contains unauthorized or private binary material.
