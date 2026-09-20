@@ -1,0 +1,197 @@
+{
+  "checks": [
+    {
+      "check": "fixture:sha256",
+      "detail": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65",
+      "status": "PASS"
+    },
+    {
+      "check": "image:size",
+      "detail": "0x6710",
+      "status": "PASS"
+    },
+    {
+      "check": "image:sha256-stable",
+      "detail": "5bbf4bf5e520102be8b26d5735a95eb3fc1473ef71e9083fb4495a4241cd805e",
+      "status": "PASS"
+    },
+    {
+      "check": "region:load_0",
+      "detail": "{\"base\": 0, \"flags\": 1, \"kind\": \"FILE_BACKED\", \"name\": \"load_0\", \"permissions\": \"r--\", \"size\": 244}",
+      "status": "PASS"
+    },
+    {
+      "check": "region:load_1",
+      "detail": "{\"base\": 4096, \"flags\": 5, \"kind\": \"FILE_BACKED\", \"name\": \"load_1\", \"permissions\": \"r-x\", \"size\": 5300}",
+      "status": "PASS"
+    },
+    {
+      "check": "region:load_2",
+      "detail": "{\"base\": 9408, \"flags\": 1, \"kind\": \"FILE_BACKED\", \"name\": \"load_2\", \"permissions\": \"r--\", \"size\": 571}",
+      "status": "PASS"
+    },
+    {
+      "check": "region:load_3",
+      "detail": "{\"base\": 9984, \"flags\": 3, \"kind\": \"FILE_BACKED\", \"name\": \"load_3\", \"permissions\": \"rw-\", \"size\": 16400}",
+      "status": "PASS"
+    },
+    {
+      "check": "section:.bss",
+      "detail": "{\"base\": 10000, \"kind\": \"ZERO_FILL\", \"name\": \".bss\", \"permissions\": \"rw-\", \"sha256\": \"4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe\", \"size\": 16384}",
+      "status": "PASS"
+    },
+    {
+      "check": "section:.data",
+      "detail": "{\"base\": 9984, \"kind\": \"FILE_BACKED\", \"name\": \".data\", \"permissions\": \"rw-\", \"sha256\": \"e6ad6c9a3a3b7658c35bacf6553fcb8ffe34387534a648fe18f875b8f7a86ddb\", \"size\": 8}",
+      "status": "PASS"
+    },
+    {
+      "check": "section:.rodata",
+      "detail": "{\"base\": 9408, \"kind\": \"FILE_BACKED\", \"name\": \".rodata\", \"permissions\": \"r--\", \"sha256\": \"b9172c052177f5cbdbe32a6ee641963a6ea80cfc7ea319848dfb411d142df18f\", \"size\": 571}",
+      "status": "PASS"
+    },
+    {
+      "check": "section:.text",
+      "detail": "{\"base\": 4096, \"kind\": \"FILE_BACKED\", \"name\": \".text\", \"permissions\": \"r-x\", \"sha256\": \"64dd746157231bdcd3d1861a48cfb669485b01cfc5f8ff432399aa16a89292d1\", \"size\": 5300}",
+      "status": "PASS"
+    },
+    {
+      "check": "stack:identity",
+      "detail": "{\"base\": 10000, \"size\": 16384, \"symbol\": \"p8_stack\", \"top\": 26384}",
+      "status": "PASS"
+    },
+    {
+      "check": "stack:inside-bss",
+      "detail": "stack-in-bss",
+      "status": "PASS"
+    },
+    {
+      "check": "bss:image-zero-fill",
+      "detail": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "status": "PASS"
+    },
+    {
+      "check": "bss:not-file-backed",
+      "detail": "ZERO_FILL",
+      "status": "PASS"
+    },
+    {
+      "check": "data:initialized",
+      "detail": "0000000000000080",
+      "status": "PASS"
+    },
+    {
+      "check": "rodata:file-backed",
+      "detail": "b9172c052177f5cbdbe32a6ee641963a6ea80cfc7ea319848dfb411d142df18f",
+      "status": "PASS"
+    },
+    {
+      "check": "access:count",
+      "detail": "270",
+      "status": "PASS"
+    },
+    {
+      "check": "access:all-register-based",
+      "detail": "no absolute addressing",
+      "status": "PASS"
+    },
+    {
+      "check": "access:no-gp-relative",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "access:widths",
+      "detail": "{\"lb\": 2, \"lbu\": 132, \"lw\": 22, \"sb\": 88, \"sw\": 26}",
+      "status": "PASS"
+    },
+    {
+      "check": "access:stack-bounded",
+      "detail": "sp=48 max_offset=0x104",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:host-services",
+      "detail": "[{\"id\": \"p8_uart_write\", \"arg_count\": 1}]",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:output-window",
+      "detail": "{\"access\": \"write-only\", \"address\": 268435456, \"service\": \"p8_uart_write\", \"width_bits\": 8}",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:termination",
+      "detail": "{\"kind\": \"guest-return-to-host\", \"sentinel\": 0, \"status_register\": 2}",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:no-kernel",
+      "detail": "not-required",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:static-no-dynamic",
+      "detail": "static",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:no-system-traps",
+      "detail": "no syscall/break",
+      "status": "PASS"
+    },
+    {
+      "check": "image-c:deterministic",
+      "detail": "740236a88b6dc67f7805bf158731f4a14b597da0d24b319ed8dab0948d882fdd",
+      "status": "PASS"
+    },
+    {
+      "check": "image-c:no-host-paths",
+      "detail": "portable",
+      "status": "PASS"
+    },
+    {
+      "check": "image-c:declares-image",
+      "detail": "generated",
+      "status": "PASS"
+    },
+    {
+      "check": "native:build-ok",
+      "detail": "ok",
+      "status": "PASS"
+    },
+    {
+      "check": "native:exit-code",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "differential:outcomes-equal-python-model",
+      "detail": "{\"native\": {\"read:read-bss\": \"0:171\", \"read:read-data\": \"0:305419896\", \"read:read-halfword\": \"0:48879\", \"read:read-out-of-range\": \"1:0\", \"read:read-output-denied\": \"1:0\", \"read:read-rodata\": \"0:99\", \"read:read-text\": \"0:666763256\", \"read:read-unsupported-width\": \"2:0\", \"write:write-bss\": \"0\", \"write:write-data\": \"0\", \"write:write-halfword\": \"0\", \"write:write-out-of-range\": \"1\", \"write:write-output-byte\": \"0\", \"write:write-output-word-denied\": \"2\", \"write:write-rodata-denied\": \"13\", \"write:write-text-denied\": \"13\", \"write:write-unsupported-width\": \"2\"}, \"reference\": {\"read:read-bss\": \"0:171\", \"read:read-data\": \"0:305419896\", \"read:read-halfword\": \"0:48879\", \"read:read-out-of-range\": \"1:0\", \"read:read-output-denied\": \"1:0\", \"read:read-rodata\": \"0:99\", \"read:read-text\": \"0:666763256\", \"read:read-unsupported-width\": \"2:0\", \"write:write-bss\": \"0\", \"write:write-data\": \"0\", \"write:write-halfword\": \"0\", \"write:write-out-of-range\": \"1\", \"write:write-output-byte\": \"0\", \"write:write-output-word-denied\": \"2\", \"write:write-rodata-denied\": \"13\", \"write:write-text-denied\": \"13\", \"write:write-unsupported-width\": \"2\"}}",
+      "status": "PASS"
+    },
+    {
+      "check": "native:counters",
+      "detail": "{\"expected\": {\"denied\": 8, \"host_calls\": 1, \"reads\": 5, \"writes\": 3}, \"native\": {\"denied\": 8, \"host_calls\": 1, \"reads\": 5, \"writes\": 3}}",
+      "status": "PASS"
+    },
+    {
+      "check": "native:transcript",
+      "detail": "{\"transcript\": [65], \"length\": 1}",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "markers": {
+    "gate": "OPENRECOMP_PHASE8_RUNTIME_CONTRACT_V1=PASS tests=36",
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P8_05=PASS",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "passed": 36,
+  "stage": "P8-05",
+  "stage_name": "Static memory and runtime contract closure",
+  "status": "PASS",
+  "tests": 36
+}

@@ -1,0 +1,40 @@
+{
+  "schema": "openrecomp-phase8-official-runs-v1",
+  "stage": "P8-05",
+  "command": "python tools/test_phase8_runtime_v1.py",
+  "runs": [
+    {
+      "name": "run1",
+      "exit_code": 0,
+      "stdout_file": "run1.txt",
+      "stdout_bytes": 1124,
+      "stdout_sha256_raw": "03581cad9183a094d25add494542159edea84ab95d9565b975ceae81662c4231",
+      "stdout_sha256_lf": "d9b7201099fdefa164b0b09279c521869090991ebcb47154cd6f8f0c007d154f",
+      "stderr_file": "run1.err.txt",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "run2",
+      "exit_code": 0,
+      "stdout_file": "run2.txt",
+      "stdout_bytes": 1124,
+      "stdout_sha256_raw": "03581cad9183a094d25add494542159edea84ab95d9565b975ceae81662c4231",
+      "stdout_sha256_lf": "d9b7201099fdefa164b0b09279c521869090991ebcb47154cd6f8f0c007d154f",
+      "stderr_file": "run2.err.txt",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "byte_identical": true,
+  "markers": {
+    "stage": "OPENRECOMP_P8_05=PASS",
+    "gate": "OPENRECOMP_PHASE8_RUNTIME_CONTRACT_V1=PASS tests=36",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN",
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN"
+  },
+  "sidecars": {
+    "memory_contract.json": "499b4ffeec7572fbe4aec38bebdc7b47211a9142acf82370ff4e03802d2a958f",
+    "p8_05_tests.json": "3628a47b74c9a3bb6a4edeecd7c8b48d825c1594a445cd56446d15dc9c58166c"
+  }
+}

@@ -1,0 +1,40 @@
+PASS: fixture:sha256
+PASS: image:size
+PASS: image:sha256-stable
+PASS: region:load_0
+PASS: region:load_1
+PASS: region:load_2
+PASS: region:load_3
+PASS: section:.bss
+PASS: section:.data
+PASS: section:.rodata
+PASS: section:.text
+PASS: stack:identity
+PASS: stack:inside-bss
+PASS: bss:image-zero-fill
+PASS: bss:not-file-backed
+PASS: data:initialized
+PASS: rodata:file-backed
+PASS: access:count
+PASS: access:all-register-based
+PASS: access:no-gp-relative
+PASS: access:widths
+PASS: access:stack-bounded
+PASS: contract:host-services
+PASS: contract:output-window
+PASS: contract:termination
+PASS: contract:no-kernel
+PASS: contract:static-no-dynamic
+PASS: contract:no-system-traps
+PASS: image-c:deterministic
+PASS: image-c:no-host-paths
+PASS: image-c:declares-image
+PASS: native:build-ok
+PASS: native:exit-code
+PASS: differential:outcomes-equal-python-model
+PASS: native:counters
+PASS: native:transcript
+OPENRECOMP_P8_05=PASS
+OPENRECOMP_PHASE8_RUNTIME_CONTRACT_V1=PASS tests=36
+OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN

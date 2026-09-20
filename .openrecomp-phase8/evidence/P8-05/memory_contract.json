@@ -1,0 +1,180 @@
+{
+  "access_model": {
+    "gp_relative": 0,
+    "max_sp_offset": 260,
+    "op_histogram": {
+      "lb": 2,
+      "lbu": 132,
+      "lw": 22,
+      "sb": 88,
+      "sw": 26
+    },
+    "reachable_memory_accesses": 270,
+    "sp_relative": 48
+  },
+  "contract": {
+    "contract_version": "1.0.0",
+    "dynamic": false,
+    "endianness": "little",
+    "entry": "0x00002490",
+    "host_services": [
+      {
+        "arg_count": 1,
+        "id": "p8_uart_write"
+      }
+    ],
+    "image_sha256": "5bbf4bf5e520102be8b26d5735a95eb3fc1473ef71e9083fb4495a4241cd805e",
+    "image_size": 26384,
+    "kernel_emulation": "not-required",
+    "output_window": {
+      "access": "write-only",
+      "address": 268435456,
+      "service": "p8_uart_write",
+      "width_bits": 8
+    },
+    "regions": [
+      {
+        "base": 0,
+        "flags": 1,
+        "kind": "FILE_BACKED",
+        "name": "load_0",
+        "permissions": "r--",
+        "size": 244
+      },
+      {
+        "base": 4096,
+        "flags": 5,
+        "kind": "FILE_BACKED",
+        "name": "load_1",
+        "permissions": "r-x",
+        "size": 5300
+      },
+      {
+        "base": 9408,
+        "flags": 1,
+        "kind": "FILE_BACKED",
+        "name": "load_2",
+        "permissions": "r--",
+        "size": 571
+      },
+      {
+        "base": 9984,
+        "flags": 3,
+        "kind": "FILE_BACKED",
+        "name": "load_3",
+        "permissions": "rw-",
+        "size": 16400
+      }
+    ],
+    "relocations": false,
+    "sections": [
+      {
+        "base": 4096,
+        "kind": "FILE_BACKED",
+        "name": ".text",
+        "permissions": "r-x",
+        "sha256": "64dd746157231bdcd3d1861a48cfb669485b01cfc5f8ff432399aa16a89292d1",
+        "size": 5300
+      },
+      {
+        "base": 9408,
+        "kind": "FILE_BACKED",
+        "name": ".rodata",
+        "permissions": "r--",
+        "sha256": "b9172c052177f5cbdbe32a6ee641963a6ea80cfc7ea319848dfb411d142df18f",
+        "size": 571
+      },
+      {
+        "base": 9984,
+        "kind": "FILE_BACKED",
+        "name": ".data",
+        "permissions": "rw-",
+        "sha256": "e6ad6c9a3a3b7658c35bacf6553fcb8ffe34387534a648fe18f875b8f7a86ddb",
+        "size": 8
+      },
+      {
+        "base": 10000,
+        "kind": "ZERO_FILL",
+        "name": ".bss",
+        "permissions": "rw-",
+        "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+        "size": 16384
+      }
+    ],
+    "stack": {
+      "base": 10000,
+      "size": 16384,
+      "symbol": "p8_stack",
+      "top": 26384
+    },
+    "static": true,
+    "termination": {
+      "kind": "guest-return-to-host",
+      "sentinel": 0,
+      "status_register": 2
+    }
+  },
+  "contract_digest": "4769aa4b16c566754651f721a4b18edc520f300fa5fd84cafffacde722d5d0ce",
+  "differential": {
+    "counters": {
+      "denied": 8,
+      "host_calls": 1,
+      "reads": 5,
+      "writes": 3
+    },
+    "native": {
+      "read:read-bss": "0:171",
+      "read:read-data": "0:305419896",
+      "read:read-halfword": "0:48879",
+      "read:read-out-of-range": "1:0",
+      "read:read-output-denied": "1:0",
+      "read:read-rodata": "0:99",
+      "read:read-text": "0:666763256",
+      "read:read-unsupported-width": "2:0",
+      "write:write-bss": "0",
+      "write:write-data": "0",
+      "write:write-halfword": "0",
+      "write:write-out-of-range": "1",
+      "write:write-output-byte": "0",
+      "write:write-output-word-denied": "2",
+      "write:write-rodata-denied": "13",
+      "write:write-text-denied": "13",
+      "write:write-unsupported-width": "2"
+    },
+    "python_model": {
+      "read:read-bss": "0:171",
+      "read:read-data": "0:305419896",
+      "read:read-halfword": "0:48879",
+      "read:read-out-of-range": "1:0",
+      "read:read-output-denied": "1:0",
+      "read:read-rodata": "0:99",
+      "read:read-text": "0:666763256",
+      "read:read-unsupported-width": "2:0",
+      "write:write-bss": "0",
+      "write:write-data": "0",
+      "write:write-halfword": "0",
+      "write:write-out-of-range": "1",
+      "write:write-output-byte": "0",
+      "write:write-output-word-denied": "2",
+      "write:write-rodata-denied": "13",
+      "write:write-text-denied": "13",
+      "write:write-unsupported-width": "2"
+    },
+    "transcript": [
+      65
+    ]
+  },
+  "fixture": {
+    "sha256": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65"
+  },
+  "generated_image_c": {
+    "header_sha256": "e759ed9759c2c716e8aa0939e5bcd3e3aeb778be97e42c1264a8695604a94682",
+    "source_bytes": 165422,
+    "source_sha256": "740236a88b6dc67f7805bf158731f4a14b597da0d24b319ed8dab0948d882fdd"
+  },
+  "markers": {
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "stage": "P8-05"
+}

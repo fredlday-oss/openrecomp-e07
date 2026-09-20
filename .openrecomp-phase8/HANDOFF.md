@@ -93,11 +93,28 @@ permanent.
   byte-identical stdout, empty stderr and exit 0. Evidence is under
   `.openrecomp-phase8/evidence/P8-04/`.
 
+## P8-05 outcome
+
+- contract module `.openrecomp-phase8/src/p8_memory_contract_v1.py`: flat
+  image `0x0..0x6710`, regions `0x0`+244 `r--`, `0x1000`+5300 `r-x`,
+  `0x24c0`+571 `r--`, `0x2700`+16400 `rw-`, 16 KiB stack at
+  `0x2710..0x6710`, write-only byte output window `0x10000000`
+  (`p8_uart_write`), return-to-host termination, no kernel services;
+- runtime support `.openrecomp-phase8/runtime/p8_runtime_support.c`
+  implements the generic runtime ABI memory surface with region permissions,
+  bounded access, deterministic counters and an output transcript;
+- all 270 reachable memory accesses are register-based, none GP-relative,
+  48 `$sp`-relative with maximum offset `0x104` inside the 16 KiB stack;
+- native differential memory-contract test equals the independent Python
+  model (outcomes, counters, transcript);
+- the P8-05 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-05/`.
+
 ## Exact next action
 
-Complete P8-05: validate the frozen fixture's required static memory and
-runtime contract -- executable memory, `.rodata`, initialized `.data`,
-zero-filled `.bss`, stack requirements, bounded guest memory access and the
-explicit output host service -- by reusing the existing memory/runtime
-architecture, with no Linux kernel emulation. Define the exact host-side
-observable contract for P8-06..P8-08.
+Complete P8-06: feed the bounded real MIPS32 program through the existing
+architecture-neutral host emitter to deterministic generated source with
+stable generated filenames, recorded content hashes and byte-identical output
+for unchanged input; no original MIPS32 machine code may execute at runtime.
+The generated program must be composed with the P8-05 runtime support and the
+generated image unit, ready for the P8-07 native build.
