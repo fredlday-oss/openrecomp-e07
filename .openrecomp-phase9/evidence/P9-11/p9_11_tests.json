@@ -1,0 +1,791 @@
+{
+  "checks": [
+    {
+      "check": "claim:general-not-promoted",
+      "detail": "not promoted",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:playability-not-promoted",
+      "detail": "not promoted",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:public-not-promoted",
+      "detail": "not promoted",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios-candidates",
+      "detail": "3",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios-unknown",
+      "detail": "{\"BIOS_TABLE_CALL_CANDIDATE\": 3, \"INDIRECT_TARGET_UNKNOWN\": 19}",
+      "status": "PASS"
+    },
+    {
+      "check": "private:blocker-kind",
+      "detail": "external-trap",
+      "status": "PASS"
+    },
+    {
+      "check": "private:blocker-op",
+      "detail": "break",
+      "status": "PASS"
+    },
+    {
+      "check": "private:blocker-site",
+      "detail": "0x80013390",
+      "status": "PASS"
+    },
+    {
+      "check": "private:file-sha256",
+      "detail": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "status": "PASS"
+    },
+    {
+      "check": "private:io-accesses",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "private:no-cop0-gte",
+      "detail": "{}",
+      "status": "PASS"
+    },
+    {
+      "check": "private:no-structure",
+      "detail": "no structure fabricated",
+      "status": "PASS"
+    },
+    {
+      "check": "private:payload-sha256",
+      "detail": "2f48da4c642b25dd9d0b033f77b80a19e5befe34dc19da3194a51998e97c71be",
+      "status": "PASS"
+    },
+    {
+      "check": "private:present",
+      "detail": "local private fixture present",
+      "status": "PASS"
+    },
+    {
+      "check": "private:structure-fail-closed",
+      "detail": "{'code': 'CONTROL_WITHOUT_DELAY_SLOT', 'detail': '0x80013390'}",
+      "status": "PASS"
+    },
+    {
+      "check": "private:summary:exception_site_count",
+      "detail": "3",
+      "status": "PASS"
+    },
+    {
+      "check": "private:summary:reachable_invalid_words",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "private:summary:reachable_supported_words",
+      "detail": "3972",
+      "status": "PASS"
+    },
+    {
+      "check": "private:summary:reachable_unsupported_words",
+      "detail": "96",
+      "status": "PASS"
+    },
+    {
+      "check": "private:summary:reachable_words",
+      "detail": "4068",
+      "status": "PASS"
+    },
+    {
+      "check": "private:unsupported-total",
+      "detail": "96",
+      "status": "PASS"
+    },
+    {
+      "check": "private:unsupported-unknown",
+      "detail": "{}",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:no-ascii-run",
+      "detail": "ascii payload run at []",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:no-base64",
+      "detail": "payload base64 present",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:no-hex",
+      "detail": "payload hex present",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "25 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "25 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "25 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "25 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "25 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "25 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "25 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "25 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "25 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "50 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "13 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "89 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "41 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "50 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "13 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "26 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "8 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "8 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "20 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "39 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:validation:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 155,
+  "private_fixture": {
+    "is_pass_criterion": false,
+    "label": "hercules-slus-005.29",
+    "present": true
+  },
+  "stage": "P9-11",
+  "stage_name": "Private Hercules bounded validation",
+  "status": "PASS",
+  "tests": 155
+}

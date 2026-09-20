@@ -10,8 +10,8 @@ BASELINE_TAG_RECONCILIATION=Phase 8 created no annotated terminal tag. The autho
 BASELINE_TERMINAL=OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS
 BASELINE_GENERAL=OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P9-10
-LAST_PASSED_STAGE=P9-10
+CURRENT_STAGE=P9-11
+LAST_PASSED_STAGE=P9-11
 STATUS=IN_PROGRESS
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P9-01..P9-99
@@ -92,7 +92,7 @@ OpenRecomp-authored or openly licensed PS1 fixture.
 | P9-08 | SPU/audio boundary | PASS | `.openrecomp-phase9/evidence/P9-08/` |
 | P9-09 | CD-ROM/file-service boundary | PASS | `.openrecomp-phase9/evidence/P9-09/` |
 | P9-10 | Native build + deterministic execution | PASS | `.openrecomp-phase9/evidence/P9-10/` |
-| P9-11 | Private Hercules validation | QUEUED | - |
+| P9-11 | Private Hercules validation | PASS | `.openrecomp-phase9/evidence/P9-11/` |
 | P9-12 | Hardening + reproducibility | QUEUED | - |
 | P9-90 | Whole-project regression | QUEUED | - |
 | P9-91 | Evidence closure + claim ledger | QUEUED | - |
@@ -355,3 +355,24 @@ reference observables agree exactly (exit `0x00000002`, registers digest
 CD-ROM event digests `0x6a326cbc...`/`0xe35ba754...`/`0x55788edb...`/
 `0x0dc54fdf...`, reads 1, writes 4, denied 0, no excluded observables). The
 next stage is `P9-11`.
+
+## P9-11 result
+
+PASS. Gate `tools/test_phase9_hercules_v1.py` (155 checks, run twice via
+`p9_stage_runner_v1.py`, byte-identical stdout, empty stderr, exit 0).
+Evidence: `.openrecomp-phase9/evidence/P9-11/`. Markers issued:
+
+- `OPENRECOMP_P9_11=PASS`
+- `OPENRECOMP_PHASE9_PRIVATE_VALIDATION_V1=PASS tests=155`
+- `OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN` (reserved)
+- `OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` (permanent)
+- `OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` (permanent)
+
+The private Hercules fixture was run through the complete bounded path and
+reduced to non-reconstructive metadata: exact frontier (4068 reachable words,
+96 recognized-unsupported, 3 exception sites, 22 indirect calls, 18 indirect
+jumps), first blocker `break` at `0x80013390`, fail-closed structure
+`CONTROL_WITHOUT_DELAY_SLOT`, BIOS boundary 3 B0 candidates + 19 unknowns,
+0 discoverable I/O-range accesses, and bounded execution
+`NOT_ATTEMPTED_BLOCKED_BY_FIRST_UNRESOLVED`. No private bytes are committed
+and no marker was promoted. The next stage is `P9-12`.

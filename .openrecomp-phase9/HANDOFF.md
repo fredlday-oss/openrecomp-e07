@@ -274,3 +274,27 @@ image and memory-map contract).
 - confirm no proprietary bytes or reconstructive derived data are committed
   and that private-fixture results never promote the public claim or the
   permanent non-claims.
+
+## P9-11 outcome
+
+- the private Hercules fixture was run through ingestion, memory-map
+  contract, pipeline, closure classification, BIOS boundary and I/O discovery;
+- exact frontier: 4068 reachable words (3972 supported, 96
+  recognized-unsupported, 0 invalid), 3 exception sites, 22 indirect calls,
+  18 indirect jumps; first blocker `break` at `0x80013390`; structure bridge
+  fail-closed `CONTROL_WITHOUT_DELAY_SLOT`; BIOS 3 B0 candidates + 19
+  unknowns; 0 discoverable I/O-range accesses;
+- bounded execution `NOT_ATTEMPTED_BLOCKED_BY_FIRST_UNRESOLVED`; no private
+  code was executed, emitted or committed; no marker promoted;
+- the P9-11 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase9/evidence/P9-11/`.
+
+## Known work for P9-12
+
+- negative malformed-input tests across ingestion, memory map, semantics
+  coverage, boundaries and native workflow;
+- analysis-cache and stale-evidence rejection tests;
+- clean rebuild and repeated deterministic execution of the public native
+  path;
+- source/evidence manifest re-verification and a public-safety scan over the
+  Phase-9 evidence.
