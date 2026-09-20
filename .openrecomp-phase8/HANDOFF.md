@@ -110,11 +110,22 @@ permanent.
 - the P8-05 gate passed twice with byte-identical stdout, empty stderr and
   exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-05/`.
 
+## P8-06 outcome
+
+- emission set (stable names, content hashes): `program.c` `6a957bd1...`
+  (byte-identical to the P8-04 emission), `p8_image_v1.c` `d5d95845...`,
+  `p8_runtime_support.c` `9b5e70f5...`, `p8_driver.c` `e918de64...`;
+- 7 host translation functions, 463 emitted neutral operations, deterministic
+  two-run emission, no `main` in the program, no inline assembly or embedded
+  instruction array, guest image inert data only;
+- observable record and FNV-1a 64 digest recipe fixed in `p8_driver.c`;
+- the P8-06 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-06/`.
+
 ## Exact next action
 
-Complete P8-06: feed the bounded real MIPS32 program through the existing
-architecture-neutral host emitter to deterministic generated source with
-stable generated filenames, recorded content hashes and byte-identical output
-for unchanged input; no original MIPS32 machine code may execute at runtime.
-The generated program must be composed with the P8-05 runtime support and the
-generated image unit, ready for the P8-07 native build.
+Complete P8-07: compile the P8-06 emission set through the existing
+host-native toolchain/runtime boundary (`openrecomp.build_pipeline`,
+`clang-cl` + `lld-link`, `/Brepro`), record content-hash incremental build
+reuse for development, and record one clean audited build path (two isolated
+runs, `EXECUTABLE_REPRODUCIBLE`) with explicit toolchain provenance.

@@ -1,0 +1,142 @@
+{
+  "checks": [
+    {
+      "check": "fixture:sha256",
+      "detail": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:deterministic",
+      "detail": "byte-identical input set",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:program-fingerprint",
+      "detail": "6a957bd1639cebf8b702725682b3423accf0e01191a5fa73e9dc9849c9ff3294",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:file-order",
+      "detail": "[\"program.c\", \"p8_image_v1.c\", \"p8_runtime_support.c\", \"p8_driver.c\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:functions",
+      "detail": "[\"fn_fn_1000\", \"fn_fn_101c\", \"fn_fn_11b8\", \"fn_fn_11dc\", \"fn_fn_2290\", \"fn_fn_2360\", \"fn_fn_2490\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "program:entry-driver",
+      "detail": "run boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "program:no-main",
+      "detail": "driver supplies main",
+      "status": "PASS"
+    },
+    {
+      "check": "program:register-file",
+      "detail": "explicit register file",
+      "status": "PASS"
+    },
+    {
+      "check": "program:abi-surface",
+      "detail": "runtime ABI",
+      "status": "PASS"
+    },
+    {
+      "check": "program:no-image",
+      "detail": "program never touches the inert image directly",
+      "status": "PASS"
+    },
+    {
+      "check": "program:no-system",
+      "detail": "portable C only",
+      "status": "PASS"
+    },
+    {
+      "check": "program:no-machine-code",
+      "detail": "no inline machine code or embedded instruction array",
+      "status": "PASS"
+    },
+    {
+      "check": "image:inert-data",
+      "detail": "byte array",
+      "status": "PASS"
+    },
+    {
+      "check": "image:regions",
+      "detail": "region table",
+      "status": "PASS"
+    },
+    {
+      "check": "image:elf-magic-as-data",
+      "detail": "ELF header embedded as inert data",
+      "status": "PASS"
+    },
+    {
+      "check": "image:no-control-flow",
+      "detail": "data-only unit",
+      "status": "PASS"
+    },
+    {
+      "check": "support:abi-implementations",
+      "detail": "ABI implemented",
+      "status": "PASS"
+    },
+    {
+      "check": "support:output-service",
+      "detail": "MMIO mapped to service",
+      "status": "PASS"
+    },
+    {
+      "check": "driver:fixture-identity",
+      "detail": "fixture hash",
+      "status": "PASS"
+    },
+    {
+      "check": "driver:observables",
+      "detail": "observable record",
+      "status": "PASS"
+    },
+    {
+      "check": "driver:digest-recipe",
+      "detail": "FNV-1a 64",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:stable-filenames",
+      "detail": "stable names",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:content-hashes",
+      "detail": "{\"p8_driver.c\": \"e918de647ed34d9eaf451b93beb6b4f490676484c737484b7d8602f500f2ecea\", \"p8_image_v1.c\": \"d5d95845cf6574b7791996bdacd4d1f6994359c9e6c6911e71f1e006fb9b6d8d\", \"p8_runtime_support.c\": \"9b5e70f524741612fc25a2def189fe436c757ceb4e064daa3c4f76088b9595c5\", \"program.c\": \"6a957bd1639cebf8b702725682b3423accf0e01191a5fa73e9dc9849c9ff3294\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-host-paths",
+      "detail": "portable",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-nondeterministic-macros",
+      "detail": "deterministic content",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "markers": {
+    "gate": "OPENRECOMP_PHASE8_HOST_EMISSION_V1=PASS tests=25",
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P8_06=PASS",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "passed": 25,
+  "stage": "P8-06",
+  "stage_name": "Host-source emission",
+  "status": "PASS",
+  "tests": 25
+}

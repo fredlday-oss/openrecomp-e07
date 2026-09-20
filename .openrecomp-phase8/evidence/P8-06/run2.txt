@@ -1,0 +1,29 @@
+PASS: fixture:sha256
+PASS: emission:deterministic
+PASS: emission:program-fingerprint
+PASS: emission:file-order
+PASS: emission:functions
+PASS: program:entry-driver
+PASS: program:no-main
+PASS: program:register-file
+PASS: program:abi-surface
+PASS: program:no-image
+PASS: program:no-system
+PASS: program:no-machine-code
+PASS: image:inert-data
+PASS: image:regions
+PASS: image:elf-magic-as-data
+PASS: image:no-control-flow
+PASS: support:abi-implementations
+PASS: support:output-service
+PASS: driver:fixture-identity
+PASS: driver:observables
+PASS: driver:digest-recipe
+PASS: emission:stable-filenames
+PASS: emission:content-hashes
+PASS: emission:no-host-paths
+PASS: emission:no-nondeterministic-macros
+OPENRECOMP_P8_06=PASS
+OPENRECOMP_PHASE8_HOST_EMISSION_V1=PASS tests=25
+OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN

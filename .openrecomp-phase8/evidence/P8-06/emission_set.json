@@ -1,0 +1,48 @@
+{
+  "emission": {
+    "emission_version": "1.0.0",
+    "files": [
+      {
+        "bytes": 97830,
+        "name": "program.c",
+        "sha256": "6a957bd1639cebf8b702725682b3423accf0e01191a5fa73e9dc9849c9ff3294"
+      },
+      {
+        "bytes": 166198,
+        "name": "p8_image_v1.c",
+        "sha256": "d5d95845cf6574b7791996bdacd4d1f6994359c9e6c6911e71f1e006fb9b6d8d"
+      },
+      {
+        "bytes": 7662,
+        "name": "p8_runtime_support.c",
+        "sha256": "9b5e70f524741612fc25a2def189fe436c757ceb4e064daa3c4f76088b9595c5"
+      },
+      {
+        "bytes": 4172,
+        "name": "p8_driver.c",
+        "sha256": "e918de647ed34d9eaf451b93beb6b4f490676484c737484b7d8602f500f2ecea"
+      }
+    ],
+    "program_fingerprint": "6a957bd1639cebf8b702725682b3423accf0e01191a5fa73e9dc9849c9ff3294",
+    "program_functions": [
+      "fn_fn_1000",
+      "fn_fn_101c",
+      "fn_fn_11b8",
+      "fn_fn_11dc",
+      "fn_fn_2290",
+      "fn_fn_2360",
+      "fn_fn_2490"
+    ]
+  },
+  "emission_digest": "147a7b9b50a74f2f7f9a995e1c423fc7a7a5b774e989c90f1a392a92fd495fb7",
+  "fixture": {
+    "sha256": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65"
+  },
+  "markers": {
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "program_operations": 463,
+  "program_source_bytes": 97830,
+  "stage": "P8-06"
+}

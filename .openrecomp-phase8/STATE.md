@@ -11,8 +11,8 @@ BASELINE_GENERAL=OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
 BASELINE_TAG_STATUS=ABSENT_RECONCILED
 BASELINE_TAG_RECONCILIATION=P7-99 records that the frozen Phase-6 control policy required and created no terminal tag; the authoritative Phase-6 terminal boundary is the P6-99 verdict commit 1643817d43196c43155805249137e4b4e4a21eb1, tree cda3f535be43dc6f3d4b457d11d356ae39ea34af. No tag is fabricated.
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P8-06
-LAST_PASSED_STAGE=P8-05
+CURRENT_STAGE=P8-07
+LAST_PASSED_STAGE=P8-06
 STATUS=ACTIVE
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P8-01..P8-99
@@ -76,7 +76,7 @@ Exact observed version strings are recorded in
 | P8-03 | Real-ELF ProgramModel / CFG integration | PASS | .openrecomp-phase8/evidence/P8-03/ |
 | P8-04 | Translation frontier closure | PASS | .openrecomp-phase8/evidence/P8-04/ |
 | P8-05 | Static memory + runtime contract closure | PASS | .openrecomp-phase8/evidence/P8-05/ |
-| P8-06 | Host-source emission | QUEUED | - |
+| P8-06 | Host-source emission | PASS | .openrecomp-phase8/evidence/P8-06/ |
 | P8-07 | Incremental native build | QUEUED | - |
 | P8-08 | Deterministic native execution | QUEUED | - |
 | P8-09 | Independent reference equivalence | QUEUED | - |
@@ -246,11 +246,28 @@ window `0x0..0x6710`, explicit region permissions, the 16 KiB stack at
 through the existing build pipeline matches the independent Python memory
 model over the full read/write/denial vector, counters and transcript.
 
+## P8-06 result
+
+PASS. Gate `tools/test_phase8_emission_v1.py` (25 checks, run twice,
+byte-identical stdout, empty stderr, exit 0). Evidence:
+`.openrecomp-phase8/evidence/P8-06/`. Markers issued:
+
+- `OPENRECOMP_P8_06=PASS`
+- `OPENRECOMP_PHASE8_HOST_EMISSION_V1=PASS tests=25`
+- `OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN`
+- `OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN`
+
+Emission set (stable filenames and content hashes): `program.c`
+`6a957bd1...` (continuity with P8-04), `p8_image_v1.c` `d5d95845...`,
+`p8_runtime_support.c` `9b5e70f5...`, `p8_driver.c` `e918de64...`. The guest
+image is embedded as inert data; all executed semantics are generated C.
+
 ## Current boundary
 
 P8-00 established the control plane, P8-01 froze the real-ELF fixture and its
 reproducible build, P8-02 characterized the frontier, P8-03 derived the
-neutral structure, P8-04 proved every reachable instruction translatable, and
-P8-05 closed the static memory and runtime contract. The full fixture has not
-yet been built and executed as one native program; the terminal objective
-remains unproven. P8-06 (host-source emission) is active.
+neutral structure, P8-04 proved every reachable instruction translatable,
+P8-05 closed the memory/runtime contract, and P8-06 produced the
+deterministic host-source emission set. Nothing has been compiled or executed
+yet; the terminal objective remains unproven. P8-07 (incremental native
+build) is active.
