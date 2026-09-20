@@ -11,8 +11,8 @@ BASELINE_GENERAL=OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
 BASELINE_TAG_STATUS=ABSENT_RECONCILED
 BASELINE_TAG_RECONCILIATION=P7-99 records that the frozen Phase-6 control policy required and created no terminal tag; the authoritative Phase-6 terminal boundary is the P6-99 verdict commit 1643817d43196c43155805249137e4b4e4a21eb1, tree cda3f535be43dc6f3d4b457d11d356ae39ea34af. No tag is fabricated.
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P8-07
-LAST_PASSED_STAGE=P8-06
+CURRENT_STAGE=P8-08
+LAST_PASSED_STAGE=P8-07
 STATUS=ACTIVE
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P8-01..P8-99
@@ -77,7 +77,7 @@ Exact observed version strings are recorded in
 | P8-04 | Translation frontier closure | PASS | .openrecomp-phase8/evidence/P8-04/ |
 | P8-05 | Static memory + runtime contract closure | PASS | .openrecomp-phase8/evidence/P8-05/ |
 | P8-06 | Host-source emission | PASS | .openrecomp-phase8/evidence/P8-06/ |
-| P8-07 | Incremental native build | QUEUED | - |
+| P8-07 | Incremental native build | PASS | .openrecomp-phase8/evidence/P8-07/ |
 | P8-08 | Deterministic native execution | QUEUED | - |
 | P8-09 | Independent reference equivalence | QUEUED | - |
 | P8-10 | Reusable real-MIPS32 ELF-to-native workflow | QUEUED | - |
@@ -262,12 +262,28 @@ Emission set (stable filenames and content hashes): `program.c`
 `p8_runtime_support.c` `9b5e70f5...`, `p8_driver.c` `e918de64...`. The guest
 image is embedded as inert data; all executed semantics are generated C.
 
+## P8-07 result
+
+PASS. Gate `tools/test_phase8_native_build_v1.py` (24 checks, run twice,
+byte-identical stdout, empty stderr, exit 0). Evidence:
+`.openrecomp-phase8/evidence/P8-07/`. Markers issued:
+
+- `OPENRECOMP_P8_07=PASS`
+- `OPENRECOMP_PHASE8_NATIVE_BUILD_V1=PASS tests=24`
+- `OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN`
+- `OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN`
+
+Clean audited build `EXECUTABLE_REPRODUCIBLE`: `program.exe` 226304 bytes,
+SHA-256 `612cad0e9f59a3e334fa6c1d76d6d3c43bfeda71dd1de533d4c216589697429c`;
+incremental content-hash cache: cold 4 compiled, warm 4 reused, corrupted
+entry 1 recompiled/3 reused, executable byte-stable.
+
 ## Current boundary
 
 P8-00 established the control plane, P8-01 froze the real-ELF fixture and its
 reproducible build, P8-02 characterized the frontier, P8-03 derived the
 neutral structure, P8-04 proved every reachable instruction translatable,
-P8-05 closed the memory/runtime contract, and P8-06 produced the
-deterministic host-source emission set. Nothing has been compiled or executed
-yet; the terminal objective remains unproven. P8-07 (incremental native
-build) is active.
+P8-05 closed the memory/runtime contract, P8-06 produced the deterministic
+emission set, and P8-07 built it reproducibly. The executable has not been
+officially executed; the terminal objective remains unproven. P8-08
+(deterministic native execution) is active.

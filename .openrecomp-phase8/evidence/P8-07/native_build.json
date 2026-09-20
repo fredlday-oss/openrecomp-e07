@@ -1,0 +1,62 @@
+{
+  "clean_build": {
+    "classification": "EXECUTABLE_REPRODUCIBLE",
+    "executable_bytes": 226304,
+    "executable_sha256": "612cad0e9f59a3e334fa6c1d76d6d3c43bfeda71dd1de533d4c216589697429c",
+    "manifest_inputs": [
+      "generated.c",
+      "p8_driver.c",
+      "p8_image_v1.c",
+      "p8_runtime_support.c"
+    ]
+  },
+  "emission_hashes": {
+    "p8_driver.c": "e918de647ed34d9eaf451b93beb6b4f490676484c737484b7d8602f500f2ecea",
+    "p8_image_v1.c": "d5d95845cf6574b7791996bdacd4d1f6994359c9e6c6911e71f1e006fb9b6d8d",
+    "p8_runtime_support.c": "9b5e70f524741612fc25a2def189fe436c757ceb4e064daa3c4f76088b9595c5",
+    "program.c": "6a957bd1639cebf8b702725682b3423accf0e01191a5fa73e9dc9849c9ff3294"
+  },
+  "fixture": {
+    "sha256": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65"
+  },
+  "incremental": {
+    "cache_entries": 4,
+    "cold": {
+      "compiled": 4,
+      "executable_sha256": "0a1598d5c0aaf66fc80e611ebc563d5823e3873bff675de546ffc134d97e9bd4",
+      "reused": 0
+    },
+    "corrupt_cache": {
+      "compiled": 1,
+      "executable_sha256": "0a1598d5c0aaf66fc80e611ebc563d5823e3873bff675de546ffc134d97e9bd4",
+      "reused": 3
+    },
+    "warm": {
+      "compiled": 0,
+      "executable_sha256": "0a1598d5c0aaf66fc80e611ebc563d5823e3873bff675de546ffc134d97e9bd4",
+      "reused": 4
+    }
+  },
+  "markers": {
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "stage": "P8-07",
+  "toolchain": {
+    "compile_arguments": [
+      "/c",
+      "/Brepro",
+      "/Od",
+      "/std:c11",
+      "/nologo"
+    ],
+    "compiler": "clang-cl.exe",
+    "compiler_version": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+    "link_arguments": [
+      "/Brepro",
+      "/nologo"
+    ],
+    "linker": "lld-link.exe",
+    "linker_version": "LLD 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"
+  }
+}

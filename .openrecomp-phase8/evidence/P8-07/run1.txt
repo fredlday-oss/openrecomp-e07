@@ -1,0 +1,28 @@
+PASS: fixture:sha256
+PASS: emission:p8_driver.c
+PASS: emission:p8_image_v1.c
+PASS: emission:p8_runtime_support.c
+PASS: emission:program.c
+PASS: emission:program-continuity
+PASS: toolchain:available
+PASS: toolchain:identity
+PASS: toolchain:version-recorded
+PASS: incremental:cold-compiles-all
+PASS: incremental:warm-reuses-all
+PASS: incremental:executable-stable
+PASS: incremental:object-keys-content-addressed
+PASS: incremental:corrupt-cache-recompiles
+PASS: incremental:executable-unchanged-after-repair
+PASS: clean:status-ok
+PASS: clean:executable-reproducible
+PASS: clean:executables-identical
+PASS: clean:objects-match-incremental
+PASS: clean:executable-size-matches-incremental
+PASS: clean:manifest-inputs
+PASS: warnings:documented-only
+PASS: clean:warnings-documented-only
+PASS: clean:brepro-flags
+OPENRECOMP_P8_07=PASS
+OPENRECOMP_PHASE8_NATIVE_BUILD_V1=PASS tests=24
+OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN

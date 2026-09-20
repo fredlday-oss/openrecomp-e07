@@ -122,10 +122,22 @@ permanent.
 - the P8-06 gate passed twice with byte-identical stdout, empty stderr and
   exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-06/`.
 
+## P8-07 outcome
+
+- clean audited build through `openrecomp.build_pipeline`:
+  `EXECUTABLE_REPRODUCIBLE`, `program.exe` 226304 bytes, SHA-256
+  `612cad0e9f59a3e334fa6c1d76d6d3c43bfeda71dd1de533d4c216589697429c`, all four
+  objects byte-identical to the incremental path;
+- content-hash incremental cache: cold 4 compiled / 0 reused, warm 0/4,
+  corrupted entry 1 recompiled / 3 reused, executable byte-stable
+  (`0a1598d5...` incremental link output);
+- documented `-Wparentheses-equality` diagnostics only; no other warnings;
+- the P8-07 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-07/`.
+
 ## Exact next action
 
-Complete P8-07: compile the P8-06 emission set through the existing
-host-native toolchain/runtime boundary (`openrecomp.build_pipeline`,
-`clang-cl` + `lld-link`, `/Brepro`), record content-hash incremental build
-reuse for development, and record one clean audited build path (two isolated
-runs, `EXECUTABLE_REPRODUCIBLE`) with explicit toolchain provenance.
+Complete P8-08: execute the generated native program, define the bounded
+observable record (exit value, agreed-boundary registers, memory digest,
+output transcript, event counts), run the official gate twice and require
+deterministic, byte-identical result evidence.

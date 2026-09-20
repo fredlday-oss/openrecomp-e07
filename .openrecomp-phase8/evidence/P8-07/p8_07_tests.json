@@ -1,0 +1,137 @@
+{
+  "checks": [
+    {
+      "check": "fixture:sha256",
+      "detail": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:p8_driver.c",
+      "detail": "e918de647ed34d9eaf451b93beb6b4f490676484c737484b7d8602f500f2ecea",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:p8_image_v1.c",
+      "detail": "d5d95845cf6574b7791996bdacd4d1f6994359c9e6c6911e71f1e006fb9b6d8d",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:p8_runtime_support.c",
+      "detail": "9b5e70f524741612fc25a2def189fe436c757ceb4e064daa3c4f76088b9595c5",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:program.c",
+      "detail": "6a957bd1639cebf8b702725682b3423accf0e01191a5fa73e9dc9849c9ff3294",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:program-continuity",
+      "detail": "6a957bd1639cebf8b702725682b3423accf0e01191a5fa73e9dc9849c9ff3294",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:available",
+      "detail": "clang-cl + lld-link",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:identity",
+      "detail": "clang-cl.exe + lld-link.exe",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:version-recorded",
+      "detail": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+      "status": "PASS"
+    },
+    {
+      "check": "incremental:cold-compiles-all",
+      "detail": "{\"compiled\": 4, \"reused\": 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "incremental:warm-reuses-all",
+      "detail": "{\"compiled\": 0, \"reused\": 4}",
+      "status": "PASS"
+    },
+    {
+      "check": "incremental:executable-stable",
+      "detail": "0a1598d5c0aaf66fc80e611ebc563d5823e3873bff675de546ffc134d97e9bd4",
+      "status": "PASS"
+    },
+    {
+      "check": "incremental:object-keys-content-addressed",
+      "detail": "content-addressed",
+      "status": "PASS"
+    },
+    {
+      "check": "incremental:corrupt-cache-recompiles",
+      "detail": "{\"compiled\": 1, \"reused\": 3}",
+      "status": "PASS"
+    },
+    {
+      "check": "incremental:executable-unchanged-after-repair",
+      "detail": "0a1598d5c0aaf66fc80e611ebc563d5823e3873bff675de546ffc134d97e9bd4",
+      "status": "PASS"
+    },
+    {
+      "check": "clean:status-ok",
+      "detail": "ok",
+      "status": "PASS"
+    },
+    {
+      "check": "clean:executable-reproducible",
+      "detail": "EXECUTABLE_REPRODUCIBLE",
+      "status": "PASS"
+    },
+    {
+      "check": "clean:executables-identical",
+      "detail": "612cad0e9f59a3e334fa6c1d76d6d3c43bfeda71dd1de533d4c216589697429c",
+      "status": "PASS"
+    },
+    {
+      "check": "clean:objects-match-incremental",
+      "detail": "{\"generated.obj\": \"327b16fddf5a78d285332bf408755223e448bd5b5141b0123ccd68f3701fd4e4\", \"p8_driver.obj\": \"7c50493f96c6849ff995f74538aa370094092837fa061b186009568bb6406847\", \"p8_image_v1.obj\": \"ccad92284d0230e3062dd9ff86e40a67961dd0caef44056a2d3429cd8ea81566\", \"p8_runtime_support.obj\": \"3c3e763b01dc3c44f5d06bb3faf833fa231acaa8d6f28245299a4841f9e5b613\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "clean:executable-size-matches-incremental",
+      "detail": "226304 vs 226304",
+      "status": "PASS"
+    },
+    {
+      "check": "clean:manifest-inputs",
+      "detail": "[\"generated.c\", \"p8_driver.c\", \"p8_image_v1.c\", \"p8_runtime_support.c\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "warnings:documented-only",
+      "detail": "{\"cold_warnings\": 3, \"warm_warnings\": 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "clean:warnings-documented-only",
+      "detail": "[0, 0]",
+      "status": "PASS"
+    },
+    {
+      "check": "clean:brepro-flags",
+      "detail": "deterministic flags",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "markers": {
+    "gate": "OPENRECOMP_PHASE8_NATIVE_BUILD_V1=PASS tests=24",
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P8_07=PASS",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "passed": 24,
+  "stage": "P8-07",
+  "stage_name": "Incremental native build",
+  "status": "PASS",
+  "tests": 24
+}
