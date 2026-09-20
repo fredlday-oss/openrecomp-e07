@@ -1,0 +1,498 @@
+{
+  "baseline": {
+    "branch": "phase8/mips32-end-to-end-native-v1",
+    "commit": "61136fc37cf0810e64241addd8f57a91872bc0af",
+    "phase": 8,
+    "tag_status": "ABSENT_RECONCILED",
+    "tree": "f9262497b82fe0027c3b23432ba7bd8cbccdf433"
+  },
+  "checks": [
+    {
+      "check": "acceleration:cache-contract",
+      "detail": "cache key schema",
+      "passed": true
+    },
+    {
+      "check": "acceleration:fast-vs-terminal",
+      "detail": "fast/terminal gate policy",
+      "passed": true
+    },
+    {
+      "check": "acceleration:incremental-build",
+      "detail": "incremental build",
+      "passed": true
+    },
+    {
+      "check": "baseline:commit-tree",
+      "detail": "f9262497b82fe0027c3b23432ba7bd8cbccdf433",
+      "passed": true
+    },
+    {
+      "check": "baseline:commit-type",
+      "detail": "61136fc37cf0810e64241addd8f57a91872bc0af",
+      "passed": true
+    },
+    {
+      "check": "baseline:p8-99-all-stages-pass",
+      "detail": "15/15",
+      "passed": true
+    },
+    {
+      "check": "baseline:p8-99-decision",
+      "detail": "PASS",
+      "passed": true
+    },
+    {
+      "check": "baseline:p8-99-terminal-marker",
+      "detail": "terminal PASS",
+      "passed": true
+    },
+    {
+      "check": "baseline:phase8-tag-absent-reconciled",
+      "detail": "absent",
+      "passed": true
+    },
+    {
+      "check": "branch:boundary-tree-identical",
+      "detail": "f9262497b82fe0027c3b23432ba7bd8cbccdf433",
+      "passed": true
+    },
+    {
+      "check": "branch:descends-from-baseline",
+      "detail": "61136fc37cf0810e64241addd8f57a91872bc0af",
+      "passed": true
+    },
+    {
+      "check": "branch:head-at-boundary-or-descendant",
+      "detail": "61136fc37cf0810e64241addd8f57a91872bc0af",
+      "passed": true
+    },
+    {
+      "check": "branch:name",
+      "detail": "phase8/mips32-end-to-end-native-v1",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase9/.gitignore",
+      "detail": ".openrecomp-phase9/.gitignore",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase9/ACCELERATION_POLICY.md",
+      "detail": ".openrecomp-phase9/ACCELERATION_POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase9/CONTROL_POLICY.md",
+      "detail": ".openrecomp-phase9/CONTROL_POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase9/EVIDENCE_SCHEMA.md",
+      "detail": ".openrecomp-phase9/EVIDENCE_SCHEMA.md",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase9/FIXTURE_POLICY.md",
+      "detail": ".openrecomp-phase9/FIXTURE_POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase9/HANDOFF.md",
+      "detail": ".openrecomp-phase9/HANDOFF.md",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase9/SCOPE.md",
+      "detail": ".openrecomp-phase9/SCOPE.md",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase9/STAGE_QUEUE.md",
+      "detail": ".openrecomp-phase9/STAGE_QUEUE.md",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase9/STATE.md",
+      "detail": ".openrecomp-phase9/STATE.md",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase9/evidence/README.md",
+      "detail": ".openrecomp-phase9/evidence/README.md",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase9/src/p9_source_manifest_v1.py",
+      "detail": ".openrecomp-phase9/src/p9_source_manifest_v1.py",
+      "passed": true
+    },
+    {
+      "check": "control:file:.openrecomp-phase9/src/p9_stage_runner_v1.py",
+      "detail": ".openrecomp-phase9/src/p9_stage_runner_v1.py",
+      "passed": true
+    },
+    {
+      "check": "evidence:boundary-stage-only",
+      "detail": "P9-00",
+      "passed": true
+    },
+    {
+      "check": "evidence:private-non-reconstructive",
+      "detail": "private metadata rule",
+      "passed": true
+    },
+    {
+      "check": "evidence:transient-ignored",
+      "detail": "transient dirs ignored",
+      "passed": true
+    },
+    {
+      "check": "evidence:two-runs",
+      "detail": "two-run determinism",
+      "passed": true
+    },
+    {
+      "check": "fixture:bios-boundary",
+      "detail": "BIOS boundary",
+      "passed": true
+    },
+    {
+      "check": "fixture:no-proprietary",
+      "detail": "no proprietary material",
+      "passed": true
+    },
+    {
+      "check": "fixture:private-metadata-only",
+      "detail": "private metadata rule",
+      "passed": true
+    },
+    {
+      "check": "fixture:public-open-required",
+      "detail": "public fixture licence",
+      "passed": true
+    },
+    {
+      "check": "frozen:no-new-prior-residue",
+      "detail": "none",
+      "passed": true
+    },
+    {
+      "check": "frozen:no-prior-tracked-change-outside-documented-residue",
+      "detail": ".openrecomp-phase3/evidence/P3-00/p3_00_tests.json,.openrecomp-phase3/evidence/P3-00/residue_manifest.txt",
+      "passed": true
+    },
+    {
+      "check": "frozen:p8-source-manifest",
+      "detail": "OPENRECOMP_PHASE8_SOURCE_INTEGRITY=PASS entries=30",
+      "passed": true
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/ACCELERATION_POLICY.md",
+      "detail": "02a10bc6aaa9c2d4accd8d9e5eab30c6e608c09d7090148e180dc4babc36bf95",
+      "passed": true
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/CONTROL_POLICY.md",
+      "detail": "50bd69203c78f8ff45439f133a0b4dd01f54e1dcf4175a1886a49d0effff20b7",
+      "passed": true
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/EVIDENCE_SCHEMA.md",
+      "detail": "4c7b4473972bed35bbdc0e6df54d642886b6697112361f2a8f04a6a659b86acf",
+      "passed": true
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/FIXTURE_POLICY.md",
+      "detail": "723e5794c836371ece147af53039a4134b788c1ea9ee9fc5d52a91edc330f879",
+      "passed": true
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/HANDOFF.md",
+      "detail": "01abbc46c810b9da697932d34e3be7b18acab88b54a630ed777ab96f4da60c70",
+      "passed": true
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/SCOPE.md",
+      "detail": "82bc03b864b85509c7eb23a5e1aea124edc431f94d412064fa4d076c6b349ca1",
+      "passed": true
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/SOURCE_SHA256SUMS.txt",
+      "detail": "5ac27eb1f23ae412a14e94c62a80f811b7a1670e53b404356b49595d1f9f4221",
+      "passed": true
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/STAGE_QUEUE.md",
+      "detail": "5f1dc76669db00f766afcb55fa5d943b5b3498333cfc9cc8b6e63971ceeb1fbf",
+      "passed": true
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/STATE.md",
+      "detail": "ef56426db4f17deef78635a35ea8074ef6c7a5f17926cd18f4687f6bea63bcd4",
+      "passed": true
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/evidence/P8-99/RESULT.md",
+      "detail": "b07c3ec76c591df7999599e0fa5f1f43f0a1854462b45da96bc8523b2cb04204",
+      "passed": true
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/evidence/P8-99/official_runs.json",
+      "detail": "459c5f397681e49cfb6830d8f1687e5923120bb061864f8319a0c8eb15dc333d",
+      "passed": true
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/evidence/P8-99/p8_99_tests.json",
+      "detail": "ff8ed0a79569b95810527b1a395ece4aec3b6eedba9054f704cd0dfd1bbd7f77",
+      "passed": true
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/evidence/P8-99/terminal_verdict.json",
+      "detail": "ffe1b89d1284435cbb9dd53318025ee052ad0fa58b1f8a304736a381712dc693",
+      "passed": true
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/evidence/P8-99/verdict_record.json",
+      "detail": "fa9d62c79ab6399981e1acedbedbd07a149daec2c6ea4bde1dc7aee3a7d52738",
+      "passed": true
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/evidence/README.md",
+      "detail": "7167bc52738c562ff84e48c58f4381dc858a972cb7044f1cb850d4c5302ccd27",
+      "passed": true
+    },
+    {
+      "check": "policy:additive",
+      "detail": "prior phases immutable",
+      "passed": true
+    },
+    {
+      "check": "policy:commit-only-pass",
+      "detail": "commit policy",
+      "passed": true
+    },
+    {
+      "check": "policy:general-non-claim",
+      "detail": "OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+      "passed": true
+    },
+    {
+      "check": "policy:hercules-non-claim",
+      "detail": "OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN",
+      "passed": true
+    },
+    {
+      "check": "policy:no-guessing",
+      "detail": "fail closed",
+      "passed": true
+    },
+    {
+      "check": "policy:no-history-rewrite",
+      "detail": "history rewrite forbidden",
+      "passed": true
+    },
+    {
+      "check": "policy:no-original-machine-code",
+      "detail": "generated host code only",
+      "passed": true
+    },
+    {
+      "check": "policy:private-fixture-non-commit",
+      "detail": "private fixture policy",
+      "passed": true
+    },
+    {
+      "check": "policy:serial-frontier",
+      "detail": "one frontier",
+      "passed": true
+    },
+    {
+      "check": "policy:two-official-runs",
+      "detail": "two-run determinism",
+      "passed": true
+    },
+    {
+      "check": "queue:exact-stage-order",
+      "detail": "P9-00,P9-01,P9-02,P9-03,P9-04,P9-05,P9-06,P9-07,P9-08,P9-09,P9-10,P9-11,P9-12,P9-90,P9-91,P9-99",
+      "passed": true
+    },
+    {
+      "check": "queue:no-extra-status",
+      "detail": "no active row before P9-01 gate",
+      "passed": true
+    },
+    {
+      "check": "queue:p9-00-pass",
+      "detail": "P9-00 PASS",
+      "passed": true
+    },
+    {
+      "check": "queue:p9-99-queued",
+      "detail": "P9-99 queued or complete",
+      "passed": true
+    },
+    {
+      "check": "reconcile:phase6-tag-absent",
+      "detail": "absent",
+      "passed": true
+    },
+    {
+      "check": "reconcile:phase7-tag-commit",
+      "detail": "phase7 commit",
+      "passed": true
+    },
+    {
+      "check": "reconcile:phase7-tag-object",
+      "detail": "phase7 tag object",
+      "passed": true
+    },
+    {
+      "check": "reconcile:phase7-tag-tree",
+      "detail": "phase7 tree",
+      "passed": true
+    },
+    {
+      "check": "reconcile:phase7-v2-outside-baseline",
+      "detail": "OUTSIDE_BASELINE",
+      "passed": true
+    },
+    {
+      "check": "scope:general-non-claim",
+      "detail": "OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+      "passed": true
+    },
+    {
+      "check": "scope:hercules-non-claim",
+      "detail": "OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN",
+      "passed": true
+    },
+    {
+      "check": "scope:no-bios-image",
+      "detail": "BIOS boundary",
+      "passed": true
+    },
+    {
+      "check": "scope:reuse-phase8",
+      "detail": "Phase-8 pipeline reuse",
+      "passed": true
+    },
+    {
+      "check": "scope:terminal-marker",
+      "detail": "terminal claim",
+      "passed": true
+    },
+    {
+      "check": "source:manifest",
+      "detail": "OPENRECOMP_PHASE9_SOURCE_INTEGRITY=PASS entries=3",
+      "passed": true
+    },
+    {
+      "check": "state:baseline-commit",
+      "detail": "61136fc37cf0810e64241addd8f57a91872bc0af",
+      "passed": true
+    },
+    {
+      "check": "state:baseline-tag-absent",
+      "detail": "ABSENT_RECONCILED",
+      "passed": true
+    },
+    {
+      "check": "state:baseline-tree",
+      "detail": "f9262497b82fe0027c3b23432ba7bd8cbccdf433",
+      "passed": true
+    },
+    {
+      "check": "state:current-stage",
+      "detail": "stage shape",
+      "passed": true
+    },
+    {
+      "check": "state:last-passed",
+      "detail": "stage shape",
+      "passed": true
+    },
+    {
+      "check": "state:marker:OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY",
+      "detail": "OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+      "passed": true
+    },
+    {
+      "check": "state:marker:OPENRECOMP_PHASE9_HERCULES_PLAYABILITY",
+      "detail": "OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN",
+      "passed": true
+    },
+    {
+      "check": "state:marker:OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF",
+      "detail": "reserved or consistently promoted",
+      "passed": true
+    },
+    {
+      "check": "state:phase7-v2-outside-baseline",
+      "detail": "OUTSIDE_BASELINE",
+      "passed": true
+    },
+    {
+      "check": "state:phase8-terminal",
+      "detail": "P8 terminal PASS",
+      "passed": true
+    },
+    {
+      "check": "state:queue-frozen",
+      "detail": "FROZEN",
+      "passed": true
+    },
+    {
+      "check": "toolchain:clang",
+      "detail": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+      "passed": true
+    },
+    {
+      "check": "toolchain:clang-cl",
+      "detail": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+      "passed": true
+    },
+    {
+      "check": "toolchain:cmake",
+      "detail": "cmake version 4.4.3",
+      "passed": true
+    },
+    {
+      "check": "toolchain:git",
+      "detail": "git version 2.55.0.windows.3",
+      "passed": true
+    },
+    {
+      "check": "toolchain:lld-link",
+      "detail": "LLD 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+      "passed": true
+    },
+    {
+      "check": "toolchain:ninja",
+      "detail": "1.13.2",
+      "passed": true
+    },
+    {
+      "check": "toolchain:python",
+      "detail": "Python 3.11.9",
+      "passed": true
+    },
+    {
+      "check": "toolchain:zig",
+      "detail": "0.13.0",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "markers": {
+    "general": "OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+    "playability": "OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN",
+    "terminal": "OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN"
+  },
+  "passed": 95,
+  "stage": "P9-00",
+  "stage_name": "Phase-9 boundary and acceleration control plane",
+  "status": "PASS",
+  "tests": 95
+}
