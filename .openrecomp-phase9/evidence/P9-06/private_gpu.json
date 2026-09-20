@@ -1,0 +1,155 @@
+{
+  "boundary": {
+    "boundary_version": "1.0.0",
+    "emulation": "none-event-recording",
+    "event_count": 0,
+    "events": [],
+    "gp0_command_classes": [
+      {
+        "class": "NOP",
+        "high": "0x00",
+        "low": "0x00"
+      },
+      {
+        "class": "CLEAR_CACHE",
+        "high": "0x01",
+        "low": "0x01"
+      },
+      {
+        "class": "FILL_RECTANGLE",
+        "high": "0x02",
+        "low": "0x02"
+      },
+      {
+        "class": "POLYGON",
+        "high": "0x3f",
+        "low": "0x20"
+      },
+      {
+        "class": "LINE",
+        "high": "0x5f",
+        "low": "0x40"
+      },
+      {
+        "class": "RECTANGLE",
+        "high": "0x7f",
+        "low": "0x60"
+      },
+      {
+        "class": "VRAM_TO_VRAM_COPY",
+        "high": "0x9f",
+        "low": "0x80"
+      },
+      {
+        "class": "CPU_TO_VRAM_COPY",
+        "high": "0xbf",
+        "low": "0xa0"
+      },
+      {
+        "class": "VRAM_TO_CPU_COPY",
+        "high": "0xdf",
+        "low": "0xc0"
+      },
+      {
+        "class": "DRAW_ENVIRONMENT",
+        "high": "0xe7",
+        "low": "0xe0"
+      }
+    ],
+    "gp1_command_classes": [
+      {
+        "class": "RESET_GPU",
+        "high": "0x00",
+        "low": "0x00"
+      },
+      {
+        "class": "RESET_COMMAND_BUFFER",
+        "high": "0x01",
+        "low": "0x01"
+      },
+      {
+        "class": "ACKNOWLEDGE_IRQ",
+        "high": "0x02",
+        "low": "0x02"
+      },
+      {
+        "class": "DISPLAY_ENABLE",
+        "high": "0x03",
+        "low": "0x03"
+      },
+      {
+        "class": "DMA_DIRECTION",
+        "high": "0x04",
+        "low": "0x04"
+      },
+      {
+        "class": "DISPLAY_VRAM_START",
+        "high": "0x05",
+        "low": "0x05"
+      },
+      {
+        "class": "HORIZONTAL_DISPLAY_RANGE",
+        "high": "0x06",
+        "low": "0x06"
+      },
+      {
+        "class": "VERTICAL_DISPLAY_RANGE",
+        "high": "0x07",
+        "low": "0x07"
+      },
+      {
+        "class": "DISPLAY_MODE",
+        "high": "0x08",
+        "low": "0x08"
+      },
+      {
+        "class": "GET_GPU_INFO",
+        "high": "0x10",
+        "low": "0x10"
+      }
+    ],
+    "ports": {
+      "0x1f801810": {
+        "direction": "write",
+        "name": "GP0",
+        "width_bits": 32
+      },
+      "0x1f801814": {
+        "direction": "write",
+        "name": "GP1",
+        "width_bits": 32
+      }
+    },
+    "read_count": 0,
+    "read_stubs": {
+      "GP0": "0x00000000",
+      "GP1": "0x14802000",
+      "policy": "contract-stub-not-hardware-accurate"
+    },
+    "transcript_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "unknown_command_count": 0,
+    "unknown_commands": [],
+    "write_count": 0
+  },
+  "discovery": {
+    "access_count": 0,
+    "accesses": [],
+    "discovery_version": "1.0.0",
+    "histogram": {},
+    "ranges": [
+      {
+        "base": "0x1f801810",
+        "name": "gpu",
+        "size": 8
+      }
+    ],
+    "unresolved_io_suspects": 0,
+    "window": 8
+  },
+  "is_pass_criterion": false,
+  "label": "hercules-slus-005.29",
+  "note": "bounded same-block discovery over the reachable frontier; unresolved accesses are not guessed",
+  "present": true,
+  "schema": "openrecomp-phase9-private-gpu-boundary-v1",
+  "stage": "P9-06"
+}

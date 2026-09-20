@@ -10,8 +10,8 @@ BASELINE_TAG_RECONCILIATION=Phase 8 created no annotated terminal tag. The autho
 BASELINE_TERMINAL=OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS
 BASELINE_GENERAL=OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P9-05
-LAST_PASSED_STAGE=P9-05
+CURRENT_STAGE=P9-06
+LAST_PASSED_STAGE=P9-06
 STATUS=IN_PROGRESS
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P9-01..P9-99
@@ -87,7 +87,7 @@ OpenRecomp-authored or openly licensed PS1 fixture.
 | P9-03 | Existing MIPS32 pipeline integration | PASS | `.openrecomp-phase9/evidence/P9-03/` |
 | P9-04 | Reachable translation-frontier closure | PASS | `.openrecomp-phase9/evidence/P9-04/` |
 | P9-05 | PS1 BIOS/service boundary | PASS | `.openrecomp-phase9/evidence/P9-05/` |
-| P9-06 | PS1 GPU/runtime boundary | QUEUED | - |
+| P9-06 | PS1 GPU/runtime boundary | PASS | `.openrecomp-phase9/evidence/P9-06/` |
 | P9-07 | Input/timer/event boundary | QUEUED | - |
 | P9-08 | SPU/audio boundary | QUEUED | - |
 | P9-09 | CD-ROM/file-service boundary | QUEUED | - |
@@ -240,3 +240,23 @@ no BIOS service (0 sites); an injected A0 call is discovered and fails closed;
 the private fixture's 22 reachable indirect call sites classify as 3 BIOS B0
 candidates and 19 explicit unknowns, with no BIOS function implemented. The
 next stage is `P9-06`.
+
+## P9-06 result
+
+PASS. Gate `tools/test_phase9_gpu_v1.py` (102 checks, run twice via
+`p9_stage_runner_v1.py`, byte-identical stdout, empty stderr, exit 0).
+Evidence: `.openrecomp-phase9/evidence/P9-06/`. Markers issued:
+
+- `OPENRECOMP_P9_06=PASS`
+- `OPENRECOMP_PHASE9_GPU_BOUNDARY_V1=PASS tests=102`
+- `OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN` (reserved)
+- `OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` (permanent)
+- `OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` (permanent)
+
+`.openrecomp-phase9/src/p9_io_discovery_v1.py` (shared bounded I/O access
+discovery) and `.openrecomp-phase9/src/p9_gpu_boundary_v1.py` (non-emulating
+GPU adapter with typed event transcript, unknown-command blockers and
+labelled read stubs) were established. The public fixture's two reachable GPU
+writes (GP0 `NOP`, GP1 `RESET_GPU`) are discovered and classified exactly;
+the private reachable frontier contains no discoverable GPU-range access. The
+next stage is `P9-07`.

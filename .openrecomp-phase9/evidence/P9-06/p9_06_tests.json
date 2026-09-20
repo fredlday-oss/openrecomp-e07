@@ -1,0 +1,526 @@
+{
+  "checks": [
+    {
+      "check": "boundary:gp0-class-count",
+      "detail": "10",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:gp1-class-count",
+      "detail": "10",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:no-emulation",
+      "detail": "none-event-recording",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:ports",
+      "detail": "[\"0x1f801810\", \"0x1f801814\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:stub-policy",
+      "detail": "contract-stub-not-hardware-accurate",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:gp0-copy",
+      "detail": "{\"class\": \"CPU_TO_VRAM_COPY\", \"command\": \"0xa0\", \"emulated\": false, \"known\": true, \"port\": \"GP0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:gp0-nop",
+      "detail": "{\"class\": \"NOP\", \"command\": \"0x00\", \"emulated\": false, \"known\": true, \"port\": \"GP0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:gp0-nop-emulated",
+      "detail": "not emulated",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:gp0-unknown",
+      "detail": "{\"class\": \"UNKNOWN_COMMAND\", \"command\": \"0x10\", \"emulated\": false, \"known\": false, \"port\": \"GP0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:gp1-00",
+      "detail": "{\"class\": \"RESET_GPU\", \"command\": \"0x00\", \"emulated\": false, \"known\": true, \"port\": \"GP1\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:no-ascii-run",
+      "detail": "ascii payload run at []",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:no-base64",
+      "detail": "payload base64 present",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:no-hex",
+      "detail": "payload hex present",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "20 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "14 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "9 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "17 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "16 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "16 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "16 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "9 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "20 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "15 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "14 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "13 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "22 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "35 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "20 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "93 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "41 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gpu:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:marker",
+      "detail": "PRESENT",
+      "status": "PASS"
+    },
+    {
+      "check": "public:access-count",
+      "detail": "2",
+      "status": "PASS"
+    },
+    {
+      "check": "public:accesses",
+      "detail": "[[\"0x80010054\", \"sw\", \"0x1f801810\", \"0x000000a0\"], [\"0x8001005c\", \"sw\", \"0x1f801814\", \"0x00000000\"]]",
+      "status": "PASS"
+    },
+    {
+      "check": "public:event-classes",
+      "detail": "[\"NOP\", \"RESET_GPU\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "public:events",
+      "detail": "2/0",
+      "status": "PASS"
+    },
+    {
+      "check": "public:transcript-stable",
+      "detail": "b190376ba5775e91e2b3c4acd1e1ef6665fb2e50d978f65b3b9a6bebe655fe54",
+      "status": "PASS"
+    },
+    {
+      "check": "public:unknown-none",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "read:count",
+      "detail": "2",
+      "status": "PASS"
+    },
+    {
+      "check": "read:gp0-stub",
+      "detail": "0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "read:gp1-stub",
+      "detail": "{\"address\": \"0x1f801814\", \"class\": \"CONTRACT_STUB\", \"direction\": \"read\", \"emulated\": false, \"known\": true, \"port\": \"GP1\", \"sequence\": 0, \"stub_policy\": \"contract-stub-not-hardware-accurate\", \"value\": \"0x14802000\", \"width_bits\": 32}",
+      "status": "PASS"
+    },
+    {
+      "check": "unknown:blocker",
+      "detail": "{\"address\": \"0x1f801810\", \"class\": \"UNKNOWN_COMMAND\", \"command\": \"0x10\", \"direction\": \"write\", \"emulated\": false, \"known\": false, \"port\": \"GP0\", \"sequence\": 0, \"value\": \"0x10000000\", \"width_bits\": 32}",
+      "status": "PASS"
+    },
+    {
+      "check": "unknown:recorded",
+      "detail": "1",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 102,
+  "private_fixture": {
+    "is_pass_criterion": false,
+    "label": "hercules-slus-005.29",
+    "present": true
+  },
+  "stage": "P9-06",
+  "stage_name": "PS1 GPU/runtime boundary",
+  "status": "PASS",
+  "tests": 102
+}

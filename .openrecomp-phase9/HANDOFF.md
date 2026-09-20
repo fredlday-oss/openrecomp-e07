@@ -176,3 +176,26 @@ image and memory-map contract).
 - create the clean platform adapter boundary (typed port map, bounded event
   recording) without attempting GPU emulation;
 - keep unknown GPU commands as explicit unresolved blockers.
+
+## P9-06 outcome
+
+- additive modules `.openrecomp-phase9/src/p9_io_discovery_v1.py` (bounded
+  same-block I/O access discovery with immediate-only base/value
+  reconstruction) and `.openrecomp-phase9/src/p9_gpu_boundary_v1.py`
+  (non-emulating GPU adapter, typed event transcript, unknown-command
+  blockers, labelled read stubs);
+- public fixture: exactly two reachable GPU writes discovered (GP0
+  `0x000000a0` -> `NOP`, GP1 `0x00000000` -> `RESET_GPU`), stable transcript
+  digest `b190376b...`;
+- private fixture: 0 discoverable GPU-range accesses in the bounded
+  same-block window over the reachable frontier (explicitly not guessed);
+- the P9-06 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase9/evidence/P9-06/`.
+
+## Known work for P9-07
+
+- classify controller, timer, event and interrupt requirements;
+- the public fixture reads the controller port (`0x1f801040`) and timer 0
+  counter (`0x1f801100`); add deterministic virtual-input and virtual-time
+  interfaces with explicit bounded semantics;
+- no interrupt delivery is claimed; event requirements are classified.
