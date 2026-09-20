@@ -1,0 +1,94 @@
+{
+  "boundary": {
+    "blocker_count": 0,
+    "boundary_version": "1.0.0",
+    "event_count": 0,
+    "events": [],
+    "interrupt_delivery": "not-modelled",
+    "ports": {
+      "interrupt": {
+        "I_MASK": "0x1f801074",
+        "I_STAT": "0x1f801070",
+        "modelled": false
+      },
+      "joy": {
+        "JOY_BAUD": "0x1f80104e",
+        "JOY_CTRL": "0x1f80104a",
+        "JOY_DATA": "0x1f801040",
+        "JOY_MODE": "0x1f801048",
+        "JOY_STAT": "0x1f801044"
+      },
+      "timers": {
+        "timer0": {
+          "counter": "0x1f801100",
+          "mode": "0x1f801104",
+          "target": "0x1f801108"
+        },
+        "timer1": {
+          "counter": "0x1f801110",
+          "mode": "0x1f801114",
+          "target": "0x1f801118"
+        },
+        "timer2": {
+          "counter": "0x1f801120",
+          "mode": "0x1f801124",
+          "target": "0x1f801128"
+        }
+      }
+    },
+    "read_stubs": {
+      "JOY_STAT": "0x00000001",
+      "policy": "contract-stub-not-hardware-accurate"
+    },
+    "transcript_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "virtual_input": {
+      "default_buttons": "0x0000",
+      "policy": "fixed-deterministic-input-source"
+    },
+    "virtual_time": {
+      "policy": "counter-read-returns-tick-then-advances",
+      "ticks": 0
+    }
+  },
+  "discovery": {
+    "access_count": 0,
+    "accesses": [],
+    "discovery_version": "1.0.0",
+    "histogram": {},
+    "ranges": [
+      {
+        "base": "0x1f801040",
+        "name": "joy",
+        "size": 16
+      },
+      {
+        "base": "0x1f801100",
+        "name": "timer0",
+        "size": 16
+      },
+      {
+        "base": "0x1f801110",
+        "name": "timer1",
+        "size": 16
+      },
+      {
+        "base": "0x1f801120",
+        "name": "timer2",
+        "size": 16
+      },
+      {
+        "base": "0x1f801070",
+        "name": "interrupt",
+        "size": 8
+      }
+    ],
+    "unresolved_io_suspects": 0,
+    "window": 8
+  },
+  "is_pass_criterion": false,
+  "label": "hercules-slus-005.29",
+  "note": "bounded same-block discovery over the reachable frontier; unresolved accesses are not guessed",
+  "present": true,
+  "schema": "openrecomp-phase9-private-input-timer-v1",
+  "stage": "P9-07"
+}

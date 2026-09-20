@@ -1,0 +1,122 @@
+{
+  "boundary": {
+    "blocker_count": 0,
+    "boundary_version": "1.0.0",
+    "event_count": 0,
+    "events": [],
+    "interrupt_delivery": "not-modelled",
+    "ports": {
+      "interrupt": {
+        "I_MASK": "0x1f801074",
+        "I_STAT": "0x1f801070",
+        "modelled": false
+      },
+      "joy": {
+        "JOY_BAUD": "0x1f80104e",
+        "JOY_CTRL": "0x1f80104a",
+        "JOY_DATA": "0x1f801040",
+        "JOY_MODE": "0x1f801048",
+        "JOY_STAT": "0x1f801044"
+      },
+      "timers": {
+        "timer0": {
+          "counter": "0x1f801100",
+          "mode": "0x1f801104",
+          "target": "0x1f801108"
+        },
+        "timer1": {
+          "counter": "0x1f801110",
+          "mode": "0x1f801114",
+          "target": "0x1f801118"
+        },
+        "timer2": {
+          "counter": "0x1f801120",
+          "mode": "0x1f801124",
+          "target": "0x1f801128"
+        }
+      }
+    },
+    "read_stubs": {
+      "JOY_STAT": "0x00000001",
+      "policy": "contract-stub-not-hardware-accurate"
+    },
+    "transcript_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "virtual_input": {
+      "default_buttons": "0x0000",
+      "policy": "fixed-deterministic-input-source"
+    },
+    "virtual_time": {
+      "policy": "counter-read-returns-tick-then-advances",
+      "ticks": 0
+    }
+  },
+  "discovery": {
+    "access_count": 2,
+    "accesses": [
+      {
+        "address": "0x1f801040",
+        "address_value": 528486464,
+        "base_register": 8,
+        "direction": "read",
+        "op": "lw",
+        "range": "joy",
+        "site": "0x80010028",
+        "site_address": 2147549224,
+        "value": null,
+        "value_known": false,
+        "width_bits": 32
+      },
+      {
+        "address": "0x1f801100",
+        "address_value": 528486656,
+        "base_register": 8,
+        "direction": "read",
+        "op": "lw",
+        "range": "timer0",
+        "site": "0x80010040",
+        "site_address": 2147549248,
+        "value": null,
+        "value_known": false,
+        "width_bits": 32
+      }
+    ],
+    "discovery_version": "1.0.0",
+    "histogram": {
+      "joy:read": 1,
+      "timer0:read": 1
+    },
+    "ranges": [
+      {
+        "base": "0x1f801040",
+        "name": "joy",
+        "size": 16
+      },
+      {
+        "base": "0x1f801100",
+        "name": "timer0",
+        "size": 16
+      },
+      {
+        "base": "0x1f801110",
+        "name": "timer1",
+        "size": 16
+      },
+      {
+        "base": "0x1f801120",
+        "name": "timer2",
+        "size": 16
+      },
+      {
+        "base": "0x1f801070",
+        "name": "interrupt",
+        "size": 8
+      }
+    ],
+    "unresolved_io_suspects": 0,
+    "window": 8
+  },
+  "fixture": "openrecomp-authored-ps1-v1",
+  "schema": "openrecomp-phase9-input-timer-v1",
+  "stage": "P9-07",
+  "transcript_digest": "819ac68be90b08a33e07656812a22e729e67fd3206dc027c46bd9f4738c67dd5"
+}

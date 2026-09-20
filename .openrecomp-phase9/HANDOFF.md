@@ -199,3 +199,21 @@ image and memory-map contract).
   counter (`0x1f801100`); add deterministic virtual-input and virtual-time
   interfaces with explicit bounded semantics;
 - no interrupt delivery is claimed; event requirements are classified.
+
+## P9-07 outcome
+
+- additive module `.openrecomp-phase9/src/p9_input_timer_v1.py`: deterministic
+  virtual input, virtual time (`counter-read-returns-tick-then-advances`),
+  labelled stubs, explicit not-modelled interrupt blockers;
+- public fixture: JOY_DATA read returns `0x00000000`, TIMER0 read returns tick
+  0 and advances; transcript digest `819ac68b...`;
+- private fixture: 0 discoverable joy/timer/interrupt-range accesses;
+- the P9-07 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase9/evidence/P9-07/`.
+
+## Known work for P9-08
+
+- classify reachable audio/SPU interactions; the public fixture writes the
+  SPUCNT low byte (`0x1f801daa`);
+- establish an explicit audio service/runtime contract with bounded event
+  recording and fail-closed unsupported behaviour.

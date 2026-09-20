@@ -1,0 +1,336 @@
+{
+  "checks": [
+    {
+      "check": "boundary:interrupts-not-modelled",
+      "detail": "not modelled",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:stub-policy",
+      "detail": "contract-stub-not-hardware-accurate",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:timer-ports",
+      "detail": "[\"timer0\", \"timer1\", \"timer2\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:version",
+      "detail": "1.0.0",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:virtual-input-policy",
+      "detail": "fixed-deterministic-input-source",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:virtual-time-policy",
+      "detail": "counter-read-returns-tick-then-advances",
+      "status": "PASS"
+    },
+    {
+      "check": "clock:sequence",
+      "detail": "[\"0x00000000\", \"0x00000001\", \"0x00000002\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "clock:ticks",
+      "detail": "3",
+      "status": "PASS"
+    },
+    {
+      "check": "config:joy-ctrl",
+      "detail": "joy-ctrl",
+      "status": "PASS"
+    },
+    {
+      "check": "config:out-of-range",
+      "detail": "NOT_AN_INPUT_TIMER_PORT",
+      "status": "PASS"
+    },
+    {
+      "check": "config:timer-mode",
+      "detail": "timer-mode",
+      "status": "PASS"
+    },
+    {
+      "check": "interrupt:blocker",
+      "detail": "{\"address\": \"0x1f801070\", \"blocker\": true, \"class\": \"NOT_MODELLED\", \"direction\": \"read\", \"reason\": \"interrupt delivery is not modelled\", \"sequence\": 0, \"width_bits\": 32}",
+      "status": "PASS"
+    },
+    {
+      "check": "interrupt:recorded",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "interrupt:write-blocker",
+      "detail": "{\"address\": \"0x1f801074\", \"blocker\": true, \"class\": \"NOT_MODELLED\", \"direction\": \"write\", \"reason\": \"interrupt delivery is not modelled\", \"sequence\": 1, \"value\": \"0x00000000\", \"width_bits\": 32}",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:no-ascii-run",
+      "detail": "ascii payload run at []",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:no-base64",
+      "detail": "payload base64 present",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:no-hex",
+      "detail": "payload hex present",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "35 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "32 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "39 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "9 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "20 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "93 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "40 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:input-timer:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:marker",
+      "detail": "PRESENT",
+      "status": "PASS"
+    },
+    {
+      "check": "public:access-count",
+      "detail": "2",
+      "status": "PASS"
+    },
+    {
+      "check": "public:accesses",
+      "detail": "[[\"0x80010028\", \"lw\", \"read\", \"0x1f801040\", \"joy\"], [\"0x80010040\", \"lw\", \"read\", \"0x1f801100\", \"timer0\"]]",
+      "status": "PASS"
+    },
+    {
+      "check": "public:event-count",
+      "detail": "2",
+      "status": "PASS"
+    },
+    {
+      "check": "public:joy-event",
+      "detail": "{\"address\": \"0x1f801040\", \"blocker\": false, \"class\": \"VIRTUAL_INPUT\", \"direction\": \"read\", \"sequence\": 0, \"value\": \"0x00000000\", \"width_bits\": 32}",
+      "status": "PASS"
+    },
+    {
+      "check": "public:ticks-advanced",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "public:timer-event",
+      "detail": "{\"address\": \"0x1f801100\", \"blocker\": false, \"class\": \"VIRTUAL_TIME\", \"direction\": \"read\", \"sequence\": 1, \"value\": \"0x00000000\", \"width_bits\": 32}",
+      "status": "PASS"
+    },
+    {
+      "check": "public:transcript-stable",
+      "detail": "819ac68be90b08a33e07656812a22e729e67fd3206dc027c46bd9f4738c67dd5",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 64,
+  "private_fixture": {
+    "is_pass_criterion": false,
+    "label": "hercules-slus-005.29",
+    "present": true
+  },
+  "stage": "P9-07",
+  "stage_name": "PS1 input/timer/event boundary",
+  "status": "PASS",
+  "tests": 64
+}

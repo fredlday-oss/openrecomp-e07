@@ -10,8 +10,8 @@ BASELINE_TAG_RECONCILIATION=Phase 8 created no annotated terminal tag. The autho
 BASELINE_TERMINAL=OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS
 BASELINE_GENERAL=OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P9-06
-LAST_PASSED_STAGE=P9-06
+CURRENT_STAGE=P9-07
+LAST_PASSED_STAGE=P9-07
 STATUS=IN_PROGRESS
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P9-01..P9-99
@@ -88,7 +88,7 @@ OpenRecomp-authored or openly licensed PS1 fixture.
 | P9-04 | Reachable translation-frontier closure | PASS | `.openrecomp-phase9/evidence/P9-04/` |
 | P9-05 | PS1 BIOS/service boundary | PASS | `.openrecomp-phase9/evidence/P9-05/` |
 | P9-06 | PS1 GPU/runtime boundary | PASS | `.openrecomp-phase9/evidence/P9-06/` |
-| P9-07 | Input/timer/event boundary | QUEUED | - |
+| P9-07 | Input/timer/event boundary | PASS | `.openrecomp-phase9/evidence/P9-07/` |
 | P9-08 | SPU/audio boundary | QUEUED | - |
 | P9-09 | CD-ROM/file-service boundary | QUEUED | - |
 | P9-10 | Native build + deterministic execution | QUEUED | - |
@@ -260,3 +260,22 @@ labelled read stubs) were established. The public fixture's two reachable GPU
 writes (GP0 `NOP`, GP1 `RESET_GPU`) are discovered and classified exactly;
 the private reachable frontier contains no discoverable GPU-range access. The
 next stage is `P9-07`.
+
+## P9-07 result
+
+PASS. Gate `tools/test_phase9_input_timer_v1.py` (64 checks, run twice via
+`p9_stage_runner_v1.py`, byte-identical stdout, empty stderr, exit 0).
+Evidence: `.openrecomp-phase9/evidence/P9-07/`. Markers issued:
+
+- `OPENRECOMP_P9_07=PASS`
+- `OPENRECOMP_PHASE9_INPUT_TIMER_V1=PASS tests=64`
+- `OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN` (reserved)
+- `OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` (permanent)
+- `OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` (permanent)
+
+`.openrecomp-phase9/src/p9_input_timer_v1.py` provides deterministic virtual
+input (fixed button state), virtual time (counter read returns tick then
+advances), labelled status/config stubs and explicit not-modelled interrupt
+blockers. The public fixture's two reachable reads (JOY_DATA, TIMER0) are
+served deterministically; the private reachable frontier contains no
+discoverable access in these ranges. The next stage is `P9-08`.
