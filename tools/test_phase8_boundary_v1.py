@@ -166,8 +166,11 @@ def main() -> int:
         check("branch:descends-from-baseline", ancestor, BASELINE_COMMIT)
         at_boundary = head == BASELINE_COMMIT
         check("branch:head-at-boundary-or-descendant", at_boundary or ancestor, head)
-        if at_boundary:
-            check("branch:boundary-tree-identical", head_tree == BASELINE_TREE, head_tree)
+        check(
+            "branch:boundary-tree-identical",
+            (not at_boundary) or head_tree == BASELINE_TREE,
+            head_tree if at_boundary else "descendant",
+        )
 
         phase6_tags = git("tag", "-l", "openrecomp-phase6*")
         check("phase6:tag-absent", phase6_tags == "", phase6_tags or "absent")

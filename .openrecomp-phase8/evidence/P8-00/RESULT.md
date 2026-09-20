@@ -101,6 +101,19 @@ Sidecar identities: `p8_00_tests.json`
 - The Phase-8 analysis cache is a defined, untracked contract; no product is
   cached or claimed at P8-00.
 
+## Control-plane correction: re-runnable boundary gate
+
+The P8-00 gate is intentionally re-runnable at later stages.
+`branch:boundary-tree-identical` is now emitted unconditionally and is
+vacuously satisfied for descendant HEADs, so the official stdout stream stays
+byte-identical at and after the boundary: 68 checks, raw sha256
+`8bc1af6294db8b70b92792362226cb56666f6affaffa3ffd657ce7caba503562`, 2871
+bytes. The committed `p8_00_tests.json` and `baseline.json` remain the
+boundary-time records (`boundary_mode=AT_BOUNDARY`, audited head
+`2917aa6549ab975cffdeb50120514c1723f7e493`, audited tree
+`59529c130d759ceb1ca9e6c65a510fa373656b01`); a later re-run regenerates them
+in its own descendant context without changing stdout.
+
 ## Next stage
 
 P8-01: select and freeze one legally redistributable compiler-produced real

@@ -123,6 +123,14 @@ stdout, empty stderr, exit 0). Evidence:
 - `OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN`
 - `OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN`
 
+The boundary gate was made re-runnable at later stages
+(`branch:boundary-tree-identical` is emitted unconditionally and is vacuously
+satisfied for descendant HEADs); the official boundary stdout is unchanged
+(68 checks, raw sha256 `8bc1af62...`, 2871 bytes, LF `9b078c87...`). The
+committed P8-00 sidecars are the boundary-time records
+(`boundary_mode=AT_BOUNDARY`); later re-runs regenerate them in their own
+descendant context without changing stdout.
+
 ## Current boundary
 
 P8-00 established and verified the control plane only. It added no MIPS32
