@@ -10,8 +10,8 @@ BASELINE_TAG_RECONCILIATION=Phase 8 created no annotated terminal tag. The autho
 BASELINE_TERMINAL=OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS
 BASELINE_GENERAL=OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P9-04
-LAST_PASSED_STAGE=P9-04
+CURRENT_STAGE=P9-05
+LAST_PASSED_STAGE=P9-05
 STATUS=IN_PROGRESS
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P9-01..P9-99
@@ -86,7 +86,7 @@ OpenRecomp-authored or openly licensed PS1 fixture.
 | P9-02 | PS1 executable image + memory-map contract | PASS | `.openrecomp-phase9/evidence/P9-02/` |
 | P9-03 | Existing MIPS32 pipeline integration | PASS | `.openrecomp-phase9/evidence/P9-03/` |
 | P9-04 | Reachable translation-frontier closure | PASS | `.openrecomp-phase9/evidence/P9-04/` |
-| P9-05 | PS1 BIOS/service boundary | QUEUED | - |
+| P9-05 | PS1 BIOS/service boundary | PASS | `.openrecomp-phase9/evidence/P9-05/` |
 | P9-06 | PS1 GPU/runtime boundary | QUEUED | - |
 | P9-07 | Input/timer/event boundary | QUEUED | - |
 | P9-08 | SPU/audio boundary | QUEUED | - |
@@ -221,3 +221,22 @@ deterministically (fingerprint `78d099ed...`); an injected `lwl` fails closed;
 the private fixture's 96 reachable recognized-unsupported words are classified
 into five explicit categories with no unknown op and no reachable COP0/GTE
 form. The next stage is `P9-05`.
+
+## P9-05 result
+
+PASS. Gate `tools/test_phase9_bios_v1.py` (88 checks, run twice via
+`p9_stage_runner_v1.py`, byte-identical stdout, empty stderr, exit 0).
+Evidence: `.openrecomp-phase9/evidence/P9-05/`. Markers issued:
+
+- `OPENRECOMP_P9_05=PASS`
+- `OPENRECOMP_PHASE9_BIOS_BOUNDARY_V1=PASS tests=88`
+- `OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN` (reserved)
+- `OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` (permanent)
+- `OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` (permanent)
+
+`.openrecomp-phase9/src/p9_bios_boundary_v1.py` declares a typed, versioned,
+fail-closed service boundary with no BIOS image. The public fixture requires
+no BIOS service (0 sites); an injected A0 call is discovered and fails closed;
+the private fixture's 22 reachable indirect call sites classify as 3 BIOS B0
+candidates and 19 explicit unknowns, with no BIOS function implemented. The
+next stage is `P9-06`.

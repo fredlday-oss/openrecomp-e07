@@ -154,3 +154,25 @@ image and memory-map contract).
 - build an explicit typed, versioned host-side service boundary (no BIOS
   image) with unknown services failing closed;
 - implement only services required by the bounded fixture.
+
+## P9-05 outcome
+
+- additive boundary module `.openrecomp-phase9/src/p9_bios_boundary_v1.py`:
+  typed/versioned service boundary, BIOS A0/B0/C0 vectors declared recognized
+  but unimplemented, `UNKNOWN_SERVICE`/`UNIMPLEMENTED_SERVICE` fail-closed
+  codes, bounded backward call-site classification;
+- public fixture requires no BIOS service; an injected A0 call is discovered
+  as one candidate and fails closed;
+- private fixture: 22 reachable indirect call sites classify as 3 BIOS B0
+  candidates (`0x80015fa4`, `0x80026ebc`, `0x80026f74`) and 19
+  `INDIRECT_TARGET_UNKNOWN`; no BIOS implementation;
+- the P9-05 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase9/evidence/P9-05/`.
+
+## Known work for P9-06
+
+- identify reachable GPU/GP0/GP1-facing behaviour in the public fixture
+  (GP0/GP1 word writes) and the private fixture frontier;
+- create the clean platform adapter boundary (typed port map, bounded event
+  recording) without attempting GPU emulation;
+- keep unknown GPU commands as explicit unresolved blockers.

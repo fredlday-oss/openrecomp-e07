@@ -1,0 +1,203 @@
+{
+  "boundary": {
+    "bios_image": "none",
+    "boundary_version": "1.0.0",
+    "services": [
+      {
+        "arity": 0,
+        "category": "bios",
+        "implemented": false,
+        "name": "BIOS A0 jump-table vector",
+        "service_id": "bios-A0"
+      },
+      {
+        "arity": 0,
+        "category": "bios",
+        "implemented": false,
+        "name": "BIOS B0 jump-table vector",
+        "service_id": "bios-B0"
+      },
+      {
+        "arity": 0,
+        "category": "bios",
+        "implemented": false,
+        "name": "BIOS C0 jump-table vector",
+        "service_id": "bios-C0"
+      }
+    ],
+    "unknown_service_policy": "fail-closed",
+    "vectors": {
+      "A0": "0xa0",
+      "B0": "0xb0",
+      "C0": "0xc0"
+    }
+  },
+  "discovery": {
+    "bios_candidate_count": 3,
+    "bios_candidates": [
+      {
+        "class": "BIOS_TABLE_CALL_CANDIDATE",
+        "defining_address": "0x80015fa0",
+        "defining_op": "addiu",
+        "immediate": "0xb0",
+        "site": 2147573668,
+        "source_register": 10,
+        "vector": "B0"
+      },
+      {
+        "class": "BIOS_TABLE_CALL_CANDIDATE",
+        "defining_address": "0x80026eb8",
+        "defining_op": "addiu",
+        "immediate": "0xb0",
+        "site": 2147643068,
+        "source_register": 10,
+        "vector": "B0"
+      },
+      {
+        "class": "BIOS_TABLE_CALL_CANDIDATE",
+        "defining_address": "0x80026f70",
+        "defining_op": "addiu",
+        "immediate": "0xb0",
+        "site": 2147643252,
+        "source_register": 10,
+        "vector": "B0"
+      }
+    ],
+    "boundary_version": "1.0.0",
+    "histogram": {
+      "BIOS_TABLE_CALL_CANDIDATE": 3,
+      "INDIRECT_TARGET_UNKNOWN": 19
+    },
+    "site_count": 22,
+    "sites": [
+      {
+        "class": "INDIRECT_TARGET_UNKNOWN",
+        "site": 2147566392,
+        "source_register": 2
+      },
+      {
+        "class": "INDIRECT_TARGET_UNKNOWN",
+        "site": 2147566444,
+        "source_register": 2
+      },
+      {
+        "class": "INDIRECT_TARGET_UNKNOWN",
+        "site": 2147567040,
+        "source_register": 2
+      },
+      {
+        "class": "INDIRECT_TARGET_UNKNOWN",
+        "site": 2147567092,
+        "source_register": 2
+      },
+      {
+        "class": "INDIRECT_TARGET_UNKNOWN",
+        "site": 2147568176,
+        "source_register": 2
+      },
+      {
+        "class": "INDIRECT_TARGET_UNKNOWN",
+        "site": 2147568228,
+        "source_register": 2
+      },
+      {
+        "class": "BIOS_TABLE_CALL_CANDIDATE",
+        "defining_address": "0x80015fa0",
+        "defining_op": "addiu",
+        "immediate": "0xb0",
+        "site": 2147573668,
+        "source_register": 10,
+        "vector": "B0"
+      },
+      {
+        "class": "INDIRECT_TARGET_UNKNOWN",
+        "site": 2147574276,
+        "source_register": 2
+      },
+      {
+        "class": "INDIRECT_TARGET_UNKNOWN",
+        "site": 2147574324,
+        "source_register": 2
+      },
+      {
+        "class": "INDIRECT_TARGET_UNKNOWN",
+        "site": 2147583188,
+        "source_register": 2
+      },
+      {
+        "class": "INDIRECT_TARGET_UNKNOWN",
+        "site": 2147583216,
+        "source_register": 2
+      },
+      {
+        "class": "INDIRECT_TARGET_UNKNOWN",
+        "site": 2147583592,
+        "source_register": 2
+      },
+      {
+        "class": "INDIRECT_TARGET_UNKNOWN",
+        "site": 2147583984,
+        "source_register": 2
+      },
+      {
+        "class": "INDIRECT_TARGET_UNKNOWN",
+        "site": 2147584044,
+        "source_register": 2
+      },
+      {
+        "class": "INDIRECT_TARGET_UNKNOWN",
+        "site": 2147584128,
+        "source_register": 2
+      },
+      {
+        "class": "INDIRECT_TARGET_UNKNOWN",
+        "site": 2147584156,
+        "source_register": 2
+      },
+      {
+        "class": "INDIRECT_TARGET_UNKNOWN",
+        "site": 2147584412,
+        "source_register": 2
+      },
+      {
+        "class": "INDIRECT_TARGET_UNKNOWN",
+        "site": 2147584452,
+        "source_register": 3
+      },
+      {
+        "class": "INDIRECT_TARGET_UNKNOWN",
+        "site": 2147584588,
+        "source_register": 2
+      },
+      {
+        "class": "INDIRECT_TARGET_UNKNOWN",
+        "site": 2147584852,
+        "source_register": 2
+      },
+      {
+        "class": "BIOS_TABLE_CALL_CANDIDATE",
+        "defining_address": "0x80026eb8",
+        "defining_op": "addiu",
+        "immediate": "0xb0",
+        "site": 2147643068,
+        "source_register": 10,
+        "vector": "B0"
+      },
+      {
+        "class": "BIOS_TABLE_CALL_CANDIDATE",
+        "defining_address": "0x80026f70",
+        "defining_op": "addiu",
+        "immediate": "0xb0",
+        "site": 2147643252,
+        "source_register": 10,
+        "vector": "B0"
+      }
+    ]
+  },
+  "first_unresolved_bios_site": "0x80015fa4",
+  "is_pass_criterion": false,
+  "label": "hercules-slus-005.29",
+  "present": true,
+  "schema": "openrecomp-phase9-private-bios-boundary-v1",
+  "stage": "P9-05"
+}

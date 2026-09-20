@@ -1,0 +1,456 @@
+{
+  "checks": [
+    {
+      "check": "boundary:fail-closed-policy",
+      "detail": "fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:no-bios-image",
+      "detail": "none",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:recognized-unimplemented",
+      "detail": "[{\"arity\": 0, \"category\": \"bios\", \"implemented\": false, \"name\": \"BIOS A0 jump-table vector\", \"service_id\": \"bios-A0\"}, {\"arity\": 0, \"category\": \"bios\", \"implemented\": false, \"name\": \"BIOS B0 jump-table vector\", \"service_id\": \"bios-B0\"}, {\"arity\": 0, \"category\": \"bios\", \"implemented\": false, \"name\": \"BIOS C0 jump-table vector\", \"service_id\": \"bios-C0\"}]",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:unknown-service",
+      "detail": "UNKNOWN_SERVICE",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:vectors",
+      "detail": "{\"A0\": \"0xa0\", \"B0\": \"0xb0\", \"C0\": \"0xc0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "injected:candidate-class",
+      "detail": "BIOS_TABLE_CALL_CANDIDATE",
+      "status": "PASS"
+    },
+    {
+      "check": "injected:candidate-count",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "injected:candidate-vector",
+      "detail": "A0",
+      "status": "PASS"
+    },
+    {
+      "check": "injected:invoke-fails-closed",
+      "detail": "UNIMPLEMENTED_SERVICE",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:no-ascii-run",
+      "detail": "ascii payload run at []",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:no-base64",
+      "detail": "payload base64 present",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:no-hex",
+      "detail": "payload hex present",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "25 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "25 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "25 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "25 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "25 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "25 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "25 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "23 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "25 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "25 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "20 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "42 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:candidate-sites",
+      "detail": "[2147573668, 2147643068, 2147643252]",
+      "status": "PASS"
+    },
+    {
+      "check": "private:candidate-vectors",
+      "detail": "[\"B0\", \"B0\", \"B0\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "private:histogram",
+      "detail": "{\"BIOS_TABLE_CALL_CANDIDATE\": 3, \"INDIRECT_TARGET_UNKNOWN\": 19}",
+      "status": "PASS"
+    },
+    {
+      "check": "private:marker",
+      "detail": "PRESENT",
+      "status": "PASS"
+    },
+    {
+      "check": "private:site-count",
+      "detail": "22",
+      "status": "PASS"
+    },
+    {
+      "check": "public:no-candidates",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "public:no-sites",
+      "detail": "0",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 88,
+  "private_fixture": {
+    "is_pass_criterion": false,
+    "label": "hercules-slus-005.29",
+    "present": true
+  },
+  "stage": "P9-05",
+  "stage_name": "PS1 BIOS/service boundary",
+  "status": "PASS",
+  "tests": 88
+}

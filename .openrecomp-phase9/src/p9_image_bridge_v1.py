@@ -46,6 +46,7 @@ class PipelineResult:
     structure_error: dict[str, str] | None = None
     first_blocker: dict[str, Any] | None = None
     source: ProgramSource | None = None
+    analysis: dict[str, Any] | None = None
 
     def to_document(self) -> dict[str, Any]:
         return {
@@ -129,6 +130,7 @@ def analyze(image: psx.PsxExeImage, contract: dict[str, Any], flat: bytes) -> Pi
         summary=summary,
         first_blocker=_first_blocker(analysis),
         source=source,
+        analysis=analysis,
     )
 
     try:

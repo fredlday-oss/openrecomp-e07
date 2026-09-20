@@ -1,0 +1,47 @@
+{
+  "boundary": {
+    "bios_image": "none",
+    "boundary_version": "1.0.0",
+    "services": [
+      {
+        "arity": 0,
+        "category": "bios",
+        "implemented": false,
+        "name": "BIOS A0 jump-table vector",
+        "service_id": "bios-A0"
+      },
+      {
+        "arity": 0,
+        "category": "bios",
+        "implemented": false,
+        "name": "BIOS B0 jump-table vector",
+        "service_id": "bios-B0"
+      },
+      {
+        "arity": 0,
+        "category": "bios",
+        "implemented": false,
+        "name": "BIOS C0 jump-table vector",
+        "service_id": "bios-C0"
+      }
+    ],
+    "unknown_service_policy": "fail-closed",
+    "vectors": {
+      "A0": "0xa0",
+      "B0": "0xb0",
+      "C0": "0xc0"
+    }
+  },
+  "discovery": {
+    "bios_candidate_count": 0,
+    "bios_candidates": [],
+    "boundary_version": "1.0.0",
+    "histogram": {},
+    "site_count": 0,
+    "sites": []
+  },
+  "fixture": "openrecomp-authored-ps1-v1",
+  "requirement": "not-required-by-public-fixture",
+  "schema": "openrecomp-phase9-bios-boundary-public-v1",
+  "stage": "P9-05"
+}
