@@ -1,0 +1,136 @@
+{
+  "contract": {
+    "bss": {
+      "address": "0x80020000",
+      "present": true,
+      "size": 256
+    },
+    "chunks": 1,
+    "contract_version": "1.0.0",
+    "endianness": "little",
+    "entry": "0x80010000",
+    "initial_gp": "0x00000000",
+    "load_address": "0x80010000",
+    "ram": {
+      "base": "0x80000000",
+      "end": "0x80200000",
+      "image_sha256": "f89c39f4fa691e1822172842fd6e6d3c2c1c7300f23f181fe37d25e4e48ab501",
+      "image_size": 2097152,
+      "permissions": "rwx",
+      "size": 2097152
+    },
+    "regions": [
+      {
+        "base": "0x80010000",
+        "end": "0x80010020",
+        "flags": 7,
+        "kind": "image",
+        "name": "load_text",
+        "permissions": "rwx",
+        "size": 32
+      },
+      {
+        "base": "0x80020000",
+        "end": "0x80020100",
+        "flags": 3,
+        "kind": "bss",
+        "name": "bss",
+        "permissions": "rw",
+        "size": 256
+      },
+      {
+        "base": "0x80020100",
+        "end": "0x801fbff0",
+        "flags": 3,
+        "kind": "ram-free",
+        "name": "ram_free",
+        "permissions": "rw",
+        "size": 1949424
+      },
+      {
+        "base": "0x801fbff0",
+        "end": "0x801ffff0",
+        "flags": 3,
+        "kind": "stack",
+        "name": "stack",
+        "permissions": "rw",
+        "size": 16384
+      }
+    ],
+    "segments": [
+      {
+        "base": "0x80000000",
+        "classification": "ram-cached",
+        "enabled": true,
+        "name": "kseg0",
+        "size": 2097152,
+        "translation": "ram"
+      },
+      {
+        "base": "0xa0000000",
+        "classification": "ram-uncached",
+        "enabled": true,
+        "name": "kseg1",
+        "size": 2097152,
+        "translation": "ram"
+      },
+      {
+        "base": "0x00000000",
+        "classification": "ram-user-mirror",
+        "enabled": false,
+        "name": "kuseg",
+        "reason": "bounded V1 runs in KSEG0; user-mirror accesses fail closed",
+        "size": 2097152,
+        "translation": "ram"
+      },
+      {
+        "base": "0x1f800000",
+        "classification": "unsupported-not-modelled",
+        "enabled": false,
+        "name": "scratchpad",
+        "reason": "1 KiB scratchpad is not required by the bounded fixture",
+        "size": 1024,
+        "translation": "none"
+      },
+      {
+        "base": "0x1f801000",
+        "classification": "platform-service",
+        "enabled": false,
+        "name": "io",
+        "reason": "mapped by the typed PS1 platform-service boundary, not by RAM",
+        "size": 8192,
+        "translation": "service"
+      },
+      {
+        "base": "0xbfc00000",
+        "classification": "absent-no-bios-image",
+        "enabled": false,
+        "name": "bios",
+        "reason": "no BIOS image is loaded, executed or emulated",
+        "size": 524288,
+        "translation": "none"
+      },
+      {
+        "base": "0xc0000000",
+        "classification": "unsupported-privileged",
+        "enabled": false,
+        "name": "kseg2",
+        "reason": "kernel-only segment is outside the bounded contract",
+        "size": 1073741824,
+        "translation": "none"
+      }
+    ],
+    "stack": {
+      "base": "0x801fbff0",
+      "model": "explicit-bounded",
+      "pointer": "0x801ffff0",
+      "reason": "PS-X EXE s_size is zero; the contract uses an explicit bounded window below the initial SP",
+      "size": 16384
+    },
+    "text_end": "0x80010020"
+  },
+  "contract_digest": "6d4ab5ee3eb5108c9ba71c8b75ee5e4ed8de2c7281ecee3adb5abd2bf4a9522a",
+  "fixture": "openrecomp-authored-canonical",
+  "schema": "openrecomp-phase9-memory-contract-v1",
+  "stage": "P9-02"
+}

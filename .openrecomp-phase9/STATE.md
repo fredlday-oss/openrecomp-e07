@@ -10,8 +10,8 @@ BASELINE_TAG_RECONCILIATION=Phase 8 created no annotated terminal tag. The autho
 BASELINE_TERMINAL=OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS
 BASELINE_GENERAL=OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P9-01
-LAST_PASSED_STAGE=P9-01
+CURRENT_STAGE=P9-02
+LAST_PASSED_STAGE=P9-02
 STATUS=IN_PROGRESS
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P9-01..P9-99
@@ -83,7 +83,7 @@ OpenRecomp-authored or openly licensed PS1 fixture.
 | --- | --- | --- | --- |
 | P9-00 | Phase-9 boundary + acceleration control plane | PASS | `.openrecomp-phase9/evidence/P9-00/` |
 | P9-01 | PS-X EXE ingestion | PASS | `.openrecomp-phase9/evidence/P9-01/` |
-| P9-02 | PS1 executable image + memory-map contract | QUEUED | - |
+| P9-02 | PS1 executable image + memory-map contract | PASS | `.openrecomp-phase9/evidence/P9-02/` |
 | P9-03 | Existing MIPS32 pipeline integration | QUEUED | - |
 | P9-04 | Reachable translation-frontier closure | QUEUED | - |
 | P9-05 | PS1 BIOS/service boundary | QUEUED | - |
@@ -160,3 +160,22 @@ private Hercules fixture was reduced to non-reconstructive metadata only
 (file/payload hashes, header fields, reserved-region hash and counts); no
 executable bytes are committed, and the fixture is explicitly not a `PASS`
 criterion. The next stage is `P9-02`.
+
+## P9-02 result
+
+PASS. Gate `tools/test_phase9_memory_map_v1.py` (128 checks, run twice via
+`p9_stage_runner_v1.py`, byte-identical stdout, empty stderr, exit 0).
+Evidence: `.openrecomp-phase9/evidence/P9-02/`. Markers issued:
+
+- `OPENRECOMP_P9_02=PASS`
+- `OPENRECOMP_PHASE9_MEMORY_MAP_V1=PASS tests=128`
+- `OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN` (reserved)
+- `OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` (permanent)
+- `OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` (permanent)
+
+The additive contract module `.openrecomp-phase9/src/p9_memory_map_v1.py`
+defines the 2 MiB main-RAM window, KSEG0/KSEG1 mirrors, named regions with
+explicit permissions, the explicit bounded stack window, and fail-closed
+classifications for KUSEG/scratchpad/I/O/BIOS/KSEG2. The private fixture
+contributed a non-reconstructive contract summary only. The next stage is
+`P9-03`.

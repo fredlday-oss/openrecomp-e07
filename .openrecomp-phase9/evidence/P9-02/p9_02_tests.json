@@ -1,0 +1,656 @@
+{
+  "checks": [
+    {
+      "check": "contract:bss-present",
+      "detail": "present",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:determinism",
+      "detail": "stable digest",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:entry",
+      "detail": "0x80010000",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:flat-bss-zero",
+      "detail": "bss zero-filled",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:flat-gap-zero",
+      "detail": "gap zero-filled",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:flat-payload",
+      "detail": "payload at load offset",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:image-sha256",
+      "detail": "f89c39f4fa691e1822172842fd6e6d3c2c1c7300f23f181fe37d25e4e48ab501",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:image-size",
+      "detail": "2097152",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:load-address",
+      "detail": "0x80010000",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:ram-base",
+      "detail": "0x80000000",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:ram-end",
+      "detail": "0x80200000",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:ram-permissions",
+      "detail": "rwx",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:ram-size",
+      "detail": "2097152",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:stack-model",
+      "detail": "explicit-bounded",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:stack-pointer",
+      "detail": "0x801ffff0",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:text-end",
+      "detail": "0x80010020",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:bios",
+      "detail": "expected UNSUPPORTED_SEGMENT_BIOS got UNSUPPORTED_SEGMENT_BIOS",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:chunk-limit",
+      "detail": "IMAGE_CHUNK_LIMIT",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:io-unclaimed",
+      "detail": "expected PLATFORM_SERVICE_UNCLAIMED got PLATFORM_SERVICE_UNCLAIMED",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:kseg0-end",
+      "detail": "expected UNMAPPED_ADDRESS got UNMAPPED_ADDRESS",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:kseg2",
+      "detail": "expected UNSUPPORTED_SEGMENT_KSEG2 got UNSUPPORTED_SEGMENT_KSEG2",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:kuseg",
+      "detail": "expected UNSUPPORTED_SEGMENT_KUSEG got UNSUPPORTED_SEGMENT_KUSEG",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:scratchpad",
+      "detail": "expected UNSUPPORTED_SEGMENT_SCRATCHPAD got UNSUPPORTED_SEGMENT_SCRATCHPAD",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:stack-overlap",
+      "detail": "STACK_OVERLAPS_IMAGE",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unmapped",
+      "detail": "expected UNMAPPED_ADDRESS got UNMAPPED_ADDRESS",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:no-ascii-run",
+      "detail": "ascii payload run at []",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:no-base64",
+      "detail": "payload base64 present",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:no-hex",
+      "detail": "payload hex present",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "9 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "8 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "8 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "15 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "58 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "55 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "16 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "61 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "20 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "45 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "22 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "51 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "16 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "90 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "20 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "44 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:contract:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:entry-translates",
+      "detail": "entry in RAM",
+      "status": "PASS"
+    },
+    {
+      "check": "private:marker",
+      "detail": "PRESENT",
+      "status": "PASS"
+    },
+    {
+      "check": "private:stack-base",
+      "detail": "0x801fbff0",
+      "status": "PASS"
+    },
+    {
+      "check": "private:text-region",
+      "detail": "load_text",
+      "status": "PASS"
+    },
+    {
+      "check": "regions:bss",
+      "detail": "bss",
+      "status": "PASS"
+    },
+    {
+      "check": "regions:bss-perms",
+      "detail": "rw",
+      "status": "PASS"
+    },
+    {
+      "check": "regions:in-ram:bss",
+      "detail": "0x80020000",
+      "status": "PASS"
+    },
+    {
+      "check": "regions:in-ram:load_text",
+      "detail": "0x80010000",
+      "status": "PASS"
+    },
+    {
+      "check": "regions:in-ram:ram_free",
+      "detail": "0x80020100",
+      "status": "PASS"
+    },
+    {
+      "check": "regions:in-ram:stack",
+      "detail": "0x801fbff0",
+      "status": "PASS"
+    },
+    {
+      "check": "regions:ram-free",
+      "detail": "ram-free",
+      "status": "PASS"
+    },
+    {
+      "check": "regions:sorted",
+      "detail": "sorted by base",
+      "status": "PASS"
+    },
+    {
+      "check": "regions:stack",
+      "detail": "stack",
+      "status": "PASS"
+    },
+    {
+      "check": "regions:stack-perms",
+      "detail": "rw",
+      "status": "PASS"
+    },
+    {
+      "check": "regions:text",
+      "detail": "text",
+      "status": "PASS"
+    },
+    {
+      "check": "regions:text-perms",
+      "detail": "rwx",
+      "status": "PASS"
+    },
+    {
+      "check": "segments:bios",
+      "detail": "bios",
+      "status": "PASS"
+    },
+    {
+      "check": "segments:count",
+      "detail": "7",
+      "status": "PASS"
+    },
+    {
+      "check": "segments:io",
+      "detail": "io",
+      "status": "PASS"
+    },
+    {
+      "check": "segments:kseg0",
+      "detail": "kseg0",
+      "status": "PASS"
+    },
+    {
+      "check": "segments:kseg1",
+      "detail": "kseg1",
+      "status": "PASS"
+    },
+    {
+      "check": "segments:kseg2",
+      "detail": "kseg2",
+      "status": "PASS"
+    },
+    {
+      "check": "segments:kuseg",
+      "detail": "kuseg",
+      "status": "PASS"
+    },
+    {
+      "check": "segments:reason:bios",
+      "detail": "reason present",
+      "status": "PASS"
+    },
+    {
+      "check": "segments:reason:io",
+      "detail": "reason present",
+      "status": "PASS"
+    },
+    {
+      "check": "segments:reason:kseg2",
+      "detail": "reason present",
+      "status": "PASS"
+    },
+    {
+      "check": "segments:reason:kuseg",
+      "detail": "reason present",
+      "status": "PASS"
+    },
+    {
+      "check": "segments:reason:scratchpad",
+      "detail": "reason present",
+      "status": "PASS"
+    },
+    {
+      "check": "segments:scratchpad",
+      "detail": "scratchpad",
+      "status": "PASS"
+    },
+    {
+      "check": "translate:kseg0",
+      "detail": "Translation(segment='kseg0', kind='ram', offset=65540, address=2147549188)",
+      "status": "PASS"
+    },
+    {
+      "check": "translate:kseg1",
+      "detail": "Translation(segment='kseg1', kind='ram', offset=65540, address=2684420100)",
+      "status": "PASS"
+    },
+    {
+      "check": "translate:read-u32",
+      "detail": "word read",
+      "status": "PASS"
+    },
+    {
+      "check": "translate:read-u32-kseg1",
+      "detail": "kseg1 word read",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 128,
+  "private_fixture": {
+    "is_pass_criterion": false,
+    "label": "hercules-slus-005.29",
+    "present": true
+  },
+  "stage": "P9-02",
+  "stage_name": "PS1 executable image and memory-map contract",
+  "status": "PASS",
+  "tests": 128
+}

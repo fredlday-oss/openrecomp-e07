@@ -85,3 +85,27 @@ image and memory-map contract).
 - map the ingested payload into a bounded flat image without silent masking;
 - no invented mappings: every address translation decision is explicit and
   fail-closed.
+
+## P9-02 outcome
+
+- additive contract module `.openrecomp-phase9/src/p9_memory_map_v1.py`: 2 MiB
+  main RAM with KSEG0/KSEG1 mirrors, named regions (text rwx, BSS rw,
+  ram_free rw, explicit bounded 16 KiB stack rw), explicit disabled/unsupported
+  classifications for KUSEG/scratchpad/I/O/BIOS/KSEG2, deterministic flat
+  image and chunking, fail-closed translation codes;
+- 128 checks including KSEG mirror equivalence, permission/region coverage,
+  negative overlap and chunk-limit cases, and contract determinism;
+- the private Hercules fixture contributed a non-reconstructive contract
+  summary only;
+- the P9-02 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase9/evidence/P9-02/`.
+
+## Known work for P9-03
+
+- feed the reachable executable frontier through the existing Phase-8 MIPS32
+  decode / ProgramModel / CFG / function / call-graph / translation-unit
+  stack, reusing `p3_code_frontier_v1` and `p8_structure_v1` unchanged;
+- record exact instruction/block/function/call/control-flow counts for the
+  original public fixture, and the reachable frontier + first unresolved
+  blocker for the private fixture;
+- unresolved indirect control flow must fail closed.

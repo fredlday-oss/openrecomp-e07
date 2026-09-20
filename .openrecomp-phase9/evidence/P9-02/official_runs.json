@@ -1,0 +1,61 @@
+{
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "command": [
+        "python",
+        "tools/test_phase9_memory_map_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase9/evidence/P9-02"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P9_02=PASS",
+        "OPENRECOMP_PHASE9_MEMORY_MAP_V1=PASS tests=128",
+        "OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+        "OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p9_02_tests_sha256": "ea8e1410fae027cb8da605e4888dd6a3ddf241605714e75a22d894f3d37225a2",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 4389,
+      "stdout_bytes_lf": 4256,
+      "stdout_sha256_lf": "a8999d9d41bc705b7039ec6f68c229539d0cac358e385bc29c4d263de288b00e",
+      "stdout_sha256_raw": "4f0773a5bfa52949e3106c38b4eccb9d514de06c4300da87f656d9d76c664b15"
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_phase9_memory_map_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase9/evidence/P9-02"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P9_02=PASS",
+        "OPENRECOMP_PHASE9_MEMORY_MAP_V1=PASS tests=128",
+        "OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+        "OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p9_02_tests_sha256": "ea8e1410fae027cb8da605e4888dd6a3ddf241605714e75a22d894f3d37225a2",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 4389,
+      "stdout_bytes_lf": 4256,
+      "stdout_sha256_lf": "a8999d9d41bc705b7039ec6f68c229539d0cac358e385bc29c4d263de288b00e",
+      "stdout_sha256_raw": "4f0773a5bfa52949e3106c38b4eccb9d514de06c4300da87f656d9d76c664b15"
+    }
+  ],
+  "schema": "openrecomp-phase9-official-runs-v1",
+  "stage": "P9-02",
+  "stderr_empty_both": true
+}
