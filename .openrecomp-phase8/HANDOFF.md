@@ -161,9 +161,24 @@ permanent.
 - the P8-09 gate passed twice with byte-identical stdout, empty stderr and
   exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-09/`.
 
+## P8-10 outcome
+
+- new workflow module `.openrecomp-phase8/src/p8_workflow_v1.py` runs the
+  deterministic bounded path and returns a structured result record;
+- the frozen fixture completes the entire path (emission `3df423e0...`,
+  `EXECUTABLE_REPRODUCIBLE`, native `exit_status=0x00000000`, reference
+  equivalence with no excluded observables) and repeats identically;
+- seven malformed/unsupported inputs fail closed with the explicit categories
+  `UNSUPPORTED_ELF_CONTAINER` (x3), `UNSUPPORTED_ISA_SEMANTIC`,
+  `UNRESOLVED_INDIRECT_CONTROL_FLOW`, `TOOLCHAIN_UNAVAILABLE`,
+  `REFERENCE_MISMATCH`;
+- the P8-10 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-10/`.
+
 ## Exact next action
 
-Complete P8-10: create a deterministic reusable real-MIPS32 ELF-to-native
-workflow (classification -> analysis -> translation -> host generation ->
-native build -> execution -> result evidence) with explicit fail-closed
-failure categories and no proprietary or private inputs.
+Complete P8-11: focused fail-closed hardening for the Phase-8 mechanisms --
+deterministic rejection, no guessed recovery, no silent compatibility
+widening, no stale-cache acceptance, and no generated-code execution after a
+required earlier classification failure. Do not turn this into a general
+fuzzing project.

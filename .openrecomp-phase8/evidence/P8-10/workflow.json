@@ -1,0 +1,345 @@
+{
+  "fixture": {
+    "sha256": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65"
+  },
+  "markers": {
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "negative_cases": [
+    {
+      "case": "not-an-elf",
+      "category": "UNSUPPORTED_ELF_CONTAINER",
+      "outcome": "FAIL_CLOSED",
+      "stage": "classification"
+    },
+    {
+      "case": "truncated",
+      "category": "UNSUPPORTED_ELF_CONTAINER",
+      "outcome": "FAIL_CLOSED",
+      "stage": "classification"
+    },
+    {
+      "case": "et-dyn",
+      "category": "UNSUPPORTED_ELF_CONTAINER",
+      "outcome": "FAIL_CLOSED",
+      "stage": "classification"
+    },
+    {
+      "case": "unsupported-op",
+      "category": "UNSUPPORTED_ISA_SEMANTIC",
+      "outcome": "FAIL_CLOSED",
+      "stage": "structure"
+    },
+    {
+      "case": "indirect-return",
+      "category": "UNRESOLVED_INDIRECT_CONTROL_FLOW",
+      "outcome": "FAIL_CLOSED",
+      "stage": "structure"
+    },
+    {
+      "case": "toolchain-missing",
+      "category": "TOOLCHAIN_UNAVAILABLE",
+      "outcome": "FAIL_CLOSED",
+      "stage": "native-build"
+    },
+    {
+      "case": "reference-mismatch",
+      "category": "REFERENCE_MISMATCH",
+      "outcome": "FAIL_CLOSED",
+      "stage": "equivalence"
+    }
+  ],
+  "result": {
+    "build": {
+      "classification": "EXECUTABLE_REPRODUCIBLE",
+      "executable_sha256": "fb98c8a68c5c3af7bc30dab2e907910e1c1dfd665eb79e0ee7fcd60dd07a04dc"
+    },
+    "category": null,
+    "contract_digest": "4769aa4b16c566754651f721a4b18edc520f300fa5fd84cafffacde722d5d0ce",
+    "detail": "",
+    "elf_identity": {
+      "abi": "O32",
+      "dynamic": false,
+      "elf_class": "ELF32",
+      "endianness": "little",
+      "entry": "0x00002490",
+      "entry_region": 2,
+      "entry_section": ".text",
+      "executable_section": ".text",
+      "flags": "0x50001001",
+      "flags_interpretation": "EF_MIPS_ABI_O32 | EF_MIPS_ARCH_32 | EF_MIPS_NOREORDER (non-PIC)",
+      "isa": "MIPS32 (EF_MIPS_ARCH_32)",
+      "machine": 8,
+      "machine_name": "EM_MIPS",
+      "pic": false,
+      "relocations": false,
+      "required_sections": [
+        ".text",
+        ".rodata",
+        ".data",
+        ".bss"
+      ],
+      "static": true,
+      "target": "mips32-o32-soft-float-static",
+      "type": 2,
+      "type_name": "ET_EXEC"
+    },
+    "emission": {
+      "emission_version": "1.0.0",
+      "files": [
+        {
+          "bytes": 97830,
+          "name": "program.c",
+          "sha256": "3df423e0efdd1b6d0c91ce9f95bd33d0b58f08833226314bd43aff407751c704"
+        },
+        {
+          "bytes": 166198,
+          "name": "p8_image_v1.c",
+          "sha256": "d5d95845cf6574b7791996bdacd4d1f6994359c9e6c6911e71f1e006fb9b6d8d"
+        },
+        {
+          "bytes": 7662,
+          "name": "p8_runtime_support.c",
+          "sha256": "9b5e70f524741612fc25a2def189fe436c757ceb4e064daa3c4f76088b9595c5"
+        },
+        {
+          "bytes": 4172,
+          "name": "p8_driver.c",
+          "sha256": "e918de647ed34d9eaf451b93beb6b4f490676484c737484b7d8602f500f2ecea"
+        }
+      ],
+      "program_fingerprint": "3df423e0efdd1b6d0c91ce9f95bd33d0b58f08833226314bd43aff407751c704",
+      "program_functions": [
+        "fn_fn_1000",
+        "fn_fn_101c",
+        "fn_fn_11b8",
+        "fn_fn_11dc",
+        "fn_fn_2290",
+        "fn_fn_2360",
+        "fn_fn_2490"
+      ]
+    },
+    "equivalence": {
+      "excluded_observables": [],
+      "mismatches": {}
+    },
+    "fixture_sha256": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65",
+    "frontier": {
+      "control_flow_site_counts": {
+        "conditional-branches": 5,
+        "direct-calls": 8,
+        "indirect-calls": 0,
+        "indirect-jumps": 0,
+        "jumps": 3,
+        "returns": 7,
+        "unsupported-control-transfers": 0
+      },
+      "decoded_words": 1322,
+      "exception_site_count": 0,
+      "invalid_words": 3,
+      "reachable_invalid_words": 0,
+      "reachable_supported_words": 508,
+      "reachable_unsupported_words": 1,
+      "reachable_words": 509,
+      "recognized_unsupported_words": 1,
+      "reserved_encoding_words": 3,
+      "supported_histogram": {
+        "addiu": 115,
+        "addu": 57,
+        "andi": 50,
+        "beq": 14,
+        "bne": 26,
+        "j": 7,
+        "jal": 19,
+        "jr": 17,
+        "lb": 6,
+        "lbu": 297,
+        "lui": 14,
+        "lw": 88,
+        "nop": 33,
+        "or": 52,
+        "ori": 4,
+        "sb": 193,
+        "sll": 30,
+        "sltu": 4,
+        "sra": 12,
+        "srl": 18,
+        "sw": 79,
+        "xor": 186
+      },
+      "supported_reachable_histogram": {
+        "addiu": 38,
+        "addu": 30,
+        "andi": 22,
+        "beq": 3,
+        "bne": 2,
+        "j": 3,
+        "jal": 8,
+        "jr": 7,
+        "lb": 2,
+        "lbu": 132,
+        "lui": 13,
+        "lw": 22,
+        "nop": 7,
+        "or": 11,
+        "ori": 4,
+        "sb": 88,
+        "sll": 9,
+        "sra": 4,
+        "srl": 6,
+        "sw": 26,
+        "xor": 71
+      },
+      "supported_words": 1321,
+      "total_words": 1325,
+      "unknown_encoding_words": 0,
+      "unreachable_words": 816,
+      "unresolved_site_counts": {},
+      "unsupported_histogram": {
+        "movz": 1
+      },
+      "unsupported_reachable_histogram": {
+        "movz": 1
+      },
+      "unsupported_unreachable_histogram": {}
+    },
+    "native": {
+      "denied": 0,
+      "error": "",
+      "exit_status": "0x00000000",
+      "failed": "0",
+      "fixture": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65",
+      "host_calls": 33,
+      "memory": "0x231c4a49e79c5e56",
+      "reads": 1136,
+      "registers": {
+        "r00": "0x00000000",
+        "r01": "0x10000000",
+        "r02": "0x00000000",
+        "r03": "0x00006634",
+        "r04": "0x0000000a",
+        "r05": "0x0000662c",
+        "r06": "0x00006630",
+        "r07": "0x0000000a",
+        "r08": "0x000024c0",
+        "r09": "0x0000255e",
+        "r10": "0x00000010",
+        "r11": "0x0000009f",
+        "r12": "0x000000ca",
+        "r13": "0x0000009f",
+        "r14": "0x000000f5",
+        "r15": "0x0000003d",
+        "r16": "0x00000000",
+        "r17": "0x00000000",
+        "r18": "0x00000000",
+        "r19": "0x00000000",
+        "r20": "0x00000000",
+        "r21": "0x00000000",
+        "r22": "0x00000000",
+        "r23": "0x00000000",
+        "r24": "0x0000002b",
+        "r25": "0x0000000b",
+        "r26": "0x00000000",
+        "r27": "0x00000000",
+        "r28": "0x000000ef",
+        "r29": "0x00006710",
+        "r30": "0x00000000",
+        "r31": "0x00000000"
+      },
+      "registers_digest": "0x7ee0f4a187050726",
+      "transcript": "0xca6dcb87f8ac9814",
+      "transcript_len": 33,
+      "writes": 681
+    },
+    "outcome": "COMPLETED",
+    "reference": {
+      "denied": 0,
+      "exit_status": "0x00000000",
+      "host_calls": 33,
+      "memory_digest": "0x231c4a49e79c5e56",
+      "reads": 1136,
+      "registers": {
+        "r00": "0x00000000",
+        "r01": "0x10000000",
+        "r02": "0x00000000",
+        "r03": "0x00006634",
+        "r04": "0x0000000a",
+        "r05": "0x0000662c",
+        "r06": "0x00006630",
+        "r07": "0x0000000a",
+        "r08": "0x000024c0",
+        "r09": "0x0000255e",
+        "r10": "0x00000010",
+        "r11": "0x0000009f",
+        "r12": "0x000000ca",
+        "r13": "0x0000009f",
+        "r14": "0x000000f5",
+        "r15": "0x0000003d",
+        "r16": "0x00000000",
+        "r17": "0x00000000",
+        "r18": "0x00000000",
+        "r19": "0x00000000",
+        "r20": "0x00000000",
+        "r21": "0x00000000",
+        "r22": "0x00000000",
+        "r23": "0x00000000",
+        "r24": "0x0000002b",
+        "r25": "0x0000000b",
+        "r26": "0x00000000",
+        "r27": "0x00000000",
+        "r28": "0x000000ef",
+        "r29": "0x00006710",
+        "r30": "0x00000000",
+        "r31": "0x00000000"
+      },
+      "registers_digest": "0x7ee0f4a187050726",
+      "transcript_digest": "0xca6dcb87f8ac9814",
+      "transcript_len": 33,
+      "transcript_text": "69c4e0d86a7b0430d8cdb78070b4c55a\n",
+      "writes": 681
+    },
+    "stage": "completed",
+    "structure": {
+      "blocks": 27,
+      "call_edges_external": 0,
+      "call_edges_internal": 8,
+      "call_edges_unresolved": 0,
+      "call_graph_fingerprint": "8508c599d2869d1d32a24949c4b113112bf21a57c7c3c04a7a255c581220cd5b",
+      "cfg_fingerprint": "8c51308cd9ad9bd7987f57637e23ab94bbfbf0a9eeac10fa73d259ac0a689e71",
+      "classification_units": 7,
+      "discovery_fingerprint": "2a9835556a8a3db0433060a2fe81d3647cc2cf1babdb234367f8b1a816fa528d",
+      "edge_histogram": {
+        "BRANCH_NOT_TAKEN": 5,
+        "BRANCH_TAKEN": 5,
+        "CALL_RETURN": 8,
+        "FALLTHROUGH": 4,
+        "JUMP": 3
+      },
+      "edges": 25,
+      "entry_function": "fn_2490",
+      "entry_unit": "tu_fn_2490",
+      "flow_histogram": {
+        "BRANCH": 5,
+        "CALL": 8,
+        "JUMP": 3,
+        "NORMAL": 463,
+        "RETURN": 7
+      },
+      "folded_delay_slots": 23,
+      "functions": 7,
+      "neutral_instructions": 486,
+      "non_nop_delay_slots": 16,
+      "program_model_fingerprint": "718f538ed53acacafb81ebe00d4effa29ab827ae2a5654de6662a62c46c8b60c",
+      "shared_blocks": 0,
+      "structure_version": "1.0.0",
+      "translation_units": 7,
+      "units_fingerprint": "50034a80e085b9a80c9742dffd50521d24d1b76dfbc29e5dd6066c3f519ac33b",
+      "unowned_blocks": 0,
+      "unresolved_sites": []
+    },
+    "workflow_version": "1.0.0"
+  },
+  "stage": "P8-10",
+  "workflow_version": "1.0.0"
+}

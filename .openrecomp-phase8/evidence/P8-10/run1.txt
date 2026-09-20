@@ -1,0 +1,19 @@
+PASS: fixture:sha256
+PASS: fixture:outcome
+PASS: fixture:stages
+PASS: fixture:equivalence-none-excluded
+PASS: fixture:emission-fingerprint
+PASS: fixture:native-exit
+PASS: fixture:workflow-matches-p8-09
+PASS: fixture:deterministic-result
+PASS: reject:not-an-elf
+PASS: reject:truncated
+PASS: reject:et-dyn
+PASS: reject:unsupported-op
+PASS: reject:indirect-return
+PASS: reject:toolchain-missing
+PASS: reject:reference-mismatch
+OPENRECOMP_P8_10=PASS
+OPENRECOMP_PHASE8_WORKFLOW_V1=PASS tests=15
+OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN

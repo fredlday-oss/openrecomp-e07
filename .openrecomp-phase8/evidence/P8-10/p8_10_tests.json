@@ -1,0 +1,92 @@
+{
+  "checks": [
+    {
+      "check": "fixture:sha256",
+      "detail": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:outcome",
+      "detail": "{\"build\": {\"classification\": \"EXECUTABLE_REPRODUCIBLE\", \"executable_sha256\": \"fb98c8a68c5c3af7bc30dab2e907910e1c1dfd665eb79e0ee7fcd60dd07a04dc\"}, \"category\": null, \"contract_digest\": \"4769aa4b16c566754651f721a4b18edc520f300fa5fd84cafffacde722d5d0ce\", \"detail\": \"\", \"elf_identity\": {\"abi\": \"O32\", \"dyn",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:stages",
+      "detail": "[\"build\", \"category\", \"contract_digest\", \"detail\", \"elf_identity\", \"emission\", \"equivalence\", \"fixture_sha256\", \"frontier\", \"native\", \"outcome\", \"reference\", \"stage\", \"structure\", \"workflow_version\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:equivalence-none-excluded",
+      "detail": "{\"excluded_observables\": [], \"mismatches\": {}}",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:emission-fingerprint",
+      "detail": "3df423e0efdd1b6d0c91ce9f95bd33d0b58f08833226314bd43aff407751c704",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:native-exit",
+      "detail": "0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:workflow-matches-p8-09",
+      "detail": "{\"p8_09\": {\"memory\": \"0x231c4a49e79c5e56\", \"registers\": \"0x7ee0f4a187050726\", \"transcript\": \"0xca6dcb87f8ac9814\"}, \"workflow\": {\"memory\": \"0x231c4a49e79c5e56\", \"registers\": \"0x7ee0f4a187050726\", \"transcript\": \"0xca6dcb87f8ac9814\"}}",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:deterministic-result",
+      "detail": "identical workflow record",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:not-an-elf",
+      "detail": "{\"category\": \"UNSUPPORTED_ELF_CONTAINER\", \"detail\": \"INVALID_MAGIC: size=31\", \"outcome\": \"FAIL_CLOSED\", \"stage\": \"classification\", \"workflow_version\": \"1.0.0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:truncated",
+      "detail": "{\"category\": \"UNSUPPORTED_ELF_CONTAINER\", \"detail\": \"PROGRAM_TABLE_OUT_OF_BOUNDS: phoff=52 size=192 file=64\", \"outcome\": \"FAIL_CLOSED\", \"stage\": \"classification\", \"workflow_version\": \"1.0.0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:et-dyn",
+      "detail": "{\"category\": \"UNSUPPORTED_ELF_CONTAINER\", \"detail\": \"UNSUPPORTED_TYPE: e_type=3 expected=2\", \"outcome\": \"FAIL_CLOSED\", \"stage\": \"classification\", \"workflow_version\": \"1.0.0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unsupported-op",
+      "detail": "{\"category\": \"UNSUPPORTED_ISA_SEMANTIC\", \"detail\": \"UNKNOWN_EXCEPTION_TRANSFER: 0x00002440\", \"outcome\": \"FAIL_CLOSED\", \"stage\": \"structure\", \"workflow_version\": \"1.0.0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:indirect-return",
+      "detail": "{\"category\": \"UNRESOLVED_INDIRECT_CONTROL_FLOW\", \"detail\": \"[{\\\"function_id\\\": \\\"fn_2360\\\", \\\"block_id\\\": \\\"blk_2454\\\", \\\"address\\\": 9340, \\\"op\\\": \\\"jr\\\", \\\"kind\\\": \\\"INDIRECT_JUMP\\\", \\\"status\\\": \\\"UNRESOLVED_INDIRECT_JUMP\\\", \\\"target\\\": null}]\", \"outcome\": \"FAIL_CLOSED\", \"stage\": \"structure\", \"work",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:toolchain-missing",
+      "detail": "{\"category\": \"TOOLCHAIN_UNAVAILABLE\", \"detail\": \"clang-cl/lld-link not found\", \"outcome\": \"FAIL_CLOSED\", \"stage\": \"native-build\", \"workflow_version\": \"1.0.0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:reference-mismatch",
+      "detail": "{\"category\": \"REFERENCE_MISMATCH\", \"detail\": \"{\\\"exit_status\\\": {\\\"native\\\": \\\"0x00000000\\\", \\\"expected\\\": \\\"0xdeadbeef\\\"}}\", \"outcome\": \"FAIL_CLOSED\", \"stage\": \"equivalence\", \"workflow_version\": \"1.0.0\"}",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "markers": {
+    "gate": "OPENRECOMP_PHASE8_WORKFLOW_V1=PASS tests=15",
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P8_10=PASS",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "passed": 15,
+  "stage": "P8-10",
+  "stage_name": "Reusable real-MIPS32 ELF-to-native workflow",
+  "status": "PASS",
+  "tests": 15
+}
