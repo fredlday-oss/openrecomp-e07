@@ -11,6 +11,12 @@ Markers:
 
 Gate: `python tools/test_phase8_native_execution_v1.py`.
 
+## Revision note
+
+This record was regenerated after the P8-04 movz ISA correction changed the
+emitted program; the observable record is for the corrected native binary and
+the execution behaviour is unchanged.
+
 ## Native execution
 
 The emission set was rebuilt through the existing deterministic pipeline
@@ -44,9 +50,9 @@ stderr, both runs byte-identical: stdout 1028 bytes, raw sha256
 sha256 `9675a2f26625852fe1263d88fd3abaa7131916b7790251d176495df937d6e8bc`.
 
 Sidecar identities: `native_execution.json`
-`790a58ac82bbf393f999baeb3852be5b8b139cb81fe8c888b1b70f3fa6173202`,
+`5de0c92615682f7a9203e262408f3bea1858ff133505caaef90066da5d9187ae`,
 `p8_08_tests.json`
-`c7486c0c036b6772cfb53787d4694a019973e1c0f2b994b6dfe7f6cdbe7b9ceb`.
+`4e02391b716c9210afbc6e4795b69e2025af3a1916cf757c3fb21ea0bbece986`.
 
 ## Claim-ledger delta
 

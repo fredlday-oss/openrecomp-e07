@@ -1,11 +1,11 @@
 # P8-04 result: translation frontier closure
 
-Status: `PASS` (29 checks)
+Status: `PASS` (30 checks)
 
 Markers:
 
 - `OPENRECOMP_P8_04=PASS`
-- `OPENRECOMP_PHASE8_TRANSLATION_CLOSURE_V1=PASS tests=29`
+- `OPENRECOMP_PHASE8_TRANSLATION_CLOSURE_V1=PASS tests=30`
 - `OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN` (reserved)
 - `OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN` (permanent)
 
@@ -49,10 +49,26 @@ The frozen 486-instruction neutral structure emits successfully with the
 closed table: every instruction has a rule, every rule flow agrees, all 23
 folded delay sites are exercised, and two independent emissions are
 byte-identical (97,830-byte C source, fingerprint
-`6a957bd1639cebf8b702725682b3423accf0e01191a5fa73e9dc9849c9ff3294`). The
+`3df423e0efdd1b6d0c91ce9f95bd33d0b58f08833226314bd43aff407751c704`). The
 emitted text contains width-8 reads/writes, sign extension, conditional
 select, link-register writes and the generic runtime ABI surface, and no
 guest machine code.
+
+## Correction: `movz` operand roles (found while preparing P8-09)
+
+The first revision of the `movz` rule implemented the condition on `rs` and
+the moved value from `rt`, which is inverted from the MIPS32 definition
+(`if GPR[rt] == 0 then GPR[rd] = GPR[rs]`). The synthetic differential vector
+originally used the same inverted convention in its Python model, so both
+sides agreed and the defect was not observable. The rule and the reference
+model are corrected to the architectural definition, and the synthetic vector
+now distinguishes the two conventions (`r12 = 7` with `r13 = 0`, `r14 = 7`).
+
+This changed the emitted program fingerprint from `6a957bd1...` to
+`3df423e0...`; the P8-06..P8-08 evidence was regenerated against the
+corrected emission (recorded in the corresponding stage records). The frozen
+fixture's audited run has no `movz` mismatch path, so its observable record is
+unchanged apart from the corrected rule's effect on the emitted text.
 
 ## Differential execution of the new semantics
 
@@ -64,27 +80,28 @@ and compared against an independently written Python MIPS32 reference model:
 
 - registers: `r7 = 0xffffff80` (`lb` sign extension) vs `r6 = 0x80`, `r8 =
   0x7f`, `r9 = 0x7f` (`lbu`/positive `lb`), `r10 = 0xffffff80` (word
-  round-trip), `r12 = 5` (`movz` taken once, not taken once);
-- delay-slot order: `r13 = 0x11` (taken-branch delay), `r16 = 0x44` (call
-  delay), `r18 = 0x66` (return delay), `r20 = 0x99` (callee return delay);
-- not-taken path correctly skipped: `r15 = 0`, `r21 = 0`;
-- link register: memory `[8..11] = 58 10 00 00`, i.e. the callee saved
-  `$ra = 0x1058` (the `jal` continuation) even after clobbering `$31` as
+  round-trip), `r12 = 7` (`movz` not taken once with `r11 = 5`, then taken
+  with `r0 = 0` moving `r14 = 7`);
+- delay-slot order: `r15 = 0x11` (taken-branch delay), `r18 = 0x44` (call
+  delay), `r20 = 0x66` (return delay), `r22 = 0x99` (callee return delay);
+- not-taken path correctly skipped: `r16 = 0`, `r17 = 0`;
+- link register: memory `[8..11] = 60 10 00 00`, i.e. the callee saved
+  `$ra = 0x1060` (the `jal` continuation) even after clobbering `$31` as
   scratch;
 - native exit code 0, `failed=0`, and every native register/byte equals the
   independent model.
 
-## Official runs
+## Official runs (post-correction)
 
 Command `python tools/test_phase8_translation_v1.py`, exit 0, empty stderr,
-both runs byte-identical: stdout 1132 bytes, raw sha256
-`7a5369d9efc5633708b11d8fdc090e386c62a6498a0bb1391029b9921f938682`, LF
-sha256 `37008ca0f36f025a01f4f73b7cd71966d973d9cc38a039a19dd8406aa682f262`.
+both runs byte-identical: stdout 1168 bytes, raw sha256
+`0cd067e19ae98a3cfb726d31d1bd17049e236521f9e3432dbc983fd0f40c97d3`, LF
+sha256 `08933cbfd0d18c2a643cfda803f45ce41ec2c2d650fe321cff140150f6ac2929`.
 
 Sidecar identities: `translation_closure.json`
-`613af7cb756ede1cfc7770353bba082fee5f74e2188bf088b0ee2cb77e10b35f`,
+`30738072d9694504102d24a6fc53a5db916b703e7e3581a9c88a556cb1cef32f`,
 `p8_04_tests.json`
-`f4fe8ac6cff4882408409b4a2619289ed26ea906b343a6dce3fd410d97c2b250`.
+`a4b28dd96c4d47dc8d9090a86b44f299034e6c118602afa8f069acb211dfd00e`.
 
 ## Claim-ledger delta
 

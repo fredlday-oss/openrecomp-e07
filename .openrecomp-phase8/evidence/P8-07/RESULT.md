@@ -11,6 +11,12 @@ Markers:
 
 Gate: `python tools/test_phase8_native_build_v1.py`.
 
+## Revision note
+
+This record was regenerated after the P8-04 movz ISA correction changed the
+emitted program (program.c fingerprint 3df423e0...); only the executable
+and sidecar hashes changed, and the build behaviour is identical.
+
 ## Toolchain provenance
 
 `clang-cl.exe` 22.1.8 (`ca7933e47d3a3451d81e72ac174dcb5aa28b59d1`) with
@@ -28,7 +34,7 @@ compiler identity/version, compile arguments and object name:
 - warm build: 0 compiled, 4 reused (byte-identical objects);
 - corrupted cache entry: exactly 1 recompiled, 3 reused, executable unchanged;
 - the incremental executable is byte-stable across all three builds
-  (`0a1598d5c0aaf66fc80e611ebc563d5823e3873bff675de546ffc134d97e9bd4`).
+  (`53abcedf70d7218c39688265865d555b913b68ba05fd980f5af9bd023cc995b8`).
 
 ## Clean audited build path (terminal verification)
 
@@ -37,7 +43,7 @@ isolated run directories:
 
 - classification `EXECUTABLE_REPRODUCIBLE`;
 - `program.exe` 226304 bytes, SHA-256
-  `612cad0e9f59a3e334fa6c1d76d6d3c43bfeda71dd1de533d4c216589697429c`;
+  `fb98c8a68c5c3af7bc30dab2e907910e1c1dfd665eb79e0ee7fcd60dd07a04dc`;
 - every object file is byte-identical to the incremental build's objects;
 - manifest inputs exactly `generated.c`, `p8_driver.c`, `p8_image_v1.c`,
   `p8_runtime_support.c` (the four content-hashed emission files), so no
@@ -61,9 +67,9 @@ both runs byte-identical: stdout 1020 bytes, raw sha256
 sha256 `add64a0ce1f8bfed6973560c8796bdc0855bb49268836a48d2de023e3105f5db`.
 
 Sidecar identities: `native_build.json`
-`726ff00052bbeef2557941074ada771d26ecd476a9222f002c0540ba9da4279f`,
+`48e66ae86b5f37d9bc3c1eff3d78d048b8e6367be4814f7cba326a10002a60cb`,
 `p8_07_tests.json`
-`17b2d54f85165959c34c894841819c93d15d7ec85c67d76afe0aad848d8a8783`.
+`e3cd818ddf1c6dceadc8b0af02abaebb791e7cbc8474078b9b7c402cec47196b`.
 
 ## Claim-ledger delta
 

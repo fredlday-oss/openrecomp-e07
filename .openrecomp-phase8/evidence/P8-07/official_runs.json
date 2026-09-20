@@ -2,6 +2,7 @@
   "schema": "openrecomp-phase8-official-runs-v1",
   "stage": "P8-07",
   "command": "python tools/test_phase8_native_build_v1.py",
+  "revision": "post-movz-isa-correction",
   "runs": [
     {
       "name": "run1",
@@ -34,7 +35,7 @@
     "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN"
   },
   "sidecars": {
-    "native_build.json": "726ff00052bbeef2557941074ada771d26ecd476a9222f002c0540ba9da4279f",
-    "p8_07_tests.json": "17b2d54f85165959c34c894841819c93d15d7ec85c67d76afe0aad848d8a8783"
+    "native_build.json": "48e66ae86b5f37d9bc3c1eff3d78d048b8e6367be4814f7cba326a10002a60cb",
+    "p8_07_tests.json": "e3cd818ddf1c6dceadc8b0af02abaebb791e7cbc8474078b9b7c402cec47196b"
   }
 }

@@ -67,7 +67,7 @@ NOT_PROVEN = "NOT_PROVEN"
 
 FIXTURE_ELF = ROOT / ".openrecomp-phase8" / "build" / "P8-01" / "candidate-a" / "p8_aes128_mips32_O1.elf"
 FIXTURE_SHA256 = "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65"
-EXPECTED_PROGRAM_FINGERPRINT = "6a957bd1639cebf8b702725682b3423accf0e01191a5fa73e9dc9849c9ff3294"
+EXPECTED_PROGRAM_FINGERPRINT = "3df423e0efdd1b6d0c91ce9f95bd33d0b58f08833226314bd43aff407751c704"
 EXPECTED_TRANSCRIPT = b"69c4e0d86a7b0430d8cdb78070b4c55a\n"
 SUPPORT_SOURCE = ROOT / ".openrecomp-phase8" / "runtime" / "p8_runtime_support.c"
 DRIVER_SOURCE = ROOT / ".openrecomp-phase8" / "runtime" / "p8_observable_driver.c"

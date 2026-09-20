@@ -186,10 +186,10 @@ int main(void) {
 # a call, a return and a callee return, plus the $ra save/restore/clobber
 # pattern the real fixture uses.
 SYNTHETIC_DELAYS = {
-    0x1040: {"address": 0x1044, "op": "addiu", "fields": {"rs": 0, "rt": 13, "imm": 0x11}},
-    0x1050: {"address": 0x1054, "op": "addiu", "fields": {"rs": 0, "rt": 16, "imm": 0x44}},
-    0x1060: {"address": 0x1064, "op": "addiu", "fields": {"rs": 0, "rt": 18, "imm": 0x66}},
-    0x1110: {"address": 0x1114, "op": "addiu", "fields": {"rs": 0, "rt": 20, "imm": 0x99}},
+    0x1048: {"address": 0x104C, "op": "addiu", "fields": {"rs": 0, "rt": 15, "imm": 0x11}},
+    0x1058: {"address": 0x105C, "op": "addiu", "fields": {"rs": 0, "rt": 18, "imm": 0x44}},
+    0x1068: {"address": 0x106C, "op": "addiu", "fields": {"rs": 0, "rt": 20, "imm": 0x66}},
+    0x1120: {"address": 0x1124, "op": "addiu", "fields": {"rs": 0, "rt": 22, "imm": 0x99}},
 }
 SYNTHETIC = (
     (0x1000, "lui", InstructionFlow.NORMAL, {"rs": 0, "rt": 1, "imm": 0x0000}, None),
@@ -206,20 +206,22 @@ SYNTHETIC = (
     (0x102C, "lw", InstructionFlow.NORMAL, {"rs": 1, "rt": 10, "imm": 4}, None),
     (0x1030, "addiu", InstructionFlow.NORMAL, {"rs": 0, "rt": 11, "imm": 5}, None),
     (0x1034, "addiu", InstructionFlow.NORMAL, {"rs": 0, "rt": 12, "imm": 0}, None),
-    (0x1038, "movz", InstructionFlow.NORMAL, {"rs": 0, "rt": 11, "rd": 12}, None),
-    (0x103C, "movz", InstructionFlow.NORMAL, {"rs": 11, "rt": 0, "rd": 12}, None),
-    (0x1040, "beq", InstructionFlow.BRANCH, {"rs": 0, "rt": 0}, 0x1050),
-    (0x1048, "addiu", InstructionFlow.NORMAL, {"rs": 0, "rt": 15, "imm": 0x33}, None),
-    (0x104C, "addiu", InstructionFlow.NORMAL, {"rs": 0, "rt": 21, "imm": 0xAA}, None),
-    (0x1050, "jal", InstructionFlow.CALL, {}, 0x1100),
-    (0x1058, "addiu", InstructionFlow.NORMAL, {"rs": 0, "rt": 17, "imm": 0x55}, None),
-    (0x105C, "or", InstructionFlow.NORMAL, {"rs": 0, "rt": 0, "rd": 31}, None),
-    (0x1060, "jr", InstructionFlow.RETURN, {"rs": 31}, None),
-    (0x1100, "sw", InstructionFlow.NORMAL, {"rs": 1, "rt": 31, "imm": 8}, None),
-    (0x1104, "addiu", InstructionFlow.NORMAL, {"rs": 0, "rt": 31, "imm": 0x77}, None),
-    (0x1108, "addiu", InstructionFlow.NORMAL, {"rs": 0, "rt": 19, "imm": 0x88}, None),
-    (0x110C, "lw", InstructionFlow.NORMAL, {"rs": 1, "rt": 31, "imm": 8}, None),
-    (0x1110, "jr", InstructionFlow.RETURN, {"rs": 31}, None),
+    (0x1038, "addiu", InstructionFlow.NORMAL, {"rs": 0, "rt": 13, "imm": 0}, None),
+    (0x103C, "movz", InstructionFlow.NORMAL, {"rs": 13, "rt": 11, "rd": 12}, None),
+    (0x1040, "addiu", InstructionFlow.NORMAL, {"rs": 0, "rt": 14, "imm": 7}, None),
+    (0x1044, "movz", InstructionFlow.NORMAL, {"rs": 14, "rt": 0, "rd": 12}, None),
+    (0x1048, "beq", InstructionFlow.BRANCH, {"rs": 0, "rt": 0}, 0x1058),
+    (0x1050, "addiu", InstructionFlow.NORMAL, {"rs": 0, "rt": 16, "imm": 0x33}, None),
+    (0x1054, "addiu", InstructionFlow.NORMAL, {"rs": 0, "rt": 17, "imm": 0xAA}, None),
+    (0x1058, "jal", InstructionFlow.CALL, {}, 0x1110),
+    (0x1060, "addiu", InstructionFlow.NORMAL, {"rs": 0, "rt": 19, "imm": 0x55}, None),
+    (0x1064, "or", InstructionFlow.NORMAL, {"rs": 0, "rt": 0, "rd": 31}, None),
+    (0x1068, "jr", InstructionFlow.RETURN, {"rs": 31}, None),
+    (0x1110, "sw", InstructionFlow.NORMAL, {"rs": 1, "rt": 31, "imm": 8}, None),
+    (0x1114, "addiu", InstructionFlow.NORMAL, {"rs": 0, "rt": 31, "imm": 0x77}, None),
+    (0x1118, "addiu", InstructionFlow.NORMAL, {"rs": 0, "rt": 21, "imm": 0x88}, None),
+    (0x111C, "lw", InstructionFlow.NORMAL, {"rs": 1, "rt": 31, "imm": 8}, None),
+    (0x1120, "jr", InstructionFlow.RETURN, {"rs": 31}, None),
 )
 SYNTHETIC_ENTRY = 0x1000
 MEM_BASE = 0x2000
@@ -316,8 +318,9 @@ def reference_execute():
             offset = (regs[fields["rs"]] + _sx(fields["imm"], 16) - MEM_BASE) & 0xFFFFFFFF
             regs[fields["rt"]] = int.from_bytes(memory[offset:offset + 4], "little")
         elif op == "movz":
-            if regs[fields["rs"]] == 0:
-                regs[fields["rd"]] = regs[fields["rt"]]
+            # MIPS32 MOVZ: if GPR[rt] == 0 then GPR[rd] = GPR[rs].
+            if regs[fields["rt"]] == 0:
+                regs[fields["rd"]] = regs[fields["rs"]]
         elif op == "or":
             regs[fields["rd"]] = (regs[fields["rs"]] | regs[fields["rt"]]) & 0xFFFFFFFF
         elif op == "beq":
@@ -590,9 +593,14 @@ def main() -> int:
             [native_mem[index] for index in range(12)] == list(reference_memory[:12]),
             json.dumps({"native": [native_mem[i] for i in range(12)], "reference": list(reference_memory[:12])}),
         )
-        check("reference:delay-program-order", reference_regs[13] == 0x11 and reference_regs[16] == 0x44 and reference_regs[18] == 0x66 and reference_regs[20] == 0x99, "delay slots executed")
-        check("reference:not-taken-skipped", reference_regs[15] == 0 and reference_regs[21] == 0, "skipped path")
-        check("native:link-register-value", native_mem[8] == 0x58 and native_mem[9] == 0x10 and native_mem[10] == 0 and native_mem[11] == 0, f"mem[8..11]={[native_mem[i] for i in range(8, 12)]}")
+        check(
+            "reference:movz-isa-semantics",
+            reference_regs[12] == 7 and reference_regs[13] == 0 and reference_regs[14] == 7,
+            f"r12={reference_regs[12]} r13={reference_regs[13]} r14={reference_regs[14]}",
+        )
+        check("reference:delay-program-order", reference_regs[15] == 0x11 and reference_regs[18] == 0x44 and reference_regs[20] == 0x66 and reference_regs[22] == 0x99, "delay slots executed")
+        check("reference:not-taken-skipped", reference_regs[16] == 0 and reference_regs[17] == 0, "skipped path")
+        check("native:link-register-value", native_mem[8] == 0x60 and native_mem[9] == 0x10 and native_mem[10] == 0 and native_mem[11] == 0, f"mem[8..11]={[native_mem[i] for i in range(8, 12)]}")
 
         dependencies = run_dependency_gates()
         for item in dependencies:

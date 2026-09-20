@@ -295,6 +295,22 @@ memory digest `0x231c4a49e79c5e56`, transcript 33 bytes with digest
 `0xca6dcb87f8ac9814` (the FIPS-197 AES-128 known-answer line), reads 1136,
 writes 681, host calls 33, denied 0.
 
+## Documented correction: `movz` operand roles (P8-09 preparation)
+
+While preparing the independent reference, the P8-04 `movz` rule was found to
+invert the MIPS32 operand roles (`if GPR[rt] == 0 then GPR[rd] = GPR[rs]`).
+The synthetic differential vector had used the same inverted convention in its
+model, so the defect was invisible there. The rule and the reference model are
+corrected, the synthetic vector now distinguishes the conventions
+(`r12 = 7`, `r13 = 0`, `r14 = 7`), and P8-04, P8-06, P8-07 and P8-08 were
+re-run officially with regenerated evidence. The emitted program fingerprint
+is now `3df423e0...` (was `6a957bd1...`), the clean executable is
+`fb98c8a6...` (was `612cad0e...`), and the frozen fixture's observable record
+is unchanged (`exit_status=0x00000000`, register digest
+`0x7ee0f4a187050726`, memory digest `0x231c4a49e79c5e56`, transcript digest
+`0xca6dcb87f8ac9814`, reads 1136, writes 681, host calls 33, denied 0). No
+frozen Phase-1..Phase-7 artifact was modified.
+
 ## Current boundary
 
 P8-00..P8-08 are complete: the frozen real ELF is characterized, structurally

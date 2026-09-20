@@ -2,14 +2,15 @@
   "schema": "openrecomp-phase8-official-runs-v1",
   "stage": "P8-04",
   "command": "python tools/test_phase8_translation_v1.py",
+  "revision": "post-movz-isa-correction",
   "runs": [
     {
       "name": "run1",
       "exit_code": 0,
       "stdout_file": "run1.txt",
-      "stdout_bytes": 1132,
-      "stdout_sha256_raw": "7a5369d9efc5633708b11d8fdc090e386c62a6498a0bb1391029b9921f938682",
-      "stdout_sha256_lf": "37008ca0f36f025a01f4f73b7cd71966d973d9cc38a039a19dd8406aa682f262",
+      "stdout_bytes": 1168,
+      "stdout_sha256_raw": "0cd067e19ae98a3cfb726d31d1bd17049e236521f9e3432dbc983fd0f40c97d3",
+      "stdout_sha256_lf": "08933cbfd0d18c2a643cfda803f45ce41ec2c2d650fe321cff140150f6ac2929",
       "stderr_file": "run1.err.txt",
       "stderr_bytes": 0,
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
@@ -18,9 +19,9 @@
       "name": "run2",
       "exit_code": 0,
       "stdout_file": "run2.txt",
-      "stdout_bytes": 1132,
-      "stdout_sha256_raw": "7a5369d9efc5633708b11d8fdc090e386c62a6498a0bb1391029b9921f938682",
-      "stdout_sha256_lf": "37008ca0f36f025a01f4f73b7cd71966d973d9cc38a039a19dd8406aa682f262",
+      "stdout_bytes": 1168,
+      "stdout_sha256_raw": "0cd067e19ae98a3cfb726d31d1bd17049e236521f9e3432dbc983fd0f40c97d3",
+      "stdout_sha256_lf": "08933cbfd0d18c2a643cfda803f45ce41ec2c2d650fe321cff140150f6ac2929",
       "stderr_file": "run2.err.txt",
       "stderr_bytes": 0,
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
@@ -29,12 +30,12 @@
   "byte_identical": true,
   "markers": {
     "stage": "OPENRECOMP_P8_04=PASS",
-    "gate": "OPENRECOMP_PHASE8_TRANSLATION_CLOSURE_V1=PASS tests=29",
+    "gate": "OPENRECOMP_PHASE8_TRANSLATION_CLOSURE_V1=PASS tests=30",
     "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN",
     "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN"
   },
   "sidecars": {
-    "translation_closure.json": "613af7cb756ede1cfc7770353bba082fee5f74e2188bf088b0ee2cb77e10b35f",
-    "p8_04_tests.json": "f4fe8ac6cff4882408409b4a2619289ed26ea906b343a6dce3fd410d97c2b250"
+    "translation_closure.json": "30738072d9694504102d24a6fc53a5db916b703e7e3581a9c88a556cb1cef32f",
+    "p8_04_tests.json": "a4b28dd96c4d47dc8d9090a86b44f299034e6c118602afa8f069acb211dfd00e"
   }
 }

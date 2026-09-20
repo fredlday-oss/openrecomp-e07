@@ -143,11 +143,12 @@ def semantics_rules() -> tuple[HostInstructionSemantics, ...]:
             "movz",
             InstructionFlow.NORMAL,
             operations=(
+                # MIPS32 MOVZ: if GPR[rt] == 0 then GPR[rd] = GPR[rs].
                 HostSelect(
                     register("rd"),
-                    true_value=register("rt"),
+                    true_value=register("rs"),
                     false_value=register("rd"),
-                    lhs=register("rs"),
+                    lhs=register("rt"),
                     rhs=constant(0),
                     predicate="eq",
                 ),

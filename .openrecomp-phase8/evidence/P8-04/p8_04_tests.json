@@ -17,7 +17,7 @@
     },
     {
       "check": "emission:deterministic-source",
-      "detail": "6a957bd1639cebf8b702725682b3423accf0e01191a5fa73e9dc9849c9ff3294",
+      "detail": "3df423e0efdd1b6d0c91ce9f95bd33d0b58f08833226314bd43aff407751c704",
       "status": "PASS"
     },
     {
@@ -112,12 +112,17 @@
     },
     {
       "check": "native:registers-equal-reference",
-      "detail": "{\"native\": [0, 8192, 0, 0, 128, 127, 128, 4294967168, 127, 127, 4294967168, 5, 5, 17, 0, 0, 68, 85, 102, 136, 153, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], \"reference\": [0, 8192, 0, 0, 128, 127, 128, 4294967168, 127, 127, 4294967168, 5, 5, 17, 0, 0, 68, 85, 102, 136, 153, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}",
+      "detail": "{\"native\": [0, 8192, 0, 0, 128, 127, 128, 4294967168, 127, 127, 4294967168, 5, 7, 0, 7, 17, 0, 0, 68, 85, 102, 136, 153, 0, 0, 0, 0, 0, 0, 0, 0, 0], \"reference\": [0, 8192, 0, 0, 128, 127, 128, 4294967168, 127, 127, 4294967168, 5, 7, 0, 7, 17, 0, 0, 68, 85, 102, 136, 153, 0, 0, 0, 0, 0, 0, 0, 0, 0]}",
       "status": "PASS"
     },
     {
       "check": "native:memory-equal-reference",
-      "detail": "{\"native\": [128, 127, 0, 0, 128, 255, 255, 255, 88, 16, 0, 0], \"reference\": [128, 127, 0, 0, 128, 255, 255, 255, 88, 16, 0, 0]}",
+      "detail": "{\"native\": [128, 127, 0, 0, 128, 255, 255, 255, 96, 16, 0, 0], \"reference\": [128, 127, 0, 0, 128, 255, 255, 255, 96, 16, 0, 0]}",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:movz-isa-semantics",
+      "detail": "r12=7 r13=0 r14=7",
       "status": "PASS"
     },
     {
@@ -132,7 +137,7 @@
     },
     {
       "check": "native:link-register-value",
-      "detail": "mem[8..11]=[88, 16, 0, 0]",
+      "detail": "mem[8..11]=[96, 16, 0, 0]",
       "status": "PASS"
     },
     {
@@ -149,14 +154,14 @@
   "failed": 0,
   "failure": null,
   "markers": {
-    "gate": "OPENRECOMP_PHASE8_TRANSLATION_CLOSURE_V1=PASS tests=29",
+    "gate": "OPENRECOMP_PHASE8_TRANSLATION_CLOSURE_V1=PASS tests=30",
     "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
     "stage": "OPENRECOMP_P8_04=PASS",
     "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
   },
-  "passed": 29,
+  "passed": 30,
   "stage": "P8-04",
   "stage_name": "Translation frontier closure",
   "status": "PASS",
-  "tests": 29
+  "tests": 30
 }

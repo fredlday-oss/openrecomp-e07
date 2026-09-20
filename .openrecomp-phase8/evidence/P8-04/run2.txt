@@ -22,12 +22,13 @@ PASS: native:no-failure
 PASS: native:register-count
 PASS: native:registers-equal-reference
 PASS: native:memory-equal-reference
+PASS: reference:movz-isa-semantics
 PASS: reference:delay-program-order
 PASS: reference:not-taken-skipped
 PASS: native:link-register-value
 PASS: dependency:tools/test_host_emitter_v1.py
 PASS: dependency:tools/test_mips32_end_to_end_v1.py
 OPENRECOMP_P8_04=PASS
-OPENRECOMP_PHASE8_TRANSLATION_CLOSURE_V1=PASS tests=29
+OPENRECOMP_PHASE8_TRANSLATION_CLOSURE_V1=PASS tests=30
 OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN
 OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN

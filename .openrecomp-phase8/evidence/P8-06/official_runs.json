@@ -2,6 +2,7 @@
   "schema": "openrecomp-phase8-official-runs-v1",
   "stage": "P8-06",
   "command": "python tools/test_phase8_emission_v1.py",
+  "revision": "post-movz-isa-correction",
   "runs": [
     {
       "name": "run1",
@@ -34,7 +35,7 @@
     "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN"
   },
   "sidecars": {
-    "emission_set.json": "c596a42ea4fecc43420bf1c03b6956eb1442922aabafc6bf0fb1aeca992c960f",
-    "p8_06_tests.json": "8875509b418f6b7ea3f7661619fd075693e6677be816048ac412838ab35d02ad"
+    "emission_set.json": "0cdc1721f44d4dbc62be3c282396c055f462b4ab4672c678cf311292449c368e",
+    "p8_06_tests.json": "a62bd48c76a43d23e14de927fe5effc6b23da8a3089f49a0e18d5d1fba6fa8bc"
   }
 }
