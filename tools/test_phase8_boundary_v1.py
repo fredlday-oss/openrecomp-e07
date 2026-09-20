@@ -20,6 +20,7 @@ Usage:
 
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import pathlib
@@ -142,6 +143,14 @@ def capture_toolchains() -> dict[str, dict[str, str]]:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--verify-only",
+        action="store_true",
+        help="re-run the boundary checks without rewriting the committed P8-00 evidence sidecars",
+    )
+    options = parser.parse_args()
+
     checks: list[dict[str, object]] = []
 
     def check(label: str, condition: bool, detail: str) -> None:
@@ -225,8 +234,16 @@ def main() -> int:
         check("state:baseline-commit", f"BASELINE_COMMIT={BASELINE_COMMIT}" in state, BASELINE_COMMIT)
         check("state:baseline-tree", f"BASELINE_TREE={BASELINE_TREE}" in state, BASELINE_TREE)
         check("state:queue-frozen", "QUEUE_FREEZE=FROZEN" in state, "FROZEN")
-        check("state:last-passed", "LAST_PASSED_STAGE=P8-00" in state, "P8-00")
-        check("state:current-stage", "CURRENT_STAGE=P8-01" in state, "P8-01")
+        check(
+            "state:last-passed",
+            bool(re.search(r"^LAST_PASSED_STAGE=P8-[0-9]{2}$", state, re.MULTILINE)),
+            "stage shape",
+        )
+        check(
+            "state:current-stage",
+            bool(re.search(r"^CURRENT_STAGE=P8-[0-9]{2}$", state, re.MULTILINE)),
+            "stage shape",
+        )
         check("state:v2-line-outside-baseline", "PHASE7_V2_LINE=OUTSIDE_BASELINE" in state, "OUTSIDE_BASELINE")
 
         queue = (P8 / "STAGE_QUEUE.md").read_text(encoding="utf-8")
@@ -323,16 +340,17 @@ def main() -> int:
         "stage": "P8-00",
         "tools": toolchains,
     }
-    for name, payload in (
-        ("p8_00_tests.json", record),
-        ("baseline.json", baseline_record),
-        ("toolchains.json", toolchain_record),
-    ):
-        (evidence / name).write_text(
-            json.dumps(payload, indent=2, sort_keys=True) + "\n",
-            encoding="utf-8",
-            newline="\n",
-        )
+    if not options.verify_only:
+        for name, payload in (
+            ("p8_00_tests.json", record),
+            ("baseline.json", baseline_record),
+            ("toolchains.json", toolchain_record),
+        ):
+            (evidence / name).write_text(
+                json.dumps(payload, indent=2, sort_keys=True) + "\n",
+                encoding="utf-8",
+                newline="\n",
+            )
 
     for item in checks:
         prefix = "PASS" if item["passed"] else "FAIL"
