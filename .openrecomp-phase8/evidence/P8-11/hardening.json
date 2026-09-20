@@ -1,0 +1,48 @@
+{
+  "analysis_cache": {
+    "hits": 1,
+    "misses": 1,
+    "stale": 1
+  },
+  "fixture": {
+    "sha256": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65"
+  },
+  "markers": {
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "negative_cases": [
+    "big-endian",
+    "elfclass64",
+    "et-rel",
+    "entry-not-executable",
+    "reachable-divu",
+    "reachable-jalr",
+    "reachable-lh",
+    "indirect-jr-t9"
+  ],
+  "object_cache": {
+    "changed": {
+      "compiled": 1,
+      "reused": 0
+    },
+    "cold": {
+      "compiled": 1,
+      "reused": 0
+    },
+    "corrupt": {
+      "compiled": 1,
+      "reused": 0
+    },
+    "warm": {
+      "compiled": 0,
+      "reused": 1
+    }
+  },
+  "positive_control": {
+    "emission_fingerprint": "3df423e0efdd1b6d0c91ce9f95bd33d0b58f08833226314bd43aff407751c704",
+    "exit_status": "0x00000000",
+    "outcome": "COMPLETED"
+  },
+  "stage": "P8-11"
+}

@@ -1,0 +1,252 @@
+{
+  "checks": [
+    {
+      "check": "fixture:sha256",
+      "detail": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:big-endian:category",
+      "detail": "{\"category\": \"UNSUPPORTED_ELF_CONTAINER\", \"detail\": \"UNSUPPORTED_ENDIANNESS: data_encoding=2\", \"outcome\": \"FAIL_CLOSED\", \"stage\": \"classification\", \"workflow_version\": \"1.0.0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:big-endian:deterministic",
+      "detail": "identical rejection record",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:big-endian:no-build-execution",
+      "detail": "stopped before emission/build/execution",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:big-endian:no-program",
+      "detail": "no generated executable",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:elfclass64:category",
+      "detail": "{\"category\": \"UNSUPPORTED_ELF_CONTAINER\", \"detail\": \"UNSUPPORTED_CLASS: class=2\", \"outcome\": \"FAIL_CLOSED\", \"stage\": \"classification\", \"workflow_version\": \"1.0.0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:elfclass64:deterministic",
+      "detail": "identical rejection record",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:elfclass64:no-build-execution",
+      "detail": "stopped before emission/build/execution",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:elfclass64:no-program",
+      "detail": "no generated executable",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:et-rel:category",
+      "detail": "{\"category\": \"UNSUPPORTED_ELF_CONTAINER\", \"detail\": \"UNSUPPORTED_TYPE: e_type=1 expected=2\", \"outcome\": \"FAIL_CLOSED\", \"stage\": \"classification\", \"workflow_version\": \"1.0.0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:et-rel:deterministic",
+      "detail": "identical rejection record",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:et-rel:no-build-execution",
+      "detail": "stopped before emission/build/execution",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:et-rel:no-program",
+      "detail": "no generated executable",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:entry-not-executable:category",
+      "detail": "{\"category\": \"UNSUPPORTED_ELF_CONTAINER\", \"detail\": \"ENTRY_OUTSIDE_EXECUTABLE: entry=0x00000000 executable_filesz_regions=[('0x1000', 5300)]\", \"outcome\": \"FAIL_CLOSED\", \"stage\": \"classification\", \"workflow_version\": \"1.0.0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:entry-not-executable:deterministic",
+      "detail": "identical rejection record",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:entry-not-executable:no-build-execution",
+      "detail": "stopped before emission/build/execution",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:entry-not-executable:no-program",
+      "detail": "no generated executable",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:reachable-divu:category",
+      "detail": "{\"category\": \"UNSUPPORTED_ISA_SEMANTIC\", \"detail\": \"UNKNOWN_EXCEPTION_TRANSFER: 0x00002440\", \"outcome\": \"FAIL_CLOSED\", \"stage\": \"structure\", \"workflow_version\": \"1.0.0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:reachable-divu:deterministic",
+      "detail": "identical rejection record",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:reachable-divu:no-build-execution",
+      "detail": "stopped before emission/build/execution",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:reachable-divu:no-program",
+      "detail": "no generated executable",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:reachable-jalr:category",
+      "detail": "{\"category\": \"UNSUPPORTED_ISA_SEMANTIC\", \"detail\": \"CONTROL_DELAY_SLOT_UNKNOWN: 0x00002440\", \"outcome\": \"FAIL_CLOSED\", \"stage\": \"structure\", \"workflow_version\": \"1.0.0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:reachable-jalr:deterministic",
+      "detail": "identical rejection record",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:reachable-jalr:no-build-execution",
+      "detail": "stopped before emission/build/execution",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:reachable-jalr:no-program",
+      "detail": "no generated executable",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:reachable-lh:category",
+      "detail": "{\"category\": \"UNSUPPORTED_ISA_SEMANTIC\", \"detail\": \"reachable invalid words: 1\", \"outcome\": \"FAIL_CLOSED\", \"stage\": \"analysis\", \"workflow_version\": \"1.0.0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:reachable-lh:deterministic",
+      "detail": "identical rejection record",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:reachable-lh:no-build-execution",
+      "detail": "stopped before emission/build/execution",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:reachable-lh:no-program",
+      "detail": "no generated executable",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:indirect-jr-t9:category",
+      "detail": "{\"category\": \"UNRESOLVED_INDIRECT_CONTROL_FLOW\", \"detail\": \"[{\\\"function_id\\\": \\\"fn_2360\\\", \\\"block_id\\\": \\\"blk_2454\\\", \\\"address\\\": 9340, \\\"op\\\": \\\"jr\\\", \\\"kind\\\": \\\"INDIRECT_JUMP\\\", \\\"status\\\": \\\"UNRESOLVED_INDIRECT_JUMP\\\", \\\"target\\\": nu",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:indirect-jr-t9:deterministic",
+      "detail": "identical rejection record",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:indirect-jr-t9:no-build-execution",
+      "detail": "stopped before emission/build/execution",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:indirect-jr-t9:no-program",
+      "detail": "no generated executable",
+      "status": "PASS"
+    },
+    {
+      "check": "rules:closed",
+      "detail": "[\"beql\", \"bnel\", \"div\", \"divu\", \"jalr\", \"lh\", \"lhu\", \"lwl\", \"lwr\", \"movn\", \"mul\", \"mult\", \"multu\", \"sh\", \"swl\", \"swr\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "rules:supported-count",
+      "detail": "22",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:hit",
+      "detail": "8dac4a76140e02e797fcb8dd28defbbf5076ed698e73a602039fb097ce90a84e",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:stale-rejected",
+      "detail": "recomputed key mismatch",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:stale-counted",
+      "detail": "{\"hits\": 1, \"misses\": 0, \"stale\": 1}",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:different-input-misses",
+      "detail": "different fixture identity",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:product-scoped",
+      "detail": "no cross-product reuse",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:available",
+      "detail": "clang-cl + lld-link",
+      "status": "PASS"
+    },
+    {
+      "check": "object-cache:cold-compiles",
+      "detail": "{\"compiled\": 1, \"reused\": 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "object-cache:warm-reuses",
+      "detail": "{\"compiled\": 0, \"reused\": 1}",
+      "status": "PASS"
+    },
+    {
+      "check": "object-cache:changed-source-recompiles",
+      "detail": "{\"compiled\": 1, \"reused\": 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "object-cache:different-key",
+      "detail": "content-addressed",
+      "status": "PASS"
+    },
+    {
+      "check": "object-cache:corrupt-recompiles",
+      "detail": "{\"compiled\": 1, \"reused\": 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:still-completes",
+      "detail": "{\"build\": {\"classification\": \"EXECUTABLE_REPRODUCIBLE\", \"executable_sha256\": \"fb98c8a68c5c3af7bc30dab2e907910e1c1dfd665eb79e0ee7fcd60dd07a04dc\"}, \"category\": null, \"contract_digest\": \"4769aa4b16c566754651f721a4b18edc520f300fa5fd84cafffacde7",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "markers": {
+    "gate": "OPENRECOMP_PHASE8_HARDENING_V1=PASS tests=47",
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P8_11=PASS",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "passed": 47,
+  "stage": "P8-11",
+  "stage_name": "Fail-closed hardening",
+  "status": "PASS",
+  "tests": 47
+}

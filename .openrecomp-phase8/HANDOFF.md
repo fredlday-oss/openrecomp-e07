@@ -175,10 +175,23 @@ permanent.
 - the P8-10 gate passed twice with byte-identical stdout, empty stderr and
   exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-10/`.
 
+## P8-11 outcome
+
+- eight malformed/unsupported inputs rejected twice with identical records
+  and explicit categories (ELF container, ISA semantics, unresolved indirect
+  control flow), always before emission/build/execution;
+- closed rule table re-verified (16 unsupported forms have no rule);
+- new immutable-hash analysis cache with stale-entry rejection (tampered key
+  inputs, different fixture identity) plus the content-hash object cache
+  (changed source recompiles, corrupt object recompiles, warm build reuses);
+- positive control: the frozen fixture still completes with equivalence;
+- the P8-11 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-11/`.
+
 ## Exact next action
 
-Complete P8-11: focused fail-closed hardening for the Phase-8 mechanisms --
-deterministic rejection, no guessed recovery, no silent compatibility
-widening, no stale-cache acceptance, and no generated-code execution after a
-required earlier classification failure. Do not turn this into a general
-fuzzing project.
+Complete P8-12: re-run the bounded public MIPS32 path from clean inputs and
+verify fixture identity, analysis-cache correctness, generated-source
+identity, native result identity, reference equivalence, workflow
+reproducibility and source/manifests/evidence consistency. No new
+compatibility work should begin here.
