@@ -1,0 +1,667 @@
+{
+  "checks": [
+    {
+      "check": "fixture:sha256",
+      "detail": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:verifies",
+      "detail": "OPENRECOMP_PHASE8_SOURCE_INTEGRITY=PASS entries=27",
+      "status": "PASS"
+    },
+    {
+      "check": "state:queue-frozen",
+      "detail": "FROZEN",
+      "status": "PASS"
+    },
+    {
+      "check": "state:terminal-reserved",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "state:general-permanent",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:P8-00",
+      "detail": "P8-00",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:P8-01",
+      "detail": "P8-01",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:P8-02",
+      "detail": "P8-02",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:P8-03",
+      "detail": "P8-03",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:P8-04",
+      "detail": "P8-04",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:P8-05",
+      "detail": "P8-05",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:P8-06",
+      "detail": "P8-06",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:P8-07",
+      "detail": "P8-07",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:P8-08",
+      "detail": "P8-08",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:P8-09",
+      "detail": "P8-09",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:P8-10",
+      "detail": "P8-10",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:P8-11",
+      "detail": "P8-11",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-00:result",
+      "detail": "P8-00",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-00:official-runs",
+      "detail": "P8-00",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-00:run1:stdout",
+      "detail": "8bc1af6294db8b70b92792362226cb56666f6affaffa3ffd657ce7caba503562",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-00:run1:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-00:run2:stdout",
+      "detail": "8bc1af6294db8b70b92792362226cb56666f6affaffa3ffd657ce7caba503562",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-00:run2:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-00:sidecar:baseline.json",
+      "detail": "15e34d69eb1468a6f5cfbea23f2bc864ff5aefde6a33e0075ba6ba0287a44ed1",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-00:sidecar:p8_00_tests.json",
+      "detail": "b463c79e3d139407c81140bf07a03a5e8e9126efadc95e3e7766015ed8d9e52f",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-00:sidecar:toolchains.json",
+      "detail": "bcd13dd8ec627034ba8665e79d71d964e9fd0e69a6c20a2de327e121d397a673",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-01:result",
+      "detail": "P8-01",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-01:official-runs",
+      "detail": "P8-01",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-01:run1:stdout",
+      "detail": "747559538a5ceb244f14bdb325f1ab7e3fdbc645a90dd95923f75a6b2550f6f1",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-01:run1:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-01:run2:stdout",
+      "detail": "747559538a5ceb244f14bdb325f1ab7e3fdbc645a90dd95923f75a6b2550f6f1",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-01:run2:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-01:sidecar:fixture_identity.json",
+      "detail": "fe025eeab0c294852713436522435869f5d90199d1f7fbff72099b35356a5140",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-01:sidecar:frontier_inventory.json",
+      "detail": "010bf94a8c92d0e9637d8d35102adca5b03aae311b79a5b6a96df0c27393e655",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-01:sidecar:p8_01_tests.json",
+      "detail": "d1b6546d4ae0e1b798fb3019b91332cef001992219be5253b1a119aa6763b2d1",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-02:result",
+      "detail": "P8-02",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-02:official-runs",
+      "detail": "P8-02",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-02:run1:stdout",
+      "detail": "6a453bc09ea27133eb821462f3ce0838cd00b7b055937aa0901b3c0d06db3043",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-02:run1:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-02:run2:stdout",
+      "detail": "6a453bc09ea27133eb821462f3ce0838cd00b7b055937aa0901b3c0d06db3043",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-02:run2:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-02:sidecar:frontier_classification.json",
+      "detail": "58197a27ffdec7f46e9c920db82a9991c9d5d3ce578585cd179c6506d9b55301",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-02:sidecar:p8_02_tests.json",
+      "detail": "22117eadaa37ec76ab5d4b9eac476ee268d1fba1a86af8b8acf04f3fba89229c",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-02:sidecar:pipeline_reuse.json",
+      "detail": "f06f81432880a81eef0a08fd4d593dc1fc54cb1257ccc888854e15c472ffec52",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-03:result",
+      "detail": "P8-03",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-03:official-runs",
+      "detail": "P8-03",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-03:run1:stdout",
+      "detail": "42385791c9384a814c09dbf6c9ebd5367843f0d45f0bd38fef9f817d60c45307",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-03:run1:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-03:run2:stdout",
+      "detail": "42385791c9384a814c09dbf6c9ebd5367843f0d45f0bd38fef9f817d60c45307",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-03:run2:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-03:sidecar:p8_03_tests.json",
+      "detail": "dd1404d3708bddd12867a0468b33c745dc45defad25f09ae54a53811d9ed8155",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-03:sidecar:structure_summary.json",
+      "detail": "ba4d98f20b915ee7c6d1d5e98c891abc54d39ffcc0920da2b014f156e419c7a1",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-04:result",
+      "detail": "P8-04",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-04:official-runs",
+      "detail": "P8-04",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-04:run1:stdout",
+      "detail": "0cd067e19ae98a3cfb726d31d1bd17049e236521f9e3432dbc983fd0f40c97d3",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-04:run1:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-04:run2:stdout",
+      "detail": "0cd067e19ae98a3cfb726d31d1bd17049e236521f9e3432dbc983fd0f40c97d3",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-04:run2:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-04:sidecar:p8_04_tests.json",
+      "detail": "a4b28dd96c4d47dc8d9090a86b44f299034e6c118602afa8f069acb211dfd00e",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-04:sidecar:translation_closure.json",
+      "detail": "30738072d9694504102d24a6fc53a5db916b703e7e3581a9c88a556cb1cef32f",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-05:result",
+      "detail": "P8-05",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-05:official-runs",
+      "detail": "P8-05",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-05:run1:stdout",
+      "detail": "03581cad9183a094d25add494542159edea84ab95d9565b975ceae81662c4231",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-05:run1:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-05:run2:stdout",
+      "detail": "03581cad9183a094d25add494542159edea84ab95d9565b975ceae81662c4231",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-05:run2:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-05:sidecar:memory_contract.json",
+      "detail": "499b4ffeec7572fbe4aec38bebdc7b47211a9142acf82370ff4e03802d2a958f",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-05:sidecar:p8_05_tests.json",
+      "detail": "3628a47b74c9a3bb6a4edeecd7c8b48d825c1594a445cd56446d15dc9c58166c",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-06:result",
+      "detail": "P8-06",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-06:official-runs",
+      "detail": "P8-06",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-06:run1:stdout",
+      "detail": "f2e884a3020f66ddbc66c7dee252ae54d4d906fea3af7390956483ab1b1a4647",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-06:run1:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-06:run2:stdout",
+      "detail": "f2e884a3020f66ddbc66c7dee252ae54d4d906fea3af7390956483ab1b1a4647",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-06:run2:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-06:sidecar:emission_set.json",
+      "detail": "0cdc1721f44d4dbc62be3c282396c055f462b4ab4672c678cf311292449c368e",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-06:sidecar:p8_06_tests.json",
+      "detail": "a62bd48c76a43d23e14de927fe5effc6b23da8a3089f49a0e18d5d1fba6fa8bc",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-07:result",
+      "detail": "P8-07",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-07:official-runs",
+      "detail": "P8-07",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-07:run1:stdout",
+      "detail": "40d6e1daa9bdd00dec485fb5f9c18b32a39d0fd34ad5e0b21f2fe0b93a4aa913",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-07:run1:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-07:run2:stdout",
+      "detail": "40d6e1daa9bdd00dec485fb5f9c18b32a39d0fd34ad5e0b21f2fe0b93a4aa913",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-07:run2:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-07:sidecar:native_build.json",
+      "detail": "48e66ae86b5f37d9bc3c1eff3d78d048b8e6367be4814f7cba326a10002a60cb",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-07:sidecar:p8_07_tests.json",
+      "detail": "e3cd818ddf1c6dceadc8b0af02abaebb791e7cbc8474078b9b7c402cec47196b",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-08:result",
+      "detail": "P8-08",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-08:official-runs",
+      "detail": "P8-08",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-08:run1:stdout",
+      "detail": "ead0ca26a6b64842a43ac0c552fd63e66ef0e8d72279a8f9ba27e7057a49ea2e",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-08:run1:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-08:run2:stdout",
+      "detail": "ead0ca26a6b64842a43ac0c552fd63e66ef0e8d72279a8f9ba27e7057a49ea2e",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-08:run2:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-08:sidecar:native_execution.json",
+      "detail": "5de0c92615682f7a9203e262408f3bea1858ff133505caaef90066da5d9187ae",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-08:sidecar:p8_08_tests.json",
+      "detail": "4e02391b716c9210afbc6e4795b69e2025af3a1916cf757c3fb21ea0bbece986",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-09:result",
+      "detail": "P8-09",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-09:official-runs",
+      "detail": "P8-09",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-09:run1:stdout",
+      "detail": "0526f26cf99555e8c208eda38606c2d0090c6708915a6b94415265b57cac6d56",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-09:run1:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-09:run2:stdout",
+      "detail": "0526f26cf99555e8c208eda38606c2d0090c6708915a6b94415265b57cac6d56",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-09:run2:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-09:sidecar:p8_09_tests.json",
+      "detail": "c29c2e854faf77465c3cc07263a701a0004ee8aa2eb5fc6a78e3c681dfef0fc0",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-09:sidecar:reference_equivalence.json",
+      "detail": "d611c344968c129ac052bb9b67a8d8430221d1d52bb9c0c5644c56421f0c95a1",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-10:result",
+      "detail": "P8-10",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-10:official-runs",
+      "detail": "P8-10",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-10:run1:stdout",
+      "detail": "7449ea88014e34901818f6f34648e033213e9aeed9d6e554f93ff78a30c247ad",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-10:run1:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-10:run2:stdout",
+      "detail": "7449ea88014e34901818f6f34648e033213e9aeed9d6e554f93ff78a30c247ad",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-10:run2:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-10:sidecar:p8_10_tests.json",
+      "detail": "6db389ee858a9c8b538be74d23c43f02f94b905ba430cc02f000f71707378220",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-10:sidecar:workflow.json",
+      "detail": "128ce6c8a2aca70dca6292efcfd568b0a340c718b515c58a7690370621783333",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-11:result",
+      "detail": "P8-11",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-11:official-runs",
+      "detail": "P8-11",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-11:run1:stdout",
+      "detail": "64ffa42360c6be319ab4d3bfc76b3ce755d67cc897671800071dd128023c6375",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-11:run1:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-11:run2:stdout",
+      "detail": "64ffa42360c6be319ab4d3bfc76b3ce755d67cc897671800071dd128023c6375",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-11:run2:stderr",
+      "detail": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-11:sidecar:hardening.json",
+      "detail": "7b8aaf66cf516054d508e09e701c2c4a13ec6f03ad4614f80fe108f4f4d87af0",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P8-11:sidecar:p8_11_tests.json",
+      "detail": "6c74abf09875467a4bcc7479c590ea4ddacda9f0483f3a8ccd473a5bd59417ef",
+      "status": "PASS"
+    },
+    {
+      "check": "analysis-cache:hit",
+      "detail": "same key",
+      "status": "PASS"
+    },
+    {
+      "check": "analysis-cache:miss-on-different-fixture",
+      "detail": "different fixture",
+      "status": "PASS"
+    },
+    {
+      "check": "analysis-cache:miss-on-different-config",
+      "detail": "different configuration",
+      "status": "PASS"
+    },
+    {
+      "check": "workflow:outcome",
+      "detail": "{\"build\": {\"classification\": \"EXECUTABLE_REPRODUCIBLE\", \"executable_sha256\": \"fb98c8a68c5c3af7bc30dab2e907910e1c1dfd665eb79e0ee7fcd60dd07a04dc\"}, \"category\": null, \"contract_digest\": \"4769aa4b16c56675",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:p8_driver.c",
+      "detail": "{\"bytes\": 4172, \"name\": \"p8_driver.c\", \"sha256\": \"e918de647ed34d9eaf451b93beb6b4f490676484c737484b7d8602f500f2ecea\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:p8_image_v1.c",
+      "detail": "{\"bytes\": 166198, \"name\": \"p8_image_v1.c\", \"sha256\": \"d5d95845cf6574b7791996bdacd4d1f6994359c9e6c6911e71f1e006fb9b6d8d\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:p8_runtime_support.c",
+      "detail": "{\"bytes\": 7662, \"name\": \"p8_runtime_support.c\", \"sha256\": \"9b5e70f524741612fc25a2def189fe436c757ceb4e064daa3c4f76088b9595c5\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:program.c",
+      "detail": "{\"bytes\": 97830, \"name\": \"program.c\", \"sha256\": \"3df423e0efdd1b6d0c91ce9f95bd33d0b58f08833226314bd43aff407751c704\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "native:executable-identity",
+      "detail": "fb98c8a68c5c3af7bc30dab2e907910e1c1dfd665eb79e0ee7fcd60dd07a04dc",
+      "status": "PASS"
+    },
+    {
+      "check": "native:classification",
+      "detail": "EXECUTABLE_REPRODUCIBLE",
+      "status": "PASS"
+    },
+    {
+      "check": "native:observable-identity",
+      "detail": "{\"denied\": 0, \"exit_status\": \"0x00000000\", \"host_calls\": 33, \"memory_digest\": \"0x231c4a49e79c5e56\", \"reads\": 1136, \"registers_digest\": \"0x7ee0f4a187050726\", \"transcript_digest\": \"0xca6dcb87f8ac9814\", \"transcript_len\": 33, \"writes\": 681}",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:equivalence",
+      "detail": "{\"excluded_observables\": [], \"mismatches\": {}}",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:observable-identity",
+      "detail": "{\"denied\": 0, \"exit_status\": \"0x00000000\", \"host_calls\": 33, \"memory_digest\": \"0x231c4a49e79c5e56\", \"reads\": 1136, \"registers_digest\": \"0x7ee0f4a187050726\", \"transcript_digest\": \"0xca6dcb87f8ac9814\", \"transcript_len\": 33, \"writes\": 681}",
+      "status": "PASS"
+    },
+    {
+      "check": "workflow:reproducible",
+      "detail": "identical record from clean inputs",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "markers": {
+    "gate": "OPENRECOMP_PHASE8_EVIDENCE_CLOSURE_V1=PASS tests=130",
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P8_12=PASS",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "passed": 130,
+  "stage": "P8-12",
+  "stage_name": "Phase-8 evidence closure",
+  "status": "PASS",
+  "tests": 130
+}

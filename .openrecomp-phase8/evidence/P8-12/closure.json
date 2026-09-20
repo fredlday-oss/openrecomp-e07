@@ -1,0 +1,46 @@
+{
+  "analysis_cache": {
+    "hits": 1,
+    "misses": 2,
+    "stale": 0
+  },
+  "fixture": {
+    "sha256": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65"
+  },
+  "implementation_delta": "none",
+  "markers": {
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "stage": "P8-12",
+  "verified_runs": 24,
+  "verified_sidecars": 27,
+  "workflow": {
+    "emission_fingerprint": "3df423e0efdd1b6d0c91ce9f95bd33d0b58f08833226314bd43aff407751c704",
+    "excluded_observables": [],
+    "executable_sha256": "fb98c8a68c5c3af7bc30dab2e907910e1c1dfd665eb79e0ee7fcd60dd07a04dc",
+    "native": {
+      "denied": 0,
+      "exit_status": "0x00000000",
+      "host_calls": 33,
+      "memory_digest": "0x231c4a49e79c5e56",
+      "reads": 1136,
+      "registers_digest": "0x7ee0f4a187050726",
+      "transcript_digest": "0xca6dcb87f8ac9814",
+      "transcript_len": 33,
+      "writes": 681
+    },
+    "outcome": "COMPLETED",
+    "reference": {
+      "denied": 0,
+      "exit_status": "0x00000000",
+      "host_calls": 33,
+      "memory_digest": "0x231c4a49e79c5e56",
+      "reads": 1136,
+      "registers_digest": "0x7ee0f4a187050726",
+      "transcript_digest": "0xca6dcb87f8ac9814",
+      "transcript_len": 33,
+      "writes": 681
+    }
+  }
+}

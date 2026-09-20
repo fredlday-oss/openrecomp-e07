@@ -188,10 +188,20 @@ permanent.
 - the P8-11 gate passed twice with byte-identical stdout, empty stderr and
   exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-11/`.
 
+## P8-12 outcome
+
+- implementation delta 
+one; the gate re-ran the bounded path from clean
+  inputs and reproduced every identity exactly;
+- all twelve completed stages' run captures and sidecar hashes verified, the
+  source manifest verifies, the control-plane ledger and markers verify, and
+  the analysis cache rejects stale keys;
+- the P8-12 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under .openrecomp-phase8/evidence/P8-12/.
+
 ## Exact next action
 
-Complete P8-12: re-run the bounded public MIPS32 path from clean inputs and
-verify fixture identity, analysis-cache correctness, generated-source
-identity, native result identity, reference equivalence, workflow
-reproducibility and source/manifests/evidence consistency. No new
-compatibility work should begin here.
+Complete P8-90: run the expensive whole-project regression -- the frozen
+Phase-1..Phase-7 gates and boundaries plus all Phase-8 official gates -- with
+exact counts and deterministic evidence. Do not optimize this gate at the
+expense of audit strength.

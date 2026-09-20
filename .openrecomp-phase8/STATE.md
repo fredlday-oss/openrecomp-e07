@@ -11,8 +11,8 @@ BASELINE_GENERAL=OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
 BASELINE_TAG_STATUS=ABSENT_RECONCILED
 BASELINE_TAG_RECONCILIATION=P7-99 records that the frozen Phase-6 control policy required and created no terminal tag; the authoritative Phase-6 terminal boundary is the P6-99 verdict commit 1643817d43196c43155805249137e4b4e4a21eb1, tree cda3f535be43dc6f3d4b457d11d356ae39ea34af. No tag is fabricated.
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P8-12
-LAST_PASSED_STAGE=P8-11
+CURRENT_STAGE=P8-90
+LAST_PASSED_STAGE=P8-12
 STATUS=ACTIVE
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P8-01..P8-99
@@ -82,7 +82,7 @@ Exact observed version strings are recorded in
 | P8-09 | Independent reference equivalence | PASS | `.openrecomp-phase8/evidence/P8-09/` |
 | P8-10 | Reusable real-MIPS32 ELF-to-native workflow | PASS | .openrecomp-phase8/evidence/P8-10/ |
 | P8-11 | Fail-closed hardening | PASS | .openrecomp-phase8/evidence/P8-11/ |
-| P8-12 | Phase-8 evidence closure | QUEUED | - |
+| P8-12 | Phase-8 evidence closure | PASS | .openrecomp-phase8/evidence/P8-12/ |
 | P8-90 | Whole-project regression | QUEUED | - |
 | P8-91 | Evidence index + proof matrix | QUEUED | - |
 | P8-99 | Final bounded verdict | QUEUED | - |
@@ -364,8 +364,25 @@ the new immutable-hash analysis cache
 object cache all reject stale/corrupted state; the frozen fixture still
 completes with equivalence under the hardened path.
 
+## P8-12 result
+
+PASS. Gate `tools/test_phase8_evidence_closure_v1.py` (130 checks, run twice,
+byte-identical stdout, empty stderr, exit 0). Evidence:
+`.openrecomp-phase8/evidence/P8-12/`. Markers issued:
+
+- `OPENRECOMP_P8_12=PASS`
+- `OPENRECOMP_PHASE8_EVIDENCE_CLOSURE_V1=PASS tests=130`
+- `OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN`
+- `OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN`
+
+Implementation delta `none`. All twelve completed stages' run captures and
+sidecar hashes verify; the analysis cache rejects stale keys; the clean
+re-run reproduces the emission, executable, observable and reference
+identities exactly, twice.
+
 ## Current boundary
 
-P8-00..P8-11 are complete. The remaining frozen stages are evidence closure
-(P8-12) and the terminal audits (P8-90/P8-91/P8-99); the terminal objective
-remains unproven. P8-12 is active.
+P8-00..P8-12 are complete. The remaining frozen stages are the whole-project
+regression (P8-90), the evidence index and proof matrix (P8-91) and the final
+bounded verdict (P8-99); the terminal objective remains unproven. P8-90 is
+active.
