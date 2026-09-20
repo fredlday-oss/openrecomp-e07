@@ -99,6 +99,8 @@ def build_words() -> tuple[int, ...]:
     r_type = builder.r_type
 
     p.label("entry")
+    p.emit(i_type("lui", rt=SP, imm=0x801F))
+    p.emit(i_type("ori", rt=SP, rs=SP, imm=0xFFF0))
     p.emit(i_type("addiu", rt=SP, rs=SP, imm=-32))
     p.emit(i_type("sw", rs=SP, rt=RA, imm=28))
     p.jump("jal", "work")
@@ -159,6 +161,18 @@ def build_words() -> tuple[int, ...]:
     p.nop()
 
     return p.resolve()
+
+
+def helper_call_index() -> int:
+    """Index of the ``jal helper`` instruction in the built program."""
+    words = build_words()
+    helper_address = PROGRAM_LOAD_ADDRESS + 4 * (len(words) - 3)
+    for index, word in enumerate(words):
+        if (word >> 26) == 0x03:
+            target = (word & 0x03FFFFFF) << 2
+            if (target | 0x80000000) == helper_address:
+                return index
+    raise ValueError("helper call site not found")
 
 
 def build_fixture() -> bytes:

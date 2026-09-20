@@ -2,7 +2,7 @@
   "checks": [
     {
       "check": "injected:closure-open",
-      "detail": "{\"architecture\": \"mips32-bounded-v1\", \"closed\": false, \"closure_version\": \"1.0.0\", \"covered\": 38, \"covered_histogram\": {\"addiu\": 13, \"andi\": 1, \"beq\": 1, \"bne\": 1, \"jal\": 2, \"jr\": 3, \"lui\": 6, \"lw\": 3, \"sb\": 3, \"sw\": 5}, \"flow_mismatch\": [], \"instructions\": 39, \"uncovered\": [{\"address\": \"0x800100b8\", \"op\": \"lwl\"}]}",
+      "detail": "{\"architecture\": \"mips32-bounded-v1\", \"closed\": false, \"closure_version\": \"1.0.0\", \"covered\": 40, \"covered_histogram\": {\"addiu\": 13, \"andi\": 1, \"beq\": 1, \"bne\": 1, \"jal\": 2, \"jr\": 3, \"lui\": 7, \"lw\": 3, \"ori\": 1, \"sb\": 3, \"sw\": 5}, \"flow_mismatch\": [], \"instructions\": 41, \"uncovered\": [{\"address\": \"0x800100c0\", \"op\": \"lwl\"}]}",
       "status": "PASS"
     },
     {
@@ -22,7 +22,7 @@
     },
     {
       "check": "injected:uncovered-op",
-      "detail": "[{\"address\": \"0x800100b8\", \"op\": \"lwl\"}]",
+      "detail": "[{\"address\": \"0x800100c0\", \"op\": \"lwl\"}]",
       "status": "PASS"
     },
     {
@@ -87,17 +87,17 @@
     },
     {
       "check": "public:closure",
-      "detail": "{\"architecture\": \"mips32-bounded-v1\", \"closed\": true, \"closure_version\": \"1.0.0\", \"covered\": 39, \"covered_histogram\": {\"addiu\": 14, \"andi\": 1, \"beq\": 1, \"bne\": 1, \"jal\": 2, \"jr\": 3, \"lui\": 6, \"lw\": 3, \"sb\": 3, \"sw\": 5}, \"flow_mismatch\": [], \"instructions\": 39, \"uncovered\": []}",
+      "detail": "{\"architecture\": \"mips32-bounded-v1\", \"closed\": true, \"closure_version\": \"1.0.0\", \"covered\": 41, \"covered_histogram\": {\"addiu\": 14, \"andi\": 1, \"beq\": 1, \"bne\": 1, \"jal\": 2, \"jr\": 3, \"lui\": 7, \"lw\": 3, \"ori\": 1, \"sb\": 3, \"sw\": 5}, \"flow_mismatch\": [], \"instructions\": 41, \"uncovered\": []}",
       "status": "PASS"
     },
     {
       "check": "public:covered-histogram",
-      "detail": "{\"addiu\": 14, \"andi\": 1, \"beq\": 1, \"bne\": 1, \"jal\": 2, \"jr\": 3, \"lui\": 6, \"lw\": 3, \"sb\": 3, \"sw\": 5}",
+      "detail": "{\"addiu\": 14, \"andi\": 1, \"beq\": 1, \"bne\": 1, \"jal\": 2, \"jr\": 3, \"lui\": 7, \"lw\": 3, \"ori\": 1, \"sb\": 3, \"sw\": 5}",
       "status": "PASS"
     },
     {
       "check": "public:covered-total",
-      "detail": "39",
+      "detail": "41",
       "status": "PASS"
     },
     {
@@ -107,7 +107,7 @@
     },
     {
       "check": "public:emission-fingerprint",
-      "detail": "78d099ed698e99bb3d1af29e0ed5ed6b2807280a79064996e9fd5921b14c84f1",
+      "detail": "7f277a526dc3b49c0436442666ea5cd6af1855f98dc201f9dd32346ea50c59be",
       "status": "PASS"
     },
     {

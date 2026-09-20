@@ -29,7 +29,7 @@ disc/file-service contract:
 ## Public fixture behaviour (exact)
 
 The bounded discovery finds exactly one reachable CD-ROM access: `sb` at site
-`0x8001007c` writing `0x00000019` to `0x1f801801` (COMMAND). The adapter
+`0x80010084` writing `0x00000019` to `0x1f801801` (COMMAND). The adapter
 classifies it as `TEST` (`0x19`) with no blocker and no disc image; the
 transcript digest is
 `d4be001509bd7e6a41730f5d90c77d81a2f64a098af7af46e3dab6654ce17fdb` and is
@@ -53,14 +53,22 @@ empty stderr, both runs byte-identical: stdout 2507 bytes (LF), sha256
 
 Sidecar identities:
 
-- `p9_09_tests.json` `a8944ba201e07a10cbdc0af2ad9ac6effef937d14370a4a2572067ba3414a060`;
-- `public_cdrom.json` `79b2aaa2978f8b28daf3cf5ae36700c70db6524181de9a8580c489db0ad28f3a`;
+- `p9_09_tests.json` `242c030c9a1e003ff674077a2aea12fff63df22105fb5ea6464c9eedd0e5110b`;
+- `public_cdrom.json` `2bb3dfafee3ae5294a676e8f73001d3da0d542b1190e9590c014b3e001067a9e`;
 - `private_cdrom.json` `80ce039200fd804e1824bca137f264ad1fa3d6180bdbb976c0c46f515891d520`;
-- `official_runs.json` `622f553c32edf1daaeb458adaf214b42b481557b1ee75258554f57992f3e62d3`;
-- `determinism.json` `8036d0993f062ae7a0152b123951387a6e2efce5bd78b05cee110448c81511f2`;
+- `official_runs.json` `7479a5a4e8388209558f5bb78aff98dfa12c15ba5c8b0ce3d5a5ba6b3892efb2`;
+- `determinism.json` `89de1ae0e1743de93e223c1053ba71f7daf65a1bd01935501068d5bf20e6b4cc`;
 - `run1.txt` = `run2.txt` `649d838c00639b22a07b40b70539a11e4a011d232586e4b6c2299199d48cca1d`;
 - `run1.err.txt` = `run2.err.txt` empty
   (`e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`).
+
+## Documented fixture correction (P9-10 preparation)
+
+The public fixture was corrected to initialize `$sp` itself at entry (see the
+P9-03 correction record); the CD-ROM access site shifts by 8 bytes to
+`0x80010084`. The transcript digest is unchanged (`d4be0015...`). The official
+runs were re-issued; the official stdout identity is unchanged
+(`649d838c...`).
 
 ## Claim-ledger delta
 

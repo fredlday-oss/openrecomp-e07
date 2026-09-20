@@ -74,9 +74,9 @@ FROZEN_MODULE_HASHES = {
 }
 
 PUBLIC_EXPECTED = {
-    "total_words": 46,
-    "reachable_words": 46,
-    "reachable_supported_words": 46,
+    "total_words": 48,
+    "reachable_words": 48,
+    "reachable_supported_words": 48,
     "reachable_unsupported_words": 0,
     "reachable_invalid_words": 0,
     "unreachable_words": 0,
@@ -93,7 +93,7 @@ PUBLIC_EXPECTED = {
         "unsupported-control-transfers": 0,
     },
     "unresolved_site_counts": {},
-    "neutral_instructions": 39,
+    "neutral_instructions": 41,
     "folded_delay_slots": 7,
     "blocks": 9,
     "edges": 8,
@@ -106,11 +106,11 @@ PUBLIC_EXPECTED = {
     "entry_unit": "tu_fn_80010000",
     "unowned_blocks": 0,
     "shared_blocks": 0,
-    "program_model_fingerprint": "99024c485f3203cc1701a045758a371538754bd7fe2c0193066f735a2adafa3d",
-    "cfg_fingerprint": "e35974b4e423ad3fa4fad4b44844e7f525ac776b51e1e072156d62b504310ea4",
-    "call_graph_fingerprint": "542d69e7913851e463a62c043b31f4156ddad5179ecb2f99885ec7d207d4a760",
-    "units_fingerprint": "aa5614f991f3b8dd867f45c86a1559cf87bba6bd9f51e6d2274bdd6407e8fa02",
-    "discovery_fingerprint": "fff9df3a03a6dd2bb69fdeea9df0c31076bb4c0a2c80ac0891f005d46e6f9b6a",
+    "program_model_fingerprint": "9592d14efbca69b4cbc1c033780bcfad4aa2eaf519475d768eb9469af2545609",
+    "cfg_fingerprint": "21ff23392f2fdc5f48bde077b07dda70ae60b7fdba2fcb9b44cdc3281b893e05",
+    "call_graph_fingerprint": "55c6696e5eeb63abf4463589d5ebbd60d43ee5a9a0573ef86c18080e17fb7b59",
+    "units_fingerprint": "133e2e350f71646790d1fb69e50e0ae26f4f0fd95bd635c4415dd28b22c9ab6b",
+    "discovery_fingerprint": "32d85c4c6da83ceabce22ecfa8dfcb337e501e994d2c4ba9bafcf50fc53c29be",
 }
 
 PRIVATE_EXPECTED = {
@@ -235,7 +235,7 @@ def main() -> int:
             builder.r_type("jr", rs=31),
             builder.nop(),
         ]
-        injected_words[38] = builder.j_type("jal", fixture.PROGRAM_LOAD_ADDRESS + 4 * bad_index)
+        injected_words[fixture.helper_call_index()] = builder.j_type("jal", fixture.PROGRAM_LOAD_ADDRESS + 4 * bad_index)
         injected_image = psx.ingest(builder.build_from_words(injected_words))
         injected_contract = memory_map.build_contract(injected_image)
         injected_flat = memory_map.flat_image(injected_image)

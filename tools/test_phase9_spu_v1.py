@@ -67,7 +67,7 @@ PRIVATE_FIXTURE_LABEL = "hercules-slus-005.29"
 SPU_RANGE = (iod.IoRange("spu", spu.SPU_BASE, spu.SPU_SIZE),)
 
 PUBLIC_EXPECTED_ACCESSES = (
-    ("0x8001006c", "sb", "write", "0x1f801daa", "0x000000c0"),
+    ("0x80010074", "sb", "write", "0x1f801daa", "0x000000c0"),
 )
 
 RESULTS: list[dict[str, str]] = []

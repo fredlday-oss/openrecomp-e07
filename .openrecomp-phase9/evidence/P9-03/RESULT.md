@@ -32,13 +32,13 @@ Reuse is verified by hash against the frozen manifests:
 
 | Quantity | Value |
 |---|---|
-| region / reachable words | 46 / 46 |
-| reachable supported / unsupported / invalid | 46 / 0 / 0 |
+| region / reachable words | 48 / 48 |
+| reachable supported / unsupported / invalid | 48 / 0 / 0 |
 | delay slots / non-nop | 7 / 0 |
 | branches / direct calls / returns | 2 / 2 / 3 |
 | indirect calls / jumps / unsupported transfers | 0 / 0 / 0 |
 | unresolved sites | 0 |
-| neutral instructions | 39 |
+| neutral instructions | 41 |
 | folded delay slots | 7 |
 | blocks / edges | 9 / 8 |
 | functions / translation units | 3 / 3 |
@@ -46,8 +46,8 @@ Reuse is verified by hash against the frozen manifests:
 | unowned / shared blocks | 0 / 0 |
 | entry function / unit | `fn_80010000` / `tu_fn_80010000` |
 
-Fingerprints: program model `99024c48...`, CFG `e35974b4...`, call graph
-`542d69e7...`, units `aa5614f9...`, discovery `fff9df3a...`. Two analyses
+Fingerprints: program model `9592d14e...`, CFG `21ff2339...`, call graph
+`55c6696e...`, units `133e2e35...`, discovery `32d85c4c...`. Two analyses
 produce the same digest.
 
 ## Fail-closed indirect control flow
@@ -77,14 +77,26 @@ empty stderr, both runs byte-identical: stdout 2783 bytes (LF), sha256
 
 Sidecar identities:
 
-- `p9_03_tests.json` `09d375e141be16931d8b26c8e47d1dfeec51dba71db1ca32929f3b5a68c08a8d`;
-- `public_pipeline.json` `470bd1c5e2fa63498fae84b1ada4086328dcc8c04bd4ec8b16e5d32b620041db`;
+- `p9_03_tests.json` `80c6c26ffe5c5e50c9c70271193c29f468bd7f90407edd64d92a947fade08ce2`;
+- `public_pipeline.json` `e7a0f8c43f53de030fb8f4a7396e42fb7d1835d0bfa41118e1a6d47eea94b586`;
 - `private_pipeline.json` `2617c57dc7239c6c01a8d724494695bc6ba3fea607571f09bb523e750764e127`;
-- `official_runs.json` `0c3fed93e86aa503ee8f5ee317505b43c2c71f87d1965512c89ebf694877659c`;
-- `determinism.json` `0f24dfc39c9f35a2af5bd21277bc4634ad91a03c4908b69362f4bc5eb5372491`;
+- `official_runs.json` `bbf5713eff65164c4c9cca0ace460039cb7acaa283b57c31b1cd73e2f5305f06`;
+- `determinism.json` `308b182db6c1948a2cbb47e32d09a48a515f1c2cb4fe5678c57e84dc3354a444`;
 - `run1.txt` = `run2.txt` `9aab9c109059808c5024c8dc55280377aa4cfc879338968da1b57bc8216f63e6`;
 - `run1.err.txt` = `run2.err.txt` empty
   (`e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`).
+
+## Documented fixture correction (P9-10 preparation)
+
+While preparing P9-10 it was found that the original public fixture relied on
+an initial stack pointer that the frozen Phase-8 emitter does not provide (the
+generated program starts all guest registers at zero). The fixture was
+corrected to initialize `$sp` itself at entry (`lui $sp, 0x801f; ori $sp,
+$sp, 0xfff0`), which is the standard freestanding entry pattern. The change is
+additive (two instructions) and does not alter the fixture's platform
+behaviour. The affected pinned counts/fingerprints in this stage were updated
+and the official runs were re-issued on the corrected tree; the official
+stdout identity is unchanged (`9aab9c10...`).
 
 ## Claim-ledger delta
 

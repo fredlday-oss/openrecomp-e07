@@ -75,8 +75,8 @@ RANGES = (
 )
 
 PUBLIC_EXPECTED_ACCESSES = (
-    ("0x80010028", "lw", "read", "0x1f801040", "joy"),
-    ("0x80010040", "lw", "read", "0x1f801100", "timer0"),
+    ("0x80010030", "lw", "read", "0x1f801040", "joy"),
+    ("0x80010048", "lw", "read", "0x1f801100", "timer0"),
 )
 
 RESULTS: list[dict[str, str]] = []

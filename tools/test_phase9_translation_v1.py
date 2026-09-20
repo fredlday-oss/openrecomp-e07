@@ -85,8 +85,9 @@ PUBLIC_EXPECTED_COVERED = {
     "bne": 1,
     "jal": 2,
     "jr": 3,
-    "lui": 6,
+    "lui": 7,
     "lw": 3,
+    "ori": 1,
     "sb": 3,
     "sw": 5,
 }
@@ -181,7 +182,7 @@ def main() -> int:
         check("public:structure-built", public.structure is not None, str(public.structure_error))
         closure = semantics.coverage(public.structure)
         check("public:closure", closure["closed"] is True, json.dumps(closure, sort_keys=True))
-        check("public:covered-total", closure["covered"] == 39, str(closure["covered"]))
+        check("public:covered-total", closure["covered"] == 41, str(closure["covered"]))
         check(
             "public:covered-histogram",
             closure["covered_histogram"] == PUBLIC_EXPECTED_COVERED,
@@ -231,7 +232,7 @@ def main() -> int:
             builder.r_type("jr", rs=31),
             builder.nop(),
         ]
-        injected_words[38] = builder.j_type("jal", fixture.PROGRAM_LOAD_ADDRESS + 4 * bad_index)
+        injected_words[fixture.helper_call_index()] = builder.j_type("jal", fixture.PROGRAM_LOAD_ADDRESS + 4 * bad_index)
         injected = analyze_bytes(builder.build_from_words(injected_words))
         check("injected:decodable-no-frontier-gap", injected.first_blocker is None, str(injected.first_blocker))
         check("injected:structure-built", injected.structure is not None, str(injected.structure_error))

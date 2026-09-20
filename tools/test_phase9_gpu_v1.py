@@ -69,8 +69,8 @@ PRIVATE_FIXTURE_LABEL = "hercules-slus-005.29"
 GPU_RANGE = (iod.IoRange("gpu", 0x1F801810, 0x8),)
 
 PUBLIC_EXPECTED_ACCESSES = (
-    ("0x80010054", "sw", "0x1f801810", "0x000000a0"),
-    ("0x8001005c", "sw", "0x1f801814", "0x00000000"),
+    ("0x8001005c", "sw", "0x1f801810", "0x000000a0"),
+    ("0x80010064", "sw", "0x1f801814", "0x00000000"),
 )
 
 RESULTS: list[dict[str, str]] = []

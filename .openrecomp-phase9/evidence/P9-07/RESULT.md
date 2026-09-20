@@ -34,8 +34,8 @@ The bounded discovery finds exactly two reachable accesses:
 
 | Site | Op | Direction | Address | Range |
 |---|---|---|---|---|
-| `0x80010028` | `lw` | read | `0x1f801040` (JOY_DATA) | joy |
-| `0x80010040` | `lw` | read | `0x1f801100` (TIMER0 counter) | timer0 |
+| `0x80010030` | `lw` | read | `0x1f801040` (JOY_DATA) | joy |
+| `0x80010048` | `lw` | read | `0x1f801100` (TIMER0 counter) | timer0 |
 
 The adapter returns the deterministic virtual input `0x00000000` (no buttons)
 and the virtual time tick `0x00000000`, then advances the clock to 1; the
@@ -61,14 +61,22 @@ empty stderr, both runs byte-identical: stdout 2476 bytes (LF), sha256
 
 Sidecar identities:
 
-- `p9_07_tests.json` `c12edf94582dd4432300d827dd97ac93c03b6604009882c8402867ed1b0d3cfd`;
-- `public_input_timer.json` `68c9048d919c8a2e901ee54c5ed3997572678f15ad1344cce95a5cdd27ddafe5`;
+- `p9_07_tests.json` `b0ca8fd10b637dc8c6d136c0fe6e3d58947d8a8b659f2b54b3a2798639a581c7`;
+- `public_input_timer.json` `91a76ae9a131c993c6fd4a9f3583aea203eafe84880f33b3d349c12c432804c7`;
 - `private_input_timer.json` `5434b3850664e036283e8e932df46210db74651eab777e239f039755c7383c1f`;
-- `official_runs.json` `959fa1fed80cee4943669e5e94699f27e7ca3258f46b5b749125d768b23597a9`;
-- `determinism.json` `499fbdb73e600020824728512f87ac66a95a048437cf32d1bdd8614a197839a5`;
+- `official_runs.json` `06ab3df58d667c107dfd7e4d2effc1f2b5b45bc40806bf6941e6aadddec75b32`;
+- `determinism.json` `9edd7e8c4e6bd2c4a1e54ac96474423aae7de4f348b1e9cb820100add73279eb`;
 - `run1.txt` = `run2.txt` `b247339144277b85eb61f5054f95ad2e77ab593360043c5ea2afc110fd9eeb9b`;
 - `run1.err.txt` = `run2.err.txt` empty
   (`e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`).
+
+## Documented fixture correction (P9-10 preparation)
+
+The public fixture was corrected to initialize `$sp` itself at entry (see the
+P9-03 correction record); the two access sites shift by 8 bytes to
+`0x80010030` and `0x80010048`. The transcript digest is unchanged
+(`819ac68b...`). The official runs were re-issued; the official stdout
+identity is unchanged (`b2473391...`).
 
 ## Claim-ledger delta
 

@@ -29,7 +29,7 @@ service/runtime contract:
 ## Public fixture behaviour (exact)
 
 The bounded discovery finds exactly one reachable SPU access: `sb` at site
-`0x8001006c` writing `0x000000c0` to `0x1f801daa` (SPU_CONTROL). The adapter
+`0x80010074` writing `0x000000c0` to `0x1f801daa` (SPU_CONTROL). The adapter
 records a `CONTROL_REGISTER` event with the value `0x000000c0`; the transcript
 digest is
 `a08d2ee7a1121b31b9d4154da8fc01c3aa9199360d9043a97fbe63f1083acdc7` and is
@@ -52,14 +52,22 @@ empty stderr, both runs byte-identical: stdout 1995 bytes (LF), sha256
 
 Sidecar identities:
 
-- `p9_08_tests.json` `05ca6c7bcec3e242a4565a046f5f6a45a4f1cf46c2c1e824b05b8fa10fc4e01c`;
-- `public_spu.json` `9b7556db2ecbaa1206e2a07a2d7db79666e78e69220a0f688d8f28945679749e`;
+- `p9_08_tests.json` `27b9ad8e6826ee77bfeff02246a84af3e0602a93118c78dadaa86ee7d42f8d42`;
+- `public_spu.json` `0c80d9413aba9f6379ba6ba8a69706d45f2dcb3c7bcf96ada5936a183f32756e`;
 - `private_spu.json` `bddbbd682ed80d1b203a77c4d39349d9fa992bf27f8c18626e404726d9f941b7`;
-- `official_runs.json` `035182964681d95b17d6837468179fc1a654687afe5a88e5511897d572cb84c4`;
-- `determinism.json` `2271a2e856abdec19d9926cf591bb85a6900b7e89a4a60350cf04385c2e71836`;
+- `official_runs.json` `08514213bca45758088829581b2ad05a1e0c7994088e9b2c70a3e26acb24537d`;
+- `determinism.json` `edea59160554b0bb093fbd296ca03ba24392b43a5c705ef3d96f85a7c3245f1d`;
 - `run1.txt` = `run2.txt` `90ae1385f17195612d95e861ef3f2708416bbd05fdda195d39c4fa99c302ceb9`;
 - `run1.err.txt` = `run2.err.txt` empty
   (`e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`).
+
+## Documented fixture correction (P9-10 preparation)
+
+The public fixture was corrected to initialize `$sp` itself at entry (see the
+P9-03 correction record); the SPU access site shifts by 8 bytes to
+`0x80010074`. The transcript digest is unchanged (`a08d2ee7...`). The official
+runs were re-issued; the official stdout identity is unchanged
+(`90ae1385...`).
 
 ## Claim-ledger delta
 

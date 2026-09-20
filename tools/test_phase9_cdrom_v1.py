@@ -67,7 +67,7 @@ PRIVATE_FIXTURE_LABEL = "hercules-slus-005.29"
 CDROM_RANGE = (iod.IoRange("cdrom", cdrom.CDROM_BASE, cdrom.CDROM_SIZE),)
 
 PUBLIC_EXPECTED_ACCESSES = (
-    ("0x8001007c", "sb", "write", "0x1f801801", "0x00000019"),
+    ("0x80010084", "sb", "write", "0x1f801801", "0x00000019"),
 )
 
 RESULTS: list[dict[str, str]] = []

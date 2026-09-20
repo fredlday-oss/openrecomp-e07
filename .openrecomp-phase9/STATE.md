@@ -316,3 +316,18 @@ disc/file-service contract (`disc_image: none`, `file_service: none`). The
 public fixture's single reachable CD-ROM command write (`0x19` = `TEST`) is
 classified and recorded; unknown commands fail closed; the private frontier
 has no discoverable CD-ROM access. The next stage is `P9-10`.
+
+## Documented fixture correction (P9-10 preparation)
+
+While preparing P9-10, the public fixture was found to rely on an initial
+stack pointer that the frozen Phase-8 emitter does not provide (generated
+programs start all guest registers at zero). The fixture was corrected to
+initialize `$sp` itself at entry (`lui $sp, 0x801f; ori $sp, $sp, 0xfff0`).
+The change is additive (two instructions, same platform behaviour). The
+affected pinned counts/fingerprints/access-site offsets in P9-03, P9-04,
+P9-06, P9-07, P9-08 and P9-09 were updated, their official runs were
+re-issued on the corrected tree, and their RESULT.md records carry the
+correction note. The official stdout identity of every affected gate is
+unchanged; the corrected public fixture SHA-256 is
+`17466bc17edde54f4d371ae22281b9fb31cd9114c3c293aa7da103751c32c3da`
+(2240 bytes; recorded in the P9-10 evidence).

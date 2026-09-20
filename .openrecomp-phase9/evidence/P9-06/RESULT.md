@@ -33,8 +33,8 @@ The bounded discovery finds exactly two reachable GPU accesses:
 
 | Site | Op | Address | Value | Command class |
 |---|---|---|---|---|
-| `0x80010054` | `sw` | `0x1f801810` (GP0) | `0x000000a0` | `NOP` |
-| `0x8001005c` | `sw` | `0x1f801814` (GP1) | `0x00000000` | `RESET_GPU` |
+| `0x8001005c` | `sw` | `0x1f801810` (GP0) | `0x000000a0` | `NOP` |
+| `0x80010064` | `sw` | `0x1f801814` (GP1) | `0x00000000` | `RESET_GPU` |
 
 The adapter records both events with transcript digest
 `b190376ba5775e91e2b3c4acd1e1ef6665fb2e50d978f65b3b9a6bebe655fe54`; the
@@ -60,14 +60,23 @@ empty stderr, both runs byte-identical: stdout 3321 bytes (LF), sha256
 
 Sidecar identities:
 
-- `p9_06_tests.json` `f683f37c623b13e3e236ac3e720865f8ef65faebb1b6229fac5869fd9e4bd22f`;
-- `public_gpu.json` `a4635fd65dc22461244ecf72a6d57ec08a4e1df25591ac4bf67eae2d0cab26ac`;
+- `p9_06_tests.json` `6adf18a0f0384c02277a893a9f6a08b17f108cf92bfaa82874cf5bf3abca648e`;
+- `public_gpu.json` `a2ea5bd2b721d20e987c6b52ee4d4960bf1b55051ebf42282a8f09962ffdfbe2`;
 - `private_gpu.json` `71c58cabde0b463a187206b846aa96a1b196d79a3f537a710c4f1dbdcb9852f4`;
-- `official_runs.json` `9650aa779b449db09e694b01190dd1816ba02844fed26891a37a751ef36bf4fd`;
-- `determinism.json` `5c5ebd651ae546d91c6a2755997e3002dbf983791f6c5b6d5bd2e2312f38c482`;
+- `official_runs.json` `60de299e5e79df46b2ead4e7a96440b0d908a6457c9d531197041a214d68a226`;
+- `determinism.json` `38a65d97bd80fdd21bd0469d9951b418717a343bcbdc2509813636592fd028a2`;
 - `run1.txt` = `run2.txt` `880bc4f9a83539f1f7759e7cbc37f7ce15dd74fe262217e127b527b3c645bf01`;
 - `run1.err.txt` = `run2.err.txt` empty
   (`e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`).
+
+## Documented fixture correction (P9-10 preparation)
+
+The public fixture was corrected to initialize `$sp` itself at entry (see the
+P9-03 correction record); the two GPU access sites shift by 8 bytes to
+`0x8001005c` and `0x80010064`. The transcript digest is unchanged
+(`b190376b...`, events carry port/value but not the access site). The official
+runs were re-issued; the official stdout identity is unchanged
+(`880bc4f9...`).
 
 ## Claim-ledger delta
 

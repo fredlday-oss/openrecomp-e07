@@ -28,16 +28,16 @@ none, and any uncovered reachable form fails closed.
 
 ## Public fixture closure (exact)
 
-All 39 neutral instructions (46 reachable words with 7 folded delay slots) are
+All 41 neutral instructions (48 reachable words with 7 folded delay slots) are
 covered exactly once with matching flow:
 
-`addiu` 14, `andi` 1, `beq` 1, `bne` 1, `jal` 2, `jr` 3, `lui` 6, `lw` 3,
-`sb` 3, `sw` 5. No uncovered sites, no flow mismatches.
+`addiu` 14, `andi` 1, `beq` 1, `bne` 1, `jal` 2, `jr` 3, `lui` 7, `lw` 3,
+`ori` 1, `sb` 3, `sw` 5. No uncovered sites, no flow mismatches.
 
 The public structure emits deterministically through the frozen host emitter:
 3 functions, fingerprint
-`78d099ed698e99bb3d1af29e0ed5ed6b2807280a79064996e9fd5921b14c84f1`,
-7515 bytes of generated C, no original machine code or payload bytes present.
+`7f277a526dc3b49c0436442666ea5cd6af1855f98dc201f9dd32346ea50c59be`,
+generated C with no original machine code or payload bytes present.
 
 ## Fail-closed negative
 
@@ -72,14 +72,22 @@ empty stderr, both runs byte-identical: stdout 1281 bytes (LF), sha256
 
 Sidecar identities:
 
-- `p9_04_tests.json` `18528baec1acc507d34b4209e380b3132c8bd604ccef8a67865ecd55b2e36d21`;
-- `public_closure.json` `1189349e922072edba31b717a885acd6f099cc20892776072be1bf42a23b7a42`;
+- `p9_04_tests.json` `ce10c149ac7e3c3f37eeed292d2e5e69ada885f336e6feaafbbb73123592e16c`;
+- `public_closure.json` `50fe5896919cc6b1136a4d8f9e1b5ed22687f73188c960c9be186ef06bad9141`;
 - `private_closure.json` `d286ed24d21294bf378162b73c2fa3503a428521eb601a0429006e0e85f19bee`;
-- `official_runs.json` `1c893220ee4b2d3e8a7b87723b8596f7c4eae01a4fafab55b2e5ce2d7833a1c3`;
-- `determinism.json` `0a7eb45177a61d3647ecffea7bf7b3a02527e4188267d0d4bbc811fb33bac9ab`;
+- `official_runs.json` `32b8973c8a044bc345e9cc122373c37002b759cd4674f673e044696eee3799ea`;
+- `determinism.json` `00fe37eb9e082b95c3c8daef6233059a0e4841f44acdd432ce8e383508b37b3a`;
 - `run1.txt` = `run2.txt` `04b8704c0a2a2b58575a2b29baac133e6291eaaf44d1034e791a5d9d5398e524`;
 - `run1.err.txt` = `run2.err.txt` empty
   (`e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`).
+
+## Documented fixture correction (P9-10 preparation)
+
+The public fixture was corrected to initialize `$sp` itself at entry (see the
+P9-03 correction record). The covered histogram gained `lui` 7 and `ori` 1,
+the covered total is 41, and the emission fingerprint is now `7f277a52...`.
+The official runs were re-issued; the official stdout identity is unchanged
+(`04b8704c...`).
 
 ## Claim-ledger delta
 
