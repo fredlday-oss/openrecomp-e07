@@ -1,0 +1,40 @@
+{
+  "closure_state": "OPEN_FIRST_BLOCKER_0x80013390",
+  "coprocessor_reachable": {},
+  "is_pass_criterion": false,
+  "label": "hercules-slus-005.29",
+  "present": true,
+  "schema": "openrecomp-phase9-private-closure-v1",
+  "stage": "P9-04",
+  "unsupported_classification": {
+    "categories": {
+      "INDIRECT_CONTROL_FLOW": {
+        "jalr": 22
+      },
+      "OVERFLOW_TRAPPING_ARITHMETIC": {
+        "addi": 3
+      },
+      "TRAP_OR_SYSTEM": {
+        "break": 1,
+        "syscall": 2
+      },
+      "UNALIGNED_PARTIAL_WORD_LOAD": {
+        "lwl": 17,
+        "lwr": 17
+      },
+      "UNALIGNED_PARTIAL_WORD_STORE": {
+        "swl": 17,
+        "swr": 17
+      }
+    },
+    "category_totals": {
+      "INDIRECT_CONTROL_FLOW": 22,
+      "OVERFLOW_TRAPPING_ARITHMETIC": 3,
+      "TRAP_OR_SYSTEM": 3,
+      "UNALIGNED_PARTIAL_WORD_LOAD": 34,
+      "UNALIGNED_PARTIAL_WORD_STORE": 34
+    },
+    "total": 96,
+    "unknown_ops": {}
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "checks": [
+    {
+      "check": "injected:closure-open",
+      "detail": "{\"architecture\": \"mips32-bounded-v1\", \"closed\": false, \"closure_version\": \"1.0.0\", \"covered\": 38, \"covered_histogram\": {\"addiu\": 13, \"andi\": 1, \"beq\": 1, \"bne\": 1, \"jal\": 2, \"jr\": 3, \"lui\": 6, \"lw\": 3, \"sb\": 3, \"sw\": 5}, \"flow_mismatch\": [], \"instructions\": 39, \"uncovered\": [{\"address\": \"0x800100b8\", \"op\": \"lwl\"}]}",
+      "status": "PASS"
+    },
+    {
+      "check": "injected:decodable-no-frontier-gap",
+      "detail": "None",
+      "status": "PASS"
+    },
+    {
+      "check": "injected:emitter-fails-closed",
+      "detail": "HostEmitterError",
+      "status": "PASS"
+    },
+    {
+      "check": "injected:structure-built",
+      "detail": "None",
+      "status": "PASS"
+    },
+    {
+      "check": "injected:uncovered-op",
+      "detail": "[{\"address\": \"0x800100b8\", \"op\": \"lwl\"}]",
+      "status": "PASS"
+    },
+    {
+      "check": "private:category-total-sum",
+      "detail": "96",
+      "status": "PASS"
+    },
+    {
+      "check": "private:category-totals",
+      "detail": "{\"INDIRECT_CONTROL_FLOW\": 22, \"OVERFLOW_TRAPPING_ARITHMETIC\": 3, \"TRAP_OR_SYSTEM\": 3, \"UNALIGNED_PARTIAL_WORD_LOAD\": 34, \"UNALIGNED_PARTIAL_WORD_STORE\": 34}",
+      "status": "PASS"
+    },
+    {
+      "check": "private:closure:no-ascii-run",
+      "detail": "ascii payload run at []",
+      "status": "PASS"
+    },
+    {
+      "check": "private:closure:no-base64",
+      "detail": "payload base64 present",
+      "status": "PASS"
+    },
+    {
+      "check": "private:closure:no-hex",
+      "detail": "payload hex present",
+      "status": "PASS"
+    },
+    {
+      "check": "private:closure:string-length",
+      "detail": "29 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:closure:string-length",
+      "detail": "20 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:closure:string-length",
+      "detail": "36 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:closure:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:marker",
+      "detail": "PRESENT",
+      "status": "PASS"
+    },
+    {
+      "check": "private:no-cop0-gte-reachable",
+      "detail": "{}",
+      "status": "PASS"
+    },
+    {
+      "check": "private:no-unknown-category",
+      "detail": "{}",
+      "status": "PASS"
+    },
+    {
+      "check": "public:closure",
+      "detail": "{\"architecture\": \"mips32-bounded-v1\", \"closed\": true, \"closure_version\": \"1.0.0\", \"covered\": 39, \"covered_histogram\": {\"addiu\": 14, \"andi\": 1, \"beq\": 1, \"bne\": 1, \"jal\": 2, \"jr\": 3, \"lui\": 6, \"lw\": 3, \"sb\": 3, \"sw\": 5}, \"flow_mismatch\": [], \"instructions\": 39, \"uncovered\": []}",
+      "status": "PASS"
+    },
+    {
+      "check": "public:covered-histogram",
+      "detail": "{\"addiu\": 14, \"andi\": 1, \"beq\": 1, \"bne\": 1, \"jal\": 2, \"jr\": 3, \"lui\": 6, \"lw\": 3, \"sb\": 3, \"sw\": 5}",
+      "status": "PASS"
+    },
+    {
+      "check": "public:covered-total",
+      "detail": "39",
+      "status": "PASS"
+    },
+    {
+      "check": "public:emission-deterministic",
+      "detail": "stable source",
+      "status": "PASS"
+    },
+    {
+      "check": "public:emission-fingerprint",
+      "detail": "78d099ed698e99bb3d1af29e0ed5ed6b2807280a79064996e9fd5921b14c84f1",
+      "status": "PASS"
+    },
+    {
+      "check": "public:emission-functions",
+      "detail": "3",
+      "status": "PASS"
+    },
+    {
+      "check": "public:emission-no-machine-code",
+      "detail": "no payload hex",
+      "status": "PASS"
+    },
+    {
+      "check": "public:no-flow-mismatch",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "public:no-uncovered",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "public:structure-built",
+      "detail": "None",
+      "status": "PASS"
+    },
+    {
+      "check": "reuse:module:.openrecomp-phase8/src/p8_mips32_semantics_v1.py",
+      "detail": "aa5b4b2a65d944ba721636d9a8a9dc08c1af0229255400963bc902a3291b6daf",
+      "status": "PASS"
+    },
+    {
+      "check": "reuse:module:.openrecomp-phase8/src/p8_structure_v1.py",
+      "detail": "24109660cfa1876b9ffabe141374d1a1b26c74d6fc0f68260bfb440617077a1b",
+      "status": "PASS"
+    },
+    {
+      "check": "table:missing-rules-none",
+      "detail": "all public ops have rules",
+      "status": "PASS"
+    },
+    {
+      "check": "table:op-count",
+      "detail": "22",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 31,
+  "private_fixture": {
+    "is_pass_criterion": false,
+    "label": "hercules-slus-005.29",
+    "present": true
+  },
+  "stage": "P9-04",
+  "stage_name": "Reachable translation-frontier closure",
+  "status": "PASS",
+  "tests": 31
+}

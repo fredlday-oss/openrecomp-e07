@@ -133,3 +133,24 @@ image and memory-map contract).
 - explicitly classify the private fixture's reachable unsupported words
   (`lwl/lwr/swl/swr`, `jalr`, `addi`, `break`, `syscall`) and any COP0/GTE or
   unusual MIPS-I forms without inventing behaviour.
+
+## P9-04 outcome
+
+- additive closure module `.openrecomp-phase9/src/p9_semantics_v1.py`
+  reusing the frozen Phase-8 rule table and emitter configuration unchanged;
+- public fixture: 39/39 neutral instructions covered exactly once, no
+  uncovered sites, no flow mismatches; deterministic emission fingerprint
+  `78d099ed...`; injected `lwl` fails closed as uncovered;
+- private fixture: 96 reachable recognized-unsupported words classified into
+  five explicit categories, no unknown op, no reachable COP0/GTE;
+- the P9-04 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase9/evidence/P9-04/`.
+
+## Known work for P9-05
+
+- discover reachable BIOS/system-service calls for the bounded fixtures
+  (public fixture: none expected; private fixture: the 22 unresolved `jalr`
+  sites classified, not resolved);
+- build an explicit typed, versioned host-side service boundary (no BIOS
+  image) with unknown services failing closed;
+- implement only services required by the bounded fixture.

@@ -10,8 +10,8 @@ BASELINE_TAG_RECONCILIATION=Phase 8 created no annotated terminal tag. The autho
 BASELINE_TERMINAL=OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS
 BASELINE_GENERAL=OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P9-03
-LAST_PASSED_STAGE=P9-03
+CURRENT_STAGE=P9-04
+LAST_PASSED_STAGE=P9-04
 STATUS=IN_PROGRESS
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P9-01..P9-99
@@ -85,7 +85,7 @@ OpenRecomp-authored or openly licensed PS1 fixture.
 | P9-01 | PS-X EXE ingestion | PASS | `.openrecomp-phase9/evidence/P9-01/` |
 | P9-02 | PS1 executable image + memory-map contract | PASS | `.openrecomp-phase9/evidence/P9-02/` |
 | P9-03 | Existing MIPS32 pipeline integration | PASS | `.openrecomp-phase9/evidence/P9-03/` |
-| P9-04 | Reachable translation-frontier closure | QUEUED | - |
+| P9-04 | Reachable translation-frontier closure | PASS | `.openrecomp-phase9/evidence/P9-04/` |
 | P9-05 | PS1 BIOS/service boundary | QUEUED | - |
 | P9-06 | PS1 GPU/runtime boundary | QUEUED | - |
 | P9-07 | Input/timer/event boundary | QUEUED | - |
@@ -201,3 +201,23 @@ translation units, 2 internal call edges, no unresolved sites); an injected
 frontier is characterized (4068 reachable, first blocker `break` at
 `0x80013390`, structure bridge fail-closed `CONTROL_WITHOUT_DELAY_SLOT`).
 The next stage is `P9-04`.
+
+## P9-04 result
+
+PASS. Gate `tools/test_phase9_translation_v1.py` (31 checks, run twice via
+`p9_stage_runner_v1.py`, byte-identical stdout, empty stderr, exit 0).
+Evidence: `.openrecomp-phase9/evidence/P9-04/`. Markers issued:
+
+- `OPENRECOMP_P9_04=PASS`
+- `OPENRECOMP_PHASE9_TRANSLATION_CLOSURE_V1=PASS tests=31`
+- `OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN` (reserved)
+- `OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` (permanent)
+- `OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` (permanent)
+
+`.openrecomp-phase9/src/p9_semantics_v1.py` reuses the frozen Phase-8 rule
+table unchanged. All 39 neutral instructions of the public fixture are
+covered exactly once (no uncovered sites, no flow mismatches) and emit
+deterministically (fingerprint `78d099ed...`); an injected `lwl` fails closed;
+the private fixture's 96 reachable recognized-unsupported words are classified
+into five explicit categories with no unknown op and no reachable COP0/GTE
+form. The next stage is `P9-05`.

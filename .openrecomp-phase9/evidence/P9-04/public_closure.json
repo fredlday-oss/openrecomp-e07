@@ -1,0 +1,33 @@
+{
+  "closure": {
+    "architecture": "mips32-bounded-v1",
+    "closed": true,
+    "closure_version": "1.0.0",
+    "covered": 39,
+    "covered_histogram": {
+      "addiu": 14,
+      "andi": 1,
+      "beq": 1,
+      "bne": 1,
+      "jal": 2,
+      "jr": 3,
+      "lui": 6,
+      "lw": 3,
+      "sb": 3,
+      "sw": 5
+    },
+    "flow_mismatch": [],
+    "instructions": 39,
+    "uncovered": []
+  },
+  "emission_bytes": 7515,
+  "emission_fingerprint": "78d099ed698e99bb3d1af29e0ed5ed6b2807280a79064996e9fd5921b14c84f1",
+  "emission_functions": [
+    "fn_fn_80010000",
+    "fn_fn_80010020",
+    "fn_fn_800100ac"
+  ],
+  "fixture": "openrecomp-authored-ps1-v1",
+  "schema": "openrecomp-phase9-translation-closure-v1",
+  "stage": "P9-04"
+}
