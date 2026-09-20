@@ -1,6 +1,6 @@
 # OpenRecomp Phase 8 Handoff
 
-STATUS: Phase 8 `ACTIVE` at P8-10 after P8-00..P8-09 `PASS`. The branch
+STATUS: Phase 8 `ACTIVE` at P8-90 after P8-00..P8-12 `PASS`. The branch
 `phase8/mips32-end-to-end-native-v1` starts exactly at annotated tag
 `openrecomp-phase7-pass`: tag object `b07e0f691262ed3ae0bc2fd6ebb3e3d3c5222800`,
 commit `2917aa6549ab975cffdeb50120514c1723f7e493`, tree
@@ -112,8 +112,8 @@ permanent.
 
 ## P8-06 outcome
 
-- emission set (stable names, content hashes): `program.c` `6a957bd1...`
-  (byte-identical to the P8-04 emission), `p8_image_v1.c` `d5d95845...`,
+- emission set (stable names, content hashes): `program.c` `3df423e0...`
+  (byte-identical to the post-correction P8-04 emission), `p8_image_v1.c` `d5d95845...`,
   `p8_runtime_support.c` `9b5e70f5...`, `p8_driver.c` `e918de64...`;
 - 7 host translation functions, 463 emitted neutral operations, deterministic
   two-run emission, no `main` in the program, no inline assembly or embedded
@@ -126,11 +126,11 @@ permanent.
 
 - clean audited build through `openrecomp.build_pipeline`:
   `EXECUTABLE_REPRODUCIBLE`, `program.exe` 226304 bytes, SHA-256
-  `612cad0e9f59a3e334fa6c1d76d6d3c43bfeda71dd1de533d4c216589697429c`, all four
-  objects byte-identical to the incremental path;
+  `fb98c8a68c5c3af7bc30dab2e907910e1c1dfd665eb79e0ee7fcd60dd07a04dc` (all
+  four objects byte-identical to the incremental path);
 - content-hash incremental cache: cold 4 compiled / 0 reused, warm 0/4,
   corrupted entry 1 recompiled / 3 reused, executable byte-stable
-  (`0a1598d5...` incremental link output);
+  (`53abcedf...` incremental link output);
 - documented `-Wparentheses-equality` diagnostics only; no other warnings;
 - the P8-07 gate passed twice with byte-identical stdout, empty stderr and
   exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-07/`.
@@ -190,14 +190,13 @@ permanent.
 
 ## P8-12 outcome
 
-- implementation delta 
-one; the gate re-ran the bounded path from clean
+- implementation delta `none`; the gate re-ran the bounded path from clean
   inputs and reproduced every identity exactly;
 - all twelve completed stages' run captures and sidecar hashes verified, the
   source manifest verifies, the control-plane ledger and markers verify, and
   the analysis cache rejects stale keys;
 - the P8-12 gate passed twice with byte-identical stdout, empty stderr and
-  exit 0. Evidence is under .openrecomp-phase8/evidence/P8-12/.
+  exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-12/`.
 
 ## Exact next action
 
