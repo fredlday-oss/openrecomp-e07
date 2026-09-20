@@ -1,0 +1,61 @@
+{
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "command": [
+        "python",
+        "tools/test_phase9_whole_regression_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase9/evidence/P9-90"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P9_90=PASS",
+        "OPENRECOMP_PHASE9_WHOLE_REGRESSION_V1=PASS tests=221",
+        "OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+        "OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p9_90_tests_sha256": "3cec07cd23add4a665749534b060f0c868a2b89b02c9579ab5ebeb7f328cc1ea",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 241,
+      "stdout_bytes_lf": 236,
+      "stdout_sha256_lf": "19a0d0a5a2c9b4b937bc195dc4597c01155da6dcad64c5bce0422a83dd857c8a",
+      "stdout_sha256_raw": "9dda6243f81f711f2b7e0f3883983a85a5b4037579449fd3c5bbbaa6dea35d53"
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_phase9_whole_regression_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase9/evidence/P9-90"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P9_90=PASS",
+        "OPENRECOMP_PHASE9_WHOLE_REGRESSION_V1=PASS tests=221",
+        "OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+        "OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p9_90_tests_sha256": "3cec07cd23add4a665749534b060f0c868a2b89b02c9579ab5ebeb7f328cc1ea",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 241,
+      "stdout_bytes_lf": 236,
+      "stdout_sha256_lf": "19a0d0a5a2c9b4b937bc195dc4597c01155da6dcad64c5bce0422a83dd857c8a",
+      "stdout_sha256_raw": "9dda6243f81f711f2b7e0f3883983a85a5b4037579449fd3c5bbbaa6dea35d53"
+    }
+  ],
+  "schema": "openrecomp-phase9-official-runs-v1",
+  "stage": "P9-90",
+  "stderr_empty_both": true
+}

@@ -323,3 +323,23 @@ image and memory-map contract).
   plus every completed Phase-9 official gate, with byte-identical stdout;
 - capture exact counts and deterministic evidence in
   `.openrecomp-phase9/evidence/P9-90/`.
+
+## P9-90 outcome
+
+- 221 checks: frozen Phase-8 boundary and terminal records re-verified, all
+  thirteen Phase-9 gates re-ran live with byte-identical stdout (1101 tests),
+  and the frozen P8-90 (215 checks, 1463 historical re-verified tests), P8-91
+  (27) and P8-99 (92) re-ran with byte-identical stdout;
+- total re-verified tests: 3113;
+- committed Phase-9 evidence unchanged by the re-runs; the frozen P8-91 index
+  was snapshotted and restored because its live regeneration records corrected
+  P8-99 hashes (documented divergence);
+- the P9-90 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase9/evidence/P9-90/`.
+
+## Known work for P9-91
+
+- verify every Phase-9 sidecar hash, stage record and the evidence index;
+- build the claim ledger classifying every Phase-9 claim as PROVEN / BOUNDED /
+  NOT_PROVEN / NOT_TESTED;
+- run the public-safety verification over the committed Phase-9 material.

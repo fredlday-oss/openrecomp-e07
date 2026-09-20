@@ -192,7 +192,7 @@ def main() -> int:
             builder.r_type("jr", rs=31),
             builder.nop(),
         ]
-        injected_words[38] = builder.j_type("jal", fixture.PROGRAM_LOAD_ADDRESS + 4 * bad_index)
+        injected_words[fixture.helper_call_index()] = builder.j_type("jal", fixture.PROGRAM_LOAD_ADDRESS + 4 * bad_index)
         injected = analyze_bytes(builder.build_from_words(injected_words))
         injected_discovery = bios.discover(injected.analysis)
         check("injected:candidate-count", injected_discovery["bios_candidate_count"] == 1, str(injected_discovery["bios_candidate_count"]))

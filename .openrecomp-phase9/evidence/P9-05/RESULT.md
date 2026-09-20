@@ -72,10 +72,20 @@ Sidecar identities:
 - `public_bios.json` `b77973b3d3fc6edc437059dc29b1961bc2fcf556d177793c97262bfc7454747b`;
 - `private_bios.json` `d8705b228b30ad0e26466114919f6950ecc5b548e1e697f3e7b44a210f365dd2`;
 - `official_runs.json` `dbfa75e225b5e81fbcde4806a84f21bb64dee9677c8ff60b1b1aafa2a22a1c1c`;
-- `determinism.json` `8538cc3a92163de76028973368cbf355a8438ba7282196036e1af8ed1b6eda58`;
+- `determinism.json` `b326c6746425b3919618d5c9ef74093bd45a52f640c0afe180b4c0190da5da1e`;
 - `run1.txt` = `run2.txt` `1e50dfe3446a95aa55cfc5498416b5d55933a14ac62e4ab83eb30ecc96701667`;
 - `run1.err.txt` = `run2.err.txt` empty
   (`e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`).
+
+## Fixture-correction alignment (P9-90 preparation)
+
+The injected BIOS-call negative originally patched a hard-coded word index.
+After the P9-10 public-fixture stack-initialization correction the index
+shifted, so the gate now resolves the `jal helper` site dynamically
+(`fixture.helper_call_index()`). Check labels, their count and the official
+stdout are unchanged (`1e50dfe3...`); `p9_05_tests.json` and
+`official_runs.json` are byte-identical, only the gate-source hash in
+`determinism.json` changed.
 
 ## Claim-ledger delta
 

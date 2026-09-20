@@ -10,8 +10,8 @@ BASELINE_TAG_RECONCILIATION=Phase 8 created no annotated terminal tag. The autho
 BASELINE_TERMINAL=OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS
 BASELINE_GENERAL=OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P9-12
-LAST_PASSED_STAGE=P9-12
+CURRENT_STAGE=P9-90
+LAST_PASSED_STAGE=P9-90
 STATUS=IN_PROGRESS
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P9-01..P9-99
@@ -94,7 +94,7 @@ OpenRecomp-authored or openly licensed PS1 fixture.
 | P9-10 | Native build + deterministic execution | PASS | `.openrecomp-phase9/evidence/P9-10/` |
 | P9-11 | Private Hercules validation | PASS | `.openrecomp-phase9/evidence/P9-11/` |
 | P9-12 | Hardening + reproducibility | PASS | `.openrecomp-phase9/evidence/P9-12/` |
-| P9-90 | Whole-project regression | QUEUED | - |
+| P9-90 | Whole-project regression | PASS | `.openrecomp-phase9/evidence/P9-90/` |
 | P9-91 | Evidence closure + claim ledger | QUEUED | - |
 | P9-99 | Final bounded verdict | QUEUED | - |
 
@@ -398,3 +398,22 @@ frozen Phase-8 manifests and Phase-3 module hashes re-verify; the public-safety
 scan covered 129 evidence files with zero payload and host-path leaks. The
 P9-10 `build:executable` detail was made repository-relative and its official
 runs re-issued with unchanged stdout. The next stage is `P9-90`.
+
+## P9-90 result
+
+PASS. Gate `tools/test_phase9_whole_regression_v1.py` (221 checks, run twice
+via `p9_stage_runner_v1.py`, byte-identical stdout, empty stderr, exit 0).
+Evidence: `.openrecomp-phase9/evidence/P9-90/`. Markers issued:
+
+- `OPENRECOMP_P9_90=PASS`
+- `OPENRECOMP_PHASE9_WHOLE_REGRESSION_V1=PASS tests=221`
+- `OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN` (reserved)
+- `OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` (permanent)
+- `OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` (permanent)
+
+All thirteen Phase-9 gates re-ran live with byte-identical stdout (1101
+tests); the frozen P8-90 (215 checks, 1463 historical re-verified tests),
+P8-91 (27) and P8-99 (92) re-ran with byte-identical stdout; committed
+Phase-9 evidence was unchanged; the frozen P8-91 index was snapshotted and
+restored (its live regeneration records corrected P8-99 hashes). Total
+re-verified tests: 3113. The next stage is `P9-91`.
