@@ -1,0 +1,162 @@
+{
+  "checks": [
+    {
+      "check": "fixture:sha256",
+      "detail": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65",
+      "status": "PASS"
+    },
+    {
+      "check": "table:supported-ops",
+      "detail": "[\"addiu\", \"addu\", \"andi\", \"beq\", \"bne\", \"j\", \"jal\", \"jr\", \"lb\", \"lbu\", \"lui\", \"lw\", \"movz\", \"nop\", \"or\", \"ori\", \"sb\", \"sll\", \"sra\", \"srl\", \"sw\", \"xor\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "table:unsupported-closed",
+      "detail": "[\"div\", \"divu\", \"jalr\", \"lh\", \"lhu\", \"lwl\", \"lwr\", \"movn\", \"mul\", \"mult\", \"multu\", \"sh\", \"swl\", \"swr\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:deterministic-source",
+      "detail": "6a957bd1639cebf8b702725682b3423accf0e01191a5fa73e9dc9849c9ff3294",
+      "status": "PASS"
+    },
+    {
+      "check": "coverage:neutral-instructions",
+      "detail": "486",
+      "status": "PASS"
+    },
+    {
+      "check": "coverage:every-op-has-rule",
+      "detail": "none",
+      "status": "PASS"
+    },
+    {
+      "check": "coverage:flow-agreement",
+      "detail": "none",
+      "status": "PASS"
+    },
+    {
+      "check": "coverage:folded-delay-sites",
+      "detail": "23",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:byte-reads",
+      "detail": "width 8 reads",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:signed-extension",
+      "detail": "sign extension helper",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:byte-writes",
+      "detail": "width 8 writes",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:select",
+      "detail": "conditional select",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:link-register",
+      "detail": "link register writes",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:runtime-abi",
+      "detail": "ABI surface",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-guest-code",
+      "detail": "portable C only",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:unsupported-op",
+      "detail": "HostEmitterError",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:delay-on-normal-terminal",
+      "detail": "HostEmitterError",
+      "status": "PASS"
+    },
+    {
+      "check": "build:status-ok",
+      "detail": "ok",
+      "status": "PASS"
+    },
+    {
+      "check": "build:reproducible",
+      "detail": "EXECUTABLE_REPRODUCIBLE",
+      "status": "PASS"
+    },
+    {
+      "check": "native:exit-code",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "native:no-failure",
+      "detail": "failed=0 error=",
+      "status": "PASS"
+    },
+    {
+      "check": "native:register-count",
+      "detail": "32",
+      "status": "PASS"
+    },
+    {
+      "check": "native:registers-equal-reference",
+      "detail": "{\"native\": [0, 8192, 0, 0, 128, 127, 128, 4294967168, 127, 127, 4294967168, 5, 5, 17, 0, 0, 68, 85, 102, 136, 153, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], \"reference\": [0, 8192, 0, 0, 128, 127, 128, 4294967168, 127, 127, 4294967168, 5, 5, 17, 0, 0, 68, 85, 102, 136, 153, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}",
+      "status": "PASS"
+    },
+    {
+      "check": "native:memory-equal-reference",
+      "detail": "{\"native\": [128, 127, 0, 0, 128, 255, 255, 255, 88, 16, 0, 0], \"reference\": [128, 127, 0, 0, 128, 255, 255, 255, 88, 16, 0, 0]}",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:delay-program-order",
+      "detail": "delay slots executed",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:not-taken-skipped",
+      "detail": "skipped path",
+      "status": "PASS"
+    },
+    {
+      "check": "native:link-register-value",
+      "detail": "mem[8..11]=[88, 16, 0, 0]",
+      "status": "PASS"
+    },
+    {
+      "check": "dependency:tools/test_host_emitter_v1.py",
+      "detail": "{\"exit_code\": 0, \"gate\": \"tools/test_host_emitter_v1.py\", \"marker\": \"OPENRECOMP_HOST_EMITTER_V1=PASS\", \"marker_present\": true, \"stderr_bytes\": 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "dependency:tools/test_mips32_end_to_end_v1.py",
+      "detail": "{\"exit_code\": 0, \"gate\": \"tools/test_mips32_end_to_end_v1.py\", \"marker\": \"OPENRECOMP_MIPS32_END_TO_END_V1=PASS\", \"marker_present\": true, \"stderr_bytes\": 0}",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "markers": {
+    "gate": "OPENRECOMP_PHASE8_TRANSLATION_CLOSURE_V1=PASS tests=29",
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P8_04=PASS",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "passed": 29,
+  "stage": "P8-04",
+  "stage_name": "Translation frontier closure",
+  "status": "PASS",
+  "tests": 29
+}

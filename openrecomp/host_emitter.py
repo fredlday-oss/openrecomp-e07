@@ -51,6 +51,7 @@ from openrecomp.program_model import (
     BasicBlock,
     DecodedInstruction,
     EdgeKind,
+    EvidenceClass,
     InstructionFlow,
     ProgramModelError,
     ProgramSource,
@@ -194,6 +195,33 @@ class HostCompare:
 
 
 @dataclass(frozen=True)
+class HostSelect:
+    """A conditional select: ``dest = predicate(lhs, rhs) ? true : false``.
+
+    This is the explicit neutral form of architecture conditional-move
+    semantics (e.g. MIPS32 ``movz``/``movn``).  The condition reuses the
+    comparison predicate vocabulary, so no new condition semantics are
+    introduced.
+    """
+
+    dest: HostRegister
+    true_value: HostOperand
+    false_value: HostOperand
+    lhs: HostOperand
+    rhs: HostOperand
+    predicate: str
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.dest, HostRegister):
+            raise HostEmitterError("HostSelect.dest must be a HostRegister")
+        for operand in (self.true_value, self.false_value, self.lhs, self.rhs):
+            if not isinstance(operand, (HostRegister, HostImmediate, HostConstant)):
+                raise HostEmitterError(f"unsupported select operand {operand!r}")
+        if self.predicate not in _PREDICATES:
+            raise HostEmitterError(f"unsupported select predicate {self.predicate!r}")
+
+
+@dataclass(frozen=True)
 class HostLoad:
     """A checked guest memory load through the generic runtime ABI (P2-08).
 
@@ -202,11 +230,18 @@ class HostLoad:
     ``or_rt_memory_read``. A guest address is never treated as a host pointer.
     A load is only emittable when the emitter is configured with a
     `RuntimeAbiConfig`; otherwise it fails closed.
+
+    ``width_bits`` is the loaded access width; ``signed`` selects sign
+    extension to the guest word width (e.g. MIPS32 ``lb``) instead of zero
+    extension (``lbu``).  The defaults reproduce the original 32-bit word
+    behaviour byte-for-byte.
     """
 
     dest: HostRegister
     base: HostRegister
     offset: HostImmediate
+    width_bits: int = 32
+    signed: bool = False
 
     def __post_init__(self) -> None:
         if not isinstance(self.dest, HostRegister):
@@ -215,15 +250,24 @@ class HostLoad:
             raise HostEmitterError("HostLoad.base must be a HostRegister")
         if not isinstance(self.offset, HostImmediate):
             raise HostEmitterError("HostLoad.offset must be a HostImmediate")
+        if isinstance(self.width_bits, bool) or self.width_bits not in _WORD_BITS:
+            raise HostEmitterError(f"HostLoad.width_bits must be one of {sorted(_WORD_BITS)}")
+        if not isinstance(self.signed, bool):
+            raise HostEmitterError("HostLoad.signed must be a boolean")
 
 
 @dataclass(frozen=True)
 class HostStore:
-    """A checked guest memory store through the generic runtime ABI (P2-08)."""
+    """A checked guest memory store through the generic runtime ABI (P2-08).
+
+    ``width_bits`` is the stored access width (e.g. MIPS32 ``sb``/``sh``); the
+    default reproduces the original 32-bit word behaviour byte-for-byte.
+    """
 
     source: HostRegister
     base: HostRegister
     offset: HostImmediate
+    width_bits: int = 32
 
     def __post_init__(self) -> None:
         if not isinstance(self.source, HostRegister):
@@ -232,10 +276,12 @@ class HostStore:
             raise HostEmitterError("HostStore.base must be a HostRegister")
         if not isinstance(self.offset, HostImmediate):
             raise HostEmitterError("HostStore.offset must be a HostImmediate")
+        if isinstance(self.width_bits, bool) or self.width_bits not in _WORD_BITS:
+            raise HostEmitterError(f"HostStore.width_bits must be one of {sorted(_WORD_BITS)}")
 
 
-HostOperation = Union[HostNop, HostCopy, HostConst, HostBinop, HostCompare, HostLoad, HostStore]
-_NORMAL_OPERATIONS = (HostNop, HostCopy, HostConst, HostBinop, HostCompare, HostLoad, HostStore)
+HostOperation = Union[HostNop, HostCopy, HostConst, HostBinop, HostCompare, HostSelect, HostLoad, HostStore]
+_NORMAL_OPERATIONS = (HostNop, HostCopy, HostConst, HostBinop, HostCompare, HostSelect, HostLoad, HostStore)
 
 
 @dataclass(frozen=True)
@@ -384,6 +430,8 @@ class HostEmitterConfig:
     register_names: tuple[str, ...] = ()
     unsupported_indirect_policy: HostUnsupportedPolicy = HostUnsupportedPolicy.BOUNDARY
     runtime_abi: rt_abi.RuntimeAbiConfig | None = None
+    delay_slot_metadata_key: str | None = None
+    link_register: str | None = None
 
     def __post_init__(self) -> None:
         if not isinstance(self.semantics, HostSemantics):
@@ -403,6 +451,12 @@ class HostEmitterConfig:
             raise HostEmitterError("config.unsupported_indirect_policy must be a HostUnsupportedPolicy")
         if self.runtime_abi is not None and not isinstance(self.runtime_abi, rt_abi.RuntimeAbiConfig):
             raise HostEmitterError("config.runtime_abi must be a RuntimeAbiConfig or null")
+        if self.delay_slot_metadata_key is not None:
+            if not isinstance(self.delay_slot_metadata_key, str) or not self.delay_slot_metadata_key:
+                raise HostEmitterError("config.delay_slot_metadata_key must be a non-empty string or null")
+        if self.link_register is not None:
+            if not isinstance(self.link_register, str) or not self.link_register:
+                raise HostEmitterError("config.link_register must be a non-empty string or null")
 
 
 @dataclass(frozen=True)
@@ -576,8 +630,13 @@ class HostEmitter:
                 missing = sorted(set(names) - declared)
                 if missing:
                     raise HostEmitterError(f"unit {unit.unit_id}: registers {missing} are not declared")
+            if self.config.link_register is not None and self.config.link_register not in declared:
+                raise HostEmitterError(f"link register {self.config.link_register!r} is not declared")
             return self.config.register_names
-        return tuple(sorted({name for names in per_unit for name in names}))
+        names = {name for names in per_unit for name in names}
+        if self.config.link_register is not None:
+            names.add(self.config.link_register)
+        return tuple(sorted(names))
 
     def _emit_unit(
         self,
@@ -644,6 +703,10 @@ class HostEmitter:
                 operands.extend((operation.dest, operation.value))
             elif isinstance(operation, (HostBinop, HostCompare)):
                 operands.extend((operation.dest, operation.lhs, operation.rhs))
+            elif isinstance(operation, HostSelect):
+                operands.extend(
+                    (operation.dest, operation.true_value, operation.false_value, operation.lhs, operation.rhs)
+                )
             elif isinstance(operation, HostLoad):
                 operands.extend((operation.dest, operation.base, operation.offset))
             elif isinstance(operation, HostStore):
@@ -732,6 +795,21 @@ class HostEmitter:
             rhs = self._operand_expr(operation.rhs, instruction, context)
             condition = self._comparison_expr(lhs, rhs, operation.predicate, bits)
             return [f"    {dest} = ({condition}) ? UINT64_C(1) : UINT64_C(0);"]
+        if isinstance(operation, HostSelect):
+            dest = self._operand_expr(operation.dest, instruction, context)
+            true_expr = self._operand_expr(operation.true_value, instruction, context)
+            false_expr = self._operand_expr(operation.false_value, instruction, context)
+            condition = self._comparison_expr(
+                self._operand_expr(operation.lhs, instruction, context),
+                self._operand_expr(operation.rhs, instruction, context),
+                operation.predicate,
+                bits,
+            )
+            return [
+                f"    {dest} = ({condition})"
+                f" ? (({true_expr}) & or_mask({bits}u))"
+                f" : (({false_expr}) & or_mask({bits}u));"
+            ]
         if isinstance(operation, HostLoad):
             return self._emit_memory_read(operation, instruction, context)
         if isinstance(operation, HostStore):
@@ -750,15 +828,21 @@ class HostEmitter:
     ) -> list[str]:
         address = self._memory_address(operation.base, operation.offset, instruction, context)
         dest = self._operand_expr(operation.dest, instruction, context)
+        width = operation.width_bits
+        value_expr = "or_value"
+        if width != self.config.word_bits:
+            value_expr = f"(({value_expr}) & or_mask({width}u))"
+        if operation.signed:
+            value_expr = f"((uint64_t)or_signed(({value_expr}), {width}u))"
         return [
             "    {",
             f"        const uint64_t or_addr = {address};",
             "        uint64_t or_value = UINT64_C(0);",
-            f"        if (or_rt_memory_read(or_addr, {self.config.word_bits}u, &or_value) != OR_RT_OK) {{",
+            f"        if (or_rt_memory_read(or_addr, {width}u, &or_value) != OR_RT_OK) {{",
             '            or_fail("runtime memory read failed");',
             "            return;",
             "        }",
-            f"        {dest} = or_value & or_mask({self.config.word_bits}u);",
+            f"        {dest} = {value_expr} & or_mask({self.config.word_bits}u);",
             "    }",
         ]
 
@@ -767,10 +851,11 @@ class HostEmitter:
     ) -> list[str]:
         address = self._memory_address(operation.base, operation.offset, instruction, context)
         source = self._operand_expr(operation.source, instruction, context)
+        width = operation.width_bits
         return [
             "    {",
             f"        const uint64_t or_addr = {address};",
-            f"        if (or_rt_memory_write(or_addr, {self.config.word_bits}u, {source}) != OR_RT_OK) {{",
+            f"        if (or_rt_memory_write(or_addr, {width}u, {source}) != OR_RT_OK) {{",
             f'            or_fail("runtime memory write failed");',
             "            return;",
             "        }",
@@ -834,6 +919,64 @@ class HostEmitter:
         lines.append("    }")
         return lines
 
+    # -- folded delay-slot protocol -----------------------------------------
+    def _folded_delay_slot(self, instruction: DecodedInstruction) -> DecodedInstruction | None:
+        """Return the folded delay-slot instruction declared by metadata, if any."""
+        key = self.config.delay_slot_metadata_key
+        if key is None:
+            return None
+        metadata = instruction.metadata or {}
+        if key not in metadata:
+            return None
+        payload = metadata[key]
+        if payload is None:
+            return None
+        if not isinstance(payload, Mapping):
+            raise HostEmitterError(f"0x{instruction.address:x}: {key} metadata must be a mapping or null")
+        op = payload.get("op")
+        fields = payload.get("adapter_fields")
+        address = payload.get("address")
+        if not isinstance(op, str) or not op:
+            raise HostEmitterError(f"0x{instruction.address:x}: folded delay slot requires a non-empty op")
+        if not isinstance(fields, Mapping):
+            raise HostEmitterError(f"0x{instruction.address:x}: folded delay slot requires adapter_fields")
+        if isinstance(address, bool) or not isinstance(address, int) or address < 0:
+            raise HostEmitterError(f"0x{instruction.address:x}: folded delay slot requires a valid address")
+        return DecodedInstruction(
+            address=address,
+            op=op,
+            size_bytes=4,
+            flow=InstructionFlow.NORMAL,
+            direct_target=None,
+            unresolved=False,
+            evidence=EvidenceClass.PROVEN,
+            metadata={"adapter_fields": dict(fields)},
+        )
+
+    def _emit_delay_slot(self, instruction: DecodedInstruction, context: _UnitContext) -> list[str]:
+        delay = self._folded_delay_slot(instruction)
+        if delay is None:
+            return []
+        rule = self.config.semantics.rule(self._architecture, delay.op)
+        if rule.flow is not InstructionFlow.NORMAL:
+            raise HostEmitterError(
+                f"0x{instruction.address:x}: folded delay slot op {delay.op!r} must be a NORMAL semantic rule"
+            )
+        return self._emit_operations(delay, rule, context)
+
+    def _emit_link_register(self, instruction: DecodedInstruction, context: _UnitContext) -> list[str]:
+        if self.config.link_register is None:
+            return []
+        index = context.index.get(self.config.link_register)
+        if index is None:
+            raise HostEmitterError(
+                f"0x{instruction.address:x}: link register {self.config.link_register!r} has no allocation"
+            )
+        link = (instruction.address + 8) & _mask(self.config.word_bits)
+        return [
+            f"    g_r[{index}] = UINT64_C({link}) & or_mask({self.config.word_bits}u);"
+        ]
+
     # -- control transfer ----------------------------------------------------
     def _emit_transfer(
         self,
@@ -843,10 +986,15 @@ class HostEmitter:
     ) -> list[str]:
         flow = block.terminal_flow()
         if flow is InstructionFlow.NORMAL:
+            if self._folded_delay_slot(block.terminal) is not None:
+                raise HostEmitterError(
+                    f"0x{block.terminal.address:x}: a non-control instruction must not declare a folded delay slot"
+                )
             successors = self._successors(block, EdgeKind.FALLTHROUGH)
             if not successors:
                 return ["    return;"]
             return [f"    goto {self._target_label(context, successors[0])};"]
+        delay_lines = self._emit_delay_slot(block.terminal, context)
         if flow is InstructionFlow.BRANCH:
             taken = self._successors(block, EdgeKind.BRANCH_TAKEN)
             not_taken = self._successors(block, EdgeKind.BRANCH_NOT_TAKEN)
@@ -858,7 +1006,7 @@ class HostEmitter:
                 rule.condition.predicate,
                 self.config.word_bits,
             )
-            return [
+            return delay_lines + [
                 f"    if ({condition}) goto {self._target_label(context, taken[0])}; "
                 f"else goto {self._target_label(context, not_taken[0])};"
             ]
@@ -866,15 +1014,21 @@ class HostEmitter:
             successors = self._successors(block, EdgeKind.JUMP)
             if not successors:
                 raise HostEmitterError(f"unit {context.unit.unit_id} block {block.id}: unresolved direct jump")
-            return [f"    goto {self._target_label(context, successors[0])};"]
+            return delay_lines + [f"    goto {self._target_label(context, successors[0])};"]
         if flow is InstructionFlow.CALL:
-            return self._emit_direct_call(block, context)
+            link_lines = self._emit_link_register(block.terminal, context)
+            return link_lines + delay_lines + self._emit_direct_call(block, context)
         if flow is InstructionFlow.RETURN:
-            return ["    return;"]
+            return delay_lines + ["    return;"]
         if flow is InstructionFlow.TRAP:
-            return ['    or_fail("guest trap is unsupported");', "    return;"]
+            return delay_lines + ['    or_fail("guest trap is unsupported");', "    return;"]
         if flow in (InstructionFlow.INDIRECT_CALL, InstructionFlow.INDIRECT_JUMP):
-            return self._emit_indirect(block, rule, context)
+            link_lines = (
+                self._emit_link_register(block.terminal, context)
+                if flow is InstructionFlow.INDIRECT_CALL
+                else []
+            )
+            return link_lines + delay_lines + self._emit_indirect(block, rule, context)
         raise HostEmitterError(f"unit {context.unit.unit_id} block {block.id}: unsupported terminal flow {flow.value}")
 
     def _successors(self, block: BasicBlock, kind: EdgeKind) -> list[str]:

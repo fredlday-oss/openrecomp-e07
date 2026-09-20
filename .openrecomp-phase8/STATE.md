@@ -11,8 +11,8 @@ BASELINE_GENERAL=OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
 BASELINE_TAG_STATUS=ABSENT_RECONCILED
 BASELINE_TAG_RECONCILIATION=P7-99 records that the frozen Phase-6 control policy required and created no terminal tag; the authoritative Phase-6 terminal boundary is the P6-99 verdict commit 1643817d43196c43155805249137e4b4e4a21eb1, tree cda3f535be43dc6f3d4b457d11d356ae39ea34af. No tag is fabricated.
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P8-04
-LAST_PASSED_STAGE=P8-03
+CURRENT_STAGE=P8-05
+LAST_PASSED_STAGE=P8-04
 STATUS=ACTIVE
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P8-01..P8-99
@@ -74,7 +74,7 @@ Exact observed version strings are recorded in
 | P8-01 | Real redistributable MIPS32 ELF fixture | PASS | `.openrecomp-phase8/evidence/P8-01/` |
 | P8-02 | Existing MIPS32 pipeline re-derivation | PASS | .openrecomp-phase8/evidence/P8-02/ |
 | P8-03 | Real-ELF ProgramModel / CFG integration | PASS | .openrecomp-phase8/evidence/P8-03/ |
-| P8-04 | Translation frontier closure | QUEUED | - |
+| P8-04 | Translation frontier closure | PASS | .openrecomp-phase8/evidence/P8-04/ |
 | P8-05 | Static memory + runtime contract closure | QUEUED | - |
 | P8-06 | Host-source emission | QUEUED | - |
 | P8-07 | Incremental native build | QUEUED | - |
@@ -207,11 +207,30 @@ shared neutral structure: 486 instructions, 27 blocks, 25 edges, 7 functions,
 blocks, entry `fn_2490`/`tu_fn_2490`, with deterministic fingerprints and
 fail-closed mutations.
 
+## P8-04 result
+
+PASS. Gate `tools/test_phase8_translation_v1.py` (29 checks, run twice,
+byte-identical stdout, empty stderr, exit 0). Evidence:
+`.openrecomp-phase8/evidence/P8-04/`. Markers issued:
+
+- `OPENRECOMP_P8_04=PASS`
+- `OPENRECOMP_PHASE8_TRANSLATION_CLOSURE_V1=PASS tests=29`
+- `OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN`
+- `OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN`
+
+Additive host-emitter extensions (`HostLoad` width/sign, `HostStore` width,
+`HostSelect`, opt-in folded delay-slot protocol, opt-in link register) plus
+the closed P8 MIPS32 rule table
+(`.openrecomp-phase8/src/p8_mips32_semantics_v1.py`). The full 486-instruction
+real structure emits deterministically (fingerprint `6a957bd1...`), and the
+new semantics pass differential native-vs-independent-reference execution.
+Direct dependency gates re-pass unchanged.
+
 ## Current boundary
 
 P8-00 established the control plane, P8-01 froze the real-ELF fixture and its
-reproducible build, P8-02 fully characterized the current pipeline frontier,
-and P8-03 derived the neutral structure with delay-slot folding. No emitter,
-runtime, native build or equivalence capability has been added and the
-terminal objective remains unproven. P8-04 (translation frontier closure) is
-active.
+reproducible build, P8-02 characterized the frontier, P8-03 derived the
+neutral structure, and P8-04 proved every reachable instruction translatable
+with the new semantics independently verified. The full fixture has not yet
+been built and executed natively; the terminal objective remains unproven.
+P8-05 (static memory + runtime contract closure) is active.

@@ -78,12 +78,26 @@ permanent.
 - the P8-03 gate passed twice with byte-identical stdout, empty stderr and
   exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-03/`.
 
+## P8-04 outcome
+
+- additive host-emitter extensions: width/sign-explicit `HostLoad`,
+  width-explicit `HostStore`, `HostSelect`, opt-in folded delay-slot protocol
+  and opt-in link-register materialization; default output byte-compatible;
+- closed MIPS32 rule table for exactly the fixture's reachable ops; all 486
+  neutral instructions emit deterministically (fingerprint `6a957bd1...`);
+- differential native-vs-reference execution of the new semantics (byte
+  loads/stores, `movz`, delay-slot order on taken/not-taken/call/return
+  paths, `$ra` save/clobber/restore) passes exactly;
+- unsupported MIPS32 forms and malformed delay/link metadata fail closed;
+- direct dependency gates re-pass unchanged; the P8-04 gate passed twice with
+  byte-identical stdout, empty stderr and exit 0. Evidence is under
+  `.openrecomp-phase8/evidence/P8-04/`.
+
 ## Exact next action
 
-Complete P8-04: close the minimum translation/semantics gaps demonstrated by
-P8-02/P8-03 -- byte-width memory forms (`lb`/`lbu`/`sb`), the `movz`
-conditional-select semantic, the delay-slot emission protocol and the o32
-link-register contract -- with additive, architecture-neutral changes and
-independent tests/reference vectors, so every reachable translated
-instruction for the frozen fixture is proven translatable (otherwise Phase 8
-cannot advance to native proof).
+Complete P8-05: validate the frozen fixture's required static memory and
+runtime contract -- executable memory, `.rodata`, initialized `.data`,
+zero-filled `.bss`, stack requirements, bounded guest memory access and the
+explicit output host service -- by reusing the existing memory/runtime
+architecture, with no Linux kernel emulation. Define the exact host-side
+observable contract for P8-06..P8-08.

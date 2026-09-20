@@ -1,0 +1,33 @@
+PASS: fixture:sha256
+PASS: table:supported-ops
+PASS: table:unsupported-closed
+PASS: emission:deterministic-source
+PASS: coverage:neutral-instructions
+PASS: coverage:every-op-has-rule
+PASS: coverage:flow-agreement
+PASS: coverage:folded-delay-sites
+PASS: emission:byte-reads
+PASS: emission:signed-extension
+PASS: emission:byte-writes
+PASS: emission:select
+PASS: emission:link-register
+PASS: emission:runtime-abi
+PASS: emission:no-guest-code
+PASS reject: unsupported-op
+PASS reject: delay-on-normal-terminal
+PASS: build:status-ok
+PASS: build:reproducible
+PASS: native:exit-code
+PASS: native:no-failure
+PASS: native:register-count
+PASS: native:registers-equal-reference
+PASS: native:memory-equal-reference
+PASS: reference:delay-program-order
+PASS: reference:not-taken-skipped
+PASS: native:link-register-value
+PASS: dependency:tools/test_host_emitter_v1.py
+PASS: dependency:tools/test_mips32_end_to_end_v1.py
+OPENRECOMP_P8_04=PASS
+OPENRECOMP_PHASE8_TRANSLATION_CLOSURE_V1=PASS tests=29
+OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN

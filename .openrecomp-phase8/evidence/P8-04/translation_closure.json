@@ -1,0 +1,135 @@
+{
+  "dependency_gates": [
+    {
+      "exit_code": 0,
+      "gate": "tools/test_host_emitter_v1.py",
+      "marker": "OPENRECOMP_HOST_EMITTER_V1=PASS",
+      "marker_present": true,
+      "stderr_bytes": 0
+    },
+    {
+      "exit_code": 0,
+      "gate": "tools/test_mips32_end_to_end_v1.py",
+      "marker": "OPENRECOMP_MIPS32_END_TO_END_V1=PASS",
+      "marker_present": true,
+      "stderr_bytes": 0
+    }
+  ],
+  "fixture": {
+    "sha256": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65"
+  },
+  "markers": {
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "real_emission": {
+    "fingerprint": "6a957bd1639cebf8b702725682b3423accf0e01191a5fa73e9dc9849c9ff3294",
+    "folded_delay_sites": 23,
+    "neutral_instructions": 486,
+    "source_bytes": 97830
+  },
+  "rule_table": {
+    "architecture": "mips32-bounded-v1",
+    "delay_slot_ops": [
+      "addiu",
+      "nop",
+      "or",
+      "sb"
+    ],
+    "link_register": "r31",
+    "output_service": "p8_uart_write",
+    "supported_ops": [
+      "addiu",
+      "addu",
+      "andi",
+      "beq",
+      "bne",
+      "j",
+      "jal",
+      "jr",
+      "lb",
+      "lbu",
+      "lui",
+      "lw",
+      "movz",
+      "nop",
+      "or",
+      "ori",
+      "sb",
+      "sll",
+      "sra",
+      "srl",
+      "sw",
+      "xor"
+    ],
+    "unsupported_ops": [
+      "div",
+      "divu",
+      "jalr",
+      "lh",
+      "lhu",
+      "lwl",
+      "lwr",
+      "movn",
+      "mul",
+      "mult",
+      "multu",
+      "sh",
+      "swl",
+      "swr"
+    ]
+  },
+  "stage": "P8-04",
+  "synthetic_differential": {
+    "fingerprint": "c2cab124be61a2b857643e5b2e807c65284f934832312a2345b2064ff17d35a9",
+    "memory_prefix": [
+      "80",
+      "7f",
+      "00",
+      "00",
+      "80",
+      "ff",
+      "ff",
+      "ff",
+      "58",
+      "10",
+      "00",
+      "00"
+    ],
+    "register_values": {
+      "r0": "00000000",
+      "r1": "00002000",
+      "r10": "ffffff80",
+      "r11": "00000005",
+      "r12": "00000005",
+      "r13": "00000011",
+      "r14": "00000000",
+      "r15": "00000000",
+      "r16": "00000044",
+      "r17": "00000055",
+      "r18": "00000066",
+      "r19": "00000088",
+      "r2": "00000000",
+      "r20": "00000099",
+      "r21": "00000000",
+      "r22": "00000000",
+      "r23": "00000000",
+      "r24": "00000000",
+      "r25": "00000000",
+      "r26": "00000000",
+      "r27": "00000000",
+      "r28": "00000000",
+      "r29": "00000000",
+      "r3": "00000000",
+      "r30": "00000000",
+      "r31": "00000000",
+      "r4": "00000080",
+      "r5": "0000007f",
+      "r6": "00000080",
+      "r7": "ffffff80",
+      "r8": "0000007f",
+      "r9": "0000007f"
+    },
+    "steps": "reference model of the synthetic fixture"
+  }
+}
