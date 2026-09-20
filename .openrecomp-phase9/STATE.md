@@ -10,13 +10,13 @@ BASELINE_TAG_RECONCILIATION=Phase 8 created no annotated terminal tag. The autho
 BASELINE_TERMINAL=OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS
 BASELINE_GENERAL=OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P9-91
-LAST_PASSED_STAGE=P9-91
-STATUS=IN_PROGRESS
+CURRENT_STAGE=P9-99
+LAST_PASSED_STAGE=P9-99
+STATUS=COMPLETE
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P9-01..P9-99
-FINAL_VERDICT=PENDING
-OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN
+FINAL_VERDICT=PASS
+OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=PASS
 OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN
 
@@ -96,7 +96,7 @@ OpenRecomp-authored or openly licensed PS1 fixture.
 | P9-12 | Hardening + reproducibility | PASS | `.openrecomp-phase9/evidence/P9-12/` |
 | P9-90 | Whole-project regression | PASS | `.openrecomp-phase9/evidence/P9-90/` |
 | P9-91 | Evidence closure + claim ledger | PASS | `.openrecomp-phase9/evidence/P9-91/` |
-| P9-99 | Final bounded verdict | QUEUED | - |
+| P9-99 | Final bounded verdict | PASS | `.openrecomp-phase9/evidence/P9-99/` |
 
 ## P9-00 acceptance criteria
 
@@ -436,3 +436,22 @@ classifies 13 `PROVEN`, 3 `BOUNDED`, 10 `NOT_PROVEN` and 1 `NOT_TESTED`
 claims with both permanent non-claims recorded; the public-safety scan is
 clean. The P9-12 safety scan was made self-exclusion-stable and its official
 runs re-issued with unchanged stdout. The next stage is `P9-99`.
+
+## P9-99 result (terminal)
+
+PASS. Gate `tools/test_phase9_final_verdict_v1.py` (156 checks, run twice via
+`p9_stage_runner_v1.py`, byte-identical stdout, empty stderr, exit 0).
+Evidence: `.openrecomp-phase9/evidence/P9-99/`. Markers issued:
+
+- `OPENRECOMP_P9_99=PASS`
+- `OPENRECOMP_PHASE9_FINAL_VERDICT_V1=PASS tests=156`
+- `OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=PASS` (exact bounded audited
+  public fixture and behaviour only)
+- `OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` (permanent)
+- `OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` (permanent)
+
+The audit verified the frozen Phase-8 boundary and terminal records, all
+fifteen required Phase-9 stage records, the P9-90 regression record (3113
+re-verified tests), the claim ledger, the public fixture identity and the
+native/reference agreement with no excluded observables, the private-fixture
+boundary and the public-safety closure. Phase 9 is COMPLETE.

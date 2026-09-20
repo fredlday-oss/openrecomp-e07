@@ -1,8 +1,11 @@
 # OpenRecomp Phase 9 Handoff
 
-STATUS: Phase 9 `IN_PROGRESS` -- `P9-00` boundary and acceleration control
-plane established and `P9-01` PS-X EXE ingestion complete at the frozen
-Phase-8 terminal boundary. The terminal marker
+STATUS: Phase 9 `COMPLETE` -- `OPENRECOMP_P9_99=PASS` and
+`OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=PASS` were issued for the exact
+bounded audited public fixture and behaviour only;
+`OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` and
+`OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` are permanent. The
+terminal marker
 `OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF` remains `NOT_PROVEN`;
 `OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` and
 `OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` are permanent.
@@ -369,3 +372,26 @@ image and memory-map contract).
   evidence-supported bounded claim, and keep
   `OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` and
   `OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` permanent.
+
+## P9-99 result (terminal)
+
+- 156 checks: frozen Phase-8 boundary and terminal records, all fifteen
+  required Phase-9 stage records, the P9-90 regression record (3113
+  re-verified tests), the evidence index and claim ledger, the public fixture
+  identity, the reproducible executable, native/reference agreement with no
+  excluded observables, the private-fixture boundary and the public-safety
+  closure all verify;
+- markers issued: `OPENRECOMP_P9_99=PASS`,
+  `OPENRECOMP_PHASE9_FINAL_VERDICT_V1=PASS tests=156`,
+  `OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=PASS` (exact bounded audited
+  public fixture and behaviour only),
+  `OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` (permanent),
+  `OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` (permanent);
+- the P9-99 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase9/evidence/P9-99/`.
+
+## Terminal state
+
+Phase 9 is COMPLETE for the exact bounded audited public claim. No further
+stage is queued. Any future work starts a new scoped effort and must not
+weaken the frozen Phase-1..Phase-8 evidence or the Phase-9 evidence chain.

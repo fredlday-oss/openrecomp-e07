@@ -20,7 +20,7 @@ the P9-00 `PASS` boundary, effective before any P9-01 implementation work.
 | P9-12 | Hardening + reproducibility | PASS | Negative malformed-input tests. Cache/stale-evidence tests. Clean rebuild and repeated deterministic execution. Re-verify source/evidence manifests |
 | P9-90 | Whole-project regression | PASS | Re-run applicable frozen Phase-1 through Phase-8 gates and all completed Phase-9 official gates. Preserve historical reconstruction mechanisms where required. Exact counts and deterministic evidence |
 | P9-91 | Evidence closure + claim ledger | PASS | Verify all sidecar hashes, manifests, stage records and evidence indexes. Classify all Phase-9 claims as PROVEN / BOUNDED / NOT_PROVEN / NOT_TESTED |
-| P9-99 | Final bounded verdict | QUEUED | Issue PASS only for the exact evidence-supported PS1 integration claim. Emit the terminal marker, the permanent general PS1 non-claim and the permanent Hercules playability non-claim; otherwise fail closed |
+| P9-99 | Final bounded verdict | PASS | Issue PASS only for the exact evidence-supported PS1 integration claim. Emit the terminal marker, the permanent general PS1 non-claim and the permanent Hercules playability non-claim; otherwise fail closed |
 
 ## Queue freeze
 
@@ -79,9 +79,16 @@ Frozen-queue rules:
 
 ## Terminal state
 
-- Pending. No Phase-9 claim is issued before P9-99.
+- Issued at P9-99: `OPENRECOMP_P9_99=PASS` and
+  `OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=PASS` for the exact bounded
+  audited public fixture (OpenRecomp-authored `openrecomp-authored-ps1-v1`,
+  `17466bc1...`) and its audited behaviour only; see
+  `.openrecomp-phase9/evidence/P9-99/terminal_verdict.json`.
 - `OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` and
   `OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` are permanent: no
-  general PS1, BIOS, GPU/SPU/CD-ROM hardware, PS2, commercial-game,
-  cycle-accuracy or cross-platform compatibility is claimed at any Phase-9
-  stage or by the terminal verdict.
+  general PS1, arbitrary PS-X EXE, BIOS, GPU/SPU/CD-ROM hardware, PS2,
+  commercial-game, cycle-accuracy or cross-platform compatibility is claimed
+  at any Phase-9 stage or by the terminal verdict.
+- Phase 9 is COMPLETE; no further stage is queued. Any future work starts a
+  new scoped effort and must not weaken the frozen Phase-1..Phase-8 evidence
+  or the Phase-9 evidence chain.

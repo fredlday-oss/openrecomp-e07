@@ -124,11 +124,17 @@ def write_json(path: pathlib.Path, document: dict) -> None:
 def build_index() -> dict:
     entries = []
     total_bytes = 0
+    # The index excludes its own generated sidecars and the terminal verdict
+    # stage, which is produced after the index and audited by the P9-99 gate.
+    excluded_prefixes = (
+        ".openrecomp-phase9/evidence/P9-91/",
+        ".openrecomp-phase9/evidence/P9-99/",
+    )
     for path in sorted(EVIDENCE.rglob("*")):
         if not path.is_file():
             continue
         relative = path.relative_to(ROOT).as_posix()
-        if relative.startswith(".openrecomp-phase9/evidence/P9-91/"):
+        if any(relative.startswith(prefix) for prefix in excluded_prefixes):
             continue
         size = path.stat().st_size
         total_bytes += size
@@ -147,7 +153,7 @@ def build_index() -> dict:
         "entry_count": len(entries),
         "total_bytes": total_bytes,
         "entries": entries,
-        "note": "the index excludes its own directory's generated sidecars",
+        "note": "the index excludes its own directory's generated sidecars and the post-index terminal stage (P9-99)",
     }
 
 

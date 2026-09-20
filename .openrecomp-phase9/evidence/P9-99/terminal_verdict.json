@@ -1,0 +1,129 @@
+{
+  "decision": "PASS",
+  "fixture": {
+    "label": "openrecomp-authored-ps1-v1",
+    "sha256": "17466bc17edde54f4d371ae22281b9fb31cd9114c3c293aa7da103751c32c3da",
+    "size": 2240
+  },
+  "markers_issued": [
+    "OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=PASS",
+    "OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+    "OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN"
+  ],
+  "native_reference_agreement": {
+    "excluded_observables": [],
+    "executable_sha256": "5c016be2f043760ef6ac1a7c37c60bbe335c271f307b8e05275f75e0ee2ceb9d",
+    "observable": {
+      "cdrom_digest": "0x0dc54fdf2d1b3c3c",
+      "cdrom_events": 1,
+      "denied": 0,
+      "error": "",
+      "exit_status": "0x00000002",
+      "failed": 0,
+      "gpu_digest": "0x6a326cbc723c24b1",
+      "gpu_events": 2,
+      "host_calls": 0,
+      "input_digest": "0xe35ba7548adde99a",
+      "input_events": 2,
+      "memory_digest": "0x28d892afac2d8496",
+      "reads": 1,
+      "registers_digest": "0x17f2292e1363f17f",
+      "spu_digest": "0x55788edbf95cf3ea",
+      "spu_events": 1,
+      "writes": 4
+    }
+  },
+  "required_stages": [
+    {
+      "gate_marker": "OPENRECOMP_PHASE9_BOUNDARY_V1=PASS",
+      "outcome": "PASS",
+      "stage": "P9-00"
+    },
+    {
+      "gate_marker": "OPENRECOMP_PHASE9_INGESTION_V1=PASS",
+      "outcome": "PASS",
+      "stage": "P9-01"
+    },
+    {
+      "gate_marker": "OPENRECOMP_PHASE9_MEMORY_MAP_V1=PASS",
+      "outcome": "PASS",
+      "stage": "P9-02"
+    },
+    {
+      "gate_marker": "OPENRECOMP_PHASE9_PIPELINE_V1=PASS",
+      "outcome": "PASS",
+      "stage": "P9-03"
+    },
+    {
+      "gate_marker": "OPENRECOMP_PHASE9_TRANSLATION_CLOSURE_V1=PASS",
+      "outcome": "PASS",
+      "stage": "P9-04"
+    },
+    {
+      "gate_marker": "OPENRECOMP_PHASE9_BIOS_BOUNDARY_V1=PASS",
+      "outcome": "PASS",
+      "stage": "P9-05"
+    },
+    {
+      "gate_marker": "OPENRECOMP_PHASE9_GPU_BOUNDARY_V1=PASS",
+      "outcome": "PASS",
+      "stage": "P9-06"
+    },
+    {
+      "gate_marker": "OPENRECOMP_PHASE9_INPUT_TIMER_V1=PASS",
+      "outcome": "PASS",
+      "stage": "P9-07"
+    },
+    {
+      "gate_marker": "OPENRECOMP_PHASE9_SPU_BOUNDARY_V1=PASS",
+      "outcome": "PASS",
+      "stage": "P9-08"
+    },
+    {
+      "gate_marker": "OPENRECOMP_PHASE9_CDROM_BOUNDARY_V1=PASS",
+      "outcome": "PASS",
+      "stage": "P9-09"
+    },
+    {
+      "gate_marker": "OPENRECOMP_PHASE9_NATIVE_EXECUTION_V1=PASS",
+      "outcome": "PASS",
+      "stage": "P9-10"
+    },
+    {
+      "gate_marker": "OPENRECOMP_PHASE9_PRIVATE_VALIDATION_V1=PASS",
+      "outcome": "PASS",
+      "stage": "P9-11"
+    },
+    {
+      "gate_marker": "OPENRECOMP_PHASE9_HARDENING_V1=PASS",
+      "outcome": "PASS",
+      "stage": "P9-12"
+    },
+    {
+      "gate_marker": "OPENRECOMP_PHASE9_WHOLE_REGRESSION_V1=PASS",
+      "outcome": "PASS",
+      "stage": "P9-90"
+    },
+    {
+      "gate_marker": "OPENRECOMP_PHASE9_EVIDENCE_INDEX_V1=PASS",
+      "outcome": "PASS",
+      "stage": "P9-91"
+    }
+  ],
+  "scope_guards": {
+    "arbitrary_psx_exe": "NOT_PROVEN",
+    "bios_emulation": "NOT_PROVEN",
+    "cop0_gte": "NOT_PROVEN",
+    "general_ps1_compatibility": "NOT_PROVEN",
+    "gpu_spu_cdrom_hardware": "NOT_PROVEN",
+    "hercules_playability": "NOT_PROVEN",
+    "interrupts": "NOT_PROVEN",
+    "ps2": "NOT_PROVEN"
+  },
+  "stage": "P9-99",
+  "whole_regression": {
+    "phase8_terminal_audits": 3,
+    "phase9_gates": 13,
+    "total_reverified_tests": 3113
+  }
+}

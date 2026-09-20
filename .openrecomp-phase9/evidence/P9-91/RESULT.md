@@ -22,8 +22,10 @@ Every sidecar hash recorded in `official_runs.json` matches the file on disk.
 ## Evidence index
 
 `evidence_index.json` covers every committed Phase-9 evidence file except this
-stage's own generated sidecars: 141 entries, exact SHA-256 and byte sizes,
-grouped by stage. The live index equals the committed index.
+stage's own generated sidecars and the post-index terminal stage (`P9-99`,
+audited by the P9-99 gate): 141 entries, exact SHA-256 and byte sizes, grouped
+by stage. The live index equals the committed index, so the gate remains
+re-runnable in `--verify-only` mode after the terminal verdict.
 
 ## Claim ledger
 
@@ -69,10 +71,10 @@ empty stderr, both runs byte-identical: stdout 5848 bytes (LF), sha256
 Sidecar identities:
 
 - `p9_91_tests.json` `55ce64a506ac1636958c2b47031950a16be79b5e7e628ecc1a267ba7bdfa99fd`;
-- `evidence_index.json` `894cfe39afda68c4bd6a0cb3a7863636f560624b157ef6d04872d84826b5efa4`;
+- `evidence_index.json` `163f0e9a83f1f6f9b457e1db7ded57049f6fd64827c5e39b942262bd6bf288ae`;
 - `claim_ledger.json` `878bb7a25e495b6306d34f928112be13ff2179a0cac1562b5fea563887b791c5`;
 - `official_runs.json` `d1d9377a15943a7296d5f37e9c5dda986cf0cd5e5cf07df95976959ffa24d6db`;
-- `determinism.json` `0e3ca40c20d2363a65563dabdf4c4495fc2717289459484d16d12cd41e7c9cb1`;
+- `determinism.json` `f55f3ed1ec2b3fe91bcb826a9b942b9fb027837e0979308e488e42e13694fc21`;
 - `run1.txt` = `run2.txt` `7323e6999eb210505ae1c6dc9199d01a8d75bddca9c5caff1cf2028a8b9eac24`;
 - `run1.err.txt` = `run2.err.txt` empty
   (`e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`).
@@ -82,7 +84,9 @@ Sidecar identities:
 The P9-12 safety scan now excludes its own generated sidecars so the scanned
 count (and therefore its tests sidecar) is stable across the two official
 runs; its official stdout is unchanged (`1e4981ce...`) and the runs were
-re-issued. No semantic evidence changed.
+re-issued. The evidence index now also excludes the post-index terminal stage
+(`P9-99`) so this gate stays re-runnable after the terminal verdict; the
+official stdout is unchanged (`7323e699...`). No semantic evidence changed.
 
 ## Claim-ledger delta
 
