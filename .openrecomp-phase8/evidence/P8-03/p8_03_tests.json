@@ -1,0 +1,277 @@
+{
+  "checks": [
+    {
+      "check": "fixture:sha256",
+      "detail": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:reachable",
+      "detail": "509",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:summary",
+      "detail": "identical summary",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:blocks",
+      "detail": "27",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:call_edges_external",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:call_edges_internal",
+      "detail": "8",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:call_edges_unresolved",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:call_graph_fingerprint",
+      "detail": "\"8508c599d2869d1d32a24949c4b113112bf21a57c7c3c04a7a255c581220cd5b\"",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:cfg_fingerprint",
+      "detail": "\"8c51308cd9ad9bd7987f57637e23ab94bbfbf0a9eeac10fa73d259ac0a689e71\"",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:classification_units",
+      "detail": "7",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:discovery_fingerprint",
+      "detail": "\"2a9835556a8a3db0433060a2fe81d3647cc2cf1babdb234367f8b1a816fa528d\"",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:edge_histogram",
+      "detail": "{\"BRANCH_NOT_TAKEN\": 5, \"BRANCH_TAKEN\": 5, \"CALL_RETURN\": 8, \"FALLTHROUGH\": 4, \"JUMP\": 3}",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:edges",
+      "detail": "25",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:entry_function",
+      "detail": "\"fn_2490\"",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:entry_unit",
+      "detail": "\"tu_fn_2490\"",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:flow_histogram",
+      "detail": "{\"BRANCH\": 5, \"CALL\": 8, \"JUMP\": 3, \"NORMAL\": 463, \"RETURN\": 7}",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:folded_delay_slots",
+      "detail": "23",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:functions",
+      "detail": "7",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:neutral_instructions",
+      "detail": "486",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:non_nop_delay_slots",
+      "detail": "16",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:program_model_fingerprint",
+      "detail": "\"718f538ed53acacafb81ebe00d4effa29ab827ae2a5654de6662a62c46c8b60c\"",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:shared_blocks",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:translation_units",
+      "detail": "7",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:units_fingerprint",
+      "detail": "\"50034a80e085b9a80c9742dffd50521d24d1b76dfbc29e5dd6066c3f519ac33b\"",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:unowned_blocks",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:unresolved_sites",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "delay:folded-count",
+      "detail": "23",
+      "status": "PASS"
+    },
+    {
+      "check": "delay:folded-non-nop",
+      "detail": "16",
+      "status": "PASS"
+    },
+    {
+      "check": "delay:folded-ops",
+      "detail": "[\"addiu\", \"nop\", \"or\", \"sb\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "delay:non-nop-ops",
+      "detail": "[\"addiu\", \"or\", \"sb\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "delay:owner-plus-four",
+      "detail": "owner+4",
+      "status": "PASS"
+    },
+    {
+      "check": "delay:adapter-fields",
+      "detail": "fields-consistent",
+      "status": "PASS"
+    },
+    {
+      "check": "delay:dropped-not-neutral",
+      "detail": "disjoint",
+      "status": "PASS"
+    },
+    {
+      "check": "delay:count-reconciles",
+      "detail": "486+23",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:control-has-delay",
+      "detail": "control-only",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:control-extent-eight",
+      "detail": "control=8 normal=4",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:no-indirect-flow",
+      "detail": "no indirect flow",
+      "status": "PASS"
+    },
+    {
+      "check": "neutral:no-traps",
+      "detail": "no traps",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:targets-inside",
+      "detail": "all targets neutral",
+      "status": "PASS"
+    },
+    {
+      "check": "cfg:no-target-into-delay",
+      "detail": "no delay targets",
+      "status": "PASS"
+    },
+    {
+      "check": "calls:frontier-count",
+      "detail": "8",
+      "status": "PASS"
+    },
+    {
+      "check": "calls:edges-match-frontier",
+      "detail": "[[4104, 4124], [4552, 4572], [9156, 4096], [9172, 4536], [9228, 8848], [9248, 8848], [9292, 8848], [9376, 9056]]",
+      "status": "PASS"
+    },
+    {
+      "check": "calls:entry-source",
+      "detail": "fn_2490",
+      "status": "PASS"
+    },
+    {
+      "check": "calls:callee-entries",
+      "detail": "[4096, 4124, 4536, 4572, 8848, 9056, 9360]",
+      "status": "PASS"
+    },
+    {
+      "check": "units:one-per-function",
+      "detail": "7",
+      "status": "PASS"
+    },
+    {
+      "check": "classification:no-unresolved",
+      "detail": "none",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:delay-slot-unreachable",
+      "detail": "DELAY_SLOT_UNREACHABLE",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:delay-slot-is-control",
+      "detail": "DELAY_SLOT_IS_CONTROL",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:target-into-delay-slot",
+      "detail": "TARGET_INTO_DELAY_SLOT",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect:not-guessed",
+      "detail": "[{\"function_id\": \"fn_1000\", \"block_id\": \"blk_1010\", \"address\": 4116, \"op\": \"jr\", \"kind\": \"INDIRECT_JUMP\", \"status\": \"UNRESOLVED_INDIRECT_JUMP\", \"target\": null}]",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:return-not-ra",
+      "detail": "RETURN_NOT_RA",
+      "status": "PASS"
+    },
+    {
+      "check": "reject:malformed-analysis",
+      "detail": "INVALID_ANALYSIS",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "markers": {
+    "gate": "OPENRECOMP_PHASE8_PROGRAM_STRUCTURE_V1=PASS tests=52",
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P8_03=PASS",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "passed": 52,
+  "stage": "P8-03",
+  "stage_name": "Real-ELF ProgramModel / CFG integration",
+  "status": "PASS",
+  "tests": 52
+}

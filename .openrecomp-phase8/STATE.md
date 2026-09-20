@@ -11,8 +11,8 @@ BASELINE_GENERAL=OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
 BASELINE_TAG_STATUS=ABSENT_RECONCILED
 BASELINE_TAG_RECONCILIATION=P7-99 records that the frozen Phase-6 control policy required and created no terminal tag; the authoritative Phase-6 terminal boundary is the P6-99 verdict commit 1643817d43196c43155805249137e4b4e4a21eb1, tree cda3f535be43dc6f3d4b457d11d356ae39ea34af. No tag is fabricated.
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P8-03
-LAST_PASSED_STAGE=P8-02
+CURRENT_STAGE=P8-04
+LAST_PASSED_STAGE=P8-03
 STATUS=ACTIVE
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P8-01..P8-99
@@ -73,7 +73,7 @@ Exact observed version strings are recorded in
 | P8-00 | Phase-8 boundary + acceleration control plane | PASS | `.openrecomp-phase8/evidence/P8-00/` |
 | P8-01 | Real redistributable MIPS32 ELF fixture | PASS | `.openrecomp-phase8/evidence/P8-01/` |
 | P8-02 | Existing MIPS32 pipeline re-derivation | PASS | .openrecomp-phase8/evidence/P8-02/ |
-| P8-03 | Real-ELF ProgramModel / CFG integration | QUEUED | - |
+| P8-03 | Real-ELF ProgramModel / CFG integration | PASS | .openrecomp-phase8/evidence/P8-03/ |
 | P8-04 | Translation frontier closure | QUEUED | - |
 | P8-05 | Static memory + runtime contract closure | QUEUED | - |
 | P8-06 | Host-source emission | QUEUED | - |
@@ -189,10 +189,29 @@ Measured gaps: translation semantics 1, emitter width 222, delay slots 23
 memory-image contract 1, native toolchain 0, unresolved control flow 0. The
 reused Phase-3 module hashes equal their frozen manifest entries.
 
+## P8-03 result
+
+PASS. Gate `tools/test_phase8_structure_v1.py` (52 checks, run twice,
+byte-identical stdout, empty stderr, exit 0). Evidence:
+`.openrecomp-phase8/evidence/P8-03/`. Markers issued:
+
+- `OPENRECOMP_P8_03=PASS`
+- `OPENRECOMP_PHASE8_PROGRAM_STRUCTURE_V1=PASS tests=52`
+- `OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN`
+- `OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN`
+
+The additive P8 bridge `.openrecomp-phase8/src/p8_structure_v1.py` folds the
+23 delay slots (16 non-nop) into their control instructions and derives the
+shared neutral structure: 486 instructions, 27 blocks, 25 edges, 7 functions,
+7 translation units, 8 internal call edges, 0 unresolved sites, 0 unowned
+blocks, entry `fn_2490`/`tu_fn_2490`, with deterministic fingerprints and
+fail-closed mutations.
+
 ## Current boundary
 
 P8-00 established the control plane, P8-01 froze the real-ELF fixture and its
-reproducible build, and P8-02 fully characterized the current pipeline
-frontier. No translation, emitter, runtime, native build or equivalence
-capability has been added and the terminal objective remains unproven. P8-03
-(real-ELF ProgramModel/CFG integration) is active.
+reproducible build, P8-02 fully characterized the current pipeline frontier,
+and P8-03 derived the neutral structure with delay-slot folding. No emitter,
+runtime, native build or equivalence capability has been added and the
+terminal objective remains unproven. P8-04 (translation frontier closure) is
+active.

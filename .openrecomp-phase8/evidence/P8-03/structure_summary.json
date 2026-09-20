@@ -1,0 +1,208 @@
+{
+  "call_edges": [
+    [
+      4104,
+      4124
+    ],
+    [
+      4552,
+      4572
+    ],
+    [
+      9156,
+      4096
+    ],
+    [
+      9172,
+      4536
+    ],
+    [
+      9228,
+      8848
+    ],
+    [
+      9248,
+      8848
+    ],
+    [
+      9292,
+      8848
+    ],
+    [
+      9376,
+      9056
+    ]
+  ],
+  "fixture": {
+    "sha256": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65"
+  },
+  "folded_delay_slots": {
+    "0x00001008": {
+      "delay": "0x0000100c",
+      "delay_op": "nop",
+      "non_nop": false
+    },
+    "0x00001014": {
+      "delay": "0x00001018",
+      "delay_op": "addiu",
+      "non_nop": true
+    },
+    "0x000010b4": {
+      "delay": "0x000010b8",
+      "delay_op": "addiu",
+      "non_nop": true
+    },
+    "0x00001120": {
+      "delay": "0x00001124",
+      "delay_op": "addiu",
+      "non_nop": true
+    },
+    "0x0000113c": {
+      "delay": "0x00001140",
+      "delay_op": "nop",
+      "non_nop": false
+    },
+    "0x00001148": {
+      "delay": "0x0000114c",
+      "delay_op": "or",
+      "non_nop": true
+    },
+    "0x00001150": {
+      "delay": "0x00001154",
+      "delay_op": "nop",
+      "non_nop": false
+    },
+    "0x000011c8": {
+      "delay": "0x000011cc",
+      "delay_op": "or",
+      "non_nop": true
+    },
+    "0x000011d4": {
+      "delay": "0x000011d8",
+      "delay_op": "addiu",
+      "non_nop": true
+    },
+    "0x00001424": {
+      "delay": "0x00001428",
+      "delay_op": "sb",
+      "non_nop": true
+    },
+    "0x000014e8": {
+      "delay": "0x000014ec",
+      "delay_op": "sb",
+      "non_nop": true
+    },
+    "0x00001608": {
+      "delay": "0x0000160c",
+      "delay_op": "sb",
+      "non_nop": true
+    },
+    "0x000016f8": {
+      "delay": "0x000016fc",
+      "delay_op": "addiu",
+      "non_nop": true
+    },
+    "0x00002294": {
+      "delay": "0x00002298",
+      "delay_op": "sb",
+      "non_nop": true
+    },
+    "0x000023c4": {
+      "delay": "0x000023c8",
+      "delay_op": "or",
+      "non_nop": true
+    },
+    "0x000023d4": {
+      "delay": "0x000023d8",
+      "delay_op": "or",
+      "non_nop": true
+    },
+    "0x0000240c": {
+      "delay": "0x00002410",
+      "delay_op": "nop",
+      "non_nop": false
+    },
+    "0x00002420": {
+      "delay": "0x00002424",
+      "delay_op": "nop",
+      "non_nop": false
+    },
+    "0x00002444": {
+      "delay": "0x00002448",
+      "delay_op": "or",
+      "non_nop": true
+    },
+    "0x0000244c": {
+      "delay": "0x00002450",
+      "delay_op": "addiu",
+      "non_nop": true
+    },
+    "0x0000247c": {
+      "delay": "0x00002480",
+      "delay_op": "addiu",
+      "non_nop": true
+    },
+    "0x000024a0": {
+      "delay": "0x000024a4",
+      "delay_op": "nop",
+      "non_nop": false
+    },
+    "0x000024ac": {
+      "delay": "0x000024b0",
+      "delay_op": "nop",
+      "non_nop": false
+    }
+  },
+  "function_entries": [
+    4096,
+    4124,
+    4536,
+    4572,
+    8848,
+    9056,
+    9360
+  ],
+  "markers": {
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "stage": "P8-03",
+  "summary": {
+    "blocks": 27,
+    "call_edges_external": 0,
+    "call_edges_internal": 8,
+    "call_edges_unresolved": 0,
+    "call_graph_fingerprint": "8508c599d2869d1d32a24949c4b113112bf21a57c7c3c04a7a255c581220cd5b",
+    "cfg_fingerprint": "8c51308cd9ad9bd7987f57637e23ab94bbfbf0a9eeac10fa73d259ac0a689e71",
+    "classification_units": 7,
+    "discovery_fingerprint": "2a9835556a8a3db0433060a2fe81d3647cc2cf1babdb234367f8b1a816fa528d",
+    "edge_histogram": {
+      "BRANCH_NOT_TAKEN": 5,
+      "BRANCH_TAKEN": 5,
+      "CALL_RETURN": 8,
+      "FALLTHROUGH": 4,
+      "JUMP": 3
+    },
+    "edges": 25,
+    "entry_function": "fn_2490",
+    "entry_unit": "tu_fn_2490",
+    "flow_histogram": {
+      "BRANCH": 5,
+      "CALL": 8,
+      "JUMP": 3,
+      "NORMAL": 463,
+      "RETURN": 7
+    },
+    "folded_delay_slots": 23,
+    "functions": 7,
+    "neutral_instructions": 486,
+    "non_nop_delay_slots": 16,
+    "program_model_fingerprint": "718f538ed53acacafb81ebe00d4effa29ab827ae2a5654de6662a62c46c8b60c",
+    "shared_blocks": 0,
+    "structure_version": "1.0.0",
+    "translation_units": 7,
+    "units_fingerprint": "50034a80e085b9a80c9742dffd50521d24d1b76dfbc29e5dd6066c3f519ac33b",
+    "unowned_blocks": 0,
+    "unresolved_sites": []
+  }
+}

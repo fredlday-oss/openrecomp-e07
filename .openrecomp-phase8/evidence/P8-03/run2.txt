@@ -1,0 +1,56 @@
+PASS: fixture:sha256
+PASS: frontier:reachable
+PASS: determinism:summary
+PASS: structure:blocks
+PASS: structure:call_edges_external
+PASS: structure:call_edges_internal
+PASS: structure:call_edges_unresolved
+PASS: structure:call_graph_fingerprint
+PASS: structure:cfg_fingerprint
+PASS: structure:classification_units
+PASS: structure:discovery_fingerprint
+PASS: structure:edge_histogram
+PASS: structure:edges
+PASS: structure:entry_function
+PASS: structure:entry_unit
+PASS: structure:flow_histogram
+PASS: structure:folded_delay_slots
+PASS: structure:functions
+PASS: structure:neutral_instructions
+PASS: structure:non_nop_delay_slots
+PASS: structure:program_model_fingerprint
+PASS: structure:shared_blocks
+PASS: structure:translation_units
+PASS: structure:units_fingerprint
+PASS: structure:unowned_blocks
+PASS: structure:unresolved_sites
+PASS: delay:folded-count
+PASS: delay:folded-non-nop
+PASS: delay:folded-ops
+PASS: delay:non-nop-ops
+PASS: delay:owner-plus-four
+PASS: delay:adapter-fields
+PASS: delay:dropped-not-neutral
+PASS: delay:count-reconciles
+PASS: neutral:control-has-delay
+PASS: neutral:control-extent-eight
+PASS: neutral:no-indirect-flow
+PASS: neutral:no-traps
+PASS: cfg:targets-inside
+PASS: cfg:no-target-into-delay
+PASS: calls:frontier-count
+PASS: calls:edges-match-frontier
+PASS: calls:entry-source
+PASS: calls:callee-entries
+PASS: units:one-per-function
+PASS: classification:no-unresolved
+PASS reject: delay-slot-unreachable
+PASS reject: delay-slot-is-control
+PASS reject: target-into-delay-slot
+PASS: indirect:not-guessed
+PASS reject: return-not-ra
+PASS reject: malformed-analysis
+OPENRECOMP_P8_03=PASS
+OPENRECOMP_PHASE8_PROGRAM_STRUCTURE_V1=PASS tests=52
+OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN

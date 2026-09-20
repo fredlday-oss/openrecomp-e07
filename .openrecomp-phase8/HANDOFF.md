@@ -63,10 +63,27 @@ permanent.
 - the P8-02 gate passed twice with byte-identical stdout, empty stderr and
   exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-02/`.
 
+## P8-03 outcome
+
+- new additive bridge `.openrecomp-phase8/src/p8_structure_v1.py` folds MIPS32
+  delay slots into their control instructions (size 8) and drives the frozen
+  ELF through the existing neutral ProgramModel/CFG/functions/call
+  graph/translation-unit layers;
+- 486 neutral instructions (509 reachable - 23 folded delay slots, 16
+  non-nop), 27 blocks, 25 edges, 7 functions, 7 units, 8 internal call edges
+  matching the frontier `jal` sites, 0 unresolved sites, 0 unowned blocks,
+  entry `fn_2490`/`tu_fn_2490`, deterministic fingerprints;
+- fail-closed mutations rejected with stable codes; a synthetic indirect
+  rewrite is classified unresolved with no invented target;
+- the P8-03 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-03/`.
+
 ## Exact next action
 
-Complete P8-03: drive the frozen real ELF through the existing neutral
-ProgramModel, CFG, function discovery, call graph and translation-unit
-structure, closing only evidence-demonstrated structure-level gaps; indirect
-control flow must be exact, a finite evidence-supported set, or
-unresolved/fail-closed with no guessed targets.
+Complete P8-04: close the minimum translation/semantics gaps demonstrated by
+P8-02/P8-03 -- byte-width memory forms (`lb`/`lbu`/`sb`), the `movz`
+conditional-select semantic, the delay-slot emission protocol and the o32
+link-register contract -- with additive, architecture-neutral changes and
+independent tests/reference vectors, so every reachable translated
+instruction for the frozen fixture is proven translatable (otherwise Phase 8
+cannot advance to native proof).
