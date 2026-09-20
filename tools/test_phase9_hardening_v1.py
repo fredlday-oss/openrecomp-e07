@@ -260,7 +260,12 @@ def native_observable(parsed: dict) -> dict:
 
 def scan_evidence(private_payload: bytes | None) -> dict:
     evidence_root = ROOT / ".openrecomp-phase9" / "evidence"
-    files = sorted(path for path in evidence_root.rglob("*") if path.is_file())
+    own_dir = (evidence_root / "P9-12").resolve()
+    files = sorted(
+        path
+        for path in evidence_root.rglob("*")
+        if path.is_file() and own_dir not in path.resolve().parents
+    )
     leaks: list[str] = []
     host_paths: list[str] = []
     for path in files:

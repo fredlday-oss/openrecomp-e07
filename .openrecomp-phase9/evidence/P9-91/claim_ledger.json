@@ -1,0 +1,222 @@
+{
+  "claims": [
+    {
+      "claim": "PS-X EXE ingestion for the bounded V1 container form",
+      "class": "PROVEN",
+      "evidence": [
+        "P9-01",
+        "P9-12"
+      ],
+      "key": "psx_exe_ingestion"
+    },
+    {
+      "claim": "Explicit PS1 address-space contract (2 MiB RAM, KSEG0/KSEG1, named regions, fail-closed segments)",
+      "class": "PROVEN",
+      "evidence": [
+        "P9-02",
+        "P9-12"
+      ],
+      "key": "ps1_address_space_contract"
+    },
+    {
+      "claim": "Frozen Phase-8 MIPS32 pipeline reuse for PS1 PS-X EXE code",
+      "class": "PROVEN",
+      "evidence": [
+        "P9-03",
+        "P9-90"
+      ],
+      "key": "frozen_mips32_pipeline_reuse"
+    },
+    {
+      "claim": "Reachable translation-frontier closure against the frozen rule table (public fixture)",
+      "class": "PROVEN",
+      "evidence": [
+        "P9-04"
+      ],
+      "key": "reachable_translation_closure"
+    },
+    {
+      "claim": "Typed, versioned, fail-closed BIOS/service boundary with no BIOS image",
+      "class": "PROVEN",
+      "evidence": [
+        "P9-05"
+      ],
+      "key": "bios_service_boundary"
+    },
+    {
+      "claim": "Clean non-emulating GPU adapter boundary with typed events and unknown-command blockers",
+      "class": "PROVEN",
+      "evidence": [
+        "P9-06"
+      ],
+      "key": "gpu_adapter_boundary"
+    },
+    {
+      "claim": "Deterministic virtual input/time interfaces and interrupt classification",
+      "class": "PROVEN",
+      "evidence": [
+        "P9-07"
+      ],
+      "key": "input_timer_event_boundary"
+    },
+    {
+      "claim": "Explicit audio service/runtime contract with no synthesis",
+      "class": "PROVEN",
+      "evidence": [
+        "P9-08"
+      ],
+      "key": "spu_audio_contract"
+    },
+    {
+      "claim": "Explicit bounded CD-ROM/file-service contract with no disc bytes",
+      "class": "PROVEN",
+      "evidence": [
+        "P9-09"
+      ],
+      "key": "cdrom_file_service_contract"
+    },
+    {
+      "claim": "Native recompilation and deterministic execution of the public PS1 fixture through the platform runtime adapter",
+      "class": "PROVEN",
+      "evidence": [
+        "P9-10",
+        "P9-12"
+      ],
+      "key": "native_build_deterministic_execution"
+    },
+    {
+      "claim": "Independent reference equivalence with no excluded observables",
+      "class": "PROVEN",
+      "evidence": [
+        "P9-10",
+        "P9-12"
+      ],
+      "key": "independent_reference_equivalence"
+    },
+    {
+      "claim": "Private Hercules bounded validation with exact frontier and first blocker",
+      "class": "PROVEN",
+      "evidence": [
+        "P9-11"
+      ],
+      "key": "private_hercules_bounded_validation"
+    },
+    {
+      "claim": "Fail-closed hardening, immutable-hash cache correctness, reproducible rebuild and public-safety closure",
+      "class": "PROVEN",
+      "evidence": [
+        "P9-12",
+        "P9-90"
+      ],
+      "key": "fail_closed_hardening_and_reproducibility"
+    },
+    {
+      "claim": "Platform port behaviours are event recording / contract stubs, not hardware-accurate emulation",
+      "class": "BOUNDED",
+      "evidence": [
+        "P9-06",
+        "P9-07",
+        "P9-08",
+        "P9-09"
+      ],
+      "key": "platform_port_behaviour"
+    },
+    {
+      "claim": "Private-fixture I/O and BIOS discovery are exact only within the bounded same-block windows",
+      "class": "BOUNDED",
+      "evidence": [
+        "P9-05",
+        "P9-11"
+      ],
+      "key": "private_frontier_discovery_windows"
+    },
+    {
+      "claim": "Flat 2 MiB RAM image and explicit bounded stack window model",
+      "class": "BOUNDED",
+      "evidence": [
+        "P9-02"
+      ],
+      "key": "flat_ram_and_stack_model"
+    },
+    {
+      "claim": "General PS1 compatibility",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "general_ps1_compatibility"
+    },
+    {
+      "claim": "Arbitrary PS-X EXE compatibility",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "arbitrary_psx_exe_compatibility"
+    },
+    {
+      "claim": "BIOS emulation",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "bios_emulation"
+    },
+    {
+      "claim": "GPU rendering / VRAM behaviour",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "gpu_rendering"
+    },
+    {
+      "claim": "SPU audio synthesis",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "spu_synthesis"
+    },
+    {
+      "claim": "CD-ROM disc reading / file system",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "cdrom_disc_reading"
+    },
+    {
+      "claim": "Controller serial protocol",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "controller_protocol"
+    },
+    {
+      "claim": "Interrupt delivery / event scheduling",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "interrupt_delivery"
+    },
+    {
+      "claim": "COP0/GTE execution",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "cop0_gte_execution"
+    },
+    {
+      "claim": "Hercules playability",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "hercules_playability"
+    },
+    {
+      "claim": "Memory cards, DMA and link cable behaviour",
+      "class": "NOT_TESTED",
+      "evidence": [],
+      "key": "memory_cards_dma_link_cable"
+    }
+  ],
+  "classes": [
+    "PROVEN",
+    "BOUNDED",
+    "NOT_PROVEN",
+    "NOT_TESTED"
+  ],
+  "permanent_non_claims": [
+    "OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+    "OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN"
+  ],
+  "schema": "openrecomp-phase9-claim-ledger-v1",
+  "stage": "P9-91",
+  "terminal_claim": "OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF",
+  "terminal_claim_status_at_p9_91": "NOT_PROVEN"
+}

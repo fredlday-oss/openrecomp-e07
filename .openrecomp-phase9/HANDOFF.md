@@ -343,3 +343,29 @@ image and memory-map contract).
 - build the claim ledger classifying every Phase-9 claim as PROVEN / BOUNDED /
   NOT_PROVEN / NOT_TESTED;
 - run the public-safety verification over the committed Phase-9 material.
+
+## P9-91 outcome
+
+- 181 checks: every completed stage record verifies with two byte-identical
+  runs, empty stderr, exit 0 and matching sidecar hashes; the evidence index
+  covers all committed Phase-9 evidence (141 entries, own sidecars excluded);
+- the claim ledger classifies 13 `PROVEN`, 3 `BOUNDED`, 10 `NOT_PROVEN` and
+  1 `NOT_TESTED` claims; both permanent non-claims are recorded and the
+  terminal claim remains reserved;
+- the public-safety scan is clean (no private payload material, no absolute
+  host paths);
+- the P9-12 safety scan was made self-exclusion-stable and its official runs
+  re-issued with unchanged stdout;
+- the P9-91 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase9/evidence/P9-91/`.
+
+## Known work for P9-99
+
+- audit every Phase-9 stage record (`P9-00` .. `P9-12`, `P9-90`, `P9-91`);
+- re-verify the frozen Phase-8 boundary, the public fixture identity, the
+  native/reference agreement and the scope guards;
+- issue `OPENRECOMP_P9_99=PASS` with
+  `OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=PASS` only for the exact
+  evidence-supported bounded claim, and keep
+  `OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` and
+  `OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` permanent.

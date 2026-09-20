@@ -56,15 +56,18 @@ stay untracked under `.openrecomp-phase9/cache/`.
 
 - the Phase-9 source manifest, the frozen Phase-8 manifest and the frozen
   Phase-3 module hashes re-verify;
-- the public-safety scan covered 129 committed Phase-9 evidence text files
-  with zero private payload leaks (hex/base64/ASCII) and zero absolute host
-  path leaks.
+- the public-safety scan covered 132 committed Phase-9 evidence text files
+  (its own stage directory excluded) with zero private payload leaks
+  (hex/base64/ASCII) and zero absolute host path leaks.
 
-## Evidence-hygiene adjustment
+## Evidence-hygiene adjustments
 
 The P9-10 `build:executable` check detail recorded an absolute build path; it
 now records the repository-relative path and the P9-10 official runs were
-re-issued with unchanged stdout (`caa9746a...`). No semantic evidence changed.
+re-issued with unchanged stdout (`caa9746a...`). The safety scan now excludes
+this stage's own generated sidecars so the scanned-file count (and therefore
+the tests sidecar) is stable across the two official runs; the official
+stdout is unchanged (`1e4981ce...`). No semantic evidence changed.
 
 ## Official runs
 
@@ -76,13 +79,13 @@ empty stderr, both runs byte-identical: stdout 1144 bytes (LF), sha256
 
 Sidecar identities:
 
-- `p9_12_tests.json` `be894a5fdc28e41731872b09dbbde20cccf1ca900f1e81339c218030a9751a38`;
+- `p9_12_tests.json` `5664341d963f3a3430c1e4b0fdc1e49cc8e9366b1798ac890cc8f07eb5dd76db`;
 - `rebuild.json` `e569f927c0994f9d3ec48378bd8fde3de0fc4fae5628e76e2ef6a1e5b6a0a407`;
 - `negatives.json` `bce7b51bff1003438c0d23de2dffc3d31b2f77744c1ffcd2040cfe006660b3d1`;
-- `cache_test.json` `6c8de664977a870f6b9c18eec69d5b52d9213717f14555c0de3050a2b5b08cc9`;
-- `safety_scan.json` `1b4003ea47a7102d61946d401312c7f36cd767aed2ae2c779b496d96206fc50c`;
-- `official_runs.json` `aa3e822fa21021b938a9e77f167d62a7b80ec38c09ed5595209f7f0297a689bc`;
-- `determinism.json` `a5d25ad06cde9e33cccd9a75d8ded7ff70719856ad79c84c93f814cb7216e090`;
+- `cache_test.json` `78c14b43eee7accfb60c03fe16fb784e47946263f96057c7d818cbc6118ace19`;
+- `safety_scan.json` `9ebf7ee359743dcb5037f67cf3722301e57eb709a890740b91ac1f1444007440`;
+- `official_runs.json` `659a370617a45fe5c0f2373c927074d01cc206712298020e57727a4090f7104e`;
+- `determinism.json` `efb6d2edd873bf6875624cd9a969914f9548f9938d46b43cb24bea6f9f587a98`;
 - `run1.txt` = `run2.txt` `1e4981cee471ee7240d78d8bf6a039202f5285874d70607d56c7fe115726703b`;
 - `run1.err.txt` = `run2.err.txt` empty
   (`e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`).
