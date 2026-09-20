@@ -1,0 +1,381 @@
+{
+  "checks": [
+    {
+      "check": "boundary:command-classes",
+      "detail": "32",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:no-disc",
+      "detail": "none",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:no-emulation",
+      "detail": "none-event-recording",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:no-file-service",
+      "detail": "none",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:ports",
+      "detail": "[\"0x1f801800\", \"0x1f801801\", \"0x1f801802\", \"0x1f801803\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:stub-policy",
+      "detail": "contract-stub-not-hardware-accurate",
+      "status": "PASS"
+    },
+    {
+      "check": "index:set",
+      "detail": "{\"address\": \"0x1f801800\", \"blocker\": false, \"class\": \"INDEX_SET\", \"direction\": \"write\", \"disc_image\": \"none\", \"emulated\": false, \"index\": 2, \"register\": \"INDEX_STATUS\", \"sequence\": 0, \"value\": \"0x00000002\", \"width_bits\": 8}",
+      "status": "PASS"
+    },
+    {
+      "check": "out-of-range",
+      "detail": "NOT_A_CDROM_PORT",
+      "status": "PASS"
+    },
+    {
+      "check": "parameter:fifo",
+      "detail": "PARAMETER_FIFO",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:no-ascii-run",
+      "detail": "ascii payload run at []",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:no-base64",
+      "detail": "payload base64 present",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:no-hex",
+      "detail": "payload hex present",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "8 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "8 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "8 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "8 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "9 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "14 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "9 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "9 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "8 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "8 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "20 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "9 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "16 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "35 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "20 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "93 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "43 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:cdrom:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:marker",
+      "detail": "PRESENT",
+      "status": "PASS"
+    },
+    {
+      "check": "public:access-count",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "public:accesses",
+      "detail": "[[\"0x8001007c\", \"sb\", \"write\", \"0x1f801801\", \"0x00000019\"]]",
+      "status": "PASS"
+    },
+    {
+      "check": "public:event-class",
+      "detail": "TEST",
+      "status": "PASS"
+    },
+    {
+      "check": "public:event-command",
+      "detail": "0x19",
+      "status": "PASS"
+    },
+    {
+      "check": "public:event-disc-none",
+      "detail": "none",
+      "status": "PASS"
+    },
+    {
+      "check": "public:event-not-blocker",
+      "detail": "not blocker",
+      "status": "PASS"
+    },
+    {
+      "check": "public:event-register",
+      "detail": "COMMAND",
+      "status": "PASS"
+    },
+    {
+      "check": "public:transcript-stable",
+      "detail": "d4be001509bd7e6a41730f5d90c77d81a2f64a098af7af46e3dab6654ce17fdb",
+      "status": "PASS"
+    },
+    {
+      "check": "read:stub",
+      "detail": "{\"address\": \"0x1f801800\", \"blocker\": false, \"class\": \"INDEX_STATUS_STUB\", \"direction\": \"read\", \"disc_image\": \"none\", \"emulated\": false, \"register\": \"INDEX_STATUS\", \"sequence\": 0, \"stub_policy\": \"contract-stub-not-hardware-accurate\", \"value\": \"0x00000000\", \"width_bits\": 8}",
+      "status": "PASS"
+    },
+    {
+      "check": "unknown:blocker",
+      "detail": "{\"address\": \"0x1f801801\", \"blocker\": true, \"class\": \"UNKNOWN_COMMAND\", \"command\": \"0xfe\", \"direction\": \"write\", \"disc_image\": \"none\", \"emulated\": false, \"reason\": \"command outside the bounded contract\", \"register\": \"COMMAND\", \"sequence\": 1, \"value\": \"0x000000fe\", \"width_bits\": 8}",
+      "status": "PASS"
+    },
+    {
+      "check": "unknown:recorded",
+      "detail": "1",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 73,
+  "private_fixture": {
+    "is_pass_criterion": false,
+    "label": "hercules-slus-005.29",
+    "present": true
+  },
+  "stage": "P9-09",
+  "stage_name": "PS1 CD-ROM/file-service boundary",
+  "status": "PASS",
+  "tests": 73
+}

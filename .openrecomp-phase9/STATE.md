@@ -10,8 +10,8 @@ BASELINE_TAG_RECONCILIATION=Phase 8 created no annotated terminal tag. The autho
 BASELINE_TERMINAL=OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS
 BASELINE_GENERAL=OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P9-07
-LAST_PASSED_STAGE=P9-07
+CURRENT_STAGE=P9-09
+LAST_PASSED_STAGE=P9-09
 STATUS=IN_PROGRESS
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P9-01..P9-99
@@ -89,8 +89,8 @@ OpenRecomp-authored or openly licensed PS1 fixture.
 | P9-05 | PS1 BIOS/service boundary | PASS | `.openrecomp-phase9/evidence/P9-05/` |
 | P9-06 | PS1 GPU/runtime boundary | PASS | `.openrecomp-phase9/evidence/P9-06/` |
 | P9-07 | Input/timer/event boundary | PASS | `.openrecomp-phase9/evidence/P9-07/` |
-| P9-08 | SPU/audio boundary | QUEUED | - |
-| P9-09 | CD-ROM/file-service boundary | QUEUED | - |
+| P9-08 | SPU/audio boundary | PASS | `.openrecomp-phase9/evidence/P9-08/` |
+| P9-09 | CD-ROM/file-service boundary | PASS | `.openrecomp-phase9/evidence/P9-09/` |
 | P9-10 | Native build + deterministic execution | QUEUED | - |
 | P9-11 | Private Hercules validation | QUEUED | - |
 | P9-12 | Hardening + reproducibility | QUEUED | - |
@@ -279,3 +279,40 @@ advances), labelled status/config stubs and explicit not-modelled interrupt
 blockers. The public fixture's two reachable reads (JOY_DATA, TIMER0) are
 served deterministically; the private reachable frontier contains no
 discoverable access in these ranges. The next stage is `P9-08`.
+
+## P9-08 result
+
+PASS. Gate `tools/test_phase9_spu_v1.py` (60 checks, run twice via
+`p9_stage_runner_v1.py`, byte-identical stdout, empty stderr, exit 0).
+Evidence: `.openrecomp-phase9/evidence/P9-08/`. Markers issued:
+
+- `OPENRECOMP_P9_08=PASS`
+- `OPENRECOMP_PHASE9_SPU_BOUNDARY_V1=PASS tests=60`
+- `OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN` (reserved)
+- `OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` (permanent)
+- `OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` (permanent)
+
+`.openrecomp-phase9/src/p9_spu_boundary_v1.py` provides the explicit audio
+service/runtime contract with bounded SPU register ranges, typed event
+recording and no synthesis. The public fixture's single reachable SPU write
+(`0x1f801daa` = `0xc0`) is classified and recorded; unknown registers fail
+closed; the private frontier has no discoverable SPU access. The next stage is
+`P9-09`.
+
+## P9-09 result
+
+PASS. Gate `tools/test_phase9_cdrom_v1.py` (73 checks, run twice via
+`p9_stage_runner_v1.py`, byte-identical stdout, empty stderr, exit 0).
+Evidence: `.openrecomp-phase9/evidence/P9-09/`. Markers issued:
+
+- `OPENRECOMP_P9_09=PASS`
+- `OPENRECOMP_PHASE9_CDROM_BOUNDARY_V1=PASS tests=73`
+- `OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN` (reserved)
+- `OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` (permanent)
+- `OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` (permanent)
+
+`.openrecomp-phase9/src/p9_cdrom_boundary_v1.py` provides the explicit bounded
+disc/file-service contract (`disc_image: none`, `file_service: none`). The
+public fixture's single reachable CD-ROM command write (`0x19` = `TEST`) is
+classified and recorded; unknown commands fail closed; the private frontier
+has no discoverable CD-ROM access. The next stage is `P9-10`.

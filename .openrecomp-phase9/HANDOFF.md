@@ -217,3 +217,37 @@ image and memory-map contract).
   SPUCNT low byte (`0x1f801daa`);
 - establish an explicit audio service/runtime contract with bounded event
   recording and fail-closed unsupported behaviour.
+
+## P9-08 outcome
+
+- additive module `.openrecomp-phase9/src/p9_spu_boundary_v1.py`: bounded SPU
+  register ranges, 21 named control registers, typed event recording, no
+  synthesis, labelled read stubs, unknown-register blockers;
+- public fixture: one reachable SPU write (`0x1f801daa` = `0xc0`,
+  `SPU_CONTROL`), transcript digest `a08d2ee7...`;
+- private fixture: 0 discoverable SPU-range accesses;
+- the P9-08 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase9/evidence/P9-08/`.
+
+## P9-09 outcome
+
+- additive module `.openrecomp-phase9/src/p9_cdrom_boundary_v1.py`: four
+  CD-ROM ports, 32 documented command classes, typed event recording,
+  `disc_image: none`, `file_service: none`, unknown-command blockers;
+- public fixture: one reachable CD-ROM command write (`0x19` = `TEST`),
+  transcript digest `d4be0015...`;
+- private fixture: 0 discoverable CD-ROM-range accesses;
+- the P9-09 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase9/evidence/P9-09/`.
+
+## Known work for P9-10
+
+- emit the native host build set for the public fixture through the existing
+  architecture-neutral emitter plus a PS1 platform runtime support unit that
+  implements `or_rt_memory_read/write` with explicit KSEG0/KSEG1 translation
+  and the typed platform port dispatch;
+- build reproducibly through `openrecomp.build_pipeline`, execute repeatedly
+  with byte-identical observables (registers, RAM digest, platform event
+  transcripts, counters);
+- write an independently structured PS-X EXE reference interpreter and require
+  full observable agreement before equivalence is claimed.

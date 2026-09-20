@@ -1,0 +1,90 @@
+{
+  "boundary": {
+    "blocker_count": 0,
+    "boundary_version": "1.0.0",
+    "command_classes": {
+      "0x00": "SYNC",
+      "0x01": "GET_STAT",
+      "0x02": "SET_LOCATION",
+      "0x03": "PLAY",
+      "0x04": "FORWARD",
+      "0x05": "BACKWARD",
+      "0x06": "READ_N",
+      "0x07": "MOTOR_ON",
+      "0x08": "STOP",
+      "0x09": "PAUSE",
+      "0x0a": "INIT",
+      "0x0b": "MUTE",
+      "0x0c": "DEMUTE",
+      "0x0d": "SET_FILTER",
+      "0x0e": "SET_MODE",
+      "0x0f": "GET_PARAM",
+      "0x10": "GET_LOCATION",
+      "0x11": "GET_LOCATION_L",
+      "0x12": "SET_SESSION",
+      "0x13": "GET_TN",
+      "0x14": "GET_TD",
+      "0x15": "SEEK_L",
+      "0x16": "SEEK_P",
+      "0x17": "SET_CLOCK",
+      "0x18": "GET_CLOCK",
+      "0x19": "TEST",
+      "0x1a": "GET_ID",
+      "0x1b": "READ_S",
+      "0x1c": "RESET",
+      "0x1d": "GET_Q",
+      "0x1e": "READ_TOC",
+      "0x1f": "VIDEO_CD"
+    },
+    "disc_image": "none",
+    "emulation": "none-event-recording",
+    "event_count": 0,
+    "events": [],
+    "file_service": "none",
+    "ports": {
+      "0x1f801800": "INDEX_STATUS",
+      "0x1f801801": "COMMAND",
+      "0x1f801802": "PARAMETER",
+      "0x1f801803": "INTERRUPT_ENABLE"
+    },
+    "read_stubs": {
+      "policy": "contract-stub-not-hardware-accurate"
+    },
+    "transcript_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "discovery": {
+    "access_count": 1,
+    "accesses": [
+      {
+        "address": "0x1f801801",
+        "address_value": 528488449,
+        "base_register": 8,
+        "direction": "write",
+        "op": "sb",
+        "range": "cdrom",
+        "site": "0x8001007c",
+        "site_address": 2147549308,
+        "value": "0x00000019",
+        "value_known": true,
+        "width_bits": 8
+      }
+    ],
+    "discovery_version": "1.0.0",
+    "histogram": {
+      "cdrom:write": 1
+    },
+    "ranges": [
+      {
+        "base": "0x1f801800",
+        "name": "cdrom",
+        "size": 4
+      }
+    ],
+    "unresolved_io_suspects": 0,
+    "window": 8
+  },
+  "fixture": "openrecomp-authored-ps1-v1",
+  "schema": "openrecomp-phase9-cdrom-boundary-v1",
+  "stage": "P9-09",
+  "transcript_digest": "d4be001509bd7e6a41730f5d90c77d81a2f64a098af7af46e3dab6654ce17fdb"
+}

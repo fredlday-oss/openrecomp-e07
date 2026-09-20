@@ -1,0 +1,64 @@
+{
+  "boundary": {
+    "audio_synthesis": "none",
+    "blocker_count": 0,
+    "boundary_version": "1.0.0",
+    "emulation": "none-event-recording",
+    "event_count": 0,
+    "events": [],
+    "named_registers": {
+      "0x1f801d80": "MAIN_VOLUME_LEFT",
+      "0x1f801d82": "MAIN_VOLUME_RIGHT",
+      "0x1f801d88": "VOICE_ON_LOW",
+      "0x1f801d8a": "VOICE_ON_HIGH",
+      "0x1f801d8c": "VOICE_OFF_LOW",
+      "0x1f801d8e": "VOICE_OFF_HIGH",
+      "0x1f801d90": "PITCH_MOD_LOW",
+      "0x1f801d92": "PITCH_MOD_HIGH",
+      "0x1f801d94": "NOISE_ON_LOW",
+      "0x1f801d96": "NOISE_ON_HIGH",
+      "0x1f801d98": "REVERB_ON_LOW",
+      "0x1f801d9a": "REVERB_ON_HIGH",
+      "0x1f801d9c": "ENDX_LOW",
+      "0x1f801d9e": "ENDX_HIGH",
+      "0x1f801da2": "REVERB_WORK_ADDR",
+      "0x1f801da4": "IRQ_ADDR",
+      "0x1f801da6": "TRANSFER_ADDR",
+      "0x1f801da8": "TRANSFER_DATA",
+      "0x1f801daa": "SPU_CONTROL",
+      "0x1f801dac": "TRANSFER_CONTROL",
+      "0x1f801dae": "SPU_STATUS"
+    },
+    "ranges": {
+      "cd_audio": "0x1f801db0+16",
+      "control": "0x1f801d80+64",
+      "transfer": "0x1f801da0+16",
+      "voices": "0x1f801c00+384"
+    },
+    "read_stubs": {
+      "policy": "contract-stub-not-hardware-accurate"
+    },
+    "transcript_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "discovery": {
+    "access_count": 0,
+    "accesses": [],
+    "discovery_version": "1.0.0",
+    "histogram": {},
+    "ranges": [
+      {
+        "base": "0x1f801c00",
+        "name": "spu",
+        "size": 1024
+      }
+    ],
+    "unresolved_io_suspects": 0,
+    "window": 8
+  },
+  "is_pass_criterion": false,
+  "label": "hercules-slus-005.29",
+  "note": "bounded same-block discovery over the reachable frontier; unresolved accesses are not guessed",
+  "present": true,
+  "schema": "openrecomp-phase9-private-spu-boundary-v1",
+  "stage": "P9-08"
+}
