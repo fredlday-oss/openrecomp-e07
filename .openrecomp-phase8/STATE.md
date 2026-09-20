@@ -11,8 +11,8 @@ BASELINE_GENERAL=OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
 BASELINE_TAG_STATUS=ABSENT_RECONCILED
 BASELINE_TAG_RECONCILIATION=P7-99 records that the frozen Phase-6 control policy required and created no terminal tag; the authoritative Phase-6 terminal boundary is the P6-99 verdict commit 1643817d43196c43155805249137e4b4e4a21eb1, tree cda3f535be43dc6f3d4b457d11d356ae39ea34af. No tag is fabricated.
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P8-02
-LAST_PASSED_STAGE=P8-01
+CURRENT_STAGE=P8-03
+LAST_PASSED_STAGE=P8-02
 STATUS=ACTIVE
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P8-01..P8-99
@@ -72,7 +72,7 @@ Exact observed version strings are recorded in
 | --- | --- | --- | --- |
 | P8-00 | Phase-8 boundary + acceleration control plane | PASS | `.openrecomp-phase8/evidence/P8-00/` |
 | P8-01 | Real redistributable MIPS32 ELF fixture | PASS | `.openrecomp-phase8/evidence/P8-01/` |
-| P8-02 | Existing MIPS32 pipeline re-derivation | QUEUED | - |
+| P8-02 | Existing MIPS32 pipeline re-derivation | PASS | .openrecomp-phase8/evidence/P8-02/ |
 | P8-03 | Real-ELF ProgramModel / CFG integration | QUEUED | - |
 | P8-04 | Translation frontier closure | QUEUED | - |
 | P8-05 | Static memory + runtime contract closure | QUEUED | - |
@@ -168,9 +168,31 @@ byte-identical stdout, empty stderr, exit 0). Evidence:
 - `OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN`
 - `OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN`
 
+## P8-02 result
+
+PASS. Gate `tools/test_phase8_frontier_v1.py` (43 checks, run twice,
+byte-identical stdout, empty stderr, exit 0). Evidence:
+`.openrecomp-phase8/evidence/P8-02/`. Markers issued:
+
+- `OPENRECOMP_P8_02=PASS`
+- `OPENRECOMP_PHASE8_FRONTIER_REDERIVATION_V1=PASS tests=43`
+- `OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN`
+- `OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN`
+
+Frozen frontier classification (509 reachable words, each exactly once):
+`EMITTER_READY` 215, `EMITTER_READY_32BIT_MEMORY` 48,
+`EMITTER_READY_CONTROL_DELAY_SLOT` 15,
+`EMITTER_READY_CONTROL_DELAY_SLOT_LINK_REGISTER` 8,
+`HOST_EMITTER_WIDTH_GAP` 222, `TRANSLATION_SEMANTICS_GAP` 1 (`movz`).
+Measured gaps: translation semantics 1, emitter width 222, delay slots 23
+(16 non-nop), o32 link-register 8 call sites, runtime host service 1,
+memory-image contract 1, native toolchain 0, unresolved control flow 0. The
+reused Phase-3 module hashes equal their frozen manifest entries.
+
 ## Current boundary
 
-P8-00 established the control plane and P8-01 froze the real-ELF fixture and
-its reproducible build. No translation, native build or equivalence claim
-exists yet. P8-02 (existing MIPS32 pipeline re-derivation) is active and the
-terminal objective remains unproven.
+P8-00 established the control plane, P8-01 froze the real-ELF fixture and its
+reproducible build, and P8-02 fully characterized the current pipeline
+frontier. No translation, emitter, runtime, native build or equivalence
+capability has been added and the terminal objective remains unproven. P8-03
+(real-ELF ProgramModel/CFG integration) is active.

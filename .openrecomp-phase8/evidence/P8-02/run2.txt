@@ -1,0 +1,47 @@
+PASS: fixture:sha256
+PASS: fixture:size
+PASS: reuse:frozen-bytes:.openrecomp-phase3/src/p3_elf_image_v1.py
+PASS: reuse:frozen-bytes:.openrecomp-phase3/src/p3_target_mips32_v1.py
+PASS: reuse:frozen-bytes:.openrecomp-phase3/src/p3_decode_mips32_v1.py
+PASS: reuse:frozen-bytes:.openrecomp-phase3/src/p3_code_frontier_v1.py
+PASS: reuse:frozen-bytes:.openrecomp-phase3/src/p3_semantics_mips32_v1.py
+PASS: policy:target
+PASS: policy:entry
+PASS: policy:static
+PASS: policy:no-relocations
+PASS: regions:count
+PASS: regions:executable
+PASS: regions:entry-inside
+PASS: frontier:reachable
+PASS: frontier:reachable-supported
+PASS: frontier:reachable-unsupported
+PASS: frontier:unreachable
+PASS: frontier:reachable-invalid
+PASS: frontier:exception-sites
+PASS: frontier:unresolved
+PASS: classification:complete
+PASS: classification:totals
+PASS: classification:sum
+PASS: semantics:movz-implemented
+PASS: semantics:movz-not-bounded-adapter
+PASS: memory:load-store-histogram
+PASS: abi:ra-saves
+PASS: abi:ra-restores
+PASS: abi:ra-scratch-sites
+PASS: abi:ra-entry-zeroing
+PASS: delay-slots:total
+PASS: delay-slots:non-nop
+PASS: delay-slots:owners
+PASS: delay-slots:non-nop-ops
+PASS: control-flow:inventory
+PASS: control-flow:sum
+PASS: host-service:output-window-declared
+PASS: host-service:byte-store-ops
+PASS: toolchain:native-available
+PASS: toolchain:native-identity
+PASS: gaps:measured
+PASS: gaps:mapped-to-stages
+OPENRECOMP_P8_02=PASS
+OPENRECOMP_PHASE8_FRONTIER_REDERIVATION_V1=PASS tests=43
+OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN

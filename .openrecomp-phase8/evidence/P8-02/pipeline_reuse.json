@@ -1,0 +1,55 @@
+{
+  "executable_regions": [
+    {
+      "filesz": 5300,
+      "memsz": 5300,
+      "vaddr": "0x1000"
+    }
+  ],
+  "fixture": {
+    "sha256": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65",
+    "size": 12904
+  },
+  "identity": {
+    "abi": "O32",
+    "dynamic": false,
+    "elf_class": "ELF32",
+    "endianness": "little",
+    "entry": "0x00002490",
+    "entry_region": 2,
+    "entry_section": ".text",
+    "executable_section": ".text",
+    "flags": "0x50001001",
+    "flags_interpretation": "EF_MIPS_ABI_O32 | EF_MIPS_ARCH_32 | EF_MIPS_NOREORDER (non-PIC)",
+    "isa": "MIPS32 (EF_MIPS_ARCH_32)",
+    "machine": 8,
+    "machine_name": "EM_MIPS",
+    "pic": false,
+    "relocations": false,
+    "required_sections": [
+      ".text",
+      ".rodata",
+      ".data",
+      ".bss"
+    ],
+    "static": true,
+    "target": "mips32-o32-soft-float-static",
+    "type": 2,
+    "type_name": "ET_EXEC"
+  },
+  "native_toolchain": {
+    "compiler": "clang-cl.exe",
+    "compiler_version": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+    "linker": "lld-link.exe",
+    "linker_version": "LLD 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+    "target": "x86_64-pc-windows-msvc"
+  },
+  "reused_modules": {
+    ".openrecomp-phase3/src/p3_code_frontier_v1.py": "f02c4e7507087e052f1a899ef67d87f8ed82ecc4954e8214ccea922a2e361d71",
+    ".openrecomp-phase3/src/p3_decode_mips32_v1.py": "c808a23afad5771a42f3f7eee9450b84fc6131d0416961a3ed8e78a9f5126b0b",
+    ".openrecomp-phase3/src/p3_elf_image_v1.py": "ca26652961c0ffabb14a94d8443a466a9842f5c396045ab7f2799b769762140a",
+    ".openrecomp-phase3/src/p3_semantics_mips32_v1.py": "cd3a641a58ae8fa8ed163f3a5beae2e5219c916c30425e70775cb3da9ce66916",
+    ".openrecomp-phase3/src/p3_target_mips32_v1.py": "b43dbe8af1fa90cf24777af8cbf905dfa6a91e63ebcb37d743e5329d04ad429a"
+  },
+  "stage": "P8-02"
+}

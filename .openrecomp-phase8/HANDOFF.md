@@ -49,13 +49,24 @@ permanent.
 - the P8-01 gate passed twice with byte-identical stdout, empty stderr and
   exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-01/`.
 
+## P8-02 outcome
+
+- every reachable word classified exactly once against the existing layers:
+  215 emitter-ready, 48 word-width memory, 15 control (delay-slot), 8 `jal`
+  (delay-slot + link register), 222 host-emitter width gap (`lb`/`lbu`/`sb`),
+  1 translation semantics gap (`movz` at `0x2440`);
+- measured gaps: 23 delay-slot sites (16 non-nop), 8 o32 link-register call
+  sites with 4 `$ra` saves / 4 restores / 3 scratch uses / 1 entry zeroing,
+  1 runtime host-service window, 1 memory-image contract, 0 unresolved
+  control flow, 0 native toolchain gap;
+- all reused Phase-3 module hashes equal their frozen manifest entries;
+- the P8-02 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-02/`.
+
 ## Exact next action
 
-Complete P8-02: re-derive the complete current pipeline frontier for the
-frozen fixture through the existing ELF ingestion, target policy, decode,
-semantics inventory, executable-region discovery and reachable-code frontier;
-classify every gap into already supported, recognized but unsupported,
-unresolved control flow, ABI/runtime gap, memory-image gap, translation gap,
-host-emission gap and toolchain/build gap; produce a deterministic frontier
-report. PASS means the frontier itself is completely and reproducibly
-characterized, not that the ELF is executable.
+Complete P8-03: drive the frozen real ELF through the existing neutral
+ProgramModel, CFG, function discovery, call graph and translation-unit
+structure, closing only evidence-demonstrated structure-level gaps; indirect
+control flow must be exact, a finite evidence-supported set, or
+unresolved/fail-closed with no guessed targets.

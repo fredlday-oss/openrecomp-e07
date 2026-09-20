@@ -1,0 +1,232 @@
+{
+  "checks": [
+    {
+      "check": "fixture:sha256",
+      "detail": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:size",
+      "detail": "12904",
+      "status": "PASS"
+    },
+    {
+      "check": "reuse:frozen-bytes:.openrecomp-phase3/src/p3_elf_image_v1.py",
+      "detail": "ca26652961c0ffabb14a94d8443a466a9842f5c396045ab7f2799b769762140a",
+      "status": "PASS"
+    },
+    {
+      "check": "reuse:frozen-bytes:.openrecomp-phase3/src/p3_target_mips32_v1.py",
+      "detail": "b43dbe8af1fa90cf24777af8cbf905dfa6a91e63ebcb37d743e5329d04ad429a",
+      "status": "PASS"
+    },
+    {
+      "check": "reuse:frozen-bytes:.openrecomp-phase3/src/p3_decode_mips32_v1.py",
+      "detail": "c808a23afad5771a42f3f7eee9450b84fc6131d0416961a3ed8e78a9f5126b0b",
+      "status": "PASS"
+    },
+    {
+      "check": "reuse:frozen-bytes:.openrecomp-phase3/src/p3_code_frontier_v1.py",
+      "detail": "f02c4e7507087e052f1a899ef67d87f8ed82ecc4954e8214ccea922a2e361d71",
+      "status": "PASS"
+    },
+    {
+      "check": "reuse:frozen-bytes:.openrecomp-phase3/src/p3_semantics_mips32_v1.py",
+      "detail": "cd3a641a58ae8fa8ed163f3a5beae2e5219c916c30425e70775cb3da9ce66916",
+      "status": "PASS"
+    },
+    {
+      "check": "policy:target",
+      "detail": "mips32-o32-soft-float-static",
+      "status": "PASS"
+    },
+    {
+      "check": "policy:entry",
+      "detail": "0x00002490",
+      "status": "PASS"
+    },
+    {
+      "check": "policy:static",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "policy:no-relocations",
+      "detail": "False",
+      "status": "PASS"
+    },
+    {
+      "check": "regions:count",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "regions:executable",
+      "detail": "0x1000+5300",
+      "status": "PASS"
+    },
+    {
+      "check": "regions:entry-inside",
+      "detail": "0x2490",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:reachable",
+      "detail": "509",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:reachable-supported",
+      "detail": "508",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:reachable-unsupported",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:unreachable",
+      "detail": "816",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:reachable-invalid",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:exception-sites",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:unresolved",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "classification:complete",
+      "detail": "none",
+      "status": "PASS"
+    },
+    {
+      "check": "classification:totals",
+      "detail": "{\"EMITTER_READY\": 215, \"EMITTER_READY_32BIT_MEMORY\": 48, \"EMITTER_READY_CONTROL_DELAY_SLOT\": 15, \"EMITTER_READY_CONTROL_DELAY_SLOT_LINK_REGISTER\": 8, \"HOST_EMITTER_WIDTH_GAP\": 222, \"TRANSLATION_SEMANTICS_GAP\": 1}",
+      "status": "PASS"
+    },
+    {
+      "check": "classification:sum",
+      "detail": "509",
+      "status": "PASS"
+    },
+    {
+      "check": "semantics:movz-implemented",
+      "detail": "divu,jalr,movn,movz,mul,swl,swr,teq",
+      "status": "PASS"
+    },
+    {
+      "check": "semantics:movz-not-bounded-adapter",
+      "detail": "RECOGNIZED_UNSUPPORTED",
+      "status": "PASS"
+    },
+    {
+      "check": "memory:load-store-histogram",
+      "detail": "{\"lb\": 2, \"lbu\": 132, \"lw\": 22, \"sb\": 88, \"sw\": 26}",
+      "status": "PASS"
+    },
+    {
+      "check": "abi:ra-saves",
+      "detail": "0x00001004,0x000011bc,0x000011e0,0x00002364",
+      "status": "PASS"
+    },
+    {
+      "check": "abi:ra-restores",
+      "detail": "0x00001010,0x000011d0,0x000016f4,0x00002478",
+      "status": "PASS"
+    },
+    {
+      "check": "abi:ra-scratch-sites",
+      "detail": "0x0000136c,0x000013a0,0x000013d8",
+      "status": "PASS"
+    },
+    {
+      "check": "abi:ra-entry-zeroing",
+      "detail": "0x000024a8",
+      "status": "PASS"
+    },
+    {
+      "check": "delay-slots:total",
+      "detail": "23",
+      "status": "PASS"
+    },
+    {
+      "check": "delay-slots:non-nop",
+      "detail": "16",
+      "status": "PASS"
+    },
+    {
+      "check": "delay-slots:owners",
+      "detail": "23",
+      "status": "PASS"
+    },
+    {
+      "check": "delay-slots:non-nop-ops",
+      "detail": "[\"addiu\", \"addiu\", \"addiu\", \"addiu\", \"addiu\", \"addiu\", \"addiu\", \"or\", \"or\", \"or\", \"or\", \"or\", \"sb\", \"sb\", \"sb\", \"sb\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "control-flow:inventory",
+      "detail": "{\"conditional-branches\": 5, \"direct-calls\": 8, \"indirect-calls\": 0, \"indirect-jumps\": 0, \"jumps\": 3, \"returns\": 7, \"unsupported-control-transfers\": 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "control-flow:sum",
+      "detail": "23",
+      "status": "PASS"
+    },
+    {
+      "check": "host-service:output-window-declared",
+      "detail": "0x10000000",
+      "status": "PASS"
+    },
+    {
+      "check": "host-service:byte-store-ops",
+      "detail": "88",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:native-available",
+      "detail": "clang-cl + lld-link",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:native-identity",
+      "detail": "clang-cl.exe + lld-link.exe",
+      "status": "PASS"
+    },
+    {
+      "check": "gaps:measured",
+      "detail": "{\"HOST_EMITTER_DELAY_SLOT_GAP\": 23, \"HOST_EMITTER_WIDTH_GAP\": 222, \"MEMORY_IMAGE_CONTRACT_GAP\": 1, \"NATIVE_TOOLCHAIN_GAP\": 0, \"O32_ABI_LINK_REGISTER_GAP\": 8, \"RUNTIME_HOST_SERVICE_GAP\": 1, \"TRANSLATION_SEMANTICS_GAP\": 1, \"UNRESOLVED_CONTROL_FLOW_GAP\": 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "gaps:mapped-to-stages",
+      "detail": "{\"HOST_EMITTER_DELAY_SLOT_GAP\": \"P8-04\", \"HOST_EMITTER_WIDTH_GAP\": \"P8-04\", \"MEMORY_IMAGE_CONTRACT_GAP\": \"P8-05\", \"NATIVE_TOOLCHAIN_GAP\": \"P8-07\", \"O32_ABI_LINK_REGISTER_GAP\": \"P8-03/P8-04\", \"RUNTIME_HOST_SERVICE_GAP\": \"P8-05\", \"TRANSLATION_SEMANTICS_GAP\": \"P8-04\", \"UNRESOLVED_CONTROL_FLOW_GAP\": \"-\"}",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "markers": {
+    "gate": "OPENRECOMP_PHASE8_FRONTIER_REDERIVATION_V1=PASS tests=43",
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P8_02=PASS",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "passed": 43,
+  "stage": "P8-02",
+  "stage_name": "Existing MIPS32 pipeline frontier re-derivation",
+  "status": "PASS",
+  "tests": 43
+}
