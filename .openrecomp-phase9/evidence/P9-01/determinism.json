@@ -1,0 +1,30 @@
+{
+  "artifacts_identical": true,
+  "gate": "tools/test_phase9_ingestion_v1.py",
+  "gate_sha256": "0df375b39e6bf6989eff8d90d5c34bbe2ab80255320bedbe7e78269d790dda9e",
+  "general_marker": "OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+  "playability_marker": "OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "p9_01_tests_sha256": "d02b97190c484c85b020c0d05be9afac38e958b39d6ad3e3d91d46c5c00da4fe",
+      "returncode": 0,
+      "stdout_bytes_raw": 6008,
+      "stdout_sha256_lf": "d7d2850111c8ed9c744dc410b8fcfb3ef91f01c4ca096977b9513c83ea326acc",
+      "stdout_sha256_raw": "a1859286350f51ab1abcc14e23cc09188403033ad99b33b4f3049091ae977469"
+    },
+    "run2": {
+      "p9_01_tests_sha256": "d02b97190c484c85b020c0d05be9afac38e958b39d6ad3e3d91d46c5c00da4fe",
+      "returncode": 0,
+      "stdout_bytes_raw": 6008,
+      "stdout_sha256_lf": "d7d2850111c8ed9c744dc410b8fcfb3ef91f01c4ca096977b9513c83ea326acc",
+      "stdout_sha256_raw": "a1859286350f51ab1abcc14e23cc09188403033ad99b33b4f3049091ae977469"
+    }
+  },
+  "schema": "openrecomp-phase9-determinism-v1",
+  "stage": "P9-01",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true,
+  "terminal_marker": "OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN"
+}

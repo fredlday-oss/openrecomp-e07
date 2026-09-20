@@ -1,0 +1,831 @@
+{
+  "checks": [
+    {
+      "check": "negative:bad-magic",
+      "detail": "expected BAD_MAGIC got BAD_MAGIC",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:bad-magic:code-closed",
+      "detail": "BAD_MAGIC",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:bss-exceeds-ram",
+      "detail": "expected BSS_EXCEEDS_RAM got BSS_EXCEEDS_RAM",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:bss-exceeds-ram:code-closed",
+      "detail": "BSS_EXCEEDS_RAM",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:bss-outside-ram",
+      "detail": "expected BSS_OUTSIDE_RAM got BSS_OUTSIDE_RAM",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:bss-outside-ram:code-closed",
+      "detail": "BSS_OUTSIDE_RAM",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:data-section",
+      "detail": "expected UNSUPPORTED_DATA_SECTION got UNSUPPORTED_DATA_SECTION",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:data-section:code-closed",
+      "detail": "UNSUPPORTED_DATA_SECTION",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:empty",
+      "detail": "expected INPUT_TOO_SMALL got INPUT_TOO_SMALL",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:empty-payload",
+      "detail": "expected EMPTY_PAYLOAD got EMPTY_PAYLOAD",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:empty-payload:code-closed",
+      "detail": "EMPTY_PAYLOAD",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:empty:code-closed",
+      "detail": "INPUT_TOO_SMALL",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:entry-outside",
+      "detail": "expected ENTRY_OUTSIDE_PAYLOAD got ENTRY_OUTSIDE_PAYLOAD",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:entry-outside:code-closed",
+      "detail": "ENTRY_OUTSIDE_PAYLOAD",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:error-code-closed-set",
+      "detail": "23",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:load-outside-ram",
+      "detail": "expected LOAD_ADDRESS_OUTSIDE_RAM got LOAD_ADDRESS_OUTSIDE_RAM",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:load-outside-ram:code-closed",
+      "detail": "LOAD_ADDRESS_OUTSIDE_RAM",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:misaligned-bss",
+      "detail": "expected MISALIGNED_BSS_ADDRESS got MISALIGNED_BSS_ADDRESS",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:misaligned-bss:code-closed",
+      "detail": "MISALIGNED_BSS_ADDRESS",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:misaligned-entry",
+      "detail": "expected MISALIGNED_ENTRY got MISALIGNED_ENTRY",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:misaligned-entry:code-closed",
+      "detail": "MISALIGNED_ENTRY",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:misaligned-gp",
+      "detail": "expected MISALIGNED_GP got MISALIGNED_GP",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:misaligned-gp:code-closed",
+      "detail": "MISALIGNED_GP",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:misaligned-load",
+      "detail": "expected MISALIGNED_LOAD_ADDRESS got MISALIGNED_LOAD_ADDRESS",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:misaligned-load:code-closed",
+      "detail": "MISALIGNED_LOAD_ADDRESS",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:misaligned-payload-size",
+      "detail": "expected MISALIGNED_PAYLOAD_SIZE got MISALIGNED_PAYLOAD_SIZE",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:misaligned-payload-size:code-closed",
+      "detail": "MISALIGNED_PAYLOAD_SIZE",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:misaligned-stack",
+      "detail": "expected MISALIGNED_STACK got MISALIGNED_STACK",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:misaligned-stack:code-closed",
+      "detail": "MISALIGNED_STACK",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:payload-exceeds-ram",
+      "detail": "expected PAYLOAD_EXCEEDS_RAM got PAYLOAD_EXCEEDS_RAM",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:payload-exceeds-ram:code-closed",
+      "detail": "PAYLOAD_EXCEEDS_RAM",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:short-header",
+      "detail": "expected INPUT_TOO_SMALL got INPUT_TOO_SMALL",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:short-header:code-closed",
+      "detail": "INPUT_TOO_SMALL",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:stack-above-ram",
+      "detail": "expected STACK_OUTSIDE_RAM got STACK_OUTSIDE_RAM",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:stack-above-ram:code-closed",
+      "detail": "STACK_OUTSIDE_RAM",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:stack-below-ram",
+      "detail": "expected STACK_OUTSIDE_RAM got STACK_OUTSIDE_RAM",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:stack-below-ram:code-closed",
+      "detail": "STACK_OUTSIDE_RAM",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:trailing-data",
+      "detail": "expected UNSUPPORTED_TRAILING_DATA got UNSUPPORTED_TRAILING_DATA",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:trailing-data:code-closed",
+      "detail": "UNSUPPORTED_TRAILING_DATA",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:truncated-payload",
+      "detail": "expected TRUNCATED_PAYLOAD got TRUNCATED_PAYLOAD",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:truncated-payload:code-closed",
+      "detail": "TRUNCATED_PAYLOAD",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:zero1",
+      "detail": "expected NONZERO_RESERVED_HEADER_FIELD got NONZERO_RESERVED_HEADER_FIELD",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:zero1:code-closed",
+      "detail": "NONZERO_RESERVED_HEADER_FIELD",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:zero2",
+      "detail": "expected NONZERO_RESERVED_HEADER_FIELD got NONZERO_RESERVED_HEADER_FIELD",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:zero2:code-closed",
+      "detail": "NONZERO_RESERVED_HEADER_FIELD",
+      "status": "PASS"
+    },
+    {
+      "check": "private:entry",
+      "detail": "0x800132e8",
+      "status": "PASS"
+    },
+    {
+      "check": "private:file-sha256",
+      "detail": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "status": "PASS"
+    },
+    {
+      "check": "private:file-size",
+      "detail": "129024",
+      "status": "PASS"
+    },
+    {
+      "check": "private:gp",
+      "detail": "0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:no-ascii-run",
+      "detail": "ascii payload run at []",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:no-base64",
+      "detail": "payload base64 present",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:no-hex",
+      "detail": "payload hex present",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "8 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "8 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "20 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "36 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:identity:string-length",
+      "detail": "66 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "private:load",
+      "detail": "0x80010000",
+      "status": "PASS"
+    },
+    {
+      "check": "private:marker",
+      "detail": "PRESENT",
+      "status": "PASS"
+    },
+    {
+      "check": "private:payload-sha256",
+      "detail": "2f48da4c642b25dd9d0b033f77b80a19e5befe34dc19da3194a51998e97c71be",
+      "status": "PASS"
+    },
+    {
+      "check": "private:payload-size",
+      "detail": "126976",
+      "status": "PASS"
+    },
+    {
+      "check": "private:reserved-first",
+      "detail": "0x4c",
+      "status": "PASS"
+    },
+    {
+      "check": "private:reserved-hash",
+      "detail": "e6a138356b7e46be030334fdd789fab8cafeee2c85d44b54edafd391427b54fe",
+      "status": "PASS"
+    },
+    {
+      "check": "private:reserved-last",
+      "detail": "0x82",
+      "status": "PASS"
+    },
+    {
+      "check": "private:reserved-nonzero",
+      "detail": "55",
+      "status": "PASS"
+    },
+    {
+      "check": "private:stack",
+      "detail": "0x801ffff0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:bss-address",
+      "detail": "0x80020000",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:bss-present",
+      "detail": "present",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:bss-ram-span",
+      "detail": "0x80020100",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:build-deterministic",
+      "detail": "byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:entry",
+      "detail": "0x80010000",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:file-sha256",
+      "detail": "6d3461cb1cd3ee9437e6d3fc9218c4805b620fcb251dfc9a1dd915ebc46bc887",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:gp-recorded",
+      "detail": "0x8001fff0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity-bss-absent",
+      "detail": "absent",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity-data-absent",
+      "detail": "absent",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity-entry",
+      "detail": "0x80010000",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity-gp",
+      "detail": "0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity-header-size",
+      "detail": "2048",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity-magic",
+      "detail": "PS-X EXE",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity-ram-span",
+      "detail": "0x80010020",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity-reserved-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity-stack",
+      "detail": "0x801ffff0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:no-ascii-run",
+      "detail": "ascii payload run at []",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:no-base64",
+      "detail": "payload base64 present",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:no-hex",
+      "detail": "payload hex present",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "8 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "8 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:load-address",
+      "detail": "0x80010000",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:magic",
+      "detail": "PS-X EXE",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:payload-sha256",
+      "detail": "09c7dd980f77b547da21fee74a03465ee9a5beb261176356da82af3e0070deec",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:payload-size",
+      "detail": "32",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:read-outside",
+      "detail": "READ_OUTSIDE_PAYLOAD",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:read-u32[0]",
+      "detail": "0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:read-u32[1]",
+      "detail": "0x24021234",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:read-u32[2]",
+      "detail": "0x00421821",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:read-u32[3]",
+      "detail": "0x3c048001",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:read-u32[4]",
+      "detail": "0xac030010",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:read-u32[5]",
+      "detail": "0x8c050010",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:read-u32[6]",
+      "detail": "0x08004000",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:read-u32[7]",
+      "detail": "0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:size",
+      "detail": "2080",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:text-end",
+      "detail": "0x80010020",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 163,
+  "private_fixture": {
+    "is_pass_criterion": false,
+    "label": "hercules-slus-005.29",
+    "present": true
+  },
+  "stage": "P9-01",
+  "stage_name": "PS-X EXE ingestion",
+  "status": "PASS",
+  "tests": 163
+}

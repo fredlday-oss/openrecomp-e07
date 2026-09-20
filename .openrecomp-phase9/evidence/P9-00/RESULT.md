@@ -130,3 +130,21 @@ present in any committed artifact.
 `P9-01` - PS-X EXE ingestion, beginning with the private `SLUS_005.29` fixture
 metadata (header fields, entry PC, GP, load address, payload size, hashes) and
 fail-closed rejection categories. No executable bytes are committed.
+
+## Re-runnability adjustment (documented)
+
+After the P9-00 official runs, two re-runnability defects were found and fixed
+in the P9-00 gate source (no boundary semantic was weakened):
+
+- the `evidence:boundary-stage-only` check asserted that `.openrecomp-phase9/evidence/`
+  contains only `P9-00`, which cannot hold on a descendant tree once P9-01
+  exists; it now requires `P9-00` to be present and every evidence directory
+  to be a known frozen stage id;
+- the Phase-9 source-manifest helper now excludes `__pycache__`/`.pyc`
+  generated residue from manifest coverage.
+
+Both changes affect only check details, never the printed check labels or
+their count, so the official stdout is unchanged. The committed P9-00 sidecars
+remain the boundary-time records (`boundary_mode=AT_BOUNDARY`); the gate was
+re-verified live with `--verify-only` on the descendant tree and its official
+stdout identity (`326624b3...`) is unchanged.

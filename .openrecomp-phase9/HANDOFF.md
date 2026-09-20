@@ -1,7 +1,8 @@
 # OpenRecomp Phase 9 Handoff
 
 STATUS: Phase 9 `IN_PROGRESS` -- `P9-00` boundary and acceleration control
-plane established at the frozen Phase-8 terminal boundary. The terminal marker
+plane established and `P9-01` PS-X EXE ingestion complete at the frozen
+Phase-8 terminal boundary. The terminal marker
 `OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF` remains `NOT_PROVEN`;
 `OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` and
 `OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` are permanent.
@@ -59,13 +60,28 @@ licensed PS1 fixture.
 ## Frozen queue
 
 Rows `P9-01` .. `P9-99` are frozen at the P9-00 `PASS` boundary in
-`.openrecomp-phase9/STAGE_QUEUE.md`. The next stage is `P9-01` (PS-X EXE
-ingestion).
+`.openrecomp-phase9/STAGE_QUEUE.md`. The next stage is `P9-02` (PS1 executable
+image and memory-map contract).
 
-## Known evidence to gather at P9-01
+## P9-01 outcome
 
-- PS-X EXE header field values (entry PC, GP, load address, payload size,
-  memory requirements), whole-file and payload SHA-256, and fail-closed
-  rejection categories for malformed/unsupported forms;
-- non-sensitive, non-reconstructive metadata only: no executable bytes and no
-  header strings in the repository or evidence.
+- additive, fail-closed PS-X EXE ingestion
+  (`.openrecomp-phase9/src/p9_psx_exe_v1.py`) and an original deterministic
+  PS-X EXE builder (`.openrecomp-phase9/fixture/psx_fixture_builder_v1.py`)
+  were established;
+- 163 checks: canonical synthetic round-trip, BSS/GP positive paths, identity
+  leak checks and 22 malformed/unsupported forms rejected with stable codes;
+- the private Hercules fixture was ingested and reduced to
+  non-reconstructive metadata (file/payload hashes, header fields,
+  reserved-region hash and counts) with no executable bytes committed;
+- the P9-01 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase9/evidence/P9-01/`.
+
+## Known work for P9-02
+
+- define the explicit PS1 guest address-space model (2 MiB main RAM KSEG0
+  window, KSEG1 mirror classification, scratchpad/IO/BIOS ranges as explicit
+  unsupported-or-service regions), region permissions and stack contract;
+- map the ingested payload into a bounded flat image without silent masking;
+- no invented mappings: every address translation decision is explicit and
+  fail-closed.

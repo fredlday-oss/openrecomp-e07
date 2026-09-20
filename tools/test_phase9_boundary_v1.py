@@ -396,7 +396,12 @@ def main() -> int:
         evidence_dirs = sorted(
             item.name for item in (P9 / "evidence").iterdir() if item.is_dir()
         )
-        check("evidence:boundary-stage-only", set(evidence_dirs) <= {"P9-00"}, ",".join(evidence_dirs) or "none")
+        known_stages = set(FROZEN_STAGES)
+        check(
+            "evidence:boundary-stage-only",
+            "P9-00" in evidence_dirs and set(evidence_dirs) <= known_stages,
+            ",".join(evidence_dirs) or "none",
+        )
 
         # Phase-9 source manifest.
         manifest9 = subprocess.run(

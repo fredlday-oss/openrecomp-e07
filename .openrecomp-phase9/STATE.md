@@ -10,8 +10,8 @@ BASELINE_TAG_RECONCILIATION=Phase 8 created no annotated terminal tag. The autho
 BASELINE_TERMINAL=OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=PASS
 BASELINE_GENERAL=OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P9-00
-LAST_PASSED_STAGE=P9-00
+CURRENT_STAGE=P9-01
+LAST_PASSED_STAGE=P9-01
 STATUS=IN_PROGRESS
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P9-01..P9-99
@@ -82,7 +82,7 @@ OpenRecomp-authored or openly licensed PS1 fixture.
 | ID | Stage | Status | Evidence |
 | --- | --- | --- | --- |
 | P9-00 | Phase-9 boundary + acceleration control plane | PASS | `.openrecomp-phase9/evidence/P9-00/` |
-| P9-01 | PS-X EXE ingestion | QUEUED | - |
+| P9-01 | PS-X EXE ingestion | PASS | `.openrecomp-phase9/evidence/P9-01/` |
 | P9-02 | PS1 executable image + memory-map contract | QUEUED | - |
 | P9-03 | Existing MIPS32 pipeline integration | QUEUED | - |
 | P9-04 | Reachable translation-frontier closure | QUEUED | - |
@@ -140,3 +140,23 @@ The Phase-8 terminal commit/tree, all fifteen frozen Phase-8 terminal
 evidence/control-plane hashes, the Phase-8 source manifest and the inherited
 Phase-6/Phase-7 reconciliations were re-verified; no frozen file changed. The
 frozen queue is `P9-01` .. `P9-99`; the next stage is `P9-01`.
+
+## P9-01 result
+
+PASS. Gate `tools/test_phase9_ingestion_v1.py` (163 checks, run twice via
+`p9_stage_runner_v1.py`, byte-identical stdout, empty stderr, exit 0).
+Evidence: `.openrecomp-phase9/evidence/P9-01/`. Markers issued:
+
+- `OPENRECOMP_P9_01=PASS`
+- `OPENRECOMP_PHASE9_INGESTION_V1=PASS tests=163`
+- `OPENRECOMP_PHASE9_PS1_PLATFORM_RUNTIME_PROOF=NOT_PROVEN` (reserved)
+- `OPENRECOMP_PHASE9_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` (permanent)
+- `OPENRECOMP_PHASE9_HERCULES_PLAYABILITY=NOT_PROVEN` (permanent)
+
+The additive ingestion module `.openrecomp-phase9/src/p9_psx_exe_v1.py` and
+the original fixture builder
+`.openrecomp-phase9/fixture/psx_fixture_builder_v1.py` were established. The
+private Hercules fixture was reduced to non-reconstructive metadata only
+(file/payload hashes, header fields, reserved-region hash and counts); no
+executable bytes are committed, and the fixture is explicitly not a `PASS`
+criterion. The next stage is `P9-02`.

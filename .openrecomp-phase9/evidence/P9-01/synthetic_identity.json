@@ -1,0 +1,127 @@
+{
+  "bss_identity": {
+    "address_space": {
+      "ram_kseg0_base": "0x80000000",
+      "ram_kseg0_end": "0x80200000",
+      "ram_size": 2097152
+    },
+    "bss_section": {
+      "address": "0x80020000",
+      "present": true,
+      "size": 256
+    },
+    "data_section": {
+      "address": "0x00000000",
+      "present": false,
+      "size": 0
+    },
+    "entry_pc": "0x80010000",
+    "file_sha256": "1b671007583e7ed99bd0b74274c2848f76157db0aa443c01df310766c5ce62c6",
+    "file_size": 2080,
+    "format": "PS-X EXE",
+    "format_version": "1.0.0",
+    "header_fields": {
+      "b_addr": "0x80020000",
+      "b_size": "0x00000100",
+      "d_addr": "0x00000000",
+      "d_size": "0x00000000",
+      "gp0": "0x00000000",
+      "pc0": "0x80010000",
+      "s_addr": "0x801ffff0",
+      "s_size": "0x00000000",
+      "t_addr": "0x80010000",
+      "t_size": "0x00000020",
+      "zero1": "0x00000000",
+      "zero2": "0x00000000"
+    },
+    "header_size": 2048,
+    "initial_gp": "0x00000000",
+    "load_address": "0x80010000",
+    "magic": "PS-X EXE",
+    "payload_sha256": "09c7dd980f77b547da21fee74a03465ee9a5beb261176356da82af3e0070deec",
+    "payload_size": 32,
+    "ram_span": {
+      "end": "0x80020100",
+      "start": "0x80010000"
+    },
+    "reserved": {
+      "first_nonzero_offset": null,
+      "last_nonzero_offset": null,
+      "nonzero_bytes": 0,
+      "offset": "0x38",
+      "sha256": "5e844bc0424f8e8283e1ee9d1af8f5dc9ba5763c4faeac8e1e5130b909b983a2",
+      "size": 1992
+    },
+    "stack": {
+      "pointer": "0x801ffff0",
+      "size": 0
+    },
+    "stack_pointer": "0x801ffff0",
+    "text_end": "0x80010020"
+  },
+  "fixture": "openrecomp-authored-canonical",
+  "identity": {
+    "address_space": {
+      "ram_kseg0_base": "0x80000000",
+      "ram_kseg0_end": "0x80200000",
+      "ram_size": 2097152
+    },
+    "bss_section": {
+      "address": "0x00000000",
+      "present": false,
+      "size": 0
+    },
+    "data_section": {
+      "address": "0x00000000",
+      "present": false,
+      "size": 0
+    },
+    "entry_pc": "0x80010000",
+    "file_sha256": "6d3461cb1cd3ee9437e6d3fc9218c4805b620fcb251dfc9a1dd915ebc46bc887",
+    "file_size": 2080,
+    "format": "PS-X EXE",
+    "format_version": "1.0.0",
+    "header_fields": {
+      "b_addr": "0x00000000",
+      "b_size": "0x00000000",
+      "d_addr": "0x00000000",
+      "d_size": "0x00000000",
+      "gp0": "0x00000000",
+      "pc0": "0x80010000",
+      "s_addr": "0x801ffff0",
+      "s_size": "0x00000000",
+      "t_addr": "0x80010000",
+      "t_size": "0x00000020",
+      "zero1": "0x00000000",
+      "zero2": "0x00000000"
+    },
+    "header_size": 2048,
+    "initial_gp": "0x00000000",
+    "load_address": "0x80010000",
+    "magic": "PS-X EXE",
+    "payload_sha256": "09c7dd980f77b547da21fee74a03465ee9a5beb261176356da82af3e0070deec",
+    "payload_size": 32,
+    "ram_span": {
+      "end": "0x80010020",
+      "start": "0x80010000"
+    },
+    "reserved": {
+      "first_nonzero_offset": null,
+      "last_nonzero_offset": null,
+      "nonzero_bytes": 0,
+      "offset": "0x38",
+      "sha256": "5e844bc0424f8e8283e1ee9d1af8f5dc9ba5763c4faeac8e1e5130b909b983a2",
+      "size": 1992
+    },
+    "stack": {
+      "pointer": "0x801ffff0",
+      "size": 0
+    },
+    "stack_pointer": "0x801ffff0",
+    "text_end": "0x80010020"
+  },
+  "identity_sha256": "e5df00805b75caeef0dfb444c0c2059b06e893a398b4347d20d1f01d8f64f35f",
+  "schema": "openrecomp-phase9-psx-exe-synthetic-v1",
+  "stage": "P9-01",
+  "words": 8
+}

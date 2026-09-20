@@ -30,8 +30,12 @@ def tracked_paths() -> tuple[str, ...]:
     found: set[str] = set()
     for pattern in PATTERNS:
         for path in ROOT.glob(pattern):
-            if path.is_file() and path.name != "__init__.py":
-                found.add(path.relative_to(ROOT).as_posix())
+            if not path.is_file() or path.name == "__init__.py":
+                continue
+            relative = path.relative_to(ROOT)
+            if "__pycache__" in relative.parts or relative.suffix == ".pyc":
+                continue
+            found.add(relative.as_posix())
     return tuple(sorted(found))
 
 
