@@ -1,0 +1,137 @@
+{
+  "checks": [
+    {
+      "check": "fixture:sha256",
+      "detail": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:independent-module",
+      "detail": "none",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:no-recompilation-imports",
+      "detail": "[\"from __future__ import annotations\", \"from dataclasses import dataclass, field\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "native:exit",
+      "detail": "failed=0 error=''",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:loader-image-size",
+      "detail": "0x6710",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:loader-objects",
+      "detail": "4/1",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:loader-entry",
+      "detail": "0x2490",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:halted",
+      "detail": "steps=4572",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:exit-status",
+      "detail": "0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:transcript",
+      "detail": "69c4e0d86a7b0430d8cdb78070b4c55a\n",
+      "status": "PASS"
+    },
+    {
+      "check": "recorded:p8-08-present",
+      "detail": "0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:exit_status",
+      "detail": "'0x00000000' == '0x00000000'",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:registers_digest",
+      "detail": "'0x7ee0f4a187050726' == '0x7ee0f4a187050726'",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:memory_digest",
+      "detail": "'0x231c4a49e79c5e56' == '0x231c4a49e79c5e56'",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:transcript_len",
+      "detail": "33 == 33",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:transcript_digest",
+      "detail": "'0xca6dcb87f8ac9814' == '0xca6dcb87f8ac9814'",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:reads",
+      "detail": "1136 == 1136",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:writes",
+      "detail": "681 == 681",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:host_calls",
+      "detail": "33 == 33",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:denied",
+      "detail": "0 == 0",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:registers",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:recorded-p8-08-match",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:no-excluded-observables",
+      "detail": "exit value, all registers, register digest, memory digest, transcript length/digest and every event count compared",
+      "status": "PASS"
+    },
+    {
+      "check": "equivalence:native-executable",
+      "detail": "fb98c8a68c5c3af7bc30dab2e907910e1c1dfd665eb79e0ee7fcd60dd07a04dc",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "markers": {
+    "gate": "OPENRECOMP_PHASE8_REFERENCE_EQUIVALENCE_V1=PASS tests=24",
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P8_09=PASS",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "passed": 24,
+  "stage": "P8-09",
+  "stage_name": "Independent reference equivalence",
+  "status": "PASS",
+  "tests": 24
+}

@@ -11,8 +11,8 @@ BASELINE_GENERAL=OPENRECOMP_PHASE7_GENERAL_NES_COMPATIBILITY=NOT_PROVEN
 BASELINE_TAG_STATUS=ABSENT_RECONCILED
 BASELINE_TAG_RECONCILIATION=P7-99 records that the frozen Phase-6 control policy required and created no terminal tag; the authoritative Phase-6 terminal boundary is the P6-99 verdict commit 1643817d43196c43155805249137e4b4e4a21eb1, tree cda3f535be43dc6f3d4b457d11d356ae39ea34af. No tag is fabricated.
 PHASE7_V2_LINE=OUTSIDE_BASELINE
-CURRENT_STAGE=P8-09
-LAST_PASSED_STAGE=P8-08
+CURRENT_STAGE=P8-10
+LAST_PASSED_STAGE=P8-09
 STATUS=ACTIVE
 QUEUE_FREEZE=FROZEN
 QUEUE_FREEZE_STAGES=P8-01..P8-99
@@ -79,7 +79,7 @@ Exact observed version strings are recorded in
 | P8-06 | Host-source emission | PASS | .openrecomp-phase8/evidence/P8-06/ |
 | P8-07 | Incremental native build | PASS | .openrecomp-phase8/evidence/P8-07/ |
 | P8-08 | Deterministic native execution | PASS | .openrecomp-phase8/evidence/P8-08/ |
-| P8-09 | Independent reference equivalence | QUEUED | - |
+| P8-09 | Independent reference equivalence | PASS | `.openrecomp-phase8/evidence/P8-09/` |
 | P8-10 | Reusable real-MIPS32 ELF-to-native workflow | QUEUED | - |
 | P8-11 | Fail-closed hardening | QUEUED | - |
 | P8-12 | Phase-8 evidence closure | QUEUED | - |
@@ -311,11 +311,30 @@ is unchanged (`exit_status=0x00000000`, register digest
 `0xca6dcb87f8ac9814`, reads 1136, writes 681, host calls 33, denied 0). No
 frozen Phase-1..Phase-7 artifact was modified.
 
+## P8-09 result
+
+PASS. Gate `tools/test_phase8_reference_equivalence_v1.py` (24 checks, run
+twice, byte-identical stdout, empty stderr, exit 0). Evidence:
+`.openrecomp-phase8/evidence/P8-09/`. Markers issued:
+
+- `OPENRECOMP_P8_09=PASS`
+- `OPENRECOMP_PHASE8_REFERENCE_EQUIVALENCE_V1=PASS tests=24`
+- `OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN`
+- `OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN`
+
+The independent reference `.openrecomp-phase8/src/p8_reference_mips32_v1.py`
+(own loader, decoder, interpreter and runtime contract; no recompilation
+imports) executed the frozen ELF for 4572 instructions and matches the native
+record exactly on every observable: exit status, all 32 registers, register
+digest `0x7ee0f4a187050726`, memory digest `0x231c4a49e79c5e56`, transcript
+33 bytes / digest `0xca6dcb87f8ac9814`, reads 1136, writes 681, host calls
+33, denied 0, with no excluded observables.
+
 ## Current boundary
 
-P8-00..P8-08 are complete: the frozen real ELF is characterized, structurally
-modelled, fully translatable, memory/runtime-bounded, emitted, built
-reproducibly and executed deterministically with a bounded observable record.
-Independent reference equivalence has not yet been established; the terminal
-objective remains unproven. P8-09 (independent reference equivalence) is
-active.
+P8-00..P8-09 are complete: the bounded real MIPS32 ELF path is characterized,
+translated, memory/runtime-bounded, emitted, built reproducibly, executed
+deterministically and independently verified equivalent. The remaining frozen
+stages are workflow reuse (P8-10), hardening (P8-11), evidence closure
+(P8-12) and the terminal audits (P8-90/P8-91/P8-99); the terminal objective
+remains unproven. P8-10 is active.

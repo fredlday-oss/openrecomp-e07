@@ -1,0 +1,109 @@
+{
+  "comparisons": {
+    "denied": {
+      "native": 0,
+      "reference": 0
+    },
+    "exit_status": {
+      "native": "0x00000000",
+      "reference": "0x00000000"
+    },
+    "host_calls": {
+      "native": 33,
+      "reference": 33
+    },
+    "memory_digest": {
+      "native": "0x231c4a49e79c5e56",
+      "reference": "0x231c4a49e79c5e56"
+    },
+    "reads": {
+      "native": 1136,
+      "reference": 1136
+    },
+    "registers_digest": {
+      "native": "0x7ee0f4a187050726",
+      "reference": "0x7ee0f4a187050726"
+    },
+    "transcript_digest": {
+      "native": "0xca6dcb87f8ac9814",
+      "reference": "0xca6dcb87f8ac9814"
+    },
+    "transcript_len": {
+      "native": 33,
+      "reference": 33
+    },
+    "writes": {
+      "native": 681,
+      "reference": 681
+    }
+  },
+  "excluded_observables": [],
+  "fixture": {
+    "sha256": "0a90f47754f6331b868ec09ad23c451fc2c73925a43897fa62a696b0d40dde65"
+  },
+  "markers": {
+    "general": "OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN",
+    "terminal": "OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN"
+  },
+  "native": {
+    "emission_fingerprint": "3df423e0efdd1b6d0c91ce9f95bd33d0b58f08833226314bd43aff407751c704",
+    "executable_sha256": "fb98c8a68c5c3af7bc30dab2e907910e1c1dfd665eb79e0ee7fcd60dd07a04dc",
+    "runs": 2
+  },
+  "recorded_mismatches": [],
+  "reference": {
+    "independent_module": ".openrecomp-phase8/src/p8_reference_mips32_v1.py",
+    "loader_image_size": 26384,
+    "module_sha256": "86314e6bf5d05cdf07b249a6c634e83a5c6b47b960ca0cae1c993622ae344ead",
+    "observables": {
+      "denied": 0,
+      "exit_status": "0x00000000",
+      "host_calls": 33,
+      "memory_digest": "0x231c4a49e79c5e56",
+      "reads": 1136,
+      "registers": {
+        "r00": "0x00000000",
+        "r01": "0x10000000",
+        "r02": "0x00000000",
+        "r03": "0x00006634",
+        "r04": "0x0000000a",
+        "r05": "0x0000662c",
+        "r06": "0x00006630",
+        "r07": "0x0000000a",
+        "r08": "0x000024c0",
+        "r09": "0x0000255e",
+        "r10": "0x00000010",
+        "r11": "0x0000009f",
+        "r12": "0x000000ca",
+        "r13": "0x0000009f",
+        "r14": "0x000000f5",
+        "r15": "0x0000003d",
+        "r16": "0x00000000",
+        "r17": "0x00000000",
+        "r18": "0x00000000",
+        "r19": "0x00000000",
+        "r20": "0x00000000",
+        "r21": "0x00000000",
+        "r22": "0x00000000",
+        "r23": "0x00000000",
+        "r24": "0x0000002b",
+        "r25": "0x0000000b",
+        "r26": "0x00000000",
+        "r27": "0x00000000",
+        "r28": "0x000000ef",
+        "r29": "0x00006710",
+        "r30": "0x00000000",
+        "r31": "0x00000000"
+      },
+      "registers_digest": "0x7ee0f4a187050726",
+      "transcript_digest": "0xca6dcb87f8ac9814",
+      "transcript_len": 33,
+      "transcript_text": "69c4e0d86a7b0430d8cdb78070b4c55a\n",
+      "writes": 681
+    },
+    "steps": 4572
+  },
+  "reference_version": "1.0.0",
+  "register_mismatches": [],
+  "stage": "P8-09"
+}

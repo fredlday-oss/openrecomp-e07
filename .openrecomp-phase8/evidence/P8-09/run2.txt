@@ -1,0 +1,28 @@
+PASS: fixture:sha256
+PASS: reference:independent-module
+PASS: reference:no-recompilation-imports
+PASS: native:exit
+PASS: reference:loader-image-size
+PASS: reference:loader-objects
+PASS: reference:loader-entry
+PASS: reference:halted
+PASS: reference:exit-status
+PASS: reference:transcript
+PASS: recorded:p8-08-present
+PASS: equivalence:exit_status
+PASS: equivalence:registers_digest
+PASS: equivalence:memory_digest
+PASS: equivalence:transcript_len
+PASS: equivalence:transcript_digest
+PASS: equivalence:reads
+PASS: equivalence:writes
+PASS: equivalence:host_calls
+PASS: equivalence:denied
+PASS: equivalence:registers
+PASS: equivalence:recorded-p8-08-match
+PASS: equivalence:no-excluded-observables
+PASS: equivalence:native-executable
+OPENRECOMP_P8_09=PASS
+OPENRECOMP_PHASE8_REFERENCE_EQUIVALENCE_V1=PASS tests=24
+OPENRECOMP_PHASE8_MIPS32_END_TO_END_NATIVE_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE8_GENERAL_MIPS32_COMPATIBILITY=NOT_PROVEN

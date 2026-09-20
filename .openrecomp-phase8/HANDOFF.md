@@ -1,6 +1,6 @@
 # OpenRecomp Phase 8 Handoff
 
-STATUS: Phase 8 `ACTIVE` at P8-02 after P8-00 and P8-01 `PASS`. The branch
+STATUS: Phase 8 `ACTIVE` at P8-10 after P8-00..P8-09 `PASS`. The branch
 `phase8/mips32-end-to-end-native-v1` starts exactly at annotated tag
 `openrecomp-phase7-pass`: tag object `b07e0f691262ed3ae0bc2fd6ebb3e3d3c5222800`,
 commit `2917aa6549ab975cffdeb50120514c1723f7e493`, tree
@@ -147,11 +147,23 @@ permanent.
 - the P8-08 gate passed twice with byte-identical stdout, empty stderr and
   exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-08/`.
 
+## P8-09 outcome
+
+- new independent reference `.openrecomp-phase8/src/p8_reference_mips32_v1.py`
+  (own ELF loader, decoder, interpreter and runtime contract; no
+  recompilation or Phase-3 imports);
+- the reference executed the frozen ELF for 4572 instructions and matches the
+  native record exactly on every observable: exit status, all 32 registers,
+  register digest `0x7ee0f4a187050726`, memory digest `0x231c4a49e79c5e56`,
+  transcript 33 bytes / digest `0xca6dcb87f8ac9814`, reads 1136, writes 681,
+  host calls 33, denied 0; `excluded_observables` is empty;
+- all values also equal the committed P8-08 evidence record;
+- the P8-09 gate passed twice with byte-identical stdout, empty stderr and
+  exit 0. Evidence is under `.openrecomp-phase8/evidence/P8-09/`.
+
 ## Exact next action
 
-Complete P8-09: build or use an independently structured MIPS32 reference
-path that does not call the generated/translated semantics, execute the
-frozen ELF under it, and compare every required observable (registers, memory
-digest, transcript, event counts, exit value) against the P8-08 native
-record; any intentional difference must be explicitly characterized,
-justified and proven bounded.
+Complete P8-10: create a deterministic reusable real-MIPS32 ELF-to-native
+workflow (classification -> analysis -> translation -> host generation ->
+native build -> execution -> result evidence) with explicit fail-closed
+failure categories and no proprietary or private inputs.
