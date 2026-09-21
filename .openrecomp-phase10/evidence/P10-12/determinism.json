@@ -1,33 +1,36 @@
 {
   "artifact_sha256": {
-    "p10_12_tests.json": "6c01ef08f928d2d8f13eec05bd29f7445c8ce5f5673841b2a30eb5780e45eea3"
+    "hardening.json": "86321892559d234dda2e791610366e9f4b6d7ec6a9c27553d3256596a3de5a46",
+    "p10_12_tests.json": "f9b262282ee7e4a3a2be440895828c639ece716216f05d1a011870ddabcd9ec1"
   },
   "artifacts_identical": true,
   "gate": "tools/test_phase10_hardening_v1.py",
   "gate_sha256": "592ead3068fc182f1fdbfdd3fb196cc96a810be23a8984dbe1495985e1efd071",
   "general_marker": "OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
   "playability_marker": "OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN",
-  "returncode_zero_both": false,
+  "returncode_zero_both": true,
   "runs": {
     "run1": {
       "artifact_sha256": {
-        "p10_12_tests.json": "6c01ef08f928d2d8f13eec05bd29f7445c8ce5f5673841b2a30eb5780e45eea3"
+        "hardening.json": "86321892559d234dda2e791610366e9f4b6d7ec6a9c27553d3256596a3de5a46",
+        "p10_12_tests.json": "f9b262282ee7e4a3a2be440895828c639ece716216f05d1a011870ddabcd9ec1"
       },
-      "p10_12_tests_sha256": "6c01ef08f928d2d8f13eec05bd29f7445c8ce5f5673841b2a30eb5780e45eea3",
-      "returncode": 1,
-      "stdout_bytes_raw": 1502,
-      "stdout_sha256_lf": "04b39a0518d730045db37e5ce1928ce9da81be5de7edc67876db57ba2ec7c78d",
-      "stdout_sha256_raw": "bd392d196b3b23344329e546ac6b639e811f8c4536ac2244e13cfd3da5a005d5"
+      "p10_12_tests_sha256": "f9b262282ee7e4a3a2be440895828c639ece716216f05d1a011870ddabcd9ec1",
+      "returncode": 0,
+      "stdout_bytes_raw": 2107,
+      "stdout_sha256_lf": "5ddd24b3816a60c8ba55381adf8778450b830be363081e0dff81c5c6cd3a552d",
+      "stdout_sha256_raw": "82d303d1b70dfd36de1b2835f006244114becdc9ae4c5197a7a376596a38e3e9"
     },
     "run2": {
       "artifact_sha256": {
-        "p10_12_tests.json": "6c01ef08f928d2d8f13eec05bd29f7445c8ce5f5673841b2a30eb5780e45eea3"
+        "hardening.json": "86321892559d234dda2e791610366e9f4b6d7ec6a9c27553d3256596a3de5a46",
+        "p10_12_tests.json": "f9b262282ee7e4a3a2be440895828c639ece716216f05d1a011870ddabcd9ec1"
       },
-      "p10_12_tests_sha256": "6c01ef08f928d2d8f13eec05bd29f7445c8ce5f5673841b2a30eb5780e45eea3",
-      "returncode": 1,
-      "stdout_bytes_raw": 1502,
-      "stdout_sha256_lf": "04b39a0518d730045db37e5ce1928ce9da81be5de7edc67876db57ba2ec7c78d",
-      "stdout_sha256_raw": "bd392d196b3b23344329e546ac6b639e811f8c4536ac2244e13cfd3da5a005d5"
+      "p10_12_tests_sha256": "f9b262282ee7e4a3a2be440895828c639ece716216f05d1a011870ddabcd9ec1",
+      "returncode": 0,
+      "stdout_bytes_raw": 2107,
+      "stdout_sha256_lf": "5ddd24b3816a60c8ba55381adf8778450b830be363081e0dff81c5c6cd3a552d",
+      "stdout_sha256_raw": "82d303d1b70dfd36de1b2835f006244114becdc9ae4c5197a7a376596a38e3e9"
     }
   },
   "schema": "openrecomp-phase10-determinism-v1",

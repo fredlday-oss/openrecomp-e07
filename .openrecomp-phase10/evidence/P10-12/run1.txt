@@ -13,7 +13,13 @@ PASS: cache:miss-on-frontend_version
 PASS: cache:miss-on-runtime_version
 PASS: cache:miss-on-semantic_version
 PASS: cache:missing-field-rejected
-FAIL: gate:assertion
+PASS: claim:general-not-promoted
+PASS: claim:native-execution-not-promoted
+PASS: claim:playability-not-promoted
+PASS: emission:inert-image
+PASS: emission:no-image-include
+PASS: emission:no-opcode-dispatch
+PASS: emission:no-payload-bytes
 PASS: ingest:BAD_MAGIC
 PASS: ingest:EMPTY_PAYLOAD
 PASS: ingest:ENTRY_OUTSIDE_PAYLOAD
@@ -28,16 +34,28 @@ PASS: ingest:STACK_OUTSIDE_RAM
 PASS: ingest:TRUNCATED_PAYLOAD
 PASS: ingest:all-negatives
 PASS: ingest:valid-baseline
+PASS: manifest:source-integrity
+PASS: negative:break:build
+PASS: negative:break:failed
+PASS: negative:break:reason
+PASS: negative:unknown-gp0:build
+PASS: negative:unknown-gp0:failed
+PASS: negative:unknown-gp0:reason
+PASS: private:present
+PASS: rebuild:cross-stage-observables
+PASS: rebuild:register-file-reproduced
+PASS: rebuild:status
+PASS: rebuild:transcript-identical
 PASS: safety:evidence-scanned
-FAIL: safety:no-host-paths
+PASS: safety:no-host-paths
 PASS: safety:no-private-payload
 PASS: structure:frozen-bridge-still-fails-closed
 PASS: structure:missing-delay-slot
 PASS: trap:NOT_A_TRAP_RECORD
 PASS: trap:TRAP_HAS_DELAY_SLOT
 PASS: trap:TRAP_HAS_TARGET
-OPENRECOMP_P10_12=FAIL
-OPENRECOMP_PHASE10_HARDENING_V1=FAIL tests=38
+OPENRECOMP_P10_12=PASS
+OPENRECOMP_PHASE10_HARDENING_V1=PASS tests=56
 OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN
 OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN
 OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
