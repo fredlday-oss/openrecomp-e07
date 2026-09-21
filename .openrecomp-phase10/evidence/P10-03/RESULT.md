@@ -100,19 +100,19 @@ through the existing architecture-neutral emitter.
 Command `python .openrecomp-phase10/src/p10_stage_runner_v1.py --stage P10-03
 --script tools/test_phase10_semantics_v1.py --evidence-dir
 .openrecomp-phase10/evidence/P10-03 --tests-json p10_03_tests.json`, exit 0,
-empty stderr, both runs byte-identical: stdout 4129 bytes (LF), sha256
-`9e6acd76aa3bfef6d5c9415266f61552bacaee4688ccc70600dbd6a8d8aae078`; generated
+empty stderr, both runs byte-identical: stdout 4209 bytes (LF), sha256
+`4c15d125ba7722554bcc02501da6390ac44361e3ef2f6c680afa2bf8a820408e`; generated
 evidence sidecars byte-identical across both runs.
 
 Sidecar identities:
 
-- `emission.json` `b88281c14ae0ff4f70683b9dd03e89926fedc2fe93780ff480baa0fe2f059c3c`;
-- `native_comparison.json` `03c251707d3e0c7706974733e69e1c62cb462f9b79f4db3a4393ed6b7166ec5c`;
+- `emission.json` `10e8aa87e6fbd8698f17ad73de3aeef759324a9b7e358247e57593a501c726de`;
+- `native_comparison.json` `f56655cb1f806a3407bb421889da95970f48c485d279a7a121fe9eae633f1078`;
 - `fail_closed_negatives.json` `0405e41d1c75aac9b609958e69eb0b7ce0b2ef8637ae08dcf6b7f71b72211a44`;
 - `frontier_closure.json` `45db1afda03320f217e7bd8389003d82176a779dde7063678e18737379186de4`;
-- `p10_03_tests.json` `ceb067ab3e4c8e27524ba13b40be406a75e40374c2727daf89fdd69e3aaeea87`;
-- `official_runs.json` `4e317d113ffc17748e20289aad478720a03e7802673f57e3831d3d2b83e909e9`;
-- `determinism.json` `cb426e30a8d33bae20997d94ec07cdaca3c21f93f439fef3aee8da9a9d1c4fe5`;
+- `p10_03_tests.json` `808a3166d0578d0340cd6baa4f80da4f0b7e9c761b1eaffb98b2543e1b2e4fce`;
+- `official_runs.json` `ca0b21db6a70ed65bb09633e96b5cacb9cc5543b74b00edb1b7d5d3a28bb98a3`;
+- `determinism.json` `6cc8f11e00f63ce20d112e2ff22eecae45fcf33421d9474c9cf015c7bf76de31`;
 - `run1.err.txt` = `run2.err.txt` empty
   (`e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`).
 
@@ -144,3 +144,21 @@ runtime composition), the neutral indirect-jump classification op
 generalised to the full anchored-substitution list. The semantics, the
 independent reference agreement and the fail-closed negatives are unchanged;
 the gate was re-run twice with byte-identical stdout (149 checks).
+
+## Re-issue note (third, documented, not silent)
+
+`P10-90` requires every Phase-10 gate to reproduce its committed evidence in
+place. A live re-run exposed that this stage's evidence had been stale since the
+documented `P10-07`/`P10-08` runtime-composition advance: the runtime
+composition grew from four to five anchored substitutions and the per-anchor
+composition checks replaced the single-anchor check, so a live run now performs
+151 checks (two additional `runtime:anchor:*` checks) instead of the recorded
+149, and the runtime-composition digests inside `emission.json` changed.
+
+The stage's *result* is unchanged: the additive semantic rules, the
+independent-reference agreement on all 32 registers, the guest RAM digest and
+exit status, the 20 unaligned-merge vectors, the five fail-closed native
+negatives and the private frontier closure all still pass. Only the
+composition-check count and the derived sidecar hashes moved. The stage was
+re-run through the official runner twice with byte-identical stdout, empty
+stderr, exit 0 and identical sidecars; the hashes above are the current ones.

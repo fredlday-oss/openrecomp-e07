@@ -472,6 +472,56 @@ Durations: the Phase-10 gates that build and run the native Hercules program
 each official run is doubled by the runner; budget hours, not minutes, and run
 them with a generous timeout (the gates themselves use 5400 s per native run).
 
+## P10-90 audit status: NOT PASS (audit incomplete, no stage claim)
+
+`P10-90` was attempted and did **not** reach `PASS`. Nothing is claimed. The
+audit tool `tools/test_phase10_whole_regression_v1.py` is committed and performs,
+on one tree:
+
+- the frozen Phase-9 boundary/terminal hash checks, the documented prior tracked
+  diff and the frozen Phase-9 source manifest;
+- a live Phase-1 host harness re-run (44 pass / 0 fail / 2 toolchain skips,
+  byte-identical stdout to the frozen P8-90 capture);
+- live re-runs of twelve of the thirteen frozen Phase-9 gates with byte-identical
+  stdout to their committed captures;
+- live re-runs of all thirteen Phase-10 gates with byte-identical stdout to their
+  committed captures and no tracked evidence modified;
+- the committed-evidence safety scan and the permanent scope guards.
+
+### Findings requiring action before P10-90 can PASS
+
+1. **Branch-context gates cannot be re-run live on the Phase-10 branch.** The
+   frozen `P8-90`/`P8-91`/`P8-99` gates assert the frozen branch name, and the
+   frozen `P9-00` boundary gate does too. Phase 10 deliberately works on
+   `phase10/ps1-commercial-game-native-v1` (P10-00 policy). A reconstruction
+   worktree on the frozen branch fails the gates' own worktree-hygiene and
+   generated-artifact expectations, so the tool documents the reconciliation:
+   those four gates are verified by frozen evidence hashes, the frozen branch-tip
+   identity (equal to the audited commit/tree) and the frozen `P9-90` record
+   (which re-ran the Phase-8 terminal gates live on that same commit/tree with
+   byte-identical stdout). This is recorded, not silent.
+2. **Stale stage evidence from the documented composition advance.** `P10-03`
+   was stale (149 vs 151 checks) and has been re-issued. Any other stage whose
+   sidecars embed the runtime composition (`P10-05`, `P10-07`, `P10-08`) must be
+   re-issued the same way before P10-90 can require in-place reproducibility.
+3. **Accidental re-tracking corrected.** A Phase-10 `git add ... tools` sweep
+   re-tracked `tools/test_build_package_reproducibility_v1.py`, which Phase 2 had
+   deliberately untracked; the frozen Phase-1 public-safety scan caught it. It
+   has been untracked again (two correction commits) and the scan passes.
+
+### Exact remaining sequence
+
+1. re-issue, with their official runners, every stage whose sidecars embed the
+   runtime composition (`P10-05`, `P10-07`, `P10-08`) and update the hash blocks
+   in their `RESULT.md` files;
+2. re-run `python tools/test_phase10_whole_regression_v1.py` until it passes
+   once;
+3. run the official P10-90 runner twice (`p10_stage_runner_v1.py`) and record
+   the counts, stdout hashes, sidecar identities and the reconciliation record;
+4. only then continue to `P10-91` and `P10-99`.
+
+No stage claim is made until that sequence completes.
+
 ## Open blockers
 
 - the executed unresolved indirect jump blocks initialisation; the exact

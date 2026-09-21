@@ -46,6 +46,7 @@
 - `P10-12` `PASS` (56 checks): malformed-input rejection, live
   fail-closed negatives, an identity-bound analysis cache, public-safety
   closure and clean-rebuild reproducibility;
+- `P10-90` audit **NOT PASS** (audit incomplete; no stage claim): see the `P10-90 audit status` section of `STATE.md` for the findings, the corrected defects and the exact remaining re-issue sequence;
 - evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-12/`.
 
 ## Immediate next action

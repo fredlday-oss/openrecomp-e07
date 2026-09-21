@@ -1,6 +1,8 @@
 {
+  "driver": "frozen",
   "driver_sha256": "6098da6c0d542f30d36d7a7ec5586a858ed077a5c2992a25b033619bbb789806",
   "emission_version": "1.0.0",
+  "event_transcript_capacity": 65536,
   "files": [
     {
       "bytes": 14027,
@@ -13,9 +15,9 @@
       "sha256": "7650536fdf8684faedce0fbffaaf196cce867bb06434c74c0cbe2cce6fa41f85"
     },
     {
-      "bytes": 28870,
+      "bytes": 31620,
       "name": "p9_runtime_support.c",
-      "sha256": "9d2e1a979ecf2d7a5aa3a9c3ad13853bf7756f855069ecbd1226f996aed32ed1"
+      "sha256": "3d8605e54f69e6a322968ead155c88ab4a614d111187e7cbc0c9a6b5c340fb55"
     },
     {
       "bytes": 7895,
@@ -23,6 +25,8 @@
       "sha256": "b021c23c47b4f90b8cf92c06fa3a3bb7123d3b5d17d556264ee094d67e80719d"
     }
   ],
+  "gpu_status_read_stub": "0x14802000",
+  "phase9_event_transcript_capacity": 4096,
   "platform_ports": {
     "P9_CDROM_BASE": "0x1f801800",
     "P9_CDROM_COMMAND": "0x1f801801",
@@ -62,8 +66,8 @@
     "fn_fn_80010144"
   ],
   "runtime_composition": {
-    "composed_bytes": 26489,
-    "composed_sha256": "a7632ca43af5ae3ee68900da5e5adc151dfe882b49f7e3af2fd8f4097c1ca813",
+    "composed_bytes": 29239,
+    "composed_sha256": "8123a52b7855f30e72b5cfb127f254bef1c0af3a76097e818d80a3771f63c42a",
     "extension_sha256": "c91696ce40c1b010169937b9f6b0f8a8bf0bbc4ca7ebb3e94f7e48adc54c0dae",
     "extension_source": ".openrecomp-phase10/runtime/p10_mips_extension_v1.c",
     "frozen_manifest_sha256": "59507a2c1fd8928a6ac100b324339c25d9079bafeee0cba47a7a93d1aab7dc6d",
@@ -71,19 +75,31 @@
     "frozen_source": ".openrecomp-phase9/runtime/p9_runtime_support.c",
     "frozen_source_reused_verbatim": true,
     "runtime_version": "1.0.0",
-    "substitution_count": 3,
+    "substitution_count": 5,
     "substitutions": [
+      {
+        "anchor_sha256": "93f5557b0d3a659641c60524670fe2093c99ec8785dcec7ce3794f367f57c1f4",
+        "name": "event-capacity",
+        "source": "budget",
+        "substitution_sha256": "97b77d4b190222a1874d86872550835774168c9f40df726c7ca0078fb6c98207"
+      },
+      {
+        "anchor_sha256": "db927b8f8950b488b14722525e36a014eec6224403c397c962bd1d4edeb9728a",
+        "name": "gpu-status-read-stub",
+        "source": "budget",
+        "substitution_sha256": "4aa4fe017ca6dc6c53c2c43c41caf7d03d63bee9f8a3fa98bc2b17884944af5e"
+      },
       {
         "anchor_sha256": "49479059f4d2d705fdfc56770131d1a7fcfb5321e12ea02c0a2732fb62c4a64a",
         "name": "access-budget",
         "source": "budget",
-        "substitution_sha256": "ba235f7cca77db5c8d0e93f9572b7407d070595d3cb3cd69b3461a8f362838d3"
+        "substitution_sha256": "c200e4baba36f5a3f454b0264579dd5ad05a1ede5ccfd85a3f1700cc09c693a1"
       },
       {
         "anchor_sha256": "8c9d2bf00d2f18e7f4c5acc77442f1fbe4c70ddaa67c019d007b3c7520ce134a",
         "name": "access-budget",
         "source": "budget",
-        "substitution_sha256": "a246ba85c1ab2eb8dc3c229a98d7b2adcaebe54f684ead92ac05043193f3626e"
+        "substitution_sha256": "744e1f216523d7971b203045a59a79adfff34043d260767b4ab7eaa975e94fe7"
       },
       {
         "anchor_sha256": "bbfb5150960803d7acaea288c81a2844ac0aa03327b35b2bc3fa804bd142f462",

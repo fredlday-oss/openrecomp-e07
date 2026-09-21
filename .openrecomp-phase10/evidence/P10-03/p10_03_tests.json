@@ -356,13 +356,23 @@
       "status": "PASS"
     },
     {
+      "check": "runtime:anchor:event-capacity",
+      "detail": "event-capacity",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:anchor:gpu-status-read-stub",
+      "detail": "gpu-status-read-stub",
+      "status": "PASS"
+    },
+    {
       "check": "runtime:anchor:host-call-dispatch",
       "detail": "host-call-dispatch",
       "status": "PASS"
     },
     {
       "check": "runtime:anchored-substitutions",
-      "detail": "3",
+      "detail": "5",
       "status": "PASS"
     },
     {
@@ -387,7 +397,7 @@
     },
     {
       "check": "runtime:substitution-count",
-      "detail": "3",
+      "detail": "5",
       "status": "PASS"
     },
     {
@@ -748,9 +758,9 @@
   ],
   "failed": 0,
   "failure": null,
-  "passed": 149,
+  "passed": 151,
   "stage": "P10-03",
   "stage_name": "Hercules CPU/control frontier iteration",
   "status": "PASS",
-  "tests": 149
+  "tests": 151
 }

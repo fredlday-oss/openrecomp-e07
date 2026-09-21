@@ -69,6 +69,8 @@ PASS: private:rules-complete
 PASS: reference:completed
 PASS: runtime:anchor:access-budget
 PASS: runtime:anchor:access-budget
+PASS: runtime:anchor:event-capacity
+PASS: runtime:anchor:gpu-status-read-stub
 PASS: runtime:anchor:host-call-dispatch
 PASS: runtime:anchored-substitutions
 PASS: runtime:frozen-body-reused
@@ -148,7 +150,7 @@ PASS: unaligned:store:3
 PASS: unaligned:store:3
 PASS: unaligned:store:3
 OPENRECOMP_P10_03=PASS
-OPENRECOMP_PHASE10_SEMANTICS_V1=PASS tests=149
+OPENRECOMP_PHASE10_SEMANTICS_V1=PASS tests=151
 OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN
 OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN
 OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN

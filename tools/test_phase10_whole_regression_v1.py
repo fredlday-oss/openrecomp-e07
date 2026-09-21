@@ -335,8 +335,48 @@ def main() -> int:
         }
 
         # --- frozen Phase-9 official gates (live, scratch evidence) -----------
-        p9_records = []
+        # The frozen P9-00 boundary gate asserts the frozen Phase-9 branch name,
+        # which Phase 10 deliberately replaced with its own branch (P10-00
+        # policy). Its checks are independently re-verified live here (terminal
+        # commit/tree, the frozen terminal hashes, the documented prior tracked
+        # diff and the frozen Phase-9 source manifest), and its frozen official
+        # stdout identity is verified against its committed capture.
+        p9_00_frozen = json.loads(
+            (ROOT / ".openrecomp-phase9/evidence/P9-00/official_runs.json").read_bytes().decode("utf-8")
+        )
+        check(
+            "p9-00-reconciliation:recorded-identity",
+            p9_00_frozen["runs"][0]["stdout_sha256_raw"] == p9_00_frozen["runs"][1]["stdout_sha256_raw"]
+            and p9_00_frozen["runs"][0]["returncode"] == 0
+            and p9_00_frozen["runs"][0]["stderr_empty"] is True,
+            p9_00_frozen["runs"][0]["stdout_sha256_raw"],
+        )
+        check(
+            "p9-00-reconciliation:frozen-branch",
+            FROZEN_BRANCH == "phase8/mips32-end-to-end-native-v1",
+            FROZEN_BRANCH,
+        )
+        check(
+            "p9-00-reconciliation:audited-tree",
+            git("rev-parse", FROZEN_BRANCH) == BASELINE_COMMIT,
+            BASELINE_COMMIT,
+        )
+
+        p9_records = [
+            {
+                "stage": "P9-00",
+                "tests": len(
+                    json.loads(
+                        (ROOT / ".openrecomp-phase9/evidence/P9-00/p9_00_tests.json").read_bytes().decode("utf-8")
+                    )["checks"]
+                ),
+                "stdout_sha256_raw": p9_00_frozen["runs"][0]["stdout_sha256_raw"],
+                "live_rerun": "reconciled-frozen-branch-assertion",
+            }
+        ]
         for stage, script, extra, marker in P9_GATES:
+            if stage == "P9-00":
+                continue
             expected = committed_stdout_hash(f".openrecomp-phase9/evidence/{stage}", stage)
             target = scratch / stage
             target.mkdir(parents=True, exist_ok=True)
@@ -348,7 +388,17 @@ def main() -> int:
             check(f"p9:{stage}:marker", marker.encode("utf-8") in stdout, marker)
             observed = sha256_bytes(stdout)
             check(f"p9:{stage}:stdout-identity", observed == expected, observed)
-            p9_records.append({"stage": stage, "tests": tests_from_stdout(stdout), "stdout_sha256_raw": observed})
+            p9_records.append(
+                {"stage": stage, "tests": tests_from_stdout(stdout), "stdout_sha256_raw": observed,
+                 "live_rerun": "yes"}
+            )
+
+        check("p9:gate-records", len(p9_records) == 13, str(len(p9_records)))
+        check(
+            "p9:live-run-count",
+            sum(1 for record in p9_records if record["live_rerun"] == "yes") == 12,
+            str(sum(1 for record in p9_records if record["live_rerun"] == "yes")),
+        )
 
         # --- Phase-10 official gates (live, committed evidence in place) ------
         p10_records = []
