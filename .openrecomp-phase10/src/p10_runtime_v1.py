@@ -49,6 +49,91 @@ ANCHOR = (
     "}\n"
 )
 
+#: Deterministic bounded-execution budget anchors. The budget bounds a guest
+#: run by guest memory accesses; when it is exceeded the checked access fails
+#: closed (`UNSUPPORTED_OPERATION`), the generated code calls `or_fail` and the
+#: run terminates with an explicit, reproducible category. A budget of zero
+#: disables the bound.
+READ_ANCHOR = (
+    "int or_rt_memory_read(uint64_t address, uint32_t width_bits, uint64_t *out_value)\n"
+    "{\n"
+    "    uint64_t width = 0;\n"
+    "    uint32_t offset = 0;\n"
+    "    uint64_t value = 0;\n"
+    "    uint64_t index;\n"
+    "    int status = p9_width_bytes(width_bits, &width);\n"
+)
+READ_REPLACEMENT = (
+    "static uint64_t g_p10_access_budget = UINT64_C(2000000);\n"
+    "static uint64_t g_p10_access_count;\n"
+    "static uint64_t g_p10_budget_denials;\n"
+    "\n"
+    "void p10_runtime_set_access_budget(uint64_t budget)\n"
+    "{\n"
+    "    g_p10_access_budget = budget;\n"
+    "    g_p10_access_count = UINT64_C(0);\n"
+    "    g_p10_budget_denials = UINT64_C(0);\n"
+    "}\n"
+    "\n"
+    "uint64_t p10_runtime_access_budget(void) { return g_p10_access_budget; }\n"
+    "uint64_t p10_runtime_access_count(void) { return g_p10_access_count; }\n"
+    "uint64_t p10_runtime_budget_denials(void) { return g_p10_budget_denials; }\n"
+    "\n"
+    "static int p10_budget_exceeded(void)\n"
+    "{\n"
+    "    if (g_p10_access_budget == UINT64_C(0)) {\n"
+    "        return 0;\n"
+    "    }\n"
+    "    ++g_p10_access_count;\n"
+    "    if (g_p10_access_count > g_p10_access_budget) {\n"
+    "        ++g_p10_budget_denials;\n"
+    "        return 1;\n"
+    "    }\n"
+    "    return 0;\n"
+    "}\n"
+    "\n"
+    "int or_rt_memory_read(uint64_t address, uint32_t width_bits, uint64_t *out_value)\n"
+    "{\n"
+    "    uint64_t width = 0;\n"
+    "    uint32_t offset = 0;\n"
+    "    uint64_t value = 0;\n"
+    "    uint64_t index;\n"
+    "    int status;\n"
+    "    if (p10_budget_exceeded()) {\n"
+    "        ++g_p9_denied_accesses;\n"
+    "        return P9_RT_UNSUPPORTED_OPERATION;\n"
+    "    }\n"
+    "    status = p9_width_bytes(width_bits, &width);\n"
+)
+
+WRITE_ANCHOR = (
+    "int or_rt_memory_write(uint64_t address, uint32_t width_bits, uint64_t value)\n"
+    "{\n"
+    "    uint64_t width = 0;\n"
+    "    uint32_t offset = 0;\n"
+    "    uint64_t index;\n"
+    "    int status = p9_width_bytes(width_bits, &width);\n"
+)
+WRITE_REPLACEMENT = (
+    "int or_rt_memory_write(uint64_t address, uint32_t width_bits, uint64_t value)\n"
+    "{\n"
+    "    uint64_t width = 0;\n"
+    "    uint32_t offset = 0;\n"
+    "    uint64_t index;\n"
+    "    int status;\n"
+    "    if (p10_budget_exceeded()) {\n"
+    "        ++g_p9_denied_accesses;\n"
+    "        return P9_RT_UNSUPPORTED_OPERATION;\n"
+    "    }\n"
+    "    status = p9_width_bytes(width_bits, &width);\n"
+)
+
+SUBSTITUTIONS = (
+    ("access-budget", READ_ANCHOR, READ_REPLACEMENT),
+    ("access-budget", WRITE_ANCHOR, WRITE_REPLACEMENT),
+    ("host-call-dispatch", ANCHOR, None),
+)
+
 ERROR_CODES = (
     "PHASE9_RUNTIME_MISSING",
     "PHASE9_RUNTIME_HASH_MISMATCH",
@@ -114,15 +199,32 @@ def compose_runtime_source() -> tuple[str, dict[str, Any]]:
         raise RuntimeCompositionError("ANCHOR_MISSING", "or_rt_host_call definition")
     if count != 1:
         raise RuntimeCompositionError("ANCHOR_AMBIGUOUS", str(count))
-    composed = frozen.replace(ANCHOR, extension.rstrip("\n") + "\n")
-    if composed == frozen:
-        raise RuntimeCompositionError("ANCHOR_MISSING", "no substitution performed")
-    residue = composed.replace(extension.rstrip("\n") + "\n", "")
-    residue = residue.replace("\n\n\n", "\n\n")
-    expected_residue = frozen.replace(ANCHOR, "")
-    expected_residue = expected_residue.replace("\n\n\n", "\n\n")
-    if residue != expected_residue:
-        raise RuntimeCompositionError("ANCHOR_AMBIGUOUS", "unexpected residue after substitution")
+
+    composed = frozen
+    substitution_records: list[dict[str, Any]] = []
+    for name, anchor, replacement in SUBSTITUTIONS:
+        occurrences = composed.count(anchor)
+        if occurrences == 0:
+            raise RuntimeCompositionError("ANCHOR_MISSING", name)
+        if occurrences != 1:
+            raise RuntimeCompositionError("ANCHOR_AMBIGUOUS", f"{name}:{occurrences}")
+        if replacement is None:
+            replacement = extension.rstrip("\n") + "\n"
+            text = replacement
+            source = "extension"
+        else:
+            text = replacement
+            source = "budget"
+        substitution_records.append(
+            {
+                "name": name,
+                "anchor_sha256": sha256_text(anchor),
+                "substitution_sha256": sha256_text(text),
+                "source": source,
+            }
+        )
+        composed = composed.replace(anchor, text)
+
     record = {
         "runtime_version": RUNTIME_VERSION,
         "frozen_source": PHASE9_RUNTIME_RELATIVE,
@@ -130,8 +232,8 @@ def compose_runtime_source() -> tuple[str, dict[str, Any]]:
         "frozen_manifest_sha256": _manifest_hash(PHASE9_RUNTIME_RELATIVE),
         "extension_source": EXTENSION_PATH.relative_to(ROOT).as_posix(),
         "extension_sha256": sha256_text(extension),
-        "anchor_sha256": sha256_text(ANCHOR),
-        "anchor_occurrences": count,
+        "substitutions": substitution_records,
+        "substitution_count": len(substitution_records),
         "composed_sha256": sha256_text(composed),
         "composed_bytes": len(composed.encode("utf-8")),
         "frozen_source_reused_verbatim": True,

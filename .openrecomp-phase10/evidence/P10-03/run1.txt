@@ -67,11 +67,15 @@ PASS: private:jalr-destinations
 PASS: private:preconditions
 PASS: private:rules-complete
 PASS: reference:completed
+PASS: runtime:anchor:access-budget
+PASS: runtime:anchor:access-budget
+PASS: runtime:anchor:host-call-dispatch
+PASS: runtime:anchored-substitutions
 PASS: runtime:frozen-body-reused
 PASS: runtime:matching-hashes
 PASS: runtime:no-inline-assembly
-PASS: runtime:only-anchored-substitution
-PASS: runtime:single-anchor
+PASS: runtime:only-anchored-substitutions
+PASS: runtime:substitution-count
 PASS: services:ids
 PASS: table:added-ops
 PASS: table:additive
@@ -84,6 +88,7 @@ PASS: table:rule:blez
 PASS: table:rule:bltz
 PASS: table:rule:break
 PASS: table:rule:jalr
+PASS: table:rule:jr_indirect
 PASS: table:rule:lh
 PASS: table:rule:lhu
 PASS: table:rule:lwl
@@ -143,7 +148,7 @@ PASS: unaligned:store:3
 PASS: unaligned:store:3
 PASS: unaligned:store:3
 OPENRECOMP_P10_03=PASS
-OPENRECOMP_PHASE10_SEMANTICS_V1=PASS tests=144
+OPENRECOMP_PHASE10_SEMANTICS_V1=PASS tests=149
 OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN
 OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN
 OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN

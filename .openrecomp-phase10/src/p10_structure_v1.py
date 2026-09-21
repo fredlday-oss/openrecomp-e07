@@ -49,6 +49,15 @@ STRUCTURE_VERSION = "1.0.0"
 
 PROVEN = EvidenceClass.PROVEN
 
+#: Neutral op name for the frozen frontier's ``indirect-jump`` classification
+#: of a ``jr`` whose source register is not ``$ra``. The frozen Phase-3
+#: decoder already distinguishes a structural return (``jr $ra``) from an
+#: indirect jump; the neutral host-emitter contract allows exactly one flow per
+#: ``(architecture, op)`` pair, so the two distinct classifications carry
+#: distinct neutral op names with distinct explicit rules. No target is
+#: invented and nothing is reclassified as code.
+JR_INDIRECT_OP = "jr_indirect"
+
 
 @dataclass
 class P10StructureResult:
@@ -89,9 +98,17 @@ def _exception_flow(record: dict[str, Any]) -> tuple[InstructionFlow, int | None
     return p8._flow_for_record(record)
 
 
+def _adapter_fields(record: dict[str, Any]) -> dict[str, Any]:
+    """The Phase-8 adapter fields with the explicit indirect-jump rename."""
+    fields = p8._adapter_fields(record)
+    if record.get("op") == "jr" and record.get("terminator") == "indirect-jump":
+        fields["op"] = JR_INDIRECT_OP
+    return fields
+
+
 def _neutral_instruction(record: dict[str, Any], delay_slot: dict[str, Any] | None) -> Any:
     flow, direct_target, unresolved = _exception_flow(record)
-    fields = p8._adapter_fields(record)
+    fields = _adapter_fields(record)
     metadata: dict[str, Any] = {
         "word": record["word"],
         "decode_class": record["decode_class"],

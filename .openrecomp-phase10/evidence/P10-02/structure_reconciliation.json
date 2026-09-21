@@ -108,7 +108,7 @@
   "is_pass_criterion": false,
   "label": "hercules-private-fixture",
   "new_frontier": {
-    "first_unresolved_indirect_op": "jr",
+    "first_unresolved_indirect_op": "jr_indirect",
     "first_unresolved_indirect_site": "0x80013e7c",
     "first_unresolved_indirect_status": "UNRESOLVED_INDIRECT_JUMP",
     "first_unruled_semantic_op": "sh",
@@ -122,6 +122,7 @@
       "bltz": 6,
       "break": 1,
       "jalr": 22,
+      "jr_indirect": 18,
       "lh": 12,
       "lhu": 6,
       "lwl": 17,
@@ -223,6 +224,26 @@
         "0x80018b54",
         "0x80026ebc",
         "0x80026f74"
+      ],
+      "jr_indirect": [
+        "0x80013e7c",
+        "0x80015b84",
+        "0x80015b94",
+        "0x80015ba4",
+        "0x80015edc",
+        "0x80015eec",
+        "0x80015f3c",
+        "0x80015f4c",
+        "0x80015f5c",
+        "0x80015f74",
+        "0x800161e0",
+        "0x8001b424",
+        "0x80026c74",
+        "0x80026ccc",
+        "0x80026cdc",
+        "0x80026cec",
+        "0x80026e24",
+        "0x80026e34"
       ],
       "lh": [
         "0x800188f0",
@@ -485,9 +506,9 @@
     "call_edges_internal": 209,
     "call_edges_unresolved": 22,
     "call_graph_fingerprint": "908e95976f7d7b8f72361b373daf57c828bee53254f6ab98415f01f2043b7cb1",
-    "cfg_fingerprint": "6f69e76db5ade3aacc89e732cdc1e37c5c9f217d2247a915b5cb81b7ea03ce76",
+    "cfg_fingerprint": "7a65308aa37ec84db4c4995ada795e8f68e2c280512626aa2ac870fbdde6d564",
     "classification_units": 110,
-    "discovery_fingerprint": "d1f2f540b5f02500a040ac9746105722ce193e108e89f690839f7f96900002ac",
+    "discovery_fingerprint": "140e6fed1e8c25741c84813af5f2e4a06f35e47d7383ec233339029218d5bd73",
     "edge_histogram": {
       "BRANCH_NOT_TAKEN": 243,
       "BRANCH_TAKEN": 243,
@@ -514,11 +535,11 @@
     "functions": 110,
     "neutral_instructions": 3433,
     "non_nop_delay_slots": 328,
-    "program_model_fingerprint": "86a3fa862757fa3718de725e960eb12f94b9a2edd7cae4c1bfdc755c789f0242",
+    "program_model_fingerprint": "e65c6284955e193e8eed81e9869271590fdcd8bb4b04262ec55b5ad74453679b",
     "shared_blocks": 0,
     "structure_version": "1.0.0",
     "translation_units": 110,
-    "units_fingerprint": "3ffec3ae987a88856c2d379fe415b7a74bbd4c6e3f4e30114b7c6c9e511b48a1",
+    "units_fingerprint": "17d9af63d25997bb8d5156f9e6abc1d4bb0a387b97940bb28ee154cbc9798f78",
     "unowned_blocks": 0
   },
   "unresolved_indirect_sites": [
@@ -527,7 +548,7 @@
       "block_id": "blk_80013e6c",
       "function_id": "fn_80013c18",
       "kind": "INDIRECT_JUMP",
-      "op": "jr",
+      "op": "jr_indirect",
       "status": "UNRESOLVED_INDIRECT_JUMP",
       "target": null
     },
@@ -590,7 +611,7 @@
       "block_id": "blk_80015b80",
       "function_id": "fn_80015b80",
       "kind": "INDIRECT_JUMP",
-      "op": "jr",
+      "op": "jr_indirect",
       "status": "UNRESOLVED_INDIRECT_JUMP",
       "target": null
     },
@@ -599,7 +620,7 @@
       "block_id": "blk_80015b90",
       "function_id": "fn_80015b90",
       "kind": "INDIRECT_JUMP",
-      "op": "jr",
+      "op": "jr_indirect",
       "status": "UNRESOLVED_INDIRECT_JUMP",
       "target": null
     },
@@ -608,7 +629,7 @@
       "block_id": "blk_80015ba0",
       "function_id": "fn_80015ba0",
       "kind": "INDIRECT_JUMP",
-      "op": "jr",
+      "op": "jr_indirect",
       "status": "UNRESOLVED_INDIRECT_JUMP",
       "target": null
     },
@@ -617,7 +638,7 @@
       "block_id": "blk_80015ed8",
       "function_id": "fn_80015ed8",
       "kind": "INDIRECT_JUMP",
-      "op": "jr",
+      "op": "jr_indirect",
       "status": "UNRESOLVED_INDIRECT_JUMP",
       "target": null
     },
@@ -626,7 +647,7 @@
       "block_id": "blk_80015ee8",
       "function_id": "fn_80015ee8",
       "kind": "INDIRECT_JUMP",
-      "op": "jr",
+      "op": "jr_indirect",
       "status": "UNRESOLVED_INDIRECT_JUMP",
       "target": null
     },
@@ -635,7 +656,7 @@
       "block_id": "blk_80015f38",
       "function_id": "fn_80015f38",
       "kind": "INDIRECT_JUMP",
-      "op": "jr",
+      "op": "jr_indirect",
       "status": "UNRESOLVED_INDIRECT_JUMP",
       "target": null
     },
@@ -644,7 +665,7 @@
       "block_id": "blk_80015f48",
       "function_id": "fn_80015f48",
       "kind": "INDIRECT_JUMP",
-      "op": "jr",
+      "op": "jr_indirect",
       "status": "UNRESOLVED_INDIRECT_JUMP",
       "target": null
     },
@@ -653,7 +674,7 @@
       "block_id": "blk_80015f58",
       "function_id": "fn_80015f58",
       "kind": "INDIRECT_JUMP",
-      "op": "jr",
+      "op": "jr_indirect",
       "status": "UNRESOLVED_INDIRECT_JUMP",
       "target": null
     },
@@ -662,7 +683,7 @@
       "block_id": "blk_80015f68",
       "function_id": "fn_80015f68",
       "kind": "INDIRECT_JUMP",
-      "op": "jr",
+      "op": "jr_indirect",
       "status": "UNRESOLVED_INDIRECT_JUMP",
       "target": null
     },
@@ -680,7 +701,7 @@
       "block_id": "blk_800161dc",
       "function_id": "fn_800161dc",
       "kind": "INDIRECT_JUMP",
-      "op": "jr",
+      "op": "jr_indirect",
       "status": "UNRESOLVED_INDIRECT_JUMP",
       "target": null
     },
@@ -806,7 +827,7 @@
       "block_id": "blk_8001b420",
       "function_id": "fn_8001b420",
       "kind": "INDIRECT_JUMP",
-      "op": "jr",
+      "op": "jr_indirect",
       "status": "UNRESOLVED_INDIRECT_JUMP",
       "target": null
     },
@@ -815,7 +836,7 @@
       "block_id": "blk_80026c70",
       "function_id": "fn_80026c70",
       "kind": "INDIRECT_JUMP",
-      "op": "jr",
+      "op": "jr_indirect",
       "status": "UNRESOLVED_INDIRECT_JUMP",
       "target": null
     },
@@ -824,7 +845,7 @@
       "block_id": "blk_80026cc8",
       "function_id": "fn_80026cc8",
       "kind": "INDIRECT_JUMP",
-      "op": "jr",
+      "op": "jr_indirect",
       "status": "UNRESOLVED_INDIRECT_JUMP",
       "target": null
     },
@@ -833,7 +854,7 @@
       "block_id": "blk_80026cd8",
       "function_id": "fn_80026cd8",
       "kind": "INDIRECT_JUMP",
-      "op": "jr",
+      "op": "jr_indirect",
       "status": "UNRESOLVED_INDIRECT_JUMP",
       "target": null
     },
@@ -842,7 +863,7 @@
       "block_id": "blk_80026ce8",
       "function_id": "fn_80026ce8",
       "kind": "INDIRECT_JUMP",
-      "op": "jr",
+      "op": "jr_indirect",
       "status": "UNRESOLVED_INDIRECT_JUMP",
       "target": null
     },
@@ -851,7 +872,7 @@
       "block_id": "blk_80026e20",
       "function_id": "fn_80026e20",
       "kind": "INDIRECT_JUMP",
-      "op": "jr",
+      "op": "jr_indirect",
       "status": "UNRESOLVED_INDIRECT_JUMP",
       "target": null
     },
@@ -860,7 +881,7 @@
       "block_id": "blk_80026e30",
       "function_id": "fn_80026e30",
       "kind": "INDIRECT_JUMP",
-      "op": "jr",
+      "op": "jr_indirect",
       "status": "UNRESOLVED_INDIRECT_JUMP",
       "target": null
     },

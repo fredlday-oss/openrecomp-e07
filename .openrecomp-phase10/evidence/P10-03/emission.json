@@ -13,9 +13,9 @@
       "sha256": "7650536fdf8684faedce0fbffaaf196cce867bb06434c74c0cbe2cce6fa41f85"
     },
     {
-      "bytes": 27835,
+      "bytes": 28870,
       "name": "p9_runtime_support.c",
-      "sha256": "15a5d16bb6bf02cdf13c660183989b57784442e9cc10a014d8e7b536d49e6de3"
+      "sha256": "9d2e1a979ecf2d7a5aa3a9c3ad13853bf7756f855069ecbd1226f996aed32ed1"
     },
     {
       "bytes": 7895,
@@ -62,17 +62,36 @@
     "fn_fn_80010144"
   ],
   "runtime_composition": {
-    "anchor_occurrences": 1,
-    "anchor_sha256": "bbfb5150960803d7acaea288c81a2844ac0aa03327b35b2bc3fa804bd142f462",
-    "composed_bytes": 25454,
-    "composed_sha256": "9bac8fe678549986006f1bde77137482c5fb60e5e8832eede849ab006137c4d7",
+    "composed_bytes": 26489,
+    "composed_sha256": "a7632ca43af5ae3ee68900da5e5adc151dfe882b49f7e3af2fd8f4097c1ca813",
     "extension_sha256": "c91696ce40c1b010169937b9f6b0f8a8bf0bbc4ca7ebb3e94f7e48adc54c0dae",
     "extension_source": ".openrecomp-phase10/runtime/p10_mips_extension_v1.c",
     "frozen_manifest_sha256": "59507a2c1fd8928a6ac100b324339c25d9079bafeee0cba47a7a93d1aab7dc6d",
     "frozen_sha256": "59507a2c1fd8928a6ac100b324339c25d9079bafeee0cba47a7a93d1aab7dc6d",
     "frozen_source": ".openrecomp-phase9/runtime/p9_runtime_support.c",
     "frozen_source_reused_verbatim": true,
-    "runtime_version": "1.0.0"
+    "runtime_version": "1.0.0",
+    "substitution_count": 3,
+    "substitutions": [
+      {
+        "anchor_sha256": "49479059f4d2d705fdfc56770131d1a7fcfb5321e12ea02c0a2732fb62c4a64a",
+        "name": "access-budget",
+        "source": "budget",
+        "substitution_sha256": "ba235f7cca77db5c8d0e93f9572b7407d070595d3cb3cd69b3461a8f362838d3"
+      },
+      {
+        "anchor_sha256": "8c9d2bf00d2f18e7f4c5acc77442f1fbe4c70ddaa67c019d007b3c7520ce134a",
+        "name": "access-budget",
+        "source": "budget",
+        "substitution_sha256": "a246ba85c1ab2eb8dc3c229a98d7b2adcaebe54f684ead92ac05043193f3626e"
+      },
+      {
+        "anchor_sha256": "bbfb5150960803d7acaea288c81a2844ac0aa03327b35b2bc3fa804bd142f462",
+        "name": "host-call-dispatch",
+        "source": "extension",
+        "substitution_sha256": "c91696ce40c1b010169937b9f6b0f8a8bf0bbc4ca7ebb3e94f7e48adc54c0dae"
+      }
+    ]
   },
   "semantics": {
     "added_ops": [
@@ -101,7 +120,7 @@
       "syscall",
       "xori"
     ],
-    "rules_total": 46,
+    "rules_total": 47,
     "service_ids": [
       "openrecomp.mips.add.overflow.check",
       "openrecomp.mips.lwl",

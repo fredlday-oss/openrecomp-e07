@@ -82,11 +82,11 @@ EXPECTED = {
     "unsupported_indirect_sites": 40,
     "exception_site_count": 3,
     "first_unresolved_indirect_site": 0x80013E7C,
-    "first_unresolved_indirect_op": "jr",
+    "first_unresolved_indirect_op": "jr_indirect",
     "first_unruled_semantic_site": 0x80011A60,
     "first_unruled_semantic_op": "sh",
-    "unruled_op_types": 24,
-    "unruled_instruction_count": 286,
+    "unruled_op_types": 25,
+    "unruled_instruction_count": 304,
 }
 
 RESULTS: list[dict[str, str]] = []
@@ -298,6 +298,11 @@ def main() -> int:
                 p8_summary[key] == p10_summary[key],
                 f"{p8_summary[key]} != {p10_summary[key]}",
             )
+        check(
+            "additive:indirect-op-name",
+            "jr_indirect" not in {instruction.op for instruction in p10_result.cfg.instructions},
+            "no indirect jumps in the trap-free fixture",
+        )
         check("additive:trap-count-zero", p10_summary["exception_site_count"] == 0, str(p10_summary["exception_site_count"]))
         check("additive:no-neutral-address-drift", p10_result.neutral_addresses == p8_result.neutral_addresses, "identical")
 

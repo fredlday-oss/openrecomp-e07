@@ -73,6 +73,12 @@ ADDED_OPS = (
     "sltu", "subu", "swl", "swr", "syscall", "xori",
 )
 
+#: Neutral classification ops (not MIPS mnemonics) produced by the Phase-10
+#: structure bridge: the frozen frontier classifies a ``jr`` whose source
+#: register is not ``$ra`` as an indirect jump, and the one-flow-per-op
+#: emitter contract requires a distinct neutral rule for it.
+CLASSIFICATION_OPS = ("jr_indirect",)
+
 #: Op types whose exact semantics live behind a Phase-10 host service.
 HOST_SERVICE_OPS = {
     "addi": "openrecomp.mips.add.overflow.check",
@@ -131,6 +137,7 @@ def added_rules() -> tuple[HostInstructionSemantics, ...]:
         rule("syscall", InstructionFlow.TRAP),
         # --- indirect control ------------------------------------------------
         rule("jalr", InstructionFlow.INDIRECT_CALL, indirect_source=r("rs")),
+        rule("jr_indirect", InstructionFlow.INDIRECT_JUMP, indirect_source=r("rs")),
         # --- overflow-trapping add-immediate ---------------------------------
         rule(
             "addi",

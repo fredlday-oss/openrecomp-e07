@@ -76,10 +76,10 @@ Structure now completes:
 | unresolved indirect control sites | 40 (18 indirect jumps, 22 indirect calls) |
 | exception sites | 3 (`0x80013390` break, `0x80015f1c` and `0x80015f2c` syscall) |
 | flow histogram | NORMAL 2795, BRANCH 243, CALL 209, JUMP 53, RETURN 90, INDIRECT_CALL 22, INDIRECT_JUMP 18, TRAP 3 |
-| first unresolved indirect site | `0x80013e7c` `jr` (`UNRESOLVED_INDIRECT_JUMP`) |
+| first unresolved indirect site | `0x80013e7c` `jr_indirect` (`UNRESOLVED_INDIRECT_JUMP`) |
 | first site without a semantic rule | `0x80011a60` `sh` |
 
-Remaining semantic gap: 24 op types / 286 reachable instructions without a
+Remaining semantic gap: 25 op types / 304 reachable instructions without a
 host-emitter rule - `addi` (2), `and` (17), `bgez` (4), `bgtz` (5), `blez`
 (11), `bltz` (6), `break` (1), `jalr` (22), `lh` (12), `lhu` (6), `lwl` (17),
 `lwr` (17), `mfhi` (5), `mult` (5), `sh` (31), `slt` (19), `slti` (12),
@@ -92,16 +92,16 @@ host-emitter rule - `addi` (2), `and` (17), `bgez` (4), `bgtz` (5), `blez`
 Command `python .openrecomp-phase10/src/p10_stage_runner_v1.py --stage P10-02
 --script tools/test_phase10_structure_v1.py --evidence-dir
 .openrecomp-phase10/evidence/P10-02 --tests-json p10_02_tests.json`, exit 0,
-empty stderr, both runs byte-identical: stdout 27560 bytes (LF), sha256
-`6e55ceb6b0ecb210a547dcd0503394590c95298641375f272ea17b24ea2f6962`; generated
+empty stderr, both runs byte-identical: stdout 29048 bytes (LF), sha256
+`293a47f6344861664436986f9d17671f291d7969273e0f46bb9736f6f171a84a`; generated
 evidence sidecars byte-identical across both runs.
 
 Sidecar identities:
 
-- `structure_reconciliation.json` `60fe06887af814c4dd2cb8befa6a292ec9e69bb7cd289bb2d60b1c793637346f`;
-- `p10_02_tests.json` `dd0b5877ef94d7afcc05d777fada9f81beeef6ba1dc3f4dec2a3dbcda0f04787`;
-- `official_runs.json` `d7bf70364091af314dd664a5431612da6b4c939d1ce2f4efed14efcab2894d12`;
-- `determinism.json` `5fa94cb77c70d3674211aa40bd78a50345f264b99661d840a1c4f7de8f43aad4`;
+- `structure_reconciliation.json` `2ca89528e85f7fc635a4e506e2d4e54c863977438b252cb0f88d03e9cfd22f34`;
+- `p10_02_tests.json` `d715f8d7a87894b7c35eab5dbcaeb5528ab4ecba49d6b826e6bcb49cfd86d37d`;
+- `official_runs.json` `a30044af974c28fceaa8be0bd5f77dfec208ca270983a3c842e915f7bd07512e`;
+- `determinism.json` `f57ca0a5461166aa68de51dcfea5c5015390924b04bec63d1edf1e78e1fba608`;
 - `run1.err.txt` = `run2.err.txt` empty
   (`e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`).
 
@@ -122,3 +122,22 @@ compatibility remain `NOT_PROVEN`.
 ## Next stage
 
 `P10-03` - CPU/control frontier iteration from the new frontier.
+
+## Re-issue note (documented, not silent)
+
+This stage's evidence was re-issued during the `P10-05` boundary because a real
+structural gap found while emitting the native Hercules program required an
+explicit neutral classification: the neutral host-emitter contract allows one
+flow per `(architecture, op)` pair, while the frozen frontier already
+distinguishes a structural return (`jr $ra`) from an indirect jump
+(`jr` through another register). The Phase-10 structure bridge now records the
+latter with the distinct neutral op name `jr_indirect`, so the frozen Phase-8
+rules stay untouched and the one-flow contract holds.
+
+Consequences for this stage's evidence: the new-frontier unruled gap is 25 op
+types / 304 instructions (`jr_indirect` has no frozen Phase-8 rule), the first
+unresolved indirect site's op is reported as `jr_indirect`, and the structure
+fingerprints in `structure_reconciliation.json` changed. The reconciliation
+result itself (`CONTROL_WITHOUT_DELAY_SLOT` resolved, additivity proof,
+fail-closed negatives, frozen-module behaviour preserved) is unchanged and the
+gate was re-run twice with byte-identical stdout.

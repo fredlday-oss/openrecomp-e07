@@ -46,6 +46,11 @@
       "status": "PASS"
     },
     {
+      "check": "additive:indirect-op-name",
+      "detail": "no indirect jumps in the trap-free fixture",
+      "status": "PASS"
+    },
+    {
       "check": "additive:neutral_instructions",
       "detail": "5 != 5",
       "status": "PASS"
@@ -162,7 +167,7 @@
     },
     {
       "check": "private:first-indirect-op",
-      "detail": "jr",
+      "detail": "jr_indirect",
       "status": "PASS"
     },
     {
@@ -227,12 +232,12 @@
     },
     {
       "check": "private:unruled-instruction-count",
-      "detail": "286",
+      "detail": "304",
       "status": "PASS"
     },
     {
       "check": "private:unruled-op-types",
-      "detail": "24",
+      "detail": "25",
       "status": "PASS"
     },
     {
@@ -487,7 +492,7 @@
     },
     {
       "check": "structure-reconciliation:string-length",
-      "detail": "2 chars",
+      "detail": "11 chars",
       "status": "PASS"
     },
     {
@@ -662,7 +667,7 @@
     },
     {
       "check": "structure-reconciliation:string-length",
-      "detail": "2 chars",
+      "detail": "11 chars",
       "status": "PASS"
     },
     {
@@ -687,7 +692,7 @@
     },
     {
       "check": "structure-reconciliation:string-length",
-      "detail": "2 chars",
+      "detail": "11 chars",
       "status": "PASS"
     },
     {
@@ -712,7 +717,7 @@
     },
     {
       "check": "structure-reconciliation:string-length",
-      "detail": "2 chars",
+      "detail": "11 chars",
       "status": "PASS"
     },
     {
@@ -737,7 +742,7 @@
     },
     {
       "check": "structure-reconciliation:string-length",
-      "detail": "2 chars",
+      "detail": "11 chars",
       "status": "PASS"
     },
     {
@@ -762,7 +767,7 @@
     },
     {
       "check": "structure-reconciliation:string-length",
-      "detail": "2 chars",
+      "detail": "11 chars",
       "status": "PASS"
     },
     {
@@ -787,7 +792,7 @@
     },
     {
       "check": "structure-reconciliation:string-length",
-      "detail": "2 chars",
+      "detail": "11 chars",
       "status": "PASS"
     },
     {
@@ -812,7 +817,7 @@
     },
     {
       "check": "structure-reconciliation:string-length",
-      "detail": "2 chars",
+      "detail": "11 chars",
       "status": "PASS"
     },
     {
@@ -837,7 +842,7 @@
     },
     {
       "check": "structure-reconciliation:string-length",
-      "detail": "2 chars",
+      "detail": "11 chars",
       "status": "PASS"
     },
     {
@@ -862,57 +867,7 @@
     },
     {
       "check": "structure-reconciliation:string-length",
-      "detail": "2 chars",
-      "status": "PASS"
-    },
-    {
-      "check": "structure-reconciliation:string-length",
-      "detail": "13 chars",
-      "status": "PASS"
-    },
-    {
-      "check": "structure-reconciliation:string-length",
-      "detail": "24 chars",
-      "status": "PASS"
-    },
-    {
-      "check": "structure-reconciliation:string-length",
       "detail": "11 chars",
-      "status": "PASS"
-    },
-    {
-      "check": "structure-reconciliation:string-length",
-      "detail": "12 chars",
-      "status": "PASS"
-    },
-    {
-      "check": "structure-reconciliation:string-length",
-      "detail": "4 chars",
-      "status": "PASS"
-    },
-    {
-      "check": "structure-reconciliation:string-length",
-      "detail": "13 chars",
-      "status": "PASS"
-    },
-    {
-      "check": "structure-reconciliation:string-length",
-      "detail": "24 chars",
-      "status": "PASS"
-    },
-    {
-      "check": "structure-reconciliation:string-length",
-      "detail": "11 chars",
-      "status": "PASS"
-    },
-    {
-      "check": "structure-reconciliation:string-length",
-      "detail": "12 chars",
-      "status": "PASS"
-    },
-    {
-      "check": "structure-reconciliation:string-length",
-      "detail": "2 chars",
       "status": "PASS"
     },
     {
@@ -962,7 +917,7 @@
     },
     {
       "check": "structure-reconciliation:string-length",
-      "detail": "4 chars",
+      "detail": "11 chars",
       "status": "PASS"
     },
     {
@@ -1262,7 +1217,7 @@
     },
     {
       "check": "structure-reconciliation:string-length",
-      "detail": "2 chars",
+      "detail": "4 chars",
       "status": "PASS"
     },
     {
@@ -1287,7 +1242,7 @@
     },
     {
       "check": "structure-reconciliation:string-length",
-      "detail": "2 chars",
+      "detail": "4 chars",
       "status": "PASS"
     },
     {
@@ -1312,7 +1267,7 @@
     },
     {
       "check": "structure-reconciliation:string-length",
-      "detail": "2 chars",
+      "detail": "11 chars",
       "status": "PASS"
     },
     {
@@ -1337,7 +1292,7 @@
     },
     {
       "check": "structure-reconciliation:string-length",
-      "detail": "2 chars",
+      "detail": "11 chars",
       "status": "PASS"
     },
     {
@@ -1362,7 +1317,7 @@
     },
     {
       "check": "structure-reconciliation:string-length",
-      "detail": "2 chars",
+      "detail": "11 chars",
       "status": "PASS"
     },
     {
@@ -1387,7 +1342,7 @@
     },
     {
       "check": "structure-reconciliation:string-length",
-      "detail": "2 chars",
+      "detail": "11 chars",
       "status": "PASS"
     },
     {
@@ -1412,7 +1367,57 @@
     },
     {
       "check": "structure-reconciliation:string-length",
-      "detail": "2 chars",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "13 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "13 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "11 chars",
       "status": "PASS"
     },
     {
@@ -1572,7 +1577,7 @@
     },
     {
       "check": "structure-reconciliation:string-length",
-      "detail": "2 chars",
+      "detail": "11 chars",
       "status": "PASS"
     },
     {
@@ -1588,6 +1593,96 @@
     {
       "check": "structure-reconciliation:string-length",
       "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "structure-reconciliation:string-length",
+      "detail": "10 chars",
       "status": "PASS"
     },
     {
@@ -3113,9 +3208,9 @@
   ],
   "failed": 0,
   "failure": null,
-  "passed": 622,
+  "passed": 641,
   "stage": "P10-02",
   "stage_name": "CONTROL_WITHOUT_DELAY_SLOT reconciliation",
   "status": "PASS",
-  "tests": 622
+  "tests": 641
 }

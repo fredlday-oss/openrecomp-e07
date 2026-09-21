@@ -317,7 +317,7 @@
     },
     {
       "check": "preconditions:ok",
-      "detail": "{'semantics_version': '1.0.0', 'architecture': 'mips32-bounded-v1', 'added_ops': ['addi', 'and', 'bgez', 'bgtz', 'blez', 'bltz', 'break', 'jalr', 'lh', 'lhu', 'lwl', 'lwr', 'mfhi', 'mult', 'sh', 'slt', 'slti', 'sltiu', 'sltu', 'subu', 'swl', 'swr', 'syscall', 'xori'], 'host_service_ops': {'addi': 'openrecomp.mips.add.overflow.check', 'lwl': 'openrecomp.mips.lwl', 'lwr': 'openrecomp.mips.lwr', 'mfhi': 'openrecomp.mips.mfhi', 'mult': 'openrecomp.mips.mult', 'swl': 'openrecomp.mips.swl', 'swr': 'openrecomp.mips.swr'}, 'service_arities': {'openrecomp.mips.add.overflow.check': 2, 'openrecomp.mips.lwl': 2, 'openrecomp.mips.lwr': 2, 'openrecomp.mips.mfhi': 0, 'openrecomp.mips.mult': 2, 'openrecomp.mips.swl': 2, 'openrecomp.mips.swr': 2}, 'jalr_sites': 0, 'jalr_bad_destinations': 0, 'folded_delay_slots': 9, 'unmapped_delay_slots': 0, 'trap_sites': 0, 'rules_total': 46, 'rules_added': 24}",
+      "detail": "{'semantics_version': '1.0.0', 'architecture': 'mips32-bounded-v1', 'added_ops': ['addi', 'and', 'bgez', 'bgtz', 'blez', 'bltz', 'break', 'jalr', 'lh', 'lhu', 'lwl', 'lwr', 'mfhi', 'mult', 'sh', 'slt', 'slti', 'sltiu', 'sltu', 'subu', 'swl', 'swr', 'syscall', 'xori'], 'host_service_ops': {'addi': 'openrecomp.mips.add.overflow.check', 'lwl': 'openrecomp.mips.lwl', 'lwr': 'openrecomp.mips.lwr', 'mfhi': 'openrecomp.mips.mfhi', 'mult': 'openrecomp.mips.mult', 'swl': 'openrecomp.mips.swl', 'swr': 'openrecomp.mips.swr'}, 'service_arities': {'openrecomp.mips.add.overflow.check': 2, 'openrecomp.mips.lwl': 2, 'openrecomp.mips.lwr': 2, 'openrecomp.mips.mfhi': 0, 'openrecomp.mips.mult': 2, 'openrecomp.mips.swl': 2, 'openrecomp.mips.swr': 2}, 'jalr_sites': 0, 'jalr_bad_destinations': 0, 'folded_delay_slots': 9, 'unmapped_delay_slots': 0, 'trap_sites': 0, 'rules_total': 47, 'rules_added': 25}",
       "status": "PASS"
     },
     {
@@ -346,6 +346,26 @@
       "status": "PASS"
     },
     {
+      "check": "runtime:anchor:access-budget",
+      "detail": "access-budget",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:anchor:access-budget",
+      "detail": "access-budget",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:anchor:host-call-dispatch",
+      "detail": "host-call-dispatch",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:anchored-substitutions",
+      "detail": "3",
+      "status": "PASS"
+    },
+    {
       "check": "runtime:frozen-body-reused",
       "detail": "platform runtime shared",
       "status": "PASS"
@@ -361,13 +381,13 @@
       "status": "PASS"
     },
     {
-      "check": "runtime:only-anchored-substitution",
-      "detail": "single anchored substitution",
+      "check": "runtime:only-anchored-substitutions",
+      "detail": "all substitutions are anchored and replayable",
       "status": "PASS"
     },
     {
-      "check": "runtime:single-anchor",
-      "detail": "1",
+      "check": "runtime:substitution-count",
+      "detail": "3",
       "status": "PASS"
     },
     {
@@ -377,7 +397,7 @@
     },
     {
       "check": "table:added-ops",
-      "detail": "addi,and,bgez,bgtz,blez,bltz,break,jalr,lh,lhu,lwl,lwr,mfhi,mult,sh,slt,slti,sltiu,sltu,subu,swl,swr,syscall,xori",
+      "detail": "addi,and,bgez,bgtz,blez,bltz,break,jalr,jr_indirect,lh,lhu,lwl,lwr,mfhi,mult,sh,slt,slti,sltiu,sltu,subu,swl,swr,syscall,xori",
       "status": "PASS"
     },
     {
@@ -428,6 +448,11 @@
     {
       "check": "table:rule:jalr",
       "detail": "jalr",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:jr_indirect",
+      "detail": "jr_indirect",
       "status": "PASS"
     },
     {
@@ -723,9 +748,9 @@
   ],
   "failed": 0,
   "failure": null,
-  "passed": 144,
+  "passed": 149,
   "stage": "P10-03",
   "stage_name": "Hercules CPU/control frontier iteration",
   "status": "PASS",
-  "tests": 144
+  "tests": 149
 }

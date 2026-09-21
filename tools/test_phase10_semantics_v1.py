@@ -335,9 +335,13 @@ def main() -> int:
         frozen_ops = {rule.op for rule in frozen}
         added_ops = {rule.op for rule in semantics.added_rules()}
         check("table:no-redefinition", not (frozen_ops & added_ops), ",".join(sorted(frozen_ops & added_ops)))
-        check("table:added-ops", added_ops == set(semantics.ADDED_OPS), ",".join(sorted(added_ops)))
+        check(
+            "table:added-ops",
+            added_ops == set(semantics.ADDED_OPS) | set(semantics.CLASSIFICATION_OPS),
+            ",".join(sorted(added_ops)),
+        )
         table = semantics.build_semantics()
-        for op in semantics.ADDED_OPS:
+        for op in semantics.ADDED_OPS + semantics.CLASSIFICATION_OPS:
             check(f"table:rule:{op}", table.has(semantics.ARCHITECTURE, op), op)
         check(
             "table:unreached-ops-unruled",
@@ -353,14 +357,31 @@ def main() -> int:
         # --- runtime composition --------------------------------------------
         composed, runtime_record = emission.runtime_support_text()
         check("runtime:matching-hashes", runtime_record["frozen_sha256"] == runtime_record["frozen_manifest_sha256"], "frozen source verified")
-        check("runtime:single-anchor", runtime_record["anchor_occurrences"] == 1, str(runtime_record["anchor_occurrences"]))
-        check("runtime:frozen-body-reused", "p9_platform_write" in composed and "or_rt_memory_read" in composed, "platform runtime shared")
         check(
-            "runtime:only-anchored-substitution",
-            composed == p10_runtime.frozen_runtime_source().replace(
-                p10_runtime.ANCHOR, p10_runtime.extension_source().rstrip("\n") + "\n"
-            ),
-            "single anchored substitution",
+            "runtime:anchored-substitutions",
+            runtime_record["substitution_count"] == len(p10_runtime.SUBSTITUTIONS),
+            str(runtime_record["substitution_count"]),
+        )
+        check("runtime:frozen-body-reused", "p9_platform_write" in composed and "or_rt_memory_read" in composed, "platform runtime shared")
+        frozen_source = p10_runtime.frozen_runtime_source()
+        replayed = frozen_source
+        for name, anchor, replacement in p10_runtime.SUBSTITUTIONS:
+            text = (
+                p10_runtime.extension_source().rstrip("\n") + "\n"
+                if replacement is None
+                else replacement
+            )
+            check(f"runtime:anchor:{name}", replayed.count(anchor) == 1, name)
+            replayed = replayed.replace(anchor, text)
+        check(
+            "runtime:only-anchored-substitutions",
+            composed == replayed,
+            "all substitutions are anchored and replayable",
+        )
+        check(
+            "runtime:substitution-count",
+            runtime_record["substitution_count"] == len(p10_runtime.SUBSTITUTIONS),
+            str(runtime_record["substitution_count"]),
         )
         check(
             "runtime:no-inline-assembly",
