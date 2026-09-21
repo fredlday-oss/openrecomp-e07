@@ -62,7 +62,8 @@ runtime architecture is created.
 | P10-04 | PASS |
 | P10-05 | PASS |
 | P10-06 | PASS |
-| P10-07 .. P10-12 | QUEUED |
+| P10-07 | PASS |
+| P10-08 .. P10-12 | QUEUED |
 | P10-90, P10-91, P10-99 | QUEUED |
 
 ## Stage records
@@ -257,10 +258,46 @@ Phase-10 stage runner with byte-identical stdout (1074 bytes LF, sha256
   fail-closed;
 - evidence: `.openrecomp-phase10/evidence/P10-06/`.
 
+### P10-07 - GPU command execution frontier
+
+PASS (58 checks). Gate `tools/test_phase10_gpu_v1.py` ran twice through the
+Phase-10 stage runner with byte-identical stdout (2036 bytes LF, sha256
+`97519d67...`), empty stderr and exit 0.
+
+- exact classification: 65536 recorded GPU events, all 32-bit reads of GP1
+  (`0x1f801814`) returning the audited contract stub `0x14802000`; zero GP0/GP1
+  writes, zero blocked GPU events, zero unknown commands, zero transfer-class
+  and zero DMA-controller traffic; VRAM is not modelled and no digest is
+  fabricated;
+- reads and writes are separated before classification, so a status value is
+  never misread as a command;
+- implemented subset: exactly one operation - the GP1 status read returns the
+  audited Phase-9 boundary contract stub. The A/B comparison shows the recorded
+  access traffic is identical with and without the stub, so no behavioural
+  assumption is introduced;
+- public synthetic native fixtures: known GP0 `NOP`/`POLYGON` writes are served
+  and recorded (`failed=0`, `denied=0`); an unknown GP0 command fails closed
+  (`failed=1`, `denied=1`, blocked event, class `UNKNOWN_COMMAND`);
+- denial attribution: 1 controller/interrupt BLOCKER (`I_MASK`), 1 CD-ROM
+  BLOCKER (unknown command `0x80`), 0 GPU/SPU, 9 unrecorded;
+- GPU-side blocker: none. The first remaining blocker is the executed
+  unresolved indirect jump (control flow), which precedes any GPU command
+  write, followed by the access-budget bound. Milestone C is NOT established;
+- documented divergence: the runtime composition advanced (diagnostic event
+  capacity, GPU status-read stub). No earlier stage assumption or identity was
+  falsified, so no earlier stage was re-issued;
+- evidence: `.openrecomp-phase10/evidence/P10-07/`.
+
 ## Open blockers
 
-- the first blocker remains an executed unresolved indirect jump;
-- the denied-access address is not observable with the frozen Phase-9 driver.
+- the executed unresolved indirect jump (18 candidate sites) blocks the GPU/init
+  command stream; the exact failing guest PC remains unobservable;
+- the access-budget bound does not bound execution: a post-truncation guest loop
+  with no memory access can hang (hardening item for `P10-08`/`P10-12`);
+- 9 denials remain unattributed (addresses not observable);
+- the CD-ROM unknown command `0x80` and the `I_MASK` write are fail-closed
+  blockers owned by `P10-08`/`P10-09`.
+
 
 
 

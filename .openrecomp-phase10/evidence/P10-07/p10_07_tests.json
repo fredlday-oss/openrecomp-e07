@@ -1,0 +1,301 @@
+{
+  "checks": [
+    {
+      "check": "ab:access-traffic-identical",
+      "detail": "{}",
+      "status": "PASS"
+    },
+    {
+      "check": "ab:no-error-difference",
+      "detail": "{}",
+      "status": "PASS"
+    },
+    {
+      "check": "ab:record-identity",
+      "detail": "ef7b834293e4e5ff1067c78154ccbbeac218276bea1375000bd380e3cb6c05e9",
+      "status": "PASS"
+    },
+    {
+      "check": "ab:record-present",
+      "detail": ".openrecomp-phase10/evidence/P10-05/native_entry.json",
+      "status": "PASS"
+    },
+    {
+      "check": "build:status",
+      "detail": "OK,OK",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:general-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:native-execution-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:playability-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:event-capacity",
+      "detail": "65536",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:gpu-stub-exposed",
+      "detail": "0x14802000",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:runtime-substitutions",
+      "detail": "5",
+      "status": "PASS"
+    },
+    {
+      "check": "native:accessible-stub-value",
+      "detail": "2000000",
+      "status": "PASS"
+    },
+    {
+      "check": "native:budget-reached",
+      "detail": "5",
+      "status": "PASS"
+    },
+    {
+      "check": "native:denial-attribution",
+      "detail": "{\"cdrom_blocker_events\": 1, \"gpu_blocker_events\": 0, \"input_blocker_events\": 1, \"recorded_blocker_total\": 2, \"spu_blocker_events\": 0, \"unrecorded_denials\": 9}",
+      "status": "PASS"
+    },
+    {
+      "check": "native:denied",
+      "detail": "11",
+      "status": "PASS"
+    },
+    {
+      "check": "native:dma-not-observed",
+      "detail": "not_observed",
+      "status": "PASS"
+    },
+    {
+      "check": "native:empty-write-classes",
+      "detail": "{}",
+      "status": "PASS"
+    },
+    {
+      "check": "native:first-failure",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "native:gpu-address",
+      "detail": "{\"0x1f801814\": 65536}",
+      "status": "PASS"
+    },
+    {
+      "check": "native:gpu-denials",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "native:gpu-events",
+      "detail": "65536",
+      "status": "PASS"
+    },
+    {
+      "check": "native:gpu-reads",
+      "detail": "65536",
+      "status": "PASS"
+    },
+    {
+      "check": "native:gpu-width",
+      "detail": "{\"32\": 65536}",
+      "status": "PASS"
+    },
+    {
+      "check": "native:gpu-writes",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "native:no-blocked-gpu-events",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "native:no-cdrom-growth",
+      "detail": "38",
+      "status": "PASS"
+    },
+    {
+      "check": "native:no-gp0-writes",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "native:no-gp1-writes",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "native:no-provenance",
+      "detail": "per-access guest PC, translated function and call-flow provenance are not observable: the generated program carries no access hook, and the frozen Phase-9 observable driver records per-device event streams only",
+      "status": "PASS"
+    },
+    {
+      "check": "native:no-spu-growth",
+      "detail": "5",
+      "status": "PASS"
+    },
+    {
+      "check": "native:no-transfer-class",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "native:no-unknown-commands",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "native:status-value",
+      "detail": "{\"0x14802000\": 65536}",
+      "status": "PASS"
+    },
+    {
+      "check": "native:termination",
+      "detail": "unresolved indirect jump",
+      "status": "PASS"
+    },
+    {
+      "check": "native:vram-not-modelled",
+      "detail": "not_modelled_by_the_phase9_boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "private:present",
+      "detail": "private fixture present",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:known-gp0-nop:build",
+      "detail": "OK,OK",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:known-gp0-nop:class",
+      "detail": "{\"NOP\": 1}",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:known-gp0-nop:denied",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:known-gp0-nop:failed",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:known-gp0-nop:write-class",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:known-gp0-polygon:build",
+      "detail": "OK,OK",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:known-gp0-polygon:class",
+      "detail": "{\"POLYGON\": 1}",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:known-gp0-polygon:denied",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:known-gp0-polygon:failed",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:known-gp0-polygon:write-class",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown-gp0:blocked",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown-gp0:build",
+      "detail": "OK,OK",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown-gp0:denied",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown-gp0:failed",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown-gp0:unknown",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:gp0-polygon",
+      "detail": "{'port': 'GP0', 'command': '0x28', 'class': 'POLYGON', 'known': True, 'emulated': False}",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:gp0-transfer",
+      "detail": "{'port': 'GP0', 'command': '0xa0', 'class': 'CPU_TO_VRAM_COPY', 'known': True, 'emulated': False}",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:gp0-unknown",
+      "detail": "{'port': 'GP0', 'command': '0x1f', 'class': 'UNKNOWN_COMMAND', 'known': False, 'emulated': False}",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:gp1-reset",
+      "detail": "{'port': 'GP1', 'command': '0x00', 'class': 'RESET_GPU', 'known': True, 'emulated': False}",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:gp1-unknown",
+      "detail": "{'port': 'GP1', 'command': '0x1f', 'class': 'UNKNOWN_COMMAND', 'known': False, 'emulated': False}",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:stub-matches-boundary",
+      "detail": "0x14802000",
+      "status": "PASS"
+    },
+    {
+      "check": "vectors:transfer-set",
+      "detail": "CPU_TO_VRAM_COPY,VRAM_TO_CPU_COPY,VRAM_TO_VRAM_COPY",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 58,
+  "stage": "P10-07",
+  "stage_name": "GPU command execution frontier",
+  "status": "PASS",
+  "tests": 58
+}

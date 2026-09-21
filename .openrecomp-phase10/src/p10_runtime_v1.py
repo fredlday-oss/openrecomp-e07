@@ -25,7 +25,11 @@ from __future__ import annotations
 
 import hashlib
 import pathlib
+import sys
 from typing import Any
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2] / ".openrecomp-phase9" / "src"))
+import p9_gpu_boundary_v1 as p9_gpu  # noqa: E402
 
 RUNTIME_VERSION = "1.0.0"
 
@@ -128,7 +132,41 @@ WRITE_REPLACEMENT = (
     "    status = p9_width_bytes(width_bits, &width);\n"
 )
 
+#: Diagnostic event-transcript capacity. The frozen Phase-9 runtime caps each
+#: per-device transcript at 4096 recorded events; the Phase-10 transcription
+#: raises that cap so later distinct device behaviour is not hidden behind the
+#: frozen cap. The recorded events are classified by the same code; only the
+#: number of recorded events changes.
+EVENT_CAPACITY_ANCHOR = "#define P9_EVENT_CAPACITY 4096u"
+EVENT_CAPACITY_REPLACEMENT = "#define P9_EVENT_CAPACITY 65536u"
+
+#: The transcript capacities visible to a driver.
+EVENT_CAPACITY = 65536
+PHASE9_EVENT_CAPACITY = 4096
+
+#: GPU status-read stub substitution. The frozen Phase-9 platform runtime
+#: returns 0 for a GP0/GP1 read. The audited Phase-9 GPU boundary defines an
+#: explicit contract stub (`p9_gpu_boundary_v1.GPUSTAT_STUB`) whose documented
+#: ready bits are set; the Phase-10 dynamic record shows the guest polling
+#: GPUSTAT in a loop that never completes against a 0 status. The Phase-10
+#: runtime therefore returns the boundary's documented contract stub for the
+#: GP1 status read and keeps the GP0 data read at 0. This is an explicit
+#: contract stub, not GPU hardware emulation and not VRAM state.
+GPU_READ_STUB = p9_gpu.GPUSTAT_STUB
+GPU_READ_ANCHOR = (
+    "    if (address == (uint64_t)P9_GP0_READ || address == (uint64_t)P9_GP1_READ) {\n"
+    "        value = 0u;\n"
+)
+GPU_READ_REPLACEMENT = (
+    "    if (address == (uint64_t)P9_GP0_READ || address == (uint64_t)P9_GP1_READ) {\n"
+    "        value = (address == (uint64_t)P9_GP1_READ) ? (uint32_t)"
+    + f"0x{GPU_READ_STUB:08x}u"
+    + " : 0u;\n"
+)
+
 SUBSTITUTIONS = (
+    ("event-capacity", EVENT_CAPACITY_ANCHOR, EVENT_CAPACITY_REPLACEMENT),
+    ("gpu-status-read-stub", GPU_READ_ANCHOR, GPU_READ_REPLACEMENT),
     ("access-budget", READ_ANCHOR, READ_REPLACEMENT),
     ("access-budget", WRITE_ANCHOR, WRITE_REPLACEMENT),
     ("host-call-dispatch", ANCHOR, None),

@@ -1,0 +1,73 @@
+{
+  "artifact_sha256": {
+    "gpu_frontier.json": "e60c4dc20089bcb7d70d11247ecaadd44b750437c14e3bea3f4fce452632d73a",
+    "p10_07_tests.json": "dca6c73fee3bee538900c092efa610d3e3ae08862a57d432c131c11e5e50ce6a"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "gpu_frontier.json": "e60c4dc20089bcb7d70d11247ecaadd44b750437c14e3bea3f4fce452632d73a",
+        "p10_07_tests.json": "dca6c73fee3bee538900c092efa610d3e3ae08862a57d432c131c11e5e50ce6a"
+      },
+      "command": [
+        "python",
+        "tools/test_phase10_gpu_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase10/evidence/P10-07"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P10_07=PASS",
+        "OPENRECOMP_PHASE10_GPU_FRONTIER_V1=PASS tests=58",
+        "OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN",
+        "OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p10_07_tests_sha256": "dca6c73fee3bee538900c092efa610d3e3ae08862a57d432c131c11e5e50ce6a",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2099,
+      "stdout_bytes_lf": 2036,
+      "stdout_sha256_lf": "97519d67d0f4ec2c19d5e6768f69d8545f1c4c1bd3b16d1cfd63cc460cfd1b2a",
+      "stdout_sha256_raw": "157b8b2dc287f11116040d5ea5c52d9e12f7a8fe4a07cb64e30cd6e8db2dc72b"
+    },
+    {
+      "artifact_sha256": {
+        "gpu_frontier.json": "e60c4dc20089bcb7d70d11247ecaadd44b750437c14e3bea3f4fce452632d73a",
+        "p10_07_tests.json": "dca6c73fee3bee538900c092efa610d3e3ae08862a57d432c131c11e5e50ce6a"
+      },
+      "command": [
+        "python",
+        "tools/test_phase10_gpu_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase10/evidence/P10-07"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P10_07=PASS",
+        "OPENRECOMP_PHASE10_GPU_FRONTIER_V1=PASS tests=58",
+        "OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN",
+        "OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p10_07_tests_sha256": "dca6c73fee3bee538900c092efa610d3e3ae08862a57d432c131c11e5e50ce6a",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2099,
+      "stdout_bytes_lf": 2036,
+      "stdout_sha256_lf": "97519d67d0f4ec2c19d5e6768f69d8545f1c4c1bd3b16d1cfd63cc460cfd1b2a",
+      "stdout_sha256_raw": "157b8b2dc287f11116040d5ea5c52d9e12f7a8fe4a07cb64e30cd6e8db2dc72b"
+    }
+  ],
+  "schema": "openrecomp-phase10-official-runs-v1",
+  "stage": "P10-07",
+  "stderr_empty_both": true
+}

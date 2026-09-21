@@ -154,6 +154,9 @@ def emission_document(build_set: dict[str, Any]) -> dict[str, Any]:
         "platform_ports": {name: f"0x{value:08x}" for name, value in sorted(PLATFORM_PORTS.items())},
         "runtime_composition": build_set["runtime_composition"],
         "driver": build_set["driver"],
+        "event_transcript_capacity": p10_runtime.EVENT_CAPACITY,
+        "gpu_status_read_stub": f"0x{p10_runtime.GPU_READ_STUB:08x}",
+        "phase9_event_transcript_capacity": p10_runtime.PHASE9_EVENT_CAPACITY,
         "driver_sha256": build_set["driver_sha256"],
         "semantics": build_set["semantics"],
     }

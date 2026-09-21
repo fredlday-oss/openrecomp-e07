@@ -19,6 +19,7 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 void openrecomp_run(void);
 int openrecomp_failed(void);
@@ -46,9 +47,10 @@ uint64_t p10_runtime_access_count(void);
 uint64_t p10_runtime_budget_denials(void);
 uint64_t p10_runtime_mips_service_calls(void);
 uint64_t p10_runtime_mips_service_failures(void);
+void p10_runtime_set_access_budget(uint64_t budget);
 
-#define P10_EVENT_PRINT_LIMIT 64u
-#define P10_GPU_EVENT_PRINT_LIMIT 4096u
+#define P10_EVENT_PRINT_LIMIT 512u
+#define P10_GPU_EVENT_PRINT_LIMIT 65536u
 
 static uint64_t p10_fnv1a64(const unsigned char *data, size_t length)
 {
@@ -102,9 +104,14 @@ static void p10_print_events(const char *name, const struct p9_event *events, ui
     }
 }
 
-int main(void)
+int main(int argc, char **argv)
 {
     uint64_t index;
+    /* Optional deterministic bounded-execution budget override: the value is
+     * part of the recorded invocation, never read from the environment. */
+    if (argc > 1) {
+        p10_runtime_set_access_budget((uint64_t)strtoull(argv[1], NULL, 10));
+    }
     uint64_t registers = UINT64_C(0xcbf29ce484222325);
     uint64_t memory;
     size_t count;

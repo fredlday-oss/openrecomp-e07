@@ -25,49 +25,41 @@
   executed unresolved indirect jump. Milestone A established;
 - `P10-06` `PASS` (26 checks): dynamic device discovery from the `P10-05`
   record plus the constant-base static complement;
-- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-06/`.
+- `P10-07` `PASS` (58 checks): the GPU frontier is exactly classified -
+  GP1 status polling only (`0x14802000` stub, 65536 reads), zero GP0/GP1
+  writes, zero unknown commands, no DMA, no modelled VRAM; the GPU is not
+  the blocker;
+- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-07/`.
 
 ## Immediate next action
 
-`P10-07` - GPU command execution frontier.
+`P10-08` - interrupt / DMA / timing frontier, prioritized by the dependencies
+`P10-07` exposed:
 
-The unblocking infrastructure is already in place: the additive Phase-10
-observable driver `.openrecomp-phase10/runtime/p10_observable_driver_v1.c`
-prints the bounded-execution counters and the typed platform event transcripts
-(`ev_<device>_<i>=service,direction,width,flags,address,value`; GPU up to 4096,
-the other devices up to 64). Select it with
-`p10_emission_v1.build_build_set(..., driver="phase10")`.
+1. the `I_MASK` write at `0x1f801074` (1 BLOCKER event, denied) and the
+   interrupt status/mask contract (`p9_input_timer_v1.I_STAT`/`I_MASK`);
+2. the 9 unrecorded denials: addresses inside the I/O window outside the
+   modelled ports, or outside the modelled windows. The denied address is not
+   observable; obtaining it needs either an anchored runtime substitution that
+   records the first denied address, or an equivalent mechanism;
+3. the deterministic virtual-time contract: timer counter reads at
+   `0x1f801110` return `g_p9_ticks & 0xffff` and advance the tick; timer
+   mode/target reads return 0. Determine what the guest actually depends on;
+4. the bounded-execution limitation: the access budget bounds memory accesses,
+   not execution. A post-truncation loop with no memory access hangs. Add a
+   deterministic bound that cannot hang (for example a bounded count of
+   denied/budget-denied accesses after which the runtime keeps failing
+   deterministically *and* the emission cannot spin without an access), or
+   record the limitation with an explicit mitigation decision;
+5. the CD-ROM unknown command `0x80` is owned by `P10-09`; record the
+   dependency but do not implement disc behaviour here.
 
-Already observed with that driver on the private executable (a full
-build+run cycle, recorded here so it does not have to be rediscovered):
+Do not claim cycle accuracy; document every timing abstraction explicitly.
 
-- GPU: 4096 recorded events (capped) whose first 64 are all GP1 `RESET_GPU`
-  (`0x1f801814`, command `0x00`); the GPU stream is therefore dominated by
-  repeated reset sequences early on. Classify the whole recorded prefix with
-  `p9_gpu_boundary_v1.classify_gp0` / `classify_gp1` and report the class
-  histogram, the GP0/GP1 split and the unknown-command count.
-- CD-ROM: 38 events: index/status writes (`0x1f801800`), parameter writes
-  (`0x1f801802` values `0x80`, `0x00`, `0x03`), and one BLOCKER event at
-  `0x1f801801` with value `0x80` (unknown CD-ROM command, fail-closed denial).
-- SPU: 5 events: volume writes `0x3fff` at `0x1f801db0`/`0x1f801db2`, control
-  write `0xc001` at `0x1f801daa`, and reads of `0x1f801db8`/`0x1f801dba`.
-- Controller/timers: `I_MASK` write at `0x1f801074` (BLOCKER, denied - interrupt
-  ports are not modelled) and timer1 counter reads at `0x1f801110` returning the
-  deterministic virtual tick.
-- 11 denied accesses in total and 79 Phase-10 MIPS service calls with 0 service
-  failures.
+## Known work queued after P10-08
 
-P10-07 PASS requires the required GP0/GP1 command classes, the DMA interaction
-classification (the observed GPU path is CPU port writes; no DMA-controller
-register range is modelled, so any DMA assumption must stay explicit) and the
-VRAM state required for progress, with deterministic command evidence - or an
-explicit `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE` record for anything the
-transcript cannot decide.
-
-## Known work queued after P10-07
-
-- `P10-08` .. `P10-11`: interrupt/DMA/timing, CUE/BIN CD-ROM/filesystem/
-  streaming, SPU/controller/game-loop, highest milestone;
+- `P10-09` .. `P10-11`: disc/CD-ROM/streaming, controller/SPU/game-loop,
+  highest milestone;
 - `P10-12`, `P10-90`, `P10-91`, `P10-99`: hardening, whole-project regression,
   evidence closure and the final bounded verdict.
 

@@ -1,0 +1,282 @@
+{
+  "classifier_vectors": {
+    "gp0_known": {
+      "class": "POLYGON",
+      "command": "0x28",
+      "emulated": false,
+      "known": true,
+      "port": "GP0"
+    },
+    "gp0_transfer": {
+      "class": "CPU_TO_VRAM_COPY",
+      "command": "0xa0",
+      "emulated": false,
+      "known": true,
+      "port": "GP0"
+    },
+    "gp0_unknown": {
+      "class": "UNKNOWN_COMMAND",
+      "command": "0x1f",
+      "emulated": false,
+      "known": false,
+      "port": "GP0"
+    },
+    "gp1_display": {
+      "class": "DISPLAY_MODE",
+      "command": "0x08",
+      "emulated": false,
+      "known": true,
+      "port": "GP1"
+    },
+    "gp1_known": {
+      "class": "RESET_GPU",
+      "command": "0x00",
+      "emulated": false,
+      "known": true,
+      "port": "GP1"
+    },
+    "gp1_unknown": {
+      "class": "UNKNOWN_COMMAND",
+      "command": "0x1f",
+      "emulated": false,
+      "known": false,
+      "port": "GP1"
+    }
+  },
+  "denial_attribution": {
+    "cdrom_blocker_events": 1,
+    "gpu_blocker_events": 0,
+    "input_blocker_events": 1,
+    "recorded_blocker_total": 2,
+    "spu_blocker_events": 0,
+    "unrecorded_denials": 9
+  },
+  "event_transcript_capacity": 65536,
+  "gpu_status_read_stub": "0x14802000",
+  "identity": {
+    "address_space": {
+      "ram_kseg0_base": "0x80000000",
+      "ram_kseg0_end": "0x80200000",
+      "ram_size": 2097152
+    },
+    "bss_section": {
+      "address": "0x00000000",
+      "present": false,
+      "size": 0
+    },
+    "data_section": {
+      "address": "0x00000000",
+      "present": false,
+      "size": 0
+    },
+    "entry_pc": "0x800132e8",
+    "file_sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "file_size": 129024,
+    "format": "PS-X EXE",
+    "format_version": "1.0.0",
+    "header_fields": {
+      "b_addr": "0x00000000",
+      "b_size": "0x00000000",
+      "d_addr": "0x00000000",
+      "d_size": "0x00000000",
+      "gp0": "0x00000000",
+      "pc0": "0x800132e8",
+      "s_addr": "0x801ffff0",
+      "s_size": "0x00000000",
+      "t_addr": "0x80010000",
+      "t_size": "0x0001f000",
+      "zero1": "0x00000000",
+      "zero2": "0x00000000"
+    },
+    "header_size": 2048,
+    "initial_gp": "0x00000000",
+    "load_address": "0x80010000",
+    "magic": "PS-X EXE",
+    "payload_sha256": "2f48da4c642b25dd9d0b033f77b80a19e5befe34dc19da3194a51998e97c71be",
+    "payload_size": 126976,
+    "ram_span": {
+      "end": "0x8002f000",
+      "start": "0x80010000"
+    },
+    "reserved": {
+      "first_nonzero_offset": "0x4c",
+      "last_nonzero_offset": "0x82",
+      "nonzero_bytes": 55,
+      "offset": "0x38",
+      "sha256": "e6a138356b7e46be030334fdd789fab8cafeee2c85d44b54edafd391427b54fe",
+      "size": 1992
+    },
+    "stack": {
+      "pointer": "0x801ffff0",
+      "size": 0
+    },
+    "stack_pointer": "0x801ffff0",
+    "text_end": "0x8002f000"
+  },
+  "implemented_subset": [
+    {
+      "behaviour": "returns the audited Phase-9 boundary contract stub",
+      "hardware_accuracy": "contract stub, not hardware accurate",
+      "justification": "the frozen Phase-9 runtime returned 0, contradicting its own audited boundary constant; the A/B comparison shows the recorded access traffic is identical either way",
+      "operation": "GP1 status read (0x1f801814 read)",
+      "stub_value": "0x14802000"
+    }
+  ],
+  "is_pass_criterion": false,
+  "label": "hercules-private-fixture",
+  "limitations": [
+    "per-access guest PC, translated function and call-flow provenance are not observable: the generated program carries no access hook, and the frozen Phase-9 observable driver records per-device event streams only",
+    "per-device transcripts are printed as separate blocks, so cross-device ordering is not observable",
+    "the transcript is capped at the configured capacity and the GPU/controller streams saturate it",
+    "the deterministic access budget bounds memory accesses, not execution: a guest loop that performs no memory access after truncation cannot be interrupted (observed as a hang while probing ordering at a smaller budget)"
+  ],
+  "new_frontier": {
+    "budget_reached": true,
+    "first_recorded_failure": "executed unresolved indirect jump",
+    "first_remaining_blocker": "the executed unresolved indirect jump (control flow), which precedes any GPU command write; the GPU is not the blocker",
+    "gpu_command_stream_reached": false,
+    "gpu_operations_reached": "GP1 status polling only",
+    "gpu_side_blocker": null,
+    "milestone_c_established": false,
+    "milestone_statement": "GP1 status polling is reached and served, but no GP0/GP1 command stream is reached, so milestone C is NOT established"
+  },
+  "not_implemented": [
+    "GP0 command execution or VRAM state",
+    "GP1 display/DMA/timer control state",
+    "any rendering, framebuffer or VRAM digest",
+    "any DMA-controller behaviour"
+  ],
+  "phase9_event_transcript_capacity": 4096,
+  "runtime_composition": {
+    "composed_bytes": 26551,
+    "composed_sha256": "577e3294a6c7c50c6e6ccaabb43a78976f6646868458ba6cedeb54018cae322e",
+    "extension_sha256": "c91696ce40c1b010169937b9f6b0f8a8bf0bbc4ca7ebb3e94f7e48adc54c0dae",
+    "extension_source": ".openrecomp-phase10/runtime/p10_mips_extension_v1.c",
+    "frozen_manifest_sha256": "59507a2c1fd8928a6ac100b324339c25d9079bafeee0cba47a7a93d1aab7dc6d",
+    "frozen_sha256": "59507a2c1fd8928a6ac100b324339c25d9079bafeee0cba47a7a93d1aab7dc6d",
+    "frozen_source": ".openrecomp-phase9/runtime/p9_runtime_support.c",
+    "frozen_source_reused_verbatim": true,
+    "runtime_version": "1.0.0",
+    "substitution_count": 5,
+    "substitutions": [
+      {
+        "anchor_sha256": "93f5557b0d3a659641c60524670fe2093c99ec8785dcec7ce3794f367f57c1f4",
+        "name": "event-capacity",
+        "source": "budget",
+        "substitution_sha256": "97b77d4b190222a1874d86872550835774168c9f40df726c7ca0078fb6c98207"
+      },
+      {
+        "anchor_sha256": "db927b8f8950b488b14722525e36a014eec6224403c397c962bd1d4edeb9728a",
+        "name": "gpu-status-read-stub",
+        "source": "budget",
+        "substitution_sha256": "4aa4fe017ca6dc6c53c2c43c41caf7d03d63bee9f8a3fa98bc2b17884944af5e"
+      },
+      {
+        "anchor_sha256": "49479059f4d2d705fdfc56770131d1a7fcfb5321e12ea02c0a2732fb62c4a64a",
+        "name": "access-budget",
+        "source": "budget",
+        "substitution_sha256": "ba235f7cca77db5c8d0e93f9572b7407d070595d3cb3cd69b3461a8f362838d3"
+      },
+      {
+        "anchor_sha256": "8c9d2bf00d2f18e7f4c5acc77442f1fbe4c70ddaa67c019d007b3c7520ce134a",
+        "name": "access-budget",
+        "source": "budget",
+        "substitution_sha256": "a246ba85c1ab2eb8dc3c229a98d7b2adcaebe54f684ead92ac05043193f3626e"
+      },
+      {
+        "anchor_sha256": "bbfb5150960803d7acaea288c81a2844ac0aa03327b35b2bc3fa804bd142f462",
+        "name": "host-call-dispatch",
+        "source": "extension",
+        "substitution_sha256": "c91696ce40c1b010169937b9f6b0f8a8bf0bbc4ca7ebb3e94f7e48adc54c0dae"
+      }
+    ]
+  },
+  "schema": "openrecomp-phase10-gpu-frontier-v1",
+  "stage": "P10-07",
+  "status_reads": {
+    "0x14802000": 65536
+  },
+  "stub_ab_experiment": {
+    "access_traffic_identical": true,
+    "compared_keys": [
+      "reads",
+      "writes",
+      "denied",
+      "access_count",
+      "budget_denials",
+      "error"
+    ],
+    "conclusion": "the recorded access traffic is identical with and without the status stub, so the observed GPU status polling is not conditioned on the stub value and no GPU-side blocker exists",
+    "differences": {},
+    "frontier_version": "1.0.0"
+  },
+  "synthetic_negative": [
+    {
+      "denied": "1",
+      "error": "runtime memory write failed",
+      "failed": "1",
+      "gpu_events": 1,
+      "histogram": {
+        "UNKNOWN_COMMAND": 1
+      },
+      "name": "unknown-gp0",
+      "reads": 0,
+      "unknown": 1,
+      "writes": 1
+    }
+  ],
+  "synthetic_positive": [
+    {
+      "denied": "0",
+      "error": "",
+      "failed": "0",
+      "gpu_events": 2,
+      "histogram": {
+        "NOP": 1
+      },
+      "name": "known-gp0-nop",
+      "reads": 1,
+      "unknown": 0,
+      "writes": 1
+    },
+    {
+      "denied": "0",
+      "error": "",
+      "failed": "0",
+      "gpu_events": 2,
+      "histogram": {
+        "POLYGON": 1
+      },
+      "name": "known-gp0-polygon",
+      "reads": 1,
+      "unknown": 0,
+      "writes": 1
+    }
+  ],
+  "transcript": {
+    "address_histogram": {
+      "0x1f801814": 65536
+    },
+    "blocked_event_count": 0,
+    "command_class_histogram": {},
+    "distinct_write_values": 0,
+    "dma_controller_traffic": "not_observed",
+    "event_count": 65536,
+    "frontier_version": "1.0.0",
+    "gp0_reads": 0,
+    "gp0_writes": 0,
+    "gp1_reads": 65536,
+    "gp1_writes": 0,
+    "provenance": "per-access guest PC, translated function and call-flow provenance are not observable: the generated program carries no access hook, and the frozen Phase-9 observable driver records per-device event streams only",
+    "reads": 65536,
+    "transfer_class_count": 0,
+    "unknown_command_count": 0,
+    "unknown_commands": [],
+    "vram_state": "not_modelled_by_the_phase9_boundary",
+    "width_histogram": {
+      "32": 65536
+    },
+    "write_value_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "writes": 0
+  }
+}

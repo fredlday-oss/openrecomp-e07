@@ -1,0 +1,42 @@
+{
+  "artifact_sha256": {
+    "gpu_frontier.json": "e60c4dc20089bcb7d70d11247ecaadd44b750437c14e3bea3f4fce452632d73a",
+    "p10_07_tests.json": "dca6c73fee3bee538900c092efa610d3e3ae08862a57d432c131c11e5e50ce6a"
+  },
+  "artifacts_identical": true,
+  "gate": "tools/test_phase10_gpu_v1.py",
+  "gate_sha256": "1825b76cf54848eb9860487358eecdb7a5532e58b7bf7945a3518008b4e4c8d0",
+  "general_marker": "OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+  "playability_marker": "OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "gpu_frontier.json": "e60c4dc20089bcb7d70d11247ecaadd44b750437c14e3bea3f4fce452632d73a",
+        "p10_07_tests.json": "dca6c73fee3bee538900c092efa610d3e3ae08862a57d432c131c11e5e50ce6a"
+      },
+      "p10_07_tests_sha256": "dca6c73fee3bee538900c092efa610d3e3ae08862a57d432c131c11e5e50ce6a",
+      "returncode": 0,
+      "stdout_bytes_raw": 2099,
+      "stdout_sha256_lf": "97519d67d0f4ec2c19d5e6768f69d8545f1c4c1bd3b16d1cfd63cc460cfd1b2a",
+      "stdout_sha256_raw": "157b8b2dc287f11116040d5ea5c52d9e12f7a8fe4a07cb64e30cd6e8db2dc72b"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "gpu_frontier.json": "e60c4dc20089bcb7d70d11247ecaadd44b750437c14e3bea3f4fce452632d73a",
+        "p10_07_tests.json": "dca6c73fee3bee538900c092efa610d3e3ae08862a57d432c131c11e5e50ce6a"
+      },
+      "p10_07_tests_sha256": "dca6c73fee3bee538900c092efa610d3e3ae08862a57d432c131c11e5e50ce6a",
+      "returncode": 0,
+      "stdout_bytes_raw": 2099,
+      "stdout_sha256_lf": "97519d67d0f4ec2c19d5e6768f69d8545f1c4c1bd3b16d1cfd63cc460cfd1b2a",
+      "stdout_sha256_raw": "157b8b2dc287f11116040d5ea5c52d9e12f7a8fe4a07cb64e30cd6e8db2dc72b"
+    }
+  },
+  "schema": "openrecomp-phase10-determinism-v1",
+  "stage": "P10-07",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true,
+  "terminal_marker": "OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN"
+}
