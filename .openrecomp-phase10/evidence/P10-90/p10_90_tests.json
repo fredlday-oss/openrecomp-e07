@@ -16,6 +16,21 @@
       "status": "PASS"
     },
     {
+      "check": "claim:general-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:native-execution-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:playability-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
       "check": "frozen:p8-record:.openrecomp-phase8/SOURCE_SHA256SUMS.txt",
       "detail": "5ac27eb1f23ae412a14e94c62a80f811b7a1670e53b404356b49595d1f9f4221",
       "status": "PASS"
@@ -106,9 +121,299 @@
       "status": "PASS"
     },
     {
-      "check": "gate:assertion",
-      "detail": "phase1:exit: condition failed (1)",
-      "status": "FAIL"
+      "check": "guard:general_ps1_compatibility",
+      "detail": "OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY",
+      "status": "PASS"
+    },
+    {
+      "check": "guard:hercules_native_execution_proof",
+      "detail": "OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF",
+      "status": "PASS"
+    },
+    {
+      "check": "guard:hercules_playability",
+      "detail": "OPENRECOMP_PHASE10_HERCULES_PLAYABILITY",
+      "status": "PASS"
+    },
+    {
+      "check": "guard:permanent-general-queue",
+      "detail": "permanent non-claim recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "milestone:highest-A",
+      "detail": "A",
+      "status": "PASS"
+    },
+    {
+      "check": "milestone:playability-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-00:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-00:marker",
+      "detail": "OPENRECOMP_PHASE10_BOUNDARY_V1",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-00:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-00:stdout-identity",
+      "detail": "497ef9f9918b3ba2846a33534b87d1e85725401fae9afb84714f3ca449f79498",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-01:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-01:marker",
+      "detail": "OPENRECOMP_PHASE10_BREAK_V1",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-01:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-01:stdout-identity",
+      "detail": "9cdc1fb1bb3356fdf1b339ec5fbcc949ed45a69a808ccf3e13ae87a0c466fa67",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-02:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-02:marker",
+      "detail": "OPENRECOMP_PHASE10_STRUCTURE_V1",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-02:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-02:stdout-identity",
+      "detail": "078b06eda2abbfdb93935b6e9f5262044dae6293c685100d6415d231cdf464a9",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-03:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-03:marker",
+      "detail": "OPENRECOMP_PHASE10_SEMANTICS_V1",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-03:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-03:stdout-identity",
+      "detail": "12fbe04b60c064d1cb4d215584ed241f7817b4b4517b8cb70f0ae8398c87aaa2",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-04:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-04:marker",
+      "detail": "OPENRECOMP_PHASE10_BIOS_V1",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-04:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-04:stdout-identity",
+      "detail": "32d222c6327f30ac012277a80699f58a3630eee4ce1b263d92861c7d21a7e55f",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-05:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-05:marker",
+      "detail": "OPENRECOMP_PHASE10_NATIVE_ENTRY_V1",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-05:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-05:stdout-identity",
+      "detail": "37dc3f64bdf0c397c2a78660c5b3153299603a2360a6ae66f050beed013e146d",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-06:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-06:marker",
+      "detail": "OPENRECOMP_PHASE10_IO_DISCOVERY_V1",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-06:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-06:stdout-identity",
+      "detail": "a827374f3d8f5dea49a40c3c041a4b0603a829bca0ce40d24ccbd2ec2cb329c6",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-07:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-07:marker",
+      "detail": "OPENRECOMP_PHASE10_GPU_FRONTIER_V1",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-07:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-07:stdout-identity",
+      "detail": "157b8b2dc287f11116040d5ea5c52d9e12f7a8fe4a07cb64e30cd6e8db2dc72b",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-08:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-08:marker",
+      "detail": "OPENRECOMP_PHASE10_TIMING_FRONTIER_V1",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-08:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-08:stdout-identity",
+      "detail": "b3024958322ee9cf4c4e9e6473f83de4dffbac7806ebded9c70d10be62af7bb3",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-09:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-09:marker",
+      "detail": "OPENRECOMP_PHASE10_DISC_FRONTIER_V1",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-09:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-09:stdout-identity",
+      "detail": "28fbfc7555ad1cc11a4d5e1fe7077fdc7d20ffb8a4540216c56b759edf81070d",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-10:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-10:marker",
+      "detail": "OPENRECOMP_PHASE10_INPUT_SPU_FRONTIER_V1",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-10:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-10:stdout-identity",
+      "detail": "fdcbdfc8c76d6a35efebeb47e92373cff3d8d3c667fafaa31cfb082206d020ef",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-11:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-11:marker",
+      "detail": "OPENRECOMP_PHASE10_MILESTONE_V1",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-11:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-11:stdout-identity",
+      "detail": "d808dfb397b9aaff6fb02573061b3f7ec46df8718b4eef60dfc9db0f8d3457c2",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-12:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-12:marker",
+      "detail": "OPENRECOMP_PHASE10_HARDENING_V1",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-12:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:P10-12:stdout-identity",
+      "detail": "82d303d1b70dfd36de1b2835f006244114becdc9ae4c5197a7a376596a38e3e9",
+      "status": "PASS"
+    },
+    {
+      "check": "p10:committed-evidence-untouched",
+      "detail": "clean",
+      "status": "PASS"
     },
     {
       "check": "p8-reconciliation:P8-90:marker",
@@ -166,9 +471,304 @@
       "status": "PASS"
     },
     {
+      "check": "p9-00-reconciliation:audited-tree",
+      "detail": "08c639d9032a364163f2985432744be420d402eb",
+      "status": "PASS"
+    },
+    {
+      "check": "p9-00-reconciliation:frozen-branch",
+      "detail": "phase8/mips32-end-to-end-native-v1",
+      "status": "PASS"
+    },
+    {
+      "check": "p9-00-reconciliation:recorded-identity",
+      "detail": "a3bcefce25373423723eb5fbbeeb433062eb0c28a67c32f8e6fa7d1bde035702",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-01:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-01:marker",
+      "detail": "OPENRECOMP_P9_01=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-01:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-01:stdout-identity",
+      "detail": "a1859286350f51ab1abcc14e23cc09188403033ad99b33b4f3049091ae977469",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-02:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-02:marker",
+      "detail": "OPENRECOMP_P9_02=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-02:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-02:stdout-identity",
+      "detail": "4f0773a5bfa52949e3106c38b4eccb9d514de06c4300da87f656d9d76c664b15",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-03:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-03:marker",
+      "detail": "OPENRECOMP_P9_03=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-03:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-03:stdout-identity",
+      "detail": "e8a3b5e16695c56852e6e8ba991b5aedff01c75af0302533e9aef290d8988bbc",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-04:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-04:marker",
+      "detail": "OPENRECOMP_P9_04=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-04:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-04:stdout-identity",
+      "detail": "dcbed41fbb2e598c8eb23d7f16419566b94caaa260c8a672f2dfd8d378d547c4",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-05:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-05:marker",
+      "detail": "OPENRECOMP_P9_05=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-05:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-05:stdout-identity",
+      "detail": "3264b47f374981537f7b60d11829050986de6922aecc03e5047b19a55f720ee4",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-06:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-06:marker",
+      "detail": "OPENRECOMP_P9_06=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-06:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-06:stdout-identity",
+      "detail": "80bbb33475334c4e016cab6738dcb31a06fccc8094ce491b1bc3f7349f1b199f",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-07:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-07:marker",
+      "detail": "OPENRECOMP_P9_07=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-07:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-07:stdout-identity",
+      "detail": "44b49d6492726dd651cbfbee1fb1d86bf8bcd2fdcadb67e1ec5166ccded38cc8",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-08:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-08:marker",
+      "detail": "OPENRECOMP_P9_08=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-08:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-08:stdout-identity",
+      "detail": "7ba3cd4098fbd32fb2723a1cc12be0bd9c8cf3dd2e2415aabd286ee5c6ab86f1",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-09:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-09:marker",
+      "detail": "OPENRECOMP_P9_09=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-09:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-09:stdout-identity",
+      "detail": "a4c5b5cca68dea02e420411b704f87d4c5f3f32223701a391351a94fcfddbcc0",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-10:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-10:marker",
+      "detail": "OPENRECOMP_P9_10=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-10:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-10:stdout-identity",
+      "detail": "21d011403544ca89f2c092adf305d321b2e6641a91920e9314ce82c9e2b91475",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-11:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-11:marker",
+      "detail": "OPENRECOMP_P9_11=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-11:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-11:stdout-identity",
+      "detail": "cebf699101489c40d7c1ccf85e6dd21c8c995e86bc96ef1531ce25d501f936ab",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-12:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-12:marker",
+      "detail": "OPENRECOMP_P9_12=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-12:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:P9-12:stdout-identity",
+      "detail": "880cf0f41c028608965e48a90e59ee6dc68a4cec891b38c0dbdd2562c79c33cb",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:gate-records",
+      "detail": "13",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:live-run-count",
+      "detail": "12",
+      "status": "PASS"
+    },
+    {
       "check": "phase1:exit",
-      "detail": "1",
-      "status": "FAIL"
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "phase1:markers",
+      "detail": "OPENRECOMP_PHASE1_HOST_GATES_PASS=44 FAIL=0 SKIPPED=2",
+      "status": "PASS"
+    },
+    {
+      "check": "phase1:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "phase1:stdout-identity",
+      "detail": "2a9d1bba538b91605d61c3c47d8208cc7012cdfe49042f088c409dc54729cc35",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:files-scanned",
+      "detail": "127",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:no-host-paths",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:no-private-payload",
+      "detail": "",
+      "status": "PASS"
     },
     {
       "check": "source:p10-manifest",
@@ -176,14 +776,11 @@
       "status": "PASS"
     }
   ],
-  "failed": 2,
-  "failure": [
-    "phase1:exit",
-    "gate:assertion"
-  ],
-  "passed": 33,
+  "failed": 0,
+  "failure": null,
+  "passed": 155,
   "stage": "P10-90",
   "stage_name": "Whole-project regression",
-  "status": "FAIL",
-  "tests": 35
+  "status": "PASS",
+  "tests": 155
 }

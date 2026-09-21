@@ -68,8 +68,8 @@ runtime architecture is created.
 | P10-10 | PASS |
 | P10-11 | PASS |
 | P10-12 | PASS |
-| P10-90, P10-91, P10-99 | QUEUED |
-| P10-90, P10-91, P10-99 | QUEUED |
+| P10-90 | PASS |
+| P10-91, P10-99 | QUEUED |
 
 ## Stage records
 
@@ -415,6 +415,36 @@ the Phase-10 stage runner with byte-identical stdout (2046 bytes LF, sha256
   deterministic;
 - evidence: `.openrecomp-phase10/evidence/P10-12/`.
 
+### P10-90 - Whole-project regression
+
+PASS (155 checks). Gate `tools/test_phase10_whole_regression_v1.py` ran twice
+through the Phase-10 stage runner with byte-identical raw stdout (5279 bytes,
+sha256 `90630afd...`; LF capture `0370518d...`), empty stderr and exit 0.
+
+- frozen boundary identity re-verified: Phase-9 terminal commit
+  `08c639d9032a364163f2985432744be420d402eb`, tree
+  `900dccf06ce3d5df7b499a9f05a6ceea060114d7`, frozen branch tip, the frozen
+  Phase-9 hashes (10), the frozen Phase-8 terminal records (6), the documented
+  prior tracked diff and the frozen Phase-8/Phase-9/Phase-10 source manifests
+  (33 entries);
+- live re-runs with byte-identical stdout: the Phase-1 host harness
+  (44 pass / 0 fail / 2 toolchain skips), the twelve frozen Phase-9 gates
+  P9-01..P9-12 into scratch evidence (1101 tests), and all thirteen Phase-10
+  gates P10-00..P10-12 into scratch evidence (1633 tests); the committed
+  Phase-10 evidence root is verified untouched;
+- the frozen Phase-8 terminal audits (`P8-90` 215, `P8-91` 27, `P8-99` 92) are
+  verified through the frozen `P9-90` in-place record and the frozen evidence
+  hashes; the reconstruction mechanism was resolved during this stage (see
+  `P10-90 reconstruction diagnosis`): the isolated `P8-00` reconstruction
+  reproduces the frozen stdout `8bc1af62...` twice, and the live three-gate
+  re-run remains non-reproducible only because the frozen Phase-8 evidence
+  embeds the absolute worktree path (1 of 27 sidecars measured divergent);
+- totals: 16 historical gates / 1435 historical re-verified tests, 13 Phase-10
+  gates / 1633 Phase-10 tests, 3068 re-verified tests in total;
+- claim-ledger delta: none; the terminal, playability and general markers stay
+  `NOT_PROVEN` and the highest demonstrated milestone stays `A`;
+- evidence: `.openrecomp-phase10/evidence/P10-90/`.
+
 ## Status at the P10-12 closure
 
 Stages `P10-00` .. `P10-12` are `PASS` and committed on
@@ -472,10 +502,11 @@ Durations: the Phase-10 gates that build and run the native Hercules program
 each official run is doubled by the runner; budget hours, not minutes, and run
 them with a generous timeout (the gates themselves use 5400 s per native run).
 
-## P10-90 audit status: NOT PASS (audit incomplete, no stage claim)
+## P10-90 audit status: PASS (resolved at the P10-90 recovery)
 
-`P10-90` was attempted and did **not** reach `PASS`. Nothing is claimed. The
-audit tool `tools/test_phase10_whole_regression_v1.py` is committed and performs,
+`P10-90` was first attempted and did **not** reach `PASS`; the findings below
+were recorded and are now resolved (see `Resolution` at the end of this
+section). The audit tool `tools/test_phase10_whole_regression_v1.py` performs,
 on one tree:
 
 - the frozen Phase-9 boundary/terminal hash checks, the documented prior tracked
@@ -509,18 +540,21 @@ on one tree:
    deliberately untracked; the frozen Phase-1 public-safety scan caught it. It
    has been untracked again (two correction commits) and the scan passes.
 
-### Exact remaining sequence
+### Resolution
 
-1. re-issue, with their official runners, every stage whose sidecars embed the
-   runtime composition (`P10-05`, `P10-07`, `P10-08`) and update the hash blocks
-   in their `RESULT.md` files;
-2. re-run `python tools/test_phase10_whole_regression_v1.py` until it passes
-   once;
-3. run the official P10-90 runner twice (`p10_stage_runner_v1.py`) and record
-   the counts, stdout hashes, sidecar identities and the reconciliation record;
-4. only then continue to `P10-91` and `P10-99`.
-
-No stage claim is made until that sequence completes.
+1. the `P10-00`/`P10-05`/`P10-06` sidecar staleness is resolved by the scratch
+   redirection: the completed stages record the runtime composition at their own
+   boundary (the documented `P10-07`/`P10-08` advance) and downstream gates bind
+   earlier records by hard-coded digest, so in-place regeneration cannot be
+   byte-identical; the gate re-runs now write scratch evidence (the frozen
+   Phase-9-gate recipe) and the committed evidence root is verified untouched;
+2. the tool's stale worktree references were replaced by the measured
+   reconciliation record: the live three-gate re-run is not byte-reproducible
+   because the frozen Phase-8 evidence embeds the absolute worktree path (the
+   `P8-01` sidecar; 1 of 27 sidecars measured divergent);
+3. the Phase-10 source manifest was regenerated (33 entries);
+4. the official runner ran the gate twice with byte-identical raw stdout, empty
+   stderr, exit 0 and identical sidecars (`P10-90` `PASS`, 155 checks).
 
 ## P10-90 reconstruction diagnosis (deterministic, read-only)
 
@@ -572,7 +606,7 @@ normalisation artefact (cause D), not a content difference.
 | D line-ending / checkout normalisation | yes - 261 tracked files plus `p8_start.S`; blobs identical |
 | E pre-verdict state absent from the frozen commit | no for the Phase-8 terminal gates; the pre-verdict reconstruction is only needed for the Phase-7 chain, which P8-90 performs internally with a detached worktree |
 | F Phase-10 files leaking into the historical worktree | no - the worktree contains zero reconstruction-only untracked files |
-| G other | one residual: `P8-00`'s `frozen:no-new-prior-residue` flags two paths as modified in the reconstruction - `.openrecomp-phase1/UPDATE_ROM_INVENTORY.ps1` and `.openrecomp-phase4/fixture/p4_start.S` - while the *same audited bytes* are status-clean in the main worktree. The check tolerates `git status` lines only for phases 2 and 3. Measured facts: the shared config has `core.autocrlf=true`, `core.eol` unset, `.gitattributes` gives both paths `text=auto`; the index form is LF for both; the audited working-tree form is CRLF for the `.ps1` and LF for the `.S`; the main worktree is status-clean for both under `autocrlf` true/false/unset; the Git blob ids are identical between the audited tree and the frozen commit; `git ls-files -v` reports normal (`H`) flags, so `assume-unchanged`/`skip-worktree` are not involved. Disproved: blob-form rewriting (still flagged) and the index-flag hypothesis. **Missing datum**: the exact flagged paths in the *pure audited-byte materialisation* configuration (the two paths above were printed in the blob-rewriting configuration). |
+| G other | one residual: `P8-00`'s `frozen:no-new-prior-residue` flags two paths as modified in the reconstruction - `.openrecomp-phase1/UPDATE_ROM_INVENTORY.ps1` and `.openrecomp-phase4/fixture/p4_start.S` - while the *same audited bytes* are status-clean in the main worktree. The check tolerates `git status` lines only for phases 2 and 3. Measured facts: the shared config has `core.autocrlf=true`, `core.eol` unset, `.gitattributes` gives both paths `text=auto`; the index form is LF for both; the audited working-tree form is CRLF for the `.ps1` and LF for the `.S`; the main worktree is status-clean for both under `autocrlf` true/false/unset; the Git blob ids are identical between the audited tree and the frozen commit; `git ls-files -v` reports normal (`H`) flags, so `assume-unchanged`/`skip-worktree` are not involved. Disproved: blob-form rewriting (still flagged) and the index-flag hypothesis. **Resolved** (see the resolution section below): in the pure audited-byte configuration the only non-tolerated flagged path is `.openrecomp-phase4/fixture/p4_start.S` (the `.ps1` is clean there), the flag is a stat-cache effect of the byte-exact materialisation, and `git update-index --really-refresh` restores the audited stat cache so the check passes. |
 
 ### 7. What the historical gate genuinely requires
 
@@ -600,16 +634,39 @@ detached worktree at the frozen P7-90 commit).
   `P8-91` and `P8-99` reproduce **byte-identical stdout** and `P8-90` fails only
   through its inner `P8-00` residue assertion.
 
-### Next exact measurement (do not patch before this)
+### Resolution (P10-90 recovery): the exact measured mechanism
 
-For the two flagged paths, in one reconstruction worktree, print:
-`git ls-files --eol -- <paths>`, `git -c core.autocrlf=true status --porcelain -- <paths>`,
-`git -c core.autocrlf=false status --porcelain -- <paths>`,
-`git check-attr -a -- <paths>`, and the byte/CRLF counts of the audited and
-reconstructed copies. That fixes the exact conversion rule the audited checkout
-used, after which the smallest correction is to reproduce that rule for the
-reconstruction's status (or to mirror the audited index entries for those two
-paths) and re-verify with zero unexplained differences.
+The measurement was performed and the mechanism is fully determined:
+
+1. expected prior-residue set: the audited main worktree is status-clean for
+   `.openrecomp-phase1` .. `.openrecomp-phase7` except the two documented
+   Phase-3 evidence files; P8-00 tolerates `git status` lines only for phases 2
+   and 3 (the audited phase-2/3 line-ending/verdict context);
+2. in the pure audited-byte materialisation configuration the only
+   non-tolerated flagged path was `.openrecomp-phase4/fixture/p4_start.S`; the
+   `.ps1` is clean there (audited CRLF worktree, LF index, system
+   `core.autocrlf=true`);
+3. the flag is a stat-cache effect, not a content difference: the audited main
+   worktree is status-clean because its index stat cache is valid, while
+   byte-exact materialisation invalidates the reconstruction's stat cache and
+   `git status` then flags the path through the CRLF round-trip path;
+4. the minimal proven fix is to reproduce the audited stat cache:
+   `git update-index --really-refresh` in the reconstruction worktree after
+   materialisation; `.openrecomp-phase4/fixture/p4_start.S` then reports clean
+   and `frozen:no-new-prior-residue` passes with the remaining flagged lines all
+   in phases 2/3;
+5. the isolated P8-00 `--verify-only` reconstruction reproduced the frozen
+   stdout `8bc1af6294db8b70b92792362226cb56666f6affaffa3ffd657ce7caba503562`
+   twice (exit 0, empty stderr), and all three frozen manifests verify with zero
+   mismatches (root 134/134, Phase-8 30/30, Phase-9 35/35).
+
+The same reconstruction was then run through the full frozen `P8-90` gate: all
+frozen checks up to and including `P8-00` pass (and `P8-11` passes), but `P8-12`
+evidence closure cannot pass in a reconstruction: the frozen Phase-8 evidence
+embeds the absolute worktree path (the `P8-01` sidecar records the toolchain
+path; exactly 1 of the 27 frozen sidecars diverges). The frozen `P9-90`
+in-place record is therefore the mechanism that remains in use for the three
+Phase-8 terminal gates.
 
 ## Open blockers
 

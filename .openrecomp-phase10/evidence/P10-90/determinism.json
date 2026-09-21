@@ -1,0 +1,42 @@
+{
+  "artifact_sha256": {
+    "p10_90_tests.json": "c5386f35aaabd0546f3bbd865ce6f98beb7309b11407fdd2bce6634e838171dd",
+    "whole_regression.json": "d4ae5b7b574aec643c5f8b840a64655ba072add969396046f6ad72d8724f5e80"
+  },
+  "artifacts_identical": true,
+  "gate": "tools/test_phase10_whole_regression_v1.py",
+  "gate_sha256": "58f7ca58d38629e998245356060780a5c822a6eb3825384848ed27f77922cf04",
+  "general_marker": "OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+  "playability_marker": "OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "p10_90_tests.json": "c5386f35aaabd0546f3bbd865ce6f98beb7309b11407fdd2bce6634e838171dd",
+        "whole_regression.json": "d4ae5b7b574aec643c5f8b840a64655ba072add969396046f6ad72d8724f5e80"
+      },
+      "p10_90_tests_sha256": "c5386f35aaabd0546f3bbd865ce6f98beb7309b11407fdd2bce6634e838171dd",
+      "returncode": 0,
+      "stdout_bytes_raw": 5279,
+      "stdout_sha256_lf": "0370518d1c9f91f432fdf1d419d3226c8e86b6dc0ee5721b6fbcdc938089b671",
+      "stdout_sha256_raw": "90630afd040fe19f21c6ae25f07e6e6efba07aa95c061f15c8488e32a2fd1aad"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "p10_90_tests.json": "c5386f35aaabd0546f3bbd865ce6f98beb7309b11407fdd2bce6634e838171dd",
+        "whole_regression.json": "d4ae5b7b574aec643c5f8b840a64655ba072add969396046f6ad72d8724f5e80"
+      },
+      "p10_90_tests_sha256": "c5386f35aaabd0546f3bbd865ce6f98beb7309b11407fdd2bce6634e838171dd",
+      "returncode": 0,
+      "stdout_bytes_raw": 5279,
+      "stdout_sha256_lf": "0370518d1c9f91f432fdf1d419d3226c8e86b6dc0ee5721b6fbcdc938089b671",
+      "stdout_sha256_raw": "90630afd040fe19f21c6ae25f07e6e6efba07aa95c061f15c8488e32a2fd1aad"
+    }
+  },
+  "schema": "openrecomp-phase10-determinism-v1",
+  "stage": "P10-90",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true,
+  "terminal_marker": "OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN"
+}

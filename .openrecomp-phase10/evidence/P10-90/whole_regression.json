@@ -1,0 +1,205 @@
+{
+  "baseline_commit": "08c639d9032a364163f2985432744be420d402eb",
+  "baseline_tree": "900dccf06ce3d5df7b499a9f05a6ceea060114d7",
+  "counts": {
+    "historical_gates": 16,
+    "historical_reverified_tests": 1435,
+    "phase10_gates": 13,
+    "phase10_tests": 1633,
+    "phase1_host_gate_tests": 0,
+    "total_gates": 29,
+    "total_reverified_tests": 3068
+  },
+  "frozen_branch": "phase8/mips32-end-to-end-native-v1",
+  "frozen_p8_terminal": [
+    {
+      "live_rerun": "P9-90 (audited commit/tree, byte-identical stdout)",
+      "stage": "P8-90",
+      "stdout_sha256_raw": "29652124b5d29baa4eec705eccd6a56f771a25d92dd710a3230e66bce9885d20",
+      "tests": 215
+    },
+    {
+      "live_rerun": "P9-90 (audited commit/tree, byte-identical stdout)",
+      "stage": "P8-91",
+      "stdout_sha256_raw": "4e7b72ed840c8622923518cf28cf5389fd25ba87c0bb6ea1a213b94a2f8c2bf2",
+      "tests": 27
+    },
+    {
+      "live_rerun": "P9-90 (audited commit/tree, byte-identical stdout)",
+      "stage": "P8-99",
+      "stdout_sha256_raw": "00d50af7e6d33448e956a72ac31361e4fd326c999877fecaa6ea1d716fd186ba",
+      "tests": 92
+    }
+  ],
+  "frozen_p9_gates": [
+    {
+      "live_rerun": "reconciled-frozen-branch-assertion",
+      "stage": "P9-00",
+      "stdout_sha256_raw": "a3bcefce25373423723eb5fbbeeb433062eb0c28a67c32f8e6fa7d1bde035702",
+      "tests": 95
+    },
+    {
+      "live_rerun": "yes",
+      "stage": "P9-01",
+      "stdout_sha256_raw": "a1859286350f51ab1abcc14e23cc09188403033ad99b33b4f3049091ae977469",
+      "tests": 163
+    },
+    {
+      "live_rerun": "yes",
+      "stage": "P9-02",
+      "stdout_sha256_raw": "4f0773a5bfa52949e3106c38b4eccb9d514de06c4300da87f656d9d76c664b15",
+      "tests": 128
+    },
+    {
+      "live_rerun": "yes",
+      "stage": "P9-03",
+      "stdout_sha256_raw": "e8a3b5e16695c56852e6e8ba991b5aedff01c75af0302533e9aef290d8988bbc",
+      "tests": 66
+    },
+    {
+      "live_rerun": "yes",
+      "stage": "P9-04",
+      "stdout_sha256_raw": "dcbed41fbb2e598c8eb23d7f16419566b94caaa260c8a672f2dfd8d378d547c4",
+      "tests": 31
+    },
+    {
+      "live_rerun": "yes",
+      "stage": "P9-05",
+      "stdout_sha256_raw": "3264b47f374981537f7b60d11829050986de6922aecc03e5047b19a55f720ee4",
+      "tests": 88
+    },
+    {
+      "live_rerun": "yes",
+      "stage": "P9-06",
+      "stdout_sha256_raw": "80bbb33475334c4e016cab6738dcb31a06fccc8094ce491b1bc3f7349f1b199f",
+      "tests": 102
+    },
+    {
+      "live_rerun": "yes",
+      "stage": "P9-07",
+      "stdout_sha256_raw": "44b49d6492726dd651cbfbee1fb1d86bf8bcd2fdcadb67e1ec5166ccded38cc8",
+      "tests": 64
+    },
+    {
+      "live_rerun": "yes",
+      "stage": "P9-08",
+      "stdout_sha256_raw": "7ba3cd4098fbd32fb2723a1cc12be0bd9c8cf3dd2e2415aabd286ee5c6ab86f1",
+      "tests": 60
+    },
+    {
+      "live_rerun": "yes",
+      "stage": "P9-09",
+      "stdout_sha256_raw": "a4c5b5cca68dea02e420411b704f87d4c5f3f32223701a391351a94fcfddbcc0",
+      "tests": 73
+    },
+    {
+      "live_rerun": "yes",
+      "stage": "P9-10",
+      "stdout_sha256_raw": "21d011403544ca89f2c092adf305d321b2e6641a91920e9314ce82c9e2b91475",
+      "tests": 49
+    },
+    {
+      "live_rerun": "yes",
+      "stage": "P9-11",
+      "stdout_sha256_raw": "cebf699101489c40d7c1ccf85e6dd21c8c995e86bc96ef1531ce25d501f936ab",
+      "tests": 155
+    },
+    {
+      "live_rerun": "yes",
+      "stage": "P9-12",
+      "stdout_sha256_raw": "880cf0f41c028608965e48a90e59ee6dc68a4cec891b38c0dbdd2562c79c33cb",
+      "tests": 27
+    }
+  ],
+  "guards": {
+    "general_ps1_compatibility": "NOT_PROVEN",
+    "highest_milestone": "A",
+    "native_execution_proof": "NOT_PROVEN",
+    "playability": "NOT_PROVEN"
+  },
+  "phase10_gates": [
+    {
+      "stage": "P10-00",
+      "stdout_sha256_raw": "497ef9f9918b3ba2846a33534b87d1e85725401fae9afb84714f3ca449f79498",
+      "tests": 192
+    },
+    {
+      "stage": "P10-01",
+      "stdout_sha256_raw": "9cdc1fb1bb3356fdf1b339ec5fbcc949ed45a69a808ccf3e13ae87a0c466fa67",
+      "tests": 265
+    },
+    {
+      "stage": "P10-02",
+      "stdout_sha256_raw": "078b06eda2abbfdb93935b6e9f5262044dae6293c685100d6415d231cdf464a9",
+      "tests": 641
+    },
+    {
+      "stage": "P10-03",
+      "stdout_sha256_raw": "12fbe04b60c064d1cb4d215584ed241f7817b4b4517b8cb70f0ae8398c87aaa2",
+      "tests": 151
+    },
+    {
+      "stage": "P10-04",
+      "stdout_sha256_raw": "32d222c6327f30ac012277a80699f58a3630eee4ce1b263d92861c7d21a7e55f",
+      "tests": 51
+    },
+    {
+      "stage": "P10-05",
+      "stdout_sha256_raw": "37dc3f64bdf0c397c2a78660c5b3153299603a2360a6ae66f050beed013e146d",
+      "tests": 31
+    },
+    {
+      "stage": "P10-06",
+      "stdout_sha256_raw": "a827374f3d8f5dea49a40c3c041a4b0603a829bca0ce40d24ccbd2ec2cb329c6",
+      "tests": 26
+    },
+    {
+      "stage": "P10-07",
+      "stdout_sha256_raw": "157b8b2dc287f11116040d5ea5c52d9e12f7a8fe4a07cb64e30cd6e8db2dc72b",
+      "tests": 58
+    },
+    {
+      "stage": "P10-08",
+      "stdout_sha256_raw": "b3024958322ee9cf4c4e9e6473f83de4dffbac7806ebded9c70d10be62af7bb3",
+      "tests": 42
+    },
+    {
+      "stage": "P10-09",
+      "stdout_sha256_raw": "28fbfc7555ad1cc11a4d5e1fe7077fdc7d20ffb8a4540216c56b759edf81070d",
+      "tests": 46
+    },
+    {
+      "stage": "P10-10",
+      "stdout_sha256_raw": "fdcbdfc8c76d6a35efebeb47e92373cff3d8d3c667fafaa31cfb082206d020ef",
+      "tests": 36
+    },
+    {
+      "stage": "P10-11",
+      "stdout_sha256_raw": "d808dfb397b9aaff6fb02573061b3f7ec46df8718b4eef60dfc9db0f8d3457c2",
+      "tests": 38
+    },
+    {
+      "stage": "P10-12",
+      "stdout_sha256_raw": "82d303d1b70dfd36de1b2835f006244114becdc9ae4c5197a7a376596a38e3e9",
+      "tests": 56
+    }
+  ],
+  "phase1_host_gates": {
+    "markers": "OPENRECOMP_PHASE1_HOST_GATES_PASS=44 FAIL=0 SKIPPED=2",
+    "stage": "PHASE1-HOST-GATES",
+    "stdout_sha256_raw": "2a9d1bba538b91605d61c3c47d8208cc7012cdfe49042f088c409dc54729cc35",
+    "tests": 0
+  },
+  "reconstruction": {
+    "mechanism": "frozen Phase-8 terminal audits verified by the frozen P9-90 in-place record (audited path) and the frozen evidence hashes; a temporary-worktree re-run is not byte-reproducible because the frozen Phase-8 evidence embeds the absolute worktree path",
+    "p8_00_residue_resolution": "audited index stat cache reproduced by git update-index --really-refresh after byte-exact audited-byte materialisation; the isolated P8-00 --verify-only run reproduced the frozen stdout 8bc1af6294db8b70b92792362226cb56666f6affaffa3ffd657ce7caba503562 twice",
+    "path_dependency_measurement": "1 of 27 frozen Phase-8 sidecars diverges (P8-01 p8_01_tests.json, absolute zig toolchain path)"
+  },
+  "safety_scan": {
+    "files_scanned": 127,
+    "host_path_violations": [],
+    "private_payload_violations": []
+  },
+  "schema": "openrecomp-phase10-whole-regression-v1",
+  "stage": "P10-90"
+}

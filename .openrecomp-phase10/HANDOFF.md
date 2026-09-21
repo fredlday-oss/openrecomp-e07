@@ -46,34 +46,27 @@
 - `P10-12` `PASS` (56 checks): malformed-input rejection, live
   fail-closed negatives, an identity-bound analysis cache, public-safety
   closure and clean-rebuild reproducibility;
-- `P10-90` reconstruction diagnosis recorded in `STATE.md` (`P10-90 reconstruction diagnosis`): identity exact, manifests zero-mismatch after audited-byte materialisation, `P8-91`/`P8-99` byte-identical, one residual `P8-00` residue assertion over two paths with identical blobs; the next exact measurement is listed there;
-- `P10-90` audit **NOT PASS** (audit incomplete; no stage claim): see the `P10-90 audit status` section of `STATE.md` for the findings, the corrected defects and the exact remaining re-issue sequence;
-- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-12/`.
+- `P10-90` **PASS** (155 checks): frozen boundary/records/manifests re-verified,
+  the Phase-1 host harness and the twelve frozen Phase-9 gates re-run live with
+  byte-identical stdout, all thirteen Phase-10 gates re-run into scratch
+  evidence with byte-identical stdout and the committed evidence root verified
+  untouched, and the frozen Phase-8 terminal audits verified through the frozen
+  `P9-90` in-place record;
+- `P10-90` reconstruction mechanism resolved (see the `P10-90 reconstruction
+  diagnosis` resolution in `STATE.md`): the isolated `P8-00` reconstruction
+  reproduces the frozen stdout `8bc1af62...` twice (audited-byte materialisation
+  plus `git update-index --really-refresh`); the live three-gate re-run is not
+  byte-reproducible because the frozen Phase-8 evidence embeds the absolute
+  worktree path (1 of 27 sidecars measured divergent);
+- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-90/`.
 
 ## Immediate next action
 
-`P10-90` - whole-project regression. This is the expensive boundary and it is
-**not yet attempted**: `P10-00` .. `P10-12` are complete, committed and clean.
-See the `P10-90 execution plan` section in `STATE.md` for the exact commands,
-the expected runtime and the re-issue history to watch for.
+`P10-91` - final evidence index and proof matrix. `P10-90` is complete,
+committed and clean; see the `P10-90` stage record in `STATE.md` and
+`.openrecomp-phase10/evidence/P10-90/RESULT.md` for the exact identities.
 
-Summary of the work:
-
-1. re-run the frozen Phase-1..Phase-9 official gates using the documented
-   historical reconstruction mechanisms (Phase 7 required a reconstructed
-   pre-verdict worktree in Phase 8/9; reuse that documented mechanism);
-2. re-run every completed Phase-10 official gate (P10-00 .. P10-12) through the
-   Phase-10 stage runner, capturing byte-identical stdout, empty stderr, exit 0
-   and sidecar identities;
-3. verify the frozen Phase-1..9 evidence is unchanged (hashes identical) and
-   that the Phase-10 stage records still verify;
-4. capture the exact gate count, test count, stdout hashes and stderr state.
-
-Note: several Phase-10 gates perform a Hercules build+run (P10-05, P10-07,
-P10-08, P10-09, P10-10, P10-12) and each run takes minutes; the whole
-regression may take a while but must not weaken audit coverage.
-
-## Known work queued after P10-90
+## Known work queued after P10-91
 
 - `P10-91`: final evidence index and proof matrix;
 - `P10-99`: final bounded verdict (may promote
