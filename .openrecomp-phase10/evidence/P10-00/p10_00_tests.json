@@ -1,0 +1,571 @@
+{
+  "checks": [
+    {
+      "check": "baseline:commit-tree",
+      "detail": "900dccf06ce3d5df7b499a9f05a6ceea060114d7",
+      "status": "PASS"
+    },
+    {
+      "check": "baseline:commit-type",
+      "detail": "08c639d9032a364163f2985432744be420d402eb",
+      "status": "PASS"
+    },
+    {
+      "check": "baseline:p9-99-all-stages-pass",
+      "detail": "15/15",
+      "status": "PASS"
+    },
+    {
+      "check": "baseline:p9-99-decision",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "baseline:p9-99-required-stage-set",
+      "detail": "P9-00,P9-01,P9-02,P9-03,P9-04,P9-05,P9-06,P9-07,P9-08,P9-09,P9-10,P9-11,P9-12,P9-90,P9-91",
+      "status": "PASS"
+    },
+    {
+      "check": "baseline:p9-99-terminal-marker",
+      "detail": "terminal PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "baseline:phase9-tag-absent-reconciled",
+      "detail": "absent",
+      "status": "PASS"
+    },
+    {
+      "check": "branch:boundary-tree-identical",
+      "detail": "900dccf06ce3d5df7b499a9f05a6ceea060114d7",
+      "status": "PASS"
+    },
+    {
+      "check": "branch:descends-from-baseline",
+      "detail": "08c639d9032a364163f2985432744be420d402eb",
+      "status": "PASS"
+    },
+    {
+      "check": "branch:head-at-boundary-or-descendant",
+      "detail": "08c639d9032a364163f2985432744be420d402eb",
+      "status": "PASS"
+    },
+    {
+      "check": "branch:name",
+      "detail": "phase10/ps1-commercial-game-native-v1",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:general-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:native-execution-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:playability-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase10/.gitignore",
+      "detail": ".openrecomp-phase10/.gitignore",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase10/ACCELERATION_POLICY.md",
+      "detail": ".openrecomp-phase10/ACCELERATION_POLICY.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase10/CONTROL_POLICY.md",
+      "detail": ".openrecomp-phase10/CONTROL_POLICY.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase10/EVIDENCE_SCHEMA.md",
+      "detail": ".openrecomp-phase10/EVIDENCE_SCHEMA.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase10/FIXTURE_POLICY.md",
+      "detail": ".openrecomp-phase10/FIXTURE_POLICY.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase10/HANDOFF.md",
+      "detail": ".openrecomp-phase10/HANDOFF.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase10/SCOPE.md",
+      "detail": ".openrecomp-phase10/SCOPE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase10/STAGE_QUEUE.md",
+      "detail": ".openrecomp-phase10/STAGE_QUEUE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase10/STATE.md",
+      "detail": ".openrecomp-phase10/STATE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase10/evidence/README.md",
+      "detail": ".openrecomp-phase10/evidence/README.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase10/src/p10_fixture_identity_v1.py",
+      "detail": ".openrecomp-phase10/src/p10_fixture_identity_v1.py",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase10/src/p10_frontier_v1.py",
+      "detail": ".openrecomp-phase10/src/p10_frontier_v1.py",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase10/src/p10_source_manifest_v1.py",
+      "detail": ".openrecomp-phase10/src/p10_source_manifest_v1.py",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase10/src/p10_stage_runner_v1.py",
+      "detail": ".openrecomp-phase10/src/p10_stage_runner_v1.py",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P10-00",
+      "detail": "P10-00",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P10-01",
+      "detail": "P10-01",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P10-02",
+      "detail": "P10-02",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P10-03",
+      "detail": "P10-03",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P10-04",
+      "detail": "P10-04",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P10-05",
+      "detail": "P10-05",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P10-06",
+      "detail": "P10-06",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P10-07",
+      "detail": "P10-07",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P10-08",
+      "detail": "P10-08",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P10-09",
+      "detail": "P10-09",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P10-10",
+      "detail": "P10-10",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P10-11",
+      "detail": "P10-11",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P10-12",
+      "detail": "P10-12",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P10-90",
+      "detail": "P10-90",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P10-91",
+      "detail": "P10-91",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P10-99",
+      "detail": "P10-99",
+      "status": "PASS"
+    },
+    {
+      "check": "control:state-general-permanent",
+      "detail": "OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "control:state-playability-reserved",
+      "detail": "OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "control:state-terminal-reserved",
+      "detail": "OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:entry",
+      "detail": "0x800132e8",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:stack-pointer",
+      "detail": "0x801ffff0",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:text-address",
+      "detail": "0x80010000",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:text-size",
+      "detail": "0x0001f000",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-count",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-sha256",
+      "detail": "2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-size",
+      "detail": "409452624",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:boot-extent-sha256",
+      "detail": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:boot-matches-executable",
+      "detail": "true",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:boot-target",
+      "detail": "SLUS_005.29",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-index1-zero",
+      "detail": "[0, 0, 0]",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-sha256",
+      "detail": "beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-single-track",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-size",
+      "detail": "101",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-track-type",
+      "detail": "MODE2/2352",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:directory",
+      "detail": "private fixture directory present",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:executable-entry",
+      "detail": "SLUS_005.29",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:executable-sha256",
+      "detail": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:executable-size",
+      "detail": "129024",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:root-extent",
+      "detail": "22",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:volume-space-size",
+      "detail": "174087",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:volume-system-id",
+      "detail": "PLAYSTATION",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:bounded-execution-status",
+      "detail": "NOT_ATTEMPTED_BLOCKED_BY_FIRST_UNRESOLVED",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:exception_site_count",
+      "detail": "3",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:first-blocker-kind",
+      "detail": "external-trap",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:first-blocker-site",
+      "detail": "0x80013390",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-native-execution",
+      "detail": "false",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:reachable_invalid_words",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:reachable_supported_words",
+      "detail": "3972",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:reachable_unsupported_words",
+      "detail": "96",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:reachable_words",
+      "detail": "4068",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:reproduced",
+      "detail": "{}",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:structure-error",
+      "detail": "CONTROL_WITHOUT_DELAY_SLOT",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:no-new-prior-residue",
+      "detail": "none",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:no-prior-tracked-change-outside-documented-residue",
+      "detail": ".openrecomp-phase3/evidence/P3-00/p3_00_tests.json,.openrecomp-phase3/evidence/P3-00/residue_manifest.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-source-manifest",
+      "detail": "OPENRECOMP_PHASE9_SOURCE_INTEGRITY=PASS entries=35",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/ACCELERATION_POLICY.md",
+      "detail": "6e9d19bc10eb3ffec2500c2ae820f15436ccaa282c24f445a9e4a51003cf79c0",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/CONTROL_POLICY.md",
+      "detail": "1bdbb7c5075d8542999a0d5336120ca705e076d38e2ab838aef1d5206323815b",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/EVIDENCE_SCHEMA.md",
+      "detail": "ceb1e39dc7dee28d541c3e42fdd85129547b606748e02825467e6e97b4a2796e",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/FIXTURE_POLICY.md",
+      "detail": "efc13de51cba3eb6e8c3f21898c63f503a6ce4808d72a489d94399334ccd2675",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/HANDOFF.md",
+      "detail": "3e8b0d6d10784304a67467aed4a258832c48968f0c20cd3a5480161804356cf9",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/SCOPE.md",
+      "detail": "d45f4d748dfc053623f6cf57114ca1f65957302db80b8c53649aead4caf99b71",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/SOURCE_SHA256SUMS.txt",
+      "detail": "ef72fbb1dbf75ad45fbf71940e9eca4725b246442c3e4be231ba77cacdfedb46",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/STAGE_QUEUE.md",
+      "detail": "93eec1dc331b877c81572a25997be1364c0b62e742032a1de3e18caf77d8f7a8",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/STATE.md",
+      "detail": "11267465040b7f36ff96b422c6f7b711dee50e1c7acdc745f486b53adda1157e",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/evidence/P9-99/RESULT.md",
+      "detail": "2ef6752fd1187883ebe9dd9814d286448a8f061056d3456d273dfdcf83261383",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/evidence/P9-99/determinism.json",
+      "detail": "532c0769b803b13f96a55f8f933bab1fe92a829a22c04f26f8ce7037cd1374f0",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/evidence/P9-99/official_runs.json",
+      "detail": "11e4adb9d5ab533bcea949ef7104ca51933e2475472540c0cb96933d6b5c1842",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/evidence/P9-99/p9_99_tests.json",
+      "detail": "1e911be47fe8e953eec4632ade35697c931db94ce63557655632702388b7d9f4",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/evidence/P9-99/terminal_verdict.json",
+      "detail": "5d4c70008436925c3c986a4166376bc322400c119ea3ea24df234ba2eca4d783",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/evidence/P9-99/verdict_record.json",
+      "detail": "96337230b155694ba9f150bb5b6201388ad74279956c11ced296bfc736b7dcae",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/evidence/README.md",
+      "detail": "002cfa33391df6a7afcb1043403e81b9b09b2a2ae61f75d262bbb40fea72d687",
+      "status": "PASS"
+    },
+    {
+      "check": "reconcile:phase6-tag-absent",
+      "detail": "absent",
+      "status": "PASS"
+    },
+    {
+      "check": "reconcile:phase7-tag-commit",
+      "detail": "phase7 commit",
+      "status": "PASS"
+    },
+    {
+      "check": "reconcile:phase7-tag-object",
+      "detail": "phase7 tag object",
+      "status": "PASS"
+    },
+    {
+      "check": "reconcile:phase7-tag-tree",
+      "detail": "phase7 tree",
+      "status": "PASS"
+    },
+    {
+      "check": "reconcile:phase8-tag-absent",
+      "detail": "absent",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:clang",
+      "detail": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:clang-cl",
+      "detail": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:cmake",
+      "detail": "cmake version 4.4.3",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:git",
+      "detail": "git version 2.55.0.windows.3",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:lld-link",
+      "detail": "LLD 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:ninja",
+      "detail": "1.13.2",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:python",
+      "detail": "Python 3.11.9",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:zig",
+      "detail": "0.13.0",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 112,
+  "stage": "P10-00",
+  "stage_name": "Phase-10 boundary + fixture/control plane",
+  "status": "PASS",
+  "tests": 112
+}
