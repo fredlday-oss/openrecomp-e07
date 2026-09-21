@@ -57,7 +57,7 @@ stale entry.
 ## Public-safety scan (committed content)
 
 The scan audits the **committed content** (`HEAD:<path>`) of every tracked
-evidence file: 124 files scanned, zero private-payload violations (no payload
+evidence file: 126 files scanned, zero private-payload violations (no payload
 hex, no base64 sample, no ASCII payload run) and zero host-path violations. It
 is complete (it includes this stage's own committed evidence), deterministic
 (files written during the run are not committed) and independent of the
@@ -110,10 +110,10 @@ evidence sidecars byte-identical across both runs.
 
 Sidecar identities:
 
-- `hardening.json` `86321892559d234dda2e791610366e9f4b6d7ec6a9c27553d3256596a3de5a46`;
-- `p10_12_tests.json` `f9b262282ee7e4a3a2be440895828c639ece716216f05d1a011870ddabcd9ec1`;
-- `official_runs.json` `af829901903bbd9529d8aca965374615ebebd14991b647a6427f3cc1c961ba5a`;
-- `determinism.json` `7c4b1f5729b836e53c0b6eabb74d05abe4366cbca4ade35f9cffacf3abb5fda7`;
+- `hardening.json` `2e9b1e7b4c4d1fa55ea59d2a65e48dc8fd08405efabc68fca8cbc5b57fd24109`;
+- `p10_12_tests.json` `5302986a51b1246f90a0429958f79551561546c589fe51e7fd02440595c37258`;
+- `official_runs.json` `6e14c7b6a2b896fcff878ea679877783a4c5f3651cf7d37b707ffbdac112082c`;
+- `determinism.json` `6d7496385f6e4f5b84c013a034e3b28cbeb2e60a3b5c77e6c4d7c78c598851e3`;
 - `run1.err.txt` = `run2.err.txt` empty
   (`e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`).
 
@@ -151,3 +151,18 @@ remain `NOT_PROVEN`.
 
 `P10-90` - whole-project regression (queued; see the execution plan in
 `STATE.md`).
+
+## Re-issue note (second, documented, not silent)
+
+`P10-90` required the committed evidence to be reproducible in place. A first
+re-run exposed a stale reference introduced by this record's own history: the
+official runs were captured when 124 evidence files were tracked, and restoring
+this `RESULT.md` afterwards raised the tracked set to 126, so the regenerated
+`hardening.json` reported a different `files_scanned` value. The public-safety
+scan result itself is unchanged (zero private-payload and zero host-path
+violations), the stdout is byte-identical, and the gate's verdict is unchanged;
+only the scanned-file count and the resulting sidecar hashes moved. The stage
+was re-run through the official runner (byte-identical stdout, empty stderr,
+exit 0, identical sidecars across both runs) and the hashes above are the
+current ones. No frozen Phase-1..9 file is involved and nothing was overwritten
+silently.
