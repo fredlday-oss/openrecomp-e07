@@ -57,7 +57,8 @@ runtime architecture is created.
 |---|---|
 | P10-00 | PASS |
 | P10-01 | PASS |
-| P10-02 .. P10-12 | QUEUED |
+| P10-02 | PASS |
+| P10-03 .. P10-12 | QUEUED |
 | P10-90, P10-91, P10-99 | QUEUED |
 
 ## Stage records
@@ -122,6 +123,35 @@ PASS (111 checks). Gate `tools/test_phase10_break_v1.py` run twice through
   Phase-9 terminal commit.
 - evidence: `.openrecomp-phase10/evidence/P10-01/`.
 
+### P10-02 - CONTROL_WITHOUT_DELAY_SLOT reconciliation
+
+PASS (65 checks). Gate `tools/test_phase10_structure_v1.py` ran twice through
+the Phase-10 stage runner with byte-identical stdout (27560 bytes LF, sha256
+6e55ceb6...), empty stderr and exit 0.
+
+- exact cause: BREAK/SYSCALL control semantics; exception-raising instructions
+  carry no delay slot while the frozen Phase-8 bridge required one for every
+  control_flow record;
+- additive .openrecomp-phase10/src/p10_structure_v1.py maps external-trap
+  records to the shared neutral InstructionFlow.TRAP (no successor, no delay
+  slot, no fabricated fall-through) and reuses the frozen Phase-8 delay-slot
+  handling and the shared ProgramModel/CFG/functions/call-graph/units/
+  indirect-control layers;
+- additivity proof: for a trap-free fixture the Phase-10 bridge produces
+  identical counts, neutral addresses and CFG/discovery/call-graph/units/
+  program-model fingerprints to the frozen Phase-8 bridge;
+- fail-closed negatives: CONTROL_WITHOUT_DELAY_SLOT, TRAP_WITH_DELAY_SLOT,
+  TARGET_INTO_DELAY_SLOT, TRAP_CODE_OUT_OF_RANGE and DELAY_SLOT_IS_CONTROL;
+- the frozen Phase-8/Phase-9 trees are unchanged and the frozen P9-11 gate
+  still passes and still fails closed with CONTROL_WITHOUT_DELAY_SLOT;
+- new frontier: 3433 neutral instructions, 635 folded delay slots, 739 blocks,
+  889 edges, 110 functions/units, 209 internal and 22 unresolved call edges,
+  40 unresolved indirect control sites, 3 exception sites; first unresolved
+  indirect site 0x80013e7c jr; first site without a semantic rule
+  0x80011a60 sh; 24 op types / 286 reachable instructions still need
+  host-emitter rules;
+- evidence: .openrecomp-phase10/evidence/P10-02/.
+
 ## Open blockers
 
-- none at the P10-01 boundary.
+- none at the P10-02 boundary.

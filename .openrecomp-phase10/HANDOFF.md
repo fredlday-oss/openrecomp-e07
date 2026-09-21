@@ -9,38 +9,39 @@
   inherited frontier reproduction, toolchains, control plane and frozen queue;
 - `P10-01` `PASS` (111 checks): BREAK/SYSCALL classification, public synthetic
   reproducers and the exact private site context;
-- evidence in `.openrecomp-phase10/evidence/P10-00/` and `P10-01/`.
+- `P10-02` `PASS` (65 checks): `CONTROL_WITHOUT_DELAY_SLOT` reconciled by the
+  additive exception-aware structure bridge; the Hercules structure completes;
+- evidence in `.openrecomp-phase10/evidence/P10-00/`, `P10-01/` and `P10-02/`.
 
 ## Immediate next action
 
-`P10-02` - reconcile `CONTROL_WITHOUT_DELAY_SLOT` without manufacturing a
-delay slot, then re-run the Hercules structure analysis and record the new
-exact frontier.
+`P10-03` - Hercules CPU/control frontier iteration from the new frontier.
 
-Established at `P10-01`: the cause is BREAK/SYSCALL control semantics. The
-frozen Phase-8 bridge requires a delay slot for every record with
-`control_flow` true; an `external-trap` record (`break`/`syscall`) has none by
-definition. The reconciliation is additive:
+The next genuine reachable requirements are, in address order:
 
-- add an exception-aware structure bridge under `.openrecomp-phase10/src/`
-  that maps `external-trap` records to the shared neutral
-  `InstructionFlow.TRAP` (no successor, no delay slot, no fabricated
-  fall-through) and reuses the frozen Phase-8 delay-slot folding and emission
-  order for every other record;
-- do NOT modify the frozen Phase-8 module; the frozen P9-11 gate must keep
-  failing closed with `CONTROL_WITHOUT_DELAY_SLOT` unchanged;
-- negative coverage: a control transfer whose delay slot is genuinely missing
-  must still fail closed with `CONTROL_WITHOUT_DELAY_SLOT`, a delay-slot trap
-  must still be rejected, and `TARGET_INTO_DELAY_SLOT` must still fail closed;
-- re-run the Hercules structure analysis and record the new frontier counts
-  and the new first blocker.
+1. `sh` at `0x80011a60` - the lowest-address reachable op without a
+   host-emitter semantic rule (supported decode, missing rule);
+2. the rest of the 24 unruled op types / 286 reachable instructions recorded in
+   `.openrecomp-phase10/evidence/P10-02/structure_reconciliation.json`:
+   `addi`, `and`, `bgez`, `bgtz`, `blez`, `bltz`, `break`, `jalr`, `lh`,
+   `lhu`, `lwl`, `lwr`, `mfhi`, `mult`, `sh`, `slt`, `slti`, `sltiu`, `sltu`,
+   `subu`, `swl`, `swr`, `syscall`, `xori`;
+3. the 18 `jr` indirect jumps and 22 `jalr` indirect calls (40 unresolved
+   indirect control sites) - these need an explicit, fail-closed indirect
+   dispatch decision: either evidence-backed resolution or a runtime-mediated
+   dispatch that fails closed on an unknown target. No target may be guessed.
 
-## Known work queued after P10-02
+For new CPU semantics: create independent vectors, use the
+architecture-neutral implementation where possible, add fail-closed negatives,
+and implement only reachable requirements. `addi` overflow must fail closed
+explicitly rather than wrapping silently; `lwl`/`lwr`/`swl`/`swr` merge
+semantics must be exact; `mult`/`mfhi` need explicit HI/LO state.
 
-- `P10-03` .. `P10-11`: CPU/control frontier iteration, BIOS frontier, native
-  execution entry, dynamic I/O discovery, GPU, interrupt/DMA/timing,
-  CUE/BIN CD-ROM/filesystem/streaming, SPU/controller/game-loop, highest
-  milestone;
+## Known work queued after P10-03
+
+- `P10-04` .. `P10-11`: BIOS frontier, native execution entry, dynamic I/O
+  discovery, GPU, interrupt/DMA/timing, CUE/BIN CD-ROM/filesystem/streaming,
+  SPU/controller/game-loop, highest milestone;
 - `P10-12`, `P10-90`, `P10-91`, `P10-99`: hardening, whole-project regression,
   evidence closure and the final bounded verdict.
 
