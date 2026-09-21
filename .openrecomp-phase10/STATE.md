@@ -56,7 +56,8 @@ runtime architecture is created.
 | Stage | Status |
 |---|---|
 | P10-00 | PASS |
-| P10-01 .. P10-12 | QUEUED |
+| P10-01 | PASS |
+| P10-02 .. P10-12 | QUEUED |
 | P10-90, P10-91, P10-99 | QUEUED |
 
 ## Stage records
@@ -92,6 +93,35 @@ PASS (192 checks). Gate `tools/test_phase10_boundary_v1.py` run twice through
   unpromoted.
 - evidence: `.openrecomp-phase10/evidence/P10-00/`.
 
+### P10-01 — BREAK semantic classification
+
+PASS (111 checks). Gate `tools/test_phase10_break_v1.py` run twice through
+`.openrecomp-phase10/src/p10_stage_runner_v1.py` with byte-identical stdout
+(10274 bytes LF, sha256 `1b5cb814...`), empty stderr and exit 0.
+
+- two independent implementations agree on the trap encodings (`break`
+  funct `0x0d`, `syscall` funct `0x0c`, code field preserved);
+- architectural semantics established: synchronous `Bp` (ExcCode 9) /
+  `Sys` (ExcCode 8) exceptions, no delay slot, `EPC` = faulting instruction,
+  `Cause.BD` = 0, vectors `0x80000080` (BEV=0) and `0xBFC00180` (BEV=1);
+- public synthetic reproducers isolate the behaviour: flow stops at a trap,
+  no fall-through successor is fabricated past a trap, the frozen Phase-8
+  bridge fails closed with `CONTROL_WITHOUT_DELAY_SLOT` at the trap record
+  (structural cause identified), a trap-free twin fixture structures cleanly,
+  and a trap inside a delay slot is rejected rather than folded;
+- fail-closed negatives cover non-trap records, inconsistent trap flags, traps
+  with delay slots, traps with targets and code-field disagreement;
+- private site context: region start = the PS-X EXE entry `0x800132e8`, no
+  return before the site, reached only by the direct-call fall-through at
+  `0x80013388` (chain: `0x80013388` call continuation, `0x8001338c` delay
+  slot), role `entry-function-terminator-after-application-entry-call`,
+  dynamic reachability `NOT_YET_DETERMINED`;
+- bounded handling strategy: explicit terminal exception site with
+  `InstructionFlow.TRAP`, fail-closed `GUEST_BREAK`/`GUEST_SYSCALL` at runtime;
+- no generic exception machinery added; shared layers unchanged from the
+  Phase-9 terminal commit.
+- evidence: `.openrecomp-phase10/evidence/P10-01/`.
+
 ## Open blockers
 
-- none at the P10-00 boundary.
+- none at the P10-01 boundary.

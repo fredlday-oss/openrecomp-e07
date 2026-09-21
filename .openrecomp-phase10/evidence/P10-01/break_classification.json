@@ -1,0 +1,343 @@
+{
+  "architectural_facts": {
+    "continuation_policy": "NOT_MODELLED_FAIL_CLOSED",
+    "epc_rule": "synchronous fault: EPC = faulting instruction address, Cause.BD = 0 unless in a delay slot",
+    "exception_codes": {
+      "12": "Ov",
+      "13": "Tr",
+      "8": "Sys",
+      "9": "Bp"
+    },
+    "exception_version": "1.0.0",
+    "handling_categories": {
+      "break": "GUEST_BREAK",
+      "syscall": "GUEST_SYSCALL"
+    },
+    "special_functs": {
+      "0x0c": "syscall",
+      "0x0d": "break"
+    },
+    "trap_exception_codes": {
+      "break": 9,
+      "syscall": 8
+    },
+    "vectors": {
+      "BEV0": "0x80000080",
+      "BEV1": "0xbfc00180"
+    }
+  },
+  "bounded_handling_strategy": {
+    "dynamic": "fail closed with GUEST_BREAK / GUEST_SYSCALL; no exception delivery, no BIOS handler, no continuation",
+    "never": [
+      "manufactured delay slot",
+      "fabricated fall-through past a trap",
+      "invented exception-vector dispatch",
+      "invented BIOS handler semantics"
+    ],
+    "static": "explicit terminal exception site (InstructionFlow.TRAP, no successor, no delay slot)"
+  },
+  "break_site_context": {
+    "inbound_target_count": 0,
+    "inbound_targets": [],
+    "predecessor_chain": [
+      {
+        "address": 2147562376,
+        "role": "direct-call-continuation"
+      },
+      {
+        "address": 2147562380,
+        "role": "straight-line-predecessor"
+      }
+    ],
+    "predecessor_kind": "direct-call-continuation",
+    "predecessor_site": 2147562376,
+    "predecessor_site_hex": "0x80013388",
+    "reachable_return_count_before_site": 0,
+    "reachable_returns_before_site": [],
+    "reached_by_fallthrough_only": true,
+    "region_start": 2147562216,
+    "region_start_hex": "0x800132e8",
+    "region_start_is_direct_call_target": false,
+    "region_start_is_entry": true,
+    "site": 2147562384,
+    "site_hex": "0x80013390"
+  },
+  "dynamic_reachability": {
+    "resolved_by": "P10-05 bounded native execution",
+    "static": "REQUIRED_BY_FALLTHROUGH",
+    "status": "NOT_YET_DETERMINED"
+  },
+  "generated_exception_machinery": "none",
+  "identity": {
+    "address_space": {
+      "ram_kseg0_base": "0x80000000",
+      "ram_kseg0_end": "0x80200000",
+      "ram_size": 2097152
+    },
+    "bss_section": {
+      "address": "0x00000000",
+      "present": false,
+      "size": 0
+    },
+    "data_section": {
+      "address": "0x00000000",
+      "present": false,
+      "size": 0
+    },
+    "entry_pc": "0x800132e8",
+    "file_sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "file_size": 129024,
+    "format": "PS-X EXE",
+    "format_version": "1.0.0",
+    "header_fields": {
+      "b_addr": "0x00000000",
+      "b_size": "0x00000000",
+      "d_addr": "0x00000000",
+      "d_size": "0x00000000",
+      "gp0": "0x00000000",
+      "pc0": "0x800132e8",
+      "s_addr": "0x801ffff0",
+      "s_size": "0x00000000",
+      "t_addr": "0x80010000",
+      "t_size": "0x0001f000",
+      "zero1": "0x00000000",
+      "zero2": "0x00000000"
+    },
+    "header_size": 2048,
+    "initial_gp": "0x00000000",
+    "load_address": "0x80010000",
+    "magic": "PS-X EXE",
+    "payload_sha256": "2f48da4c642b25dd9d0b033f77b80a19e5befe34dc19da3194a51998e97c71be",
+    "payload_size": 126976,
+    "ram_span": {
+      "end": "0x8002f000",
+      "start": "0x80010000"
+    },
+    "reserved": {
+      "first_nonzero_offset": "0x4c",
+      "last_nonzero_offset": "0x82",
+      "nonzero_bytes": 55,
+      "offset": "0x38",
+      "sha256": "e6a138356b7e46be030334fdd789fab8cafeee2c85d44b54edafd391427b54fe",
+      "size": 1992
+    },
+    "stack": {
+      "pointer": "0x801ffff0",
+      "size": 0
+    },
+    "stack_pointer": "0x801ffff0",
+    "text_end": "0x8002f000"
+  },
+  "is_pass_criterion": false,
+  "label": "hercules-private-fixture",
+  "public_encoding_evidence": {
+    "break0": {
+      "frozen": {
+        "control_flow": true,
+        "decode_class": "RECOGNIZED_UNSUPPORTED",
+        "delay_slot": false,
+        "exception_transfer": true,
+        "op": "break",
+        "target": null,
+        "terminator": "external-trap"
+      },
+      "independent": {
+        "code10": 0,
+        "code20": 0,
+        "funct": 13,
+        "opcode": 0
+      },
+      "word": "0x0000000d"
+    },
+    "break1": {
+      "frozen": {
+        "control_flow": true,
+        "decode_class": "RECOGNIZED_UNSUPPORTED",
+        "delay_slot": false,
+        "exception_transfer": true,
+        "op": "break",
+        "target": null,
+        "terminator": "external-trap"
+      },
+      "independent": {
+        "code10": 1,
+        "code20": 1,
+        "funct": 13,
+        "opcode": 0
+      },
+      "word": "0x0000004d"
+    },
+    "syscall0": {
+      "frozen": {
+        "control_flow": true,
+        "decode_class": "RECOGNIZED_UNSUPPORTED",
+        "delay_slot": false,
+        "exception_transfer": true,
+        "op": "syscall",
+        "target": null,
+        "terminator": "external-trap"
+      },
+      "independent": {
+        "code10": 0,
+        "code20": 0,
+        "funct": 12,
+        "opcode": 0
+      },
+      "word": "0x0000000c"
+    },
+    "syscall7": {
+      "frozen": {
+        "control_flow": true,
+        "decode_class": "RECOGNIZED_UNSUPPORTED",
+        "delay_slot": false,
+        "exception_transfer": true,
+        "op": "syscall",
+        "target": null,
+        "terminator": "external-trap"
+      },
+      "independent": {
+        "code10": 7,
+        "code20": 7,
+        "funct": 12,
+        "opcode": 0
+      },
+      "word": "0x000001cc"
+    }
+  },
+  "public_fixtures": {
+    "delay-slot-trap-fixture": [
+      "0x0c004004",
+      "0x0000004d",
+      "0x00000000",
+      "0x00000000",
+      "0x03e00008",
+      "0x00000000"
+    ],
+    "trap-fixture": [
+      "0x10000004",
+      "0x00000000",
+      "0x0c004006",
+      "0x24840001",
+      "0x0000004d",
+      "0x0000000c",
+      "0x03e00008",
+      "0x00000000"
+    ],
+    "trap-free-fixture": [
+      "0x10000004",
+      "0x00000000",
+      "0x0c004006",
+      "0x24840001",
+      "0x24a00000",
+      "0x24c00000",
+      "0x03e00008",
+      "0x00000000"
+    ],
+    "trap-terminator-fixture": [
+      "0x0000004d",
+      "0x00000000",
+      "0x00000000",
+      "0x00000000"
+    ]
+  },
+  "region_observations": {
+    "next_word_decode_class": "UNKNOWN_ENCODING",
+    "region_direct_call_targets": [
+      "0x800119c8",
+      "0x80011af0"
+    ],
+    "region_reachable_words": 42,
+    "region_self_incrementing_addiu": 6,
+    "region_start": "0x800132e8",
+    "region_start_is_entry_point": true,
+    "region_zero_stores": 1
+  },
+  "role_classification": {
+    "basis": [
+      "the site lies in a region beginning at the PS-X EXE entry point",
+      "no reachable function return exists between the region start and the site",
+      "the site is reached only by the fall-through continuation of a direct call",
+      "the region contains consecutive zero stores and self-incrementing address arithmetic",
+      "the following word is not reachable code"
+    ],
+    "not_claimed": [
+      "assertion/debugger semantics",
+      "BIOS handler behaviour",
+      "continuation after the exception"
+    ],
+    "role": "entry-function-terminator-after-application-entry-call"
+  },
+  "schema": "openrecomp-phase10-break-classification-v1",
+  "stage": "P10-01",
+  "trap_classification": {
+    "continuation_policy": "NOT_MODELLED_FAIL_CLOSED",
+    "exception_version": "1.0.0",
+    "histogram": {
+      "break": 1,
+      "syscall": 2
+    },
+    "site_count": 3,
+    "sites": [
+      {
+        "bd": 0,
+        "code": 1,
+        "code_hex": "0x00001",
+        "continuation": "NOT_MODELLED_FAIL_CLOSED",
+        "delay_slot": false,
+        "epc": 2147562384,
+        "evidence": "PROVEN",
+        "exception_code": 9,
+        "exception_name": "Bp",
+        "funct": 13,
+        "handling": "explicit-trap-terminator",
+        "op": "break",
+        "runtime_category": "GUEST_BREAK",
+        "site": 2147562384,
+        "site_hex": "0x80013390",
+        "successors": [],
+        "vector_bev0": "0x80000080",
+        "vector_bev1": "0xbfc00180"
+      },
+      {
+        "bd": 0,
+        "code": 0,
+        "code_hex": "0x00000",
+        "continuation": "NOT_MODELLED_FAIL_CLOSED",
+        "delay_slot": false,
+        "epc": 2147573532,
+        "evidence": "PROVEN",
+        "exception_code": 8,
+        "exception_name": "Sys",
+        "funct": 12,
+        "handling": "explicit-trap-terminator",
+        "op": "syscall",
+        "runtime_category": "GUEST_SYSCALL",
+        "site": 2147573532,
+        "site_hex": "0x80015f1c",
+        "successors": [],
+        "vector_bev0": "0x80000080",
+        "vector_bev1": "0xbfc00180"
+      },
+      {
+        "bd": 0,
+        "code": 0,
+        "code_hex": "0x00000",
+        "continuation": "NOT_MODELLED_FAIL_CLOSED",
+        "delay_slot": false,
+        "epc": 2147573548,
+        "evidence": "PROVEN",
+        "exception_code": 8,
+        "exception_name": "Sys",
+        "funct": 12,
+        "handling": "explicit-trap-terminator",
+        "op": "syscall",
+        "runtime_category": "GUEST_SYSCALL",
+        "site": 2147573548,
+        "site_hex": "0x80015f2c",
+        "successors": [],
+        "vector_bev0": "0x80000080",
+        "vector_bev1": "0xbfc00180"
+      }
+    ]
+  }
+}

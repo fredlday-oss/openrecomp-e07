@@ -1,0 +1,42 @@
+{
+  "artifact_sha256": {
+    "break_classification.json": "9ec6fc593537127ea4425087f637487a451add0db820d635c7cdb0ea2d316f38",
+    "p10_01_tests.json": "9af15f142d6c7a23ac0c2792b6950d7b6dc075c88a8f4c8c4fb2131d225d9cc4"
+  },
+  "artifacts_identical": true,
+  "gate": "tools/test_phase10_break_v1.py",
+  "gate_sha256": "42b029b40890a060db253dfa49ca7fa78e6c7db14f2018a1bcb3e0336c0cf6ae",
+  "general_marker": "OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+  "playability_marker": "OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "break_classification.json": "9ec6fc593537127ea4425087f637487a451add0db820d635c7cdb0ea2d316f38",
+        "p10_01_tests.json": "9af15f142d6c7a23ac0c2792b6950d7b6dc075c88a8f4c8c4fb2131d225d9cc4"
+      },
+      "p10_01_tests_sha256": "9af15f142d6c7a23ac0c2792b6950d7b6dc075c88a8f4c8c4fb2131d225d9cc4",
+      "returncode": 0,
+      "stdout_bytes_raw": 10544,
+      "stdout_sha256_lf": "1b5cb8143fd090f4b70850220135682b9b9fbfc0f3d0aab809d2feec08b4e4e1",
+      "stdout_sha256_raw": "9cdc1fb1bb3356fdf1b339ec5fbcc949ed45a69a808ccf3e13ae87a0c466fa67"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "break_classification.json": "9ec6fc593537127ea4425087f637487a451add0db820d635c7cdb0ea2d316f38",
+        "p10_01_tests.json": "9af15f142d6c7a23ac0c2792b6950d7b6dc075c88a8f4c8c4fb2131d225d9cc4"
+      },
+      "p10_01_tests_sha256": "9af15f142d6c7a23ac0c2792b6950d7b6dc075c88a8f4c8c4fb2131d225d9cc4",
+      "returncode": 0,
+      "stdout_bytes_raw": 10544,
+      "stdout_sha256_lf": "1b5cb8143fd090f4b70850220135682b9b9fbfc0f3d0aab809d2feec08b4e4e1",
+      "stdout_sha256_raw": "9cdc1fb1bb3356fdf1b339ec5fbcc949ed45a69a808ccf3e13ae87a0c466fa67"
+    }
+  },
+  "schema": "openrecomp-phase10-determinism-v1",
+  "stage": "P10-01",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true,
+  "terminal_marker": "OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN"
+}
