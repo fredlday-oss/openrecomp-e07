@@ -1,0 +1,123 @@
+{
+  "identity": {
+    "address_space": {
+      "ram_kseg0_base": "0x80000000",
+      "ram_kseg0_end": "0x80200000",
+      "ram_size": 2097152
+    },
+    "bss_section": {
+      "address": "0x00000000",
+      "present": false,
+      "size": 0
+    },
+    "data_section": {
+      "address": "0x00000000",
+      "present": false,
+      "size": 0
+    },
+    "entry_pc": "0x800132e8",
+    "file_sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "file_size": 129024,
+    "format": "PS-X EXE",
+    "format_version": "1.0.0",
+    "header_fields": {
+      "b_addr": "0x00000000",
+      "b_size": "0x00000000",
+      "d_addr": "0x00000000",
+      "d_size": "0x00000000",
+      "gp0": "0x00000000",
+      "pc0": "0x800132e8",
+      "s_addr": "0x801ffff0",
+      "s_size": "0x00000000",
+      "t_addr": "0x80010000",
+      "t_size": "0x0001f000",
+      "zero1": "0x00000000",
+      "zero2": "0x00000000"
+    },
+    "header_size": 2048,
+    "initial_gp": "0x00000000",
+    "load_address": "0x80010000",
+    "magic": "PS-X EXE",
+    "payload_sha256": "2f48da4c642b25dd9d0b033f77b80a19e5befe34dc19da3194a51998e97c71be",
+    "payload_size": 126976,
+    "ram_span": {
+      "end": "0x8002f000",
+      "start": "0x80010000"
+    },
+    "reserved": {
+      "first_nonzero_offset": "0x4c",
+      "last_nonzero_offset": "0x82",
+      "nonzero_bytes": 55,
+      "offset": "0x38",
+      "sha256": "e6a138356b7e46be030334fdd789fab8cafeee2c85d44b54edafd391427b54fe",
+      "size": 1992
+    },
+    "stack": {
+      "pointer": "0x801ffff0",
+      "size": 0
+    },
+    "stack_pointer": "0x801ffff0",
+    "text_end": "0x8002f000"
+  },
+  "is_pass_criterion": false,
+  "label": "hercules-private-fixture",
+  "preconditions": {
+    "added_ops": [
+      "addi",
+      "and",
+      "bgez",
+      "bgtz",
+      "blez",
+      "bltz",
+      "break",
+      "jalr",
+      "lh",
+      "lhu",
+      "lwl",
+      "lwr",
+      "mfhi",
+      "mult",
+      "sh",
+      "slt",
+      "slti",
+      "sltiu",
+      "sltu",
+      "subu",
+      "swl",
+      "swr",
+      "syscall",
+      "xori"
+    ],
+    "architecture": "mips32-bounded-v1",
+    "folded_delay_slots": 635,
+    "host_service_ops": {
+      "addi": "openrecomp.mips.add.overflow.check",
+      "lwl": "openrecomp.mips.lwl",
+      "lwr": "openrecomp.mips.lwr",
+      "mfhi": "openrecomp.mips.mfhi",
+      "mult": "openrecomp.mips.mult",
+      "swl": "openrecomp.mips.swl",
+      "swr": "openrecomp.mips.swr"
+    },
+    "jalr_bad_destinations": 0,
+    "jalr_sites": 22,
+    "rules_added": 24,
+    "rules_total": 46,
+    "semantics_version": "1.0.0",
+    "service_arities": {
+      "openrecomp.mips.add.overflow.check": 2,
+      "openrecomp.mips.lwl": 2,
+      "openrecomp.mips.lwr": 2,
+      "openrecomp.mips.mfhi": 0,
+      "openrecomp.mips.mult": 2,
+      "openrecomp.mips.swl": 2,
+      "openrecomp.mips.swr": 2
+    },
+    "trap_sites": 3,
+    "unmapped_delay_slots": 0
+  },
+  "schema": "openrecomp-phase10-semantics-closure-v1",
+  "semantics_version": "1.0.0",
+  "stage": "P10-03",
+  "unruled_ops": []
+}

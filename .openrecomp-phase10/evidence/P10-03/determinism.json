@@ -1,0 +1,51 @@
+{
+  "artifact_sha256": {
+    "emission.json": "c200930dcafeb13b2df28159cfe7dbed73cf6e41000c2491ff1fa45193c20453",
+    "fail_closed_negatives.json": "0405e41d1c75aac9b609958e69eb0b7ce0b2ef8637ae08dcf6b7f71b72211a44",
+    "frontier_closure.json": "00fe8082c0202a55477f2643d551a544b399d4934fe7078a7d9336e6f124388d",
+    "native_comparison.json": "2ecb9473b519b0fa68f7921f903f859ecaeb03c089ebd72bc1d681d611d8e941",
+    "p10_03_tests.json": "d7078261166bf59fb3cc2bdc3004bda4d0205b78f74a444be82c77b27af91f81"
+  },
+  "artifacts_identical": true,
+  "gate": "tools/test_phase10_semantics_v1.py",
+  "gate_sha256": "4abb059abb2b47cad0b5d54153922f7a29d1017054042ba4496816a8181a479f",
+  "general_marker": "OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+  "playability_marker": "OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "emission.json": "c200930dcafeb13b2df28159cfe7dbed73cf6e41000c2491ff1fa45193c20453",
+        "fail_closed_negatives.json": "0405e41d1c75aac9b609958e69eb0b7ce0b2ef8637ae08dcf6b7f71b72211a44",
+        "frontier_closure.json": "00fe8082c0202a55477f2643d551a544b399d4934fe7078a7d9336e6f124388d",
+        "native_comparison.json": "2ecb9473b519b0fa68f7921f903f859ecaeb03c089ebd72bc1d681d611d8e941",
+        "p10_03_tests.json": "d7078261166bf59fb3cc2bdc3004bda4d0205b78f74a444be82c77b27af91f81"
+      },
+      "p10_03_tests_sha256": "d7078261166bf59fb3cc2bdc3004bda4d0205b78f74a444be82c77b27af91f81",
+      "returncode": 0,
+      "stdout_bytes_raw": 3942,
+      "stdout_sha256_lf": "f84e7febe7c7f818fcae0aaad914c26c5db246274e348a4bbe46f98cb0b43bb2",
+      "stdout_sha256_raw": "c9d531646691d6bb831c8b47fcb0f8d36a4d89dbffbe48cd2454c2ca14908739"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "emission.json": "c200930dcafeb13b2df28159cfe7dbed73cf6e41000c2491ff1fa45193c20453",
+        "fail_closed_negatives.json": "0405e41d1c75aac9b609958e69eb0b7ce0b2ef8637ae08dcf6b7f71b72211a44",
+        "frontier_closure.json": "00fe8082c0202a55477f2643d551a544b399d4934fe7078a7d9336e6f124388d",
+        "native_comparison.json": "2ecb9473b519b0fa68f7921f903f859ecaeb03c089ebd72bc1d681d611d8e941",
+        "p10_03_tests.json": "d7078261166bf59fb3cc2bdc3004bda4d0205b78f74a444be82c77b27af91f81"
+      },
+      "p10_03_tests_sha256": "d7078261166bf59fb3cc2bdc3004bda4d0205b78f74a444be82c77b27af91f81",
+      "returncode": 0,
+      "stdout_bytes_raw": 3942,
+      "stdout_sha256_lf": "f84e7febe7c7f818fcae0aaad914c26c5db246274e348a4bbe46f98cb0b43bb2",
+      "stdout_sha256_raw": "c9d531646691d6bb831c8b47fcb0f8d36a4d89dbffbe48cd2454c2ca14908739"
+    }
+  },
+  "schema": "openrecomp-phase10-determinism-v1",
+  "stage": "P10-03",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true,
+  "terminal_marker": "OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN"
+}

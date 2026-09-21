@@ -11,37 +11,29 @@
   reproducers and the exact private site context;
 - `P10-02` `PASS` (65 checks): `CONTROL_WITHOUT_DELAY_SLOT` reconciled by the
   additive exception-aware structure bridge; the Hercules structure completes;
-- evidence in `.openrecomp-phase10/evidence/P10-00/`, `P10-01/` and `P10-02/`.
+- `P10-03` `PASS` (144 checks): additive semantic rules for all 24
+  unruled reachable op types, Phase-10 runtime extension spliced into the
+  frozen Phase-9 platform runtime, independent reference agreement on a
+  native build, and fail-closed negatives;
+- evidence in `.openrecomp-phase10/evidence/P10-00/`, `P10-01/`,
+  `P10-02/` and `P10-03/`.
 
 ## Immediate next action
 
-`P10-03` - Hercules CPU/control frontier iteration from the new frontier.
+`P10-04` - Hercules BIOS frontier.
 
-The next genuine reachable requirements are, in address order:
+From the inherited 3 B0 candidates / 19 unknowns, classify the
+dynamically/reachably required BIOS calls using the Phase-9 typed service
+boundary, implement only calls required to advance, and keep unknown calls
+fail-closed. No BIOS image or BIOS-derived code may be loaded or emulated.
 
-1. `sh` at `0x80011a60` - the lowest-address reachable op without a
-   host-emitter semantic rule (supported decode, missing rule);
-2. the rest of the 24 unruled op types / 286 reachable instructions recorded in
-   `.openrecomp-phase10/evidence/P10-02/structure_reconciliation.json`:
-   `addi`, `and`, `bgez`, `bgtz`, `blez`, `bltz`, `break`, `jalr`, `lh`,
-   `lhu`, `lwl`, `lwr`, `mfhi`, `mult`, `sh`, `slt`, `slti`, `sltiu`, `sltu`,
-   `subu`, `swl`, `swr`, `syscall`, `xori`;
-3. the 18 `jr` indirect jumps and 22 `jalr` indirect calls (40 unresolved
-   indirect control sites) - these need an explicit, fail-closed indirect
-   dispatch decision: either evidence-backed resolution or a runtime-mediated
-   dispatch that fails closed on an unknown target. No target may be guessed.
+## Known work queued after P10-04
 
-For new CPU semantics: create independent vectors, use the
-architecture-neutral implementation where possible, add fail-closed negatives,
-and implement only reachable requirements. `addi` overflow must fail closed
-explicitly rather than wrapping silently; `lwl`/`lwr`/`swl`/`swr` merge
-semantics must be exact; `mult`/`mfhi` need explicit HI/LO state.
-
-## Known work queued after P10-03
-
-- `P10-04` .. `P10-11`: BIOS frontier, native execution entry, dynamic I/O
-  discovery, GPU, interrupt/DMA/timing, CUE/BIN CD-ROM/filesystem/streaming,
-  SPU/controller/game-loop, highest milestone;
+- `P10-05`: native execution entry for Hercules (emission, build, deterministic
+  entry, first host/service transition, termination category);
+- `P10-06` .. `P10-11`: dynamic I/O discovery, GPU, interrupt/DMA/timing,
+  CUE/BIN CD-ROM/filesystem/streaming, SPU/controller/game-loop, highest
+  milestone;
 - `P10-12`, `P10-90`, `P10-91`, `P10-99`: hardening, whole-project regression,
   evidence closure and the final bounded verdict.
 

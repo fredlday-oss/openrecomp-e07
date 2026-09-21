@@ -58,7 +58,8 @@ runtime architecture is created.
 | P10-00 | PASS |
 | P10-01 | PASS |
 | P10-02 | PASS |
-| P10-03 .. P10-12 | QUEUED |
+| P10-03 | PASS |
+| P10-04 .. P10-12 | QUEUED |
 | P10-90, P10-91, P10-99 | QUEUED |
 
 ## Stage records
@@ -152,6 +153,34 @@ the Phase-10 stage runner with byte-identical stdout (27560 bytes LF, sha256
   host-emitter rules;
 - evidence: .openrecomp-phase10/evidence/P10-02/.
 
+### P10-03 - Hercules CPU/control frontier iteration
+
+PASS (144 checks). Gate `tools/test_phase10_semantics_v1.py` ran twice through
+the Phase-10 stage runner with byte-identical stdout (3793 bytes LF, sha256
+`f84e7feb...`), empty stderr and exit 0.
+
+- 24 reachable op types gained additive rules (46 rules total); the frozen
+  Phase-8 rules are reused unchanged and no frozen op is redefined;
+- forms the scalar vocabulary cannot express exactly use explicit host
+  services (`lwl`, `lwr`, `swl`, `swr`, `mult`, `mfhi`, `add.overflow.check`)
+  implemented in the Phase-10 extension spliced into the frozen Phase-9
+  platform runtime translation unit (frozen source hash-verified, one anchored
+  substitution, everything else reused verbatim);
+- an independently structured bounded MIPS32 reference interpreter agrees with
+  the generated native build on all 32 registers, the RAM digest and the exit
+  status for a synthetic fixture exercising every added non-trap op;
+- 20 unaligned-merge vectors (4 alignments x 5 values) round-trip against the
+  frozen Phase-3 byte-level `swl`/`swr` model;
+- fail-closed native negatives: `break`, `syscall`, signed `addi` overflow,
+  executed unresolved `jalr`, and an unmapped `lwl` each terminate with
+  `failed=1`;
+- the private Hercules structure satisfies every precondition (22 `jalr` with
+  `$ra`, 635 ruled folded delay slots, no unruled reachable op) and is now
+  emittable end to end;
+- evidence: `.openrecomp-phase10/evidence/P10-03/`.
+
 ## Open blockers
 
-- none at the P10-02 boundary.
+- none at the P10-03 boundary; unresolved indirect control flow remains
+  fail-closed at runtime until evidence-backed resolution is established.
+

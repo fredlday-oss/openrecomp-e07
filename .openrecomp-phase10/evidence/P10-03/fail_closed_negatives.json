@@ -1,0 +1,41 @@
+{
+  "negatives": [
+    {
+      "denied": "0",
+      "error": "guest trap is unsupported",
+      "failed": "1",
+      "host_calls": "0",
+      "name": "break"
+    },
+    {
+      "denied": "0",
+      "error": "guest trap is unsupported",
+      "failed": "1",
+      "host_calls": "0",
+      "name": "syscall"
+    },
+    {
+      "denied": "0",
+      "error": "runtime host service openrecomp.mips.add.overflow.check failed",
+      "failed": "1",
+      "host_calls": "1",
+      "name": "addi-overflow"
+    },
+    {
+      "denied": "0",
+      "error": "unresolved indirect call",
+      "failed": "1",
+      "host_calls": "0",
+      "name": "jalr-unresolved"
+    },
+    {
+      "denied": "1",
+      "error": "runtime host service openrecomp.mips.lwl failed",
+      "failed": "1",
+      "host_calls": "1",
+      "name": "lwl-out-of-range"
+    }
+  ],
+  "schema": "openrecomp-phase10-fail-closed-negatives-v1",
+  "stage": "P10-03"
+}

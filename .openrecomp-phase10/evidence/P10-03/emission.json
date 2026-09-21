@@ -1,0 +1,115 @@
+{
+  "driver_sha256": "6098da6c0d542f30d36d7a7ec5586a858ed077a5c2992a25b033619bbb789806",
+  "emission_version": "1.0.0",
+  "files": [
+    {
+      "bytes": 14027,
+      "name": "program.c",
+      "sha256": "dbbba6b4e005f68a3e3b0822694efe4f00e5b4d6140227b45858250537fe0c13"
+    },
+    {
+      "bytes": 5166,
+      "name": "p9_image_v1.c",
+      "sha256": "7650536fdf8684faedce0fbffaaf196cce867bb06434c74c0cbe2cce6fa41f85"
+    },
+    {
+      "bytes": 27835,
+      "name": "p9_runtime_support.c",
+      "sha256": "15a5d16bb6bf02cdf13c660183989b57784442e9cc10a014d8e7b536d49e6de3"
+    },
+    {
+      "bytes": 7895,
+      "name": "p9_driver.c",
+      "sha256": "b021c23c47b4f90b8cf92c06fa3a3bb7123d3b5d17d556264ee094d67e80719d"
+    }
+  ],
+  "platform_ports": {
+    "P9_CDROM_BASE": "0x1f801800",
+    "P9_CDROM_COMMAND": "0x1f801801",
+    "P9_CDROM_INDEX_STATUS": "0x1f801800",
+    "P9_GP0_ADDR": "0x1f801810",
+    "P9_GP0_READ": "0x1f801810",
+    "P9_GP1_ADDR": "0x1f801814",
+    "P9_GP1_READ": "0x1f801814",
+    "P9_IO_BASE": "0x1f801000",
+    "P9_IO_SIZE": "0x00002000",
+    "P9_I_MASK": "0x1f801074",
+    "P9_I_STAT": "0x1f801070",
+    "P9_JOY_BAUD": "0x1f80104e",
+    "P9_JOY_CTRL": "0x1f80104a",
+    "P9_JOY_DATA": "0x1f801040",
+    "P9_JOY_MODE": "0x1f801048",
+    "P9_JOY_STAT": "0x1f801044",
+    "P9_RAM_KSEG0_BASE": "0x80000000",
+    "P9_RAM_KSEG1_BASE": "0xa0000000",
+    "P9_SPU_BASE": "0x1f801c00",
+    "P9_SPU_CD_AUDIO_BASE": "0x1f801db0",
+    "P9_SPU_CONTROL_BASE": "0x1f801d80",
+    "P9_SPU_TRANSFER_BASE": "0x1f801da0",
+    "P9_TIMER0_COUNTER": "0x1f801100",
+    "P9_TIMER0_MODE": "0x1f801104",
+    "P9_TIMER0_TARGET": "0x1f801108",
+    "P9_TIMER1_COUNTER": "0x1f801110",
+    "P9_TIMER1_MODE": "0x1f801114",
+    "P9_TIMER1_TARGET": "0x1f801118",
+    "P9_TIMER2_COUNTER": "0x1f801120",
+    "P9_TIMER2_MODE": "0x1f801124",
+    "P9_TIMER2_TARGET": "0x1f801128"
+  },
+  "program_fingerprint": "dbbba6b4e005f68a3e3b0822694efe4f00e5b4d6140227b45858250537fe0c13",
+  "program_functions": [
+    "fn_fn_80010000",
+    "fn_fn_80010144"
+  ],
+  "runtime_composition": {
+    "anchor_occurrences": 1,
+    "anchor_sha256": "bbfb5150960803d7acaea288c81a2844ac0aa03327b35b2bc3fa804bd142f462",
+    "composed_bytes": 25454,
+    "composed_sha256": "9bac8fe678549986006f1bde77137482c5fb60e5e8832eede849ab006137c4d7",
+    "extension_sha256": "c91696ce40c1b010169937b9f6b0f8a8bf0bbc4ca7ebb3e94f7e48adc54c0dae",
+    "extension_source": ".openrecomp-phase10/runtime/p10_mips_extension_v1.c",
+    "frozen_manifest_sha256": "59507a2c1fd8928a6ac100b324339c25d9079bafeee0cba47a7a93d1aab7dc6d",
+    "frozen_sha256": "59507a2c1fd8928a6ac100b324339c25d9079bafeee0cba47a7a93d1aab7dc6d",
+    "frozen_source": ".openrecomp-phase9/runtime/p9_runtime_support.c",
+    "frozen_source_reused_verbatim": true,
+    "runtime_version": "1.0.0"
+  },
+  "semantics": {
+    "added_ops": [
+      "addi",
+      "and",
+      "bgez",
+      "bgtz",
+      "blez",
+      "bltz",
+      "break",
+      "jalr",
+      "lh",
+      "lhu",
+      "lwl",
+      "lwr",
+      "mfhi",
+      "mult",
+      "sh",
+      "slt",
+      "slti",
+      "sltiu",
+      "sltu",
+      "subu",
+      "swl",
+      "swr",
+      "syscall",
+      "xori"
+    ],
+    "rules_total": 46,
+    "service_ids": [
+      "openrecomp.mips.add.overflow.check",
+      "openrecomp.mips.lwl",
+      "openrecomp.mips.lwr",
+      "openrecomp.mips.mfhi",
+      "openrecomp.mips.mult",
+      "openrecomp.mips.swl",
+      "openrecomp.mips.swr"
+    ]
+  }
+}

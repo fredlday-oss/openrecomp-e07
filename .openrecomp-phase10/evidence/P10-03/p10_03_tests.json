@@ -1,0 +1,731 @@
+{
+  "checks": [
+    {
+      "check": "addi:no-false-overflow",
+      "detail": "None",
+      "status": "PASS"
+    },
+    {
+      "check": "addi:overflow-detected",
+      "detail": "OVERFLOW",
+      "status": "PASS"
+    },
+    {
+      "check": "build:executable",
+      "detail": ".openrecomp-phase10/build/p10-03/run1/program.exe",
+      "status": "PASS"
+    },
+    {
+      "check": "build:status",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:general-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:native-execution-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:playability-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:exit-status",
+      "detail": "0x00001eee != 0x00001eee",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:memory-digest",
+      "detail": "0x9c4646091d6dcf4d != 0x9c4646091d6dcf4d",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r00",
+      "detail": "0x00000000 != 0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r01",
+      "detail": "0x80010300 != 0x80010300",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r02",
+      "detail": "0x00001eee != 0x00001eee",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r03",
+      "detail": "0x01ffffff != 0x01ffffff",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r04",
+      "detail": "0xabcdef01 != 0xabcdef01",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r05",
+      "detail": "0x00ff00f0 != 0x00ff00f0",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r06",
+      "detail": "0x0f0f0f0f != 0x0f0f0f0f",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r07",
+      "detail": "0x000f0000 != 0x000f0000",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r08",
+      "detail": "0x0fff0fff != 0x0fff0fff",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r09",
+      "detail": "0x0ff00fff != 0x0ff00fff",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r10",
+      "detail": "0x00ff55a5 != 0x00ff55a5",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r11",
+      "detail": "0x100e0fff != 0x100e0fff",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r12",
+      "detail": "0xf1eff1e1 != 0xf1eff1e1",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r13",
+      "detail": "0x00000001 != 0x00000001",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r14",
+      "detail": "0x00000000 != 0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r15",
+      "detail": "0x00000001 != 0x00000001",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r16",
+      "detail": "0x80010200 != 0x80010200",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r17",
+      "detail": "0x00000000 != 0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r18",
+      "detail": "0x0ff00f00 != 0x0ff00f00",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r19",
+      "detail": "0x000ff00f != 0x000ff00f",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r20",
+      "detail": "0xffffffff != 0xffffffff",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r21",
+      "detail": "0x00ff00e0 != 0x00ff00e0",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r22",
+      "detail": "0xfffffffd != 0xfffffffd",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r23",
+      "detail": "0x00000009 != 0x00000009",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r24",
+      "detail": "0xffffffff != 0xffffffff",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r25",
+      "detail": "0xffffef01 != 0xffffef01",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r26",
+      "detail": "0xffffffff != 0xffffffff",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r27",
+      "detail": "0x000000ff != 0x000000ff",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r28",
+      "detail": "0x0000ef01 != 0x0000ef01",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r29",
+      "detail": "0xabcdef01 != 0xabcdef01",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r30",
+      "detail": "0xabcdef01 != 0xabcdef01",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:r31",
+      "detail": "0x00000000 != 0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:registers-digest",
+      "detail": "0xf7e5e74efab42519 != 0xf7e5e74efab42519",
+      "status": "PASS"
+    },
+    {
+      "check": "coverage:closed",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:host-call-surface",
+      "detail": "runtime host boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-machine-code",
+      "detail": "no guest bytes in generated source",
+      "status": "PASS"
+    },
+    {
+      "check": "mfhi:value",
+      "detail": "0xffffffff",
+      "status": "PASS"
+    },
+    {
+      "check": "mult:hi",
+      "detail": "0xffffffff",
+      "status": "PASS"
+    },
+    {
+      "check": "mult:lo",
+      "detail": "0xffffffeb",
+      "status": "PASS"
+    },
+    {
+      "check": "native:deterministic",
+      "detail": "byte-identical stdout",
+      "status": "PASS"
+    },
+    {
+      "check": "native:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "native:no-denied",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "native:not-failed",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "native:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:addi-overflow:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:addi-overflow:fail-closed",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:break:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:break:fail-closed",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:jalr-unresolved:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:jalr-unresolved:fail-closed",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:lwl-out-of-range:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:lwl-out-of-range:fail-closed",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:syscall:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:syscall:fail-closed",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "preconditions:ok",
+      "detail": "{'semantics_version': '1.0.0', 'architecture': 'mips32-bounded-v1', 'added_ops': ['addi', 'and', 'bgez', 'bgtz', 'blez', 'bltz', 'break', 'jalr', 'lh', 'lhu', 'lwl', 'lwr', 'mfhi', 'mult', 'sh', 'slt', 'slti', 'sltiu', 'sltu', 'subu', 'swl', 'swr', 'syscall', 'xori'], 'host_service_ops': {'addi': 'openrecomp.mips.add.overflow.check', 'lwl': 'openrecomp.mips.lwl', 'lwr': 'openrecomp.mips.lwr', 'mfhi': 'openrecomp.mips.mfhi', 'mult': 'openrecomp.mips.mult', 'swl': 'openrecomp.mips.swl', 'swr': 'openrecomp.mips.swr'}, 'service_arities': {'openrecomp.mips.add.overflow.check': 2, 'openrecomp.mips.lwl': 2, 'openrecomp.mips.lwr': 2, 'openrecomp.mips.mfhi': 0, 'openrecomp.mips.mult': 2, 'openrecomp.mips.swl': 2, 'openrecomp.mips.swr': 2}, 'jalr_sites': 0, 'jalr_bad_destinations': 0, 'folded_delay_slots': 9, 'unmapped_delay_slots': 0, 'trap_sites': 0, 'rules_total': 46, 'rules_added': 24}",
+      "status": "PASS"
+    },
+    {
+      "check": "private:folded-delay-slots-ruled",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "private:jalr-destinations",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "private:preconditions",
+      "detail": "22",
+      "status": "PASS"
+    },
+    {
+      "check": "private:rules-complete",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:completed",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:frozen-body-reused",
+      "detail": "platform runtime shared",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:matching-hashes",
+      "detail": "frozen source verified",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:no-inline-assembly",
+      "detail": "portable C only",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:only-anchored-substitution",
+      "detail": "single anchored substitution",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:single-anchor",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "services:ids",
+      "detail": "openrecomp.mips.add.overflow.check,openrecomp.mips.lwl,openrecomp.mips.lwr,openrecomp.mips.mfhi,openrecomp.mips.mult,openrecomp.mips.swl,openrecomp.mips.swr",
+      "status": "PASS"
+    },
+    {
+      "check": "table:added-ops",
+      "detail": "addi,and,bgez,bgtz,blez,bltz,break,jalr,lh,lhu,lwl,lwr,mfhi,mult,sh,slt,slti,sltiu,sltu,subu,swl,swr,syscall,xori",
+      "status": "PASS"
+    },
+    {
+      "check": "table:additive",
+      "detail": "frozen rules reused unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "table:no-redefinition",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:addi",
+      "detail": "addi",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:and",
+      "detail": "and",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:bgez",
+      "detail": "bgez",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:bgtz",
+      "detail": "bgtz",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:blez",
+      "detail": "blez",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:bltz",
+      "detail": "bltz",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:break",
+      "detail": "break",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:jalr",
+      "detail": "jalr",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:lh",
+      "detail": "lh",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:lhu",
+      "detail": "lhu",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:lwl",
+      "detail": "lwl",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:lwr",
+      "detail": "lwr",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:mfhi",
+      "detail": "mfhi",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:mult",
+      "detail": "mult",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:sh",
+      "detail": "sh",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:slt",
+      "detail": "slt",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:slti",
+      "detail": "slti",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:sltiu",
+      "detail": "sltiu",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:sltu",
+      "detail": "sltu",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:subu",
+      "detail": "subu",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:swl",
+      "detail": "swl",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:swr",
+      "detail": "swr",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:syscall",
+      "detail": "syscall",
+      "status": "PASS"
+    },
+    {
+      "check": "table:rule:xori",
+      "detail": "xori",
+      "status": "PASS"
+    },
+    {
+      "check": "table:unreached-ops-unruled",
+      "detail": "no speculative rules",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trip:0",
+      "detail": "0x00000000 != 0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trip:0",
+      "detail": "0xffffffff != 0xffffffff",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trip:0",
+      "detail": "0x12345678 != 0x12345678",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trip:0",
+      "detail": "0xabcdef01 != 0xabcdef01",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trip:0",
+      "detail": "0x000000ff != 0x000000ff",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trip:1",
+      "detail": "0x00000000 != 0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trip:1",
+      "detail": "0xffffffff != 0xffffffff",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trip:1",
+      "detail": "0x12345678 != 0x12345678",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trip:1",
+      "detail": "0xabcdef01 != 0xabcdef01",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trip:1",
+      "detail": "0x000000ff != 0x000000ff",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trip:2",
+      "detail": "0x00000000 != 0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trip:2",
+      "detail": "0xffffffff != 0xffffffff",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trip:2",
+      "detail": "0x12345678 != 0x12345678",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trip:2",
+      "detail": "0xabcdef01 != 0xabcdef01",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trip:2",
+      "detail": "0x000000ff != 0x000000ff",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trip:3",
+      "detail": "0x00000000 != 0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trip:3",
+      "detail": "0xffffffff != 0xffffffff",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trip:3",
+      "detail": "0x12345678 != 0x12345678",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trip:3",
+      "detail": "0xabcdef01 != 0xabcdef01",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trip:3",
+      "detail": "0x000000ff != 0x000000ff",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:round-trips",
+      "detail": "20",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:store:0",
+      "detail": "00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:store:0",
+      "detail": "ffffffff",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:store:0",
+      "detail": "78563412",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:store:0",
+      "detail": "01efcdab",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:store:0",
+      "detail": "ff000000",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:store:1",
+      "detail": "00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:store:1",
+      "detail": "ffffffff",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:store:1",
+      "detail": "78563412",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:store:1",
+      "detail": "01efcdab",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:store:1",
+      "detail": "ff000000",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:store:2",
+      "detail": "00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:store:2",
+      "detail": "ffffffff",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:store:2",
+      "detail": "78563412",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:store:2",
+      "detail": "01efcdab",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:store:2",
+      "detail": "ff000000",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:store:3",
+      "detail": "00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:store:3",
+      "detail": "ffffffff",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:store:3",
+      "detail": "78563412",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:store:3",
+      "detail": "01efcdab",
+      "status": "PASS"
+    },
+    {
+      "check": "unaligned:store:3",
+      "detail": "ff000000",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 144,
+  "stage": "P10-03",
+  "stage_name": "Hercules CPU/control frontier iteration",
+  "status": "PASS",
+  "tests": 144
+}
