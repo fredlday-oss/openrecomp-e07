@@ -311,30 +311,37 @@ def main() -> int:
             if all(32 <= byte < 127 for byte in run):
                 ascii_runs.append(run.decode("ascii"))
         scanned = 0
+        skipped_untracked_in_head: list[str] = []
         violations: list[str] = []
         path_violations: list[str] = []
-        evidence_root = ROOT / EVIDENCE_ROOT
-        current_stage_dir = pathlib.Path(args.evidence_dir).as_posix()
-        for path in sorted(evidence_root.rglob("*")):
-            if not path.is_file():
-                continue
-            relative = path.relative_to(ROOT).as_posix()
-            if relative.startswith(current_stage_dir + "/"):
-                # The stage under audit writes its own evidence while it runs, so
-                # its own directory is excluded to keep the scan deterministic.
+        tracked = subprocess.run(
+            ["git", "-C", str(ROOT), "ls-files", EVIDENCE_ROOT],
+            check=True, capture_output=True, text=True, encoding="utf-8",
+        ).stdout.split()
+        # The scan audits the COMMITTED content of every tracked evidence file
+        # (`HEAD:<path>`). That is complete (it includes this stage's own
+        # committed evidence) and deterministic: the working-tree files written
+        # during this run are not committed, so they cannot change the scan.
+        for rel in sorted(tracked):
+            blob = subprocess.run(
+                ["git", "-C", str(ROOT), "show", f"HEAD:{rel}"],
+                check=False, capture_output=True,
+            )
+            if blob.returncode != 0:
+                skipped_untracked_in_head.append(rel)
                 continue
             scanned += 1
-            text = path.read_text(encoding="utf-8", errors="replace")
+            text = blob.stdout.decode("utf-8", errors="replace")
             lowered = text.lower()
             if sample_hex in lowered or sample_b64 in text:
-                violations.append(path.relative_to(ROOT).as_posix())
+                violations.append(rel)
             for run in ascii_runs:
                 if run in text:
-                    violations.append(path.relative_to(ROOT).as_posix() + ":ascii")
+                    violations.append(rel + ":ascii")
                     break
             for pattern in HOST_PATH_PATTERNS:
                 if pattern.search(text):
-                    path_violations.append(path.relative_to(ROOT).as_posix())
+                    path_violations.append(rel)
                     break
         check("safety:evidence-scanned", scanned > 60, str(scanned))
         check("safety:no-private-payload", violations == [], ",".join(sorted(set(violations))))
@@ -438,7 +445,8 @@ def main() -> int:
                 },
                 "safety_scan": {
                     "files_scanned": scanned,
-                    "excluded_stage_dir": current_stage_dir,
+                    "skipped_not_in_head": skipped_untracked_in_head,
+                    "scope": "committed content (HEAD) of every tracked evidence file",
                     "private_payload_violations": sorted(set(violations)),
                     "host_path_violations": sorted(set(path_violations)),
                 },

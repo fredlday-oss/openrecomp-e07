@@ -76,39 +76,9 @@
       "status": "PASS"
     },
     {
-      "check": "claim:general-not-promoted",
-      "detail": "NOT_PROVEN",
-      "status": "PASS"
-    },
-    {
-      "check": "claim:native-execution-not-promoted",
-      "detail": "NOT_PROVEN",
-      "status": "PASS"
-    },
-    {
-      "check": "claim:playability-not-promoted",
-      "detail": "NOT_PROVEN",
-      "status": "PASS"
-    },
-    {
-      "check": "emission:inert-image",
-      "detail": "inert data",
-      "status": "PASS"
-    },
-    {
-      "check": "emission:no-image-include",
-      "detail": "no image include",
-      "status": "PASS"
-    },
-    {
-      "check": "emission:no-opcode-dispatch",
-      "detail": "no decode loop",
-      "status": "PASS"
-    },
-    {
-      "check": "emission:no-payload-bytes",
-      "detail": "no guest bytes",
-      "status": "PASS"
+      "check": "gate:assertion",
+      "detail": "safety:no-host-paths: condition failed (.openrecomp-phase10/evidence/P10-12/RESULT.md)",
+      "status": "FAIL"
     },
     {
       "check": "ingest:BAD_MAGIC",
@@ -181,74 +151,14 @@
       "status": "PASS"
     },
     {
-      "check": "manifest:source-integrity",
-      "detail": "OPENRECOMP_PHASE10_SOURCE_INTEGRITY=PASS entries=32",
-      "status": "PASS"
-    },
-    {
-      "check": "negative:break:build",
-      "detail": "OK,OK",
-      "status": "PASS"
-    },
-    {
-      "check": "negative:break:failed",
-      "detail": "1",
-      "status": "PASS"
-    },
-    {
-      "check": "negative:break:reason",
-      "detail": "guest trap is unsupported",
-      "status": "PASS"
-    },
-    {
-      "check": "negative:unknown-gp0:build",
-      "detail": "OK,OK",
-      "status": "PASS"
-    },
-    {
-      "check": "negative:unknown-gp0:failed",
-      "detail": "1",
-      "status": "PASS"
-    },
-    {
-      "check": "negative:unknown-gp0:reason",
-      "detail": "runtime memory write failed",
-      "status": "PASS"
-    },
-    {
-      "check": "private:present",
-      "detail": "private fixture present",
-      "status": "PASS"
-    },
-    {
-      "check": "rebuild:cross-stage-observables",
-      "detail": "{}",
-      "status": "PASS"
-    },
-    {
-      "check": "rebuild:register-file-reproduced",
-      "detail": "{\"r28\": \"0x8002ed78\", \"r29\": \"0x801ffe00\", \"r30\": \"0x80200000\"}",
-      "status": "PASS"
-    },
-    {
-      "check": "rebuild:status",
-      "detail": "OK,OK",
-      "status": "PASS"
-    },
-    {
-      "check": "rebuild:transcript-identical",
-      "detail": "single capture",
-      "status": "PASS"
-    },
-    {
       "check": "safety:evidence-scanned",
-      "detail": "117",
+      "detail": "126",
       "status": "PASS"
     },
     {
       "check": "safety:no-host-paths",
-      "detail": "",
-      "status": "PASS"
+      "detail": ".openrecomp-phase10/evidence/P10-12/RESULT.md",
+      "status": "FAIL"
     },
     {
       "check": "safety:no-private-payload",
@@ -281,11 +191,14 @@
       "status": "PASS"
     }
   ],
-  "failed": 0,
-  "failure": null,
-  "passed": 56,
+  "failed": 2,
+  "failure": [
+    "safety:no-host-paths",
+    "gate:assertion"
+  ],
+  "passed": 36,
   "stage": "P10-12",
   "stage_name": "Hardening and reproducibility",
-  "status": "PASS",
-  "tests": 56
+  "status": "FAIL",
+  "tests": 38
 }
