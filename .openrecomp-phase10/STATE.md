@@ -26,11 +26,20 @@ runtime architecture is created.
 
 ## Claim markers
 
-- reserved terminal marker (never promoted before `P10-99`):
-  `OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN`
-- reserved playability marker (promotable only at `P10-99` with milestone G):
+- terminal marker (promoted at `P10-99`, bounded to the exact private fixture
+  and the demonstrated milestone A):
+  `OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=PASS`
+- playability marker (milestone G was not demonstrated):
   `OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN`
 - permanent general marker: `OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN`
+
+## Terminal status
+
+STATUS=COMPLETE
+FINAL_VERDICT=PASS
+OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=PASS
+OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN
+OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 
 ## Starting frontier (inherited from Phase 9)
 
@@ -70,7 +79,7 @@ runtime architecture is created.
 | P10-12 | PASS |
 | P10-90 | PASS |
 | P10-91 | PASS |
-| P10-99 | QUEUED |
+| P10-99 | PASS |
 
 ## Stage records
 
@@ -479,6 +488,34 @@ byte-identical sidecars.
   and no non-text evidence file in the index; the Phase-10 source manifest
   verifies (`=PASS entries=34`);
 - evidence: `.openrecomp-phase10/evidence/P10-91/`.
+
+### P10-99 - Final bounded verdict
+
+PASS (166 checks). Gate `tools/test_phase10_final_verdict_v1.py` ran twice
+through the Phase-10 stage runner with byte-identical raw stdout (242 bytes,
+sha256 `9e067a3d...`; LF capture `784d079e...`), empty stderr, exit 0 and
+byte-identical sidecars.
+
+- the frozen Phase-9 terminal boundary and the frozen Phase-8 terminal records
+  re-verify, and the frozen `P9-99` verdict is `PASS` with its terminal marker;
+- all fifteen required stage records (`P10-00` .. `P10-12`, `P10-90`, `P10-91`)
+  verify with two byte-identical official runs, empty stderr, exit 0 and their
+  gate markers present;
+- the `P10-90` whole-regression record (3068 re-verified tests) and the
+  `P10-91` proof matrix, evidence index and 36-claim ledger verify; the
+  terminal marker was still reserved at `P10-91`;
+- the exact private fixture identity, the native execution evidence (guest
+  entry `0x800132e8`, 982859 reads / 799023 writes / 11 denied / 79 host calls,
+  termination `UNRESOLVED_INDIRECT_JUMP`, deterministic) and the highest
+  demonstrated milestone **A** match the committed records;
+- public safety is clean (no private payload hex/base64/ASCII run and no
+  absolute host path in the committed evidence);
+- verdict: `OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=PASS` for the
+  exact bounded private fixture and demonstrated milestone A;
+  `OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN` (milestone G was not
+  demonstrated); `OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN`
+  (permanent);
+- evidence: `.openrecomp-phase10/evidence/P10-99/`.
 
 ## Status at the P10-12 closure
 

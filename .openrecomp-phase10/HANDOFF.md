@@ -66,20 +66,23 @@
 - `P10-00` was re-issued during `P10-91` for a stale tests record (112 checks vs
   the official capture's 192); the stdout capture is byte-identical and the
   re-issue is documented in the `P10-00` record;
-- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-91/`.
+- `P10-99` **PASS** (166 checks): every required stage record verifies, the
+  frozen Phase-9/Phase-8 terminal records are unchanged, the `P10-90`/`P10-91`
+  records verify, the fixture identity and native execution evidence are exact,
+  and the scope guards are intact;
+- terminal verdict: `OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=PASS`
+  (bounded to the exact private fixture and the demonstrated milestone A);
+  `OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN` (milestone G not
+  demonstrated); `OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN`
+  (permanent);
+- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-99/`.
 
 ## Immediate next action
 
-`P10-99` - final bounded verdict. `P10-91` is complete, committed and clean;
-see the `P10-91` stage record in `STATE.md` and
-`.openrecomp-phase10/evidence/P10-91/RESULT.md` for the exact identities.
-
-## Known work queued after P10-99
-
-- `P10-99`: final bounded verdict (may promote
-  `OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=PASS` only if the terminal
-  audit confirms the native-execution result survives closure and regression;
-  `OPENRECOMP_PHASE10_HERCULES_PLAYABILITY` stays `NOT_PROVEN`).
+None. Phase 10 is `STATUS=COMPLETE` / `FINAL_VERDICT=PASS`; see the `P10-99`
+stage record in `STATE.md` and `.openrecomp-phase10/evidence/P10-99/RESULT.md`
+for the exact identities. Any future work starts a new phase or a new bounded
+stage with its own control plane.
 
 ## Private fixture notes
 

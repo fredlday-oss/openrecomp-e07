@@ -1,0 +1,848 @@
+{
+  "checks": [
+    {
+      "check": "baseline:commit-tree",
+      "detail": "900dccf06ce3d5df7b499a9f05a6ceea060114d7",
+      "status": "PASS"
+    },
+    {
+      "check": "baseline:frozen-branch-tip",
+      "detail": "08c639d9032a364163f2985432744be420d402eb",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin",
+      "detail": "bin",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:boot",
+      "detail": "boot extent",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue",
+      "detail": "cue",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:executable",
+      "detail": "executable",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/SOURCE_SHA256SUMS.txt",
+      "detail": "5ac27eb1f23ae412a14e94c62a80f811b7a1670e53b404356b49595d1f9f4221",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/STATE.md",
+      "detail": "ef56426db4f17deef78635a35ea8074ef6c7a5f17926cd18f4687f6bea63bcd4",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/evidence/P8-90/p8_90_tests.json",
+      "detail": "782597be2f9bd4b4a834d55094a3304616675857b88e4b84abc509bbdd658912",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/evidence/P8-91/evidence_index.json",
+      "detail": "9133c838980091d5b72775fed0678e5895cf90c858eb18549de5ced10c7772f7",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/evidence/P8-99/RESULT.md",
+      "detail": "b07c3ec76c591df7999599e0fa5f1f43f0a1854462b45da96bc8523b2cb04204",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p8-terminal:.openrecomp-phase8/evidence/P8-99/terminal_verdict.json",
+      "detail": "ffe1b89d1284435cbb9dd53318025ee052ad0fa58b1f8a304736a381712dc693",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-99-decision",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-99-terminal-marker",
+      "detail": "terminal PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/CONTROL_POLICY.md",
+      "detail": "1bdbb7c5075d8542999a0d5336120ca705e076d38e2ab838aef1d5206323815b",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/EVIDENCE_SCHEMA.md",
+      "detail": "ceb1e39dc7dee28d541c3e42fdd85129547b606748e02825467e6e97b4a2796e",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/FIXTURE_POLICY.md",
+      "detail": "efc13de51cba3eb6e8c3f21898c63f503a6ce4808d72a489d94399334ccd2675",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/SCOPE.md",
+      "detail": "d45f4d748dfc053623f6cf57114ca1f65957302db80b8c53649aead4caf99b71",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/SOURCE_SHA256SUMS.txt",
+      "detail": "ef72fbb1dbf75ad45fbf71940e9eca4725b246442c3e4be231ba77cacdfedb46",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/STAGE_QUEUE.md",
+      "detail": "93eec1dc331b877c81572a25997be1364c0b62e742032a1de3e18caf77d8f7a8",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/STATE.md",
+      "detail": "11267465040b7f36ff96b422c6f7b711dee50e1c7acdc745f486b53adda1157e",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/evidence/P9-99/RESULT.md",
+      "detail": "2ef6752fd1187883ebe9dd9814d286448a8f061056d3456d273dfdcf83261383",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/evidence/P9-99/terminal_verdict.json",
+      "detail": "5d4c70008436925c3c986a4166376bc322400c119ea3ea24df234ba2eca4d783",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-terminal:.openrecomp-phase9/evidence/P9-99/verdict_record.json",
+      "detail": "96337230b155694ba9f150bb5b6201388ad74279956c11ced296bfc736b7dcae",
+      "status": "PASS"
+    },
+    {
+      "check": "guards:policy:no-guessing",
+      "detail": "fail closed",
+      "status": "PASS"
+    },
+    {
+      "check": "guards:policy:serial-frontier",
+      "detail": "one frontier",
+      "status": "PASS"
+    },
+    {
+      "check": "guards:queue-complete",
+      "detail": "{\"P10-00\": \"PASS\", \"P10-01\": \"PASS\", \"P10-02\": \"PASS\", \"P10-03\": \"PASS\", \"P10-04\": \"PASS\", \"P10-05\": \"PASS\", \"P10-06\": \"PASS\", \"P10-07\": \"PASS\", \"P10-08\": \"PASS\", \"P10-09\": \"PASS\", \"P10-10\": \"PASS\", \"P10-11\": \"PASS\", \"P10-12\": \"PASS\", \"P10-90\": \"PASS\", \"P10-91\": \"PASS\", \"P10-99\": \"QUEUED\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "guards:queue-terminal",
+      "detail": "QUEUED",
+      "status": "PASS"
+    },
+    {
+      "check": "guards:queue:permanent-general",
+      "detail": "permanent non-claim recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "guards:scope:general",
+      "detail": "scope",
+      "status": "PASS"
+    },
+    {
+      "check": "guards:scope:playability",
+      "detail": "scope",
+      "status": "PASS"
+    },
+    {
+      "check": "guards:scope:terminal-name",
+      "detail": "terminal claim",
+      "status": "PASS"
+    },
+    {
+      "check": "guards:state:general",
+      "detail": "state",
+      "status": "PASS"
+    },
+    {
+      "check": "guards:state:playability",
+      "detail": "state",
+      "status": "PASS"
+    },
+    {
+      "check": "guards:state:terminal",
+      "detail": "reserved or consistently promoted",
+      "status": "PASS"
+    },
+    {
+      "check": "hardening:negatives",
+      "detail": "12/3",
+      "status": "PASS"
+    },
+    {
+      "check": "hardening:no-guest-code",
+      "detail": "true",
+      "status": "PASS"
+    },
+    {
+      "check": "hardening:rebuild",
+      "detail": "identical",
+      "status": "PASS"
+    },
+    {
+      "check": "milestone:a",
+      "detail": "A",
+      "status": "PASS"
+    },
+    {
+      "check": "milestone:highest",
+      "detail": "A",
+      "status": "PASS"
+    },
+    {
+      "check": "milestone:playability",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "native:budget",
+      "detail": "budget",
+      "status": "PASS"
+    },
+    {
+      "check": "native:counters",
+      "detail": "{\"access_budget\": 2000000, \"access_count\": 2000005, \"accounted_accesses_lower_bound\": 1790128, \"accounted_note\": \"reads+writes+denied+recorded events is a LOWER bound because the per-device event transcripts are capped at 4096\", \"budget_denials\": 5, \"budget_reached\": true, \"denied\": 11, \"deterministic\": true, \"error\": \"unresolved indirect jump\", \"events\": {\"cdrom\": 38, \"gpu\": 4096, \"input\": 4096, \"spu\": 5}, \"events_capped\": {\"cdrom\": false, \"gpu\": true, \"input\": true, \"spu\": false}, \"executable_sha256\": \"937b359907e09cf802e95fef9ed75fb6a06b787d7e2c454b2f3354930dd70581\", \"exit_status\": \"0x00000000\", \"failed\": \"1\", \"failure_semantics\": \"a fail-closed failure aborts the current translated function and is recorded as the first failure; the caller continues, so the recorded traffic includes progress after the first failure\", \"first_failure_is_termination_category\": true, \"host_calls\": 79, \"reads\": 982859, \"stdout_sha256\": \"50e781068f7b4d593abdaf601f8b84a42e7ed216fb257b12019148244e6aa006\", \"termination_category\": \"UNRESOLVED_INDIRECT_JUMP\", \"writes\": 799023}",
+      "status": "PASS"
+    },
+    {
+      "check": "native:deterministic",
+      "detail": "true",
+      "status": "PASS"
+    },
+    {
+      "check": "native:guest-entry",
+      "detail": "0x800132e8",
+      "status": "PASS"
+    },
+    {
+      "check": "native:termination",
+      "detail": "UNRESOLVED_INDIRECT_JUMP",
+      "status": "PASS"
+    },
+    {
+      "check": "p10-90:guards",
+      "detail": "{\"general_ps1_compatibility\": \"NOT_PROVEN\", \"highest_milestone\": \"A\", \"native_execution_proof\": \"NOT_PROVEN\", \"playability\": \"NOT_PROVEN\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "p10-90:historical",
+      "detail": "1435",
+      "status": "PASS"
+    },
+    {
+      "check": "p10-90:p8-audits",
+      "detail": "3 audits",
+      "status": "PASS"
+    },
+    {
+      "check": "p10-90:phase10",
+      "detail": "1633",
+      "status": "PASS"
+    },
+    {
+      "check": "p10-90:total",
+      "detail": "3068",
+      "status": "PASS"
+    },
+    {
+      "check": "p10-91:index-entries",
+      "detail": "135",
+      "status": "PASS"
+    },
+    {
+      "check": "p10-91:index-no-terminal",
+      "detail": "terminal stage excluded",
+      "status": "PASS"
+    },
+    {
+      "check": "p10-91:ledger-counts",
+      "detail": "{\"BOUNDED\": 5, \"NOT_PROVEN\": 15, \"NOT_TESTED\": 2, \"PROVEN\": 14}",
+      "status": "PASS"
+    },
+    {
+      "check": "p10-91:milestone",
+      "detail": "A",
+      "status": "PASS"
+    },
+    {
+      "check": "p10-91:milestones-b-g",
+      "detail": "B..G not established",
+      "status": "PASS"
+    },
+    {
+      "check": "p10-91:permanent-non-claims",
+      "detail": "permanent",
+      "status": "PASS"
+    },
+    {
+      "check": "p10-91:reserved-non-claims",
+      "detail": "reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "p10-91:terminal-reserved",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:no-host-paths",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:no-payload-leaks",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-00:exit",
+      "detail": "zero",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-00:gate-marker",
+      "detail": "OPENRECOMP_PHASE10_BOUNDARY_V1=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-00:markers",
+      "detail": "markers",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-00:result",
+      "detail": "P10-00",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-00:stderr",
+      "detail": "empty",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-00:tests",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-00:two-runs",
+      "detail": "identical",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-01:exit",
+      "detail": "zero",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-01:gate-marker",
+      "detail": "OPENRECOMP_PHASE10_BREAK_V1=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-01:markers",
+      "detail": "markers",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-01:result",
+      "detail": "P10-01",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-01:stderr",
+      "detail": "empty",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-01:tests",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-01:two-runs",
+      "detail": "identical",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-02:exit",
+      "detail": "zero",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-02:gate-marker",
+      "detail": "OPENRECOMP_PHASE10_STRUCTURE_V1=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-02:markers",
+      "detail": "markers",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-02:result",
+      "detail": "P10-02",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-02:stderr",
+      "detail": "empty",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-02:tests",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-02:two-runs",
+      "detail": "identical",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-03:exit",
+      "detail": "zero",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-03:gate-marker",
+      "detail": "OPENRECOMP_PHASE10_SEMANTICS_V1=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-03:markers",
+      "detail": "markers",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-03:result",
+      "detail": "P10-03",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-03:stderr",
+      "detail": "empty",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-03:tests",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-03:two-runs",
+      "detail": "identical",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-04:exit",
+      "detail": "zero",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-04:gate-marker",
+      "detail": "OPENRECOMP_PHASE10_BIOS_V1=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-04:markers",
+      "detail": "markers",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-04:result",
+      "detail": "P10-04",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-04:stderr",
+      "detail": "empty",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-04:tests",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-04:two-runs",
+      "detail": "identical",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-05:exit",
+      "detail": "zero",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-05:gate-marker",
+      "detail": "OPENRECOMP_PHASE10_NATIVE_ENTRY_V1=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-05:markers",
+      "detail": "markers",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-05:result",
+      "detail": "P10-05",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-05:stderr",
+      "detail": "empty",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-05:tests",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-05:two-runs",
+      "detail": "identical",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-06:exit",
+      "detail": "zero",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-06:gate-marker",
+      "detail": "OPENRECOMP_PHASE10_IO_DISCOVERY_V1=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-06:markers",
+      "detail": "markers",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-06:result",
+      "detail": "P10-06",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-06:stderr",
+      "detail": "empty",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-06:tests",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-06:two-runs",
+      "detail": "identical",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-07:exit",
+      "detail": "zero",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-07:gate-marker",
+      "detail": "OPENRECOMP_PHASE10_GPU_FRONTIER_V1=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-07:markers",
+      "detail": "markers",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-07:result",
+      "detail": "P10-07",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-07:stderr",
+      "detail": "empty",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-07:tests",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-07:two-runs",
+      "detail": "identical",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-08:exit",
+      "detail": "zero",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-08:gate-marker",
+      "detail": "OPENRECOMP_PHASE10_TIMING_FRONTIER_V1=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-08:markers",
+      "detail": "markers",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-08:result",
+      "detail": "P10-08",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-08:stderr",
+      "detail": "empty",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-08:tests",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-08:two-runs",
+      "detail": "identical",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-09:exit",
+      "detail": "zero",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-09:gate-marker",
+      "detail": "OPENRECOMP_PHASE10_DISC_FRONTIER_V1=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-09:markers",
+      "detail": "markers",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-09:result",
+      "detail": "P10-09",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-09:stderr",
+      "detail": "empty",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-09:tests",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-09:two-runs",
+      "detail": "identical",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-10:exit",
+      "detail": "zero",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-10:gate-marker",
+      "detail": "OPENRECOMP_PHASE10_INPUT_SPU_FRONTIER_V1=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-10:markers",
+      "detail": "markers",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-10:result",
+      "detail": "P10-10",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-10:stderr",
+      "detail": "empty",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-10:tests",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-10:two-runs",
+      "detail": "identical",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-11:exit",
+      "detail": "zero",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-11:gate-marker",
+      "detail": "OPENRECOMP_PHASE10_MILESTONE_V1=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-11:markers",
+      "detail": "markers",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-11:result",
+      "detail": "P10-11",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-11:stderr",
+      "detail": "empty",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-11:tests",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-11:two-runs",
+      "detail": "identical",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-12:exit",
+      "detail": "zero",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-12:gate-marker",
+      "detail": "OPENRECOMP_PHASE10_HARDENING_V1=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-12:markers",
+      "detail": "markers",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-12:result",
+      "detail": "P10-12",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-12:stderr",
+      "detail": "empty",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-12:tests",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-12:two-runs",
+      "detail": "identical",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-90:exit",
+      "detail": "zero",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-90:gate-marker",
+      "detail": "OPENRECOMP_PHASE10_WHOLE_REGRESSION_V1=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-90:markers",
+      "detail": "markers",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-90:result",
+      "detail": "P10-90",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-90:stderr",
+      "detail": "empty",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-90:tests",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-90:two-runs",
+      "detail": "identical",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-91:exit",
+      "detail": "zero",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-91:gate-marker",
+      "detail": "OPENRECOMP_PHASE10_EVIDENCE_CLOSURE_V1=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-91:markers",
+      "detail": "markers",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-91:result",
+      "detail": "P10-91",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-91:stderr",
+      "detail": "empty",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-91:tests",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P10-91:two-runs",
+      "detail": "identical",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "markers": {
+    "gate": "OPENRECOMP_PHASE10_FINAL_VERDICT_V1=PASS tests=166",
+    "general": "OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+    "playability": "OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN",
+    "stage": "OPENRECOMP_P10_99=PASS",
+    "terminal": "OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=PASS"
+  },
+  "passed": 166,
+  "stage": "P10-99",
+  "stage_name": "Final bounded verdict",
+  "status": "PASS",
+  "tests": 166
+}
