@@ -23,12 +23,47 @@
  *   - an open-addressed count table for distinct function addresses;
  *   - the first failure site/message/context and a failure counter;
  *   - an FNV-1a digest over the ordered block-address stream.
+ *
+ * Deterministic execution bound:
+ *   The block hook also enforces an explicit, deterministic block-entry budget.
+ *   The bounded-execution access budget bounds guest *memory accesses*, so a
+ *   guest loop that performs no memory access after truncation cannot be
+ *   interrupted (recorded as a Phase-10 limitation). The block budget closes
+ *   that gap: when the budget is exceeded the hook records the denial and, if
+ *   the host driver has armed the bound, unwinds to the driver's saved context
+ *   with `longjmp`. The guest program is unchanged; the bound is a host-side
+ *   execution harness with a fixed, recorded limit.
  */
+
+#include <setjmp.h>
 
 #define P11_TRACE_FIRST_CAPACITY 256u
 #define P11_TRACE_RING_CAPACITY 4096u
 #define P11_TRACE_TABLE_CAPACITY 8192u
 #define P11_TRACE_FAILURE_WINDOW 64u
+#define P11_BLOCK_BUDGET_DEFAULT UINT64_C(8000000)
+
+jmp_buf p11_bound_jump;
+
+static uint64_t g_p11_block_budget = P11_BLOCK_BUDGET_DEFAULT;
+static uint64_t g_p11_block_denials;
+static int g_p11_bound_armed;
+
+void p11_bound_arm(uint64_t budget)
+{
+    g_p11_block_budget = budget;
+    g_p11_block_denials = UINT64_C(0);
+    g_p11_bound_armed = 1;
+}
+
+void p11_bound_disarm(void)
+{
+    g_p11_bound_armed = 0;
+}
+
+uint64_t p11_bound_budget(void) { return g_p11_block_budget; }
+uint64_t p11_bound_denials(void) { return g_p11_block_denials; }
+int p11_bound_reached(void) { return g_p11_block_denials != UINT64_C(0); }
 
 static uint64_t g_p11_trace_block_events;
 static uint64_t g_p11_trace_function_events;
@@ -151,6 +186,14 @@ void p11_trace_block(uint64_t address)
     }
     ++g_p11_trace_block_events;
     p11_trace_count_block(value);
+    if (g_p11_block_budget != UINT64_C(0)
+        && g_p11_trace_block_events > g_p11_block_budget) {
+        ++g_p11_block_denials;
+        if (g_p11_bound_armed) {
+            g_p11_bound_armed = 0;
+            longjmp(p11_bound_jump, 1);
+        }
+    }
 }
 
 void p11_trace_indirect_failure(uint64_t site, uint64_t source_value, const char *message)

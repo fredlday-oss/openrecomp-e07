@@ -10,18 +10,26 @@
   inherited non-claims, control plane and frozen queue;
 - `P11-01` `PASS` (583 checks): additive opt-in instrumentation, trace
   semantics equivalence, exact causal frontier (BIOS A0 call at `0x80026ccc`,
-  index `0x2b`), temporal ordering by budget bisection, post-failure loops.
+  index `0x2b`), temporal ordering by budget bisection, post-failure loops;
+- `P11-02` `PASS` (1466 checks): exact BIOS vector classification of all 19
+  reachable indirect sites, the causal site resolved as `ps1.bios.A0.2b`
+  memset (documented semantics, checked memory boundary), public synthetic
+  service fixtures, frontier movement to `A0:0x3f` printf at `0x80026cec`
+  (block index 468147), and a deterministic 8,000,000 block-entry execution
+  budget.
 
 ## Immediate next action
 
-`P11-02` - dynamic indirect-control frontier. The causal site is exactly
-classified as a PS1 BIOS A0 jump-table call (vector `0xA0`, index `0x2b`,
-service id `ps1.bios.A0.2b`, no BIOS service implemented). P11-02 must
-classify the site with evidence as an external/runtime-mediated transfer and
-test whether serving the proven call moves the frontier. Any BIOS service
-implementation must be evidence-backed and documented; unknown or unproven
-services stay fail-closed. Instrumented and uninstrumented build products live
-under `.openrecomp-phase11/build/` (untracked).
+`P11-03` - event / interrupt / DMA progress contract. The remaining BIOS
+surface is exactly enumerated (see `evidence/P11-02/frontier.json`):
+`A0:0x3f` printf, `A0:0x30` srand, `A0:0x44` FlushCache, `A0:0x49` GPU_cw,
+`A0:0x70` _bu_init, `A0:0x43` DoExecute, `B0:0x12`/`0x13`/`0x3f`/`0x4a`/`0x4b`/
+`0x56`/`0x57` and `C0:0x02`/`0x03`/`0x0a`. P11-03 must determine by causal A/B
+whether initialization requires interrupt delivery/acknowledgement, DMA
+completion, timer transitions or memory-control state, implement only
+proven-necessary behaviour, and keep unproven interactions fail-closed.
+Instrumented and uninstrumented build products live under
+`.openrecomp-phase11/build/` (untracked).
 
 ## Private fixture notes
 

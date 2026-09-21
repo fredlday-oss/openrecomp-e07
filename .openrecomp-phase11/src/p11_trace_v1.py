@@ -44,6 +44,7 @@ TRACE_SCALAR_KEYS = (
     "trace_failure_count", "trace_failure_site", "trace_failure_function",
     "trace_failure_source", "trace_failure_message", "trace_failure_block_index",
     "trace_current_function", "trace_failure_before_count", "trace_failure_after_count",
+    "bound_budget", "bound_reached", "bound_denials",
 )
 
 
@@ -196,10 +197,12 @@ def build_trace_program(
 
 
 def run_trace_program(executable: pathlib.Path, *, budget: int | None = None,
-                      timeout: int = 1800) -> dict[str, Any]:
+                      block_budget: int | None = None, timeout: int = 1800) -> dict[str, Any]:
     command = [str(executable)]
-    if budget is not None:
-        command.append(str(budget))
+    if budget is not None or block_budget is not None:
+        command.append(str(budget if budget is not None else 0))
+    if block_budget is not None:
+        command.append(str(block_budget))
     completed = subprocess.run(command, capture_output=True, timeout=timeout)
     stdout = completed.stdout
     return {

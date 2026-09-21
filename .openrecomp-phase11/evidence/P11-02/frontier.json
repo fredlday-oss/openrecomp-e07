@@ -1,0 +1,2642 @@
+{
+  "bios_vector_classification": {
+    "bios_image": "none",
+    "bios_version": "1.1.0",
+    "documented_a0_services": {
+      "0x2b": {
+        "name": "memset",
+        "refusal": "dst == 0, len == 0 or len > 0x7fffffff",
+        "returns": "dst, or 0 when refused",
+        "semantics": "fill len bytes at dst with (fillbyte & 0xff) through the checked guest memory boundary",
+        "signature": [
+          "dst",
+          "fillbyte",
+          "len"
+        ],
+        "source": "public PS1 BIOS function table documentation (PSX-SPX BIOS function summary / memory fill-copy-compare)"
+      }
+    },
+    "documented_b0_service_count": 0,
+    "documented_c0_service_count": 0,
+    "histogram": {
+      "BIOS_VECTOR_NOT_IMPLEMENTED": 18,
+      "BIOS_VECTOR_SERVICE": 1
+    },
+    "index_register": 9,
+    "service_count": 1,
+    "service_ids": [
+      "ps1.bios.A0.2b"
+    ],
+    "services": [
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_SERVICE",
+        "disposition": "EXACT_EXTERNAL_SERVICE",
+        "documented_name": "memset",
+        "function_id": null,
+        "function_index": 43,
+        "index_evidence": [
+          "index-addiu@0x80026cd0"
+        ],
+        "kind": "INDIRECT_JUMP",
+        "op": "jr",
+        "op_name": "jump_bios_a0_2b",
+        "service_id": "ps1.bios.A0.2b",
+        "site": 2147642572,
+        "site_hex": "0x80026ccc",
+        "slice_evidence": [
+          "addiu@0x80026cc8"
+        ],
+        "source_register": 10,
+        "vector": "A0",
+        "vector_value": "0x000000a0"
+      }
+    ],
+    "site_count": 19,
+    "sites": [
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+        "disposition": "FAIL_CLOSED",
+        "documented_name": "DoExecute",
+        "function_id": null,
+        "function_index": 67,
+        "index_evidence": [
+          "index-addiu@0x80015b88"
+        ],
+        "kind": "INDIRECT_JUMP",
+        "op": "jr",
+        "op_name": null,
+        "service_id": null,
+        "site": 2147572612,
+        "site_hex": "0x80015b84",
+        "slice_evidence": [
+          "addiu@0x80015b80"
+        ],
+        "source_register": 10,
+        "vector": "A0",
+        "vector_value": "0x000000a0"
+      },
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+        "disposition": "FAIL_CLOSED",
+        "documented_name": "FlushCache",
+        "function_id": null,
+        "function_index": 68,
+        "index_evidence": [
+          "index-addiu@0x80015b98"
+        ],
+        "kind": "INDIRECT_JUMP",
+        "op": "jr",
+        "op_name": null,
+        "service_id": null,
+        "site": 2147572628,
+        "site_hex": "0x80015b94",
+        "slice_evidence": [
+          "addiu@0x80015b90"
+        ],
+        "source_register": 10,
+        "vector": "A0",
+        "vector_value": "0x000000a0"
+      },
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+        "disposition": "FAIL_CLOSED",
+        "documented_name": "_bu_init",
+        "function_id": null,
+        "function_index": 112,
+        "index_evidence": [
+          "index-addiu@0x80015ba8"
+        ],
+        "kind": "INDIRECT_JUMP",
+        "op": "jr",
+        "op_name": null,
+        "service_id": null,
+        "site": 2147572644,
+        "site_hex": "0x80015ba4",
+        "slice_evidence": [
+          "addiu@0x80015ba0"
+        ],
+        "source_register": 10,
+        "vector": "A0",
+        "vector_value": "0x000000a0"
+      },
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+        "disposition": "FAIL_CLOSED",
+        "documented_name": null,
+        "function_id": null,
+        "function_index": 18,
+        "index_evidence": [
+          "index-addiu@0x80015ee0"
+        ],
+        "kind": "INDIRECT_JUMP",
+        "op": "jr",
+        "op_name": null,
+        "service_id": null,
+        "site": 2147573468,
+        "site_hex": "0x80015edc",
+        "slice_evidence": [
+          "addiu@0x80015ed8"
+        ],
+        "source_register": 10,
+        "vector": "B0",
+        "vector_value": "0x000000b0"
+      },
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+        "disposition": "FAIL_CLOSED",
+        "documented_name": null,
+        "function_id": null,
+        "function_index": 19,
+        "index_evidence": [
+          "index-addiu@0x80015ef0"
+        ],
+        "kind": "INDIRECT_JUMP",
+        "op": "jr",
+        "op_name": null,
+        "service_id": null,
+        "site": 2147573484,
+        "site_hex": "0x80015eec",
+        "slice_evidence": [
+          "addiu@0x80015ee8"
+        ],
+        "source_register": 10,
+        "vector": "B0",
+        "vector_value": "0x000000b0"
+      },
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+        "disposition": "FAIL_CLOSED",
+        "documented_name": null,
+        "function_id": null,
+        "function_index": 91,
+        "index_evidence": [
+          "index-addiu@0x80015f40"
+        ],
+        "kind": "INDIRECT_JUMP",
+        "op": "jr",
+        "op_name": null,
+        "service_id": null,
+        "site": 2147573564,
+        "site_hex": "0x80015f3c",
+        "slice_evidence": [
+          "addiu@0x80015f38"
+        ],
+        "source_register": 10,
+        "vector": "B0",
+        "vector_value": "0x000000b0"
+      },
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+        "disposition": "FAIL_CLOSED",
+        "documented_name": "SysEnqIntRP",
+        "function_id": null,
+        "function_index": 2,
+        "index_evidence": [
+          "index-addiu@0x80015f50"
+        ],
+        "kind": "INDIRECT_JUMP",
+        "op": "jr",
+        "op_name": null,
+        "service_id": null,
+        "site": 2147573580,
+        "site_hex": "0x80015f4c",
+        "slice_evidence": [
+          "addiu@0x80015f48"
+        ],
+        "source_register": 10,
+        "vector": "C0",
+        "vector_value": "0x000000c0"
+      },
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+        "disposition": "FAIL_CLOSED",
+        "documented_name": "SysDeqIntRP",
+        "function_id": null,
+        "function_index": 3,
+        "index_evidence": [
+          "index-addiu@0x80015f60"
+        ],
+        "kind": "INDIRECT_JUMP",
+        "op": "jr",
+        "op_name": null,
+        "service_id": null,
+        "site": 2147573596,
+        "site_hex": "0x80015f5c",
+        "slice_evidence": [
+          "addiu@0x80015f58"
+        ],
+        "source_register": 10,
+        "vector": "C0",
+        "vector_value": "0x000000c0"
+      },
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+        "disposition": "FAIL_CLOSED",
+        "documented_name": null,
+        "function_id": null,
+        "function_index": 87,
+        "index_evidence": [
+          "index-addiu@0x80015fa8"
+        ],
+        "kind": "INDIRECT_CALL",
+        "op": "jalr",
+        "op_name": null,
+        "service_id": null,
+        "site": 2147573668,
+        "site_hex": "0x80015fa4",
+        "slice_evidence": [
+          "addiu@0x80015fa0"
+        ],
+        "source_register": 10,
+        "vector": "B0",
+        "vector_value": "0x000000b0"
+      },
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+        "disposition": "FAIL_CLOSED",
+        "documented_name": null,
+        "function_id": null,
+        "function_index": 10,
+        "index_evidence": [
+          "index-addiu@0x800161e4"
+        ],
+        "kind": "INDIRECT_JUMP",
+        "op": "jr",
+        "op_name": null,
+        "service_id": null,
+        "site": 2147574240,
+        "site_hex": "0x800161e0",
+        "slice_evidence": [
+          "addiu@0x800161dc"
+        ],
+        "source_register": 10,
+        "vector": "C0",
+        "vector_value": "0x000000c0"
+      },
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+        "disposition": "FAIL_CLOSED",
+        "documented_name": "GPU_cw",
+        "function_id": null,
+        "function_index": 73,
+        "index_evidence": [
+          "index-addiu@0x8001b428"
+        ],
+        "kind": "INDIRECT_JUMP",
+        "op": "jr",
+        "op_name": null,
+        "service_id": null,
+        "site": 2147595300,
+        "site_hex": "0x8001b424",
+        "slice_evidence": [
+          "addiu@0x8001b420"
+        ],
+        "source_register": 10,
+        "vector": "A0",
+        "vector_value": "0x000000a0"
+      },
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+        "disposition": "FAIL_CLOSED",
+        "documented_name": "puts",
+        "function_id": null,
+        "function_index": 63,
+        "index_evidence": [
+          "index-addiu@0x80026c78"
+        ],
+        "kind": "INDIRECT_JUMP",
+        "op": "jr",
+        "op_name": null,
+        "service_id": null,
+        "site": 2147642484,
+        "site_hex": "0x80026c74",
+        "slice_evidence": [
+          "addiu@0x80026c70"
+        ],
+        "source_register": 10,
+        "vector": "B0",
+        "vector_value": "0x000000b0"
+      },
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_SERVICE",
+        "disposition": "EXACT_EXTERNAL_SERVICE",
+        "documented_name": "memset",
+        "function_id": null,
+        "function_index": 43,
+        "index_evidence": [
+          "index-addiu@0x80026cd0"
+        ],
+        "kind": "INDIRECT_JUMP",
+        "op": "jr",
+        "op_name": "jump_bios_a0_2b",
+        "service_id": "ps1.bios.A0.2b",
+        "site": 2147642572,
+        "site_hex": "0x80026ccc",
+        "slice_evidence": [
+          "addiu@0x80026cc8"
+        ],
+        "source_register": 10,
+        "vector": "A0",
+        "vector_value": "0x000000a0"
+      },
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+        "disposition": "FAIL_CLOSED",
+        "documented_name": "srand",
+        "function_id": null,
+        "function_index": 48,
+        "index_evidence": [
+          "index-addiu@0x80026ce0"
+        ],
+        "kind": "INDIRECT_JUMP",
+        "op": "jr",
+        "op_name": null,
+        "service_id": null,
+        "site": 2147642588,
+        "site_hex": "0x80026cdc",
+        "slice_evidence": [
+          "addiu@0x80026cd8"
+        ],
+        "source_register": 10,
+        "vector": "A0",
+        "vector_value": "0x000000a0"
+      },
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+        "disposition": "FAIL_CLOSED",
+        "documented_name": "printf",
+        "function_id": null,
+        "function_index": 63,
+        "index_evidence": [
+          "index-addiu@0x80026cf0"
+        ],
+        "kind": "INDIRECT_JUMP",
+        "op": "jr",
+        "op_name": null,
+        "service_id": null,
+        "site": 2147642604,
+        "site_hex": "0x80026cec",
+        "slice_evidence": [
+          "addiu@0x80026ce8"
+        ],
+        "source_register": 10,
+        "vector": "A0",
+        "vector_value": "0x000000a0"
+      },
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+        "disposition": "FAIL_CLOSED",
+        "documented_name": null,
+        "function_id": null,
+        "function_index": 74,
+        "index_evidence": [
+          "index-addiu@0x80026e28"
+        ],
+        "kind": "INDIRECT_JUMP",
+        "op": "jr",
+        "op_name": null,
+        "service_id": null,
+        "site": 2147642916,
+        "site_hex": "0x80026e24",
+        "slice_evidence": [
+          "addiu@0x80026e20"
+        ],
+        "source_register": 10,
+        "vector": "B0",
+        "vector_value": "0x000000b0"
+      },
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+        "disposition": "FAIL_CLOSED",
+        "documented_name": null,
+        "function_id": null,
+        "function_index": 75,
+        "index_evidence": [
+          "index-addiu@0x80026e38"
+        ],
+        "kind": "INDIRECT_JUMP",
+        "op": "jr",
+        "op_name": null,
+        "service_id": null,
+        "site": 2147642932,
+        "site_hex": "0x80026e34",
+        "slice_evidence": [
+          "addiu@0x80026e30"
+        ],
+        "source_register": 10,
+        "vector": "B0",
+        "vector_value": "0x000000b0"
+      },
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+        "disposition": "FAIL_CLOSED",
+        "documented_name": null,
+        "function_id": null,
+        "function_index": 86,
+        "index_evidence": [
+          "index-addiu@0x80026ec0"
+        ],
+        "kind": "INDIRECT_CALL",
+        "op": "jalr",
+        "op_name": null,
+        "service_id": null,
+        "site": 2147643068,
+        "site_hex": "0x80026ebc",
+        "slice_evidence": [
+          "addiu@0x80026eb8"
+        ],
+        "source_register": 10,
+        "vector": "B0",
+        "vector_value": "0x000000b0"
+      },
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+        "disposition": "FAIL_CLOSED",
+        "documented_name": null,
+        "function_id": null,
+        "function_index": 87,
+        "index_evidence": [
+          "index-addiu@0x80026f78"
+        ],
+        "kind": "INDIRECT_CALL",
+        "op": "jalr",
+        "op_name": null,
+        "service_id": null,
+        "site": 2147643252,
+        "site_hex": "0x80026f74",
+        "slice_evidence": [
+          "addiu@0x80026f70"
+        ],
+        "source_register": 10,
+        "vector": "B0",
+        "vector_value": "0x000000b0"
+      }
+    ],
+    "unknown_policy": "fail-closed",
+    "vector_register": 10
+  },
+  "bounded_execution": {
+    "access_budget": 2000000,
+    "access_count": "4261313",
+    "block_budget": 8000000,
+    "block_events": "8000001",
+    "bound_reached": true,
+    "closed_phase10_gap": [
+      "the access budget bounds memory accesses only; a post-truncation",
+      "guest loop with no memory access could not be interrupted"
+    ],
+    "stdout_sha256": "93b3add0aae2b23b7c13baef138c24a2c5ae08d3837261c901e06948a2314b67",
+    "terminates": true
+  },
+  "classifier_status": {
+    "basis": "EXTERNAL_RUNTIME_EVIDENCE",
+    "evidence": "PROVEN",
+    "external_mechanism": "ps1.bios.A0",
+    "status": "EXTERNAL_OR_RUNTIME_MEDIATED"
+  },
+  "documented_index_names": {
+    "A0:0x2b": "memset",
+    "A0:0x30": "srand",
+    "A0:0x3f": "printf",
+    "A0:0x43": "DoExecute",
+    "A0:0x44": "FlushCache",
+    "A0:0x49": "GPU_cw",
+    "A0:0x70": "_bu_init",
+    "B0:0x3f": "puts",
+    "C0:0x02": "SysEnqIntRP",
+    "C0:0x03": "SysDeqIntRP"
+  },
+  "documented_service": {
+    "name": "memset",
+    "refusal": "dst == 0, len == 0 or len > 0x7fffffff",
+    "returns": "dst, or 0 when refused",
+    "semantics": "fill len bytes at dst with (fillbyte & 0xff) through the checked guest memory boundary",
+    "signature": [
+      "dst",
+      "fillbyte",
+      "len"
+    ],
+    "source": "public PS1 BIOS function table documentation (PSX-SPX BIOS function summary / memory fill-copy-compare)"
+  },
+  "emission": {
+    "base_program_fingerprint": "a047a52fb460d3786e5bff03b5c26ac2978ae768b581f5e6c4a9cbc284db4a9a",
+    "bios_sites": [
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_SERVICE",
+        "disposition": "EXACT_EXTERNAL_SERVICE",
+        "documented_name": "memset",
+        "function_id": null,
+        "function_index": 43,
+        "index_evidence": [
+          "index-addiu@0x80026cd0"
+        ],
+        "kind": "INDIRECT_JUMP",
+        "op": "jr",
+        "op_name": "jump_bios_a0_2b",
+        "service_id": "ps1.bios.A0.2b",
+        "site": 2147642572,
+        "site_hex": "0x80026ccc",
+        "slice_evidence": [
+          "addiu@0x80026cc8"
+        ],
+        "source_register": 10,
+        "vector": "A0",
+        "vector_value": "0x000000a0"
+      }
+    ],
+    "files": [
+      {
+        "bytes": 560949,
+        "name": "program.c",
+        "sha256": "5cff37b393da430da45332c7259c8c9d63f981a264294f39d980406a81a28213"
+      },
+      {
+        "bytes": 750534,
+        "name": "p9_image_v1.c",
+        "sha256": "77a340448081cc606b16e104734b3a48d11483210520618dcca8b1266c43f96b"
+      },
+      {
+        "bytes": 46014,
+        "name": "p9_runtime_support.c",
+        "sha256": "defea558d9194021e4cb0a048aba3f3cedece92c2418932f696509dac101f4a2"
+      },
+      {
+        "bytes": 15979,
+        "name": "p9_driver.c",
+        "sha256": "97286f6b7c55fbee2d4602cd805368ebe32a12bd6ce565fa2336ce2125a8dad6"
+      }
+    ],
+    "program_fingerprint": "5cff37b393da430da45332c7259c8c9d63f981a264294f39d980406a81a28213",
+    "semantics": {
+      "bios_image": "none",
+      "bios_rules": [
+        {
+          "args": [
+            "bios_arg0",
+            "bios_arg1",
+            "bios_arg2"
+          ],
+          "op": "jump_bios_a0_2b",
+          "result": "bios_ret",
+          "service": "ps1.bios.A0.2b"
+        }
+      ],
+      "native_only_handlers": true,
+      "rules_total": 48,
+      "semantics_version": "1.1.0",
+      "service_arities": {
+        "openrecomp.mips.add.overflow.check": 2,
+        "openrecomp.mips.lwl": 2,
+        "openrecomp.mips.lwr": 2,
+        "openrecomp.mips.mfhi": 0,
+        "openrecomp.mips.mult": 2,
+        "openrecomp.mips.swl": 2,
+        "openrecomp.mips.swr": 2,
+        "ps1.bios.A0.2b": 3
+      },
+      "service_ids": [
+        "openrecomp.mips.add.overflow.check",
+        "openrecomp.mips.lwl",
+        "openrecomp.mips.lwr",
+        "openrecomp.mips.mfhi",
+        "openrecomp.mips.mult",
+        "openrecomp.mips.swl",
+        "openrecomp.mips.swr",
+        "ps1.bios.A0.2b"
+      ]
+    }
+  },
+  "frontier_movement": {
+    "clean_progress_gain_block_entries": 458723,
+    "new_first_failure_block_index": 468147,
+    "new_first_failure_site": "0x80026cec",
+    "previous_first_failure_block_index": 9424,
+    "previous_first_failure_site": "0x80026ccc",
+    "statement": [
+      "serving the proven A0:0x2b memset call removes the first fail-closed",
+      "event and moves the frontier to the next exact blocker, the",
+      "documented A0:0x3f printf vector call at 0x80026cec; every other",
+      "BIOS vector site stays fail-closed"
+    ]
+  },
+  "frontier_run": {
+    "access_budget": 1500000,
+    "analysis": {
+      "after_failure": {
+        "block_entries": 497922,
+        "window": [
+          {
+            "address": "0x800183fc",
+            "block_id": "blk_800183fc",
+            "function_id": "fn_8001838c",
+            "in_image": true,
+            "terminal_op": "jal"
+          },
+          {
+            "address": "0x8001b3f4",
+            "block_id": "blk_8001b3f4",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "beq"
+          },
+          {
+            "address": "0x8001b400",
+            "block_id": "blk_8001b400",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "addiu"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          }
+        ]
+      },
+      "before_failure": {
+        "block_entries": 468147,
+        "distinct_blocks_before_failure": 2,
+        "window": [
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c14",
+            "block_id": "blk_80011c14",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80011c24",
+            "block_id": "blk_80011c24",
+            "function_id": "fn_80011bcc",
+            "in_image": true,
+            "terminal_op": "jr"
+          },
+          {
+            "address": "0x80012da4",
+            "block_id": "blk_80012da4",
+            "function_id": "fn_80012cd4",
+            "in_image": true,
+            "terminal_op": "jal"
+          },
+          {
+            "address": "0x80016d1c",
+            "block_id": "blk_80016d1c",
+            "function_id": "fn_80016d1c",
+            "in_image": true,
+            "terminal_op": "jr"
+          },
+          {
+            "address": "0x80012db4",
+            "block_id": "blk_80012db4",
+            "function_id": "fn_80012cd4",
+            "in_image": true,
+            "terminal_op": "jal"
+          },
+          {
+            "address": "0x8001838c",
+            "block_id": "blk_8001838c",
+            "function_id": "fn_8001838c",
+            "in_image": true,
+            "terminal_op": "beq"
+          },
+          {
+            "address": "0x800183ac",
+            "block_id": "blk_800183ac",
+            "function_id": "fn_8001838c",
+            "in_image": true,
+            "terminal_op": "beq"
+          },
+          {
+            "address": "0x800183b8",
+            "block_id": "blk_800183b8",
+            "function_id": "fn_8001838c",
+            "in_image": true,
+            "terminal_op": "beq"
+          },
+          {
+            "address": "0x800183dc",
+            "block_id": "blk_800183dc",
+            "function_id": "fn_8001838c",
+            "in_image": true,
+            "terminal_op": "jal"
+          },
+          {
+            "address": "0x80026ce8",
+            "block_id": "blk_80026ce8",
+            "function_id": "fn_80026ce8",
+            "in_image": true,
+            "terminal_op": "jr_indirect"
+          }
+        ]
+      },
+      "failure": {
+        "block_id": "blk_80026ce8",
+        "block_index": 468147,
+        "failure_count": 29,
+        "function_entry": "0x80026ce8",
+        "function_id": "fn_80026ce8",
+        "message": "unresolved indirect jump",
+        "site": "0x80026cec",
+        "site_classification": null,
+        "source_value": "0x000000a0",
+        "terminal_op": "jr_indirect"
+      },
+      "hottest_blocks": [
+        {
+          "address": "0x80011c14",
+          "block_id": "blk_80011c14",
+          "count": 458711,
+          "function_id": "fn_80011bcc",
+          "terminal_op": "bne"
+        },
+        {
+          "address": "0x80015ff8",
+          "block_id": "blk_80015ff8",
+          "count": 70603,
+          "function_id": "fn_80015ff8",
+          "terminal_op": "bgez"
+        },
+        {
+          "address": "0x80016038",
+          "block_id": "blk_80016038",
+          "count": 70603,
+          "function_id": "fn_80015ff8",
+          "terminal_op": "j"
+        },
+        {
+          "address": "0x80016128",
+          "block_id": "blk_80016128",
+          "count": 70603,
+          "function_id": "fn_80015ff8",
+          "terminal_op": "jr"
+        },
+        {
+          "address": "0x80015838",
+          "block_id": "blk_80015838",
+          "count": 35286,
+          "function_id": "fn_80015810",
+          "terminal_op": "jal"
+        },
+        {
+          "address": "0x80015840",
+          "block_id": "blk_80015840",
+          "count": 35286,
+          "function_id": "fn_80015810",
+          "terminal_op": "bne"
+        },
+        {
+          "address": "0x80015858",
+          "block_id": "blk_80015858",
+          "count": 35285,
+          "function_id": "fn_80015810",
+          "terminal_op": "bltz"
+        },
+        {
+          "address": "0x80015868",
+          "block_id": "blk_80015868",
+          "count": 35285,
+          "function_id": "fn_80015810",
+          "terminal_op": "jal"
+        },
+        {
+          "address": "0x80015870",
+          "block_id": "blk_80015870",
+          "count": 35285,
+          "function_id": "fn_80015810",
+          "terminal_op": "beq"
+        },
+        {
+          "address": "0x8001589c",
+          "block_id": "blk_8001589c",
+          "count": 35285,
+          "function_id": "fn_80015810",
+          "terminal_op": "lw"
+        },
+        {
+          "address": "0x800158a0",
+          "block_id": "blk_800158a0",
+          "count": 35285,
+          "function_id": "fn_80015810",
+          "terminal_op": "bne"
+        },
+        {
+          "address": "0x800158a8",
+          "block_id": "blk_800158a8",
+          "count": 35285,
+          "function_id": "fn_80015810",
+          "terminal_op": "bgtz"
+        },
+        {
+          "address": "0x800132f8",
+          "block_id": "blk_800132f8",
+          "count": 9416,
+          "function_id": "fn_800132e8",
+          "terminal_op": "bne"
+        },
+        {
+          "address": "0x8001732c",
+          "block_id": "blk_8001732c",
+          "count": 1024,
+          "function_id": "fn_800170f0",
+          "terminal_op": "jal"
+        },
+        {
+          "address": "0x80017334",
+          "block_id": "blk_80017334",
+          "count": 1024,
+          "function_id": "fn_800170f0",
+          "terminal_op": "bne"
+        },
+        {
+          "address": "0x80017e74",
+          "block_id": "blk_80017e74",
+          "count": 1024,
+          "function_id": "fn_80017e74",
+          "terminal_op": "jr"
+        }
+      ],
+      "hottest_functions": [
+        {
+          "address": "0x80015ff8",
+          "count": 70603,
+          "function_id": "fn_80015ff8"
+        },
+        {
+          "address": "0x80017e74",
+          "count": 1024,
+          "function_id": "fn_80017e74"
+        },
+        {
+          "address": "0x800141a0",
+          "count": 10,
+          "function_id": "fn_800141a0"
+        },
+        {
+          "address": "0x800146ec",
+          "count": 9,
+          "function_id": "fn_800146ec"
+        },
+        {
+          "address": "0x80015f18",
+          "count": 7,
+          "function_id": "fn_80015f18"
+        },
+        {
+          "address": "0x80013650",
+          "count": 4,
+          "function_id": "fn_80013650"
+        },
+        {
+          "address": "0x80015f28",
+          "count": 4,
+          "function_id": "fn_80015f28"
+        },
+        {
+          "address": "0x80015f38",
+          "count": 4,
+          "function_id": "fn_80015f38"
+        }
+      ],
+      "repeating_loop": {
+        "branches": [
+          {
+            "block_id": "blk_80015870",
+            "direct_target": "0x8001589c",
+            "function_id": "fn_80015810",
+            "operands": {
+              "rs": 3,
+              "rt": 0,
+              "target": 2147571868
+            },
+            "terminal_address": "0x80015880",
+            "terminal_op": "beq"
+          },
+          {
+            "block_id": "blk_800158a0",
+            "direct_target": "0x800158b0",
+            "function_id": "fn_80015810",
+            "operands": {
+              "rs": 18,
+              "rt": 0,
+              "target": 2147571888
+            },
+            "terminal_address": "0x800158a0",
+            "terminal_op": "bne"
+          },
+          {
+            "block_id": "blk_800158a8",
+            "direct_target": "0x80015838",
+            "function_id": "fn_80015810",
+            "operands": {
+              "rs": 16,
+              "target": 2147571768
+            },
+            "terminal_address": "0x800158a8",
+            "terminal_op": "bgtz"
+          },
+          {
+            "block_id": "blk_80015ff8",
+            "direct_target": "0x80016048",
+            "function_id": "fn_80015ff8",
+            "operands": {
+              "rs": 4,
+              "target": 2147573832
+            },
+            "terminal_address": "0x80016030",
+            "terminal_op": "bgez"
+          },
+          {
+            "block_id": "blk_80015840",
+            "direct_target": "0x800158a0",
+            "function_id": "fn_80015810",
+            "operands": {
+              "rs": 3,
+              "rt": 0,
+              "target": 2147571872
+            },
+            "terminal_address": "0x80015850",
+            "terminal_op": "bne"
+          },
+          {
+            "block_id": "blk_80015858",
+            "direct_target": "0x80015888",
+            "function_id": "fn_80015810",
+            "operands": {
+              "rs": 2,
+              "target": 2147571848
+            },
+            "terminal_address": "0x80015860",
+            "terminal_op": "bltz"
+          },
+          {
+            "block_id": "blk_80015ff8",
+            "direct_target": "0x80016048",
+            "function_id": "fn_80015ff8",
+            "operands": {
+              "rs": 4,
+              "target": 2147573832
+            },
+            "terminal_address": "0x80016030",
+            "terminal_op": "bgez"
+          }
+        ],
+        "cycle": [
+          {
+            "address": "0x80015870",
+            "block_id": "blk_80015870",
+            "function_id": "fn_80015810",
+            "in_image": true,
+            "terminal_op": "beq"
+          },
+          {
+            "address": "0x8001589c",
+            "block_id": "blk_8001589c",
+            "function_id": "fn_80015810",
+            "in_image": true,
+            "terminal_op": "lw"
+          },
+          {
+            "address": "0x800158a0",
+            "block_id": "blk_800158a0",
+            "function_id": "fn_80015810",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x800158a8",
+            "block_id": "blk_800158a8",
+            "function_id": "fn_80015810",
+            "in_image": true,
+            "terminal_op": "bgtz"
+          },
+          {
+            "address": "0x80015838",
+            "block_id": "blk_80015838",
+            "function_id": "fn_80015810",
+            "in_image": true,
+            "terminal_op": "jal"
+          },
+          {
+            "address": "0x80015ff8",
+            "block_id": "blk_80015ff8",
+            "function_id": "fn_80015ff8",
+            "in_image": true,
+            "terminal_op": "bgez"
+          },
+          {
+            "address": "0x80016038",
+            "block_id": "blk_80016038",
+            "function_id": "fn_80015ff8",
+            "in_image": true,
+            "terminal_op": "j"
+          },
+          {
+            "address": "0x80016128",
+            "block_id": "blk_80016128",
+            "function_id": "fn_80015ff8",
+            "in_image": true,
+            "terminal_op": "jr"
+          },
+          {
+            "address": "0x80015840",
+            "block_id": "blk_80015840",
+            "function_id": "fn_80015810",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80015858",
+            "block_id": "blk_80015858",
+            "function_id": "fn_80015810",
+            "in_image": true,
+            "terminal_op": "bltz"
+          },
+          {
+            "address": "0x80015868",
+            "block_id": "blk_80015868",
+            "function_id": "fn_80015810",
+            "in_image": true,
+            "terminal_op": "jal"
+          },
+          {
+            "address": "0x80015ff8",
+            "block_id": "blk_80015ff8",
+            "function_id": "fn_80015ff8",
+            "in_image": true,
+            "terminal_op": "bgez"
+          },
+          {
+            "address": "0x80016038",
+            "block_id": "blk_80016038",
+            "function_id": "fn_80015ff8",
+            "in_image": true,
+            "terminal_op": "j"
+          },
+          {
+            "address": "0x80016128",
+            "block_id": "blk_80016128",
+            "function_id": "fn_80015ff8",
+            "in_image": true,
+            "terminal_op": "jr"
+          }
+        ],
+        "cycle_length": 14,
+        "detected": true,
+        "iterations_lower_bound": 35285,
+        "predicate": {
+          "block_id": "blk_800158a8",
+          "delay_slot": {
+            "adapter_fields": {
+              "address": 2147571884,
+              "op": "nop"
+            },
+            "address": 2147571884,
+            "non_nop": false,
+            "op": "nop",
+            "operands": {},
+            "word": 0
+          },
+          "direct_target": "0x80015838",
+          "function_id": "fn_80015810",
+          "operands": {
+            "rs": 16,
+            "target": 2147571768
+          },
+          "selection": "last conditional back edge inside the detected cycle",
+          "successors": [
+            {
+              "kind": "BRANCH_NOT_TAKEN",
+              "resolved": true,
+              "target_address": "0x800158b0",
+              "target_block": "blk_800158b0"
+            },
+            {
+              "kind": "BRANCH_TAKEN",
+              "resolved": true,
+              "target_address": "0x80015838",
+              "target_block": "blk_80015838"
+            }
+          ],
+          "terminal_address": "0x800158a8",
+          "terminal_flow": "BRANCH",
+          "terminal_op": "bgtz"
+        }
+      },
+      "totals": {
+        "block_digest": "0x2e874f4475dc4486",
+        "block_events": 966069,
+        "distinct_blocks": 357,
+        "distinct_functions": 90,
+        "function_events": 71758
+      },
+      "trace_version": "1.0.0"
+    },
+    "block_budget": 8000000,
+    "executable_sha256": "781253343b3f3d29bc9dc39641d2014279a499e28eb0e71b775abddd273baefc",
+    "observables": {
+      "cdrom": "0x1ac867ac26c3b808",
+      "cdrom_events": "38",
+      "denied": "11",
+      "error": "unresolved indirect jump",
+      "exit_status": "0x00000000",
+      "failed": "1",
+      "gpu": "0x06d525ee19a82325",
+      "gpu_events": "65536",
+      "host_calls": "81",
+      "input": "0xdc34c5e062cf6795",
+      "input_events": "65536",
+      "memory": "0x18131c6ef356df7d",
+      "nonram_overflow": "0",
+      "nonram_signatures": "17",
+      "p10_access_budget": "1500000",
+      "p10_access_count": "1500005",
+      "p10_budget_denials": "5",
+      "p10_service_calls": "81",
+      "p10_service_failures": "0",
+      "reads": "636971",
+      "registers": "0xa48263614884d4ae",
+      "spu": "0xe579460e29a9d473",
+      "spu_events": "5",
+      "writes": "721775"
+    },
+    "stdout_sha256": "4244806e310f887e6509d9dad5904508dfa84c9e59c98b004e476fd77818022e",
+    "trace": {
+      "bound_budget": "8000000",
+      "bound_denials": "0",
+      "bound_reached": "0",
+      "trace_block_digest": "0x2e874f4475dc4486",
+      "trace_block_events": "966069",
+      "trace_distinct_blocks": "357",
+      "trace_distinct_functions": "90",
+      "trace_failure_block_index": "468147",
+      "trace_failure_count": "29",
+      "trace_failure_function": "0x80026ce8",
+      "trace_failure_message": "unresolved indirect jump",
+      "trace_failure_site": "0x80026cec",
+      "trace_failure_source": "0x000000a0",
+      "trace_function_events": "71758",
+      "trace_ring_count": "4096"
+    },
+    "uninstrumented_equivalence": {
+      "executable_sha256": "b7e05a51ee19c54d631d6435603c4872baf25680b9e808eb2f9b3e171df7758a",
+      "mismatches": [],
+      "nonram_identical": true,
+      "register_file_identical": true
+    }
+  },
+  "label": "hercules-private-fixture",
+  "remaining_surface": [
+    {
+      "block_id": null,
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "documented_name": "DoExecute",
+      "function_id": null,
+      "function_index": 67,
+      "index_evidence": [
+        "index-addiu@0x80015b88"
+      ],
+      "kind": "INDIRECT_JUMP",
+      "op": "jr",
+      "op_name": null,
+      "service_id": null,
+      "site": 2147572612,
+      "site_hex": "0x80015b84",
+      "slice_evidence": [
+        "addiu@0x80015b80"
+      ],
+      "source_register": 10,
+      "vector": "A0",
+      "vector_value": "0x000000a0"
+    },
+    {
+      "block_id": null,
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "documented_name": "FlushCache",
+      "function_id": null,
+      "function_index": 68,
+      "index_evidence": [
+        "index-addiu@0x80015b98"
+      ],
+      "kind": "INDIRECT_JUMP",
+      "op": "jr",
+      "op_name": null,
+      "service_id": null,
+      "site": 2147572628,
+      "site_hex": "0x80015b94",
+      "slice_evidence": [
+        "addiu@0x80015b90"
+      ],
+      "source_register": 10,
+      "vector": "A0",
+      "vector_value": "0x000000a0"
+    },
+    {
+      "block_id": null,
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "documented_name": "_bu_init",
+      "function_id": null,
+      "function_index": 112,
+      "index_evidence": [
+        "index-addiu@0x80015ba8"
+      ],
+      "kind": "INDIRECT_JUMP",
+      "op": "jr",
+      "op_name": null,
+      "service_id": null,
+      "site": 2147572644,
+      "site_hex": "0x80015ba4",
+      "slice_evidence": [
+        "addiu@0x80015ba0"
+      ],
+      "source_register": 10,
+      "vector": "A0",
+      "vector_value": "0x000000a0"
+    },
+    {
+      "block_id": null,
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "documented_name": null,
+      "function_id": null,
+      "function_index": 18,
+      "index_evidence": [
+        "index-addiu@0x80015ee0"
+      ],
+      "kind": "INDIRECT_JUMP",
+      "op": "jr",
+      "op_name": null,
+      "service_id": null,
+      "site": 2147573468,
+      "site_hex": "0x80015edc",
+      "slice_evidence": [
+        "addiu@0x80015ed8"
+      ],
+      "source_register": 10,
+      "vector": "B0",
+      "vector_value": "0x000000b0"
+    },
+    {
+      "block_id": null,
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "documented_name": null,
+      "function_id": null,
+      "function_index": 19,
+      "index_evidence": [
+        "index-addiu@0x80015ef0"
+      ],
+      "kind": "INDIRECT_JUMP",
+      "op": "jr",
+      "op_name": null,
+      "service_id": null,
+      "site": 2147573484,
+      "site_hex": "0x80015eec",
+      "slice_evidence": [
+        "addiu@0x80015ee8"
+      ],
+      "source_register": 10,
+      "vector": "B0",
+      "vector_value": "0x000000b0"
+    },
+    {
+      "block_id": null,
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "documented_name": null,
+      "function_id": null,
+      "function_index": 91,
+      "index_evidence": [
+        "index-addiu@0x80015f40"
+      ],
+      "kind": "INDIRECT_JUMP",
+      "op": "jr",
+      "op_name": null,
+      "service_id": null,
+      "site": 2147573564,
+      "site_hex": "0x80015f3c",
+      "slice_evidence": [
+        "addiu@0x80015f38"
+      ],
+      "source_register": 10,
+      "vector": "B0",
+      "vector_value": "0x000000b0"
+    },
+    {
+      "block_id": null,
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "documented_name": "SysEnqIntRP",
+      "function_id": null,
+      "function_index": 2,
+      "index_evidence": [
+        "index-addiu@0x80015f50"
+      ],
+      "kind": "INDIRECT_JUMP",
+      "op": "jr",
+      "op_name": null,
+      "service_id": null,
+      "site": 2147573580,
+      "site_hex": "0x80015f4c",
+      "slice_evidence": [
+        "addiu@0x80015f48"
+      ],
+      "source_register": 10,
+      "vector": "C0",
+      "vector_value": "0x000000c0"
+    },
+    {
+      "block_id": null,
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "documented_name": "SysDeqIntRP",
+      "function_id": null,
+      "function_index": 3,
+      "index_evidence": [
+        "index-addiu@0x80015f60"
+      ],
+      "kind": "INDIRECT_JUMP",
+      "op": "jr",
+      "op_name": null,
+      "service_id": null,
+      "site": 2147573596,
+      "site_hex": "0x80015f5c",
+      "slice_evidence": [
+        "addiu@0x80015f58"
+      ],
+      "source_register": 10,
+      "vector": "C0",
+      "vector_value": "0x000000c0"
+    },
+    {
+      "block_id": null,
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "documented_name": null,
+      "function_id": null,
+      "function_index": 87,
+      "index_evidence": [
+        "index-addiu@0x80015fa8"
+      ],
+      "kind": "INDIRECT_CALL",
+      "op": "jalr",
+      "op_name": null,
+      "service_id": null,
+      "site": 2147573668,
+      "site_hex": "0x80015fa4",
+      "slice_evidence": [
+        "addiu@0x80015fa0"
+      ],
+      "source_register": 10,
+      "vector": "B0",
+      "vector_value": "0x000000b0"
+    },
+    {
+      "block_id": null,
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "documented_name": null,
+      "function_id": null,
+      "function_index": 10,
+      "index_evidence": [
+        "index-addiu@0x800161e4"
+      ],
+      "kind": "INDIRECT_JUMP",
+      "op": "jr",
+      "op_name": null,
+      "service_id": null,
+      "site": 2147574240,
+      "site_hex": "0x800161e0",
+      "slice_evidence": [
+        "addiu@0x800161dc"
+      ],
+      "source_register": 10,
+      "vector": "C0",
+      "vector_value": "0x000000c0"
+    },
+    {
+      "block_id": null,
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "documented_name": "GPU_cw",
+      "function_id": null,
+      "function_index": 73,
+      "index_evidence": [
+        "index-addiu@0x8001b428"
+      ],
+      "kind": "INDIRECT_JUMP",
+      "op": "jr",
+      "op_name": null,
+      "service_id": null,
+      "site": 2147595300,
+      "site_hex": "0x8001b424",
+      "slice_evidence": [
+        "addiu@0x8001b420"
+      ],
+      "source_register": 10,
+      "vector": "A0",
+      "vector_value": "0x000000a0"
+    },
+    {
+      "block_id": null,
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "documented_name": "puts",
+      "function_id": null,
+      "function_index": 63,
+      "index_evidence": [
+        "index-addiu@0x80026c78"
+      ],
+      "kind": "INDIRECT_JUMP",
+      "op": "jr",
+      "op_name": null,
+      "service_id": null,
+      "site": 2147642484,
+      "site_hex": "0x80026c74",
+      "slice_evidence": [
+        "addiu@0x80026c70"
+      ],
+      "source_register": 10,
+      "vector": "B0",
+      "vector_value": "0x000000b0"
+    },
+    {
+      "block_id": null,
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "documented_name": "srand",
+      "function_id": null,
+      "function_index": 48,
+      "index_evidence": [
+        "index-addiu@0x80026ce0"
+      ],
+      "kind": "INDIRECT_JUMP",
+      "op": "jr",
+      "op_name": null,
+      "service_id": null,
+      "site": 2147642588,
+      "site_hex": "0x80026cdc",
+      "slice_evidence": [
+        "addiu@0x80026cd8"
+      ],
+      "source_register": 10,
+      "vector": "A0",
+      "vector_value": "0x000000a0"
+    },
+    {
+      "block_id": null,
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "documented_name": "printf",
+      "function_id": null,
+      "function_index": 63,
+      "index_evidence": [
+        "index-addiu@0x80026cf0"
+      ],
+      "kind": "INDIRECT_JUMP",
+      "op": "jr",
+      "op_name": null,
+      "service_id": null,
+      "site": 2147642604,
+      "site_hex": "0x80026cec",
+      "slice_evidence": [
+        "addiu@0x80026ce8"
+      ],
+      "source_register": 10,
+      "vector": "A0",
+      "vector_value": "0x000000a0"
+    },
+    {
+      "block_id": null,
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "documented_name": null,
+      "function_id": null,
+      "function_index": 74,
+      "index_evidence": [
+        "index-addiu@0x80026e28"
+      ],
+      "kind": "INDIRECT_JUMP",
+      "op": "jr",
+      "op_name": null,
+      "service_id": null,
+      "site": 2147642916,
+      "site_hex": "0x80026e24",
+      "slice_evidence": [
+        "addiu@0x80026e20"
+      ],
+      "source_register": 10,
+      "vector": "B0",
+      "vector_value": "0x000000b0"
+    },
+    {
+      "block_id": null,
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "documented_name": null,
+      "function_id": null,
+      "function_index": 75,
+      "index_evidence": [
+        "index-addiu@0x80026e38"
+      ],
+      "kind": "INDIRECT_JUMP",
+      "op": "jr",
+      "op_name": null,
+      "service_id": null,
+      "site": 2147642932,
+      "site_hex": "0x80026e34",
+      "slice_evidence": [
+        "addiu@0x80026e30"
+      ],
+      "source_register": 10,
+      "vector": "B0",
+      "vector_value": "0x000000b0"
+    },
+    {
+      "block_id": null,
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "documented_name": null,
+      "function_id": null,
+      "function_index": 86,
+      "index_evidence": [
+        "index-addiu@0x80026ec0"
+      ],
+      "kind": "INDIRECT_CALL",
+      "op": "jalr",
+      "op_name": null,
+      "service_id": null,
+      "site": 2147643068,
+      "site_hex": "0x80026ebc",
+      "slice_evidence": [
+        "addiu@0x80026eb8"
+      ],
+      "source_register": 10,
+      "vector": "B0",
+      "vector_value": "0x000000b0"
+    },
+    {
+      "block_id": null,
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "documented_name": null,
+      "function_id": null,
+      "function_index": 87,
+      "index_evidence": [
+        "index-addiu@0x80026f78"
+      ],
+      "kind": "INDIRECT_CALL",
+      "op": "jalr",
+      "op_name": null,
+      "service_id": null,
+      "site": 2147643252,
+      "site_hex": "0x80026f74",
+      "slice_evidence": [
+        "addiu@0x80026f70"
+      ],
+      "source_register": 10,
+      "vector": "B0",
+      "vector_value": "0x000000b0"
+    }
+  ],
+  "remaining_surface_count": 18,
+  "resolved_site": {
+    "block_id": null,
+    "classification": "BIOS_VECTOR_SERVICE",
+    "disposition": "EXACT_EXTERNAL_SERVICE",
+    "documented_name": "memset",
+    "function_id": null,
+    "function_index": 43,
+    "index_evidence": [
+      "index-addiu@0x80026cd0"
+    ],
+    "kind": "INDIRECT_JUMP",
+    "op": "jr",
+    "op_name": "jump_bios_a0_2b",
+    "service_id": "ps1.bios.A0.2b",
+    "site": 2147642572,
+    "site_hex": "0x80026ccc",
+    "slice_evidence": [
+      "addiu@0x80026cc8"
+    ],
+    "source_register": 10,
+    "vector": "A0",
+    "vector_value": "0x000000a0"
+  },
+  "runtime_composition": {
+    "base": {
+      "composed_bytes": 29239,
+      "composed_sha256": "8123a52b7855f30e72b5cfb127f254bef1c0af3a76097e818d80a3771f63c42a",
+      "extension_sha256": "c91696ce40c1b010169937b9f6b0f8a8bf0bbc4ca7ebb3e94f7e48adc54c0dae",
+      "extension_source": ".openrecomp-phase10/runtime/p10_mips_extension_v1.c",
+      "frozen_manifest_sha256": "59507a2c1fd8928a6ac100b324339c25d9079bafeee0cba47a7a93d1aab7dc6d",
+      "frozen_sha256": "59507a2c1fd8928a6ac100b324339c25d9079bafeee0cba47a7a93d1aab7dc6d",
+      "frozen_source": ".openrecomp-phase9/runtime/p9_runtime_support.c",
+      "frozen_source_reused_verbatim": true,
+      "runtime_version": "1.0.0",
+      "substitution_count": 5,
+      "substitutions": [
+        {
+          "anchor_sha256": "93f5557b0d3a659641c60524670fe2093c99ec8785dcec7ce3794f367f57c1f4",
+          "name": "event-capacity",
+          "source": "budget",
+          "substitution_sha256": "97b77d4b190222a1874d86872550835774168c9f40df726c7ca0078fb6c98207"
+        },
+        {
+          "anchor_sha256": "db927b8f8950b488b14722525e36a014eec6224403c397c962bd1d4edeb9728a",
+          "name": "gpu-status-read-stub",
+          "source": "budget",
+          "substitution_sha256": "4aa4fe017ca6dc6c53c2c43c41caf7d03d63bee9f8a3fa98bc2b17884944af5e"
+        },
+        {
+          "anchor_sha256": "49479059f4d2d705fdfc56770131d1a7fcfb5321e12ea02c0a2732fb62c4a64a",
+          "name": "access-budget",
+          "source": "budget",
+          "substitution_sha256": "c200e4baba36f5a3f454b0264579dd5ad05a1ede5ccfd85a3f1700cc09c693a1"
+        },
+        {
+          "anchor_sha256": "8c9d2bf00d2f18e7f4c5acc77442f1fbe4c70ddaa67c019d007b3c7520ce134a",
+          "name": "access-budget",
+          "source": "budget",
+          "substitution_sha256": "744e1f216523d7971b203045a59a79adfff34043d260767b4ab7eaa975e94fe7"
+        },
+        {
+          "anchor_sha256": "bbfb5150960803d7acaea288c81a2844ac0aa03327b35b2bc3fa804bd142f462",
+          "name": "host-call-dispatch",
+          "source": "extension",
+          "substitution_sha256": "c91696ce40c1b010169937b9f6b0f8a8bf0bbc4ca7ebb3e94f7e48adc54c0dae"
+        }
+      ]
+    },
+    "bios_fragment": {
+      "block_sha256": "23964080223f1ff8fd1fa7501957388735ff6ccc240f911d72f3dd808f998b0b",
+      "fragment_sha256": "35e606e0d969cbbfe1281462907dc34fe2537764c56b166bce01fd9de2a4f354",
+      "path": ".openrecomp-phase11/runtime/p11_bios_extension_v1.c",
+      "service_ids": [
+        "ps1.bios.A0.2b"
+      ],
+      "service_numeric_ids": {
+        "ps1.bios.A0.2b": 8
+      }
+    },
+    "bios_service_count": 1,
+    "composed_bytes": 43633,
+    "composed_sha256": "b96517e526a7dcd979c55da39e2ef851bfb48c5fed74ed3f85faab16aa70ec67",
+    "frozen_source_reused_verbatim": true,
+    "runtime_version": "1.1.0",
+    "substitutions": [
+      {
+        "anchor_sha256": "07fb4c021686fda9038b76e57a1cced008948697b9800e824f606a6e03fa096b",
+        "name": "bios-dispatcher-declaration",
+        "substitution_sha256": "ec318ff50e137c04e72e073c1ba2f777bb0104340bd751b4f6915db184894803"
+      },
+      {
+        "anchor_sha256": "c545af6ba4accbcea92776c5f1290b5e4cfc702d0710f0ba68117e6c4d294e86",
+        "name": "bios-dispatcher-fallback",
+        "substitution_sha256": "cceebf902d06ebb3ded68133f79ba08d86fb168763cf2ef0cc4b725c537db2ad"
+      }
+    ],
+    "trace_enabled": true,
+    "trace_fragment": {
+      "fragment_sha256": "01a11d55b30667fd264d0d2c6bfba474e2f4f2cd24f991c4ddf07e6662906fd3",
+      "path": ".openrecomp-phase11/runtime/p11_trace_v1.c"
+    }
+  },
+  "schema": "openrecomp-phase11-indirect-frontier-v1",
+  "stage": "P11-02",
+  "synthetic_service_fixtures": [
+    {
+      "error": "",
+      "executable_sha256": "bdbbfb4177c55bdbf50c17ae0530c333fe7c79754edd1ee9476ab907bf32a0f1",
+      "expected": {
+        "error": "",
+        "failed": "0",
+        "r02": "0x80020000",
+        "r08": "0xabababab",
+        "r09": "0xabababab",
+        "r10": "0x00000055"
+      },
+      "failed": "0",
+      "name": "memset-positive",
+      "observables": {
+        "r02": "0x80020000",
+        "r03": "0x00000000",
+        "r08": "0xabababab",
+        "r09": "0xabababab",
+        "r10": "0x00000055"
+      },
+      "service_calls": "1",
+      "service_failures": "0",
+      "stdout_sha256": "554121790784724aa1bcd882b65b7b99619a2cc5495387d3049220ad0aecd091"
+    },
+    {
+      "error": "",
+      "executable_sha256": "4cf464f64fec69ef02f294353f466f2efd4f7965d70e560e0b1f9f1b9f6d5871",
+      "expected": {
+        "error": "",
+        "failed": "0",
+        "r02": "0x00000000",
+        "r03": "0x00000001"
+      },
+      "failed": "0",
+      "name": "memset-refusal-zero-dst",
+      "observables": {
+        "r02": "0x00000000",
+        "r03": "0x00000001",
+        "r08": "0x80020008",
+        "r09": "0x0000002b",
+        "r10": "0x000000a0"
+      },
+      "service_calls": "1",
+      "service_failures": "0",
+      "stdout_sha256": "66e05671c57ec7a27745ce226dae041371b5fed233474889ac729086119cde10"
+    },
+    {
+      "error": "",
+      "executable_sha256": "870dfad8cea5a03503aa5fd598040bea04258967d2b68206459a73364abd4cc9",
+      "expected": {
+        "error": "",
+        "failed": "0",
+        "r02": "0x00000000",
+        "r08": "0x00000000",
+        "r09": "0x00000000",
+        "r10": "0x00000055"
+      },
+      "failed": "0",
+      "name": "memset-refusal-zero-length",
+      "observables": {
+        "r02": "0x00000000",
+        "r03": "0x00000000",
+        "r08": "0x00000000",
+        "r09": "0x00000000",
+        "r10": "0x00000055"
+      },
+      "service_calls": "1",
+      "service_failures": "0",
+      "stdout_sha256": "eb47b3f74548a2bb5c98ef0051046bda14e729476f9fcdc49d912a9390890b5b"
+    },
+    {
+      "error": "runtime host service ps1.bios.A0.2b failed",
+      "executable_sha256": "92aac08c45afb88b09e58ffd8721a979e1d2ca5b927f5b199d19ce71853f033c",
+      "expected": {
+        "error": "runtime host service ps1.bios.A0.2b failed",
+        "failed": "1"
+      },
+      "failed": "1",
+      "name": "memset-out-of-range-dst",
+      "observables": {
+        "r02": "0x00000000",
+        "r03": "0x00000000",
+        "r08": "0x80020008",
+        "r09": "0x0000002b",
+        "r10": "0x000000a0"
+      },
+      "service_calls": "1",
+      "service_failures": "1",
+      "stdout_sha256": "b3ef49a08d93d688ff8c902c873ae0f399c208edde0d8638cda53f629aa4695d"
+    },
+    {
+      "error": "unresolved indirect jump",
+      "executable_sha256": "78f73eeb16ce97c9f5b242fb3ca71887944c634a107a79bb86d4781de538e897",
+      "expected": {
+        "error": "unresolved indirect jump",
+        "failed": "1"
+      },
+      "failed": "1",
+      "name": "unknown-index-fail-closed",
+      "observables": {
+        "r02": "0x00000000",
+        "r03": "0x00000000",
+        "r08": "0x80020008",
+        "r09": "0x00000099",
+        "r10": "0x000000a0"
+      },
+      "service_calls": "0",
+      "service_failures": "0",
+      "stdout_sha256": "ac51449dbbdc3bdacf98f3ffc3438ef5980af66a8214d65f64b2d9d7fd77e9ae"
+    }
+  ]
+}

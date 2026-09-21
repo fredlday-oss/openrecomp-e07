@@ -192,6 +192,77 @@ def uninstrumented_build_set(
     return p10_emission.build_build_set(structure, contract, flat, fixture_sha256, driver="phase10")
 
 
+def build_bios_build_set(
+    structure: Any,
+    base_structure: Any,
+    contract: dict[str, Any],
+    flat: bytes,
+    fixture_sha256: str,
+    *,
+    sites: Any,
+    trace: bool,
+) -> dict[str, Any]:
+    """The Phase-11 BIOS-service emission set (optionally instrumented).
+
+    The runtime support unit is the composed Phase-10 runtime plus the Phase-11
+    BIOS layer (and the trace fragment when instrumented); the program is
+    emitted with the Phase-11 semantic rules that carry the explicit BIOS host
+    calls; the driver is the Phase-11 trace driver when instrumented and the
+    frozen Phase-10 driver otherwise. ``base_structure`` is the frozen
+    Phase-10 structure (no BIOS overlay), used only for the uninstrumented
+    comparison identity.
+    """
+    import p11_runtime_v1 as p11_runtime
+    import p11_semantics_v1 as p11_semantics
+
+    base = p10_emission.build_build_set(base_structure, contract, flat, fixture_sha256, driver="phase10")
+    instrumentation = TRACE_INSTRUMENTATION if trace else None
+    config = p11_semantics.build_emitter_config(
+        structure.discovery.entry_function_id, list(sites), instrumentation=instrumentation
+    )
+    program = emit_host_translation(structure.units, structure.classification, config=config)
+    support_text, runtime_record = p11_runtime.compose_runtime_source(list(sites), trace=trace)
+    image_unit, support_unit = p9_emission.compose_runtime_sources(contract, flat, support_text)
+    header = p9_emission.render_image_header(contract)
+    if trace:
+        driver_text, driver_hash = trace_driver_source()
+        driver = "phase11-trace"
+    else:
+        driver_text, driver_hash = p10_emission.phase10_driver_source()
+        driver = "phase10"
+    driver_unit = header + "\n" + f'#define P9_FIXTURE_SHA256 "{fixture_sha256}"\n' + driver_text
+    files = {
+        PROGRAM_NAME: program.source_text,
+        image_unit[0]: image_unit[1],
+        support_unit[0]: support_unit[1],
+        DRIVER_NAME: driver_unit,
+    }
+    if tuple(files) != EMISSION_NAMES:
+        raise ValueError(f"emission file set drift: {tuple(files)}")
+    return {
+        "emission_version": EMISSION_VERSION,
+        "program": program,
+        "files": files,
+        "hashes": {name: sha256_text(text) for name, text in files.items()},
+        "program_fingerprint": program.fingerprint(),
+        "base_program_fingerprint": base["program_fingerprint"],
+        "base_hashes": base["hashes"],
+        "runtime_composition": runtime_record,
+        "trace": runtime_record.get("trace_fragment"),
+        "trace_configuration": TRACE_CONFIGURATION if trace else None,
+        "trace_instrumentation": TRACE_INSTRUMENTATION.to_document() if trace else None,
+        "driver": driver,
+        "driver_sha256": driver_hash,
+        "semantics": p11_semantics.semantics_document(list(sites)),
+        "bios_sites": [site.to_document() for site in sites],
+        "instrumentation_checks": {
+            "function_entry_hook_calls": program.source_text.count("p11_trace_function(UINT64_C("),
+            "block_entry_hook_calls": program.source_text.count("p11_trace_block(UINT64_C("),
+            "indirect_failure_hook_calls": program.source_text.count("p11_trace_indirect_failure(UINT64_C("),
+        },
+    }
+
+
 def emission_document(build_set: dict[str, Any]) -> dict[str, Any]:
     return {
         "emission_version": build_set["emission_version"],

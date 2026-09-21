@@ -19,6 +19,7 @@
  * guest payload bytes and no console-derived material.
  */
 
+#include <setjmp.h>
 #include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -88,6 +89,13 @@ uint32_t p11_trace_failure_before_address(uint32_t position);
 uint32_t p11_trace_failure_after_count(void);
 uint32_t p11_trace_failure_after_address(uint32_t position);
 
+extern jmp_buf p11_bound_jump;
+void p11_bound_arm(uint64_t budget);
+void p11_bound_disarm(void);
+uint64_t p11_bound_budget(void);
+uint64_t p11_bound_denials(void);
+int p11_bound_reached(void);
+
 #define P11_TRACE_LAST_PRINT_LIMIT 512u
 
 static uint64_t p10_fnv1a64(const unsigned char *data, size_t length)
@@ -130,8 +138,14 @@ static uint64_t p10_event_digest(const struct p9_event *events, uint32_t count)
 int main(int argc, char **argv)
 {
     uint64_t index;
+    uint64_t block_budget = p11_bound_budget();
+    /* Optional deterministic bounded-execution budgets: the values are part of
+     * the recorded invocation, never read from the environment. */
     if (argc > 1) {
         p10_runtime_set_access_budget((uint64_t)strtoull(argv[1], NULL, 10));
+    }
+    if (argc > 2) {
+        block_budget = (uint64_t)strtoull(argv[2], NULL, 10);
     }
     uint64_t registers = UINT64_C(0xcbf29ce484222325);
     uint64_t memory;
@@ -142,11 +156,18 @@ int main(int argc, char **argv)
     uint32_t cdrom_count;
 
     p9_runtime_init();
-    openrecomp_run();
+    p11_bound_arm(block_budget);
+    if (setjmp(p11_bound_jump) == 0) {
+        openrecomp_run();
+        p11_bound_disarm();
+    }
 
     printf("fixture=%s\n", P9_FIXTURE_SHA256);
     printf("failed=%d\n", openrecomp_failed());
     printf("error=%s\n", openrecomp_error());
+    printf("bound_budget=%llu\n", (unsigned long long)p11_bound_budget());
+    printf("bound_reached=%d\n", p11_bound_reached());
+    printf("bound_denials=%llu\n", (unsigned long long)p11_bound_denials());
     printf("exit_status=0x%08llx\n",
            (unsigned long long)(openrecomp_register_value(2) & UINT64_C(0xFFFFFFFF)));
 

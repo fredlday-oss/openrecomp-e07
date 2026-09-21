@@ -65,7 +65,7 @@ OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 |---|---|
 | P11-00 | PASS |
 | P11-01 | PASS |
-| P11-02 | PENDING |
+| P11-02 | PASS |
 | P11-03 | PENDING |
 | P11-04 | PENDING |
 | P11-05 | PENDING |
@@ -81,6 +81,33 @@ OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 | P11-99 | PENDING |
 
 ## Stage records
+
+### P11-02 — Dynamic indirect-control frontier
+
+PASS (1466 checks). Gate `tools/test_phase11_indirect_v1.py` run twice through
+the Phase-11 stage runner with byte-identical stdout (52783 bytes LF, sha256
+`dc4640b4...`), empty stderr and exit 0.
+
+- exact BIOS vector classification of all 19 reachable indirect sites (calls
+  and jumps) using the audited convention (vector base in `$t2`, function index
+  in the delay slot): 1 resolved service (`ps1.bios.A0.2b`) and 18
+  documented-but-unimplemented indices that stay fail-closed and are never
+  renamed; invalid proof claims are rejected by the shared classifier;
+- the causal site `0x80026ccc` is emitted as an explicit host call
+  (`jump_bios_a0_2b`) with the audited argument/return registers and served by
+  a typed host-side memset implemented through the frozen checked memory
+  boundary; the runtime composition keeps the Phase-10 composition verbatim
+  except two anchored substitutions and the appended BIOS fragment;
+- public synthetic native fixtures verify the contract: fill with a non-zero
+  byte and exact length, refusal on `dst == 0` and `len == 0`, fail-closed on
+  an out-of-range destination and on an unimplemented vector index;
+- the frontier moves from `0x80026ccc` (block index 9424) to `0x80026cec`
+  (`A0:0x3f` printf) at block index 468147 (a gain of 458723 clean block
+  entries) with the instrumented run reproducing the uninstrumented
+  observables exactly;
+- a deterministic 8,000,000 block-entry budget closes the recorded Phase-10
+  bounded-execution gap (the default-budget run terminates via the bound);
+- evidence: `.openrecomp-phase11/evidence/P11-02/`.
 
 ### P11-01 — Milestone-A progress causality
 
