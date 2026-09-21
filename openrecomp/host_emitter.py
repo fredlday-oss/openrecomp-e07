@@ -66,6 +66,10 @@ _UNSIGNED_PREDICATES = frozenset({"eq", "ne", "ult", "ule", "ugt", "uge"})
 _SIGNED_PREDICATES = frozenset({"slt", "sle", "sgt", "sge"})
 _PREDICATES = _UNSIGNED_PREDICATES | _SIGNED_PREDICATES
 _WORD_BITS = frozenset({8, 16, 32, 64})
+_IDENTIFIER_RE = re.compile(r"[A-Za-z_][A-Za-z0-9_]*")
+
+#: Placeholder used when no instrumentation hook is configured.
+_OR_FAIL_CALL = "or_fail("
 
 
 class HostEmitterError(ValueError):
@@ -414,6 +418,60 @@ class HostSemantics:
 
 
 @dataclass(frozen=True)
+class HostInstrumentation:
+    """Optional, opt-in execution instrumentation hooks.
+
+    Instrumentation is disabled by default (``HostEmitterConfig.instrumentation``
+    is ``None``) and the emitter output is byte-identical when disabled. When
+    enabled, the emitter calls the named host functions at the documented
+    boundaries so a host runtime can record a deterministic execution trace
+    *without* changing guest semantics:
+
+    * ``function_entry_hook(entry_address)`` at the top of every emitted
+      function;
+    * ``block_entry_hook(block_entry_address)`` at the entry of every emitted
+      basic block;
+    * ``indirect_failure_hook(site_address, source_value, message)`` instead of
+      ``or_fail`` at an unresolved or unsupported indirect-control site,
+      immediately before the fail-closed ``return``. ``source_value`` is the
+      indirect source register value where the neutral rule defines one, and
+      zero otherwise.
+
+    Hook names must be valid C identifiers. The generated program declares them
+    as ``extern``; the host runtime provides the definitions. Hook calls pass
+    only guest addresses and a static message string; they never receive or
+    expose guest payload bytes.
+    """
+
+    function_entry_hook: str | None = None
+    block_entry_hook: str | None = None
+    indirect_failure_hook: str | None = None
+
+    def __post_init__(self) -> None:
+        for field_name in ("function_entry_hook", "block_entry_hook", "indirect_failure_hook"):
+            value = getattr(self, field_name)
+            if value is None:
+                continue
+            if not isinstance(value, str) or not _IDENTIFIER_RE.fullmatch(value):
+                raise HostEmitterError(
+                    f"instrumentation.{field_name} must be a valid C identifier or null, got {value!r}"
+                )
+
+    def enabled(self) -> bool:
+        return any(
+            value is not None
+            for value in (self.function_entry_hook, self.block_entry_hook, self.indirect_failure_hook)
+        )
+
+    def to_document(self) -> dict[str, Any]:
+        return {
+            "function_entry_hook": self.function_entry_hook,
+            "block_entry_hook": self.block_entry_hook,
+            "indirect_failure_hook": self.indirect_failure_hook,
+        }
+
+
+@dataclass(frozen=True)
 class HostEmitterConfig:
     """Bounded V1 emitter configuration.
 
@@ -432,6 +490,7 @@ class HostEmitterConfig:
     runtime_abi: rt_abi.RuntimeAbiConfig | None = None
     delay_slot_metadata_key: str | None = None
     link_register: str | None = None
+    instrumentation: HostInstrumentation | None = None
 
     def __post_init__(self) -> None:
         if not isinstance(self.semantics, HostSemantics):
@@ -457,6 +516,11 @@ class HostEmitterConfig:
         if self.link_register is not None:
             if not isinstance(self.link_register, str) or not self.link_register:
                 raise HostEmitterError("config.link_register must be a non-empty string or null")
+        if self.instrumentation is not None:
+            if not isinstance(self.instrumentation, HostInstrumentation):
+                raise HostEmitterError("config.instrumentation must be a HostInstrumentation or null")
+            if not self.instrumentation.enabled():
+                raise HostEmitterError("config.instrumentation must enable at least one hook or be null")
 
 
 @dataclass(frozen=True)
@@ -661,8 +725,13 @@ class HostEmitter:
         function_name = f"fn_{_sanitize(unit.function_id)}"
         operations = 0
         body: list[str] = [f"static void {function_name}(void) {{"]
+        instrumentation = self.config.instrumentation
+        if instrumentation is not None and instrumentation.function_entry_hook:
+            body.append(f"    {instrumentation.function_entry_hook}({_u64(unit.entry_address)});")
         for block in unit.blocks:
             body.append(f"{labels[block.id]}:;")
+            if instrumentation is not None and instrumentation.block_entry_hook:
+                body.append(f"    {instrumentation.block_entry_hook}({_u64(block.entry_address)});")
             for position, instruction in enumerate(block.instructions):
                 rule = self._rule_for(instruction)
                 body.extend(self._emit_operations(instruction, rule, context))
@@ -1137,7 +1206,26 @@ class HostEmitter:
             IndirectControlFlowStatus.UNRESOLVED_INDIRECT_CALL: "unresolved indirect call",
             IndirectControlFlowStatus.UNRESOLVED_INDIRECT_JUMP: "unresolved indirect jump",
         }.get(status, f"unsupported indirect classification {status.value}")
-        return [f"    or_fail({_c_string(message)});", "    return;"]
+        source_expr = self._indirect_source(rule, block, context) if rule.indirect_source is not None else None
+        return self._emit_failure(instruction.address, message, source_expr)
+
+    def _emit_failure(self, site_address: int, message: str, source_expr: str | None = None) -> list[str]:
+        """The fail-closed terminator for an indirect-control site.
+
+        The hook (when configured) observes the site and the indirect source
+        value; the ``or_fail`` call is always emitted, so the fail-closed
+        semantics are identical with and without instrumentation.
+        """
+        instrumentation = self.config.instrumentation
+        lines: list[str] = []
+        if instrumentation is not None and instrumentation.indirect_failure_hook:
+            value = source_expr if source_expr is not None else "UINT64_C(0)"
+            lines.append(
+                f"    {instrumentation.indirect_failure_hook}({_u64(site_address)}, {value}, {_c_string(message)});"
+            )
+        lines.append(f"    or_fail({_c_string(message)});")
+        lines.append("    return;")
+        return lines
 
     def _emit_resolved_jump(
         self,
@@ -1230,6 +1318,17 @@ class HostEmitter:
         ]
         if self.config.runtime_abi is not None:
             lines.append(rt_abi.abi_c_declarations(self.config.runtime_abi.services).rstrip("\n"))
+            lines.append("")
+        if self.config.instrumentation is not None and self.config.instrumentation.enabled():
+            instrumentation = self.config.instrumentation
+            if instrumentation.function_entry_hook:
+                lines.append(f"extern void {instrumentation.function_entry_hook}(uint64_t);")
+            if instrumentation.block_entry_hook:
+                lines.append(f"extern void {instrumentation.block_entry_hook}(uint64_t);")
+            if instrumentation.indirect_failure_hook:
+                lines.append(
+                    f"extern void {instrumentation.indirect_failure_hook}(uint64_t, uint64_t, const char *);"
+                )
             lines.append("")
         lines.extend(
             [

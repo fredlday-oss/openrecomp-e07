@@ -64,7 +64,7 @@ OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 | Stage | Status |
 |---|---|
 | P11-00 | PASS |
-| P11-01 | PENDING |
+| P11-01 | PASS |
 | P11-02 | PENDING |
 | P11-03 | PENDING |
 | P11-04 | PENDING |
@@ -81,6 +81,47 @@ OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 | P11-99 | PENDING |
 
 ## Stage records
+
+### P11-01 — Milestone-A progress causality
+
+PASS (583 checks). Gate `tools/test_phase11_causality_v1.py` run twice through
+the Phase-11 stage runner with byte-identical stdout (21907 bytes LF, sha256
+`4e9fb85d...`), empty stderr and exit 0.
+
+- additive, opt-in instrumentation in `openrecomp/host_emitter.py`
+  (`HostInstrumentation`: function-entry, block-entry and indirect-failure
+  hooks); disabled output is byte-identical to the frozen program fingerprint
+  `a047a52f...`; the fail-closed `or_fail` call is always preserved; invalid
+  hook names and empty configurations fail closed; four live direct-dependency
+  emitter/translation gates pass;
+- instrumented emission: 110 function hooks, 739 block hooks, 40
+  indirect-failure hooks; no guest payload bytes and no opcode dispatch;
+- trace semantics equivalence: the instrumented run reproduces every
+  uninstrumented guest observable exactly (reads 982859, writes 799023,
+  denied 11, host calls 79, RAM digest `0x18131c6ef356df7d`, device counts and
+  digests, register file); two builds and two runs are byte-identical;
+- exact causal frontier: the first fail-closed event is an executed unresolved
+  indirect jump at `0x80026ccc` in `fn_80026cc8` (block index 9424, guest
+  access index 9430, 31 fail-closed indirect events in total), and the site is
+  a PS1 BIOS A0 jump-table call (`$t2` = `0x000000a0`; delay-slot
+  `addiu $t1,$zero,43`; service id `ps1.bios.A0.2b`) classified with the
+  frozen audited BIOS-boundary helpers; no BIOS service is implemented;
+- independent execution-budget bisection: the first failure occurs at access
+  9430 (budget 9429 fails earlier with a budget denial; budget 9430 reports
+  the unresolved indirect jump with zero device traffic and zero non-RAM
+  signatures); device traffic first appears between accesses 400000 and
+  500000, so the whole Phase-10 device frontier (CD-ROM 38, SPU 5, GPU status
+  and timer1 polling 109035 each) is post-failure;
+- loops: the pre-failure loop is the guest's own terminating BSS-clear loop
+  (`blk_800132f8`, 9416 iterations); the persistent post-failure loops are a
+  458,711-entry RAM word-fill loop (`blk_80011c14`, `fn_80011bcc`) and a
+  14-block, 54,501-iteration GPU/timer poll cycle in
+  `fn_80015810`/`fn_80015ff8` governed by `blk_800158a8` (`bgtz`);
+- analysis cache: the frozen Phase-10 provenance-keyed cache with the extended
+  Phase-11 provenance (trace configuration and scripted-input identity in the
+  key); stale trace configuration, changed input identity and changed
+  executable identity all miss;
+- evidence: `.openrecomp-phase11/evidence/P11-01/`.
 
 ### P11-00 — Phase-11 boundary + control plane
 

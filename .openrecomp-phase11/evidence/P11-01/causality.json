@@ -1,0 +1,598 @@
+{
+  "causal_frontier": {
+    "is_guest_intended_loop": [
+      "the pre-failure loop is guest-intended and terminates;",
+      "the persistent loops are entered only after the fail-closed event"
+    ],
+    "is_missing_runtime_behaviour": true,
+    "next_stage": [
+      "P11-02 dynamic indirect-control frontier: classify the exact",
+      "BIOS A0 site with evidence and test whether serving it moves",
+      "the frontier"
+    ],
+    "statement": [
+      "the guest's initialisation reaches a PS1 BIOS A0 jump-table",
+      "call (site 0x80026ccc, function index 0x2b) as its first executed",
+      "unresolved indirect transfer; the A0 vector is not modelled, the",
+      "runtime fails closed and aborts the translated stub, and every",
+      "subsequent observable - the 458711-iteration RAM fill, the",
+      "CD-ROM/SPU register traffic and the 109035-iteration GPU/timer",
+      "poll loop - executes after that first failure with the BIOS",
+      "call's effect missing"
+    ]
+  },
+  "first_fail_closed_event": {
+    "block_id": "blk_80026cc8",
+    "block_index": 9424,
+    "classification": [
+      "PS1 BIOS A0 jump-table vector call; audited convention:",
+      "$t2 carries the vector base and $t1 carries the function index",
+      "in the delay slot"
+    ],
+    "disposition": "fail-closed; the A0 vector is not modelled and no BIOS material is used",
+    "failure_count": 31,
+    "function_entry": "0x80026cc8",
+    "function_id": "fn_80026cc8",
+    "function_index": 43,
+    "message": "unresolved indirect jump",
+    "service_id": "ps1.bios.A0.2b",
+    "site": "0x80026ccc",
+    "site_classification": null,
+    "source_value": "0x000000a0",
+    "terminal_op": "jr_indirect",
+    "vector": "A0",
+    "vector_value": "0x000000a0"
+  },
+  "hottest_blocks": [
+    {
+      "address": "0x80011c14",
+      "block_id": "blk_80011c14",
+      "count": 458711,
+      "function_id": "fn_80011bcc",
+      "terminal_op": "bne"
+    },
+    {
+      "address": "0x80015ff8",
+      "block_id": "blk_80015ff8",
+      "count": 109035,
+      "function_id": "fn_80015ff8",
+      "terminal_op": "bgez"
+    },
+    {
+      "address": "0x80016038",
+      "block_id": "blk_80016038",
+      "count": 109035,
+      "function_id": "fn_80015ff8",
+      "terminal_op": "j"
+    },
+    {
+      "address": "0x80016128",
+      "block_id": "blk_80016128",
+      "count": 109035,
+      "function_id": "fn_80015ff8",
+      "terminal_op": "jr"
+    },
+    {
+      "address": "0x80015838",
+      "block_id": "blk_80015838",
+      "count": 54502,
+      "function_id": "fn_80015810",
+      "terminal_op": "jal"
+    },
+    {
+      "address": "0x80015840",
+      "block_id": "blk_80015840",
+      "count": 54502,
+      "function_id": "fn_80015810",
+      "terminal_op": "bne"
+    },
+    {
+      "address": "0x80015858",
+      "block_id": "blk_80015858",
+      "count": 54501,
+      "function_id": "fn_80015810",
+      "terminal_op": "bltz"
+    },
+    {
+      "address": "0x80015868",
+      "block_id": "blk_80015868",
+      "count": 54501,
+      "function_id": "fn_80015810",
+      "terminal_op": "jal"
+    },
+    {
+      "address": "0x80015870",
+      "block_id": "blk_80015870",
+      "count": 54501,
+      "function_id": "fn_80015810",
+      "terminal_op": "beq"
+    },
+    {
+      "address": "0x8001589c",
+      "block_id": "blk_8001589c",
+      "count": 54501,
+      "function_id": "fn_80015810",
+      "terminal_op": "lw"
+    },
+    {
+      "address": "0x800158a0",
+      "block_id": "blk_800158a0",
+      "count": 54501,
+      "function_id": "fn_80015810",
+      "terminal_op": "bne"
+    },
+    {
+      "address": "0x800158a8",
+      "block_id": "blk_800158a8",
+      "count": 54501,
+      "function_id": "fn_80015810",
+      "terminal_op": "bgtz"
+    },
+    {
+      "address": "0x800132f8",
+      "block_id": "blk_800132f8",
+      "count": 9416,
+      "function_id": "fn_800132e8",
+      "terminal_op": "bne"
+    },
+    {
+      "address": "0x8001732c",
+      "block_id": "blk_8001732c",
+      "count": 1024,
+      "function_id": "fn_800170f0",
+      "terminal_op": "jal"
+    },
+    {
+      "address": "0x80017334",
+      "block_id": "blk_80017334",
+      "count": 1024,
+      "function_id": "fn_800170f0",
+      "terminal_op": "bne"
+    },
+    {
+      "address": "0x80017e74",
+      "block_id": "blk_80017e74",
+      "count": 1024,
+      "function_id": "fn_80017e74",
+      "terminal_op": "jr"
+    }
+  ],
+  "hottest_functions": [
+    {
+      "address": "0x80015ff8",
+      "count": 109035,
+      "function_id": "fn_80015ff8"
+    },
+    {
+      "address": "0x80017e74",
+      "count": 1024,
+      "function_id": "fn_80017e74"
+    },
+    {
+      "address": "0x800141a0",
+      "count": 10,
+      "function_id": "fn_800141a0"
+    },
+    {
+      "address": "0x800146ec",
+      "count": 9,
+      "function_id": "fn_800146ec"
+    },
+    {
+      "address": "0x80015f18",
+      "count": 7,
+      "function_id": "fn_80015f18"
+    },
+    {
+      "address": "0x80013650",
+      "count": 4,
+      "function_id": "fn_80013650"
+    },
+    {
+      "address": "0x80015f28",
+      "count": 4,
+      "function_id": "fn_80015f28"
+    },
+    {
+      "address": "0x80015f38",
+      "count": 4,
+      "function_id": "fn_80015f38"
+    }
+  ],
+  "label": "hercules-private-fixture",
+  "method": [
+    "opt-in additive instrumentation with a disabled-byte-identity proof",
+    "trace-semantics equivalence against the uninstrumented build",
+    "independent deterministic execution-budget bisection",
+    "bounded block/function trace indexed against the frozen neutral structure"
+  ],
+  "post_failure": {
+    "device_reads": {
+      "gpu_status": "109035",
+      "timer1_counter": "109035"
+    },
+    "fill_loop": {
+      "block_id": "blk_80011c14",
+      "function_id": "fn_80011bcc",
+      "iterations": 458711,
+      "kind": "guest word-fill loop over guest RAM",
+      "terminal_op": "bne"
+    },
+    "poll_cycle": {
+      "branches": [
+        {
+          "block_id": "blk_80015870",
+          "direct_target": "0x8001589c",
+          "function_id": "fn_80015810",
+          "operands": {
+            "rs": 3,
+            "rt": 0,
+            "target": 2147571868
+          },
+          "terminal_address": "0x80015880",
+          "terminal_op": "beq"
+        },
+        {
+          "block_id": "blk_800158a0",
+          "direct_target": "0x800158b0",
+          "function_id": "fn_80015810",
+          "operands": {
+            "rs": 18,
+            "rt": 0,
+            "target": 2147571888
+          },
+          "terminal_address": "0x800158a0",
+          "terminal_op": "bne"
+        },
+        {
+          "block_id": "blk_800158a8",
+          "direct_target": "0x80015838",
+          "function_id": "fn_80015810",
+          "operands": {
+            "rs": 16,
+            "target": 2147571768
+          },
+          "terminal_address": "0x800158a8",
+          "terminal_op": "bgtz"
+        },
+        {
+          "block_id": "blk_80015ff8",
+          "direct_target": "0x80016048",
+          "function_id": "fn_80015ff8",
+          "operands": {
+            "rs": 4,
+            "target": 2147573832
+          },
+          "terminal_address": "0x80016030",
+          "terminal_op": "bgez"
+        },
+        {
+          "block_id": "blk_80015840",
+          "direct_target": "0x800158a0",
+          "function_id": "fn_80015810",
+          "operands": {
+            "rs": 3,
+            "rt": 0,
+            "target": 2147571872
+          },
+          "terminal_address": "0x80015850",
+          "terminal_op": "bne"
+        },
+        {
+          "block_id": "blk_80015858",
+          "direct_target": "0x80015888",
+          "function_id": "fn_80015810",
+          "operands": {
+            "rs": 2,
+            "target": 2147571848
+          },
+          "terminal_address": "0x80015860",
+          "terminal_op": "bltz"
+        },
+        {
+          "block_id": "blk_80015ff8",
+          "direct_target": "0x80016048",
+          "function_id": "fn_80015ff8",
+          "operands": {
+            "rs": 4,
+            "target": 2147573832
+          },
+          "terminal_address": "0x80016030",
+          "terminal_op": "bgez"
+        }
+      ],
+      "cycle": [
+        {
+          "address": "0x80015870",
+          "block_id": "blk_80015870",
+          "function_id": "fn_80015810",
+          "in_image": true,
+          "terminal_op": "beq"
+        },
+        {
+          "address": "0x8001589c",
+          "block_id": "blk_8001589c",
+          "function_id": "fn_80015810",
+          "in_image": true,
+          "terminal_op": "lw"
+        },
+        {
+          "address": "0x800158a0",
+          "block_id": "blk_800158a0",
+          "function_id": "fn_80015810",
+          "in_image": true,
+          "terminal_op": "bne"
+        },
+        {
+          "address": "0x800158a8",
+          "block_id": "blk_800158a8",
+          "function_id": "fn_80015810",
+          "in_image": true,
+          "terminal_op": "bgtz"
+        },
+        {
+          "address": "0x80015838",
+          "block_id": "blk_80015838",
+          "function_id": "fn_80015810",
+          "in_image": true,
+          "terminal_op": "jal"
+        },
+        {
+          "address": "0x80015ff8",
+          "block_id": "blk_80015ff8",
+          "function_id": "fn_80015ff8",
+          "in_image": true,
+          "terminal_op": "bgez"
+        },
+        {
+          "address": "0x80016038",
+          "block_id": "blk_80016038",
+          "function_id": "fn_80015ff8",
+          "in_image": true,
+          "terminal_op": "j"
+        },
+        {
+          "address": "0x80016128",
+          "block_id": "blk_80016128",
+          "function_id": "fn_80015ff8",
+          "in_image": true,
+          "terminal_op": "jr"
+        },
+        {
+          "address": "0x80015840",
+          "block_id": "blk_80015840",
+          "function_id": "fn_80015810",
+          "in_image": true,
+          "terminal_op": "bne"
+        },
+        {
+          "address": "0x80015858",
+          "block_id": "blk_80015858",
+          "function_id": "fn_80015810",
+          "in_image": true,
+          "terminal_op": "bltz"
+        },
+        {
+          "address": "0x80015868",
+          "block_id": "blk_80015868",
+          "function_id": "fn_80015810",
+          "in_image": true,
+          "terminal_op": "jal"
+        },
+        {
+          "address": "0x80015ff8",
+          "block_id": "blk_80015ff8",
+          "function_id": "fn_80015ff8",
+          "in_image": true,
+          "terminal_op": "bgez"
+        },
+        {
+          "address": "0x80016038",
+          "block_id": "blk_80016038",
+          "function_id": "fn_80015ff8",
+          "in_image": true,
+          "terminal_op": "j"
+        },
+        {
+          "address": "0x80016128",
+          "block_id": "blk_80016128",
+          "function_id": "fn_80015ff8",
+          "in_image": true,
+          "terminal_op": "jr"
+        }
+      ],
+      "cycle_length": 14,
+      "detected": true,
+      "iterations_lower_bound": 54501,
+      "predicate": {
+        "block_id": "blk_800158a8",
+        "delay_slot": {
+          "adapter_fields": {
+            "address": 2147571884,
+            "op": "nop"
+          },
+          "address": 2147571884,
+          "non_nop": false,
+          "op": "nop",
+          "operands": {},
+          "word": 0
+        },
+        "direct_target": "0x80015838",
+        "function_id": "fn_80015810",
+        "operands": {
+          "rs": 16,
+          "target": 2147571768
+        },
+        "selection": "last conditional back edge inside the detected cycle",
+        "successors": [
+          {
+            "kind": "BRANCH_NOT_TAKEN",
+            "resolved": true,
+            "target_address": "0x800158b0",
+            "target_block": "blk_800158b0"
+          },
+          {
+            "kind": "BRANCH_TAKEN",
+            "resolved": true,
+            "target_address": "0x80015838",
+            "target_block": "blk_80015838"
+          }
+        ],
+        "terminal_address": "0x800158a8",
+        "terminal_flow": "BRANCH",
+        "terminal_op": "bgtz"
+      }
+    }
+  },
+  "pre_failure": {
+    "call_chain": [
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_800132f8",
+      "blk_8001330c",
+      "blk_80011af0",
+      "blk_8001337c",
+      "blk_800119c8",
+      "blk_800132e0",
+      "blk_800119e0",
+      "blk_80026cc8"
+    ],
+    "loop": {
+      "block_id": "blk_800132f8",
+      "function_id": "fn_800132e8",
+      "iterations_lower_bound": 9416,
+      "kind": "guest BSS-clear loop (sw $zero, 0($v0); addiu $v0,$v0,4; sltu; bne)",
+      "terminates": true
+    }
+  },
+  "schema": "openrecomp-phase11-causality-v1",
+  "stage": "P11-01",
+  "temporal_ordering": {
+    "bisection": {
+      "2000000": {
+        "cdrom_events": "38",
+        "denied": "11",
+        "error": "unresolved indirect jump",
+        "failed": "1",
+        "gpu_events": "65536",
+        "input_events": "65536",
+        "nonram_signatures": "17",
+        "p10_budget_denials": "5",
+        "spu_events": "5"
+      },
+      "400000": {
+        "cdrom_events": "0",
+        "denied": "3",
+        "error": "unresolved indirect jump",
+        "failed": "1",
+        "gpu_events": "0",
+        "input_events": "0",
+        "nonram_signatures": "0",
+        "p10_budget_denials": "3",
+        "spu_events": "0"
+      },
+      "500000": {
+        "cdrom_events": "38",
+        "denied": "10",
+        "error": "unresolved indirect jump",
+        "failed": "1",
+        "gpu_events": "1892",
+        "input_events": "1893",
+        "nonram_signatures": "17",
+        "p10_budget_denials": "4",
+        "spu_events": "5"
+      },
+      "9429": {
+        "cdrom_events": "0",
+        "denied": "1",
+        "error": "runtime memory read failed",
+        "failed": "1",
+        "gpu_events": "0",
+        "input_events": "0",
+        "nonram_signatures": "0",
+        "p10_budget_denials": "1",
+        "spu_events": "0"
+      },
+      "9430": {
+        "cdrom_events": "0",
+        "denied": "1",
+        "error": "unresolved indirect jump",
+        "failed": "1",
+        "gpu_events": "0",
+        "input_events": "0",
+        "nonram_signatures": "0",
+        "p10_budget_denials": "1",
+        "spu_events": "0"
+      }
+    },
+    "block_index_of_first_failure": 9424,
+    "cdrom_and_spu_are_post_failure": true,
+    "device_traffic_first_observed_between_accesses": [
+      400000,
+      500000
+    ],
+    "guest_access_index_of_first_failure": 9430,
+    "poll_loop_is_post_failure": true
+  },
+  "totals": {
+    "block_digest": "0x22f6f7e46b5ca586",
+    "block_events": 1235093,
+    "distinct_blocks": 357,
+    "distinct_functions": 90,
+    "function_events": 110190
+  }
+}

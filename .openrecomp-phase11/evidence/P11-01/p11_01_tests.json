@@ -1,0 +1,2926 @@
+{
+  "checks": [
+    {
+      "check": "after:fill-loop-count",
+      "detail": "{\"address\": \"0x80011c14\", \"block_id\": \"blk_80011c14\", \"count\": 458711, \"function_id\": \"fn_80011bcc\", \"terminal_op\": \"bne\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "after:fill-loop-first",
+      "detail": "blk_80011a0c,blk_80012cd4,blk_80011bcc,blk_80011c14",
+      "status": "PASS"
+    },
+    {
+      "check": "after:poll-cycle-detected",
+      "detail": "detected",
+      "status": "PASS"
+    },
+    {
+      "check": "after:poll-cycle-iterations",
+      "detail": "54501",
+      "status": "PASS"
+    },
+    {
+      "check": "after:poll-cycle-length",
+      "detail": "14",
+      "status": "PASS"
+    },
+    {
+      "check": "after:poll-device-reads",
+      "detail": "gpu=109035 timer=109035",
+      "status": "PASS"
+    },
+    {
+      "check": "after:poll-functions",
+      "detail": "fn_80015810,fn_80015ff8",
+      "status": "PASS"
+    },
+    {
+      "check": "after:poll-predicate",
+      "detail": "{\"block_id\": \"blk_800158a8\", \"delay_slot\": {\"adapter_fields\": {\"address\": 2147571884, \"op\": \"nop\"}, \"address\": 2147571884, \"non_nop\": false, \"op\": \"nop\", \"operands\": {}, \"word\": 0}, \"direct_target\": \"0x80015838\", \"function_id\": \"fn_80015810\", \"operands\": {\"rs\": 16, \"target\": 2147571768}, \"selection\": \"last conditional back edge inside the detected cycle\", \"successors\": [{\"kind\": \"BRANCH_NOT_TAKEN\", \"resolved\": true, \"target_address\": \"0x800158b0\", \"target_block\": \"blk_800158b0\"}, {\"kind\": \"BRANCH_TAKEN\", \"resolved\": true, \"target_address\": \"0x80015838\", \"target_block\": \"blk_80015838\"}], \"terminal_address\": \"0x800158a8\", \"terminal_flow\": \"BRANCH\", \"terminal_op\": \"bgtz\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "after:post-failure-entries",
+      "detail": "1225669",
+      "status": "PASS"
+    },
+    {
+      "check": "before:bss-clear-loop",
+      "detail": "57 entries",
+      "status": "PASS"
+    },
+    {
+      "check": "before:call-chain",
+      "detail": "blk_800132f8,blk_8001330c,blk_80011af0,blk_8001337c,blk_800119c8,blk_800132e0,blk_800119e0,blk_80026cc8",
+      "status": "PASS"
+    },
+    {
+      "check": "before:no-device-events",
+      "detail": "{\"cdrom_events\": \"0\", \"denied\": \"1\", \"error\": \"unresolved indirect jump\", \"failed\": \"1\", \"gpu_events\": \"0\", \"input_events\": \"0\", \"nonram_signatures\": \"0\", \"p10_budget_denials\": \"1\", \"spu_events\": \"0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "bios:function-index",
+      "detail": "43 ('index-addiu@0x80026cd0',)",
+      "status": "PASS"
+    },
+    {
+      "check": "bios:not-implemented",
+      "detail": "no BIOS service is implemented by the boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "bios:service-id",
+      "detail": "ps1.bios.A0.2b",
+      "status": "PASS"
+    },
+    {
+      "check": "bios:vector-constant",
+      "detail": "160 ('addiu@0x80026cc8',)",
+      "status": "PASS"
+    },
+    {
+      "check": "bios:vector-name",
+      "detail": "A0",
+      "status": "PASS"
+    },
+    {
+      "check": "bisect:9429-budget-before-failure",
+      "detail": "{\"cdrom_events\": \"0\", \"denied\": \"1\", \"error\": \"runtime memory read failed\", \"failed\": \"1\", \"gpu_events\": \"0\", \"input_events\": \"0\", \"nonram_signatures\": \"0\", \"p10_budget_denials\": \"1\", \"spu_events\": \"0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "bisect:9430-first-failure",
+      "detail": "{\"cdrom_events\": \"0\", \"denied\": \"1\", \"error\": \"unresolved indirect jump\", \"failed\": \"1\", \"gpu_events\": \"0\", \"input_events\": \"0\", \"nonram_signatures\": \"0\", \"p10_budget_denials\": \"1\", \"spu_events\": \"0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "bisect:device-traffic-after-400k",
+      "detail": "{\"cdrom_events\": \"38\", \"denied\": \"10\", \"error\": \"unresolved indirect jump\", \"failed\": \"1\", \"gpu_events\": \"1892\", \"input_events\": \"1893\", \"nonram_signatures\": \"17\", \"p10_budget_denials\": \"4\", \"spu_events\": \"5\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "bisect:full-budget-frontier",
+      "detail": "{\"cdrom_events\": \"38\", \"denied\": \"11\", \"error\": \"unresolved indirect jump\", \"failed\": \"1\", \"gpu_events\": \"65536\", \"input_events\": \"65536\", \"nonram_signatures\": \"17\", \"p10_budget_denials\": \"5\", \"spu_events\": \"5\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "bisect:no-device-traffic-before-400k",
+      "detail": "{\"cdrom_events\": \"0\", \"denied\": \"3\", \"error\": \"unresolved indirect jump\", \"failed\": \"1\", \"gpu_events\": \"0\", \"input_events\": \"0\", \"nonram_signatures\": \"0\", \"p10_budget_denials\": \"3\", \"spu_events\": \"0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:executable-identity-miss",
+      "detail": "executable identity is part of the key",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:hit",
+      "detail": "stored document returned",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:input-identity-miss",
+      "detail": "scripted-input identity is part of the key",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:key-stable",
+      "detail": "8c71faf76b0f9a64ac5cdd72de6629a0b9203b806198606aed36cabfce03fec5",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:stale-miss",
+      "detail": "trace-configuration change produces a miss",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:frame-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:general-permanent",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:initialization-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:playability-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:build-reproducible",
+      "detail": "22285c26147d3c25d0c77531ca640121a3880d98f5f369a7bee8d6d0a117de96",
+      "status": "PASS"
+    },
+    {
+      "check": "compare:build-status",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:directory",
+      "detail": "private fixture directory present",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:block",
+      "detail": "blk_80026cc8/jr_indirect",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:block-index",
+      "detail": "9424",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:earliest-loop-is-guest-init",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:failure-count",
+      "detail": "31",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:function",
+      "detail": "0x80026cc8/fn_80026cc8",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:loop-state-follows-failure",
+      "detail": "the persistent loops are entered after the first fail-closed event",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:message",
+      "detail": "unresolved indirect jump",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:site",
+      "detail": "0x80026ccc",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:source",
+      "detail": "0x000000a0",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:totals",
+      "detail": "{\"block_digest\": \"0x22f6f7e46b5ca586\", \"block_events\": 1235093, \"distinct_blocks\": 357, \"distinct_functions\": 90, \"function_events\": 110190}",
+      "status": "PASS"
+    },
+    {
+      "check": "instrumentation:disabled-byte-identical",
+      "detail": "a047a52fb460d3786e5bff03b5c26ac2978ae768b581f5e6c4a9cbc284db4a9a",
+      "status": "PASS"
+    },
+    {
+      "check": "instrumentation:empty-config-rejected",
+      "detail": "empty instrumentation rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "instrumentation:entry-unit",
+      "detail": "entry unit present",
+      "status": "PASS"
+    },
+    {
+      "check": "instrumentation:invalid-hook-rejected",
+      "detail": "4",
+      "status": "PASS"
+    },
+    {
+      "check": "plain:cdrom_events",
+      "detail": "38",
+      "status": "PASS"
+    },
+    {
+      "check": "plain:denied",
+      "detail": "11",
+      "status": "PASS"
+    },
+    {
+      "check": "plain:deterministic",
+      "detail": "99040628b85ee2f8bff5176ab4b27c73bfb380e52af10cdb1946c90d9b41f9c7",
+      "status": "PASS"
+    },
+    {
+      "check": "plain:error",
+      "detail": "unresolved indirect jump",
+      "status": "PASS"
+    },
+    {
+      "check": "plain:failed",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "plain:gpu_events",
+      "detail": "65536",
+      "status": "PASS"
+    },
+    {
+      "check": "plain:host_calls",
+      "detail": "79",
+      "status": "PASS"
+    },
+    {
+      "check": "plain:input_events",
+      "detail": "65536",
+      "status": "PASS"
+    },
+    {
+      "check": "plain:memory",
+      "detail": "0x18131c6ef356df7d",
+      "status": "PASS"
+    },
+    {
+      "check": "plain:nonram_signatures",
+      "detail": "17",
+      "status": "PASS"
+    },
+    {
+      "check": "plain:p10_access_count",
+      "detail": "2000005",
+      "status": "PASS"
+    },
+    {
+      "check": "plain:p10_budget_denials",
+      "detail": "5",
+      "status": "PASS"
+    },
+    {
+      "check": "plain:reads",
+      "detail": "982859",
+      "status": "PASS"
+    },
+    {
+      "check": "plain:spu_events",
+      "detail": "5",
+      "status": "PASS"
+    },
+    {
+      "check": "plain:writes",
+      "detail": "799023",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:no-base64",
+      "detail": "payload base64 present",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:no-hex",
+      "detail": "payload hex present",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "27 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "25 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "48 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "16 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "16 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "17 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "14 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "16 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "16 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "17 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "14 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:cache:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:no-base64",
+      "detail": "payload base64 present",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:no-hex",
+      "detail": "payload hex present",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "31 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "67 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "60 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "52 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "73 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "14 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "55 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "62 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "17 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "71 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "26 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "67 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "35 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "16 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "52 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "59 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "65 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "62 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "58 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "62 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "59 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "21 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "54 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "65 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "60 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "60 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causality:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:no-base64",
+      "detail": "payload base64 present",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:no-hex",
+      "detail": "payload hex present",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "37 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "26 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "66 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "31 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "65 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "61 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "30 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "29 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "31 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "34 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "36 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "35 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "45 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "35 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "45 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "15 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "26 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:instrumentation:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:no-base64",
+      "detail": "payload base64 present",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:no-hex",
+      "detail": "payload hex present",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "37 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "9 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "17 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "16 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "17 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "20 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "17 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:trace_execution:string-length",
+      "detail": "15 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_host_emitter_v1.py",
+      "detail": "rc=0 marker=True",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_mips32_end_to_end_v1.py",
+      "detail": "rc=0 marker=True",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase8_translation_v1.py",
+      "detail": "rc=0 marker=True",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:tools/test_phase9_translation_v1.py",
+      "detail": "rc=0 marker=True",
+      "status": "PASS"
+    },
+    {
+      "check": "trace:base-program-unchanged",
+      "detail": "a047a52fb460d3786e5bff03b5c26ac2978ae768b581f5e6c4a9cbc284db4a9a",
+      "status": "PASS"
+    },
+    {
+      "check": "trace:build-reproducible",
+      "detail": "c24f75949552284901bf38ce2aeb5af5874cd913c246341fef02c220c179dec0",
+      "status": "PASS"
+    },
+    {
+      "check": "trace:build-status",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "trace:fragment-appended",
+      "detail": "frozen composition is a verbatim prefix",
+      "status": "PASS"
+    },
+    {
+      "check": "trace:hook-count:block_entry_hook_calls",
+      "detail": "739",
+      "status": "PASS"
+    },
+    {
+      "check": "trace:hook-count:function_entry_hook_calls",
+      "detail": "110",
+      "status": "PASS"
+    },
+    {
+      "check": "trace:hook-count:indirect_failure_hook_calls",
+      "detail": "40",
+      "status": "PASS"
+    },
+    {
+      "check": "trace:no-guest-machine-code",
+      "detail": "no guest payload bytes in the instrumented program",
+      "status": "PASS"
+    },
+    {
+      "check": "trace:no-opcode-dispatch",
+      "detail": "no decode loop",
+      "status": "PASS"
+    },
+    {
+      "check": "trace:or-fail-preserved",
+      "detail": "1292 == 1292",
+      "status": "PASS"
+    },
+    {
+      "check": "traced:deterministic",
+      "detail": "2ab666f4d6a009508ce8d18f781e851e6431355d63bf6c386c5f03169c625901",
+      "status": "PASS"
+    },
+    {
+      "check": "traced:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "traced:nonram-identical",
+      "detail": "non-RAM access log identical",
+      "status": "PASS"
+    },
+    {
+      "check": "traced:registers-identical",
+      "detail": "register file identical",
+      "status": "PASS"
+    },
+    {
+      "check": "traced:semantics-equivalent",
+      "detail": "24 observables",
+      "status": "PASS"
+    },
+    {
+      "check": "traced:stderr",
+      "detail": "0",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 583,
+  "stage": "P11-01",
+  "stage_name": "Milestone-A progress causality",
+  "status": "PASS",
+  "tests": 583
+}

@@ -1,0 +1,82 @@
+{
+  "additive_shared_layer_change": {
+    "change": [
+      "optional HostInstrumentation hooks: function entry, block entry,",
+      "indirect failure; the fail-closed or_fail call is always preserved"
+    ],
+    "default": "disabled; byte-identical output",
+    "evidence_of_gap": [
+      "P10-07 recorded that per-access guest PC, translated function and",
+      "call-flow provenance are not observable because the generated",
+      "program carries no access hook"
+    ],
+    "file": "openrecomp/host_emitter.py"
+  },
+  "dependency_gates": [
+    {
+      "marker": "OPENRECOMP_HOST_EMITTER_V1=PASS",
+      "marker_present": true,
+      "returncode": 0,
+      "script": "tools/test_host_emitter_v1.py",
+      "stderr_empty": true,
+      "stdout_sha256": "44c24de8a0f6f80ee81514caeb64057c28d0dae604d389db8dfe2ef259180863"
+    },
+    {
+      "marker": "OPENRECOMP_MIPS32_END_TO_END_V1=PASS",
+      "marker_present": true,
+      "returncode": 0,
+      "script": "tools/test_mips32_end_to_end_v1.py",
+      "stderr_empty": true,
+      "stdout_sha256": "82378376b952c9c396fcf5f95a389348bff5ba444f2d8dbb3aa86776d0774560"
+    },
+    {
+      "marker": "OPENRECOMP_PHASE8_TRANSLATION_CLOSURE_V1=PASS",
+      "marker_present": true,
+      "returncode": 0,
+      "script": "tools/test_phase8_translation_v1.py",
+      "stderr_empty": true,
+      "stdout_sha256": "08933cbfd0d18c2a643cfda803f45ce41ec2c2d650fe321cff140150f6ac2929"
+    },
+    {
+      "marker": "OPENRECOMP_PHASE9_TRANSLATION_CLOSURE_V1=PASS",
+      "marker_present": true,
+      "returncode": 0,
+      "script": "tools/test_phase9_translation_v1.py",
+      "stderr_empty": true,
+      "stdout_sha256": "04b8704c0a2a2b58575a2b29baac133e6291eaaf44d1034e791a5d9d5398e524"
+    }
+  ],
+  "disabled_byte_identical": {
+    "frozen_program_fingerprint": "a047a52fb460d3786e5bff03b5c26ac2978ae768b581f5e6c4a9cbc284db4a9a",
+    "observed_program_fingerprint": "a047a52fb460d3786e5bff03b5c26ac2978ae768b581f5e6c4a9cbc284db4a9a"
+  },
+  "hook_calls": {
+    "block_entry_hook_calls": 739,
+    "function_entry_hook_calls": 110,
+    "indirect_failure_hook_calls": 40
+  },
+  "negative_cases": {
+    "empty_instrumentation_rejected": true,
+    "invalid_hook_names_rejected": 4
+  },
+  "or_fail_call_count": {
+    "instrumented": 1292,
+    "uninstrumented": 1292
+  },
+  "schema": "openrecomp-phase11-instrumentation-v1",
+  "stage": "P11-01",
+  "trace_configuration": {
+    "block_first_capacity": 256,
+    "block_ring_capacity": 4096,
+    "guest_semantics_unchanged": "the generated code still calls or_fail at every fail-closed site",
+    "hooks": {
+      "block_entry_hook": "p11_trace_block",
+      "function_entry_hook": "p11_trace_function",
+      "indirect_failure_hook": "p11_trace_indirect_failure"
+    },
+    "last_window_print_limit": 512,
+    "table_capacity": 8192
+  },
+  "trace_driver_sha256": "4f5b7ed99c6053d14b18f7ef3e9a84be4956a4ad29a6ab54ca5b739e632872dd",
+  "trace_fragment_sha256": "23bbf6d7899acd5929717ecf85cc5d4cdd5df21054cdd4cdfc6d97e7ed276b3a"
+}
