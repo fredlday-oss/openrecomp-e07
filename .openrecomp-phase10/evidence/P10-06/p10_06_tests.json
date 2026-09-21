@@ -1,0 +1,141 @@
+{
+  "checks": [
+    {
+      "check": "claim:general-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:native-execution-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:playability-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "dynamic:budget-not-reached",
+      "detail": "false",
+      "status": "PASS"
+    },
+    {
+      "check": "dynamic:denied",
+      "detail": "11",
+      "status": "PASS"
+    },
+    {
+      "check": "dynamic:denied-not-observable",
+      "detail": "false",
+      "status": "PASS"
+    },
+    {
+      "check": "dynamic:host-services",
+      "detail": "79",
+      "status": "PASS"
+    },
+    {
+      "check": "dynamic:observed-count",
+      "detail": "4",
+      "status": "PASS"
+    },
+    {
+      "check": "dynamic:observed-devices",
+      "detail": "gpu,input,spu,cdrom",
+      "status": "PASS"
+    },
+    {
+      "check": "dynamic:record-identity",
+      "detail": "b3de2d29f63932c81106fa2cc3babb714eba38051153b84b35b6e169c0fc3ad2",
+      "status": "PASS"
+    },
+    {
+      "check": "dynamic:record-present",
+      "detail": ".openrecomp-phase10/evidence/P10-05/native_entry.json",
+      "status": "PASS"
+    },
+    {
+      "check": "dynamic:termination",
+      "detail": "UNRESOLVED_INDIRECT_JUMP",
+      "status": "PASS"
+    },
+    {
+      "check": "dynamic:uncapped-devices",
+      "detail": "['spu', 'cdrom']",
+      "status": "PASS"
+    },
+    {
+      "check": "dynamic:unmodelled-policy",
+      "detail": "fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "private:present",
+      "detail": "private fixture present",
+      "status": "PASS"
+    },
+    {
+      "check": "requirements:dynamically-required",
+      "detail": "cdrom,gpu,input,spu",
+      "status": "PASS"
+    },
+    {
+      "check": "requirements:no-new-implementation",
+      "detail": "none",
+      "status": "PASS"
+    },
+    {
+      "check": "requirements:not-speculative",
+      "detail": "dma,memory_control,expansion,sio",
+      "status": "PASS"
+    },
+    {
+      "check": "requirements:served-by-phase9",
+      "detail": "cdrom,gpu,input,spu",
+      "status": "PASS"
+    },
+    {
+      "check": "static:access-sites",
+      "detail": "1107",
+      "status": "PASS"
+    },
+    {
+      "check": "static:audited-ranges",
+      "detail": "8",
+      "status": "PASS"
+    },
+    {
+      "check": "static:histogram",
+      "detail": "{\"OUTSIDE_AUDITED_RANGES\": 338, \"UNRESOLVED_BASE\": 769}",
+      "status": "PASS"
+    },
+    {
+      "check": "static:no-audited-device-sites",
+      "detail": "{}",
+      "status": "PASS"
+    },
+    {
+      "check": "static:residual-policy",
+      "detail": "unresolved bases and addresses outside the audited ranges stay explicit and fail closed",
+      "status": "PASS"
+    },
+    {
+      "check": "static:resolved-addresses-are-ram",
+      "detail": "338 resolved addresses",
+      "status": "PASS"
+    },
+    {
+      "check": "static:unresolved-have-evidence",
+      "detail": "every unresolved base carries slice evidence",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 26,
+  "stage": "P10-06",
+  "stage_name": "Dynamic PS1 I/O discovery",
+  "status": "PASS",
+  "tests": 26
+}

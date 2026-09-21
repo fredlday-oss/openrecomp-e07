@@ -1,0 +1,132 @@
+{
+  "dynamic": {
+    "budget_reached": false,
+    "denied_accesses": 11,
+    "denied_address_observable": false,
+    "denied_classification": "OUTSIDE_AUDITED_RANGES",
+    "host_service_calls": 79,
+    "io_version": "1.0.0",
+    "observed_device_count": 4,
+    "observed_devices": [
+      {
+        "capped": true,
+        "device": "gpu",
+        "event_count": 4096,
+        "implemented_by": "phase9-typed-port-boundary",
+        "required": true
+      },
+      {
+        "capped": true,
+        "device": "input",
+        "event_count": 4096,
+        "implemented_by": "phase9-typed-port-boundary",
+        "required": true
+      },
+      {
+        "capped": false,
+        "device": "spu",
+        "event_count": 5,
+        "implemented_by": "phase9-typed-port-boundary",
+        "required": true
+      },
+      {
+        "capped": false,
+        "device": "cdrom",
+        "event_count": 38,
+        "implemented_by": "phase9-typed-port-boundary",
+        "required": true
+      }
+    ],
+    "reads": 982859,
+    "source": "P10-05 native observable record",
+    "termination_category": "UNRESOLVED_INDIRECT_JUMP",
+    "unmodelled_device_policy": "fail-closed",
+    "writes": 799023
+  },
+  "dynamic_source": {
+    "record": ".openrecomp-phase10/evidence/P10-05/native_entry.json",
+    "sha256": "b3de2d29f63932c81106fa2cc3babb714eba38051153b84b35b6e169c0fc3ad2"
+  },
+  "is_pass_criterion": false,
+  "label": "hercules-private-fixture",
+  "requirements": {
+    "already_implemented_by_phase9": [
+      "cdrom",
+      "gpu",
+      "input",
+      "spu"
+    ],
+    "dynamically_required_devices": [
+      "cdrom",
+      "gpu",
+      "input",
+      "spu"
+    ],
+    "implemented_at_phase10": [],
+    "io_version": "1.0.0",
+    "not_required_and_not_implemented": [
+      "dma",
+      "memory_control",
+      "expansion",
+      "sio"
+    ],
+    "policy": "no device is extended at P10-06: the Phase-9 typed port boundary already serves every dynamically observed device class, and unmodelled ports or unknown commands remain fail-closed",
+    "statically_reachable_devices": []
+  },
+  "schema": "openrecomp-phase10-io-discovery-v1",
+  "stage": "P10-06",
+  "static": {
+    "access_site_count": 1107,
+    "audited_ranges": [
+      {
+        "base": "0x1f801810",
+        "name": "gpu",
+        "size": 8
+      },
+      {
+        "base": "0x1f801040",
+        "name": "joy",
+        "size": 16
+      },
+      {
+        "base": "0x1f801100",
+        "name": "timer0",
+        "size": 16
+      },
+      {
+        "base": "0x1f801110",
+        "name": "timer1",
+        "size": 16
+      },
+      {
+        "base": "0x1f801120",
+        "name": "timer2",
+        "size": 16
+      },
+      {
+        "base": "0x1f801c00",
+        "name": "spu",
+        "size": 1024
+      },
+      {
+        "base": "0x1f801800",
+        "name": "cdrom",
+        "size": 4
+      },
+      {
+        "base": "0x1f801070",
+        "name": "interrupt",
+        "size": 8
+      }
+    ],
+    "device_histogram": {},
+    "first_device_site": null,
+    "histogram": {
+      "OUTSIDE_AUDITED_RANGES": 338,
+      "UNRESOLVED_BASE": 769
+    },
+    "io_version": "1.0.0",
+    "residual_policy": "unresolved bases and addresses outside the audited ranges stay explicit and fail closed"
+  },
+  "static_sites_sha256": "52163e7bfa7c47a10cbef29de1dfa7d66adfde1aedefd4d3475836581530e4f5"
+}

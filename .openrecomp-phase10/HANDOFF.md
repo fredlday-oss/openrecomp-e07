@@ -23,24 +23,30 @@
   and executed deterministically as generated host code; the crt0 prefix
   runs, 1.79M guest accesses execute, and the run fails closed at an
   executed unresolved indirect jump. Milestone A established;
-- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-05/`.
+- `P10-06` `PASS` (26 checks): dynamic device discovery from the `P10-05`
+  record plus the constant-base static complement;
+- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-06/`.
 
 ## Immediate next action
 
-`P10-06` - dynamic PS1 I/O discovery from the observed execution.
+`P10-07` - GPU command execution frontier.
 
-`P10-05` already recorded real platform traffic: GPU and controller events
-(both capped at 4096), SPU 5, CD-ROM 38, and 11 denied accesses. `P10-06` must
-classify those into GPU / DMA / interrupt controller / timers / SIO-controller
-/ SPU / CD-ROM / memory control / other, decide which are actually required for
-progress, and implement only the reachable requirement. No complete device may
-be implemented speculatively.
+Advance Hercules through the first actually reachable GPU operations, reusing
+the Phase-9 GPU boundary, and classify the required GP0/GP1 command classes,
+DMA interactions and VRAM state required for progress, with deterministic
+GPU-command evidence.
 
-## Known work queued after P10-06
+Blocking limitation to resolve first: the frozen Phase-9 observable driver
+prints only device event counts and digests, not the command values, and not
+the failing guest PC. A **new, additive Phase-10 driver** (a new file under
+`.openrecomp-phase10/runtime/`) is required to print the first N typed device
+events (service, direction, width, address, value), the first denied address
+and the last executed guest PC. Do not modify the frozen Phase-9 driver.
 
-- `P10-07` .. `P10-11`: GPU command execution frontier, interrupt/DMA/timing,
-  CUE/BIN CD-ROM/filesystem/streaming, SPU/controller/game-loop, highest
-  milestone;
+## Known work queued after P10-07
+
+- `P10-08` .. `P10-11`: interrupt/DMA/timing, CUE/BIN CD-ROM/filesystem/
+  streaming, SPU/controller/game-loop, highest milestone;
 - `P10-12`, `P10-90`, `P10-91`, `P10-99`: hardening, whole-project regression,
   evidence closure and the final bounded verdict.
 

@@ -61,7 +61,8 @@ runtime architecture is created.
 | P10-03 | PASS |
 | P10-04 | PASS |
 | P10-05 | PASS |
-| P10-06 .. P10-12 | QUEUED |
+| P10-06 | PASS |
+| P10-07 .. P10-12 | QUEUED |
 | P10-90, P10-91, P10-99 | QUEUED |
 
 ## Stage records
@@ -234,11 +235,31 @@ Phase-10 stage runner with byte-identical stdout (1040 bytes LF, sha256
   and beyond explicitly not claimed;
 - evidence: `.openrecomp-phase10/evidence/P10-05/`.
 
+### P10-06 - Dynamic PS1 I/O discovery
+
+PASS (26 checks). Gate `tools/test_phase10_io_v1.py` ran twice through the
+Phase-10 stage runner with byte-identical stdout (1074 bytes LF, sha256
+`fa234657...`), empty stderr and exit 0.
+
+- dynamic source: the deterministic `P10-05` native record (GPU and controller
+  events capped at 4096, SPU 5, CD-ROM 38, 11 denied accesses, access budget
+  not reached, termination `UNRESOLVED_INDIRECT_JUMP`);
+- static complement: 1107 reachable access sites, 769 with an unresolved
+  (memory-loaded pointer) base carrying slice evidence, 338 resolved to RAM
+  globals, 0 resolvable to an audited device range - device addresses are
+  computed at runtime, so dynamic evidence is the only source;
+- the audited Phase-9 port ranges are reused unchanged; no device map is
+  invented;
+- no device is extended at this stage; the observed classes are already served
+  by the Phase-9 typed port boundary and unmodelled ports/commands stay
+  fail-closed;
+- evidence: `.openrecomp-phase10/evidence/P10-06/`.
+
 ## Open blockers
 
-- the first blocker is an executed unresolved indirect jump (18 candidate
-  sites); no address-observable failing-PC evidence is available with the
-  frozen Phase-9 driver.
+- the first blocker remains an executed unresolved indirect jump;
+- the denied-access address is not observable with the frozen Phase-9 driver.
+
 
 
 
