@@ -40,37 +40,42 @@
 - `P10-10` `PASS` (36 checks): the controller/SPU/game-loop frontier is
   classified - no controller consumption, SPU configuration only, and a
   served busy-poll loop instead of a frame loop;
-- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-10/`.
+- `P10-11` `PASS` (38 checks): the highest demonstrated milestone is **A**,
+  hash-bound to the committed stage evidence, with B..G explicitly not
+  established;
+- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-11/`.
 
 ## Immediate next action
 
-`P10-11` - highest evidence-supported milestone.
+`P10-12` - hardening and reproducibility. Required coverage:
 
-Established milestone: **A** (translated native execution begins), recorded at
-`P10-05` and not advanced since: no frame loop, no GPU command write, no
-controller consumption and no disc data path is reached.
+1. malformed inputs reject deterministically (PS-X EXE ingestion negatives,
+   malformed analysis records, malformed trap/memory-control evidence);
+2. unsupported BREAK/exception behaviour fails closed (already covered at
+   `P10-01`; re-verify against the current tree);
+3. unresolved control flow fails closed (unresolved indirect call/jump stubs);
+4. unknown BIOS calls fail closed (`P10-04`);
+5. unknown MMIO / unknown device commands fail closed (`P10-07`..`P10-10`);
+6. stale cache rejected and changed disc/executable identity invalidates cached
+   analysis: the immutable-hash analysis cache must include the executable
+   SHA-256, CUE SHA-256, BIN SHA-256, frontend/semantic/model/runtime/disc-model
+   versions, and must not accept a hit on filename equality alone;
+7. CUE/BIN material never enters repository evidence (public-safety scan over
+   all committed Phase-10 evidence);
+8. no original guest machine code executes at runtime (generated program has no
+   guest bytes and no opcode dispatch);
+9. clean native rebuild succeeds and repeated execution is deterministic
+   (transcript/state identities repeat exactly);
+10. record the bounded-execution limitation and its mitigation explicitly
+    (default budget plus bounded host timeout; the budget bounds accesses, not
+    execution).
 
-`P10-11` must re-derive the milestone from the accumulated evidence (not from a
-screenshot), record it with the exact failing frontier, and re-state that
-milestones B..G are NOT established:
+## Known work queued after P10-12
 
-- B (initialisation completes): not established - the guest fails closed inside
-  its initialisation path at an executed unresolved indirect jump;
-- C (GPU command stream reached): not established - only GP1 status reads are
-  reached, zero GP0/GP1 writes;
-- D/E/F/G: not established - no frame, no title, no menu, no input-driven state
-  progression.
-
-The stage gate should verify the milestone record against the committed stage
-evidence (P10-05, P10-07, P10-08, P10-09, P10-10) by hash, so the claim cannot
-outlive the evidence it rests on.
-
-## Known work queued after P10-11
-
-- `P10-12`: hardening (malformed inputs, fail-closed negatives, cache/staleness,
-  no-private-material scan, clean native rebuild, deterministic repeat runs);
-- `P10-90`, `P10-91`, `P10-99`: whole-project regression, evidence closure and
-  the final bounded verdict.
+- `P10-90`: whole-project regression (all frozen Phase-1..9 gates plus every
+  completed Phase-10 official gate);
+- `P10-91`: evidence index and proof matrix;
+- `P10-99`: final bounded verdict.
 
 ## Private fixture notes
 

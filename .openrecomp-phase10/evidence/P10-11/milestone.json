@@ -1,0 +1,95 @@
+{
+  "claims": {
+    "general_ps1_compatibility": "NOT_PROVEN",
+    "native_execution_proof": "NOT_PROVEN",
+    "playability": "NOT_PROVEN"
+  },
+  "evidence_binding": {
+    "P10-05": {
+      "path": ".openrecomp-phase10/evidence/P10-05/native_entry.json",
+      "sha256": "ef7b834293e4e5ff1067c78154ccbbeac218276bea1375000bd380e3cb6c05e9"
+    },
+    "P10-07": {
+      "path": ".openrecomp-phase10/evidence/P10-07/gpu_frontier.json",
+      "sha256": "e60c4dc20089bcb7d70d11247ecaadd44b750437c14e3bea3f4fce452632d73a"
+    },
+    "P10-08": {
+      "path": ".openrecomp-phase10/evidence/P10-08/timing_frontier.json",
+      "sha256": "a2dc8506a5444be019662cb5ae9042483c74b8993ecc9af1a191c5cf1d735eb2"
+    },
+    "P10-09": {
+      "path": ".openrecomp-phase10/evidence/P10-09/disc_frontier.json",
+      "sha256": "9e8715c489a033b717e5b69607d747c4315c99d0fed11234845fcc49b4ca0896"
+    },
+    "P10-10": {
+      "path": ".openrecomp-phase10/evidence/P10-10/input_spu_frontier.json",
+      "sha256": "2b697b82813aa14af1f0744e76cb0d534a0dc3a4263544a10e0b6bb5b35bb538"
+    }
+  },
+  "first_remaining_blocker": "the executed unresolved indirect jump (control flow), which precedes any GPU command write; the GPU is not the blocker",
+  "highest_milestone": "A",
+  "is_pass_criterion": false,
+  "label": "hercules-private-fixture",
+  "milestones": {
+    "A": {
+      "established": true,
+      "evidence": [
+        ".openrecomp-phase10/evidence/P10-05/native_entry.json",
+        "ef7b834293e4e5ff1067c78154ccbbeac218276bea1375000bd380e3cb6c05e9"
+      ],
+      "statement": "translated native execution begins: the guest entry and its initialisation prefix execute deterministically as generated host code"
+    },
+    "B": {
+      "established": false,
+      "evidence": [
+        ".openrecomp-phase10/evidence/P10-05/native_entry.json",
+        ".openrecomp-phase10/evidence/P10-07/gpu_frontier.json"
+      ],
+      "reason": "the guest fails closed inside its initialisation path at an executed unresolved indirect jump; no completion evidence exists"
+    },
+    "C": {
+      "established": false,
+      "evidence": [
+        ".openrecomp-phase10/evidence/P10-07/gpu_frontier.json",
+        "e60c4dc20089bcb7d70d11247ecaadd44b750437c14e3bea3f4fce452632d73a"
+      ],
+      "reason": "only GP1 status reads are reached; there are zero GP0 and zero GP1 command writes"
+    },
+    "D": {
+      "established": false,
+      "evidence": [
+        ".openrecomp-phase10/evidence/P10-10/input_spu_frontier.json",
+        "2b697b82813aa14af1f0744e76cb0d534a0dc3a4263544a10e0b6bb5b35bb538"
+      ],
+      "reason": "no frame or present observable exists"
+    },
+    "E": {
+      "established": false,
+      "evidence": [
+        ".openrecomp-phase10/evidence/P10-10/input_spu_frontier.json",
+        "2b697b82813aa14af1f0744e76cb0d534a0dc3a4263544a10e0b6bb5b35bb538"
+      ],
+      "reason": "no frame and no display output exists"
+    },
+    "F": {
+      "established": false,
+      "evidence": [
+        ".openrecomp-phase10/evidence/P10-10/input_spu_frontier.json",
+        "2b697b82813aa14af1f0744e76cb0d534a0dc3a4263544a10e0b6bb5b35bb538"
+      ],
+      "reason": "no completed initialisation, no frame loop and no menu state is reachable"
+    },
+    "G": {
+      "established": false,
+      "evidence": [
+        ".openrecomp-phase10/evidence/P10-10/input_spu_frontier.json",
+        "2b697b82813aa14af1f0744e76cb0d534a0dc3a4263544a10e0b6bb5b35bb538",
+        ".openrecomp-phase10/evidence/P10-09/disc_frontier.json"
+      ],
+      "reason": "the controller data port is never touched and no input-driven state progression exists"
+    }
+  },
+  "promotion_rule": "milestone G with deterministic scripted-input evidence of reproducible game-state progression is the only evidence that may support a playability claim; it is absent",
+  "schema": "openrecomp-phase10-milestone-v1",
+  "stage": "P10-11"
+}

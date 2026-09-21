@@ -1,0 +1,201 @@
+{
+  "checks": [
+    {
+      "check": "A:crt0-effect",
+      "detail": "{\"declared_stack_pointer\": \"0x801ffff0\", \"guest_entry_pc\": \"0x800132e8\", \"initial_register_state\": \"all 32 guest registers are zero-initialised by the generated entry\", \"observed_frame_pointer\": \"0x80200000\", \"observed_gp\": \"0x8002ed78\", \"observed_register_file\": {\"r00\": \"0x00000000\", \"r01\": \"0x80030000\", \"r02\": \"0x00000000\", \"r03\": \"0x00000000\", \"r04\": \"0x00000002\", \"r05\": \"0x00000000\", \"r06\": \"0x00000000\", \"r07\": \"0x00000001\", \"r08\": \"0x00000000\", \"r09\": \"0x00000000\", \"r10\": \"0x801f7ffc\", \"r11\": \"0x00000001\", \"r12\": \"0x80000000\", \"r13\": \"0x00000000\", \"r14\": \"0x00000000\", \"r15\": \"0x00000000\", \"r16\": \"0x00000000\", \"r17\": \"0x80028588\", \"r18\": \"0x00000000\", \"r19\": \"0x00000000\", \"r20\": \"0x00000000\", \"r21\": \"0x00000000\", \"r22\": \"0x00000000\", \"r23\": \"0x00000000\", \"r24\": \"0x00000000\", \"r25\": \"0x00000000\", \"r26\": \"0x00000000\", \"r27\": \"0x00000000\", \"r28\": \"0x8002ed78\", \"r29\": \"0x801ffe00\", \"r30\": \"0x80200000\", \"r31\": \"0x80015840\"}, \"observed_stack_pointer\": \"0x801ffe00\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "A:deterministic",
+      "detail": "true",
+      "status": "PASS"
+    },
+    {
+      "check": "A:failed-closed",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "A:guest-entry",
+      "detail": "0x800132e8",
+      "status": "PASS"
+    },
+    {
+      "check": "A:guest-traffic",
+      "detail": "982859+799023",
+      "status": "PASS"
+    },
+    {
+      "check": "A:mileage-record",
+      "detail": "A",
+      "status": "PASS"
+    },
+    {
+      "check": "B:explicitly-not-claimed",
+      "detail": "[\"milestone B or beyond (no proof that initialisation completes)\", \"any rendering, audio, input or gameplay behaviour\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "B:no-completion-marker",
+      "detail": "no initialisation-completion marker exists in the native record",
+      "status": "PASS"
+    },
+    {
+      "check": "B:not-established",
+      "detail": "unresolved indirect jump",
+      "status": "PASS"
+    },
+    {
+      "check": "C:no-gp0-writes",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "C:no-gp1-writes",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "C:not-established",
+      "detail": "false",
+      "status": "PASS"
+    },
+    {
+      "check": "C:status-only",
+      "detail": "65536/65536",
+      "status": "PASS"
+    },
+    {
+      "check": "D:no-frame-loop",
+      "detail": "false",
+      "status": "PASS"
+    },
+    {
+      "check": "DEF:busy-poll-instead",
+      "detail": "true",
+      "status": "PASS"
+    },
+    {
+      "check": "E:no-frame-loop",
+      "detail": "false",
+      "status": "PASS"
+    },
+    {
+      "check": "F:no-frame-loop",
+      "detail": "false",
+      "status": "PASS"
+    },
+    {
+      "check": "G:no-controller-data",
+      "detail": "false",
+      "status": "PASS"
+    },
+    {
+      "check": "G:no-disc-path",
+      "detail": "no disc data path",
+      "status": "PASS"
+    },
+    {
+      "check": "G:no-input-progression",
+      "detail": "false",
+      "status": "PASS"
+    },
+    {
+      "check": "G:no-interrupt-progress",
+      "detail": "false",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:general-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:native-execution-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:playability-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P10-05:present",
+      "detail": ".openrecomp-phase10/evidence/P10-05/native_entry.json",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P10-05:sha256",
+      "detail": "ef7b834293e4e5ff1067c78154ccbbeac218276bea1375000bd380e3cb6c05e9",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P10-07:present",
+      "detail": ".openrecomp-phase10/evidence/P10-07/gpu_frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P10-07:sha256",
+      "detail": "e60c4dc20089bcb7d70d11247ecaadd44b750437c14e3bea3f4fce452632d73a",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P10-08:present",
+      "detail": ".openrecomp-phase10/evidence/P10-08/timing_frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P10-08:sha256",
+      "detail": "a2dc8506a5444be019662cb5ae9042483c74b8993ecc9af1a191c5cf1d735eb2",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P10-09:present",
+      "detail": ".openrecomp-phase10/evidence/P10-09/disc_frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P10-09:sha256",
+      "detail": "9e8715c489a033b717e5b69607d747c4315c99d0fed11234845fcc49b4ca0896",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P10-10:present",
+      "detail": ".openrecomp-phase10/evidence/P10-10/input_spu_frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:P10-10:sha256",
+      "detail": "2b697b82813aa14af1f0744e76cb0d534a0dc3a4263544a10e0b6bb5b35bb538",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:denials-reconciled",
+      "detail": "{\"budget_denials\": 5, \"expected_total\": 11, \"logged_budget_denial_observations\": 1, \"logged_budget_subset_of_counter\": true, \"matches\": true, \"platform_denial_observations\": 6, \"reported_denied\": 11}",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:first-blocker",
+      "detail": "the executed unresolved indirect jump (control flow), which precedes any GPU com",
+      "status": "PASS"
+    },
+    {
+      "check": "milestone:playability-requires-g",
+      "detail": "G not established, so playability must stay NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "milestone:single-established",
+      "detail": "A",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 38,
+  "stage": "P10-11",
+  "stage_name": "Highest Hercules milestone",
+  "status": "PASS",
+  "tests": 38
+}

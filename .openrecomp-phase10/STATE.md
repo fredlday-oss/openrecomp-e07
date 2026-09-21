@@ -66,7 +66,8 @@ runtime architecture is created.
 | P10-08 | PASS |
 | P10-09 | PASS |
 | P10-10 | PASS |
-| P10-11, P10-12 | QUEUED |
+| P10-11 | PASS |
+| P10-12 | QUEUED |
 | P10-90, P10-91, P10-99 | QUEUED |
 
 ## Stage records
@@ -367,16 +368,38 @@ the Phase-10 stage runner with byte-identical stdout (1310 bytes LF, sha256
 - nothing is implemented; unserved interactions remain fail-closed;
 - evidence: `.openrecomp-phase10/evidence/P10-10/`.
 
+### P10-11 - Highest Hercules milestone
+
+PASS (38 checks). Gate `tools/test_phase10_milestone_v1.py` ran twice through
+the Phase-10 stage runner with byte-identical stdout (1284 bytes LF, sha256
+`29a3d4a2...`), empty stderr and exit 0.
+
+- highest demonstrated milestone: **A** (translated native execution begins),
+  re-derived from the committed evidence and hash-bound to it;
+- B (initialisation completes): NOT established - the guest fails closed inside
+  its initialisation path at an executed unresolved indirect jump;
+- C (GPU command stream reached): NOT established - only GP1 status reads,
+  zero GP0/GP1 command writes;
+- D/E/F: NOT established - no frame or present observable, and the reached loop
+  is a served busy-poll loop rather than a frame loop;
+- G (controllable gameplay): NOT established - the controller data port is
+  never touched and no input-driven state progression exists;
+- the playability promotion rule is recorded: milestone G with deterministic
+  scripted-input evidence is the only basis for a playability claim, and it is
+  absent;
+- evidence: `.openrecomp-phase10/evidence/P10-11/`.
+
 ## Open blockers
 
-- the executed unresolved indirect jump blocks progress; the exact failing
-  guest PC remains unobservable (the only evidence is the exact candidate set);
-- no frame/event loop, no controller consumption and no disc data path is
-  reached, so milestones beyond A are not established;
+- the executed unresolved indirect jump blocks initialisation; the exact
+  failing guest PC is not observable (only the candidate set is recorded);
+- milestones B..G are unreachable without resolving that control-flow frontier
+  (or otherwise advancing initialisation);
 - the bounded-execution budget cannot interrupt a post-truncation guest loop
   with no memory access (`P10-12` hardening item);
-- SPU RAM transfer, interrupt delivery, DMA and memory-control timing remain
-  unimplemented and fail-closed (not proven required).
+- SPU RAM transfer, interrupt delivery, DMA, memory-control timing, disc data
+  transfer and controller consumption remain unreached/unimplemented.
+
 
 
 

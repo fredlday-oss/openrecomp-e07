@@ -1,0 +1,43 @@
+PASS: A:crt0-effect
+PASS: A:deterministic
+PASS: A:failed-closed
+PASS: A:guest-entry
+PASS: A:guest-traffic
+PASS: A:mileage-record
+PASS: B:explicitly-not-claimed
+PASS: B:no-completion-marker
+PASS: B:not-established
+PASS: C:no-gp0-writes
+PASS: C:no-gp1-writes
+PASS: C:not-established
+PASS: C:status-only
+PASS: D:no-frame-loop
+PASS: DEF:busy-poll-instead
+PASS: E:no-frame-loop
+PASS: F:no-frame-loop
+PASS: G:no-controller-data
+PASS: G:no-disc-path
+PASS: G:no-input-progression
+PASS: G:no-interrupt-progress
+PASS: claim:general-not-promoted
+PASS: claim:native-execution-not-promoted
+PASS: claim:playability-not-promoted
+PASS: evidence:P10-05:present
+PASS: evidence:P10-05:sha256
+PASS: evidence:P10-07:present
+PASS: evidence:P10-07:sha256
+PASS: evidence:P10-08:present
+PASS: evidence:P10-08:sha256
+PASS: evidence:P10-09:present
+PASS: evidence:P10-09:sha256
+PASS: evidence:P10-10:present
+PASS: evidence:P10-10:sha256
+PASS: frontier:denials-reconciled
+PASS: frontier:first-blocker
+PASS: milestone:playability-requires-g
+PASS: milestone:single-established
+OPENRECOMP_P10_11=PASS
+OPENRECOMP_PHASE10_MILESTONE_V1=PASS tests=38
+OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN
+OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
