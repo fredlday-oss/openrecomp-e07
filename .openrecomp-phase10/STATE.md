@@ -415,6 +415,63 @@ the Phase-10 stage runner with byte-identical stdout (2046 bytes LF, sha256
   deterministic;
 - evidence: `.openrecomp-phase10/evidence/P10-12/`.
 
+## Status at the P10-12 closure
+
+Stages `P10-00` .. `P10-12` are `PASS` and committed on
+`phase10/ps1-commercial-game-native-v1`; the frozen terminal sequence
+`P10-90` (whole-project regression), `P10-91` (evidence index) and `P10-99`
+(final bounded verdict) is queued and **not attempted**.
+
+Highest demonstrated milestone: **A** (translated native execution begins),
+hash-bound to the committed stage evidence at `P10-11`.
+
+Claim markers at this boundary:
+
+- `OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN` (reserved for
+  `P10-99`; the underlying native-execution result itself is established and
+  reproduced at `P10-12`)
+- `OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN`
+- `OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` (permanent)
+
+## P10-90 execution plan (not yet attempted)
+
+1. Frozen Phase-1..Phase-9 gates: re-run the Phase-9 boundary gate
+   (`tools/test_phase9_boundary_v1.py`) and the frozen Phase-9 official gates
+   with their frozen runners, plus the Phase-8 terminal gates. Phase 7 required
+   the documented reconstructed pre-verdict worktree mechanism used by P8-90 /
+   P9-90; reuse exactly that mechanism (see `.openrecomp-phase9/evidence/P9-90/`
+   for the recorded reconstruction recipe).
+2. Phase-10 gates: re-run all thirteen through the Phase-10 stage runner:
+   `python .openrecomp-phase10/src/p10_stage_runner_v1.py --stage <STAGE>
+   --script <gate> --evidence-dir .openrecomp-phase10/evidence/<STAGE>
+   --tests-json <tests.json>` for `<STAGE>`/`<gate>` in
+   `P10-00/tools/test_phase10_boundary_v1.py`,
+   `P10-01/tools/test_phase10_break_v1.py`,
+   `P10-02/tools/test_phase10_structure_v1.py`,
+   `P10-03/tools/test_phase10_semantics_v1.py`,
+   `P10-04/tools/test_phase10_bios_v1.py`,
+   `P10-05/tools/test_phase10_native_v1.py`,
+   `P10-06/tools/test_phase10_io_v1.py`,
+   `P10-07/tools/test_phase10_gpu_v1.py`,
+   `P10-08/tools/test_phase10_timing_v1.py`,
+   `P10-09/tools/test_phase10_disc_v1.py`,
+   `P10-10/tools/test_phase10_input_spu_v1.py`,
+   `P10-11/tools/test_phase10_milestone_v1.py`,
+   `P10-12/tools/test_phase10_hardening_v1.py`.
+3. Expect: every stage gate passes twice with byte-identical stdout, empty
+   stderr and exit 0; the committed evidence sidecars are regenerated
+   identically. `P10-02`, `P10-03`, `P10-05`, `P10-06` were each re-issued at
+   least once during the phase; their recorded hashes in the corresponding
+   `RESULT.md` files are the current ones, so a divergence there means a real
+   regression and must be investigated, not papered over.
+4. Capture exact gate/test counts, stdout hashes, stderr state and sidecar
+   identities under `.openrecomp-phase10/evidence/P10-90/`.
+
+Durations: the Phase-10 gates that build and run the native Hercules program
+(P10-05, P10-07, P10-08, P10-09, P10-10, P10-12) take minutes each per run and
+each official run is doubled by the runner; budget hours, not minutes, and run
+them with a generous timeout (the gates themselves use 5400 s per native run).
+
 ## Open blockers
 
 - the executed unresolved indirect jump blocks initialisation; the exact

@@ -50,7 +50,12 @@
 
 ## Immediate next action
 
-`P10-90` - whole-project regression. This is the expensive boundary:
+`P10-90` - whole-project regression. This is the expensive boundary and it is
+**not yet attempted**: `P10-00` .. `P10-12` are complete, committed and clean.
+See the `P10-90 execution plan` section in `STATE.md` for the exact commands,
+the expected runtime and the re-issue history to watch for.
+
+Summary of the work:
 
 1. re-run the frozen Phase-1..Phase-9 official gates using the documented
    historical reconstruction mechanisms (Phase 7 required a reconstructed
