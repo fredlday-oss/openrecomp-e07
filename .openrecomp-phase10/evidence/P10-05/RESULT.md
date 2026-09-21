@@ -69,7 +69,7 @@ then calls the application entry. All of that happened as generated host code.
 
 The run is bounded by the explicit deterministic memory-access budget injected
 by the third anchored runtime substitution; the budget was not reached, so the
-recorded blocker is real game code and not truncation.
+first recorded failure is real game code and not truncation.
 
 The first fail-closed transition is an executed unresolved indirect jump: one
 of the 18 reachable `jr`/`jr_indirect` sites. Its exact address is not
@@ -85,8 +85,8 @@ Milestone `A` - translated native execution begins - is established:
 - the guest crt0 effect is observable in the register file;
 - over 1.78 million guest memory accesses executed and the guest RAM digest
   changed, so translated guest code really ran;
-- the run stopped at an explicit unresolved indirect jump, not at a budget or a
-  host error;
+- the FIRST recorded failure is an explicit unresolved indirect jump (not a
+  budget and not a host error);
 - GPU/controller/SPU/CD-ROM port traffic was observed, which grounds the
   `P10-06` dynamic I/O discovery.
 
@@ -105,10 +105,10 @@ evidence sidecars byte-identical across both runs.
 Sidecar identities:
 
 - `emission.json` `bc5944628a99c4747a3902fa53e3a21b05a970c4fa5828efa7fa10507d2a93b9`;
-- `native_entry.json` `b3de2d29f63932c81106fa2cc3babb714eba38051153b84b35b6e169c0fc3ad2`;
+- `native_entry.json` `8d7bc00ce95943809e409d48051a0f9cac60835cf4c68cae453cffefca815d21` (re-issued);
 - `p10_05_tests.json` `3fcc99144156d3736a76325aad666234f49bd9a222a9809a577bb5cc5799da99`;
-- `official_runs.json` `4b49dc846b64121402edd11a61b3ede004fbffbfb881f34ef363cb4b7cc4b0f4`;
-- `determinism.json` `2b833ec27e697fcf51ff7fa2ecc5f3446c6296d001bdb27d07ed90bc0f610924`;
+- `official_runs.json` `9fe66e1405c63efe3c7e53b4867cd897215f4d8034f3c45609e1d686d1fc8e1c` (re-issued);
+- `determinism.json` `bc07dcb75fad1b4dc104efeda2415accbd498551f1bdd209d46e4027fcc49ba8` (re-issued);
 - `run1.err.txt` = `run2.err.txt` empty
   (`e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`).
 
@@ -130,3 +130,14 @@ playability and general PS1 compatibility remain `NOT_PROVEN`.
 ## Next stage
 
 `P10-06` - dynamic PS1 I/O discovery from the reachable execution observed here.
+
+## Re-issue note (documented, not silent)
+
+Re-issued to correct the failure-semantics description. A fail-closed failure in
+the generated code aborts the *current translated function* and is recorded as
+the first failure; the caller then continues. Therefore the recorded traffic
+(982859 reads, 799023 writes, the platform events and the 11 denied accesses)
+includes progress after the first failure, and the first failure - an executed
+unresolved indirect jump - is the termination category. The earlier wording
+("the run stopped at ...") overstated the stopping behaviour; no observable
+value changed and the gate was re-run twice with byte-identical stdout.

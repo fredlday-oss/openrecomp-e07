@@ -228,7 +228,9 @@ Phase-10 stage runner with byte-identical stdout (1040 bytes LF, sha256
   reached, so the blocker is real game code;
 - termination category `UNRESOLVED_INDIRECT_JUMP` at an executed unresolved
   indirect jump (exact site not observable with the frozen driver; the
-  complete candidate set is recorded);
+  complete candidate set is recorded); a fail-closed failure aborts only the
+  current translated function, so the traffic record includes progress after
+  the first failure (re-issued evidence records this explicitly);
 - 79 Phase-10 MIPS host-service calls and GPU/input (both capped at 4096),
   SPU (5) and CD-ROM (38) port events, which grounds `P10-06`;
 - milestone `A` (translated native execution begins) established; milestone B

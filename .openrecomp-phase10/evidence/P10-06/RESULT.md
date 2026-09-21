@@ -26,8 +26,10 @@ Input identity: `.openrecomp-phase10/evidence/P10-05/native_entry.json`, SHA-256
 | denied (outside the audited window) | 11 | n/a | unresolved, address not observable |
 
 The run consumed 982859 reads + 799023 writes + 11 denied + 8235 device events
-within the explicit 2000000 access budget (not reached) and terminated at an
-executed unresolved indirect jump. Unmodelled devices and unknown commands stay
+within the explicit 2000000 access budget (not reached); the FIRST recorded
+fail-closed transition is an executed unresolved indirect jump. A fail-closed
+failure aborts only the current translated function, so the recorded traffic
+includes progress after that first failure (documented limitation). Unmodelled devices and unknown commands stay
 fail-closed.
 
 ## Static source (constant-base scan, re-run at this stage)

@@ -63,6 +63,8 @@
     "executable_sha256": "972a0ebb21b52971325b05aea4325e7950c1dbdf3b42b06f96686fc955d77b0b",
     "exit_status": "0x00000000",
     "failed": "1",
+    "failure_semantics": "a fail-closed failure aborts the current translated function and is recorded as the first failure; the caller continues, so the recorded traffic includes progress after the first failure",
+    "first_failure_is_termination_category": true,
     "host_calls": 79,
     "reads": 982859,
     "stdout_sha256": "e8a140f534489b816e4976fb437990e865b11efe490b3290dc45d1652f6d29f3",
@@ -237,7 +239,7 @@
       }
     ],
     "error": "unresolved indirect jump",
-    "kind": "fail-closed-unresolved-indirect-jump",
+    "kind": "first-fail-closed-transition",
     "observation_limit": "the frozen Phase-9 observable driver does not print the failing guest PC"
   },
   "identity": {
@@ -304,7 +306,8 @@
   "label": "hercules-private-fixture",
   "limitations": [
     "the failing guest PC is not observable with the frozen Phase-9 driver",
-    "the platform event transcripts are capped at 4096 recorded events per device"
+    "the platform event transcripts are capped at 4096 recorded events per device and the driver prints only counts and digests",
+    "a fail-closed failure aborts only the current translated function: the observables after the first failure are not part of a strictly fail-closed trace"
   ],
   "memory_image": {
     "contract_digest": "4566f740a10ca4fdc6fb6d1046662c2e8619c6c8648f025f91dcd6ab95f6bf54",
@@ -320,7 +323,7 @@
       "the program built from the private executable runs deterministically to a fail-closed blocker",
       "the guest crt0 effect is observable: gp, the crt0-derived stack/frame pointers and the register file are set by executed translated code",
       "over 1.78 million guest memory accesses executed and the guest RAM digest changed",
-      "the run stopped at an explicit unresolved indirect jump, not at a budget or a host error"
+      "the FIRST recorded failure is an explicit unresolved indirect jump (not a budget and not a host error): the first fail-closed transition is real game code"
     ],
     "highest": "A",
     "not_claimed": [

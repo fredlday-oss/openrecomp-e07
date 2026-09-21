@@ -236,7 +236,7 @@ def main() -> int:
         )
 
         transition = {
-            "kind": "fail-closed-unresolved-indirect-jump",
+            "kind": "first-fail-closed-transition",
             "error": native.get("error"),
             "candidate_sites": summary["unresolved_sites"] and [
                 item for item in summary["unresolved_sites"] if item["kind"] == "INDIRECT_JUMP"
@@ -285,6 +285,12 @@ def main() -> int:
                 },
                 "execution": {
                     "executable_sha256": executable_sha,
+                    "failure_semantics": (
+                        "a fail-closed failure aborts the current translated function and is "
+                        "recorded as the first failure; the caller continues, so the recorded "
+                        "traffic includes progress after the first failure"
+                    ),
+                    "first_failure_is_termination_category": True,
                     "stdout_sha256": sha256_bytes(first),
                     "deterministic": True,
                     "failed": native.get("failed"),
@@ -309,7 +315,7 @@ def main() -> int:
                         "the program built from the private executable runs deterministically to a fail-closed blocker",
                         "the guest crt0 effect is observable: gp, the crt0-derived stack/frame pointers and the register file are set by executed translated code",
                         "over 1.78 million guest memory accesses executed and the guest RAM digest changed",
-                        "the run stopped at an explicit unresolved indirect jump, not at a budget or a host error",
+                        "the FIRST recorded failure is an explicit unresolved indirect jump (not a budget and not a host error): the first fail-closed transition is real game code",
                     ],
                     "not_claimed": [
                         "milestone B or beyond (no proof that initialisation completes)",
@@ -318,7 +324,8 @@ def main() -> int:
                 },
                 "limitations": [
                     "the failing guest PC is not observable with the frozen Phase-9 driver",
-                    "the platform event transcripts are capped at 4096 recorded events per device",
+                    "the platform event transcripts are capped at 4096 recorded events per device and the driver prints only counts and digests",
+                    "a fail-closed failure aborts only the current translated function: the observables after the first failure are not part of a strictly fail-closed trace",
                 ],
             },
         )

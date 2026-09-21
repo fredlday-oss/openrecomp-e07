@@ -40,6 +40,12 @@ PLATFORM_PORTS = p9_emission.PLATFORM_PORTS
 
 DRIVER_SOURCE = ROOT / ".openrecomp-phase9" / "runtime" / "p9_observable_driver.c"
 DRIVER_MANIFEST_ENTRY = ".openrecomp-phase9/runtime/p9_observable_driver.c"
+PHASE10_DRIVER_SOURCE = ROOT / ".openrecomp-phase10" / "runtime" / "p10_observable_driver_v1.c"
+
+#: Driver selection. `frozen` keeps the Phase-9 observable record (used by the
+#: P10-03/P10-05 emission identities); `phase10` adds the bounded-execution
+#: counters and the typed platform event transcripts.
+DRIVERS = ("frozen", "phase10")
 
 
 def sha256_text(text: str) -> str:
@@ -79,17 +85,30 @@ def emit_program(structure: Any) -> Any:
     )
 
 
+def phase10_driver_source() -> tuple[str, str]:
+    """The additive Phase-10 observable driver with its content hash."""
+    text = PHASE10_DRIVER_SOURCE.read_text(encoding="utf-8")
+    return text, sha256_text(text)
+
+
 def build_build_set(
     structure: Any,
     contract: dict[str, Any],
     flat: bytes,
     fixture_sha256: str,
+    *,
+    driver: str = "frozen",
 ) -> dict[str, Any]:
+    if driver not in DRIVERS:
+        raise ValueError(f"unknown driver selection: {driver}")
     program = emit_program(structure)
     support_text, runtime_record = runtime_support_text()
     image_unit, support_unit = p9_emission.compose_runtime_sources(contract, flat, support_text)
     header = p9_emission.render_image_header(contract)
-    driver_text, driver_hash = driver_source()
+    if driver == "frozen":
+        driver_text, driver_hash = driver_source()
+    else:
+        driver_text, driver_hash = phase10_driver_source()
     driver_unit = header + "\n" + f'#define P9_FIXTURE_SHA256 "{fixture_sha256}"\n' + driver_text
     files = {
         PROGRAM_NAME: program.source_text,
@@ -106,8 +125,9 @@ def build_build_set(
         "hashes": {name: sha256_text(text) for name, text in files.items()},
         "program_fingerprint": program.fingerprint(),
         "runtime_composition": runtime_record,
+        "driver": driver,
         "driver_sha256": driver_hash,
-        "driver_manifest_sha256": _manifest_hash(DRIVER_MANIFEST_ENTRY),
+        "driver_manifest_sha256": _manifest_hash(DRIVER_MANIFEST_ENTRY) if driver == "frozen" else None,
         "semantics": {
             "rules_total": len(semantics.semantics_rules()),
             "added_ops": list(semantics.ADDED_OPS),
@@ -133,6 +153,7 @@ def emission_document(build_set: dict[str, Any]) -> dict[str, Any]:
         ],
         "platform_ports": {name: f"0x{value:08x}" for name, value in sorted(PLATFORM_PORTS.items())},
         "runtime_composition": build_set["runtime_composition"],
+        "driver": build_set["driver"],
         "driver_sha256": build_set["driver_sha256"],
         "semantics": build_set["semantics"],
     }
