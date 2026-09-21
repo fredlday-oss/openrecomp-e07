@@ -48,6 +48,7 @@ uint64_t p10_runtime_mips_service_calls(void);
 uint64_t p10_runtime_mips_service_failures(void);
 
 #define P10_EVENT_PRINT_LIMIT 64u
+#define P10_GPU_EVENT_PRINT_LIMIT 4096u
 
 static uint64_t p10_fnv1a64(const unsigned char *data, size_t length)
 {
@@ -89,7 +90,11 @@ static uint64_t p10_event_digest(const struct p9_event *events, uint32_t count)
 static void p10_print_events(const char *name, const struct p9_event *events, uint32_t count)
 {
     uint32_t index;
-    for (index = 0; index < count && index < P10_EVENT_PRINT_LIMIT; ++index) {
+    uint32_t limit = P10_EVENT_PRINT_LIMIT;
+    if (name[0] == 'g' && name[1] == 'p' && name[2] == 'u') {
+        limit = P10_GPU_EVENT_PRINT_LIMIT;
+    }
+    for (index = 0; index < count && index < limit; ++index) {
         printf("ev_%s_%u=%u,%u,%u,%u,0x%08x,0x%08x\n", name, index,
                (unsigned)events[index].service, (unsigned)events[index].direction,
                (unsigned)events[index].width_bits, (unsigned)events[index].flags,
@@ -154,6 +159,7 @@ int main(void)
     printf("p10_service_calls=%llu\n", (unsigned long long)p10_runtime_mips_service_calls());
     printf("p10_service_failures=%llu\n", (unsigned long long)p10_runtime_mips_service_failures());
     printf("printed_event_limit=%u\n", (unsigned)P10_EVENT_PRINT_LIMIT);
+    printf("printed_gpu_event_limit=%u\n", (unsigned)P10_GPU_EVENT_PRINT_LIMIT);
 
     p10_print_events("gpu", p9_runtime_gpu_events(), gpu_count);
     p10_print_events("input", p9_runtime_input_events(), input_count);

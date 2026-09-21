@@ -137,7 +137,7 @@ def main() -> int:
         check("structure:functions", summary["functions"] == EXPECTED["functions"], str(summary["functions"]))
         check("structure:trap-sites", summary["exception_site_count"] == 3, str(summary["exception_site_count"]))
 
-        build_set = emission.build_build_set(result, contract, flat, image.file_sha256)
+        build_set = emission.build_build_set(result, contract, flat, image.file_sha256, driver="phase10")
         program_text = build_set["files"][emission.PROGRAM_NAME]
         check("emission:function-count", len(build_set["program"].translations) == EXPECTED["functions"],
               str(len(build_set["program"].translations)))
@@ -203,7 +203,9 @@ def main() -> int:
         host_calls = int(native.get("host_calls", "0"))
         events = {name: int(native.get(f"{name}_events", "0"))
                   for name in ("gpu", "input", "spu", "cdrom")}
-        budget = 2000000  # the Phase-10 runtime default access budget
+        budget = int(native.get("p10_access_budget", "0"))
+        access_count = int(native.get("p10_access_count", "0"))
+        budget_denials = int(native.get("p10_budget_denials", "0"))
         accounted = reads + writes + denied + sum(events.values())
 
         check("native:failed", native.get("failed") == EXPECTED["failed"], str(native.get("failed")))
@@ -221,7 +223,13 @@ def main() -> int:
             f"{observed_category} ({native.get('error')!r})",
         )
         check("native:guest-traffic", reads + writes > 1000000, f"{reads}+{writes}")
-        check("native:inside-budget", accounted < budget, f"{accounted} < {budget}")
+        check("native:budget-present", budget > 0, str(budget))
+        check("native:access-count", access_count >= accounted, f"{access_count} >= {accounted}")
+        check(
+            "native:budget-state",
+            budget_denials > 0 and access_count > budget,
+            f"denials={budget_denials} count={access_count} budget={budget}",
+        )
         check("native:gp", native.get("register_file", {}).get("r28") == EXPECTED["gp"], str(native.get("register_file", {}).get("r28")))
         check("native:fp", native.get("register_file", {}).get("r30") == EXPECTED["fp"], str(native.get("register_file", {}).get("r30")))
         check(
@@ -303,11 +311,21 @@ def main() -> int:
                     "events": events,
                     "events_capped": {name: count >= EVENT_CAPACITY for name, count in events.items()},
                     "access_budget": budget,
-                    "accounted_accesses": accounted,
-                    "budget_reached": accounted >= budget,
+                    "access_count": access_count,
+                    "budget_denials": budget_denials,
+                    "accounted_accesses_lower_bound": accounted,
+                    "accounted_note": (
+                        "reads+writes+denied+recorded events is a LOWER bound because the "
+                        "per-device event transcripts are capped at 4096"
+                    ),
+                    "budget_reached": budget_denials > 0,
                     "termination_category": observed_category,
                 },
                 "first_host_service_transition": transition,
+                "event_transcript": {
+                    "printed_gpu_events": sum(1 for line in first.decode("utf-8").splitlines() if line.startswith("ev_gpu_")),
+                    "capped_devices": [name for name, count in events.items() if count >= EVENT_CAPACITY],
+                },
                 "milestone": {
                     "highest": "A",
                     "statement": "translated native execution begins: the guest entry and its initialisation prefix execute as generated host code",
@@ -315,7 +333,8 @@ def main() -> int:
                         "the program built from the private executable runs deterministically to a fail-closed blocker",
                         "the guest crt0 effect is observable: gp, the crt0-derived stack/frame pointers and the register file are set by executed translated code",
                         "over 1.78 million guest memory accesses executed and the guest RAM digest changed",
-                        "the FIRST recorded failure is an explicit unresolved indirect jump (not a budget and not a host error): the first fail-closed transition is real game code",
+                        "the FIRST recorded failure is an explicit unresolved indirect jump, so the first fail-closed transition is real game code",
+                        "the bounded-execution budget was subsequently reached (access count exceeds the budget), which bounded further post-failure progress",
                     ],
                     "not_claimed": [
                         "milestone B or beyond (no proof that initialisation completes)",

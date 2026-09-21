@@ -10,6 +10,9 @@ PASS: emission:no-image-include
 PASS: emission:no-opcode-dispatch
 PASS: image:declared-stack
 PASS: image:entry
+PASS: native:access-count
+PASS: native:budget-present
+PASS: native:budget-state
 PASS: native:deterministic
 PASS: native:error
 PASS: native:exit
@@ -18,7 +21,6 @@ PASS: native:fp
 PASS: native:gp
 PASS: native:guest-memory-modified
 PASS: native:guest-traffic
-PASS: native:inside-budget
 PASS: native:stack-differs-from-declared
 PASS: native:stderr
 PASS: native:termination-category
@@ -28,7 +30,7 @@ PASS: structure:functions
 PASS: structure:neutral-instructions
 PASS: structure:trap-sites
 OPENRECOMP_P10_05=PASS
-OPENRECOMP_PHASE10_NATIVE_ENTRY_V1=PASS tests=29
+OPENRECOMP_PHASE10_NATIVE_ENTRY_V1=PASS tests=31
 OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN
 OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN
 OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN

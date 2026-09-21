@@ -61,6 +61,21 @@
       "status": "PASS"
     },
     {
+      "check": "native:access-count",
+      "detail": "2000005 >= 1790128",
+      "status": "PASS"
+    },
+    {
+      "check": "native:budget-present",
+      "detail": "2000000",
+      "status": "PASS"
+    },
+    {
+      "check": "native:budget-state",
+      "detail": "denials=5 count=2000005 budget=2000000",
+      "status": "PASS"
+    },
+    {
       "check": "native:deterministic",
       "detail": "byte-identical stdout",
       "status": "PASS"
@@ -98,11 +113,6 @@
     {
       "check": "native:guest-traffic",
       "detail": "982859+799023",
-      "status": "PASS"
-    },
-    {
-      "check": "native:inside-budget",
-      "detail": "1790128 < 2000000",
       "status": "PASS"
     },
     {
@@ -148,9 +158,9 @@
   ],
   "failed": 0,
   "failure": null,
-  "passed": 29,
+  "passed": 31,
   "stage": "P10-05",
   "stage_name": "Native execution entry",
   "status": "PASS",
-  "tests": 29
+  "tests": 31
 }

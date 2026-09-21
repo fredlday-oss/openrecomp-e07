@@ -57,7 +57,7 @@ GENERAL_MARKER = "OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY"
 NOT_PROVEN = "NOT_PROVEN"
 
 P10_05_RECORD = ".openrecomp-phase10/evidence/P10-05/native_entry.json"
-P10_05_RECORD_SHA256 = "b3de2d29f63932c81106fa2cc3babb714eba38051153b84b35b6e169c0fc3ad2"
+P10_05_RECORD_SHA256 = "ef7b834293e4e5ff1067c78154ccbbeac218276bea1375000bd380e3cb6c05e9"
 
 EXPECTED = {
     "access_sites": 1107,
@@ -68,6 +68,7 @@ EXPECTED = {
     "required_devices_sorted": ["cdrom", "gpu", "input", "spu"],
     "denied": 11,
     "termination": "UNRESOLVED_INDIRECT_JUMP",
+    "budget_reached": True,
 }
 
 RESULTS: list[dict[str, str]] = []
@@ -118,7 +119,7 @@ def main() -> int:
         check("dynamic:denied", dynamic["denied_accesses"] == EXPECTED["denied"], str(dynamic["denied_accesses"]))
         check("dynamic:denied-not-observable", dynamic["denied_address_observable"] is False, "false")
         check("dynamic:termination", dynamic["termination_category"] == EXPECTED["termination"], str(dynamic["termination_category"]))
-        check("dynamic:budget-not-reached", dynamic["budget_reached"] is False, "false")
+        check("dynamic:budget-reached", dynamic["budget_reached"] is True, "true")
         check("dynamic:host-services", dynamic["host_service_calls"] > 0, str(dynamic["host_service_calls"]))
         check(
             "dynamic:unmodelled-policy",
