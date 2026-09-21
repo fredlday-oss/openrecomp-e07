@@ -1,0 +1,27 @@
+{
+  "claims": {
+    "OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+    "OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN"
+  },
+  "inherited": {
+    "A": "PROVEN (P10-05/P10-11, reproduced live at P11-00)",
+    "B": "NOT_PROVEN",
+    "C": "NOT_PROVEN",
+    "D": "NOT_PROVEN",
+    "E": "NOT_PROVEN",
+    "F": "NOT_PROVEN",
+    "G": "NOT_PROVEN"
+  },
+  "observed_historical_record_note": [
+    "the committed P10-05 native_entry.json translated_trace.file_sha256",
+    "records the frozen Phase-9 driver hash while emission.json records",
+    "the Phase-10 driver; the live P11-00 rebuild uses the frozen",
+    "Phase-10 emission composition and attests the composition-independent",
+    "milestone-A observables. No claim depends on the historical hash map",
+    "and no Phase-10 evidence is rewritten."
+  ],
+  "schema": "openrecomp-phase11-milestone-inheritance-v1",
+  "stage": "P11-00"
+}
