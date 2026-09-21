@@ -60,7 +60,8 @@ runtime architecture is created.
 | P10-02 | PASS |
 | P10-03 | PASS |
 | P10-04 | PASS |
-| P10-05 .. P10-12 | QUEUED |
+| P10-05 | PASS |
+| P10-06 .. P10-12 | QUEUED |
 | P10-90, P10-91, P10-99 | QUEUED |
 
 ## Stage records
@@ -202,9 +203,42 @@ Phase-10 stage runner with byte-identical stdout (1822 bytes LF, sha256
   table window both terminate with `failed=1`;
 - evidence: `.openrecomp-phase10/evidence/P10-04/`.
 
+### P10-05 - Native execution entry
+
+PASS (30 checks). Gate `tools/test_phase10_native_v1.py` ran twice through the
+Phase-10 stage runner with byte-identical stdout (1040 bytes LF, sha256
+`16efd5a6...`), empty stderr and exit 0.
+
+- the private executable translated through the existing architecture-neutral
+  emitter and the Phase-10 runtime: 110 functions (`program.c` 520039 bytes),
+  the 2 MiB guest RAM window as inert data, the frozen Phase-9 platform
+  runtime with three anchored Phase-10 substitutions, and the frozen Phase-9
+  observable driver;
+- original MIPS machine code never executes: no guest payload bytes, no
+  opcode dispatch and no image include in `program.c`; the guest image is
+  inert data;
+- reproducible build (two isolated runs, both `OK`), executable SHA-256
+  `972a0ebb...`, repeated execution byte-identical;
+- deterministic translated entry into the guest entry `0x800132e8`; the guest
+  crt0 effect is observable (`$gp` `0x8002ed78`, `$fp` `0x80200000`, `$sp`
+  `0x801ffe00`) and the guest RAM digest changed;
+- 982859 reads + 799023 writes + 11 denied + 8235 device events = 1790128
+  accounted accesses against an explicit 2000000 access budget that was NOT
+  reached, so the blocker is real game code;
+- termination category `UNRESOLVED_INDIRECT_JUMP` at an executed unresolved
+  indirect jump (exact site not observable with the frozen driver; the
+  complete candidate set is recorded);
+- 79 Phase-10 MIPS host-service calls and GPU/input (both capped at 4096),
+  SPU (5) and CD-ROM (38) port events, which grounds `P10-06`;
+- milestone `A` (translated native execution begins) established; milestone B
+  and beyond explicitly not claimed;
+- evidence: `.openrecomp-phase10/evidence/P10-05/`.
+
 ## Open blockers
 
-- none at the P10-04 boundary. The 19 unresolved indirect calls, the 18
-  indirect jumps and every BIOS service remain fail-closed.
+- the first blocker is an executed unresolved indirect jump (18 candidate
+  sites); no address-observable failing-PC evidence is available with the
+  frozen Phase-9 driver.
+
 
 

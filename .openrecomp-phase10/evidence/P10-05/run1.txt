@@ -1,0 +1,34 @@
+PASS: build:executable
+PASS: build:status
+PASS: claim:general-not-promoted
+PASS: claim:native-execution-not-promoted
+PASS: claim:playability-not-promoted
+PASS: emission:function-count
+PASS: emission:inert-image-unit
+PASS: emission:no-guest-machine-code
+PASS: emission:no-image-include
+PASS: emission:no-opcode-dispatch
+PASS: image:declared-stack
+PASS: image:entry
+PASS: native:deterministic
+PASS: native:error
+PASS: native:exit
+PASS: native:failed
+PASS: native:fp
+PASS: native:gp
+PASS: native:guest-memory-modified
+PASS: native:guest-traffic
+PASS: native:inside-budget
+PASS: native:stack-differs-from-declared
+PASS: native:stderr
+PASS: native:termination-category
+PASS: private:present
+PASS: structure:blocks
+PASS: structure:functions
+PASS: structure:neutral-instructions
+PASS: structure:trap-sites
+OPENRECOMP_P10_05=PASS
+OPENRECOMP_PHASE10_NATIVE_ENTRY_V1=PASS tests=29
+OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN
+OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN

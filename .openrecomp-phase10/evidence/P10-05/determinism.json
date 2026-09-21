@@ -1,0 +1,45 @@
+{
+  "artifact_sha256": {
+    "emission.json": "bc5944628a99c4747a3902fa53e3a21b05a970c4fa5828efa7fa10507d2a93b9",
+    "native_entry.json": "b3de2d29f63932c81106fa2cc3babb714eba38051153b84b35b6e169c0fc3ad2",
+    "p10_05_tests.json": "3fcc99144156d3736a76325aad666234f49bd9a222a9809a577bb5cc5799da99"
+  },
+  "artifacts_identical": true,
+  "gate": "tools/test_phase10_native_v1.py",
+  "gate_sha256": "10c2e87aa8b44fe770f0db1ed098fb29e5afbb0ec37150f37ef1e27e56571775",
+  "general_marker": "OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+  "playability_marker": "OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "emission.json": "bc5944628a99c4747a3902fa53e3a21b05a970c4fa5828efa7fa10507d2a93b9",
+        "native_entry.json": "b3de2d29f63932c81106fa2cc3babb714eba38051153b84b35b6e169c0fc3ad2",
+        "p10_05_tests.json": "3fcc99144156d3736a76325aad666234f49bd9a222a9809a577bb5cc5799da99"
+      },
+      "p10_05_tests_sha256": "3fcc99144156d3736a76325aad666234f49bd9a222a9809a577bb5cc5799da99",
+      "returncode": 0,
+      "stdout_bytes_raw": 1074,
+      "stdout_sha256_lf": "16efd5a639b0da54cabe21486247b021e305d4ad7c4509a2f72d772d1da72749",
+      "stdout_sha256_raw": "6dd02eeddd80f122b6d136f15787564d226472ce5a517936dc0d7ef955cae0ef"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "emission.json": "bc5944628a99c4747a3902fa53e3a21b05a970c4fa5828efa7fa10507d2a93b9",
+        "native_entry.json": "b3de2d29f63932c81106fa2cc3babb714eba38051153b84b35b6e169c0fc3ad2",
+        "p10_05_tests.json": "3fcc99144156d3736a76325aad666234f49bd9a222a9809a577bb5cc5799da99"
+      },
+      "p10_05_tests_sha256": "3fcc99144156d3736a76325aad666234f49bd9a222a9809a577bb5cc5799da99",
+      "returncode": 0,
+      "stdout_bytes_raw": 1074,
+      "stdout_sha256_lf": "16efd5a639b0da54cabe21486247b021e305d4ad7c4509a2f72d772d1da72749",
+      "stdout_sha256_raw": "6dd02eeddd80f122b6d136f15787564d226472ce5a517936dc0d7ef955cae0ef"
+    }
+  },
+  "schema": "openrecomp-phase10-determinism-v1",
+  "stage": "P10-05",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true,
+  "terminal_marker": "OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN"
+}

@@ -19,31 +19,26 @@
   classified exactly (3 BIOS B0 vector calls with function indices, 19
   unresolved with explicit evidence), and the typed BIOS boundary stays
   fail-closed with no BIOS material;
-- evidence in `.openrecomp-phase10/evidence/P10-00/`, `P10-01/`,
-  `P10-02/`, `P10-03/` and `P10-04/`.
+- `P10-05` `PASS` (30 checks): the private executable is generated, built
+  and executed deterministically as generated host code; the crt0 prefix
+  runs, 1.79M guest accesses execute, and the run fails closed at an
+  executed unresolved indirect jump. Milestone A established;
+- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-05/`.
 
 ## Immediate next action
 
-`P10-05` - native execution entry for Hercules.
+`P10-06` - dynamic PS1 I/O discovery from the observed execution.
 
-Generate and build Hercules-derived native host code (original MIPS machine
-code must not execute at runtime) and establish deterministic entry into
-translated game code. Record:
+`P10-05` already recorded real platform traffic: GPU and controller events
+(both capped at 4096), SPU 5, CD-ROM 38, and 11 denied accesses. `P10-06` must
+classify those into GPU / DMA / interrupt controller / timers / SIO-controller
+/ SPU / CD-ROM / memory control / other, decide which are actually required for
+progress, and implement only the reachable requirement. No complete device may
+be implemented speculatively.
 
-- guest entry PC (`0x800132e8`), initial register state and stack state;
-- memory-image identity;
-- the translated control-flow trace identity;
-- the first host/service transition;
-- the termination/blocker category.
+## Known work queued after P10-06
 
-Expected first blocker candidates, in address order: a direct call into the
-`jal 0x80015f18` region (critical-section helper), the BIOS B0 vector call at
-`0x80015fa4`, an unresolved indirect call, or an unmapped guest memory access.
-Graphics and playability are not required at this stage.
-
-## Known work queued after P10-05
-
-- `P10-06` .. `P10-11`: dynamic I/O discovery, GPU, interrupt/DMA/timing,
+- `P10-07` .. `P10-11`: GPU command execution frontier, interrupt/DMA/timing,
   CUE/BIN CD-ROM/filesystem/streaming, SPU/controller/game-loop, highest
   milestone;
 - `P10-12`, `P10-90`, `P10-91`, `P10-99`: hardening, whole-project regression,

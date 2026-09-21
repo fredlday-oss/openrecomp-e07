@@ -1,0 +1,156 @@
+{
+  "checks": [
+    {
+      "check": "build:executable",
+      "detail": ".openrecomp-phase10/build/p10-05/run1/program.exe",
+      "status": "PASS"
+    },
+    {
+      "check": "build:status",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:general-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:native-execution-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:playability-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:function-count",
+      "detail": "110",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:inert-image-unit",
+      "detail": "guest image emitted as inert data",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-guest-machine-code",
+      "detail": "no guest payload bytes in the generated program",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-image-include",
+      "detail": "the generated program does not include the guest image unit",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-opcode-dispatch",
+      "detail": "generated program is a direct translation, not a decode loop",
+      "status": "PASS"
+    },
+    {
+      "check": "image:declared-stack",
+      "detail": "0x801ffff0",
+      "status": "PASS"
+    },
+    {
+      "check": "image:entry",
+      "detail": "0x800132e8",
+      "status": "PASS"
+    },
+    {
+      "check": "native:deterministic",
+      "detail": "byte-identical stdout",
+      "status": "PASS"
+    },
+    {
+      "check": "native:error",
+      "detail": "unresolved indirect jump",
+      "status": "PASS"
+    },
+    {
+      "check": "native:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "native:failed",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "native:fp",
+      "detail": "0x80200000",
+      "status": "PASS"
+    },
+    {
+      "check": "native:gp",
+      "detail": "0x8002ed78",
+      "status": "PASS"
+    },
+    {
+      "check": "native:guest-memory-modified",
+      "detail": "guest RAM digest differs from the loaded image",
+      "status": "PASS"
+    },
+    {
+      "check": "native:guest-traffic",
+      "detail": "982859+799023",
+      "status": "PASS"
+    },
+    {
+      "check": "native:inside-budget",
+      "detail": "1790128 < 2000000",
+      "status": "PASS"
+    },
+    {
+      "check": "native:stack-differs-from-declared",
+      "detail": "the crt0-established stack pointer was observed",
+      "status": "PASS"
+    },
+    {
+      "check": "native:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "native:termination-category",
+      "detail": "UNRESOLVED_INDIRECT_JUMP ('unresolved indirect jump')",
+      "status": "PASS"
+    },
+    {
+      "check": "private:present",
+      "detail": "private fixture present",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:blocks",
+      "detail": "739",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:functions",
+      "detail": "110",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:neutral-instructions",
+      "detail": "3433",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:trap-sites",
+      "detail": "3",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 29,
+  "stage": "P10-05",
+  "stage_name": "Native execution entry",
+  "status": "PASS",
+  "tests": 29
+}

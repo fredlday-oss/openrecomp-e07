@@ -1,0 +1,399 @@
+{
+  "entry": {
+    "declared_stack_pointer": "0x801ffff0",
+    "guest_entry_pc": "0x800132e8",
+    "initial_register_state": "all 32 guest registers are zero-initialised by the generated entry",
+    "observed_frame_pointer": "0x80200000",
+    "observed_gp": "0x8002ed78",
+    "observed_register_file": {
+      "r00": "0x00000000",
+      "r01": "0x80030000",
+      "r02": "0x00000000",
+      "r03": "0x00000000",
+      "r04": "0x00000002",
+      "r05": "0x00000000",
+      "r06": "0x00000000",
+      "r07": "0x00000001",
+      "r08": "0x00000000",
+      "r09": "0x00000000",
+      "r10": "0x801f7ffc",
+      "r11": "0x00000001",
+      "r12": "0x80000000",
+      "r13": "0x00000000",
+      "r14": "0x00000000",
+      "r15": "0x00000000",
+      "r16": "0x00000000",
+      "r17": "0x80028588",
+      "r18": "0x00000000",
+      "r19": "0x00000000",
+      "r20": "0x00000000",
+      "r21": "0x00000000",
+      "r22": "0x00000000",
+      "r23": "0x00000000",
+      "r24": "0x00000000",
+      "r25": "0x00000000",
+      "r26": "0x00000000",
+      "r27": "0x00000000",
+      "r28": "0x8002ed78",
+      "r29": "0x801ffe00",
+      "r30": "0x80200000",
+      "r31": "0x80015840"
+    },
+    "observed_stack_pointer": "0x801ffe00"
+  },
+  "execution": {
+    "access_budget": 2000000,
+    "accounted_accesses": 1790128,
+    "budget_reached": false,
+    "denied": 11,
+    "deterministic": true,
+    "error": "unresolved indirect jump",
+    "events": {
+      "cdrom": 38,
+      "gpu": 4096,
+      "input": 4096,
+      "spu": 5
+    },
+    "events_capped": {
+      "cdrom": false,
+      "gpu": true,
+      "input": true,
+      "spu": false
+    },
+    "executable_sha256": "972a0ebb21b52971325b05aea4325e7950c1dbdf3b42b06f96686fc955d77b0b",
+    "exit_status": "0x00000000",
+    "failed": "1",
+    "host_calls": 79,
+    "reads": 982859,
+    "stdout_sha256": "e8a140f534489b816e4976fb437990e865b11efe490b3290dc45d1652f6d29f3",
+    "termination_category": "UNRESOLVED_INDIRECT_JUMP",
+    "writes": 799023
+  },
+  "first_host_service_transition": {
+    "address_observable": false,
+    "candidate_site_count": 18,
+    "candidate_sites": [
+      {
+        "address": 2147565180,
+        "block_id": "blk_80013e6c",
+        "function_id": "fn_80013c18",
+        "kind": "INDIRECT_JUMP",
+        "op": "jr_indirect",
+        "status": "UNRESOLVED_INDIRECT_JUMP",
+        "target": null
+      },
+      {
+        "address": 2147572612,
+        "block_id": "blk_80015b80",
+        "function_id": "fn_80015b80",
+        "kind": "INDIRECT_JUMP",
+        "op": "jr_indirect",
+        "status": "UNRESOLVED_INDIRECT_JUMP",
+        "target": null
+      },
+      {
+        "address": 2147572628,
+        "block_id": "blk_80015b90",
+        "function_id": "fn_80015b90",
+        "kind": "INDIRECT_JUMP",
+        "op": "jr_indirect",
+        "status": "UNRESOLVED_INDIRECT_JUMP",
+        "target": null
+      },
+      {
+        "address": 2147572644,
+        "block_id": "blk_80015ba0",
+        "function_id": "fn_80015ba0",
+        "kind": "INDIRECT_JUMP",
+        "op": "jr_indirect",
+        "status": "UNRESOLVED_INDIRECT_JUMP",
+        "target": null
+      },
+      {
+        "address": 2147573468,
+        "block_id": "blk_80015ed8",
+        "function_id": "fn_80015ed8",
+        "kind": "INDIRECT_JUMP",
+        "op": "jr_indirect",
+        "status": "UNRESOLVED_INDIRECT_JUMP",
+        "target": null
+      },
+      {
+        "address": 2147573484,
+        "block_id": "blk_80015ee8",
+        "function_id": "fn_80015ee8",
+        "kind": "INDIRECT_JUMP",
+        "op": "jr_indirect",
+        "status": "UNRESOLVED_INDIRECT_JUMP",
+        "target": null
+      },
+      {
+        "address": 2147573564,
+        "block_id": "blk_80015f38",
+        "function_id": "fn_80015f38",
+        "kind": "INDIRECT_JUMP",
+        "op": "jr_indirect",
+        "status": "UNRESOLVED_INDIRECT_JUMP",
+        "target": null
+      },
+      {
+        "address": 2147573580,
+        "block_id": "blk_80015f48",
+        "function_id": "fn_80015f48",
+        "kind": "INDIRECT_JUMP",
+        "op": "jr_indirect",
+        "status": "UNRESOLVED_INDIRECT_JUMP",
+        "target": null
+      },
+      {
+        "address": 2147573596,
+        "block_id": "blk_80015f58",
+        "function_id": "fn_80015f58",
+        "kind": "INDIRECT_JUMP",
+        "op": "jr_indirect",
+        "status": "UNRESOLVED_INDIRECT_JUMP",
+        "target": null
+      },
+      {
+        "address": 2147573620,
+        "block_id": "blk_80015f68",
+        "function_id": "fn_80015f68",
+        "kind": "INDIRECT_JUMP",
+        "op": "jr_indirect",
+        "status": "UNRESOLVED_INDIRECT_JUMP",
+        "target": null
+      },
+      {
+        "address": 2147574240,
+        "block_id": "blk_800161dc",
+        "function_id": "fn_800161dc",
+        "kind": "INDIRECT_JUMP",
+        "op": "jr_indirect",
+        "status": "UNRESOLVED_INDIRECT_JUMP",
+        "target": null
+      },
+      {
+        "address": 2147595300,
+        "block_id": "blk_8001b420",
+        "function_id": "fn_8001b420",
+        "kind": "INDIRECT_JUMP",
+        "op": "jr_indirect",
+        "status": "UNRESOLVED_INDIRECT_JUMP",
+        "target": null
+      },
+      {
+        "address": 2147642484,
+        "block_id": "blk_80026c70",
+        "function_id": "fn_80026c70",
+        "kind": "INDIRECT_JUMP",
+        "op": "jr_indirect",
+        "status": "UNRESOLVED_INDIRECT_JUMP",
+        "target": null
+      },
+      {
+        "address": 2147642572,
+        "block_id": "blk_80026cc8",
+        "function_id": "fn_80026cc8",
+        "kind": "INDIRECT_JUMP",
+        "op": "jr_indirect",
+        "status": "UNRESOLVED_INDIRECT_JUMP",
+        "target": null
+      },
+      {
+        "address": 2147642588,
+        "block_id": "blk_80026cd8",
+        "function_id": "fn_80026cd8",
+        "kind": "INDIRECT_JUMP",
+        "op": "jr_indirect",
+        "status": "UNRESOLVED_INDIRECT_JUMP",
+        "target": null
+      },
+      {
+        "address": 2147642604,
+        "block_id": "blk_80026ce8",
+        "function_id": "fn_80026ce8",
+        "kind": "INDIRECT_JUMP",
+        "op": "jr_indirect",
+        "status": "UNRESOLVED_INDIRECT_JUMP",
+        "target": null
+      },
+      {
+        "address": 2147642916,
+        "block_id": "blk_80026e20",
+        "function_id": "fn_80026e20",
+        "kind": "INDIRECT_JUMP",
+        "op": "jr_indirect",
+        "status": "UNRESOLVED_INDIRECT_JUMP",
+        "target": null
+      },
+      {
+        "address": 2147642932,
+        "block_id": "blk_80026e30",
+        "function_id": "fn_80026e30",
+        "kind": "INDIRECT_JUMP",
+        "op": "jr_indirect",
+        "status": "UNRESOLVED_INDIRECT_JUMP",
+        "target": null
+      }
+    ],
+    "error": "unresolved indirect jump",
+    "kind": "fail-closed-unresolved-indirect-jump",
+    "observation_limit": "the frozen Phase-9 observable driver does not print the failing guest PC"
+  },
+  "identity": {
+    "address_space": {
+      "ram_kseg0_base": "0x80000000",
+      "ram_kseg0_end": "0x80200000",
+      "ram_size": 2097152
+    },
+    "bss_section": {
+      "address": "0x00000000",
+      "present": false,
+      "size": 0
+    },
+    "data_section": {
+      "address": "0x00000000",
+      "present": false,
+      "size": 0
+    },
+    "entry_pc": "0x800132e8",
+    "file_sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "file_size": 129024,
+    "format": "PS-X EXE",
+    "format_version": "1.0.0",
+    "header_fields": {
+      "b_addr": "0x00000000",
+      "b_size": "0x00000000",
+      "d_addr": "0x00000000",
+      "d_size": "0x00000000",
+      "gp0": "0x00000000",
+      "pc0": "0x800132e8",
+      "s_addr": "0x801ffff0",
+      "s_size": "0x00000000",
+      "t_addr": "0x80010000",
+      "t_size": "0x0001f000",
+      "zero1": "0x00000000",
+      "zero2": "0x00000000"
+    },
+    "header_size": 2048,
+    "initial_gp": "0x00000000",
+    "load_address": "0x80010000",
+    "magic": "PS-X EXE",
+    "payload_sha256": "2f48da4c642b25dd9d0b033f77b80a19e5befe34dc19da3194a51998e97c71be",
+    "payload_size": 126976,
+    "ram_span": {
+      "end": "0x8002f000",
+      "start": "0x80010000"
+    },
+    "reserved": {
+      "first_nonzero_offset": "0x4c",
+      "last_nonzero_offset": "0x82",
+      "nonzero_bytes": 55,
+      "offset": "0x38",
+      "sha256": "e6a138356b7e46be030334fdd789fab8cafeee2c85d44b54edafd391427b54fe",
+      "size": 1992
+    },
+    "stack": {
+      "pointer": "0x801ffff0",
+      "size": 0
+    },
+    "stack_pointer": "0x801ffff0",
+    "text_end": "0x8002f000"
+  },
+  "is_pass_criterion": false,
+  "label": "hercules-private-fixture",
+  "limitations": [
+    "the failing guest PC is not observable with the frozen Phase-9 driver",
+    "the platform event transcripts are capped at 4096 recorded events per device"
+  ],
+  "memory_image": {
+    "contract_digest": "4566f740a10ca4fdc6fb6d1046662c2e8619c6c8648f025f91dcd6ab95f6bf54",
+    "file_sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "loaded_image_digest": "0x8b4e6ca9b8b31c02",
+    "loaded_image_sha256": "7d13f5f4f6c4dd321ddd01da627dc656dc1531163f8cca674a5febcf3aa87010",
+    "payload_sha256": "2f48da4c642b25dd9d0b033f77b80a19e5befe34dc19da3194a51998e97c71be",
+    "ram_size": 2097152,
+    "runtime_memory_digest": "0x18131c6ef356df7d"
+  },
+  "milestone": {
+    "evidence": [
+      "the program built from the private executable runs deterministically to a fail-closed blocker",
+      "the guest crt0 effect is observable: gp, the crt0-derived stack/frame pointers and the register file are set by executed translated code",
+      "over 1.78 million guest memory accesses executed and the guest RAM digest changed",
+      "the run stopped at an explicit unresolved indirect jump, not at a budget or a host error"
+    ],
+    "highest": "A",
+    "not_claimed": [
+      "milestone B or beyond (no proof that initialisation completes)",
+      "any rendering, audio, input or gameplay behaviour"
+    ],
+    "statement": "translated native execution begins: the guest entry and its initialisation prefix execute as generated host code"
+  },
+  "schema": "openrecomp-phase10-native-entry-v1",
+  "stage": "P10-05",
+  "translated_trace": {
+    "exception_sites": [
+      {
+        "bd": 0,
+        "code": 1,
+        "continuation": "NOT_MODELLED_FAIL_CLOSED",
+        "epc": 2147562384,
+        "exception_code": 9,
+        "exception_name": "Bp",
+        "handling": "explicit-trap-terminator",
+        "op": "break",
+        "runtime_category": "GUEST_BREAK",
+        "site": 2147562384,
+        "site_hex": "0x80013390",
+        "successors": []
+      },
+      {
+        "bd": 0,
+        "code": 0,
+        "continuation": "NOT_MODELLED_FAIL_CLOSED",
+        "epc": 2147573532,
+        "exception_code": 8,
+        "exception_name": "Sys",
+        "handling": "explicit-trap-terminator",
+        "op": "syscall",
+        "runtime_category": "GUEST_SYSCALL",
+        "site": 2147573532,
+        "site_hex": "0x80015f1c",
+        "successors": []
+      },
+      {
+        "bd": 0,
+        "code": 0,
+        "continuation": "NOT_MODELLED_FAIL_CLOSED",
+        "epc": 2147573548,
+        "exception_code": 8,
+        "exception_name": "Sys",
+        "handling": "explicit-trap-terminator",
+        "op": "syscall",
+        "runtime_category": "GUEST_SYSCALL",
+        "site": 2147573548,
+        "site_hex": "0x80015f2c",
+        "successors": []
+      }
+    ],
+    "file_sha256": {
+      "p9_driver.c": "7769c09311aca7213d6d38300cc79d929cb45a30707af1a5012ca889a9ad5f2e",
+      "p9_image_v1.c": "77a340448081cc606b16e104734b3a48d11483210520618dcca8b1266c43f96b",
+      "p9_runtime_support.c": "73551c55b3659664ec59fb240d637ba00aad684cabe3e2c45536897fafaa4ec4",
+      "program.c": "a047a52fb460d3786e5bff03b5c26ac2978ae768b581f5e6c4a9cbc284db4a9a"
+    },
+    "functions": 110,
+    "program_fingerprint": "a047a52fb460d3786e5bff03b5c26ac2978ae768b581f5e6c4a9cbc284db4a9a",
+    "structure": {
+      "blocks": 739,
+      "call_edges_internal": 209,
+      "call_edges_unresolved": 22,
+      "edges": 889,
+      "folded_delay_slots": 635,
+      "functions": 110,
+      "neutral_instructions": 3433,
+      "non_nop_delay_slots": 328,
+      "translation_units": 110
+    }
+  }
+}
