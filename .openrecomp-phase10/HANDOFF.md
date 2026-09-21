@@ -43,39 +43,36 @@
 - `P10-11` `PASS` (38 checks): the highest demonstrated milestone is **A**,
   hash-bound to the committed stage evidence, with B..G explicitly not
   established;
-- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-11/`.
+- `P10-12` `PASS` (56 checks): malformed-input rejection, live
+  fail-closed negatives, an identity-bound analysis cache, public-safety
+  closure and clean-rebuild reproducibility;
+- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-12/`.
 
 ## Immediate next action
 
-`P10-12` - hardening and reproducibility. Required coverage:
+`P10-90` - whole-project regression. This is the expensive boundary:
 
-1. malformed inputs reject deterministically (PS-X EXE ingestion negatives,
-   malformed analysis records, malformed trap/memory-control evidence);
-2. unsupported BREAK/exception behaviour fails closed (already covered at
-   `P10-01`; re-verify against the current tree);
-3. unresolved control flow fails closed (unresolved indirect call/jump stubs);
-4. unknown BIOS calls fail closed (`P10-04`);
-5. unknown MMIO / unknown device commands fail closed (`P10-07`..`P10-10`);
-6. stale cache rejected and changed disc/executable identity invalidates cached
-   analysis: the immutable-hash analysis cache must include the executable
-   SHA-256, CUE SHA-256, BIN SHA-256, frontend/semantic/model/runtime/disc-model
-   versions, and must not accept a hit on filename equality alone;
-7. CUE/BIN material never enters repository evidence (public-safety scan over
-   all committed Phase-10 evidence);
-8. no original guest machine code executes at runtime (generated program has no
-   guest bytes and no opcode dispatch);
-9. clean native rebuild succeeds and repeated execution is deterministic
-   (transcript/state identities repeat exactly);
-10. record the bounded-execution limitation and its mitigation explicitly
-    (default budget plus bounded host timeout; the budget bounds accesses, not
-    execution).
+1. re-run the frozen Phase-1..Phase-9 official gates using the documented
+   historical reconstruction mechanisms (Phase 7 required a reconstructed
+   pre-verdict worktree in Phase 8/9; reuse that documented mechanism);
+2. re-run every completed Phase-10 official gate (P10-00 .. P10-12) through the
+   Phase-10 stage runner, capturing byte-identical stdout, empty stderr, exit 0
+   and sidecar identities;
+3. verify the frozen Phase-1..9 evidence is unchanged (hashes identical) and
+   that the Phase-10 stage records still verify;
+4. capture the exact gate count, test count, stdout hashes and stderr state.
 
-## Known work queued after P10-12
+Note: several Phase-10 gates perform a Hercules build+run (P10-05, P10-07,
+P10-08, P10-09, P10-10, P10-12) and each run takes minutes; the whole
+regression may take a while but must not weaken audit coverage.
 
-- `P10-90`: whole-project regression (all frozen Phase-1..9 gates plus every
-  completed Phase-10 official gate);
-- `P10-91`: evidence index and proof matrix;
-- `P10-99`: final bounded verdict.
+## Known work queued after P10-90
+
+- `P10-91`: final evidence index and proof matrix;
+- `P10-99`: final bounded verdict (may promote
+  `OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=PASS` only if the terminal
+  audit confirms the native-execution result survives closure and regression;
+  `OPENRECOMP_PHASE10_HERCULES_PLAYABILITY` stays `NOT_PROVEN`).
 
 ## Private fixture notes
 

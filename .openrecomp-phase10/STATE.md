@@ -67,7 +67,8 @@ runtime architecture is created.
 | P10-09 | PASS |
 | P10-10 | PASS |
 | P10-11 | PASS |
-| P10-12 | QUEUED |
+| P10-12 | PASS |
+| P10-90, P10-91, P10-99 | QUEUED |
 | P10-90, P10-91, P10-99 | QUEUED |
 
 ## Stage records
@@ -389,16 +390,41 @@ the Phase-10 stage runner with byte-identical stdout (1284 bytes LF, sha256
   absent;
 - evidence: `.openrecomp-phase10/evidence/P10-11/`.
 
+### P10-12 - Hardening and reproducibility
+
+PASS (56 checks). Gate `tools/test_phase10_hardening_v1.py` ran twice through
+the Phase-10 stage runner with byte-identical stdout (2046 bytes LF, sha256
+`5ddd24b3...`), empty stderr and byte-identical generated sidecars.
+
+- 12 synthesised malformed PS-X EXE containers reject with their exact stable
+  codes; malformed trap records and a delay-slot-less control transfer still
+  fail closed; a malformed BIOS analysis invents no service;
+- live fail-closed negatives: an executed `break` and an unknown GP0 command
+  both terminate with explicit errors and no continuation;
+- the identity-bound analysis cache misses on every identity/version/
+  configuration change (9 invalidations), rejects missing provenance and
+  rejects corrupt entries;
+- the public-safety scan of 117 committed evidence files finds no private
+  payload hex/base64/ASCII run and no absolute host path;
+- a clean rebuild reproduces every committed cross-stage observable exactly
+  (reads/writes/denied/host calls/budget counters/failure category/device event
+  counts and the crt0 register state);
+- the bounded-execution limitation is recorded with its mitigation;
+- one gate-internal correction was applied before the official runs (the safety
+  scan now excludes the stage directory it writes) so the scan is
+  deterministic;
+- evidence: `.openrecomp-phase10/evidence/P10-12/`.
+
 ## Open blockers
 
 - the executed unresolved indirect jump blocks initialisation; the exact
-  failing guest PC is not observable (only the candidate set is recorded);
-- milestones B..G are unreachable without resolving that control-flow frontier
-  (or otherwise advancing initialisation);
-- the bounded-execution budget cannot interrupt a post-truncation guest loop
-  with no memory access (`P10-12` hardening item);
+  failing guest PC is not observable;
+- milestones B..G are unreachable without resolving that control-flow frontier;
+- the access budget cannot interrupt a post-truncation guest loop with no
+  memory access (mitigated by the default budget plus a bounded host timeout);
 - SPU RAM transfer, interrupt delivery, DMA, memory-control timing, disc data
   transfer and controller consumption remain unreached/unimplemented.
+
 
 
 

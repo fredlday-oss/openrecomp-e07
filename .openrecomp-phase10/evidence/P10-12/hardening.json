@@ -1,0 +1,61 @@
+{
+  "bounded_execution": {
+    "budget": 2000000,
+    "mitigation": "all official gates use the default budget and a bounded host timeout; any future bounded run must verify termination, and a deterministic step bound would require an emitter-level hook",
+    "observation": "the access budget bounds memory accesses, not execution; a post-truncation guest loop with no memory access cannot be interrupted, which was observed as a hang while probing ordering at a smaller budget during P10-07"
+  },
+  "cache": {
+    "cache_dir": ".openrecomp-phase10/cache/hardening",
+    "invalidations_tested": 9,
+    "keys_stored": [
+      "b4df28d8e40749a4391aa100bc6bbf62675cb7757a6e02dcab7dfdf9e09bff0d"
+    ]
+  },
+  "fail_closed_negatives": [
+    {
+      "denied": "0",
+      "error": "guest trap is unsupported",
+      "failed": "1",
+      "name": "break"
+    },
+    {
+      "denied": "1",
+      "error": "runtime memory write failed",
+      "failed": "1",
+      "name": "unknown-gp0"
+    }
+  ],
+  "ingest_negatives": 12,
+  "is_pass_criterion": false,
+  "label": "hercules-private-fixture",
+  "no_guest_machine_code": true,
+  "rebuild": {
+    "build_status": "OK,OK",
+    "cross_stage_observables": {
+      "cdrom_events": "38",
+      "denied": "11",
+      "error": "unresolved indirect jump",
+      "failed": "1",
+      "gpu_events": "65536",
+      "host_calls": "79",
+      "input_events": "65536",
+      "p10_access_budget": "2000000",
+      "p10_access_count": "2000005",
+      "p10_budget_denials": "5",
+      "reads": "982859",
+      "spu_events": "5",
+      "writes": "799023"
+    },
+    "executable_sha256": "22285c26147d3c25d0c77531ca640121a3880d98f5f369a7bee8d6d0a117de96",
+    "identical_to_committed_records": true
+  },
+  "safety_scan": {
+    "excluded_stage_dir": ".openrecomp-phase10/evidence/P10-12",
+    "files_scanned": 117,
+    "host_path_violations": [],
+    "private_payload_violations": []
+  },
+  "schema": "openrecomp-phase10-hardening-v1",
+  "stage": "P10-12",
+  "trap_negatives": 3
+}

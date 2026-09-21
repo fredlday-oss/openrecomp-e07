@@ -1,0 +1,291 @@
+{
+  "checks": [
+    {
+      "check": "bios:no-service-invented",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "bios:unresolved-stays-explicit",
+      "detail": "{\"INDIRECT_TARGET_UNRESOLVED\": 1}",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:corrupt-entry-rejected",
+      "detail": "CACHE_ENTRY_CORRUPT",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:hit",
+      "detail": "hit",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:key-length",
+      "detail": "64",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:miss-on-analysis_config_digest",
+      "detail": "analysis_config_digest",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:miss-on-bin_sha256s",
+      "detail": "bin_sha256s",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:miss-on-cue_sha256",
+      "detail": "cue_sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:miss-on-disc_model_version",
+      "detail": "disc_model_version",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:miss-on-exe_identity_digest",
+      "detail": "exe_identity_digest",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:miss-on-executable_sha256",
+      "detail": "executable_sha256",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:miss-on-frontend_version",
+      "detail": "frontend_version",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:miss-on-runtime_version",
+      "detail": "runtime_version",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:miss-on-semantic_version",
+      "detail": "semantic_version",
+      "status": "PASS"
+    },
+    {
+      "check": "cache:missing-field-rejected",
+      "detail": "PROVENANCE_MISSING_FIELD",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:general-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:native-execution-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:playability-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:inert-image",
+      "detail": "inert data",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-image-include",
+      "detail": "no image include",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-opcode-dispatch",
+      "detail": "no decode loop",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-payload-bytes",
+      "detail": "no guest bytes",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:BAD_MAGIC",
+      "detail": "BAD_MAGIC",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:EMPTY_PAYLOAD",
+      "detail": "EMPTY_PAYLOAD",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:ENTRY_OUTSIDE_PAYLOAD",
+      "detail": "ENTRY_OUTSIDE_PAYLOAD",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:INPUT_TOO_SMALL",
+      "detail": "INPUT_TOO_SMALL",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:LOAD_ADDRESS_OUTSIDE_RAM",
+      "detail": "LOAD_ADDRESS_OUTSIDE_RAM",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:MISALIGNED_ENTRY",
+      "detail": "MISALIGNED_ENTRY",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:MISALIGNED_GP",
+      "detail": "MISALIGNED_GP",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:MISALIGNED_LOAD_ADDRESS",
+      "detail": "MISALIGNED_LOAD_ADDRESS",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:MISALIGNED_PAYLOAD_SIZE",
+      "detail": "MISALIGNED_PAYLOAD_SIZE",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:MISALIGNED_STACK",
+      "detail": "MISALIGNED_STACK",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:STACK_OUTSIDE_RAM",
+      "detail": "STACK_OUTSIDE_RAM",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:TRUNCATED_PAYLOAD",
+      "detail": "TRUNCATED_PAYLOAD",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:all-negatives",
+      "detail": "[[\"INPUT_TOO_SMALL\", \"INPUT_TOO_SMALL\"], [\"BAD_MAGIC\", \"BAD_MAGIC\"], [\"EMPTY_PAYLOAD\", \"EMPTY_PAYLOAD\"], [\"MISALIGNED_PAYLOAD_SIZE\", \"MISALIGNED_PAYLOAD_SIZE\"], [\"TRUNCATED_PAYLOAD\", \"TRUNCATED_PAYLOAD\"], [\"MISALIGNED_LOAD_ADDRESS\", \"MISALIGNED_LOAD_ADDRESS\"], [\"LOAD_ADDRESS_OUTSIDE_RAM\", \"LOAD_ADDRESS_OUTSIDE_RAM\"], [\"MISALIGNED_ENTRY\", \"MISALIGNED_ENTRY\"], [\"ENTRY_OUTSIDE_PAYLOAD\", \"ENTRY_OUTSIDE_PAYLOAD\"], [\"MISALIGNED_STACK\", \"MISALIGNED_STACK\"], [\"STACK_OUTSIDE_RAM\", \"STACK_OUTSIDE_RAM\"], [\"MISALIGNED_GP\", \"MISALIGNED_GP\"]]",
+      "status": "PASS"
+    },
+    {
+      "check": "ingest:valid-baseline",
+      "detail": "baseline accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:source-integrity",
+      "detail": "OPENRECOMP_PHASE10_SOURCE_INTEGRITY=PASS entries=32",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:break:build",
+      "detail": "OK,OK",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:break:failed",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:break:reason",
+      "detail": "guest trap is unsupported",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unknown-gp0:build",
+      "detail": "OK,OK",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unknown-gp0:failed",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unknown-gp0:reason",
+      "detail": "runtime memory write failed",
+      "status": "PASS"
+    },
+    {
+      "check": "private:present",
+      "detail": "private fixture present",
+      "status": "PASS"
+    },
+    {
+      "check": "rebuild:cross-stage-observables",
+      "detail": "{}",
+      "status": "PASS"
+    },
+    {
+      "check": "rebuild:register-file-reproduced",
+      "detail": "{\"r28\": \"0x8002ed78\", \"r29\": \"0x801ffe00\", \"r30\": \"0x80200000\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "rebuild:status",
+      "detail": "OK,OK",
+      "status": "PASS"
+    },
+    {
+      "check": "rebuild:transcript-identical",
+      "detail": "single capture",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:evidence-scanned",
+      "detail": "117",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:no-host-paths",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:no-private-payload",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:frozen-bridge-still-fails-closed",
+      "detail": "covered by the P9-11 dependency gate",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:missing-delay-slot",
+      "detail": "CONTROL_WITHOUT_DELAY_SLOT",
+      "status": "PASS"
+    },
+    {
+      "check": "trap:NOT_A_TRAP_RECORD",
+      "detail": "NOT_A_TRAP_RECORD",
+      "status": "PASS"
+    },
+    {
+      "check": "trap:TRAP_HAS_DELAY_SLOT",
+      "detail": "TRAP_HAS_DELAY_SLOT",
+      "status": "PASS"
+    },
+    {
+      "check": "trap:TRAP_HAS_TARGET",
+      "detail": "TRAP_HAS_TARGET",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 56,
+  "stage": "P10-12",
+  "stage_name": "Hardening and reproducibility",
+  "status": "PASS",
+  "tests": 56
+}
