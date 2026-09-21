@@ -58,17 +58,24 @@
   plus `git update-index --really-refresh`); the live three-gate re-run is not
   byte-reproducible because the frozen Phase-8 evidence embeds the absolute
   worktree path (1 of 27 sidecars measured divergent);
-- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-90/`.
+- `P10-91` **PASS** (323 checks): all fourteen completed stage records verify
+  with matching sidecar hashes, the 135-file evidence index is committed and
+  equal to the live index, the proof matrix and 36-claim ledger separate
+  `PROVEN` / `BOUNDED` / `NOT_PROVEN` / `NOT_TESTED`, and the public-safety
+  scan finds no private payload, host path or non-text evidence;
+- `P10-00` was re-issued during `P10-91` for a stale tests record (112 checks vs
+  the official capture's 192); the stdout capture is byte-identical and the
+  re-issue is documented in the `P10-00` record;
+- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-91/`.
 
 ## Immediate next action
 
-`P10-91` - final evidence index and proof matrix. `P10-90` is complete,
-committed and clean; see the `P10-90` stage record in `STATE.md` and
-`.openrecomp-phase10/evidence/P10-90/RESULT.md` for the exact identities.
+`P10-99` - final bounded verdict. `P10-91` is complete, committed and clean;
+see the `P10-91` stage record in `STATE.md` and
+`.openrecomp-phase10/evidence/P10-91/RESULT.md` for the exact identities.
 
-## Known work queued after P10-91
+## Known work queued after P10-99
 
-- `P10-91`: final evidence index and proof matrix;
 - `P10-99`: final bounded verdict (may promote
   `OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=PASS` only if the terminal
   audit confirms the native-execution result survives closure and regression;

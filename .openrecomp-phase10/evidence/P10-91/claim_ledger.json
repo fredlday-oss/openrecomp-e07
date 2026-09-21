@@ -1,0 +1,291 @@
+{
+  "claims": [
+    {
+      "claim": "PS-X EXE ingestion for the bounded V1 container form",
+      "class": "PROVEN",
+      "evidence": [
+        "P10-00",
+        "P10-12"
+      ],
+      "key": "psx_exe_ingestion"
+    },
+    {
+      "claim": "Exact BREAK/SYSCALL encoding and architectural semantics classification",
+      "class": "PROVEN",
+      "evidence": [
+        "P10-01",
+        "P10-12"
+      ],
+      "key": "break_syscall_classification"
+    },
+    {
+      "claim": "CONTROL_WITHOUT_DELAY_SLOT reconciled by the additive exception-aware structure bridge",
+      "class": "PROVEN",
+      "evidence": [
+        "P10-02"
+      ],
+      "key": "control_without_delay_slot_reconciliation"
+    },
+    {
+      "claim": "Reachable CPU/control frontier closure for the private fixture",
+      "class": "PROVEN",
+      "evidence": [
+        "P10-03",
+        "P10-12"
+      ],
+      "key": "cpu_control_frontier_closure"
+    },
+    {
+      "claim": "Exact BIOS call-site classification with the typed fail-closed service boundary and no BIOS image",
+      "class": "PROVEN",
+      "evidence": [
+        "P10-04",
+        "P10-12"
+      ],
+      "key": "bios_call_classification"
+    },
+    {
+      "claim": "Deterministic translated native execution entry into the private guest code (milestone A)",
+      "class": "PROVEN",
+      "evidence": [
+        "P10-05",
+        "P10-11",
+        "P10-12"
+      ],
+      "key": "native_execution_entry"
+    },
+    {
+      "claim": "Dynamic and static PS1 I/O discovery over the audited port ranges",
+      "class": "PROVEN",
+      "evidence": [
+        "P10-06"
+      ],
+      "key": "dynamic_io_discovery"
+    },
+    {
+      "claim": "Exact GPU frontier classification (GP1 status polling only; no command stream)",
+      "class": "PROVEN",
+      "evidence": [
+        "P10-07"
+      ],
+      "key": "gpu_frontier_classification"
+    },
+    {
+      "claim": "Exact interrupt/DMA/timing frontier classification with a read-driven virtual-time contract",
+      "class": "PROVEN",
+      "evidence": [
+        "P10-08"
+      ],
+      "key": "interrupt_dma_timing_classification"
+    },
+    {
+      "claim": "Exact disc/CD-ROM frontier classification (register traffic only; no data path)",
+      "class": "PROVEN",
+      "evidence": [
+        "P10-09"
+      ],
+      "key": "cdrom_disc_frontier_classification"
+    },
+    {
+      "claim": "Exact controller/SPU/game-loop frontier classification (no controller consumption; served busy-poll loop)",
+      "class": "PROVEN",
+      "evidence": [
+        "P10-10"
+      ],
+      "key": "controller_spu_game_loop_classification"
+    },
+    {
+      "claim": "Highest demonstrated Hercules milestone is A",
+      "class": "PROVEN",
+      "evidence": [
+        "P10-11"
+      ],
+      "key": "highest_milestone_a"
+    },
+    {
+      "claim": "Fail-closed hardening, immutable-hash cache correctness, reproducible rebuild and public-safety closure",
+      "class": "PROVEN",
+      "evidence": [
+        "P10-12",
+        "P10-90"
+      ],
+      "key": "fail_closed_hardening_and_reproducibility"
+    },
+    {
+      "claim": "Whole-project regression across the frozen Phase-1..9 chain and the completed Phase-10 stages",
+      "class": "PROVEN",
+      "evidence": [
+        "P10-90"
+      ],
+      "key": "whole_project_regression"
+    },
+    {
+      "claim": "Every demonstrated result is bounded to the exact private fixture",
+      "class": "BOUNDED",
+      "evidence": [
+        "P10-00",
+        "P10-11"
+      ],
+      "key": "private_fixture_scope"
+    },
+    {
+      "claim": "Per-device transcripts are capped and the access budget bounds accesses, not execution",
+      "class": "BOUNDED",
+      "evidence": [
+        "P10-05",
+        "P10-07",
+        "P10-12"
+      ],
+      "key": "event_transcript_caps_and_access_budget"
+    },
+    {
+      "claim": "Platform ports are event-recording contract stubs, not hardware-accurate emulation",
+      "class": "BOUNDED",
+      "evidence": [
+        "P10-07",
+        "P10-08",
+        "P10-09",
+        "P10-10"
+      ],
+      "key": "platform_port_contract_stubs"
+    },
+    {
+      "claim": "Virtual time is read-driven (`tick & 0xffff`), not cycle accurate",
+      "class": "BOUNDED",
+      "evidence": [
+        "P10-08"
+      ],
+      "key": "read_driven_virtual_time"
+    },
+    {
+      "claim": "Completed stage records carry the runtime composition as it was at their own boundary",
+      "class": "BOUNDED",
+      "evidence": [
+        "P10-07",
+        "P10-08",
+        "P10-90"
+      ],
+      "key": "historical_stage_composition"
+    },
+    {
+      "claim": "Reserved terminal native-execution proof marker",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "native_execution_proof"
+    },
+    {
+      "claim": "Hercules playability",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "hercules_playability"
+    },
+    {
+      "claim": "General PS1 compatibility",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "general_ps1_compatibility"
+    },
+    {
+      "claim": "Milestone B (initialisation completes)",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "milestone_b_initialisation_complete"
+    },
+    {
+      "claim": "Milestone C (GPU command stream reached)",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "milestone_c_gpu_command_stream"
+    },
+    {
+      "claim": "Milestones D/E/F (frame or present observable)",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "milestone_d_e_f_frame_present_observable"
+    },
+    {
+      "claim": "Milestone G (controllable gameplay)",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "milestone_g_controllable_gameplay"
+    },
+    {
+      "claim": "BIOS emulation",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "bios_emulation"
+    },
+    {
+      "claim": "GPU rendering / VRAM behaviour",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "gpu_rendering_vram"
+    },
+    {
+      "claim": "SPU audio synthesis",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "spu_audio_synthesis"
+    },
+    {
+      "claim": "CD-ROM disc reading / filesystem / streaming",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "cdrom_disc_reading_streaming"
+    },
+    {
+      "claim": "Controller input consumption",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "controller_input_consumption"
+    },
+    {
+      "claim": "Interrupt delivery / event scheduling",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "interrupt_delivery"
+    },
+    {
+      "claim": "DMA transfer",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "dma_transfer"
+    },
+    {
+      "claim": "Cycle-accurate timing",
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "cycle_accurate_timing"
+    },
+    {
+      "claim": "Arbitrary PS-X EXE compatibility",
+      "class": "NOT_TESTED",
+      "evidence": [],
+      "key": "arbitrary_psx_exe_compatibility"
+    },
+    {
+      "claim": "Memory cards, link cable and other unimplemented devices",
+      "class": "NOT_TESTED",
+      "evidence": [],
+      "key": "memory_cards_link_cable"
+    }
+  ],
+  "classes": [
+    "PROVEN",
+    "BOUNDED",
+    "NOT_PROVEN",
+    "NOT_TESTED"
+  ],
+  "permanent_non_claims": [
+    "OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+  ],
+  "playability_claim_status_at_p10_91": "NOT_PROVEN",
+  "reserved_non_claims_at_p10_91": [
+    "OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN",
+    "OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN"
+  ],
+  "schema": "openrecomp-phase10-claim-ledger-v1",
+  "stage": "P10-91",
+  "terminal_claim": "OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF",
+  "terminal_claim_status_at_p10_91": "NOT_PROVEN"
+}

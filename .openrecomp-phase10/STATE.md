@@ -69,7 +69,8 @@ runtime architecture is created.
 | P10-11 | PASS |
 | P10-12 | PASS |
 | P10-90 | PASS |
-| P10-91, P10-99 | QUEUED |
+| P10-91 | PASS |
+| P10-99 | QUEUED |
 
 ## Stage records
 
@@ -444,6 +445,40 @@ sha256 `90630afd...`; LF capture `0370518d...`), empty stderr and exit 0.
 - claim-ledger delta: none; the terminal, playability and general markers stay
   `NOT_PROVEN` and the highest demonstrated milestone stays `A`;
 - evidence: `.openrecomp-phase10/evidence/P10-90/`.
+
+### P10-91 - Evidence closure and proof matrix
+
+PASS (323 checks). Gate `tools/test_phase10_evidence_closure_v1.py` ran twice
+through the Phase-10 stage runner with byte-identical raw stdout (11212 bytes,
+sha256 `2b09fb02...`; LF capture `07497098...`), empty stderr, exit 0 and
+byte-identical sidecars.
+
+- all fourteen completed stage records (`P10-00` .. `P10-12`, `P10-90`) verify:
+  `RESULT.md`, tests record, two byte-identical runs, empty stderr, exit 0,
+  markers present and every recorded sidecar hash matching the file on disk;
+- `P10-00` was re-issued during this stage: its committed tests record held the
+  earlier 112-check revision while the official stdout capture and the current
+  gate hold 192 checks; the stdout capture is byte-identical (raw `497ef9f9...`,
+  LF `c1c4ed3b...`) and the record is now consistent (documented in the `P10-00`
+  record);
+- the evidence index covers 135 committed Phase-10 evidence files (663483
+  bytes) excluding this stage's own sidecars and the post-index terminal stage,
+  with exact SHA-256 and size per entry; the committed index equals the live
+  index;
+- the proof matrix records the exact private fixture identity, the native
+  execution state (guest entry `0x800132e8`, 982859 reads / 799023 writes /
+  11 denied / 79 host calls, termination `UNRESOLVED_INDIRECT_JUMP`), the
+  highest demonstrated milestone **A** (B..G not established), the
+  CPU/BIOS/GPU/DMA-timing/CD-filesystem/SPU-input frontiers, the deliberate
+  exclusions and the unresolved blockers;
+- the claim ledger classifies 36 claims as `PROVEN` / `BOUNDED` / `NOT_PROVEN`
+  / `NOT_TESTED`; the terminal native-execution proof and the playability
+  markers stay `NOT_PROVEN` for `P10-99`, and the permanent general PS1 marker
+  stays `NOT_PROVEN`;
+- public safety: no private payload hex/base64/ASCII run, no absolute host path
+  and no non-text evidence file in the index; the Phase-10 source manifest
+  verifies (`=PASS entries=34`);
+- evidence: `.openrecomp-phase10/evidence/P10-91/`.
 
 ## Status at the P10-12 closure
 

@@ -1,0 +1,1639 @@
+{
+  "claims": [
+    {
+      "class": "NOT_TESTED",
+      "evidence": [],
+      "key": "arbitrary_psx_exe_compatibility"
+    },
+    {
+      "class": "PROVEN",
+      "evidence": [
+        "P10-04",
+        "P10-12"
+      ],
+      "key": "bios_call_classification"
+    },
+    {
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "bios_emulation"
+    },
+    {
+      "class": "PROVEN",
+      "evidence": [
+        "P10-01",
+        "P10-12"
+      ],
+      "key": "break_syscall_classification"
+    },
+    {
+      "class": "PROVEN",
+      "evidence": [
+        "P10-09"
+      ],
+      "key": "cdrom_disc_frontier_classification"
+    },
+    {
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "cdrom_disc_reading_streaming"
+    },
+    {
+      "class": "PROVEN",
+      "evidence": [
+        "P10-02"
+      ],
+      "key": "control_without_delay_slot_reconciliation"
+    },
+    {
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "controller_input_consumption"
+    },
+    {
+      "class": "PROVEN",
+      "evidence": [
+        "P10-10"
+      ],
+      "key": "controller_spu_game_loop_classification"
+    },
+    {
+      "class": "PROVEN",
+      "evidence": [
+        "P10-03",
+        "P10-12"
+      ],
+      "key": "cpu_control_frontier_closure"
+    },
+    {
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "cycle_accurate_timing"
+    },
+    {
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "dma_transfer"
+    },
+    {
+      "class": "PROVEN",
+      "evidence": [
+        "P10-06"
+      ],
+      "key": "dynamic_io_discovery"
+    },
+    {
+      "class": "BOUNDED",
+      "evidence": [
+        "P10-05",
+        "P10-07",
+        "P10-12"
+      ],
+      "key": "event_transcript_caps_and_access_budget"
+    },
+    {
+      "class": "PROVEN",
+      "evidence": [
+        "P10-12",
+        "P10-90"
+      ],
+      "key": "fail_closed_hardening_and_reproducibility"
+    },
+    {
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "general_ps1_compatibility"
+    },
+    {
+      "class": "PROVEN",
+      "evidence": [
+        "P10-07"
+      ],
+      "key": "gpu_frontier_classification"
+    },
+    {
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "gpu_rendering_vram"
+    },
+    {
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "hercules_playability"
+    },
+    {
+      "class": "PROVEN",
+      "evidence": [
+        "P10-11"
+      ],
+      "key": "highest_milestone_a"
+    },
+    {
+      "class": "BOUNDED",
+      "evidence": [
+        "P10-07",
+        "P10-08",
+        "P10-90"
+      ],
+      "key": "historical_stage_composition"
+    },
+    {
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "interrupt_delivery"
+    },
+    {
+      "class": "PROVEN",
+      "evidence": [
+        "P10-08"
+      ],
+      "key": "interrupt_dma_timing_classification"
+    },
+    {
+      "class": "NOT_TESTED",
+      "evidence": [],
+      "key": "memory_cards_link_cable"
+    },
+    {
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "milestone_b_initialisation_complete"
+    },
+    {
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "milestone_c_gpu_command_stream"
+    },
+    {
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "milestone_d_e_f_frame_present_observable"
+    },
+    {
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "milestone_g_controllable_gameplay"
+    },
+    {
+      "class": "PROVEN",
+      "evidence": [
+        "P10-05",
+        "P10-11",
+        "P10-12"
+      ],
+      "key": "native_execution_entry"
+    },
+    {
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "native_execution_proof"
+    },
+    {
+      "class": "BOUNDED",
+      "evidence": [
+        "P10-07",
+        "P10-08",
+        "P10-09",
+        "P10-10"
+      ],
+      "key": "platform_port_contract_stubs"
+    },
+    {
+      "class": "BOUNDED",
+      "evidence": [
+        "P10-00",
+        "P10-11"
+      ],
+      "key": "private_fixture_scope"
+    },
+    {
+      "class": "PROVEN",
+      "evidence": [
+        "P10-00",
+        "P10-12"
+      ],
+      "key": "psx_exe_ingestion"
+    },
+    {
+      "class": "BOUNDED",
+      "evidence": [
+        "P10-08"
+      ],
+      "key": "read_driven_virtual_time"
+    },
+    {
+      "class": "NOT_PROVEN",
+      "evidence": [],
+      "key": "spu_audio_synthesis"
+    },
+    {
+      "class": "PROVEN",
+      "evidence": [
+        "P10-90"
+      ],
+      "key": "whole_project_regression"
+    }
+  ],
+  "deliberate_exclusions": [
+    "no BIOS image is loaded, executed or emulated",
+    "no GPU rendering, framebuffer or VRAM state is modelled",
+    "no SPU synthesis or RAM transfer is implemented",
+    "no disc data path, sector transfer, ISO9660 access, overlay or streaming is implemented",
+    "no controller input is consumed and no frame or interrupt-driven loop is claimed",
+    "no interrupt delivery, DMA transfer or memory-control timing model is implemented",
+    "no generic exception machinery is added: BREAK/SYSCALL stay explicit fail-closed terminators"
+  ],
+  "fixture_identity": {
+    "disc": {
+      "bins": [
+        {
+          "directory_entry": "Disney's Hercules Action Game (USA).bin",
+          "sha256": "2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365",
+          "size": 409452624
+        }
+      ],
+      "cue": {
+        "cue_sha256": "beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2",
+        "cue_size": 101,
+        "directory_entry": "Disney's Hercules Action Game (USA).cue",
+        "file_entry": "Disney's Hercules Action Game (USA).bin",
+        "file_type": "BINARY",
+        "referenced_bins": [
+          "Disney's Hercules Action Game (USA).bin"
+        ],
+        "track_count": 1,
+        "tracks": [
+          {
+            "index1_msf": [
+              0,
+              0,
+              0
+            ],
+            "number": 1,
+            "type": "MODE2/2352"
+          }
+        ]
+      },
+      "volume": {
+        "pvd_lba": 16,
+        "root_extent_lba": 22,
+        "root_size": 2048,
+        "system_identifier": "PLAYSTATION",
+        "volume_identifier": "",
+        "volume_space_size_sectors": 174087
+      }
+    },
+    "executable": {
+      "directory_entry": "SLUS_005.29",
+      "sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "size": 129024
+    },
+    "system_cnf": {
+      "boot_extent_lba": 23,
+      "boot_extent_sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "boot_extent_size": 129024,
+      "boot_target": "SLUS_005.29",
+      "directory_entry": "SYSTEM.CNF;1",
+      "extent_lba": 86,
+      "fields": {
+        "BOOT": "cdrom:SLUS_005.29;1",
+        "EVENT": "16",
+        "STACK": "801FFF00",
+        "TCB": "4"
+      },
+      "matches_primary_executable": true,
+      "size": 67
+    }
+  },
+  "frontiers": {
+    "bios": {
+      "bios_call_count": 3,
+      "boundary": {
+        "bios_image": "none",
+        "boundary_version": "1.0.0",
+        "services": [
+          {
+            "arity": 0,
+            "category": "bios",
+            "implemented": false,
+            "name": "BIOS A0 jump-table vector",
+            "service_id": "bios-A0"
+          },
+          {
+            "arity": 0,
+            "category": "bios",
+            "implemented": false,
+            "name": "BIOS B0 jump-table vector",
+            "service_id": "bios-B0"
+          },
+          {
+            "arity": 0,
+            "category": "bios",
+            "implemented": false,
+            "name": "BIOS C0 jump-table vector",
+            "service_id": "bios-C0"
+          }
+        ],
+        "unknown_service_policy": "fail-closed",
+        "vectors": {
+          "A0": "0xa0",
+          "B0": "0xb0",
+          "C0": "0xc0"
+        }
+      },
+      "histogram": {
+        "BIOS_VECTOR_CALL": 3,
+        "INDIRECT_TARGET_UNRESOLVED": 19
+      },
+      "index_register": 9,
+      "resolved_internal_call_count": 0,
+      "site_count": 22,
+      "unknown_policy": "fail-closed",
+      "vector_bases": {
+        "A0": "0x000000a0",
+        "B0": "0x000000b0",
+        "C0": "0x000000c0"
+      }
+    },
+    "disc": {
+      "classification": {
+        "blockers": [
+          {
+            "direction": "write",
+            "register": "COMMAND",
+            "value": "0x80"
+          }
+        ],
+        "command_classification": {
+          "command_count": 10,
+          "command_histogram": {
+            "READ_N": 4,
+            "SET_LOCATION": 1,
+            "SET_MODE": 4,
+            "UNKNOWN_COMMAND": 1
+          },
+          "disc_version": "1.0.0",
+          "documented_command_table_size": 32,
+          "unknown_command_count": 1,
+          "unknown_commands": [
+            128
+          ]
+        },
+        "data_path": {
+          "asynchronous_cd_event": false,
+          "data_streaming": false,
+          "evidence": "no disc data port read, no sector request and no file/streaming operation appears in the recorded transcript: only index/status, parameter, command and interrupt-enable register traffic is present",
+          "executable_overlay_load": false,
+          "file_open_or_read": false,
+          "iso9660_directory_access": false,
+          "resource_load": false,
+          "sector_read": false,
+          "xa_audio_streaming": false
+        },
+        "data_path_reached": false,
+        "disc_image_used": "none",
+        "disc_version": "1.0.0",
+        "event_count": 38,
+        "register_histogram": {
+          "COMMAND": {
+            "write": 10
+          },
+          "INDEX_STATUS": {
+            "write": 15
+          },
+          "INTERRUPT_ENABLE": {
+            "read": 2,
+            "write": 3
+          },
+          "PARAMETER": {
+            "write": 8
+          }
+        },
+        "stub_policy": "contract-stub-not-hardware-accurate"
+      },
+      "disc_identity_sha256": "8b7c94ffe94c1f013ee7d7d2ff1e706e085cb71c5c705ea13d9fef631acf6f2d"
+    },
+    "gpu": {
+      "denial_attribution": {
+        "cdrom_blocker_events": 1,
+        "gpu_blocker_events": 0,
+        "input_blocker_events": 1,
+        "recorded_blocker_total": 2,
+        "spu_blocker_events": 0,
+        "unrecorded_denials": 9
+      },
+      "new_frontier": {
+        "budget_reached": true,
+        "first_recorded_failure": "executed unresolved indirect jump",
+        "first_remaining_blocker": "the executed unresolved indirect jump (control flow), which precedes any GPU command write; the GPU is not the blocker",
+        "gpu_command_stream_reached": false,
+        "gpu_operations_reached": "GP1 status polling only",
+        "gpu_side_blocker": null,
+        "milestone_c_established": false,
+        "milestone_statement": "GP1 status polling is reached and served, but no GP0/GP1 command stream is reached, so milestone C is NOT established"
+      },
+      "not_implemented": [
+        "GP0 command execution or VRAM state",
+        "GP1 display/DMA/timer control state",
+        "any rendering, framebuffer or VRAM digest",
+        "any DMA-controller behaviour"
+      ],
+      "status_read_stub": "0x14802000",
+      "transcript": {
+        "address_histogram": {
+          "0x1f801814": 65536
+        },
+        "blocked_event_count": 0,
+        "command_class_histogram": {},
+        "distinct_write_values": 0,
+        "dma_controller_traffic": "not_observed",
+        "event_count": 65536,
+        "frontier_version": "1.0.0",
+        "gp0_reads": 0,
+        "gp0_writes": 0,
+        "gp1_reads": 65536,
+        "gp1_writes": 0,
+        "provenance": "per-access guest PC, translated function and call-flow provenance are not observable: the generated program carries no access hook, and the frozen Phase-9 observable driver records per-device event streams only",
+        "reads": 65536,
+        "transfer_class_count": 0,
+        "unknown_command_count": 0,
+        "unknown_commands": [],
+        "vram_state": "not_modelled_by_the_phase9_boundary",
+        "width_histogram": {
+          "32": 65536
+        },
+        "write_value_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "writes": 0
+      }
+    },
+    "hardening": {
+      "bounded_execution": {
+        "budget": 2000000,
+        "mitigation": "all official gates use the default budget and a bounded host timeout; any future bounded run must verify termination, and a deterministic step bound would require an emitter-level hook",
+        "observation": "the access budget bounds memory accesses, not execution; a post-truncation guest loop with no memory access cannot be interrupted, which was observed as a hang while probing ordering at a smaller budget during P10-07"
+      },
+      "cache": {
+        "cache_dir": ".openrecomp-phase10/cache/hardening",
+        "invalidations_tested": 9,
+        "keys_stored": [
+          "b4df28d8e40749a4391aa100bc6bbf62675cb7757a6e02dcab7dfdf9e09bff0d"
+        ]
+      },
+      "ingest_negatives": 12,
+      "no_guest_machine_code": true,
+      "rebuild": {
+        "build_status": "OK,OK",
+        "cross_stage_observables": {
+          "cdrom_events": "38",
+          "denied": "11",
+          "error": "unresolved indirect jump",
+          "failed": "1",
+          "gpu_events": "65536",
+          "host_calls": "79",
+          "input_events": "65536",
+          "p10_access_budget": "2000000",
+          "p10_access_count": "2000005",
+          "p10_budget_denials": "5",
+          "reads": "982859",
+          "spu_events": "5",
+          "writes": "799023"
+        },
+        "executable_sha256": "22285c26147d3c25d0c77531ca640121a3880d98f5f369a7bee8d6d0a117de96",
+        "identical_to_committed_records": true
+      },
+      "safety_scan": {
+        "files_scanned": 126,
+        "host_path_violations": [],
+        "private_payload_violations": [],
+        "scope": "committed content (HEAD) of every tracked evidence file",
+        "skipped_not_in_head": []
+      },
+      "trap_negatives": 3
+    },
+    "input_spu": {
+      "controller": {
+        "accesses": [
+          {
+            "address": "0x1f801074",
+            "budget_denied": false,
+            "class": "interrupt_port",
+            "direction": "read",
+            "observations": 1,
+            "width_bits": 16
+          },
+          {
+            "address": "0x1f801110",
+            "budget_denied": false,
+            "class": "timer_counter",
+            "direction": "read",
+            "observations": 109035,
+            "width_bits": 32
+          }
+        ],
+        "class_counts": {
+          "interrupt_port": 1,
+          "timer_counter": 109035
+        },
+        "controller_data_port": "0x1f801040",
+        "controller_data_reached": false,
+        "frontier_version": "1.0.0",
+        "interrupt_port_accesses": 1,
+        "scripted_input_consumable": false,
+        "timer_counter_reads": 109035
+      },
+      "game_loop": {
+        "busy_poll_evidence": "the GPU status read and the timer1 counter read appear exactly one-to-one (109035 each) and both are served, which is a served busy-poll loop, not a frame or event loop",
+        "busy_poll_loop_reached": true,
+        "busy_poll_served": true,
+        "controller_input_consumed": false,
+        "frame_loop_reached": false,
+        "frontier_version": "1.0.0",
+        "interrupt_driven_progress_required": false,
+        "not_reached": [
+          "a completed initialisation followed by a frame loop",
+          "a vsync or interrupt-driven wait",
+          "any controller-read-driven state progression"
+        ],
+        "spu_events": 5,
+        "vsync_or_interrupt_wait_reached": false
+      },
+      "spu": {
+        "accesses": [
+          {
+            "address": "0x1f801db8",
+            "blocked": false,
+            "class": "spu_cd_audio",
+            "direction": "read",
+            "value_class": "zero",
+            "width_bits": 16
+          },
+          {
+            "address": "0x1f801dba",
+            "blocked": false,
+            "class": "spu_cd_audio",
+            "direction": "read",
+            "value_class": "zero",
+            "width_bits": 16
+          },
+          {
+            "address": "0x1f801db0",
+            "blocked": false,
+            "class": "spu_cd_audio",
+            "direction": "write",
+            "value_class": "volume_max",
+            "width_bits": 16
+          },
+          {
+            "address": "0x1f801db2",
+            "blocked": false,
+            "class": "spu_cd_audio",
+            "direction": "write",
+            "value_class": "volume_max",
+            "width_bits": 16
+          },
+          {
+            "address": "0x1f801daa",
+            "blocked": false,
+            "class": "spu_control",
+            "direction": "write",
+            "value_class": "control_enable_cd_audio_and_transfer",
+            "width_bits": 16
+          }
+        ],
+        "audio_reason": "the reached SPU traffic is configuration-only (volume and control writes plus two register reads); no voice setup, no RAM transfer and no audio output requirement is evidence-reachable, and audio reproduction is not required unless its absence blocks execution",
+        "audio_required": false,
+        "class_counts": {
+          "spu_cd_audio": 4,
+          "spu_control": 1
+        },
+        "event_count": 5,
+        "frontier_version": "1.0.0",
+        "ram_transfer_accesses": 0
+      }
+    },
+    "io": {
+      "dynamic": {
+        "budget_reached": true,
+        "denied_accesses": 11,
+        "denied_address_observable": false,
+        "denied_classification": "OUTSIDE_AUDITED_RANGES",
+        "host_service_calls": 79,
+        "io_version": "1.0.0",
+        "observed_device_count": 4,
+        "observed_devices": [
+          {
+            "capped": true,
+            "device": "gpu",
+            "event_count": 4096,
+            "implemented_by": "phase9-typed-port-boundary",
+            "required": true
+          },
+          {
+            "capped": true,
+            "device": "input",
+            "event_count": 4096,
+            "implemented_by": "phase9-typed-port-boundary",
+            "required": true
+          },
+          {
+            "capped": false,
+            "device": "spu",
+            "event_count": 5,
+            "implemented_by": "phase9-typed-port-boundary",
+            "required": true
+          },
+          {
+            "capped": false,
+            "device": "cdrom",
+            "event_count": 38,
+            "implemented_by": "phase9-typed-port-boundary",
+            "required": true
+          }
+        ],
+        "reads": 982859,
+        "source": "P10-05 native observable record",
+        "termination_category": "UNRESOLVED_INDIRECT_JUMP",
+        "unmodelled_device_policy": "fail-closed",
+        "writes": 799023
+      },
+      "static": {
+        "access_site_count": 1107,
+        "audited_ranges": [
+          {
+            "base": "0x1f801810",
+            "name": "gpu",
+            "size": 8
+          },
+          {
+            "base": "0x1f801040",
+            "name": "joy",
+            "size": 16
+          },
+          {
+            "base": "0x1f801100",
+            "name": "timer0",
+            "size": 16
+          },
+          {
+            "base": "0x1f801110",
+            "name": "timer1",
+            "size": 16
+          },
+          {
+            "base": "0x1f801120",
+            "name": "timer2",
+            "size": 16
+          },
+          {
+            "base": "0x1f801c00",
+            "name": "spu",
+            "size": 1024
+          },
+          {
+            "base": "0x1f801800",
+            "name": "cdrom",
+            "size": 4
+          },
+          {
+            "base": "0x1f801070",
+            "name": "interrupt",
+            "size": 8
+          }
+        ],
+        "device_histogram": {},
+        "first_device_site": null,
+        "histogram": {
+          "OUTSIDE_AUDITED_RANGES": 338,
+          "UNRESOLVED_BASE": 769
+        },
+        "io_version": "1.0.0",
+        "residual_policy": "unresolved bases and addresses outside the audited ranges stay explicit and fail closed"
+      }
+    },
+    "semantics": {
+      "preconditions": {
+        "added_ops": [
+          "addi",
+          "and",
+          "bgez",
+          "bgtz",
+          "blez",
+          "bltz",
+          "break",
+          "jalr",
+          "lh",
+          "lhu",
+          "lwl",
+          "lwr",
+          "mfhi",
+          "mult",
+          "sh",
+          "slt",
+          "slti",
+          "sltiu",
+          "sltu",
+          "subu",
+          "swl",
+          "swr",
+          "syscall",
+          "xori"
+        ],
+        "architecture": "mips32-bounded-v1",
+        "folded_delay_slots": 635,
+        "host_service_ops": {
+          "addi": "openrecomp.mips.add.overflow.check",
+          "lwl": "openrecomp.mips.lwl",
+          "lwr": "openrecomp.mips.lwr",
+          "mfhi": "openrecomp.mips.mfhi",
+          "mult": "openrecomp.mips.mult",
+          "swl": "openrecomp.mips.swl",
+          "swr": "openrecomp.mips.swr"
+        },
+        "jalr_bad_destinations": 0,
+        "jalr_sites": 22,
+        "rules_added": 25,
+        "rules_total": 47,
+        "semantics_version": "1.0.0",
+        "service_arities": {
+          "openrecomp.mips.add.overflow.check": 2,
+          "openrecomp.mips.lwl": 2,
+          "openrecomp.mips.lwr": 2,
+          "openrecomp.mips.mfhi": 0,
+          "openrecomp.mips.mult": 2,
+          "openrecomp.mips.swl": 2,
+          "openrecomp.mips.swr": 2
+        },
+        "trap_sites": 3,
+        "unmapped_delay_slots": 0
+      },
+      "unruled_ops": []
+    },
+    "structure": {
+      "cause": "BREAK/SYSCALL control semantics: exception-raising instructions carry no delay slot",
+      "new_frontier": {
+        "first_unresolved_indirect_op": "jr_indirect",
+        "first_unresolved_indirect_site": "0x80013e7c",
+        "first_unresolved_indirect_status": "UNRESOLVED_INDIRECT_JUMP",
+        "first_unruled_semantic_op": "sh",
+        "first_unruled_semantic_site": "0x80011a60",
+        "unruled_op_histogram": {
+          "addi": 2,
+          "and": 17,
+          "bgez": 4,
+          "bgtz": 5,
+          "blez": 11,
+          "bltz": 6,
+          "break": 1,
+          "jalr": 22,
+          "jr_indirect": 18,
+          "lh": 12,
+          "lhu": 6,
+          "lwl": 17,
+          "lwr": 17,
+          "mfhi": 5,
+          "mult": 5,
+          "sh": 31,
+          "slt": 19,
+          "slti": 12,
+          "sltiu": 8,
+          "sltu": 23,
+          "subu": 23,
+          "swl": 17,
+          "swr": 17,
+          "syscall": 2,
+          "xori": 4
+        },
+        "unruled_op_sites": {
+          "addi": [
+            "0x80015fb4",
+            "0x80015fc0"
+          ],
+          "and": [
+            "0x80011c98",
+            "0x80011ca4",
+            "0x80011f54",
+            "0x80011f7c",
+            "0x800120b0",
+            "0x800120cc",
+            "0x80012130",
+            "0x80012200",
+            "0x80012214",
+            "0x80012230",
+            "0x800122c8",
+            "0x800122e4",
+            "0x80012328",
+            "0x800123e0",
+            "0x800160b8",
+            "0x800160f4",
+            "0x8001b340"
+          ],
+          "bgez": [
+            "0x80012344",
+            "0x80012464",
+            "0x80016030",
+            "0x80016dbc"
+          ],
+          "bgtz": [
+            "0x800132d0",
+            "0x800158a8",
+            "0x80018970",
+            "0x80026d28",
+            "0x80026d54"
+          ],
+          "blez": [
+            "0x800132b8",
+            "0x80013df0",
+            "0x80013e14",
+            "0x80014784",
+            "0x80014860",
+            "0x80016054",
+            "0x8001607c",
+            "0x80017324",
+            "0x80018958",
+            "0x80026d04",
+            "0x80026d38"
+          ],
+          "bltz": [
+            "0x800121b4",
+            "0x80015860",
+            "0x800160dc",
+            "0x8001700c",
+            "0x80018960",
+            "0x80018968"
+          ],
+          "break": [
+            "0x80013390"
+          ],
+          "jalr": [
+            "0x80014338",
+            "0x8001436c",
+            "0x800145c0",
+            "0x800145f4",
+            "0x80014a30",
+            "0x80014a64",
+            "0x80015fa4",
+            "0x80016204",
+            "0x80016234",
+            "0x800184d4",
+            "0x800184f0",
+            "0x80018668",
+            "0x800187f0",
+            "0x8001882c",
+            "0x80018880",
+            "0x8001889c",
+            "0x8001899c",
+            "0x800189c4",
+            "0x80018a4c",
+            "0x80018b54",
+            "0x80026ebc",
+            "0x80026f74"
+          ],
+          "jr_indirect": [
+            "0x80013e7c",
+            "0x80015b84",
+            "0x80015b94",
+            "0x80015ba4",
+            "0x80015edc",
+            "0x80015eec",
+            "0x80015f3c",
+            "0x80015f4c",
+            "0x80015f5c",
+            "0x80015f74",
+            "0x800161e0",
+            "0x8001b424",
+            "0x80026c74",
+            "0x80026ccc",
+            "0x80026cdc",
+            "0x80026cec",
+            "0x80026e24",
+            "0x80026e34"
+          ],
+          "lh": [
+            "0x800188f0",
+            "0x800188f8",
+            "0x8001890c",
+            "0x80018924",
+            "0x8001892c",
+            "0x80018940",
+            "0x800189a4",
+            "0x800189a8",
+            "0x800189ac",
+            "0x800189b0",
+            "0x80019eac",
+            "0x80019ed8"
+          ],
+          "lhu": [
+            "0x80014c7c",
+            "0x80014c8c",
+            "0x80016344",
+            "0x80016374",
+            "0x800171b0",
+            "0x80017338"
+          ],
+          "lwl": [
+            "0x80012cf4",
+            "0x80012d1c",
+            "0x80012d24",
+            "0x80012d2c",
+            "0x80012d4c",
+            "0x80012d54",
+            "0x80012d5c",
+            "0x80012d7c",
+            "0x80012d84",
+            "0x80012e0c",
+            "0x80012e14",
+            "0x80012e2c",
+            "0x80012e34",
+            "0x80012eb4",
+            "0x80012ebc",
+            "0x80012ed4",
+            "0x80012edc"
+          ],
+          "lwr": [
+            "0x80012cf8",
+            "0x80012d20",
+            "0x80012d28",
+            "0x80012d30",
+            "0x80012d50",
+            "0x80012d58",
+            "0x80012d60",
+            "0x80012d80",
+            "0x80012d88",
+            "0x80012e10",
+            "0x80012e18",
+            "0x80012e30",
+            "0x80012e38",
+            "0x80012eb8",
+            "0x80012ec0",
+            "0x80012ed8",
+            "0x80012ee0"
+          ],
+          "mfhi": [
+            "0x80013ab0",
+            "0x80013ad8",
+            "0x80013b00",
+            "0x80013b30",
+            "0x80013b6c"
+          ],
+          "mult": [
+            "0x80013aa0",
+            "0x80013ac0",
+            "0x80013ae4",
+            "0x80013b0c",
+            "0x80013b3c"
+          ],
+          "sh": [
+            "0x80011a60",
+            "0x80011a68",
+            "0x80012498",
+            "0x800129f4",
+            "0x80012e90",
+            "0x80012ea0",
+            "0x80014c9c",
+            "0x80014ca0",
+            "0x80014cb0",
+            "0x80014cb4",
+            "0x80014cbc",
+            "0x80016378",
+            "0x80016d78",
+            "0x80016d7c",
+            "0x80016de8",
+            "0x80016ebc",
+            "0x80016ec8",
+            "0x80016ecc",
+            "0x80017090",
+            "0x800170c0",
+            "0x800171a0",
+            "0x800171a4",
+            "0x800171b8",
+            "0x800171bc",
+            "0x80017294",
+            "0x80017298",
+            "0x8001729c",
+            "0x800172a0",
+            "0x80017340",
+            "0x8001846c",
+            "0x80018480"
+          ],
+          "slt": [
+            "0x80013cf4",
+            "0x80014220",
+            "0x80014248",
+            "0x800144a8",
+            "0x800144d0",
+            "0x8001488c",
+            "0x80014918",
+            "0x80014940",
+            "0x80015804",
+            "0x8001584c",
+            "0x8001587c",
+            "0x80016158",
+            "0x800161c0",
+            "0x80017020",
+            "0x80017344",
+            "0x80018900",
+            "0x80018918",
+            "0x80018934",
+            "0x8001894c"
+          ],
+          "slti": [
+            "0x80011ed4",
+            "0x8001201c",
+            "0x80013248",
+            "0x80013294",
+            "0x80013ccc",
+            "0x80013cd8",
+            "0x80014720",
+            "0x800147e4",
+            "0x80016d8c",
+            "0x80017134",
+            "0x8001717c",
+            "0x800183ac"
+          ],
+          "sltiu": [
+            "0x80013e60",
+            "0x80014ad8",
+            "0x80017168",
+            "0x80017258",
+            "0x800184b4",
+            "0x800187d0",
+            "0x80018860",
+            "0x80019c68"
+          ],
+          "sltu": [
+            "0x80011c58",
+            "0x80011c60",
+            "0x80011c78",
+            "0x80011ca8",
+            "0x80011cc4",
+            "0x80011e70",
+            "0x80011e84",
+            "0x80011f60",
+            "0x80011fb8",
+            "0x80011fcc",
+            "0x80012030",
+            "0x80012090",
+            "0x800120ec",
+            "0x800121ec",
+            "0x80012258",
+            "0x800122b4",
+            "0x80012308",
+            "0x80012334",
+            "0x800123c0",
+            "0x800123f8",
+            "0x80013300",
+            "0x80014f88",
+            "0x80026cf8"
+          ],
+          "subu": [
+            "0x80011d00",
+            "0x80013354",
+            "0x80013358",
+            "0x80013abc",
+            "0x80013adc",
+            "0x80013ae0",
+            "0x80013af4",
+            "0x80013afc",
+            "0x80013b08",
+            "0x80013b18",
+            "0x80013b2c",
+            "0x80013b48",
+            "0x80013b5c",
+            "0x80013b74",
+            "0x80013b88",
+            "0x80013bbc",
+            "0x80013bf0",
+            "0x80014adc",
+            "0x80014f8c",
+            "0x8001602c",
+            "0x80017188",
+            "0x80019eb4",
+            "0x80019ee8"
+          ],
+          "swl": [
+            "0x80012d04",
+            "0x80012d34",
+            "0x80012d3c",
+            "0x80012d44",
+            "0x80012d64",
+            "0x80012d6c",
+            "0x80012d74",
+            "0x80012d8c",
+            "0x80012d94",
+            "0x80012e1c",
+            "0x80012e24",
+            "0x80012e3c",
+            "0x80012e44",
+            "0x80012ec4",
+            "0x80012ecc",
+            "0x80012ee4",
+            "0x80012eec"
+          ],
+          "swr": [
+            "0x80012d08",
+            "0x80012d38",
+            "0x80012d40",
+            "0x80012d48",
+            "0x80012d68",
+            "0x80012d70",
+            "0x80012d78",
+            "0x80012d90",
+            "0x80012d98",
+            "0x80012e20",
+            "0x80012e28",
+            "0x80012e40",
+            "0x80012e48",
+            "0x80012ec8",
+            "0x80012ed0",
+            "0x80012ee8",
+            "0x80012ef0"
+          ],
+          "syscall": [
+            "0x80015f1c",
+            "0x80015f2c"
+          ],
+          "xori": [
+            "0x800139d4",
+            "0x80014ad4",
+            "0x80014f84",
+            "0x80017238"
+          ]
+        }
+      },
+      "resolution": "additive exception-aware bridge maps external-trap records to InstructionFlow.TRAP",
+      "summary": {
+        "blocks": 739,
+        "call_edges_external": 0,
+        "call_edges_internal": 209,
+        "call_edges_unresolved": 22,
+        "call_graph_fingerprint": "908e95976f7d7b8f72361b373daf57c828bee53254f6ab98415f01f2043b7cb1",
+        "cfg_fingerprint": "7a65308aa37ec84db4c4995ada795e8f68e2c280512626aa2ac870fbdde6d564",
+        "classification_units": 110,
+        "discovery_fingerprint": "140e6fed1e8c25741c84813af5f2e4a06f35e47d7383ec233339029218d5bd73",
+        "edge_histogram": {
+          "BRANCH_NOT_TAKEN": 243,
+          "BRANCH_TAKEN": 243,
+          "CALL_RETURN": 231,
+          "FALLTHROUGH": 101,
+          "INDIRECT": 18,
+          "JUMP": 53
+        },
+        "edges": 889,
+        "entry_function": "fn_800132e8",
+        "entry_unit": "tu_fn_800132e8",
+        "exception_site_count": 3,
+        "flow_histogram": {
+          "BRANCH": 243,
+          "CALL": 209,
+          "INDIRECT_CALL": 22,
+          "INDIRECT_JUMP": 18,
+          "JUMP": 53,
+          "NORMAL": 2795,
+          "RETURN": 90,
+          "TRAP": 3
+        },
+        "folded_delay_slots": 635,
+        "functions": 110,
+        "neutral_instructions": 3433,
+        "non_nop_delay_slots": 328,
+        "program_model_fingerprint": "e65c6284955e193e8eed81e9869271590fdcd8bb4b04262ec55b5ad74453679b",
+        "shared_blocks": 0,
+        "structure_version": "1.0.0",
+        "translation_units": 110,
+        "units_fingerprint": "17d9af63d25997bb8d5156f9e6abc1d4bb0a387b97940bb28ee154cbc9798f78",
+        "unowned_blocks": 0
+      }
+    },
+    "timing": {
+      "classification": {
+        "access_count": 2000005,
+        "blocked_addresses": {
+          "0x1f801074": 1,
+          "0x1f801801": 1
+        },
+        "classification_histogram": {
+          "AUDITED_CDROM": 28,
+          "AUDITED_CDROM_BLOCKED": 10,
+          "AUDITED_GPU": 109035,
+          "AUDITED_INTERRUPT_BLOCKED": 1,
+          "AUDITED_SPU": 5,
+          "AUDITED_TIMER1": 109035,
+          "BUDGET_DENIED": 1,
+          "OUTSIDE_AUDITED_RANGES": 4
+        },
+        "counters": {
+          "cdrom_events": 38,
+          "gpu_events": 65536,
+          "host_calls": 79,
+          "input_events": 65536,
+          "reads": 982859,
+          "spu_events": 5,
+          "writes": 799023
+        },
+        "denied": [
+          {
+            "address": "0x1f801074",
+            "classification": "AUDITED_INTERRUPT_BLOCKED",
+            "denied_observations": 1,
+            "direction": "read",
+            "disposition": "NOT_IMPLEMENTED_FAIL_CLOSED",
+            "observations": 1,
+            "served_observations": 0,
+            "width_bits": 16
+          },
+          {
+            "address": "0x1f8010a8",
+            "classification": "OUTSIDE_AUDITED_RANGES",
+            "denied_observations": 1,
+            "direction": "write",
+            "disposition": "NOT_IMPLEMENTED_FAIL_CLOSED",
+            "note": "DMA channel-2 (GPU) channel-control register (public architecture address identification)",
+            "observations": 1,
+            "served_observations": 0,
+            "width_bits": 32
+          },
+          {
+            "address": "0x00000000",
+            "classification": "OUTSIDE_AUDITED_RANGES",
+            "denied_observations": 1,
+            "direction": "write",
+            "disposition": "NOT_IMPLEMENTED_FAIL_CLOSED",
+            "note": "low exception-vector / null-pointer window (public architecture address identification)",
+            "observations": 1,
+            "served_observations": 0,
+            "width_bits": 8
+          },
+          {
+            "address": "0x1f801020",
+            "classification": "OUTSIDE_AUDITED_RANGES",
+            "denied_observations": 2,
+            "direction": "write",
+            "disposition": "NOT_IMPLEMENTED_FAIL_CLOSED",
+            "note": "memory-control common delay register (public architecture address identification)",
+            "observations": 2,
+            "served_observations": 0,
+            "width_bits": 32
+          },
+          {
+            "address": "0x1f801801",
+            "classification": "AUDITED_CDROM_BLOCKED",
+            "denied_observations": 1,
+            "direction": "write",
+            "disposition": "NOT_IMPLEMENTED_FAIL_CLOSED",
+            "observations": 10,
+            "served_observations": 9,
+            "width_bits": 8
+          },
+          {
+            "address": "0x14802000",
+            "classification": "BUDGET_DENIED",
+            "denied_observations": 1,
+            "direction": "read",
+            "disposition": "BOUNDED_EXECUTION_BUDGET",
+            "note": "the GPU status contract stub value used as an address, i.e. a corrupted pointer read",
+            "observations": 1,
+            "served_observations": 0,
+            "width_bits": 32
+          }
+        ],
+        "denied_observations": 7,
+        "first_failure": "unresolved indirect jump",
+        "read_budget": 2000000,
+        "reconciliation": {
+          "budget_denials": 5,
+          "expected_total": 11,
+          "logged_budget_denial_observations": 1,
+          "logged_budget_subset_of_counter": true,
+          "matches": true,
+          "platform_denial_observations": 6,
+          "reported_denied": 11
+        },
+        "served": [
+          {
+            "address": "0x1f801800",
+            "classification": "AUDITED_CDROM",
+            "denied_observations": 0,
+            "direction": "write",
+            "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+            "observations": 15,
+            "served_observations": 15,
+            "width_bits": 8
+          },
+          {
+            "address": "0x1f801803",
+            "classification": "AUDITED_CDROM",
+            "denied_observations": 0,
+            "direction": "read",
+            "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+            "observations": 2,
+            "served_observations": 2,
+            "width_bits": 8
+          },
+          {
+            "address": "0x1f801803",
+            "classification": "AUDITED_CDROM",
+            "denied_observations": 0,
+            "direction": "write",
+            "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+            "observations": 3,
+            "served_observations": 3,
+            "width_bits": 8
+          },
+          {
+            "address": "0x1f801db8",
+            "classification": "AUDITED_SPU",
+            "denied_observations": 0,
+            "direction": "read",
+            "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+            "observations": 1,
+            "served_observations": 1,
+            "width_bits": 16
+          },
+          {
+            "address": "0x1f801dba",
+            "classification": "AUDITED_SPU",
+            "denied_observations": 0,
+            "direction": "read",
+            "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+            "observations": 1,
+            "served_observations": 1,
+            "width_bits": 16
+          },
+          {
+            "address": "0x1f801db0",
+            "classification": "AUDITED_SPU",
+            "denied_observations": 0,
+            "direction": "write",
+            "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+            "observations": 1,
+            "served_observations": 1,
+            "width_bits": 16
+          },
+          {
+            "address": "0x1f801db2",
+            "classification": "AUDITED_SPU",
+            "denied_observations": 0,
+            "direction": "write",
+            "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+            "observations": 1,
+            "served_observations": 1,
+            "width_bits": 16
+          },
+          {
+            "address": "0x1f801daa",
+            "classification": "AUDITED_SPU",
+            "denied_observations": 0,
+            "direction": "write",
+            "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+            "observations": 1,
+            "served_observations": 1,
+            "width_bits": 16
+          },
+          {
+            "address": "0x1f801802",
+            "classification": "AUDITED_CDROM",
+            "denied_observations": 0,
+            "direction": "write",
+            "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+            "observations": 8,
+            "served_observations": 8,
+            "width_bits": 8
+          },
+          {
+            "address": "0x1f801814",
+            "classification": "AUDITED_GPU",
+            "denied_observations": 0,
+            "direction": "read",
+            "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+            "observations": 109035,
+            "served_observations": 109035,
+            "width_bits": 32
+          },
+          {
+            "address": "0x1f801110",
+            "classification": "AUDITED_TIMER1",
+            "denied_observations": 0,
+            "direction": "read",
+            "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+            "observations": 109035,
+            "served_observations": 109035,
+            "width_bits": 32
+          }
+        ],
+        "served_observations": 218112,
+        "signature_count": 17,
+        "timing_abstraction": {
+          "counter_read": "timer counter reads return (tick & 0xffff) and advance the tick by one",
+          "cycle_accuracy": "not claimed",
+          "max_counter_reads_before_wrap": 65536,
+          "resolution": "one tick per counter read (read-driven, not clock-driven)",
+          "tick_origin": "zero at runtime initialisation",
+          "wall_clock_dependency": "none"
+        },
+        "timing_version": "1.0.0"
+      }
+    }
+  },
+  "highest_milestone": "A",
+  "milestone_claims": {
+    "general_ps1_compatibility": "NOT_PROVEN",
+    "native_execution_proof": "NOT_PROVEN",
+    "playability": "NOT_PROVEN"
+  },
+  "milestones": {
+    "A": true,
+    "B": false,
+    "C": false,
+    "D": false,
+    "E": false,
+    "F": false,
+    "G": false
+  },
+  "native_execution": {
+    "entry": {
+      "declared_stack_pointer": "0x801ffff0",
+      "guest_entry_pc": "0x800132e8",
+      "initial_register_state": "all 32 guest registers are zero-initialised by the generated entry",
+      "observed_frame_pointer": "0x80200000",
+      "observed_gp": "0x8002ed78",
+      "observed_register_file": {
+        "r00": "0x00000000",
+        "r01": "0x80030000",
+        "r02": "0x00000000",
+        "r03": "0x00000000",
+        "r04": "0x00000002",
+        "r05": "0x00000000",
+        "r06": "0x00000000",
+        "r07": "0x00000001",
+        "r08": "0x00000000",
+        "r09": "0x00000000",
+        "r10": "0x801f7ffc",
+        "r11": "0x00000001",
+        "r12": "0x80000000",
+        "r13": "0x00000000",
+        "r14": "0x00000000",
+        "r15": "0x00000000",
+        "r16": "0x00000000",
+        "r17": "0x80028588",
+        "r18": "0x00000000",
+        "r19": "0x00000000",
+        "r20": "0x00000000",
+        "r21": "0x00000000",
+        "r22": "0x00000000",
+        "r23": "0x00000000",
+        "r24": "0x00000000",
+        "r25": "0x00000000",
+        "r26": "0x00000000",
+        "r27": "0x00000000",
+        "r28": "0x8002ed78",
+        "r29": "0x801ffe00",
+        "r30": "0x80200000",
+        "r31": "0x80015840"
+      },
+      "observed_stack_pointer": "0x801ffe00"
+    },
+    "execution": {
+      "access_budget": 2000000,
+      "access_count": 2000005,
+      "accounted_accesses_lower_bound": 1790128,
+      "accounted_note": "reads+writes+denied+recorded events is a LOWER bound because the per-device event transcripts are capped at 4096",
+      "budget_denials": 5,
+      "budget_reached": true,
+      "denied": 11,
+      "deterministic": true,
+      "error": "unresolved indirect jump",
+      "events": {
+        "cdrom": 38,
+        "gpu": 4096,
+        "input": 4096,
+        "spu": 5
+      },
+      "events_capped": {
+        "cdrom": false,
+        "gpu": true,
+        "input": true,
+        "spu": false
+      },
+      "executable_sha256": "937b359907e09cf802e95fef9ed75fb6a06b787d7e2c454b2f3354930dd70581",
+      "exit_status": "0x00000000",
+      "failed": "1",
+      "failure_semantics": "a fail-closed failure aborts the current translated function and is recorded as the first failure; the caller continues, so the recorded traffic includes progress after the first failure",
+      "first_failure_is_termination_category": true,
+      "host_calls": 79,
+      "reads": 982859,
+      "stdout_sha256": "50e781068f7b4d593abdaf601f8b84a42e7ed216fb257b12019148244e6aa006",
+      "termination_category": "UNRESOLVED_INDIRECT_JUMP",
+      "writes": 799023
+    },
+    "first_host_service_transition": {
+      "address_observable": false,
+      "candidate_site_count": 18
+    },
+    "memory_image": {
+      "contract_digest": "4566f740a10ca4fdc6fb6d1046662c2e8619c6c8648f025f91dcd6ab95f6bf54",
+      "file_sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "loaded_image_digest": "0x8b4e6ca9b8b31c02",
+      "loaded_image_sha256": "7d13f5f4f6c4dd321ddd01da627dc656dc1531163f8cca674a5febcf3aa87010",
+      "payload_sha256": "2f48da4c642b25dd9d0b033f77b80a19e5befe34dc19da3194a51998e97c71be",
+      "ram_size": 2097152,
+      "runtime_memory_digest": "0x18131c6ef356df7d"
+    },
+    "translated_trace": {
+      "exception_sites": [
+        {
+          "bd": 0,
+          "code": 1,
+          "continuation": "NOT_MODELLED_FAIL_CLOSED",
+          "epc": 2147562384,
+          "exception_code": 9,
+          "exception_name": "Bp",
+          "handling": "explicit-trap-terminator",
+          "op": "break",
+          "runtime_category": "GUEST_BREAK",
+          "site": 2147562384,
+          "site_hex": "0x80013390",
+          "successors": []
+        },
+        {
+          "bd": 0,
+          "code": 0,
+          "continuation": "NOT_MODELLED_FAIL_CLOSED",
+          "epc": 2147573532,
+          "exception_code": 8,
+          "exception_name": "Sys",
+          "handling": "explicit-trap-terminator",
+          "op": "syscall",
+          "runtime_category": "GUEST_SYSCALL",
+          "site": 2147573532,
+          "site_hex": "0x80015f1c",
+          "successors": []
+        },
+        {
+          "bd": 0,
+          "code": 0,
+          "continuation": "NOT_MODELLED_FAIL_CLOSED",
+          "epc": 2147573548,
+          "exception_code": 8,
+          "exception_name": "Sys",
+          "handling": "explicit-trap-terminator",
+          "op": "syscall",
+          "runtime_category": "GUEST_SYSCALL",
+          "site": 2147573548,
+          "site_hex": "0x80015f2c",
+          "successors": []
+        }
+      ]
+    }
+  },
+  "permanent_non_claims": [
+    "OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+  ],
+  "playability_claim": "OPENRECOMP_PHASE10_HERCULES_PLAYABILITY",
+  "playability_claim_status_at_p10_91": "NOT_PROVEN",
+  "reserved_non_claims_at_p10_91": [
+    "OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN",
+    "OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN"
+  ],
+  "schema": "openrecomp-phase10-proof-matrix-v1",
+  "stage": "P10-91",
+  "terminal_claim": "OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF",
+  "terminal_claim_status_at_p10_91": "NOT_PROVEN",
+  "unresolved_blockers": [
+    "an executed unresolved indirect jump blocks initialisation (the failing guest PC is not observable)",
+    "milestones B..G are unreachable without resolving that control-flow frontier",
+    "the access budget bounds accesses, not execution (mitigated by the default budget and a bounded host timeout)",
+    "SPU RAM transfer, interrupt delivery, DMA, memory-control timing, disc data transfer and controller consumption remain unreached/unimplemented"
+  ],
+  "whole_regression": {
+    "counts": {
+      "historical_gates": 16,
+      "historical_reverified_tests": 1435,
+      "phase10_gates": 13,
+      "phase10_tests": 1633,
+      "phase1_host_gate_tests": 0,
+      "total_gates": 29,
+      "total_reverified_tests": 3068
+    },
+    "guards": {
+      "general_ps1_compatibility": "NOT_PROVEN",
+      "highest_milestone": "A",
+      "native_execution_proof": "NOT_PROVEN",
+      "playability": "NOT_PROVEN"
+    },
+    "p8_terminal_audits": [
+      {
+        "stage": "P8-90",
+        "tests": 215
+      },
+      {
+        "stage": "P8-91",
+        "tests": 27
+      },
+      {
+        "stage": "P8-99",
+        "tests": 92
+      }
+    ],
+    "stage": "P10-90"
+  }
+}
