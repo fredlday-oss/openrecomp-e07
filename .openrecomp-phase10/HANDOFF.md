@@ -15,22 +15,34 @@
   unruled reachable op types, Phase-10 runtime extension spliced into the
   frozen Phase-9 platform runtime, independent reference agreement on a
   native build, and fail-closed negatives;
+- `P10-04` `PASS` (51 checks): the 22 reachable indirect-call sites are
+  classified exactly (3 BIOS B0 vector calls with function indices, 19
+  unresolved with explicit evidence), and the typed BIOS boundary stays
+  fail-closed with no BIOS material;
 - evidence in `.openrecomp-phase10/evidence/P10-00/`, `P10-01/`,
-  `P10-02/` and `P10-03/`.
+  `P10-02/`, `P10-03/` and `P10-04/`.
 
 ## Immediate next action
 
-`P10-04` - Hercules BIOS frontier.
+`P10-05` - native execution entry for Hercules.
 
-From the inherited 3 B0 candidates / 19 unknowns, classify the
-dynamically/reachably required BIOS calls using the Phase-9 typed service
-boundary, implement only calls required to advance, and keep unknown calls
-fail-closed. No BIOS image or BIOS-derived code may be loaded or emulated.
+Generate and build Hercules-derived native host code (original MIPS machine
+code must not execute at runtime) and establish deterministic entry into
+translated game code. Record:
 
-## Known work queued after P10-04
+- guest entry PC (`0x800132e8`), initial register state and stack state;
+- memory-image identity;
+- the translated control-flow trace identity;
+- the first host/service transition;
+- the termination/blocker category.
 
-- `P10-05`: native execution entry for Hercules (emission, build, deterministic
-  entry, first host/service transition, termination category);
+Expected first blocker candidates, in address order: a direct call into the
+`jal 0x80015f18` region (critical-section helper), the BIOS B0 vector call at
+`0x80015fa4`, an unresolved indirect call, or an unmapped guest memory access.
+Graphics and playability are not required at this stage.
+
+## Known work queued after P10-05
+
 - `P10-06` .. `P10-11`: dynamic I/O discovery, GPU, interrupt/DMA/timing,
   CUE/BIN CD-ROM/filesystem/streaming, SPU/controller/game-loop, highest
   milestone;

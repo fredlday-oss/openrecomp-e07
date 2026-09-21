@@ -1,0 +1,76 @@
+{
+  "artifact_sha256": {
+    "bios_classification.json": "fea6db18e70682fa0ec08d3aa79f687e6343c2ab20c6e065d8e503aca954240b",
+    "bios_native_negatives.json": "d9960c33c872f60335061560594481b5a7d4f2d70b08a2e0e35243cd9b407d10",
+    "p10_04_tests.json": "55c6065a5f50108b22bcbe47a1b5c27b946a0b4ddf8339abd9e5ffe062e5ab5a"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "bios_classification.json": "fea6db18e70682fa0ec08d3aa79f687e6343c2ab20c6e065d8e503aca954240b",
+        "bios_native_negatives.json": "d9960c33c872f60335061560594481b5a7d4f2d70b08a2e0e35243cd9b407d10",
+        "p10_04_tests.json": "55c6065a5f50108b22bcbe47a1b5c27b946a0b4ddf8339abd9e5ffe062e5ab5a"
+      },
+      "command": [
+        "python",
+        "tools/test_phase10_bios_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase10/evidence/P10-04"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P10_04=PASS",
+        "OPENRECOMP_PHASE10_BIOS_V1=PASS tests=51",
+        "OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN",
+        "OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p10_04_tests_sha256": "55c6065a5f50108b22bcbe47a1b5c27b946a0b4ddf8339abd9e5ffe062e5ab5a",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1878,
+      "stdout_bytes_lf": 1822,
+      "stdout_sha256_lf": "b057354048573135f1fc486d3ad8145d5b1afb1f4bcd050b26ef812e204b2dd3",
+      "stdout_sha256_raw": "32d222c6327f30ac012277a80699f58a3630eee4ce1b263d92861c7d21a7e55f"
+    },
+    {
+      "artifact_sha256": {
+        "bios_classification.json": "fea6db18e70682fa0ec08d3aa79f687e6343c2ab20c6e065d8e503aca954240b",
+        "bios_native_negatives.json": "d9960c33c872f60335061560594481b5a7d4f2d70b08a2e0e35243cd9b407d10",
+        "p10_04_tests.json": "55c6065a5f50108b22bcbe47a1b5c27b946a0b4ddf8339abd9e5ffe062e5ab5a"
+      },
+      "command": [
+        "python",
+        "tools/test_phase10_bios_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase10/evidence/P10-04"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P10_04=PASS",
+        "OPENRECOMP_PHASE10_BIOS_V1=PASS tests=51",
+        "OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN",
+        "OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p10_04_tests_sha256": "55c6065a5f50108b22bcbe47a1b5c27b946a0b4ddf8339abd9e5ffe062e5ab5a",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1878,
+      "stdout_bytes_lf": 1822,
+      "stdout_sha256_lf": "b057354048573135f1fc486d3ad8145d5b1afb1f4bcd050b26ef812e204b2dd3",
+      "stdout_sha256_raw": "32d222c6327f30ac012277a80699f58a3630eee4ce1b263d92861c7d21a7e55f"
+    }
+  ],
+  "schema": "openrecomp-phase10-official-runs-v1",
+  "stage": "P10-04",
+  "stderr_empty_both": true
+}

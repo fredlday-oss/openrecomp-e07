@@ -1,0 +1,607 @@
+{
+  "blocks_required": [
+    "no BIOS image is loaded, executed or emulated",
+    "no BIOS function semantics is determined from the function index",
+    "every observed BIOS service remains fail-closed"
+  ],
+  "boundary": {
+    "bios_image": "none",
+    "bios_version": "1.0.0",
+    "boundary_version": "1.0.0",
+    "observed_service_count": 2,
+    "observed_services": [
+      {
+        "category": "bios",
+        "disposition": "FAIL_CLOSED",
+        "implemented": false,
+        "service_id": "ps1.bios.B0.56",
+        "site_count": 1
+      },
+      {
+        "category": "bios",
+        "disposition": "FAIL_CLOSED",
+        "implemented": false,
+        "service_id": "ps1.bios.B0.57",
+        "site_count": 2
+      }
+    ],
+    "semantics_determined": false,
+    "services": [
+      {
+        "arity": 0,
+        "category": "bios",
+        "implemented": false,
+        "name": "BIOS A0 jump-table vector",
+        "service_id": "bios-A0"
+      },
+      {
+        "arity": 0,
+        "category": "bios",
+        "implemented": false,
+        "name": "BIOS B0 jump-table vector",
+        "service_id": "bios-B0"
+      },
+      {
+        "arity": 0,
+        "category": "bios",
+        "implemented": false,
+        "name": "BIOS C0 jump-table vector",
+        "service_id": "bios-C0"
+      }
+    ],
+    "unknown_service_policy": "fail-closed",
+    "vectors": {
+      "A0": "0xa0",
+      "B0": "0xb0",
+      "C0": "0xc0"
+    }
+  },
+  "classification": {
+    "bios_call_count": 3,
+    "bios_calls": [
+      {
+        "classification": "BIOS_VECTOR_CALL",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "addiu@0x80015fa0",
+          "index-addiu@0x80015fa8"
+        ],
+        "function_index": 87,
+        "op": "jalr",
+        "service_id": "ps1.bios.B0.57",
+        "site": 2147573668,
+        "site_hex": "0x80015fa4",
+        "source_register": 10,
+        "target": "0x000000b0",
+        "vector": "B0"
+      },
+      {
+        "classification": "BIOS_VECTOR_CALL",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "addiu@0x80026eb8",
+          "index-addiu@0x80026ec0"
+        ],
+        "function_index": 86,
+        "op": "jalr",
+        "service_id": "ps1.bios.B0.56",
+        "site": 2147643068,
+        "site_hex": "0x80026ebc",
+        "source_register": 10,
+        "target": "0x000000b0",
+        "vector": "B0"
+      },
+      {
+        "classification": "BIOS_VECTOR_CALL",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "addiu@0x80026f70",
+          "index-addiu@0x80026f78"
+        ],
+        "function_index": 87,
+        "op": "jalr",
+        "service_id": "ps1.bios.B0.57",
+        "site": 2147643252,
+        "site_hex": "0x80026f74",
+        "source_register": 10,
+        "target": "0x000000b0",
+        "vector": "B0"
+      }
+    ],
+    "bios_functions": [
+      "ps1.bios.B0.56",
+      "ps1.bios.B0.57"
+    ],
+    "bios_version": "1.0.0",
+    "histogram": {
+      "BIOS_VECTOR_CALL": 3,
+      "INDIRECT_TARGET_UNRESOLVED": 19
+    },
+    "index_register": 9,
+    "resolved_evidence_targets": [],
+    "resolved_internal_call_count": 0,
+    "resolved_internal_calls": [],
+    "site_count": 22,
+    "sites": [
+      {
+        "classification": "INDIRECT_TARGET_UNRESOLVED",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "skip@80014334",
+          "skip@80014330",
+          "skip@8001432c",
+          "skip@80014328",
+          "slice-crossed-control-flow"
+        ],
+        "function_index": null,
+        "op": "jalr",
+        "service_id": null,
+        "site": 2147566392,
+        "site_hex": "0x80014338",
+        "source_register": 2,
+        "target": null,
+        "vector": null
+      },
+      {
+        "classification": "INDIRECT_TARGET_UNRESOLVED",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "skip@80014368",
+          "skip@80014364",
+          "skip@80014360",
+          "skip@8001435c",
+          "slice-crossed-control-flow"
+        ],
+        "function_index": null,
+        "op": "jalr",
+        "service_id": null,
+        "site": 2147566444,
+        "site_hex": "0x8001436c",
+        "source_register": 2,
+        "target": null,
+        "vector": null
+      },
+      {
+        "classification": "INDIRECT_TARGET_UNRESOLVED",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "skip@800145bc",
+          "skip@800145b8",
+          "skip@800145b4",
+          "skip@800145b0",
+          "slice-crossed-control-flow"
+        ],
+        "function_index": null,
+        "op": "jalr",
+        "service_id": null,
+        "site": 2147567040,
+        "site_hex": "0x800145c0",
+        "source_register": 2,
+        "target": null,
+        "vector": null
+      },
+      {
+        "classification": "INDIRECT_TARGET_UNRESOLVED",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "skip@800145f0",
+          "skip@800145ec",
+          "skip@800145e8",
+          "skip@800145e4",
+          "slice-crossed-control-flow"
+        ],
+        "function_index": null,
+        "op": "jalr",
+        "service_id": null,
+        "site": 2147567092,
+        "site_hex": "0x800145f4",
+        "source_register": 2,
+        "target": null,
+        "vector": null
+      },
+      {
+        "classification": "INDIRECT_TARGET_UNRESOLVED",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "skip@80014a2c",
+          "skip@80014a28",
+          "skip@80014a24",
+          "skip@80014a20",
+          "slice-crossed-control-flow"
+        ],
+        "function_index": null,
+        "op": "jalr",
+        "service_id": null,
+        "site": 2147568176,
+        "site_hex": "0x80014a30",
+        "source_register": 2,
+        "target": null,
+        "vector": null
+      },
+      {
+        "classification": "INDIRECT_TARGET_UNRESOLVED",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "skip@80014a60",
+          "skip@80014a5c",
+          "skip@80014a58",
+          "skip@80014a54",
+          "slice-crossed-control-flow"
+        ],
+        "function_index": null,
+        "op": "jalr",
+        "service_id": null,
+        "site": 2147568228,
+        "site_hex": "0x80014a64",
+        "source_register": 2,
+        "target": null,
+        "vector": null
+      },
+      {
+        "classification": "BIOS_VECTOR_CALL",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "addiu@0x80015fa0",
+          "index-addiu@0x80015fa8"
+        ],
+        "function_index": 87,
+        "op": "jalr",
+        "service_id": "ps1.bios.B0.57",
+        "site": 2147573668,
+        "site_hex": "0x80015fa4",
+        "source_register": 10,
+        "target": "0x000000b0",
+        "vector": "B0"
+      },
+      {
+        "classification": "INDIRECT_TARGET_UNRESOLVED",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "skip@80016200",
+          "slice-writer:lw@0x800161fc"
+        ],
+        "function_index": null,
+        "op": "jalr",
+        "service_id": null,
+        "site": 2147574276,
+        "site_hex": "0x80016204",
+        "source_register": 2,
+        "target": null,
+        "vector": null
+      },
+      {
+        "classification": "INDIRECT_TARGET_UNRESOLVED",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "skip@80016230",
+          "slice-writer:lw@0x8001622c"
+        ],
+        "function_index": null,
+        "op": "jalr",
+        "service_id": null,
+        "site": 2147574324,
+        "site_hex": "0x80016234",
+        "source_register": 2,
+        "target": null,
+        "vector": null
+      },
+      {
+        "classification": "INDIRECT_TARGET_UNRESOLVED",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "skip@800184d0",
+          "slice-writer:lw@0x800184cc"
+        ],
+        "function_index": null,
+        "op": "jalr",
+        "service_id": null,
+        "site": 2147583188,
+        "site_hex": "0x800184d4",
+        "source_register": 2,
+        "target": null,
+        "vector": null
+      },
+      {
+        "classification": "INDIRECT_TARGET_UNRESOLVED",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "skip@800184ec",
+          "slice-writer:lw@0x800184e8"
+        ],
+        "function_index": null,
+        "op": "jalr",
+        "service_id": null,
+        "site": 2147583216,
+        "site_hex": "0x800184f0",
+        "source_register": 2,
+        "target": null,
+        "vector": null
+      },
+      {
+        "classification": "INDIRECT_TARGET_UNRESOLVED",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "skip@80018664",
+          "skip@80018660",
+          "skip@8001865c",
+          "skip@80018658",
+          "skip@80018654",
+          "skip@80018650",
+          "slice-writer:lw@0x8001864c"
+        ],
+        "function_index": null,
+        "op": "jalr",
+        "service_id": null,
+        "site": 2147583592,
+        "site_hex": "0x80018668",
+        "source_register": 2,
+        "target": null,
+        "vector": null
+      },
+      {
+        "classification": "INDIRECT_TARGET_UNRESOLVED",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "skip@800187ec",
+          "slice-writer:lw@0x800187e8"
+        ],
+        "function_index": null,
+        "op": "jalr",
+        "service_id": null,
+        "site": 2147583984,
+        "site_hex": "0x800187f0",
+        "source_register": 2,
+        "target": null,
+        "vector": null
+      },
+      {
+        "classification": "INDIRECT_TARGET_UNRESOLVED",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "skip@80018828",
+          "slice-writer:lw@0x80018824"
+        ],
+        "function_index": null,
+        "op": "jalr",
+        "service_id": null,
+        "site": 2147584044,
+        "site_hex": "0x8001882c",
+        "source_register": 2,
+        "target": null,
+        "vector": null
+      },
+      {
+        "classification": "INDIRECT_TARGET_UNRESOLVED",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "skip@8001887c",
+          "slice-writer:lw@0x80018878"
+        ],
+        "function_index": null,
+        "op": "jalr",
+        "service_id": null,
+        "site": 2147584128,
+        "site_hex": "0x80018880",
+        "source_register": 2,
+        "target": null,
+        "vector": null
+      },
+      {
+        "classification": "INDIRECT_TARGET_UNRESOLVED",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "skip@80018898",
+          "slice-writer:lw@0x80018894"
+        ],
+        "function_index": null,
+        "op": "jalr",
+        "service_id": null,
+        "site": 2147584156,
+        "site_hex": "0x8001889c",
+        "source_register": 2,
+        "target": null,
+        "vector": null
+      },
+      {
+        "classification": "INDIRECT_TARGET_UNRESOLVED",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "skip@80018998",
+          "slice-writer:lw@0x80018994"
+        ],
+        "function_index": null,
+        "op": "jalr",
+        "service_id": null,
+        "site": 2147584412,
+        "site_hex": "0x8001899c",
+        "source_register": 2,
+        "target": null,
+        "vector": null
+      },
+      {
+        "classification": "INDIRECT_TARGET_UNRESOLVED",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "skip@800189c0",
+          "skip@800189bc",
+          "slice-writer:lw@0x800189b8"
+        ],
+        "function_index": null,
+        "op": "jalr",
+        "service_id": null,
+        "site": 2147584452,
+        "site_hex": "0x800189c4",
+        "source_register": 3,
+        "target": null,
+        "vector": null
+      },
+      {
+        "classification": "INDIRECT_TARGET_UNRESOLVED",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "skip@80018a48",
+          "slice-writer:lw@0x80018a44"
+        ],
+        "function_index": null,
+        "op": "jalr",
+        "service_id": null,
+        "site": 2147584588,
+        "site_hex": "0x80018a4c",
+        "source_register": 2,
+        "target": null,
+        "vector": null
+      },
+      {
+        "classification": "INDIRECT_TARGET_UNRESOLVED",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "skip@80018b50",
+          "slice-writer:lw@0x80018b4c"
+        ],
+        "function_index": null,
+        "op": "jalr",
+        "service_id": null,
+        "site": 2147584852,
+        "site_hex": "0x80018b54",
+        "source_register": 2,
+        "target": null,
+        "vector": null
+      },
+      {
+        "classification": "BIOS_VECTOR_CALL",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "addiu@0x80026eb8",
+          "index-addiu@0x80026ec0"
+        ],
+        "function_index": 86,
+        "op": "jalr",
+        "service_id": "ps1.bios.B0.56",
+        "site": 2147643068,
+        "site_hex": "0x80026ebc",
+        "source_register": 10,
+        "target": "0x000000b0",
+        "vector": "B0"
+      },
+      {
+        "classification": "BIOS_VECTOR_CALL",
+        "disposition": "FAIL_CLOSED",
+        "evidence": [
+          "addiu@0x80026f70",
+          "index-addiu@0x80026f78"
+        ],
+        "function_index": 87,
+        "op": "jalr",
+        "service_id": "ps1.bios.B0.57",
+        "site": 2147643252,
+        "site_hex": "0x80026f74",
+        "source_register": 10,
+        "target": "0x000000b0",
+        "vector": "B0"
+      }
+    ],
+    "unknown_policy": "fail-closed",
+    "vector_bases": {
+      "A0": "0x000000a0",
+      "B0": "0x000000b0",
+      "C0": "0x000000c0"
+    }
+  },
+  "identity": {
+    "address_space": {
+      "ram_kseg0_base": "0x80000000",
+      "ram_kseg0_end": "0x80200000",
+      "ram_size": 2097152
+    },
+    "bss_section": {
+      "address": "0x00000000",
+      "present": false,
+      "size": 0
+    },
+    "data_section": {
+      "address": "0x00000000",
+      "present": false,
+      "size": 0
+    },
+    "entry_pc": "0x800132e8",
+    "file_sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "file_size": 129024,
+    "format": "PS-X EXE",
+    "format_version": "1.0.0",
+    "header_fields": {
+      "b_addr": "0x00000000",
+      "b_size": "0x00000000",
+      "d_addr": "0x00000000",
+      "d_size": "0x00000000",
+      "gp0": "0x00000000",
+      "pc0": "0x800132e8",
+      "s_addr": "0x801ffff0",
+      "s_size": "0x00000000",
+      "t_addr": "0x80010000",
+      "t_size": "0x0001f000",
+      "zero1": "0x00000000",
+      "zero2": "0x00000000"
+    },
+    "header_size": 2048,
+    "initial_gp": "0x00000000",
+    "load_address": "0x80010000",
+    "magic": "PS-X EXE",
+    "payload_sha256": "2f48da4c642b25dd9d0b033f77b80a19e5befe34dc19da3194a51998e97c71be",
+    "payload_size": 126976,
+    "ram_span": {
+      "end": "0x8002f000",
+      "start": "0x80010000"
+    },
+    "reserved": {
+      "first_nonzero_offset": "0x4c",
+      "last_nonzero_offset": "0x82",
+      "nonzero_bytes": 55,
+      "offset": "0x38",
+      "sha256": "e6a138356b7e46be030334fdd789fab8cafeee2c85d44b54edafd391427b54fe",
+      "size": 1992
+    },
+    "stack": {
+      "pointer": "0x801ffff0",
+      "size": 0
+    },
+    "stack_pointer": "0x801ffff0",
+    "text_end": "0x8002f000"
+  },
+  "is_pass_criterion": false,
+  "label": "hercules-private-fixture",
+  "p9_boundary_reused": {
+    "bios_image": "none",
+    "boundary_version": "1.0.0",
+    "services": [
+      {
+        "arity": 0,
+        "category": "bios",
+        "implemented": false,
+        "name": "BIOS A0 jump-table vector",
+        "service_id": "bios-A0"
+      },
+      {
+        "arity": 0,
+        "category": "bios",
+        "implemented": false,
+        "name": "BIOS B0 jump-table vector",
+        "service_id": "bios-B0"
+      },
+      {
+        "arity": 0,
+        "category": "bios",
+        "implemented": false,
+        "name": "BIOS C0 jump-table vector",
+        "service_id": "bios-C0"
+      }
+    ],
+    "unknown_service_policy": "fail-closed",
+    "vectors": {
+      "A0": "0xa0",
+      "B0": "0xb0",
+      "C0": "0xc0"
+    }
+  },
+  "schema": "openrecomp-phase10-bios-classification-v1",
+  "stage": "P10-04"
+}

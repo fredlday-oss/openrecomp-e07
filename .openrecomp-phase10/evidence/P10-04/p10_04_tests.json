@@ -1,0 +1,266 @@
+{
+  "checks": [
+    {
+      "check": "claim:general-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:native-execution-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:playability-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "native:bios-table-read:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "native:bios-table-read:fail-closed",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "native:bios-vector-call:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "native:bios-vector-call:fail-closed",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:fail-closed-policy",
+      "detail": "fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:no-service-implemented",
+      "detail": "none implemented",
+      "status": "PASS"
+    },
+    {
+      "check": "p9:vector-count",
+      "detail": "3",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios-functions",
+      "detail": "ps1.bios.B0.56,ps1.bios.B0.57",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios-index-histogram",
+      "detail": "{\"0x56\": 1, \"0x57\": 2}",
+      "status": "PASS"
+    },
+    {
+      "check": "private:bios-targets",
+      "detail": "B0 vector base",
+      "status": "PASS"
+    },
+    {
+      "check": "private:boundary-no-image",
+      "detail": "none",
+      "status": "PASS"
+    },
+    {
+      "check": "private:boundary-observed",
+      "detail": "2",
+      "status": "PASS"
+    },
+    {
+      "check": "private:boundary-unimplemented",
+      "detail": "none implemented",
+      "status": "PASS"
+    },
+    {
+      "check": "private:histogram",
+      "detail": "{\"BIOS_VECTOR_CALL\": 3, \"INDIRECT_TARGET_UNRESOLVED\": 19}",
+      "status": "PASS"
+    },
+    {
+      "check": "private:memory-loaded-targets",
+      "detail": "13",
+      "status": "PASS"
+    },
+    {
+      "check": "private:no-bios-implemented",
+      "detail": "fail closed",
+      "status": "PASS"
+    },
+    {
+      "check": "private:present",
+      "detail": "private fixture present",
+      "status": "PASS"
+    },
+    {
+      "check": "private:resolved-internal",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "private:semantics-undetermined",
+      "detail": "false",
+      "status": "PASS"
+    },
+    {
+      "check": "private:site-count",
+      "detail": "22",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:b0-class",
+      "detail": "BIOS_VECTOR_CALL",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:b0-disposition",
+      "detail": "FAIL_CLOSED",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:b0-index",
+      "detail": "86",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:b0-service",
+      "detail": "ps1.bios.B0.56",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:b0-sites",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:b0-target",
+      "detail": "0x000000b0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:b0-vector",
+      "detail": "B0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:high-target",
+      "detail": "0x800000b0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:high-vector",
+      "detail": "B0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:internal-class",
+      "detail": "RESOLVED_INTERNAL_CALL",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:internal-disposition",
+      "detail": "EXACT_TARGET",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:internal-evidence-targets",
+      "detail": "[2147549184]",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:internal-target",
+      "detail": "0x80010000 != 0x80010000",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:loaded-class",
+      "detail": "INDIRECT_TARGET_UNRESOLVED",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:loaded-evidence",
+      "detail": "slice-writer:lw@0x80010004",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:loaded-target",
+      "detail": "None",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:no-index-class",
+      "detail": "BIOS_VECTOR_CALL",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:no-index-none",
+      "detail": "None",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:no-index-service",
+      "detail": "None",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:outside-class",
+      "detail": "UNRESOLVED_CONSTANT_TARGET",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:outside-disposition",
+      "detail": "FAIL_CLOSED",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:outside-target",
+      "detail": "0x00000100",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:vector-A0",
+      "detail": "A0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:vector-A0:index",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:vector-B0",
+      "detail": "B0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:vector-B0:index",
+      "detail": "19",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:vector-C0",
+      "detail": "C0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:vector-C0:index",
+      "detail": "7",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 51,
+  "stage": "P10-04",
+  "stage_name": "Hercules BIOS frontier",
+  "status": "PASS",
+  "tests": 51
+}

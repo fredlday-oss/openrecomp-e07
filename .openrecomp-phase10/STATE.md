@@ -59,7 +59,8 @@ runtime architecture is created.
 | P10-01 | PASS |
 | P10-02 | PASS |
 | P10-03 | PASS |
-| P10-04 .. P10-12 | QUEUED |
+| P10-04 | PASS |
+| P10-05 .. P10-12 | QUEUED |
 | P10-90, P10-91, P10-99 | QUEUED |
 
 ## Stage records
@@ -179,8 +180,31 @@ the Phase-10 stage runner with byte-identical stdout (3793 bytes LF, sha256
   emittable end to end;
 - evidence: `.openrecomp-phase10/evidence/P10-03/`.
 
+### P10-04 - Hercules BIOS frontier
+
+PASS (51 checks). Gate `tools/test_phase10_bios_v1.py` ran twice through the
+Phase-10 stage runner with byte-identical stdout (1822 bytes LF, sha256
+`b0573540...`), empty stderr and exit 0.
+
+- the 22 reachable indirect-call sites classify exactly: 3 BIOS vector calls
+  (B0 index `0x56` once, `0x57` twice) and 19 unresolved targets (13 proven
+  written by a memory load, 6 explicitly unresolved across a control-flow
+  boundary); no target is guessed;
+- the observed call convention is recorded: `$t2` carries the vector base
+  (`0x000000b0`), `$t1` the function index as a delay-slot constant;
+- the Phase-9 typed service boundary is reused unchanged with no service
+  implemented, `bios_image: none`, unknown-service policy `fail-closed`, and
+  `semantics_determined: false`;
+- synthetic fixtures cover the accepted `A0`/`B0`/`C0` and KSEG0 forms, the
+  resolved-internal-call form, a call with no constant index, an
+  out-of-image constant target and a memory-loaded target;
+- native fail-closed negatives: a BIOS vector call and a read of the low BIOS
+  table window both terminate with `failed=1`;
+- evidence: `.openrecomp-phase10/evidence/P10-04/`.
+
 ## Open blockers
 
-- none at the P10-03 boundary; unresolved indirect control flow remains
-  fail-closed at runtime until evidence-backed resolution is established.
+- none at the P10-04 boundary. The 19 unresolved indirect calls, the 18
+  indirect jumps and every BIOS service remain fail-closed.
+
 
