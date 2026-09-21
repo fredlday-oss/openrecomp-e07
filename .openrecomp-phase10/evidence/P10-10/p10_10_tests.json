@@ -1,0 +1,191 @@
+{
+  "checks": [
+    {
+      "check": "build:status",
+      "detail": "OK,OK",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:general-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:native-execution-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:playability-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "controller:interrupt-accesses",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "controller:not-consumable",
+      "detail": "no scripted input can be consumed",
+      "status": "PASS"
+    },
+    {
+      "check": "controller:not-reached",
+      "detail": "false",
+      "status": "PASS"
+    },
+    {
+      "check": "controller:timer-reads",
+      "detail": "109035",
+      "status": "PASS"
+    },
+    {
+      "check": "controller:zero-accesses",
+      "detail": "{\"interrupt_port\": 1, \"timer_counter\": 109035}",
+      "status": "PASS"
+    },
+    {
+      "check": "loop:busy-poll-served",
+      "detail": "true",
+      "status": "PASS"
+    },
+    {
+      "check": "loop:no-frame-loop",
+      "detail": "false",
+      "status": "PASS"
+    },
+    {
+      "check": "loop:no-interrupt-progress",
+      "detail": "false",
+      "status": "PASS"
+    },
+    {
+      "check": "loop:no-vsync-wait",
+      "detail": "false",
+      "status": "PASS"
+    },
+    {
+      "check": "native:error",
+      "detail": "unresolved indirect jump",
+      "status": "PASS"
+    },
+    {
+      "check": "native:failed",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "native:input-events-capped",
+      "detail": "65536",
+      "status": "PASS"
+    },
+    {
+      "check": "private:present",
+      "detail": "private fixture present",
+      "status": "PASS"
+    },
+    {
+      "check": "requirements:no-new-implementation",
+      "detail": "none",
+      "status": "PASS"
+    },
+    {
+      "check": "requirements:scripted-input-not-reached",
+      "detail": "NOT_REACHED_BY_THE_PRIVATE_FRONTIER",
+      "status": "PASS"
+    },
+    {
+      "check": "requirements:spu-served",
+      "detail": "SERVED_NO_AUDIO_OUTPUT_REQUIRED",
+      "status": "PASS"
+    },
+    {
+      "check": "spu:audio-not-required",
+      "detail": "false",
+      "status": "PASS"
+    },
+    {
+      "check": "spu:cd-audio-volumes",
+      "detail": "[{\"address\": \"0x1f801db8\", \"blocked\": false, \"class\": \"spu_cd_audio\", \"direction\": \"read\", \"value_class\": \"zero\", \"width_bits\": 16}, {\"address\": \"0x1f801dba\", \"blocked\": false, \"class\": \"spu_cd_audio\", \"direction\": \"read\", \"value_class\": \"zero\", \"width_bits\": 16}, {\"address\": \"0x1f801db0\", \"blocked\": false, \"class\": \"spu_cd_audio\", \"direction\": \"write\", \"value_class\": \"volume_max\", \"width_bits\": 16}, {\"address\": \"0x1f801db2\", \"blocked\": false, \"class\": \"spu_cd_audio\", \"direction\": \"write\", \"value_class\": \"volume_max\", \"width_bits\": 16}, {\"address\": \"0x1f801daa\", \"blocked\": false, \"class\": \"spu_control\", \"direction\": \"write\", \"value_class\": \"control_enable_cd_audio_and_transfer\", \"width_bits\": 16}]",
+      "status": "PASS"
+    },
+    {
+      "check": "spu:classes",
+      "detail": "{\"spu_cd_audio\": 4, \"spu_control\": 1}",
+      "status": "PASS"
+    },
+    {
+      "check": "spu:event-count",
+      "detail": "5",
+      "status": "PASS"
+    },
+    {
+      "check": "spu:no-blocked",
+      "detail": "[{\"address\": \"0x1f801db8\", \"blocked\": false, \"class\": \"spu_cd_audio\", \"direction\": \"read\", \"value_class\": \"zero\", \"width_bits\": 16}, {\"address\": \"0x1f801dba\", \"blocked\": false, \"class\": \"spu_cd_audio\", \"direction\": \"read\", \"value_class\": \"zero\", \"width_bits\": 16}, {\"address\": \"0x1f801db0\", \"blocked\": false, \"class\": \"spu_cd_audio\", \"direction\": \"write\", \"value_class\": \"volume_max\", \"width_bits\": 16}, {\"address\": \"0x1f801db2\", \"blocked\": false, \"class\": \"spu_cd_audio\", \"direction\": \"write\", \"value_class\": \"volume_max\", \"width_bits\": 16}, {\"address\": \"0x1f801daa\", \"blocked\": false, \"class\": \"spu_control\", \"direction\": \"write\", \"value_class\": \"control_enable_cd_audio_and_transfer\", \"width_bits\": 16}]",
+      "status": "PASS"
+    },
+    {
+      "check": "spu:no-ram-transfer",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "spu:value-classes",
+      "detail": "[{\"address\": \"0x1f801db8\", \"blocked\": false, \"class\": \"spu_cd_audio\", \"direction\": \"read\", \"value_class\": \"zero\", \"width_bits\": 16}, {\"address\": \"0x1f801dba\", \"blocked\": false, \"class\": \"spu_cd_audio\", \"direction\": \"read\", \"value_class\": \"zero\", \"width_bits\": 16}, {\"address\": \"0x1f801db0\", \"blocked\": false, \"class\": \"spu_cd_audio\", \"direction\": \"write\", \"value_class\": \"volume_max\", \"width_bits\": 16}, {\"address\": \"0x1f801db2\", \"blocked\": false, \"class\": \"spu_cd_audio\", \"direction\": \"write\", \"value_class\": \"volume_max\", \"width_bits\": 16}, {\"address\": \"0x1f801daa\", \"blocked\": false, \"class\": \"spu_control\", \"direction\": \"write\", \"value_class\": \"control_enable_cd_audio_and_transfer\", \"width_bits\": 16}]",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:scripted:build",
+      "detail": "OK,OK",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:scripted:no-denial",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:scripted:no-spu-events",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:scripted:not-failed",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:scripted:readback",
+      "detail": "0x0000c1f3",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:spu:build",
+      "detail": "OK,OK",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:spu:denied",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:spu:events",
+      "detail": "2",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:spu:not-failed",
+      "detail": "0",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 36,
+  "stage": "P10-10",
+  "stage_name": "Controller / SPU / game-loop frontier",
+  "status": "PASS",
+  "tests": 36
+}

@@ -1,0 +1,42 @@
+{
+  "artifact_sha256": {
+    "input_spu_frontier.json": "2b697b82813aa14af1f0744e76cb0d534a0dc3a4263544a10e0b6bb5b35bb538",
+    "p10_10_tests.json": "2c85a7da70699738a6f403146cbb1661d4b14e19aad519f958a352264fbe7aee"
+  },
+  "artifacts_identical": true,
+  "gate": "tools/test_phase10_input_spu_v1.py",
+  "gate_sha256": "5ee0dcc4e5c7359102e04920ec41bbbb7152f2c2d0010de61d4f41a02fc93100",
+  "general_marker": "OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+  "playability_marker": "OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "input_spu_frontier.json": "2b697b82813aa14af1f0744e76cb0d534a0dc3a4263544a10e0b6bb5b35bb538",
+        "p10_10_tests.json": "2c85a7da70699738a6f403146cbb1661d4b14e19aad519f958a352264fbe7aee"
+      },
+      "p10_10_tests_sha256": "2c85a7da70699738a6f403146cbb1661d4b14e19aad519f958a352264fbe7aee",
+      "returncode": 0,
+      "stdout_bytes_raw": 1351,
+      "stdout_sha256_lf": "4660005febdc28be08fd320f90581fdc39768707eecbae55b3dbb501ed0bce51",
+      "stdout_sha256_raw": "fdcbdfc8c76d6a35efebeb47e92373cff3d8d3c667fafaa31cfb082206d020ef"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "input_spu_frontier.json": "2b697b82813aa14af1f0744e76cb0d534a0dc3a4263544a10e0b6bb5b35bb538",
+        "p10_10_tests.json": "2c85a7da70699738a6f403146cbb1661d4b14e19aad519f958a352264fbe7aee"
+      },
+      "p10_10_tests_sha256": "2c85a7da70699738a6f403146cbb1661d4b14e19aad519f958a352264fbe7aee",
+      "returncode": 0,
+      "stdout_bytes_raw": 1351,
+      "stdout_sha256_lf": "4660005febdc28be08fd320f90581fdc39768707eecbae55b3dbb501ed0bce51",
+      "stdout_sha256_raw": "fdcbdfc8c76d6a35efebeb47e92373cff3d8d3c667fafaa31cfb082206d020ef"
+    }
+  },
+  "schema": "openrecomp-phase10-determinism-v1",
+  "stage": "P10-10",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true,
+  "terminal_marker": "OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN"
+}

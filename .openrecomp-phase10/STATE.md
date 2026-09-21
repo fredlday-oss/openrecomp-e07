@@ -65,7 +65,8 @@ runtime architecture is created.
 | P10-07 | PASS |
 | P10-08 | PASS |
 | P10-09 | PASS |
-| P10-10 .. P10-12 | QUEUED |
+| P10-10 | PASS |
+| P10-11, P10-12 | QUEUED |
 | P10-90, P10-91, P10-99 | QUEUED |
 
 ## Stage records
@@ -344,15 +345,39 @@ Phase-10 stage runner with byte-identical stdout (1720 bytes LF, sha256
   fail-closed, data-port read returns the contract stub and never disc bytes;
 - evidence: `.openrecomp-phase10/evidence/P10-09/`.
 
+### P10-10 - Controller / SPU / game-loop frontier
+
+PASS (36 checks). Gate `tools/test_phase10_input_spu_v1.py` ran twice through
+the Phase-10 stage runner with byte-identical stdout (1310 bytes LF, sha256
+`4660005f...`), empty stderr and exit 0.
+
+- controller: zero accesses to the controller window; the guest never touches
+  the data port, so no scripted input is consumed - recorded as
+  `NOT_REACHED_BY_THE_PRIVATE_FRONTIER`, not implemented speculatively;
+- deterministic scripted input is proven by a public synthetic fixture (button
+  pattern `0xc1f3` written and read back unchanged, `failed=0`, `denied=0`);
+- SPU: 5 configuration events (one `spu_control` write `0xc001`, two
+  `spu_cd_audio` volume writes `0x3fff`, two zero reads), no RAM transfer, no
+  blocked event; audio output is not required and not implemented;
+- game loop: no frame loop and no vsync/interrupt-driven wait is reached; the
+  reached loop is a served busy-poll loop (GPU status and timer1 counter read
+  exactly one-to-one, 109035 each);
+- timer1 counter reads 109035 and interrupt-port accesses 1 (`I_MASK`,
+  fail-closed);
+- nothing is implemented; unserved interactions remain fail-closed;
+- evidence: `.openrecomp-phase10/evidence/P10-10/`.
+
 ## Open blockers
 
 - the executed unresolved indirect jump blocks progress; the exact failing
-  guest PC remains unobservable;
+  guest PC remains unobservable (the only evidence is the exact candidate set);
+- no frame/event loop, no controller consumption and no disc data path is
+  reached, so milestones beyond A are not established;
 - the bounded-execution budget cannot interrupt a post-truncation guest loop
   with no memory access (`P10-12` hardening item);
-- disc data transfer, ISO9660, streaming and XA are unreached and unimplemented;
-- DMA, interrupt delivery and memory-control timing remain unimplemented and
-  fail-closed (not proven required).
+- SPU RAM transfer, interrupt delivery, DMA and memory-control timing remain
+  unimplemented and fail-closed (not proven required).
+
 
 
 

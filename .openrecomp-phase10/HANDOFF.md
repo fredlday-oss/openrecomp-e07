@@ -37,34 +37,40 @@
   CD-ROM frontier is exactly classified (register-level command traffic
   only; `READ_N`/`SET_MODE`/`SET_LOCATION`, one blocked `0x80`, no data
   path reached); nothing implemented;
-- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-09/`.
+- `P10-10` `PASS` (36 checks): the controller/SPU/game-loop frontier is
+  classified - no controller consumption, SPU configuration only, and a
+  served busy-poll loop instead of a frame loop;
+- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-10/`.
 
 ## Immediate next action
 
-`P10-10` - controller / SPU / game-loop frontier.
+`P10-11` - highest evidence-supported milestone.
 
-Evidence already available:
+Established milestone: **A** (translated native execution begins), recorded at
+`P10-05` and not advanced since: no frame loop, no GPU command write, no
+controller consumption and no disc data path is reached.
 
-- controller/timer traffic: 65536 recorded input events (capped) consisting of
-  the `I_MASK` read (blocked) and timer1 counter reads (`0x1f801110`,
-  109035 in total, paired one-to-one with the GPU status reads);
-- SPU: 5 events - reads of `0x1f801db8`/`0x1f801dba`, volume writes of `0x3fff`
-  at `0x1f801db0`/`0x1f801db2` and a control write of `0xc001` at `0x1f801daa`;
-- no controller data-port access is reached: the guest never reads `JOY_DATA`
-  in the recorded frontier, so no deterministic scripted input can be consumed
-  yet.
+`P10-11` must re-derive the milestone from the accumulated evidence (not from a
+screenshot), record it with the exact failing frontier, and re-state that
+milestones B..G are NOT established:
 
-Required work: classify the controller/SPU/game-loop requirements, prove the
-deterministic scripted-input contract with a public synthetic fixture (the
-Phase-9 boundary already holds a fixed button state), and record explicitly
-that no frame/event loop is reached in the private frontier. Audio reproduction
-is not required. Do not implement speculative SPU/controller behaviour.
+- B (initialisation completes): not established - the guest fails closed inside
+  its initialisation path at an executed unresolved indirect jump;
+- C (GPU command stream reached): not established - only GP1 status reads are
+  reached, zero GP0/GP1 writes;
+- D/E/F/G: not established - no frame, no title, no menu, no input-driven state
+  progression.
 
-## Known work queued after P10-10
+The stage gate should verify the milestone record against the committed stage
+evidence (P10-05, P10-07, P10-08, P10-09, P10-10) by hash, so the claim cannot
+outlive the evidence it rests on.
 
-- `P10-11`: highest evidence-supported milestone;
-- `P10-12`, `P10-90`, `P10-91`, `P10-99`: hardening, whole-project regression,
-  evidence closure and the final bounded verdict.
+## Known work queued after P10-11
+
+- `P10-12`: hardening (malformed inputs, fail-closed negatives, cache/staleness,
+  no-private-material scan, clean native rebuild, deterministic repeat runs);
+- `P10-90`, `P10-91`, `P10-99`: whole-project regression, evidence closure and
+  the final bounded verdict.
 
 ## Private fixture notes
 

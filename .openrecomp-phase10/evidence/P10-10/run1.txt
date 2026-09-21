@@ -1,0 +1,41 @@
+PASS: build:status
+PASS: claim:general-not-promoted
+PASS: claim:native-execution-not-promoted
+PASS: claim:playability-not-promoted
+PASS: controller:interrupt-accesses
+PASS: controller:not-consumable
+PASS: controller:not-reached
+PASS: controller:timer-reads
+PASS: controller:zero-accesses
+PASS: loop:busy-poll-served
+PASS: loop:no-frame-loop
+PASS: loop:no-interrupt-progress
+PASS: loop:no-vsync-wait
+PASS: native:error
+PASS: native:failed
+PASS: native:input-events-capped
+PASS: private:present
+PASS: requirements:no-new-implementation
+PASS: requirements:scripted-input-not-reached
+PASS: requirements:spu-served
+PASS: spu:audio-not-required
+PASS: spu:cd-audio-volumes
+PASS: spu:classes
+PASS: spu:event-count
+PASS: spu:no-blocked
+PASS: spu:no-ram-transfer
+PASS: spu:value-classes
+PASS: synthetic:scripted:build
+PASS: synthetic:scripted:no-denial
+PASS: synthetic:scripted:no-spu-events
+PASS: synthetic:scripted:not-failed
+PASS: synthetic:scripted:readback
+PASS: synthetic:spu:build
+PASS: synthetic:spu:denied
+PASS: synthetic:spu:events
+PASS: synthetic:spu:not-failed
+OPENRECOMP_P10_10=PASS
+OPENRECOMP_PHASE10_INPUT_SPU_FRONTIER_V1=PASS tests=36
+OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN
+OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN

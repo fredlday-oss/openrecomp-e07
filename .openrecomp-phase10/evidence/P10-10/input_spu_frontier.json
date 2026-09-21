@@ -1,0 +1,233 @@
+{
+  "controller": {
+    "accesses": [
+      {
+        "address": "0x1f801074",
+        "budget_denied": false,
+        "class": "interrupt_port",
+        "direction": "read",
+        "observations": 1,
+        "width_bits": 16
+      },
+      {
+        "address": "0x1f801110",
+        "budget_denied": false,
+        "class": "timer_counter",
+        "direction": "read",
+        "observations": 109035,
+        "width_bits": 32
+      }
+    ],
+    "class_counts": {
+      "interrupt_port": 1,
+      "timer_counter": 109035
+    },
+    "controller_data_port": "0x1f801040",
+    "controller_data_reached": false,
+    "frontier_version": "1.0.0",
+    "interrupt_port_accesses": 1,
+    "scripted_input_consumable": false,
+    "timer_counter_reads": 109035
+  },
+  "game_loop": {
+    "busy_poll_evidence": "the GPU status read and the timer1 counter read appear exactly one-to-one (109035 each) and both are served, which is a served busy-poll loop, not a frame or event loop",
+    "busy_poll_loop_reached": true,
+    "busy_poll_served": true,
+    "controller_input_consumed": false,
+    "frame_loop_reached": false,
+    "frontier_version": "1.0.0",
+    "interrupt_driven_progress_required": false,
+    "not_reached": [
+      "a completed initialisation followed by a frame loop",
+      "a vsync or interrupt-driven wait",
+      "any controller-read-driven state progression"
+    ],
+    "spu_events": 5,
+    "vsync_or_interrupt_wait_reached": false
+  },
+  "identity": {
+    "address_space": {
+      "ram_kseg0_base": "0x80000000",
+      "ram_kseg0_end": "0x80200000",
+      "ram_size": 2097152
+    },
+    "bss_section": {
+      "address": "0x00000000",
+      "present": false,
+      "size": 0
+    },
+    "data_section": {
+      "address": "0x00000000",
+      "present": false,
+      "size": 0
+    },
+    "entry_pc": "0x800132e8",
+    "file_sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "file_size": 129024,
+    "format": "PS-X EXE",
+    "format_version": "1.0.0",
+    "header_fields": {
+      "b_addr": "0x00000000",
+      "b_size": "0x00000000",
+      "d_addr": "0x00000000",
+      "d_size": "0x00000000",
+      "gp0": "0x00000000",
+      "pc0": "0x800132e8",
+      "s_addr": "0x801ffff0",
+      "s_size": "0x00000000",
+      "t_addr": "0x80010000",
+      "t_size": "0x0001f000",
+      "zero1": "0x00000000",
+      "zero2": "0x00000000"
+    },
+    "header_size": 2048,
+    "initial_gp": "0x00000000",
+    "load_address": "0x80010000",
+    "magic": "PS-X EXE",
+    "payload_sha256": "2f48da4c642b25dd9d0b033f77b80a19e5befe34dc19da3194a51998e97c71be",
+    "payload_size": 126976,
+    "ram_span": {
+      "end": "0x8002f000",
+      "start": "0x80010000"
+    },
+    "reserved": {
+      "first_nonzero_offset": "0x4c",
+      "last_nonzero_offset": "0x82",
+      "nonzero_bytes": 55,
+      "offset": "0x38",
+      "sha256": "e6a138356b7e46be030334fdd789fab8cafeee2c85d44b54edafd391427b54fe",
+      "size": 1992
+    },
+    "stack": {
+      "pointer": "0x801ffff0",
+      "size": 0
+    },
+    "stack_pointer": "0x801ffff0",
+    "text_end": "0x8002f000"
+  },
+  "is_pass_criterion": false,
+  "label": "hercules-private-fixture",
+  "limitations": [
+    "the per-device transcript prefix is capped, so input-event address histograms come from the exact non-RAM log instead",
+    "no frame loop is reached, so no frame-level observable exists yet"
+  ],
+  "requirements": {
+    "dispositions": [
+      {
+        "disposition": "NOT_REACHED_BY_THE_PRIVATE_FRONTIER",
+        "evidence": "the guest never touches the controller data port (0 of 0 audited controller accesses)",
+        "implemented": "the Phase-9 boundary already holds a deterministic fixed button state; proven with a public synthetic fixture",
+        "interaction": "deterministic scripted controller input",
+        "required": false
+      },
+      {
+        "disposition": "SERVED_NO_AUDIO_OUTPUT_REQUIRED",
+        "evidence": "5 events: two register reads, two volume writes and one control write",
+        "implemented": "served by the Phase-9 boundary (recorded, no state)",
+        "interaction": "SPU register configuration",
+        "required": false
+      },
+      {
+        "disposition": "NOT_IMPLEMENTED_FAIL_CLOSED",
+        "evidence": "no transfer-port access",
+        "implemented": false,
+        "interaction": "SPU RAM transfer",
+        "required": false
+      },
+      {
+        "disposition": "NOT_REACHED",
+        "evidence": "no vsync or interrupt-driven wait is reached; only a served busy-poll loop",
+        "implemented": false,
+        "interaction": "frame / event loop",
+        "required": false
+      }
+    ],
+    "frontier_version": "1.0.0",
+    "implemented_at_phase10": [],
+    "policy": "nothing is implemented at P10-10; the reached behaviour is already served and no unserved requirement is proven"
+  },
+  "schema": "openrecomp-phase10-input-spu-frontier-v1",
+  "spu": {
+    "accesses": [
+      {
+        "address": "0x1f801db8",
+        "blocked": false,
+        "class": "spu_cd_audio",
+        "direction": "read",
+        "value_class": "zero",
+        "width_bits": 16
+      },
+      {
+        "address": "0x1f801dba",
+        "blocked": false,
+        "class": "spu_cd_audio",
+        "direction": "read",
+        "value_class": "zero",
+        "width_bits": 16
+      },
+      {
+        "address": "0x1f801db0",
+        "blocked": false,
+        "class": "spu_cd_audio",
+        "direction": "write",
+        "value_class": "volume_max",
+        "width_bits": 16
+      },
+      {
+        "address": "0x1f801db2",
+        "blocked": false,
+        "class": "spu_cd_audio",
+        "direction": "write",
+        "value_class": "volume_max",
+        "width_bits": 16
+      },
+      {
+        "address": "0x1f801daa",
+        "blocked": false,
+        "class": "spu_control",
+        "direction": "write",
+        "value_class": "control_enable_cd_audio_and_transfer",
+        "width_bits": 16
+      }
+    ],
+    "audio_reason": "the reached SPU traffic is configuration-only (volume and control writes plus two register reads); no voice setup, no RAM transfer and no audio output requirement is evidence-reachable, and audio reproduction is not required unless its absence blocks execution",
+    "audio_required": false,
+    "class_counts": {
+      "spu_cd_audio": 4,
+      "spu_control": 1
+    },
+    "event_count": 5,
+    "frontier_version": "1.0.0",
+    "ram_transfer_accesses": 0
+  },
+  "stage": "P10-10",
+  "synthetic_scripted_input": {
+    "denied": "0",
+    "failed": "0",
+    "pattern": "0xc1f3",
+    "read_back": "0x0000c1f3",
+    "words": [
+      "0x3c081f80",
+      "0x35081040",
+      "0x3409c1f3",
+      "0xa5090000",
+      "0x950a0000",
+      "0x03e00008",
+      "0x00000000"
+    ]
+  },
+  "synthetic_spu_config": {
+    "denied": "0",
+    "failed": "0",
+    "spu_events": "2",
+    "words": [
+      "0x3c081f80",
+      "0x35081db0",
+      "0x34093fff",
+      "0xa5090000",
+      "0xa5090002",
+      "0x03e00008",
+      "0x00000000"
+    ]
+  }
+}
