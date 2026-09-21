@@ -37,7 +37,7 @@
     },
     {
       "check": "branch:boundary-tree-identical",
-      "detail": "900dccf06ce3d5df7b499a9f05a6ceea060114d7",
+      "detail": "descendant",
       "status": "PASS"
     },
     {
@@ -47,7 +47,7 @@
     },
     {
       "check": "branch:head-at-boundary-or-descendant",
-      "detail": "08c639d9032a364163f2985432744be420d402eb",
+      "detail": "921e946e2f3f91839d2749cd6413fb61831ea91f",
       "status": "PASS"
     },
     {
@@ -256,6 +256,131 @@
       "status": "PASS"
     },
     {
+      "check": "fixture-identity:no-base64",
+      "detail": "payload base64 present",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:no-hex",
+      "detail": "payload hex present",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "38 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "39 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "39 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "39 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "39 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "0 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "19 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "8 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture-identity:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
       "check": "fixture:bin-count",
       "detail": "1",
       "status": "PASS"
@@ -366,6 +491,16 @@
       "status": "PASS"
     },
     {
+      "check": "frontier:no-base64",
+      "detail": "payload base64 present",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-hex",
+      "detail": "payload hex present",
+      "status": "PASS"
+    },
+    {
       "check": "frontier:no-native-execution",
       "detail": "false",
       "status": "PASS"
@@ -393,6 +528,271 @@
     {
       "check": "frontier:reproduced",
       "detail": "{}",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "43 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "41 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "13 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "26 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "13 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "26 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "8 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "8 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "13 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "50 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "26 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:string-length",
+      "detail": "41 chars",
       "status": "PASS"
     },
     {
@@ -563,9 +963,9 @@
   ],
   "failed": 0,
   "failure": null,
-  "passed": 112,
+  "passed": 192,
   "stage": "P10-00",
   "stage_name": "Phase-10 boundary + fixture/control plane",
   "status": "PASS",
-  "tests": 112
+  "tests": 192
 }

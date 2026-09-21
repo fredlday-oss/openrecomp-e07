@@ -109,21 +109,34 @@ reconstructive derived data is present.
 Command `python .openrecomp-phase10/src/p10_stage_runner_v1.py --stage P10-00
 --script tools/test_phase10_boundary_v1.py --evidence-dir
 .openrecomp-phase10/evidence/P10-00 --tests-json p10_00_tests.json`, exit 0,
-empty stderr, both runs byte-identical: stdout 7108 bytes (LF), sha256
+empty stderr, both runs byte-identical: raw stdout 7305 bytes, sha256
+`497ef9f9918b3ba2846a33534b87d1e85725401fae9afb84714f3ca449f79498`; LF capture
+7108 bytes, sha256
 `c1c4ed3b50644dbfc6e8e8f0fe3c39dfb47b837f379aefe54bb93aa411b1c7d0`; generated
 evidence sidecars byte-identical across both runs.
 
 Sidecar identities:
 
-- `baseline.json` `da68eee88f61ff10c40051fd07ab99d31656a0835b146970ace070038645582a`;
+- `baseline.json` `000318f679737ccb0801a8ec5748e684a4181eccc900fab8aa7c65fa5f106abe`;
 - `fixture_identity.json` `449111519b372126ea0e330b05d6883b369b50b42b97fae79e92432d4dd7e014`;
 - `frontier.json` `0b4f1c4905852f6195a030d5860ef99a3675ce09933fc252c7f986b05e5441c2`;
 - `toolchains.json` `4367b2b8e507864efc5a29722cf5b8fdb30e0d36979086b9842ce078052b6e8c`;
-- `p10_00_tests.json` `df3a366a1657e4076754e090aba95b9db21dcad78ee672fffa56c66fba60c126`;
-- `official_runs.json` `cdfef75567aeac59ec3e485557bf8886f98ddb172cc9f733db2f4ab53a44e95a`;
-- `determinism.json` `c8ea62b356b56a38e9825db0275f560c2d59a0597f26087ec9d2592119299112`;
+- `p10_00_tests.json` `050846692832b44337b66c14f45dd5eefcf28be496efe173bce2ff2a67416190`;
+- `official_runs.json` `697475e92eb2a7cbb9717c9518805e57897d6976ed2dfd8372902b956e1dfa56`;
+- `determinism.json` `ecf5cb2d395b341af3200e6734af0b1ef99049b11e563c0536cda3649e680df3`;
 - `run1.err.txt` = `run2.err.txt` empty
   (`e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`).
+
+## Re-issue note (documented, not silent)
+
+`P10-91` evidence closure exposed a stale committed sidecar: the committed
+`p10_00_tests.json` held the earlier 112-check record while the official stdout
+capture and the current gate hold 192 checks, so the tests-record hash recorded
+in `official_runs.json` did not match the committed file. The stage was re-run
+through the official runner: the stdout capture is byte-identical (raw 7305
+bytes `497ef9f9...`, LF 7108 bytes `c1c4ed3b...`), exit 0, empty stderr, both
+runs identical, and the tests-record hash now matches the committed record. The
+sidecar hash block above is the current one.
 
 ## Claim-ledger delta
 
