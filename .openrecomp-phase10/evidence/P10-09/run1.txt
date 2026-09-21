@@ -1,0 +1,51 @@
+PASS: build:status
+PASS: claim:general-not-promoted
+PASS: claim:native-execution-not-promoted
+PASS: claim:playability-not-promoted
+PASS: commands:0x80-unknown
+PASS: commands:documented-table
+PASS: commands:read-command
+PASS: fixture:bin-sha
+PASS: fixture:bin-size
+PASS: fixture:boot-extent-matches-executable
+PASS: fixture:boot-target
+PASS: fixture:cue-sha
+PASS: fixture:cue-size
+PASS: fixture:directory
+PASS: fixture:executable-sha
+PASS: fixture:executable-size
+PASS: fixture:index1
+PASS: fixture:root-extent
+PASS: fixture:track-type
+PASS: fixture:volume-size
+PASS: native:blockers
+PASS: native:cdrom-events
+PASS: native:command-total
+PASS: native:command-writes
+PASS: native:data-path-not-reached
+PASS: native:disc-image-unused
+PASS: native:index-status-writes
+PASS: native:interrupt-enable
+PASS: native:known-command-count
+PASS: native:not-failed-on-cdrom
+PASS: native:parameter-writes
+PASS: native:unknown-command
+PASS: requirements:cue-role
+PASS: requirements:data-path-not-implemented
+PASS: requirements:no-new-implementation
+PASS: requirements:unknown-fail-closed
+PASS: synthetic:data-read:build
+PASS: synthetic:data-read:no-disc-bytes
+PASS: synthetic:data-read:not-failed
+PASS: synthetic:data-read:stub-value
+PASS: synthetic:known-command-readn:build
+PASS: synthetic:known-command-readn:failed
+PASS: synthetic:known-command-setmode:build
+PASS: synthetic:known-command-setmode:failed
+PASS: synthetic:unknown-command-0x80:build
+PASS: synthetic:unknown-command-0x80:failed
+OPENRECOMP_P10_09=PASS
+OPENRECOMP_PHASE10_DISC_FRONTIER_V1=PASS tests=46
+OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN
+OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN

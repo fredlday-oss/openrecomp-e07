@@ -64,7 +64,8 @@ runtime architecture is created.
 | P10-06 | PASS |
 | P10-07 | PASS |
 | P10-08 | PASS |
-| P10-09 .. P10-12 | QUEUED |
+| P10-09 | PASS |
+| P10-10 .. P10-12 | QUEUED |
 | P10-90, P10-91, P10-99 | QUEUED |
 
 ## Stage records
@@ -316,14 +317,43 @@ Phase-10 stage runner with byte-identical stdout (1661 bytes LF, sha256
   execution) is recorded as a `P10-12` hardening item;
 - evidence: `.openrecomp-phase10/evidence/P10-08/`.
 
+### P10-09 - Disc / CD-ROM / streaming frontier
+
+PASS (46 checks). Gate `tools/test_phase10_disc_v1.py` ran twice through the
+Phase-10 stage runner with byte-identical stdout (1720 bytes LF, sha256
+`0d049cc1...`), empty stderr and exit 0.
+
+- disc identity re-verified exactly against the `P10-00` record: the CUE is
+  discovered from the fixture directory (101 bytes, `beea454d...`), the
+  referenced BIN (409452624 bytes, `2ce144ba...`) with one `MODE2/2352` track
+  and `INDEX 01 00:00:00`, ISO9660 174087 sectors, root extent LBA 22, and the
+  `SYSTEM.CNF` boot extent byte-identical to `SLUS_005.29`;
+- exact CD-ROM register frontier: index/status writes 15, parameter writes 8,
+  interrupt-enable reads 2 / writes 3, command writes 10;
+- command bytes classified with the audited 32-entry Phase-9 command table:
+  `READ_N` 4, `SET_MODE` 4, `SET_LOCATION` 1, unknown `0x80` 1 (blocked,
+  fail-closed);
+- the disc data path is NOT reached: no sector transfer, no ISO9660 access, no
+  file open/read, no overlay, no resource load, no streaming, no XA and no
+  asynchronous CD event appears in the transcript;
+- nothing is implemented (no disc behaviour is reached; implementing it would
+  be speculative); the boundary accepts the commands without performing any
+  transfer, so a data consumer would receive the explicit contract stub rather
+  than host filesystem data;
+- public synthetic fixtures: `SET_MODE`/`READ_N` served, unknown `0x80`
+  fail-closed, data-port read returns the contract stub and never disc bytes;
+- evidence: `.openrecomp-phase10/evidence/P10-09/`.
+
 ## Open blockers
 
 - the executed unresolved indirect jump blocks progress; the exact failing
   guest PC remains unobservable;
 - the bounded-execution budget cannot interrupt a post-truncation guest loop
   with no memory access (`P10-12` hardening item);
+- disc data transfer, ISO9660, streaming and XA are unreached and unimplemented;
 - DMA, interrupt delivery and memory-control timing remain unimplemented and
   fail-closed (not proven required).
+
 
 
 

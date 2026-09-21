@@ -33,33 +33,35 @@
   classified, all 11 denials are attributed by address and cause, the
   read-driven virtual-time contract is proven, and every unproven
   interaction stays fail-closed;
-- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-08/`.
+- `P10-09` `PASS` (46 checks): the disc identity is re-verified and the
+  CD-ROM frontier is exactly classified (register-level command traffic
+  only; `READ_N`/`SET_MODE`/`SET_LOCATION`, one blocked `0x80`, no data
+  path reached); nothing implemented;
+- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-09/`.
 
 ## Immediate next action
 
-`P10-09` - disc / CD-ROM / streaming frontier.
+`P10-10` - controller / SPU / game-loop frontier.
 
-Use the already verified CUE as the authoritative private disc source
-(`P10-00` recorded its identity and the `SYSTEM.CNF` boot relationship; the CUE
-and BIN filenames must again be discovered from the fixture directory, never
-assumed). Evidence already available from `P10-07`/`P10-08`:
+Evidence already available:
 
-- CD-ROM register traffic: index/status writes at `0x1f801800` (15), parameter
-  writes at `0x1f801802` (8), register-3 reads/writes at `0x1f801803` (2/3),
-  and 10 command writes at `0x1f801801` of which 9 were served by the Phase-9
-  boundary and 1 (command `0x80`) was blocked as unknown;
-- no sector read has been observed, no ISO9660 access, no streaming and no XA
-  evidence exists in the recorded frontier. Determine whether the blocked
-  command and the absence of sector reads are pre- or post-failure behaviour
-  and classify the actual requirement;
-- do not extract or commit disc contents; record only hashes, names, counts,
-  access classifications and operation traces;
-- the P10-01/P10-06/P10-08 rule applies: no host-filesystem substitution for PS1
-  CD behaviour, and unknown commands stay fail-closed.
+- controller/timer traffic: 65536 recorded input events (capped) consisting of
+  the `I_MASK` read (blocked) and timer1 counter reads (`0x1f801110`,
+  109035 in total, paired one-to-one with the GPU status reads);
+- SPU: 5 events - reads of `0x1f801db8`/`0x1f801dba`, volume writes of `0x3fff`
+  at `0x1f801db0`/`0x1f801db2` and a control write of `0xc001` at `0x1f801daa`;
+- no controller data-port access is reached: the guest never reads `JOY_DATA`
+  in the recorded frontier, so no deterministic scripted input can be consumed
+  yet.
 
-## Known work queued after P10-09
+Required work: classify the controller/SPU/game-loop requirements, prove the
+deterministic scripted-input contract with a public synthetic fixture (the
+Phase-9 boundary already holds a fixed button state), and record explicitly
+that no frame/event loop is reached in the private frontier. Audio reproduction
+is not required. Do not implement speculative SPU/controller behaviour.
 
-- `P10-10`: controller/SPU/game-loop frontier;
+## Known work queued after P10-10
+
 - `P10-11`: highest evidence-supported milestone;
 - `P10-12`, `P10-90`, `P10-91`, `P10-99`: hardening, whole-project regression,
   evidence closure and the final bounded verdict.

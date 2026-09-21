@@ -1,0 +1,241 @@
+{
+  "checks": [
+    {
+      "check": "build:status",
+      "detail": "OK,OK",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:general-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:native-execution-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:playability-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "commands:0x80-unknown",
+      "detail": "0x80 not documented",
+      "status": "PASS"
+    },
+    {
+      "check": "commands:documented-table",
+      "detail": "32",
+      "status": "PASS"
+    },
+    {
+      "check": "commands:read-command",
+      "detail": "READ_N",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-sha",
+      "detail": "2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-size",
+      "detail": "409452624",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:boot-extent-matches-executable",
+      "detail": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:boot-target",
+      "detail": "SLUS_005.29",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-sha",
+      "detail": "beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-size",
+      "detail": "101",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:directory",
+      "detail": "private fixture directory present",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:executable-sha",
+      "detail": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:executable-size",
+      "detail": "129024",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:index1",
+      "detail": "[0, 0, 0]",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:root-extent",
+      "detail": "22",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:track-type",
+      "detail": "MODE2/2352",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:volume-size",
+      "detail": "174087",
+      "status": "PASS"
+    },
+    {
+      "check": "native:blockers",
+      "detail": "[{\"direction\": \"write\", \"register\": \"COMMAND\", \"value\": \"0x80\"}]",
+      "status": "PASS"
+    },
+    {
+      "check": "native:cdrom-events",
+      "detail": "38",
+      "status": "PASS"
+    },
+    {
+      "check": "native:command-total",
+      "detail": "10",
+      "status": "PASS"
+    },
+    {
+      "check": "native:command-writes",
+      "detail": "{\"COMMAND\": {\"write\": 10}, \"INDEX_STATUS\": {\"write\": 15}, \"INTERRUPT_ENABLE\": {\"read\": 2, \"write\": 3}, \"PARAMETER\": {\"write\": 8}}",
+      "status": "PASS"
+    },
+    {
+      "check": "native:data-path-not-reached",
+      "detail": "{\"asynchronous_cd_event\": false, \"data_streaming\": false, \"evidence\": \"no disc data port read, no sector request and no file/streaming operation appears in the recorded transcript: only index/status, parameter, command and interrupt-enable register traffic is present\", \"executable_overlay_load\": false, \"file_open_or_read\": false, \"iso9660_directory_access\": false, \"resource_load\": false, \"sector_read\": false, \"xa_audio_streaming\": false}",
+      "status": "PASS"
+    },
+    {
+      "check": "native:disc-image-unused",
+      "detail": "none",
+      "status": "PASS"
+    },
+    {
+      "check": "native:index-status-writes",
+      "detail": "{\"COMMAND\": {\"write\": 10}, \"INDEX_STATUS\": {\"write\": 15}, \"INTERRUPT_ENABLE\": {\"read\": 2, \"write\": 3}, \"PARAMETER\": {\"write\": 8}}",
+      "status": "PASS"
+    },
+    {
+      "check": "native:interrupt-enable",
+      "detail": "{\"COMMAND\": {\"write\": 10}, \"INDEX_STATUS\": {\"write\": 15}, \"INTERRUPT_ENABLE\": {\"read\": 2, \"write\": 3}, \"PARAMETER\": {\"write\": 8}}",
+      "status": "PASS"
+    },
+    {
+      "check": "native:known-command-count",
+      "detail": "10",
+      "status": "PASS"
+    },
+    {
+      "check": "native:not-failed-on-cdrom",
+      "detail": "unresolved indirect jump",
+      "status": "PASS"
+    },
+    {
+      "check": "native:parameter-writes",
+      "detail": "{\"COMMAND\": {\"write\": 10}, \"INDEX_STATUS\": {\"write\": 15}, \"INTERRUPT_ENABLE\": {\"read\": 2, \"write\": 3}, \"PARAMETER\": {\"write\": 8}}",
+      "status": "PASS"
+    },
+    {
+      "check": "native:unknown-command",
+      "detail": "[128]",
+      "status": "PASS"
+    },
+    {
+      "check": "requirements:cue-role",
+      "detail": "the verified CUE is the authoritative disc entry point and remains the required source for any future disc behaviour, but it is not read by the current frontier",
+      "status": "PASS"
+    },
+    {
+      "check": "requirements:data-path-not-implemented",
+      "detail": "false",
+      "status": "PASS"
+    },
+    {
+      "check": "requirements:no-new-implementation",
+      "detail": "none",
+      "status": "PASS"
+    },
+    {
+      "check": "requirements:unknown-fail-closed",
+      "detail": "NOT_IMPLEMENTED_FAIL_CLOSED",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:data-read:build",
+      "detail": "OK,OK",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:data-read:no-disc-bytes",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:data-read:not-failed",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:data-read:stub-value",
+      "detail": "0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:known-command-readn:build",
+      "detail": "OK,OK",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:known-command-readn:failed",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:known-command-setmode:build",
+      "detail": "OK,OK",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:known-command-setmode:failed",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown-command-0x80:build",
+      "detail": "OK,OK",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown-command-0x80:failed",
+      "detail": "1",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 46,
+  "stage": "P10-09",
+  "stage_name": "Disc / CD-ROM / streaming frontier",
+  "status": "PASS",
+  "tests": 46
+}

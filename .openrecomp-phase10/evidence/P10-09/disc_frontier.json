@@ -1,0 +1,177 @@
+{
+  "classification": {
+    "blockers": [
+      {
+        "direction": "write",
+        "register": "COMMAND",
+        "value": "0x80"
+      }
+    ],
+    "command_classification": {
+      "command_count": 10,
+      "command_histogram": {
+        "READ_N": 4,
+        "SET_LOCATION": 1,
+        "SET_MODE": 4,
+        "UNKNOWN_COMMAND": 1
+      },
+      "disc_version": "1.0.0",
+      "documented_command_table_size": 32,
+      "unknown_command_count": 1,
+      "unknown_commands": [
+        128
+      ]
+    },
+    "data_path": {
+      "asynchronous_cd_event": false,
+      "data_streaming": false,
+      "evidence": "no disc data port read, no sector request and no file/streaming operation appears in the recorded transcript: only index/status, parameter, command and interrupt-enable register traffic is present",
+      "executable_overlay_load": false,
+      "file_open_or_read": false,
+      "iso9660_directory_access": false,
+      "resource_load": false,
+      "sector_read": false,
+      "xa_audio_streaming": false
+    },
+    "data_path_reached": false,
+    "disc_image_used": "none",
+    "disc_version": "1.0.0",
+    "event_count": 38,
+    "register_histogram": {
+      "COMMAND": {
+        "write": 10
+      },
+      "INDEX_STATUS": {
+        "write": 15
+      },
+      "INTERRUPT_ENABLE": {
+        "read": 2,
+        "write": 3
+      },
+      "PARAMETER": {
+        "write": 8
+      }
+    },
+    "stub_policy": "contract-stub-not-hardware-accurate"
+  },
+  "disc_identity": {
+    "bins": [
+      {
+        "directory_entry": "Disney's Hercules Action Game (USA).bin",
+        "sha256": "2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365",
+        "size": 409452624
+      }
+    ],
+    "cue": {
+      "cue_sha256": "beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2",
+      "cue_size": 101,
+      "directory_entry": "Disney's Hercules Action Game (USA).cue",
+      "file_entry": "Disney's Hercules Action Game (USA).bin",
+      "file_type": "BINARY",
+      "referenced_bins": [
+        "Disney's Hercules Action Game (USA).bin"
+      ],
+      "track_count": 1,
+      "tracks": [
+        {
+          "index1_msf": [
+            0,
+            0,
+            0
+          ],
+          "number": 1,
+          "type": "MODE2/2352"
+        }
+      ]
+    },
+    "executable": {
+      "directory_entry": "SLUS_005.29",
+      "sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "size": 129024
+    },
+    "system_cnf": {
+      "boot_extent_lba": 23,
+      "boot_extent_sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "boot_extent_size": 129024,
+      "boot_target": "SLUS_005.29",
+      "directory_entry": "SYSTEM.CNF;1",
+      "extent_lba": 86,
+      "fields": {
+        "BOOT": "cdrom:SLUS_005.29;1",
+        "EVENT": "16",
+        "STACK": "801FFF00",
+        "TCB": "4"
+      },
+      "matches_primary_executable": true,
+      "size": 67
+    },
+    "volume": {
+      "pvd_lba": 16,
+      "root_extent_lba": 22,
+      "root_size": 2048,
+      "system_identifier": "PLAYSTATION",
+      "volume_identifier": "",
+      "volume_space_size_sectors": 174087
+    }
+  },
+  "disc_identity_sha256": "8b7c94ffe94c1f013ee7d7d2ff1e706e085cb71c5c705ea13d9fef631acf6f2d",
+  "is_pass_criterion": false,
+  "label": "hercules-private-fixture",
+  "prohibitions": [
+    "no disc bytes, sectors, file contents or reconstructed disc data are read or committed",
+    "the CUE is never hard-coded: it is discovered from the fixture directory",
+    "no host filesystem behaviour is substituted for PS1 CD behaviour",
+    "unknown CD-ROM commands remain fail-closed"
+  ],
+  "requirements": {
+    "cue_role": "the verified CUE is the authoritative disc entry point and remains the required source for any future disc behaviour, but it is not read by the current frontier",
+    "data_path_implemented": false,
+    "disc_version": "1.0.0",
+    "implemented_at_phase10": [],
+    "reason": "the reachable path performs register-level CD-ROM traffic only; no disc data transfer is reached, so implementing ISO9660, sector reads, streaming or XA would be speculative",
+    "served_by_phase9_boundary": [
+      "READ_N",
+      "SET_LOCATION",
+      "SET_MODE",
+      "UNKNOWN_COMMAND"
+    ],
+    "unknown_command_disposition": "NOT_IMPLEMENTED_FAIL_CLOSED",
+    "unknown_commands": [
+      128
+    ]
+  },
+  "schema": "openrecomp-phase10-disc-frontier-v1",
+  "stage": "P10-09",
+  "synthetic_data_read": {
+    "denied": "0",
+    "failed": "0",
+    "register_r10": "0x00000000",
+    "words": [
+      "0x3c081f80",
+      "0x35081802",
+      "0x910a0000",
+      "0x03e00008",
+      "0x00000000"
+    ]
+  },
+  "synthetic_fixtures": [
+    {
+      "denied": "0",
+      "error": "",
+      "failed": "0",
+      "name": "known-command-setmode"
+    },
+    {
+      "denied": "0",
+      "error": "",
+      "failed": "0",
+      "name": "known-command-readn"
+    },
+    {
+      "denied": "1",
+      "error": "runtime memory write failed",
+      "failed": "1",
+      "name": "unknown-command-0x80"
+    }
+  ]
+}
