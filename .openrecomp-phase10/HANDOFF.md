@@ -31,17 +31,38 @@
 
 `P10-07` - GPU command execution frontier.
 
-Advance Hercules through the first actually reachable GPU operations, reusing
-the Phase-9 GPU boundary, and classify the required GP0/GP1 command classes,
-DMA interactions and VRAM state required for progress, with deterministic
-GPU-command evidence.
+The unblocking infrastructure is already in place: the additive Phase-10
+observable driver `.openrecomp-phase10/runtime/p10_observable_driver_v1.c`
+prints the bounded-execution counters and the typed platform event transcripts
+(`ev_<device>_<i>=service,direction,width,flags,address,value`; GPU up to 4096,
+the other devices up to 64). Select it with
+`p10_emission_v1.build_build_set(..., driver="phase10")`.
 
-Blocking limitation to resolve first: the frozen Phase-9 observable driver
-prints only device event counts and digests, not the command values, and not
-the failing guest PC. A **new, additive Phase-10 driver** (a new file under
-`.openrecomp-phase10/runtime/`) is required to print the first N typed device
-events (service, direction, width, address, value), the first denied address
-and the last executed guest PC. Do not modify the frozen Phase-9 driver.
+Already observed with that driver on the private executable (a full
+build+run cycle, recorded here so it does not have to be rediscovered):
+
+- GPU: 4096 recorded events (capped) whose first 64 are all GP1 `RESET_GPU`
+  (`0x1f801814`, command `0x00`); the GPU stream is therefore dominated by
+  repeated reset sequences early on. Classify the whole recorded prefix with
+  `p9_gpu_boundary_v1.classify_gp0` / `classify_gp1` and report the class
+  histogram, the GP0/GP1 split and the unknown-command count.
+- CD-ROM: 38 events: index/status writes (`0x1f801800`), parameter writes
+  (`0x1f801802` values `0x80`, `0x00`, `0x03`), and one BLOCKER event at
+  `0x1f801801` with value `0x80` (unknown CD-ROM command, fail-closed denial).
+- SPU: 5 events: volume writes `0x3fff` at `0x1f801db0`/`0x1f801db2`, control
+  write `0xc001` at `0x1f801daa`, and reads of `0x1f801db8`/`0x1f801dba`.
+- Controller/timers: `I_MASK` write at `0x1f801074` (BLOCKER, denied - interrupt
+  ports are not modelled) and timer1 counter reads at `0x1f801110` returning the
+  deterministic virtual tick.
+- 11 denied accesses in total and 79 Phase-10 MIPS service calls with 0 service
+  failures.
+
+P10-07 PASS requires the required GP0/GP1 command classes, the DMA interaction
+classification (the observed GPU path is CPU port writes; no DMA-controller
+register range is modelled, so any DMA assumption must stay explicit) and the
+VRAM state required for progress, with deterministic command evidence - or an
+explicit `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE` record for anything the
+transcript cannot decide.
 
 ## Known work queued after P10-07
 
