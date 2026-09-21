@@ -60,6 +60,18 @@ DOCUMENTED_A0_SERVICES = {
         "semantics": "fill len bytes at dst with (fillbyte & 0xff) through the checked guest memory boundary",
         "source": "public PS1 BIOS function table documentation (PSX-SPX BIOS function summary / memory fill-copy-compare)",
     },
+    0x3F: {
+        "name": "printf",
+        "signature": ["fmt", "arg1", "arg2"],
+        "returns": "number of characters that would have been written",
+        "refusal": "malformed or unsupported conversion, more varargs than the declared surface",
+        "semantics": [
+            "bounded documented printf subset (%% %c %s %d %i %u %x %X %o with flags,",
+            "width, precision); the host has no console, so the formatted text is",
+            "consumed and discarded; only the documented count and a digest are kept",
+        ],
+        "source": "public PS1 BIOS function table documentation (PSX-SPX BIOS function summary)",
+    },
 }
 
 #: Documented B0/C0 services are not implemented and stay fail-closed.
@@ -73,8 +85,7 @@ DOCUMENTED_C0_SERVICES: dict[int, dict[str, Any]] = {}
 DOCUMENTED_INDEX_NAMES = {
     ("A0", 0x2B): "memset",
     ("A0", 0x30): "srand",
-    ("A0", 0x3F): "printf",
-    ("A0", 0x43): "DoExecute",
+    ("A0", 0x3F): "printf",    ("A0", 0x43): "DoExecute",
     ("A0", 0x44): "FlushCache",
     ("A0", 0x49): "GPU_cw",
     ("A0", 0x70): "_bu_init",
@@ -162,10 +173,19 @@ def _vector_for_value(value: int) -> str | None:
     return None
 
 
-def classify_vector_sites(analysis: dict[str, Any]) -> dict[str, Any]:
-    """Classify every reachable indirect-control site against the BIOS vectors."""
+def classify_vector_sites(analysis: dict[str, Any],
+                          *,
+                          services: dict[str, dict[int, dict[str, Any]]] | None = None) -> dict[str, Any]:
+    """Classify every reachable indirect-control site against the BIOS vectors.
+
+    ``services`` pins the documented service surface for one stage: a stage that
+    resolved a smaller surface passes its own subset so its record stays exactly
+    reproducible as later stages extend the surface. The default is the current
+    module surface.
+    """
     if not isinstance(analysis, dict) or not isinstance(analysis.get("records"), list):
         raise BiosFrontierError("INVALID_ANALYSIS", type(analysis).__name__)
+    tables = VECTOR_TABLES if services is None else services
     reachable = set(analysis.get("reachable_addresses") or [])
     sites: list[BiosVectorSite] = []
     for record in sorted(analysis["records"], key=lambda item: item["address"]):
@@ -206,7 +226,7 @@ def classify_vector_sites(analysis: dict[str, Any]) -> dict[str, Any]:
             )
             continue
         index, index_evidence = p10_bios.delay_slot_index(analysis, address)
-        documented = VECTOR_TABLES[vector]
+        documented = tables[vector]
         if index is None:
             sites.append(
                 BiosVectorSite(
@@ -268,23 +288,23 @@ def classify_vector_sites(analysis: dict[str, Any]) -> dict[str, Any]:
     histogram: dict[str, int] = {}
     for site in sites:
         histogram[site.classification] = histogram.get(site.classification, 0) + 1
-    services = [site for site in sites if site.classification == CLASS_BIOS_VECTOR_SERVICE]
+    services_resolved = [site for site in sites if site.classification == CLASS_BIOS_VECTOR_SERVICE]
     return {
         "bios_version": BIOS_VERSION,
         "site_count": len(sites),
         "histogram": dict(sorted(histogram.items())),
         "sites": [site.to_document() for site in sites],
-        "services": [site.to_document() for site in services],
-        "service_count": len(services),
-        "service_ids": sorted({site.service_id for site in services if site.service_id}),
+        "services": [site.to_document() for site in services_resolved],
+        "service_count": len(services_resolved),
+        "service_ids": sorted({site.service_id for site in services_resolved if site.service_id}),
         "index_register": p10_bios.INDEX_REGISTER,
         "vector_register": p10_bios.VECTOR_REGISTER,
         "documented_a0_services": {
             f"0x{index:02x}": dict(document)
-            for index, document in sorted(DOCUMENTED_A0_SERVICES.items())
+            for index, document in sorted(tables["A0"].items())
         },
-        "documented_b0_service_count": len(DOCUMENTED_B0_SERVICES),
-        "documented_c0_service_count": len(DOCUMENTED_C0_SERVICES),
+        "documented_b0_service_count": len(tables["B0"]),
+        "documented_c0_service_count": len(tables["C0"]),
         "unknown_policy": "fail-closed",
         "bios_image": "none",
     }

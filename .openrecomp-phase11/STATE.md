@@ -66,7 +66,7 @@ OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 | P11-00 | PASS |
 | P11-01 | PASS |
 | P11-02 | PASS |
-| P11-03 | PENDING |
+| P11-03 | PASS |
 | P11-04 | PENDING |
 | P11-05 | PENDING |
 | P11-06 | PENDING |
@@ -81,6 +81,30 @@ OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 | P11-99 | PENDING |
 
 ## Stage records
+
+### P11-03 — Event / interrupt / DMA progress contract
+
+PASS (1329 checks). Gate `tools/test_phase11_event_contract_v1.py` run twice
+through the Phase-11 stage runner with byte-identical stdout (48327 bytes LF,
+sha256 `b682cbcb...`), empty stderr and exit 0.
+
+- the documented `A0:0x3f` printf service is served (bounded documented
+  subset, no console, documented character-count return; malformed or
+  unsupported conversions and excess varargs fail closed) and verified by
+  seven public synthetic native fixtures;
+- deterministic execution-budget bisection places the first fail-closed event
+  at access 506040 with zero device-port accesses and zero non-RAM signatures:
+  the whole progress to the frontier is RAM-only, so no interrupt, DMA, timer
+  or memory-control behaviour is proven necessary (zero implementation delta);
+- the event-relevant documented services (`C0:0x02`/`0x03`/`0x0a`,
+  `B0:0x12`/`0x13`/`0x4a`/`0x4b`) stay fail-closed and are not reached before
+  the frontier;
+- the new exact frontier is the driver-method indirect call at `0x80016204`
+  in `fn_800161ec` (block index 468281) with the statically initialized method
+  pointer `0x80016384` (driver structure `0x80029624`, field offset 12, the
+  pointer occurs exactly once in the image and starts with a function
+  prologue but was never discovered by the static CFG);
+- evidence: `.openrecomp-phase11/evidence/P11-03/`.
 
 ### P11-02 — Dynamic indirect-control frontier
 

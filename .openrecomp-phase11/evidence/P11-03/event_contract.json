@@ -1,0 +1,136 @@
+{
+  "at_frontier_observables": {
+    "cdrom_events": "0",
+    "denied": "10",
+    "error": "unresolved indirect call",
+    "gpu_events": "0",
+    "host_calls": "40",
+    "input_events": "0",
+    "nonram_signatures": "0",
+    "p10_access_count": "506050",
+    "reads": "81",
+    "spu_events": "0",
+    "writes": "505959"
+  },
+  "before_frontier_observables": {
+    "cdrom_events": "0",
+    "denied": "10",
+    "error": "unresolved indirect call",
+    "gpu_events": "0",
+    "host_calls": "40",
+    "input_events": "0",
+    "nonram_signatures": "0",
+    "p10_access_count": "506050",
+    "reads": "81",
+    "spu_events": "0",
+    "writes": "505959"
+  },
+  "causal_ab": {
+    "event_ab_possible": false,
+    "reason": "no event source is accessed before the frontier; changing an unaccessed condition cannot change progress",
+    "service_ab": [
+      "serving A0:0x2b moved the frontier from block 9424 to 468147",
+      "and serving A0:0x3f moved it to 468281; both are causal",
+      "service dependencies, not event dependencies"
+    ]
+  },
+  "determination": {
+    "implementation_delta": "zero",
+    "reason": [
+      "the entire 506040-access progress to the first fail-closed",
+      "event is RAM-only: zero device-port accesses, zero non-RAM",
+      "access signatures, zero interrupt/DMA/timer/memory-control",
+      "interaction; an event source that is never accessed cannot be",
+      "the causal blocker, so no event behaviour is proven necessary"
+    ],
+    "requires_another_event_source": "NOT_PROVEN",
+    "requires_dma_completion": "NOT_PROVEN",
+    "requires_interrupt_acknowledgement": "NOT_PROVEN",
+    "requires_interrupt_delivery": "NOT_PROVEN",
+    "requires_memory_control_state": "NOT_PROVEN",
+    "requires_timer_transition": "NOT_PROVEN"
+  },
+  "event_relevant_services": [
+    {
+      "documented_name": "SysEnqIntRP",
+      "index": "0x02",
+      "reached_before_frontier": false,
+      "resolved": false,
+      "vector": "C0"
+    },
+    {
+      "documented_name": "SysDeqIntRP",
+      "index": "0x03",
+      "reached_before_frontier": false,
+      "resolved": false,
+      "vector": "C0"
+    },
+    {
+      "documented_name": null,
+      "index": "0x0a",
+      "reached_before_frontier": false,
+      "resolved": false,
+      "vector": "C0"
+    },
+    {
+      "documented_name": null,
+      "index": "0x12",
+      "reached_before_frontier": false,
+      "resolved": false,
+      "vector": "B0"
+    },
+    {
+      "documented_name": null,
+      "index": "0x13",
+      "reached_before_frontier": false,
+      "resolved": false,
+      "vector": "B0"
+    },
+    {
+      "documented_name": null,
+      "index": "0x4a",
+      "reached_before_frontier": false,
+      "resolved": false,
+      "vector": "B0"
+    },
+    {
+      "documented_name": null,
+      "index": "0x4b",
+      "reached_before_frontier": false,
+      "resolved": false,
+      "vector": "B0"
+    }
+  ],
+  "frontier_access_index": 506040,
+  "label": "hercules-private-fixture",
+  "next_blocker": {
+    "block": "blk_800161ec",
+    "function": "0x800161ec",
+    "kind": "INDIRECT_CALL",
+    "message": "unresolved indirect call",
+    "pointer_provenance": {
+      "classification": [
+        "a statically initialized driver method pointer: the global at",
+        "0x80029644 holds the structure address, the field at offset 12",
+        "holds a function entry that the static CFG did not discover",
+        "because it is only reachable through this indirect call"
+      ],
+      "driver_global_address": "0x80029644",
+      "driver_structure": "0x80029624",
+      "method_field_offset": 12,
+      "method_pointer": "0x80016384",
+      "occurrences_in_image": 1,
+      "pointer_image_offset": "0x80029630",
+      "prologue_word": "0x27bdffe8"
+    },
+    "site": "0x80016204",
+    "source_pointer": "0x80016384"
+  },
+  "question": [
+    "does initialization require interrupt delivery, interrupt",
+    "acknowledgement, DMA completion, timer transitions,",
+    "memory-control state or another event source?"
+  ],
+  "schema": "openrecomp-phase11-event-contract-v1",
+  "stage": "P11-03"
+}

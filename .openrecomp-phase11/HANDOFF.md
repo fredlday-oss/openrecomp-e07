@@ -16,20 +16,29 @@
   memset (documented semantics, checked memory boundary), public synthetic
   service fixtures, frontier movement to `A0:0x3f` printf at `0x80026cec`
   (block index 468147), and a deterministic 8,000,000 block-entry execution
-  budget.
+  budget;
+- `P11-03` `PASS` (1329 checks): the documented `A0:0x3f` printf service is
+  served and verified by public synthetic fixtures; deterministic bisection
+  proves the whole progress to the frontier is RAM-only (access index 506040,
+  zero device traffic, zero non-RAM signatures) so no event/interrupt/DMA/
+  timer/memory-control behaviour is proven necessary (zero delta); the new
+  exact frontier is the driver-method indirect call at `0x80016204` with the
+  statically proven method pointer `0x80016384`.
 
 ## Immediate next action
 
-`P11-03` - event / interrupt / DMA progress contract. The remaining BIOS
-surface is exactly enumerated (see `evidence/P11-02/frontier.json`):
-`A0:0x3f` printf, `A0:0x30` srand, `A0:0x44` FlushCache, `A0:0x49` GPU_cw,
-`A0:0x70` _bu_init, `A0:0x43` DoExecute, `B0:0x12`/`0x13`/`0x3f`/`0x4a`/`0x4b`/
-`0x56`/`0x57` and `C0:0x02`/`0x03`/`0x0a`. P11-03 must determine by causal A/B
-whether initialization requires interrupt delivery/acknowledgement, DMA
-completion, timer transitions or memory-control state, implement only
-proven-necessary behaviour, and keep unproven interactions fail-closed.
-Instrumented and uninstrumented build products live under
-`.openrecomp-phase11/build/` (untracked).
+`P11-04` - milestone B: initialization completion. The exact next blocker is
+the driver-method indirect call at `0x80016204` (`fn_800161ec`, block index
+468281) whose source pointer `0x80016384` is a statically initialized image
+value (driver structure `0x80029624`, field offset 12; the pointer occurs
+exactly once in the image at `0x80029630` and starts with a function prologue).
+P11-04 should translate the proven target as an additional entry point,
+classify the site with explicit evidence (dynamic/static proven target set with
+a fail-closed default), and continue until a post-initialization boundary can
+be defined and tested; if initialization cannot be proven complete, classify
+the exact remaining blocker without promoting milestone B. Instrumented and
+uninstrumented build products live under `.openrecomp-phase11/build/`
+(untracked).
 
 ## Private fixture notes
 

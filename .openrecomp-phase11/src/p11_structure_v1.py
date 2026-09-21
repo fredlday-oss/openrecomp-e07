@@ -65,9 +65,11 @@ def _site_units(result: Any, classification: dict[str, Any]) -> dict[int, tuple[
     return mapping
 
 
-def analyze_structure_with_bios(analysis: dict[str, Any], *, source: Any, entry: int) -> tuple[Any, dict[str, Any]]:
+def analyze_structure_with_bios(analysis: dict[str, Any], *, source: Any, entry: int,
+                                services: dict[str, dict[int, dict[str, Any]]] | None = None
+                                ) -> tuple[Any, dict[str, Any]]:
     """The frozen Phase-10 structure plus the Phase-11 BIOS vector overlay."""
-    site_classification = bios.classify_vector_sites(analysis)
+    site_classification = bios.classify_vector_sites(analysis, services=services)
     modified = bios.apply_site_plan(analysis, site_classification)
     base = p10_structure.analyze_structure(modified, source=source, entry=entry)
     site_units = _site_units(base, site_classification)

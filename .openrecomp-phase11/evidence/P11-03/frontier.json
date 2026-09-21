@@ -14,18 +14,35 @@
           "len"
         ],
         "source": "public PS1 BIOS function table documentation (PSX-SPX BIOS function summary / memory fill-copy-compare)"
+      },
+      "0x3f": {
+        "name": "printf",
+        "refusal": "malformed or unsupported conversion, more varargs than the declared surface",
+        "returns": "number of characters that would have been written",
+        "semantics": [
+          "bounded documented printf subset (%% %c %s %d %i %u %x %X %o with flags,",
+          "width, precision); the host has no console, so the formatted text is",
+          "consumed and discarded; only the documented count and a digest are kept"
+        ],
+        "signature": [
+          "fmt",
+          "arg1",
+          "arg2"
+        ],
+        "source": "public PS1 BIOS function table documentation (PSX-SPX BIOS function summary)"
       }
     },
     "documented_b0_service_count": 0,
     "documented_c0_service_count": 0,
     "histogram": {
-      "BIOS_VECTOR_NOT_IMPLEMENTED": 18,
-      "BIOS_VECTOR_SERVICE": 1
+      "BIOS_VECTOR_NOT_IMPLEMENTED": 17,
+      "BIOS_VECTOR_SERVICE": 2
     },
     "index_register": 9,
-    "service_count": 1,
+    "service_count": 2,
     "service_ids": [
-      "ps1.bios.A0.2b"
+      "ps1.bios.A0.2b",
+      "ps1.bios.A0.3f"
     ],
     "services": [
       {
@@ -46,6 +63,29 @@
         "site_hex": "0x80026ccc",
         "slice_evidence": [
           "addiu@0x80026cc8"
+        ],
+        "source_register": 10,
+        "vector": "A0",
+        "vector_value": "0x000000a0"
+      },
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_SERVICE",
+        "disposition": "EXACT_EXTERNAL_SERVICE",
+        "documented_name": "printf",
+        "function_id": null,
+        "function_index": 63,
+        "index_evidence": [
+          "index-addiu@0x80026cf0"
+        ],
+        "kind": "INDIRECT_JUMP",
+        "op": "jr",
+        "op_name": "jump_bios_a0_3f",
+        "service_id": "ps1.bios.A0.3f",
+        "site": 2147642604,
+        "site_hex": "0x80026cec",
+        "slice_evidence": [
+          "addiu@0x80026ce8"
         ],
         "source_register": 10,
         "vector": "A0",
@@ -378,8 +418,8 @@
       },
       {
         "block_id": null,
-        "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
-        "disposition": "FAIL_CLOSED",
+        "classification": "BIOS_VECTOR_SERVICE",
+        "disposition": "EXACT_EXTERNAL_SERVICE",
         "documented_name": "printf",
         "function_id": null,
         "function_index": 63,
@@ -388,8 +428,8 @@
         ],
         "kind": "INDIRECT_JUMP",
         "op": "jr",
-        "op_name": null,
-        "service_id": null,
+        "op_name": "jump_bios_a0_3f",
+        "service_id": "ps1.bios.A0.3f",
         "site": 2147642604,
         "site_hex": "0x80026cec",
         "slice_evidence": [
@@ -495,51 +535,7 @@
     "unknown_policy": "fail-closed",
     "vector_register": 10
   },
-  "bounded_execution": {
-    "access_budget": 2000000,
-    "access_count": "4261313",
-    "block_budget": 8000000,
-    "block_events": "8000001",
-    "bound_reached": true,
-    "closed_phase10_gap": [
-      "the access budget bounds memory accesses only; a post-truncation",
-      "guest loop with no memory access could not be interrupted"
-    ],
-    "stdout_sha256": "93b3add0aae2b23b7c13baef138c24a2c5ae08d3837261c901e06948a2314b67",
-    "terminates": true
-  },
-  "classifier_status": {
-    "basis": "EXTERNAL_RUNTIME_EVIDENCE",
-    "evidence": "PROVEN",
-    "external_mechanism": "ps1.bios.A0",
-    "status": "EXTERNAL_OR_RUNTIME_MEDIATED"
-  },
-  "documented_index_names": {
-    "A0:0x2b": "memset",
-    "A0:0x30": "srand",
-    "A0:0x3f": "printf",
-    "A0:0x43": "DoExecute",
-    "A0:0x44": "FlushCache",
-    "A0:0x49": "GPU_cw",
-    "A0:0x70": "_bu_init",
-    "B0:0x3f": "puts",
-    "C0:0x02": "SysEnqIntRP",
-    "C0:0x03": "SysDeqIntRP"
-  },
-  "documented_service": {
-    "name": "memset",
-    "refusal": "dst == 0, len == 0 or len > 0x7fffffff",
-    "returns": "dst, or 0 when refused",
-    "semantics": "fill len bytes at dst with (fillbyte & 0xff) through the checked guest memory boundary",
-    "signature": [
-      "dst",
-      "fillbyte",
-      "len"
-    ],
-    "source": "public PS1 BIOS function table documentation (PSX-SPX BIOS function summary / memory fill-copy-compare)"
-  },
   "emission": {
-    "base_program_fingerprint": "a047a52fb460d3786e5bff03b5c26ac2978ae768b581f5e6c4a9cbc284db4a9a",
     "bios_sites": [
       {
         "block_id": null,
@@ -563,13 +559,36 @@
         "source_register": 10,
         "vector": "A0",
         "vector_value": "0x000000a0"
+      },
+      {
+        "block_id": null,
+        "classification": "BIOS_VECTOR_SERVICE",
+        "disposition": "EXACT_EXTERNAL_SERVICE",
+        "documented_name": "printf",
+        "function_id": null,
+        "function_index": 63,
+        "index_evidence": [
+          "index-addiu@0x80026cf0"
+        ],
+        "kind": "INDIRECT_JUMP",
+        "op": "jr",
+        "op_name": "jump_bios_a0_3f",
+        "service_id": "ps1.bios.A0.3f",
+        "site": 2147642604,
+        "site_hex": "0x80026cec",
+        "slice_evidence": [
+          "addiu@0x80026ce8"
+        ],
+        "source_register": 10,
+        "vector": "A0",
+        "vector_value": "0x000000a0"
       }
     ],
     "files": [
       {
-        "bytes": 560949,
+        "bytes": 561247,
         "name": "program.c",
-        "sha256": "5cff37b393da430da45332c7259c8c9d63f981a264294f39d980406a81a28213"
+        "sha256": "00d98efffb0ee4cd4278c0b5bd6de58d9ad68ea56f73b5c485fd86ac61275f85"
       },
       {
         "bytes": 750534,
@@ -577,9 +596,9 @@
         "sha256": "77a340448081cc606b16e104734b3a48d11483210520618dcca8b1266c43f96b"
       },
       {
-        "bytes": 59232,
+        "bytes": 59281,
         "name": "p9_runtime_support.c",
-        "sha256": "c65675f6744702f776d8a7168d9c6902ba4e5458b325bc93371e025956f13c09"
+        "sha256": "00583118a03b17602db802b7103efae7bdfdba943f202daa1c03f8dd04234541"
       },
       {
         "bytes": 15979,
@@ -587,7 +606,7 @@
         "sha256": "97286f6b7c55fbee2d4602cd805368ebe32a12bd6ce565fa2336ce2125a8dad6"
       }
     ],
-    "program_fingerprint": "5cff37b393da430da45332c7259c8c9d63f981a264294f39d980406a81a28213",
+    "program_fingerprint": "00d98efffb0ee4cd4278c0b5bd6de58d9ad68ea56f73b5c485fd86ac61275f85",
     "semantics": {
       "bios_image": "none",
       "bios_rules": [
@@ -600,10 +619,20 @@
           "op": "jump_bios_a0_2b",
           "result": "bios_ret",
           "service": "ps1.bios.A0.2b"
+        },
+        {
+          "args": [
+            "bios_arg0",
+            "bios_arg1",
+            "bios_arg2"
+          ],
+          "op": "jump_bios_a0_3f",
+          "result": "bios_ret",
+          "service": "ps1.bios.A0.3f"
         }
       ],
       "native_only_handlers": true,
-      "rules_total": 48,
+      "rules_total": 49,
       "semantics_version": "1.1.0",
       "service_arities": {
         "openrecomp.mips.add.overflow.check": 2,
@@ -613,7 +642,8 @@
         "openrecomp.mips.mult": 2,
         "openrecomp.mips.swl": 2,
         "openrecomp.mips.swr": 2,
-        "ps1.bios.A0.2b": 3
+        "ps1.bios.A0.2b": 3,
+        "ps1.bios.A0.3f": 3
       },
       "service_ids": [
         "openrecomp.mips.add.overflow.check",
@@ -623,33 +653,122 @@
         "openrecomp.mips.mult",
         "openrecomp.mips.swl",
         "openrecomp.mips.swr",
-        "ps1.bios.A0.2b"
+        "ps1.bios.A0.2b",
+        "ps1.bios.A0.3f"
       ]
     }
   },
   "frontier_movement": {
-    "clean_progress_gain_block_entries": 458723,
-    "new_first_failure_block_index": 468147,
-    "new_first_failure_site": "0x80026cec",
-    "previous_first_failure_block_index": 9424,
-    "previous_first_failure_site": "0x80026ccc",
+    "p11_01_first_failure": "0x80026ccc @ 9424",
+    "p11_02_first_failure": "0x80026cec @ 468147",
+    "p11_03_first_failure": "0x80016204 @ 468281",
     "statement": [
-      "serving the proven A0:0x2b memset call removes the first fail-closed",
-      "event and moves the frontier to the next exact blocker, the",
-      "documented A0:0x3f printf vector call at 0x80026cec; every other",
-      "BIOS vector site stays fail-closed"
+      "each documented service resolution moves the first fail-closed",
+      "event forward; the remaining 17 BIOS vector sites and the dynamic",
+      "driver-method call stay fail-closed"
     ]
   },
   "frontier_run": {
     "access_budget": 1500000,
     "analysis": {
       "after_failure": {
-        "block_entries": 497922,
+        "block_entries": 497766,
         "window": [
           {
-            "address": "0x800183fc",
-            "block_id": "blk_800183fc",
+            "address": "0x8001841c",
+            "block_id": "blk_8001841c",
             "function_id": "fn_8001838c",
+            "in_image": true,
+            "terminal_op": "jal"
+          },
+          {
+            "address": "0x8001b420",
+            "block_id": "blk_8001b420",
+            "function_id": "fn_8001b420",
+            "in_image": true,
+            "terminal_op": "jr_indirect"
+          },
+          {
+            "address": "0x80018434",
+            "block_id": "blk_80018434",
+            "function_id": "fn_8001838c",
+            "in_image": true,
+            "terminal_op": "jal"
+          },
+          {
+            "address": "0x8001aed4",
+            "block_id": "blk_8001aed4",
+            "function_id": "fn_8001aed4",
+            "in_image": true,
+            "terminal_op": "jal"
+          },
+          {
+            "address": "0x80016368",
+            "block_id": "blk_80016368",
+            "function_id": "fn_80016368",
+            "in_image": true,
+            "terminal_op": "jr"
+          },
+          {
+            "address": "0x8001aeec",
+            "block_id": "blk_8001aeec",
+            "function_id": "fn_8001aed4",
+            "in_image": true,
+            "terminal_op": "beq"
+          },
+          {
+            "address": "0x8001af1c",
+            "block_id": "blk_8001af1c",
+            "function_id": "fn_8001aed4",
+            "in_image": true,
+            "terminal_op": "beq"
+          },
+          {
+            "address": "0x8001af24",
+            "block_id": "blk_8001af24",
+            "function_id": "fn_8001aed4",
+            "in_image": true,
+            "terminal_op": "beq"
+          },
+          {
+            "address": "0x8001af48",
+            "block_id": "blk_8001af48",
+            "function_id": "fn_8001aed4",
+            "in_image": true,
+            "terminal_op": "jal"
+          },
+          {
+            "address": "0x8001843c",
+            "block_id": "blk_8001843c",
+            "function_id": "fn_8001838c",
+            "in_image": true,
+            "terminal_op": "jal"
+          },
+          {
+            "address": "0x80012dbc",
+            "block_id": "blk_80012dbc",
+            "function_id": "fn_80012cd4",
+            "in_image": true,
+            "terminal_op": "jal"
+          },
+          {
+            "address": "0x800187b0",
+            "block_id": "blk_800187b0",
+            "function_id": "fn_800187b0",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x800187f8",
+            "block_id": "blk_800187f8",
+            "function_id": "fn_800187b0",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x80018800",
+            "block_id": "blk_80018800",
+            "function_id": "fn_800187b0",
             "in_image": true,
             "terminal_op": "jal"
           },
@@ -808,759 +927,668 @@
             "terminal_op": "bne"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
+            "address": "0x8001b414",
+            "block_id": "blk_8001b414",
             "function_id": "fn_8001b3f4",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jr"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x8001880c",
+            "block_id": "blk_8001880c",
+            "function_id": "fn_800187b0",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "beq"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80018824",
+            "block_id": "blk_80018824",
+            "function_id": "fn_800187b0",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jalr"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80012dc4",
+            "block_id": "blk_80012dc4",
+            "function_id": "fn_80012cd4",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jal"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x800161ec",
+            "block_id": "blk_800161ec",
+            "function_id": "fn_800161ec",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jalr"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80012dcc",
+            "block_id": "blk_80012dcc",
+            "function_id": "fn_80012cd4",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jal"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80018624",
+            "block_id": "blk_80018624",
+            "function_id": "fn_80018624",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "beq"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80018670",
+            "block_id": "blk_80018670",
+            "function_id": "fn_80018624",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jr"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80012dd4",
+            "block_id": "blk_80012dd4",
+            "function_id": "fn_80012cd4",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jal"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80012f50",
+            "block_id": "blk_80012f50",
+            "function_id": "fn_80012f50",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jal"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80015c8c",
+            "block_id": "blk_80015c8c",
+            "function_id": "fn_80015c8c",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jal"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80015f18",
+            "block_id": "blk_80015f18",
+            "function_id": "fn_80015f18",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "syscall"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80015cb8",
+            "block_id": "blk_80015cb8",
+            "function_id": "fn_80015c8c",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jal"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80015f90",
+            "block_id": "blk_80015f90",
+            "function_id": "fn_80015f90",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jal"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80015f18",
+            "block_id": "blk_80015f18",
+            "function_id": "fn_80015f18",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "syscall"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80015fa0",
+            "block_id": "blk_80015fa0",
+            "function_id": "fn_80015f90",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jalr"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80015cc0",
+            "block_id": "blk_80015cc0",
+            "function_id": "fn_80015c8c",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jal"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80015f28",
+            "block_id": "blk_80015f28",
+            "function_id": "fn_80015f28",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "syscall"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80015cc8",
+            "block_id": "blk_80015cc8",
+            "function_id": "fn_80015c8c",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jal"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80015f38",
+            "block_id": "blk_80015f38",
+            "function_id": "fn_80015f38",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jr_indirect"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80015cd0",
+            "block_id": "blk_80015cd0",
+            "function_id": "fn_80015c8c",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jal"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80015d78",
+            "block_id": "blk_80015d78",
+            "function_id": "fn_80015d78",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jal"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80015f18",
+            "block_id": "blk_80015f18",
+            "function_id": "fn_80015f18",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "syscall"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80015d88",
+            "block_id": "blk_80015d88",
+            "function_id": "fn_80015d78",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jal"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80015f58",
+            "block_id": "blk_80015f58",
+            "function_id": "fn_80015f58",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jr_indirect"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80015dcc",
+            "block_id": "blk_80015dcc",
+            "function_id": "fn_80015d78",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jal"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80015f48",
+            "block_id": "blk_80015f48",
+            "function_id": "fn_80015f48",
             "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jr_indirect"
           },
           {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
+            "address": "0x80015dd8",
+            "block_id": "blk_80015dd8",
+            "function_id": "fn_80015d78",
             "in_image": true,
-            "terminal_op": "bne"
-          },
-          {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
-            "in_image": true,
-            "terminal_op": "bne"
-          },
-          {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
-            "in_image": true,
-            "terminal_op": "bne"
-          },
-          {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
-            "in_image": true,
-            "terminal_op": "bne"
-          },
-          {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
-            "in_image": true,
-            "terminal_op": "bne"
-          },
-          {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
-            "in_image": true,
-            "terminal_op": "bne"
-          },
-          {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
-            "in_image": true,
-            "terminal_op": "bne"
-          },
-          {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
-            "in_image": true,
-            "terminal_op": "bne"
-          },
-          {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
-            "in_image": true,
-            "terminal_op": "bne"
-          },
-          {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
-            "in_image": true,
-            "terminal_op": "bne"
-          },
-          {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
-            "in_image": true,
-            "terminal_op": "bne"
-          },
-          {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
-            "in_image": true,
-            "terminal_op": "bne"
-          },
-          {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
-            "in_image": true,
-            "terminal_op": "bne"
-          },
-          {
-            "address": "0x8001b404",
-            "block_id": "blk_8001b404",
-            "function_id": "fn_8001b3f4",
-            "in_image": true,
-            "terminal_op": "bne"
+            "terminal_op": "jal"
           }
         ]
       },
       "before_failure": {
-        "block_entries": 468147,
+        "block_entries": 468281,
         "distinct_blocks_before_failure": 2,
         "window": [
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c14",
-            "block_id": "blk_80011c14",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "bne"
           },
           {
-            "address": "0x80011c24",
-            "block_id": "blk_80011c24",
-            "function_id": "fn_80011bcc",
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b404",
+            "block_id": "blk_8001b404",
+            "function_id": "fn_8001b3f4",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x8001b414",
+            "block_id": "blk_8001b414",
+            "function_id": "fn_8001b3f4",
             "in_image": true,
             "terminal_op": "jr"
           },
           {
-            "address": "0x80012da4",
-            "block_id": "blk_80012da4",
-            "function_id": "fn_80012cd4",
-            "in_image": true,
-            "terminal_op": "jal"
-          },
-          {
-            "address": "0x80016d1c",
-            "block_id": "blk_80016d1c",
-            "function_id": "fn_80016d1c",
-            "in_image": true,
-            "terminal_op": "jr"
-          },
-          {
-            "address": "0x80012db4",
-            "block_id": "blk_80012db4",
-            "function_id": "fn_80012cd4",
-            "in_image": true,
-            "terminal_op": "jal"
-          },
-          {
-            "address": "0x8001838c",
-            "block_id": "blk_8001838c",
-            "function_id": "fn_8001838c",
-            "in_image": true,
-            "terminal_op": "beq"
-          },
-          {
-            "address": "0x800183ac",
-            "block_id": "blk_800183ac",
-            "function_id": "fn_8001838c",
-            "in_image": true,
-            "terminal_op": "beq"
-          },
-          {
-            "address": "0x800183b8",
-            "block_id": "blk_800183b8",
-            "function_id": "fn_8001838c",
-            "in_image": true,
-            "terminal_op": "beq"
-          },
-          {
-            "address": "0x800183dc",
-            "block_id": "blk_800183dc",
+            "address": "0x80018414",
+            "block_id": "blk_80018414",
             "function_id": "fn_8001838c",
             "in_image": true,
             "terminal_op": "jal"
           },
           {
-            "address": "0x80026ce8",
-            "block_id": "blk_80026ce8",
-            "function_id": "fn_80026ce8",
+            "address": "0x800161ec",
+            "block_id": "blk_800161ec",
+            "function_id": "fn_800161ec",
             "in_image": true,
-            "terminal_op": "jr_indirect"
+            "terminal_op": "jalr"
           }
         ]
       },
       "failure": {
-        "block_id": "blk_80026ce8",
-        "block_index": 468147,
-        "failure_count": 29,
-        "function_entry": "0x80026ce8",
-        "function_id": "fn_80026ce8",
-        "message": "unresolved indirect jump",
-        "site": "0x80026cec",
+        "block_id": "blk_800161ec",
+        "block_index": 468281,
+        "failure_count": 27,
+        "function_entry": "0x800161ec",
+        "function_id": "fn_800161ec",
+        "message": "unresolved indirect call",
+        "site": "0x80016204",
         "site_classification": null,
-        "source_value": "0x000000a0",
-        "terminal_op": "jr_indirect"
+        "source_value": "0x80016384",
+        "terminal_op": "jalr"
       },
       "hottest_blocks": [
         {
@@ -1573,77 +1601,77 @@
         {
           "address": "0x80015ff8",
           "block_id": "blk_80015ff8",
-          "count": 70603,
+          "count": 70600,
           "function_id": "fn_80015ff8",
           "terminal_op": "bgez"
         },
         {
           "address": "0x80016038",
           "block_id": "blk_80016038",
-          "count": 70603,
+          "count": 70600,
           "function_id": "fn_80015ff8",
           "terminal_op": "j"
         },
         {
           "address": "0x80016128",
           "block_id": "blk_80016128",
-          "count": 70603,
+          "count": 70600,
           "function_id": "fn_80015ff8",
           "terminal_op": "jr"
         },
         {
           "address": "0x80015838",
           "block_id": "blk_80015838",
-          "count": 35286,
+          "count": 35284,
           "function_id": "fn_80015810",
           "terminal_op": "jal"
         },
         {
           "address": "0x80015840",
           "block_id": "blk_80015840",
-          "count": 35286,
+          "count": 35284,
           "function_id": "fn_80015810",
           "terminal_op": "bne"
         },
         {
           "address": "0x80015858",
           "block_id": "blk_80015858",
-          "count": 35285,
+          "count": 35284,
           "function_id": "fn_80015810",
           "terminal_op": "bltz"
         },
         {
           "address": "0x80015868",
           "block_id": "blk_80015868",
-          "count": 35285,
+          "count": 35284,
           "function_id": "fn_80015810",
           "terminal_op": "jal"
         },
         {
           "address": "0x80015870",
           "block_id": "blk_80015870",
-          "count": 35285,
+          "count": 35284,
           "function_id": "fn_80015810",
           "terminal_op": "beq"
         },
         {
           "address": "0x8001589c",
           "block_id": "blk_8001589c",
-          "count": 35285,
+          "count": 35283,
           "function_id": "fn_80015810",
           "terminal_op": "lw"
         },
         {
           "address": "0x800158a0",
           "block_id": "blk_800158a0",
-          "count": 35285,
+          "count": 35283,
           "function_id": "fn_80015810",
           "terminal_op": "bne"
         },
         {
           "address": "0x800158a8",
           "block_id": "blk_800158a8",
-          "count": 35285,
+          "count": 35283,
           "function_id": "fn_80015810",
           "terminal_op": "bgtz"
         },
@@ -1679,7 +1707,7 @@
       "hottest_functions": [
         {
           "address": "0x80015ff8",
-          "count": 70603,
+          "count": 70600,
           "function_id": "fn_80015ff8"
         },
         {
@@ -1720,6 +1748,40 @@
       ],
       "repeating_loop": {
         "branches": [
+          {
+            "block_id": "blk_80015840",
+            "direct_target": "0x800158a0",
+            "function_id": "fn_80015810",
+            "operands": {
+              "rs": 3,
+              "rt": 0,
+              "target": 2147571872
+            },
+            "terminal_address": "0x80015850",
+            "terminal_op": "bne"
+          },
+          {
+            "block_id": "blk_80015858",
+            "direct_target": "0x80015888",
+            "function_id": "fn_80015810",
+            "operands": {
+              "rs": 2,
+              "target": 2147571848
+            },
+            "terminal_address": "0x80015860",
+            "terminal_op": "bltz"
+          },
+          {
+            "block_id": "blk_80015ff8",
+            "direct_target": "0x80016048",
+            "function_id": "fn_80015ff8",
+            "operands": {
+              "rs": 4,
+              "target": 2147573832
+            },
+            "terminal_address": "0x80016030",
+            "terminal_op": "bgez"
+          },
           {
             "block_id": "blk_80015870",
             "direct_target": "0x8001589c",
@@ -1765,85 +1827,9 @@
             },
             "terminal_address": "0x80016030",
             "terminal_op": "bgez"
-          },
-          {
-            "block_id": "blk_80015840",
-            "direct_target": "0x800158a0",
-            "function_id": "fn_80015810",
-            "operands": {
-              "rs": 3,
-              "rt": 0,
-              "target": 2147571872
-            },
-            "terminal_address": "0x80015850",
-            "terminal_op": "bne"
-          },
-          {
-            "block_id": "blk_80015858",
-            "direct_target": "0x80015888",
-            "function_id": "fn_80015810",
-            "operands": {
-              "rs": 2,
-              "target": 2147571848
-            },
-            "terminal_address": "0x80015860",
-            "terminal_op": "bltz"
-          },
-          {
-            "block_id": "blk_80015ff8",
-            "direct_target": "0x80016048",
-            "function_id": "fn_80015ff8",
-            "operands": {
-              "rs": 4,
-              "target": 2147573832
-            },
-            "terminal_address": "0x80016030",
-            "terminal_op": "bgez"
           }
         ],
         "cycle": [
-          {
-            "address": "0x80015870",
-            "block_id": "blk_80015870",
-            "function_id": "fn_80015810",
-            "in_image": true,
-            "terminal_op": "beq"
-          },
-          {
-            "address": "0x8001589c",
-            "block_id": "blk_8001589c",
-            "function_id": "fn_80015810",
-            "in_image": true,
-            "terminal_op": "lw"
-          },
-          {
-            "address": "0x800158a0",
-            "block_id": "blk_800158a0",
-            "function_id": "fn_80015810",
-            "in_image": true,
-            "terminal_op": "bne"
-          },
-          {
-            "address": "0x800158a8",
-            "block_id": "blk_800158a8",
-            "function_id": "fn_80015810",
-            "in_image": true,
-            "terminal_op": "bgtz"
-          },
-          {
-            "address": "0x80015838",
-            "block_id": "blk_80015838",
-            "function_id": "fn_80015810",
-            "in_image": true,
-            "terminal_op": "jal"
-          },
-          {
-            "address": "0x80015ff8",
-            "block_id": "blk_80015ff8",
-            "function_id": "fn_80015ff8",
-            "in_image": true,
-            "terminal_op": "bgez"
-          },
           {
             "address": "0x80016038",
             "block_id": "blk_80016038",
@@ -1899,11 +1885,53 @@
             "function_id": "fn_80015ff8",
             "in_image": true,
             "terminal_op": "jr"
+          },
+          {
+            "address": "0x80015870",
+            "block_id": "blk_80015870",
+            "function_id": "fn_80015810",
+            "in_image": true,
+            "terminal_op": "beq"
+          },
+          {
+            "address": "0x8001589c",
+            "block_id": "blk_8001589c",
+            "function_id": "fn_80015810",
+            "in_image": true,
+            "terminal_op": "lw"
+          },
+          {
+            "address": "0x800158a0",
+            "block_id": "blk_800158a0",
+            "function_id": "fn_80015810",
+            "in_image": true,
+            "terminal_op": "bne"
+          },
+          {
+            "address": "0x800158a8",
+            "block_id": "blk_800158a8",
+            "function_id": "fn_80015810",
+            "in_image": true,
+            "terminal_op": "bgtz"
+          },
+          {
+            "address": "0x80015838",
+            "block_id": "blk_80015838",
+            "function_id": "fn_80015810",
+            "in_image": true,
+            "terminal_op": "jal"
+          },
+          {
+            "address": "0x80015ff8",
+            "block_id": "blk_80015ff8",
+            "function_id": "fn_80015ff8",
+            "in_image": true,
+            "terminal_op": "bgez"
           }
         ],
         "cycle_length": 14,
         "detected": true,
-        "iterations_lower_bound": 35285,
+        "iterations_lower_bound": 35283,
         "predicate": {
           "block_id": "blk_800158a8",
           "delay_slot": {
@@ -1944,508 +1972,166 @@
         }
       },
       "totals": {
-        "block_digest": "0x2e874f4475dc4486",
-        "block_events": 966069,
+        "block_digest": "0xe114354a5b3e89c8",
+        "block_events": 966047,
         "distinct_blocks": 357,
         "distinct_functions": 90,
-        "function_events": 71758
+        "function_events": 71755
       },
       "trace_version": "1.0.0"
     },
     "block_budget": 8000000,
-    "executable_sha256": "f6469ddd5224ffef6dc2f09d31c82dafaa2328a8a0ceb430f9f768169f7bc6c8",
+    "executable_sha256": "de1ed2e6dfada359ad49e5c96abd4ba442ea4ba4c9cc10401af99c468777b0d5",
     "observables": {
       "cdrom": "0x1ac867ac26c3b808",
       "cdrom_events": "38",
-      "denied": "11",
-      "error": "unresolved indirect jump",
+      "denied": "10",
+      "error": "unresolved indirect call",
       "exit_status": "0x00000000",
       "failed": "1",
       "gpu": "0x06d525ee19a82325",
       "gpu_events": "65536",
-      "host_calls": "81",
+      "host_calls": "83",
       "input": "0xdc34c5e062cf6795",
       "input_events": "65536",
-      "memory": "0x18131c6ef356df7d",
+      "memory": "0x4552e679a9de06bc",
       "nonram_overflow": "0",
       "nonram_signatures": "17",
       "p10_access_budget": "1500000",
-      "p10_access_count": "1500005",
-      "p10_budget_denials": "5",
-      "p10_service_calls": "81",
+      "p10_access_count": "1500004",
+      "p10_budget_denials": "4",
+      "p10_service_calls": "83",
       "p10_service_failures": "0",
-      "reads": "636971",
-      "registers": "0xa48263614884d4ae",
+      "reads": "636986",
+      "registers": "0x0b6af580bc3d8956",
       "spu": "0xe579460e29a9d473",
       "spu_events": "5",
-      "writes": "721775"
+      "writes": "721766"
     },
-    "stdout_sha256": "4244806e310f887e6509d9dad5904508dfa84c9e59c98b004e476fd77818022e",
+    "stdout_sha256": "a8b275dd63504de6aae6755e421c2774497485468aa3ccc50571043c9927b37d",
     "trace": {
       "bound_budget": "8000000",
       "bound_denials": "0",
       "bound_reached": "0",
-      "trace_block_digest": "0x2e874f4475dc4486",
-      "trace_block_events": "966069",
+      "trace_block_digest": "0xe114354a5b3e89c8",
+      "trace_block_events": "966047",
       "trace_distinct_blocks": "357",
       "trace_distinct_functions": "90",
-      "trace_failure_block_index": "468147",
-      "trace_failure_count": "29",
-      "trace_failure_function": "0x80026ce8",
-      "trace_failure_message": "unresolved indirect jump",
-      "trace_failure_site": "0x80026cec",
-      "trace_failure_source": "0x000000a0",
-      "trace_function_events": "71758",
+      "trace_failure_block_index": "468281",
+      "trace_failure_count": "27",
+      "trace_failure_function": "0x800161ec",
+      "trace_failure_message": "unresolved indirect call",
+      "trace_failure_site": "0x80016204",
+      "trace_failure_source": "0x80016384",
+      "trace_function_events": "71755",
       "trace_ring_count": "4096"
-    },
-    "uninstrumented_equivalence": {
-      "executable_sha256": "db73d26a30062764d7f6a7dcc5fbc2713326a48dcdd34a2ff21db0bea253b15c",
-      "mismatches": [],
-      "nonram_identical": true,
-      "register_file_identical": true
     }
   },
-  "label": "hercules-private-fixture",
-  "remaining_surface": [
+  "printf_service_fixtures": [
     {
-      "block_id": null,
-      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
-      "disposition": "FAIL_CLOSED",
-      "documented_name": "DoExecute",
-      "function_id": null,
-      "function_index": 67,
-      "index_evidence": [
-        "index-addiu@0x80015b88"
-      ],
-      "kind": "INDIRECT_JUMP",
-      "op": "jr",
-      "op_name": null,
-      "service_id": null,
-      "site": 2147572612,
-      "site_hex": "0x80015b84",
-      "slice_evidence": [
-        "addiu@0x80015b80"
-      ],
-      "source_register": 10,
-      "vector": "A0",
-      "vector_value": "0x000000a0"
+      "error": "",
+      "executable_sha256": "e708ecb58364466fbcb3b3d13d28ea3d140b9dcef2e35d851c15998b3cd71fd4",
+      "expected": {
+        "error": "",
+        "failed": "0",
+        "r02": "0x00000011"
+      },
+      "failed": "0",
+      "name": "printf-hex",
+      "return_value": "0x00000011",
+      "service_calls": "1",
+      "service_failures": "0",
+      "stdout_sha256": "51250b0a44700920a2fd053b193c14bb715b6e996ed4b0e56cff524d61f2f829"
     },
     {
-      "block_id": null,
-      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
-      "disposition": "FAIL_CLOSED",
-      "documented_name": "FlushCache",
-      "function_id": null,
-      "function_index": 68,
-      "index_evidence": [
-        "index-addiu@0x80015b98"
-      ],
-      "kind": "INDIRECT_JUMP",
-      "op": "jr",
-      "op_name": null,
-      "service_id": null,
-      "site": 2147572628,
-      "site_hex": "0x80015b94",
-      "slice_evidence": [
-        "addiu@0x80015b90"
-      ],
-      "source_register": 10,
-      "vector": "A0",
-      "vector_value": "0x000000a0"
+      "error": "",
+      "executable_sha256": "bff4217d5c6a8d169976c62e7877beb202e931b80adfce4e7c30c0c5aeed267f",
+      "expected": {
+        "error": "",
+        "failed": "0",
+        "r02": "0x00000002"
+      },
+      "failed": "0",
+      "name": "printf-decimal",
+      "return_value": "0x00000002",
+      "service_calls": "1",
+      "service_failures": "0",
+      "stdout_sha256": "8e93af24db70cf909f5df2df02c2ea22be4607dd462c8dfaa2039cdd711382c3"
     },
     {
-      "block_id": null,
-      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
-      "disposition": "FAIL_CLOSED",
-      "documented_name": "_bu_init",
-      "function_id": null,
-      "function_index": 112,
-      "index_evidence": [
-        "index-addiu@0x80015ba8"
-      ],
-      "kind": "INDIRECT_JUMP",
-      "op": "jr",
-      "op_name": null,
-      "service_id": null,
-      "site": 2147572644,
-      "site_hex": "0x80015ba4",
-      "slice_evidence": [
-        "addiu@0x80015ba0"
-      ],
-      "source_register": 10,
-      "vector": "A0",
-      "vector_value": "0x000000a0"
+      "error": "",
+      "executable_sha256": "e4c101d8158dcd36d2163062a6da0964ed2e2035973784b432b31030e97dc82e",
+      "expected": {
+        "error": "",
+        "failed": "0",
+        "r02": "0x00000004"
+      },
+      "failed": "0",
+      "name": "printf-signed",
+      "return_value": "0x00000004",
+      "service_calls": "1",
+      "service_failures": "0",
+      "stdout_sha256": "56335af0ec3b25d5ea12da25473b271230de53ed126ca83b241cca5a875dcca9"
     },
     {
-      "block_id": null,
-      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
-      "disposition": "FAIL_CLOSED",
-      "documented_name": null,
-      "function_id": null,
-      "function_index": 18,
-      "index_evidence": [
-        "index-addiu@0x80015ee0"
-      ],
-      "kind": "INDIRECT_JUMP",
-      "op": "jr",
-      "op_name": null,
-      "service_id": null,
-      "site": 2147573468,
-      "site_hex": "0x80015edc",
-      "slice_evidence": [
-        "addiu@0x80015ed8"
-      ],
-      "source_register": 10,
-      "vector": "B0",
-      "vector_value": "0x000000b0"
+      "error": "",
+      "executable_sha256": "cc3d5baa51985de1abadf0143afa5307facb02b48723bd23b385a97c98c2bb5b",
+      "expected": {
+        "error": "",
+        "failed": "0",
+        "r02": "0x00000003"
+      },
+      "failed": "0",
+      "name": "printf-string",
+      "return_value": "0x00000003",
+      "service_calls": "1",
+      "service_failures": "0",
+      "stdout_sha256": "1f606c6dc298e73659c75f24fb1f2a8820f9f2d8205f9122c29b0ff7a3437df4"
     },
     {
-      "block_id": null,
-      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
-      "disposition": "FAIL_CLOSED",
-      "documented_name": null,
-      "function_id": null,
-      "function_index": 19,
-      "index_evidence": [
-        "index-addiu@0x80015ef0"
-      ],
-      "kind": "INDIRECT_JUMP",
-      "op": "jr",
-      "op_name": null,
-      "service_id": null,
-      "site": 2147573484,
-      "site_hex": "0x80015eec",
-      "slice_evidence": [
-        "addiu@0x80015ee8"
-      ],
-      "source_register": 10,
-      "vector": "B0",
-      "vector_value": "0x000000b0"
+      "error": "",
+      "executable_sha256": "4b65dc9d6f837993aa59164dc7753a830dd067a11b2c7d9525ebaa9301ec3b01",
+      "expected": {
+        "error": "",
+        "failed": "0",
+        "r02": "0x00000001"
+      },
+      "failed": "0",
+      "name": "printf-char",
+      "return_value": "0x00000001",
+      "service_calls": "1",
+      "service_failures": "0",
+      "stdout_sha256": "5aaa3bfdc45299891ada83a3b7cda7fb483319a4880285539b801b65cb5128ce"
     },
     {
-      "block_id": null,
-      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
-      "disposition": "FAIL_CLOSED",
-      "documented_name": null,
-      "function_id": null,
-      "function_index": 91,
-      "index_evidence": [
-        "index-addiu@0x80015f40"
-      ],
-      "kind": "INDIRECT_JUMP",
-      "op": "jr",
-      "op_name": null,
-      "service_id": null,
-      "site": 2147573564,
-      "site_hex": "0x80015f3c",
-      "slice_evidence": [
-        "addiu@0x80015f38"
-      ],
-      "source_register": 10,
-      "vector": "B0",
-      "vector_value": "0x000000b0"
+      "error": "runtime host service ps1.bios.A0.3f failed",
+      "executable_sha256": "9317a236befd7e9208de3239500013617bc7e752a57dc4991f60acc19eb69d20",
+      "expected": {
+        "error": "runtime host service ps1.bios.A0.3f failed",
+        "failed": "1"
+      },
+      "failed": "1",
+      "name": "printf-too-many-varargs",
+      "return_value": "0x64252064",
+      "service_calls": "1",
+      "service_failures": "1",
+      "stdout_sha256": "9630102eb1986ea21685a823f89c852af54ed3d9980c14846a44784bb6f8332b"
     },
     {
-      "block_id": null,
-      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
-      "disposition": "FAIL_CLOSED",
-      "documented_name": "SysEnqIntRP",
-      "function_id": null,
-      "function_index": 2,
-      "index_evidence": [
-        "index-addiu@0x80015f50"
-      ],
-      "kind": "INDIRECT_JUMP",
-      "op": "jr",
-      "op_name": null,
-      "service_id": null,
-      "site": 2147573580,
-      "site_hex": "0x80015f4c",
-      "slice_evidence": [
-        "addiu@0x80015f48"
-      ],
-      "source_register": 10,
-      "vector": "C0",
-      "vector_value": "0x000000c0"
-    },
-    {
-      "block_id": null,
-      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
-      "disposition": "FAIL_CLOSED",
-      "documented_name": "SysDeqIntRP",
-      "function_id": null,
-      "function_index": 3,
-      "index_evidence": [
-        "index-addiu@0x80015f60"
-      ],
-      "kind": "INDIRECT_JUMP",
-      "op": "jr",
-      "op_name": null,
-      "service_id": null,
-      "site": 2147573596,
-      "site_hex": "0x80015f5c",
-      "slice_evidence": [
-        "addiu@0x80015f58"
-      ],
-      "source_register": 10,
-      "vector": "C0",
-      "vector_value": "0x000000c0"
-    },
-    {
-      "block_id": null,
-      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
-      "disposition": "FAIL_CLOSED",
-      "documented_name": null,
-      "function_id": null,
-      "function_index": 87,
-      "index_evidence": [
-        "index-addiu@0x80015fa8"
-      ],
-      "kind": "INDIRECT_CALL",
-      "op": "jalr",
-      "op_name": null,
-      "service_id": null,
-      "site": 2147573668,
-      "site_hex": "0x80015fa4",
-      "slice_evidence": [
-        "addiu@0x80015fa0"
-      ],
-      "source_register": 10,
-      "vector": "B0",
-      "vector_value": "0x000000b0"
-    },
-    {
-      "block_id": null,
-      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
-      "disposition": "FAIL_CLOSED",
-      "documented_name": null,
-      "function_id": null,
-      "function_index": 10,
-      "index_evidence": [
-        "index-addiu@0x800161e4"
-      ],
-      "kind": "INDIRECT_JUMP",
-      "op": "jr",
-      "op_name": null,
-      "service_id": null,
-      "site": 2147574240,
-      "site_hex": "0x800161e0",
-      "slice_evidence": [
-        "addiu@0x800161dc"
-      ],
-      "source_register": 10,
-      "vector": "C0",
-      "vector_value": "0x000000c0"
-    },
-    {
-      "block_id": null,
-      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
-      "disposition": "FAIL_CLOSED",
-      "documented_name": "GPU_cw",
-      "function_id": null,
-      "function_index": 73,
-      "index_evidence": [
-        "index-addiu@0x8001b428"
-      ],
-      "kind": "INDIRECT_JUMP",
-      "op": "jr",
-      "op_name": null,
-      "service_id": null,
-      "site": 2147595300,
-      "site_hex": "0x8001b424",
-      "slice_evidence": [
-        "addiu@0x8001b420"
-      ],
-      "source_register": 10,
-      "vector": "A0",
-      "vector_value": "0x000000a0"
-    },
-    {
-      "block_id": null,
-      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
-      "disposition": "FAIL_CLOSED",
-      "documented_name": "puts",
-      "function_id": null,
-      "function_index": 63,
-      "index_evidence": [
-        "index-addiu@0x80026c78"
-      ],
-      "kind": "INDIRECT_JUMP",
-      "op": "jr",
-      "op_name": null,
-      "service_id": null,
-      "site": 2147642484,
-      "site_hex": "0x80026c74",
-      "slice_evidence": [
-        "addiu@0x80026c70"
-      ],
-      "source_register": 10,
-      "vector": "B0",
-      "vector_value": "0x000000b0"
-    },
-    {
-      "block_id": null,
-      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
-      "disposition": "FAIL_CLOSED",
-      "documented_name": "srand",
-      "function_id": null,
-      "function_index": 48,
-      "index_evidence": [
-        "index-addiu@0x80026ce0"
-      ],
-      "kind": "INDIRECT_JUMP",
-      "op": "jr",
-      "op_name": null,
-      "service_id": null,
-      "site": 2147642588,
-      "site_hex": "0x80026cdc",
-      "slice_evidence": [
-        "addiu@0x80026cd8"
-      ],
-      "source_register": 10,
-      "vector": "A0",
-      "vector_value": "0x000000a0"
-    },
-    {
-      "block_id": null,
-      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
-      "disposition": "FAIL_CLOSED",
-      "documented_name": "printf",
-      "function_id": null,
-      "function_index": 63,
-      "index_evidence": [
-        "index-addiu@0x80026cf0"
-      ],
-      "kind": "INDIRECT_JUMP",
-      "op": "jr",
-      "op_name": null,
-      "service_id": null,
-      "site": 2147642604,
-      "site_hex": "0x80026cec",
-      "slice_evidence": [
-        "addiu@0x80026ce8"
-      ],
-      "source_register": 10,
-      "vector": "A0",
-      "vector_value": "0x000000a0"
-    },
-    {
-      "block_id": null,
-      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
-      "disposition": "FAIL_CLOSED",
-      "documented_name": null,
-      "function_id": null,
-      "function_index": 74,
-      "index_evidence": [
-        "index-addiu@0x80026e28"
-      ],
-      "kind": "INDIRECT_JUMP",
-      "op": "jr",
-      "op_name": null,
-      "service_id": null,
-      "site": 2147642916,
-      "site_hex": "0x80026e24",
-      "slice_evidence": [
-        "addiu@0x80026e20"
-      ],
-      "source_register": 10,
-      "vector": "B0",
-      "vector_value": "0x000000b0"
-    },
-    {
-      "block_id": null,
-      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
-      "disposition": "FAIL_CLOSED",
-      "documented_name": null,
-      "function_id": null,
-      "function_index": 75,
-      "index_evidence": [
-        "index-addiu@0x80026e38"
-      ],
-      "kind": "INDIRECT_JUMP",
-      "op": "jr",
-      "op_name": null,
-      "service_id": null,
-      "site": 2147642932,
-      "site_hex": "0x80026e34",
-      "slice_evidence": [
-        "addiu@0x80026e30"
-      ],
-      "source_register": 10,
-      "vector": "B0",
-      "vector_value": "0x000000b0"
-    },
-    {
-      "block_id": null,
-      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
-      "disposition": "FAIL_CLOSED",
-      "documented_name": null,
-      "function_id": null,
-      "function_index": 86,
-      "index_evidence": [
-        "index-addiu@0x80026ec0"
-      ],
-      "kind": "INDIRECT_CALL",
-      "op": "jalr",
-      "op_name": null,
-      "service_id": null,
-      "site": 2147643068,
-      "site_hex": "0x80026ebc",
-      "slice_evidence": [
-        "addiu@0x80026eb8"
-      ],
-      "source_register": 10,
-      "vector": "B0",
-      "vector_value": "0x000000b0"
-    },
-    {
-      "block_id": null,
-      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
-      "disposition": "FAIL_CLOSED",
-      "documented_name": null,
-      "function_id": null,
-      "function_index": 87,
-      "index_evidence": [
-        "index-addiu@0x80026f78"
-      ],
-      "kind": "INDIRECT_CALL",
-      "op": "jalr",
-      "op_name": null,
-      "service_id": null,
-      "site": 2147643252,
-      "site_hex": "0x80026f74",
-      "slice_evidence": [
-        "addiu@0x80026f70"
-      ],
-      "source_register": 10,
-      "vector": "B0",
-      "vector_value": "0x000000b0"
+      "error": "runtime host service ps1.bios.A0.3f failed",
+      "executable_sha256": "77fbba732a9011bd4bfcb42e96c51fe13514c30a9f3d7f25692eac8336dfe68c",
+      "expected": {
+        "error": "runtime host service ps1.bios.A0.3f failed",
+        "failed": "1"
+      },
+      "failed": "1",
+      "name": "printf-unsupported-conversion",
+      "return_value": "0x00007125",
+      "service_calls": "1",
+      "service_failures": "1",
+      "stdout_sha256": "e0054451c960f55ca31d3a923ac004b680388e15e313e2cb67cdaefe77a0d899"
     }
   ],
-  "remaining_surface_count": 18,
-  "resolved_site": {
-    "block_id": null,
-    "classification": "BIOS_VECTOR_SERVICE",
-    "disposition": "EXACT_EXTERNAL_SERVICE",
-    "documented_name": "memset",
-    "function_id": null,
-    "function_index": 43,
-    "index_evidence": [
-      "index-addiu@0x80026cd0"
-    ],
-    "kind": "INDIRECT_JUMP",
-    "op": "jr",
-    "op_name": "jump_bios_a0_2b",
-    "service_id": "ps1.bios.A0.2b",
-    "site": 2147642572,
-    "site_hex": "0x80026ccc",
-    "slice_evidence": [
-      "addiu@0x80026cc8"
-    ],
-    "source_register": 10,
-    "vector": "A0",
-    "vector_value": "0x000000a0"
-  },
   "runtime_composition": {
     "base": {
       "composed_bytes": 29239,
@@ -2492,19 +2178,21 @@
       ]
     },
     "bios_fragment": {
-      "block_sha256": "23964080223f1ff8fd1fa7501957388735ff6ccc240f911d72f3dd808f998b0b",
-      "fragment_sha256": "0c0d56a2021312441f915342ed5a641dd533c48d733de6e6c6d600a7f67b6fc1",
+      "block_sha256": "e3c24fa60643f36f128ab9553b93398dfca9fc287c704c07f4d3e3a6eb1dc818",
+      "fragment_sha256": "6fba7d3f0aaeb1d3cc2851f90c99e822e9cfc9dd6ef689c3133ef916c64263c1",
       "path": ".openrecomp-phase11/runtime/p11_bios_extension_v1.c",
       "service_ids": [
-        "ps1.bios.A0.2b"
+        "ps1.bios.A0.2b",
+        "ps1.bios.A0.3f"
       ],
       "service_numeric_ids": {
-        "ps1.bios.A0.2b": 8
+        "ps1.bios.A0.2b": 8,
+        "ps1.bios.A0.3f": 9
       }
     },
-    "bios_service_count": 1,
-    "composed_bytes": 56851,
-    "composed_sha256": "195b01f1b97d1749e620eb946223edb5c973dbc66915e7f03925c6a44aabbae7",
+    "bios_service_count": 2,
+    "composed_bytes": 56900,
+    "composed_sha256": "25632c9b883cdbbb37ace8b1baafd0920f17c06796f019ed5ec9a7465df269c5",
     "frozen_source_reused_verbatim": true,
     "runtime_version": "1.1.0",
     "substitutions": [
@@ -2525,118 +2213,6 @@
       "path": ".openrecomp-phase11/runtime/p11_trace_v1.c"
     }
   },
-  "schema": "openrecomp-phase11-indirect-frontier-v1",
-  "stage": "P11-02",
-  "synthetic_service_fixtures": [
-    {
-      "error": "",
-      "executable_sha256": "38e65ea490b970feff6a331264d8c3ddeb9c898030dfa8cf9811ed221e87724d",
-      "expected": {
-        "error": "",
-        "failed": "0",
-        "r02": "0x80020000",
-        "r08": "0xabababab",
-        "r09": "0xabababab",
-        "r10": "0x00000055"
-      },
-      "failed": "0",
-      "name": "memset-positive",
-      "observables": {
-        "r02": "0x80020000",
-        "r03": "0x00000000",
-        "r08": "0xabababab",
-        "r09": "0xabababab",
-        "r10": "0x00000055"
-      },
-      "service_calls": "1",
-      "service_failures": "0",
-      "stdout_sha256": "554121790784724aa1bcd882b65b7b99619a2cc5495387d3049220ad0aecd091"
-    },
-    {
-      "error": "",
-      "executable_sha256": "95028dab7bbdad36961b4f68b1acec9bd7bea7b95e13824e4d613cba5e355ee5",
-      "expected": {
-        "error": "",
-        "failed": "0",
-        "r02": "0x00000000",
-        "r03": "0x00000001"
-      },
-      "failed": "0",
-      "name": "memset-refusal-zero-dst",
-      "observables": {
-        "r02": "0x00000000",
-        "r03": "0x00000001",
-        "r08": "0x80020008",
-        "r09": "0x0000002b",
-        "r10": "0x000000a0"
-      },
-      "service_calls": "1",
-      "service_failures": "0",
-      "stdout_sha256": "66e05671c57ec7a27745ce226dae041371b5fed233474889ac729086119cde10"
-    },
-    {
-      "error": "",
-      "executable_sha256": "ddfcd3ef8249a8b48b6b804b0000910de208ae6b3c78e07ca5b72d7b5f5cdc41",
-      "expected": {
-        "error": "",
-        "failed": "0",
-        "r02": "0x00000000",
-        "r08": "0x00000000",
-        "r09": "0x00000000",
-        "r10": "0x00000055"
-      },
-      "failed": "0",
-      "name": "memset-refusal-zero-length",
-      "observables": {
-        "r02": "0x00000000",
-        "r03": "0x00000000",
-        "r08": "0x00000000",
-        "r09": "0x00000000",
-        "r10": "0x00000055"
-      },
-      "service_calls": "1",
-      "service_failures": "0",
-      "stdout_sha256": "eb47b3f74548a2bb5c98ef0051046bda14e729476f9fcdc49d912a9390890b5b"
-    },
-    {
-      "error": "runtime host service ps1.bios.A0.2b failed",
-      "executable_sha256": "4275424cc018201dacea6ae112fdbf5a0b0f932c3e615bbc88f3997d130401e4",
-      "expected": {
-        "error": "runtime host service ps1.bios.A0.2b failed",
-        "failed": "1"
-      },
-      "failed": "1",
-      "name": "memset-out-of-range-dst",
-      "observables": {
-        "r02": "0x00000000",
-        "r03": "0x00000000",
-        "r08": "0x80020008",
-        "r09": "0x0000002b",
-        "r10": "0x000000a0"
-      },
-      "service_calls": "1",
-      "service_failures": "1",
-      "stdout_sha256": "b3ef49a08d93d688ff8c902c873ae0f399c208edde0d8638cda53f629aa4695d"
-    },
-    {
-      "error": "unresolved indirect jump",
-      "executable_sha256": "78f73eeb16ce97c9f5b242fb3ca71887944c634a107a79bb86d4781de538e897",
-      "expected": {
-        "error": "unresolved indirect jump",
-        "failed": "1"
-      },
-      "failed": "1",
-      "name": "unknown-index-fail-closed",
-      "observables": {
-        "r02": "0x00000000",
-        "r03": "0x00000000",
-        "r08": "0x80020008",
-        "r09": "0x00000099",
-        "r10": "0x000000a0"
-      },
-      "service_calls": "0",
-      "service_failures": "0",
-      "stdout_sha256": "ac51449dbbdc3bdacf98f3ffc3438ef5980af66a8214d65f64b2d9d7fd77e9ae"
-    }
-  ]
+  "schema": "openrecomp-phase11-event-frontier-v1",
+  "stage": "P11-03"
 }
