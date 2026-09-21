@@ -1,0 +1,459 @@
+{
+  "bounded_execution": {
+    "access_budget": 2000000,
+    "access_count": 2000005,
+    "budget_denials": 5,
+    "hardening_owner": "P10-12",
+    "limitation": "the deterministic access budget bounds memory accesses, not execution: a post-truncation guest loop that performs no memory access cannot be interrupted. Observed as a hang while probing ordering at a smaller budget during P10-07 reconnaissance. Every official gate therefore runs with the default budget and a bounded host timeout."
+  },
+  "classification": {
+    "access_count": 2000005,
+    "blocked_addresses": {
+      "0x1f801074": 1,
+      "0x1f801801": 1
+    },
+    "classification_histogram": {
+      "AUDITED_CDROM": 28,
+      "AUDITED_CDROM_BLOCKED": 10,
+      "AUDITED_GPU": 109035,
+      "AUDITED_INTERRUPT_BLOCKED": 1,
+      "AUDITED_SPU": 5,
+      "AUDITED_TIMER1": 109035,
+      "BUDGET_DENIED": 1,
+      "OUTSIDE_AUDITED_RANGES": 4
+    },
+    "counters": {
+      "cdrom_events": 38,
+      "gpu_events": 65536,
+      "host_calls": 79,
+      "input_events": 65536,
+      "reads": 982859,
+      "spu_events": 5,
+      "writes": 799023
+    },
+    "denied": [
+      {
+        "address": "0x1f801074",
+        "classification": "AUDITED_INTERRUPT_BLOCKED",
+        "denied_observations": 1,
+        "direction": "read",
+        "disposition": "NOT_IMPLEMENTED_FAIL_CLOSED",
+        "observations": 1,
+        "served_observations": 0,
+        "width_bits": 16
+      },
+      {
+        "address": "0x1f8010a8",
+        "classification": "OUTSIDE_AUDITED_RANGES",
+        "denied_observations": 1,
+        "direction": "write",
+        "disposition": "NOT_IMPLEMENTED_FAIL_CLOSED",
+        "note": "DMA channel-2 (GPU) channel-control register (public architecture address identification)",
+        "observations": 1,
+        "served_observations": 0,
+        "width_bits": 32
+      },
+      {
+        "address": "0x00000000",
+        "classification": "OUTSIDE_AUDITED_RANGES",
+        "denied_observations": 1,
+        "direction": "write",
+        "disposition": "NOT_IMPLEMENTED_FAIL_CLOSED",
+        "note": "low exception-vector / null-pointer window (public architecture address identification)",
+        "observations": 1,
+        "served_observations": 0,
+        "width_bits": 8
+      },
+      {
+        "address": "0x1f801020",
+        "classification": "OUTSIDE_AUDITED_RANGES",
+        "denied_observations": 2,
+        "direction": "write",
+        "disposition": "NOT_IMPLEMENTED_FAIL_CLOSED",
+        "note": "memory-control common delay register (public architecture address identification)",
+        "observations": 2,
+        "served_observations": 0,
+        "width_bits": 32
+      },
+      {
+        "address": "0x1f801801",
+        "classification": "AUDITED_CDROM_BLOCKED",
+        "denied_observations": 1,
+        "direction": "write",
+        "disposition": "NOT_IMPLEMENTED_FAIL_CLOSED",
+        "observations": 10,
+        "served_observations": 9,
+        "width_bits": 8
+      },
+      {
+        "address": "0x14802000",
+        "classification": "BUDGET_DENIED",
+        "denied_observations": 1,
+        "direction": "read",
+        "disposition": "BOUNDED_EXECUTION_BUDGET",
+        "note": "the GPU status contract stub value used as an address, i.e. a corrupted pointer read",
+        "observations": 1,
+        "served_observations": 0,
+        "width_bits": 32
+      }
+    ],
+    "denied_observations": 7,
+    "first_failure": "unresolved indirect jump",
+    "read_budget": 2000000,
+    "reconciliation": {
+      "budget_denials": 5,
+      "expected_total": 11,
+      "logged_budget_denial_observations": 1,
+      "logged_budget_subset_of_counter": true,
+      "matches": true,
+      "platform_denial_observations": 6,
+      "reported_denied": 11
+    },
+    "served": [
+      {
+        "address": "0x1f801800",
+        "classification": "AUDITED_CDROM",
+        "denied_observations": 0,
+        "direction": "write",
+        "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+        "observations": 15,
+        "served_observations": 15,
+        "width_bits": 8
+      },
+      {
+        "address": "0x1f801803",
+        "classification": "AUDITED_CDROM",
+        "denied_observations": 0,
+        "direction": "read",
+        "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+        "observations": 2,
+        "served_observations": 2,
+        "width_bits": 8
+      },
+      {
+        "address": "0x1f801803",
+        "classification": "AUDITED_CDROM",
+        "denied_observations": 0,
+        "direction": "write",
+        "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+        "observations": 3,
+        "served_observations": 3,
+        "width_bits": 8
+      },
+      {
+        "address": "0x1f801db8",
+        "classification": "AUDITED_SPU",
+        "denied_observations": 0,
+        "direction": "read",
+        "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+        "observations": 1,
+        "served_observations": 1,
+        "width_bits": 16
+      },
+      {
+        "address": "0x1f801dba",
+        "classification": "AUDITED_SPU",
+        "denied_observations": 0,
+        "direction": "read",
+        "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+        "observations": 1,
+        "served_observations": 1,
+        "width_bits": 16
+      },
+      {
+        "address": "0x1f801db0",
+        "classification": "AUDITED_SPU",
+        "denied_observations": 0,
+        "direction": "write",
+        "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+        "observations": 1,
+        "served_observations": 1,
+        "width_bits": 16
+      },
+      {
+        "address": "0x1f801db2",
+        "classification": "AUDITED_SPU",
+        "denied_observations": 0,
+        "direction": "write",
+        "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+        "observations": 1,
+        "served_observations": 1,
+        "width_bits": 16
+      },
+      {
+        "address": "0x1f801daa",
+        "classification": "AUDITED_SPU",
+        "denied_observations": 0,
+        "direction": "write",
+        "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+        "observations": 1,
+        "served_observations": 1,
+        "width_bits": 16
+      },
+      {
+        "address": "0x1f801802",
+        "classification": "AUDITED_CDROM",
+        "denied_observations": 0,
+        "direction": "write",
+        "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+        "observations": 8,
+        "served_observations": 8,
+        "width_bits": 8
+      },
+      {
+        "address": "0x1f801814",
+        "classification": "AUDITED_GPU",
+        "denied_observations": 0,
+        "direction": "read",
+        "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+        "observations": 109035,
+        "served_observations": 109035,
+        "width_bits": 32
+      },
+      {
+        "address": "0x1f801110",
+        "classification": "AUDITED_TIMER1",
+        "denied_observations": 0,
+        "direction": "read",
+        "disposition": "SERVED_BY_PHASE9_BOUNDARY",
+        "observations": 109035,
+        "served_observations": 109035,
+        "width_bits": 32
+      }
+    ],
+    "served_observations": 218112,
+    "signature_count": 17,
+    "timing_abstraction": {
+      "counter_read": "timer counter reads return (tick & 0xffff) and advance the tick by one",
+      "cycle_accuracy": "not claimed",
+      "max_counter_reads_before_wrap": 65536,
+      "resolution": "one tick per counter read (read-driven, not clock-driven)",
+      "tick_origin": "zero at runtime initialisation",
+      "wall_clock_dependency": "none"
+    },
+    "timing_version": "1.0.0"
+  },
+  "identity": {
+    "address_space": {
+      "ram_kseg0_base": "0x80000000",
+      "ram_kseg0_end": "0x80200000",
+      "ram_size": 2097152
+    },
+    "bss_section": {
+      "address": "0x00000000",
+      "present": false,
+      "size": 0
+    },
+    "data_section": {
+      "address": "0x00000000",
+      "present": false,
+      "size": 0
+    },
+    "entry_pc": "0x800132e8",
+    "file_sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "file_size": 129024,
+    "format": "PS-X EXE",
+    "format_version": "1.0.0",
+    "header_fields": {
+      "b_addr": "0x00000000",
+      "b_size": "0x00000000",
+      "d_addr": "0x00000000",
+      "d_size": "0x00000000",
+      "gp0": "0x00000000",
+      "pc0": "0x800132e8",
+      "s_addr": "0x801ffff0",
+      "s_size": "0x00000000",
+      "t_addr": "0x80010000",
+      "t_size": "0x0001f000",
+      "zero1": "0x00000000",
+      "zero2": "0x00000000"
+    },
+    "header_size": 2048,
+    "initial_gp": "0x00000000",
+    "load_address": "0x80010000",
+    "magic": "PS-X EXE",
+    "payload_sha256": "2f48da4c642b25dd9d0b033f77b80a19e5befe34dc19da3194a51998e97c71be",
+    "payload_size": 126976,
+    "ram_span": {
+      "end": "0x8002f000",
+      "start": "0x80010000"
+    },
+    "reserved": {
+      "first_nonzero_offset": "0x4c",
+      "last_nonzero_offset": "0x82",
+      "nonzero_bytes": 55,
+      "offset": "0x38",
+      "sha256": "e6a138356b7e46be030334fdd789fab8cafeee2c85d44b54edafd391427b54fe",
+      "size": 1992
+    },
+    "stack": {
+      "pointer": "0x801ffff0",
+      "size": 0
+    },
+    "stack_pointer": "0x801ffff0",
+    "text_end": "0x8002f000"
+  },
+  "is_pass_criterion": false,
+  "label": "hercules-private-fixture",
+  "nonram_log_capacity": 64,
+  "requirements": {
+    "denied_classes": [
+      "AUDITED_CDROM_BLOCKED",
+      "AUDITED_INTERRUPT_BLOCKED",
+      "BUDGET_DENIED",
+      "OUTSIDE_AUDITED_RANGES"
+    ],
+    "dispositions": [
+      {
+        "evidence": "paired one-to-one with the GPU status reads; served by the deterministic virtual-time counter",
+        "implemented": "already served by the Phase-9 runtime",
+        "interaction": "timer counter reads",
+        "required": true
+      },
+      {
+        "disposition": "NOT_IMPLEMENTED_FAIL_CLOSED",
+        "evidence": "one blocked read at 0x1f801074; no interrupt-status read and no interrupt-dependent wait is proven",
+        "implemented": false,
+        "interaction": "interrupt mask read",
+        "required": false
+      },
+      {
+        "disposition": "NOT_IMPLEMENTED_FAIL_CLOSED",
+        "evidence": "one denied 32-bit write at 0x1f8010a8; no transfer request or completion wait is proven",
+        "implemented": false,
+        "interaction": "DMA channel-2 (GPU) configuration",
+        "reason": "a DMA channel cannot be modelled without VRAM/GPU transfer state, which the boundary does not model; accepting the write would invent transfer behaviour",
+        "required": false
+      },
+      {
+        "disposition": "NOT_IMPLEMENTED_FAIL_CLOSED",
+        "evidence": "two denied 32-bit writes at 0x1f801020",
+        "implemented": false,
+        "interaction": "memory-control delay configuration",
+        "reason": "delay registers affect timing only; there is no timing model in which accepting them would mean anything",
+        "required": false
+      },
+      {
+        "disposition": "NOT_IMPLEMENTED_FAIL_CLOSED",
+        "evidence": "one denied byte write at 0x00000000",
+        "implemented": false,
+        "interaction": "low-address write",
+        "required": false
+      },
+      {
+        "disposition": "SYMPTOM_OF_THE_CONTROL_FLOW_FAILURE",
+        "evidence": "one denied read of 0x14802000, which is the GPU status stub value used as an address",
+        "implemented": false,
+        "interaction": "corrupted pointer read",
+        "required": false
+      }
+    ],
+    "implemented_at_phase10": [],
+    "policy": "nothing is implemented at P10-08: the observed interrupt/DMA/memory-control interactions are not proven required for progress, and implementing them without VRAM/transfer/timing state would invent device behaviour",
+    "served_devices": [
+      "cdrom",
+      "gpu",
+      "spu",
+      "timer1"
+    ],
+    "timing_version": "1.0.0"
+  },
+  "runtime_composition": {
+    "composed_bytes": 29239,
+    "composed_sha256": "8123a52b7855f30e72b5cfb127f254bef1c0af3a76097e818d80a3771f63c42a",
+    "extension_sha256": "c91696ce40c1b010169937b9f6b0f8a8bf0bbc4ca7ebb3e94f7e48adc54c0dae",
+    "extension_source": ".openrecomp-phase10/runtime/p10_mips_extension_v1.c",
+    "frozen_manifest_sha256": "59507a2c1fd8928a6ac100b324339c25d9079bafeee0cba47a7a93d1aab7dc6d",
+    "frozen_sha256": "59507a2c1fd8928a6ac100b324339c25d9079bafeee0cba47a7a93d1aab7dc6d",
+    "frozen_source": ".openrecomp-phase9/runtime/p9_runtime_support.c",
+    "frozen_source_reused_verbatim": true,
+    "runtime_version": "1.0.0",
+    "substitution_count": 5,
+    "substitutions": [
+      {
+        "anchor_sha256": "93f5557b0d3a659641c60524670fe2093c99ec8785dcec7ce3794f367f57c1f4",
+        "name": "event-capacity",
+        "source": "budget",
+        "substitution_sha256": "97b77d4b190222a1874d86872550835774168c9f40df726c7ca0078fb6c98207"
+      },
+      {
+        "anchor_sha256": "db927b8f8950b488b14722525e36a014eec6224403c397c962bd1d4edeb9728a",
+        "name": "gpu-status-read-stub",
+        "source": "budget",
+        "substitution_sha256": "4aa4fe017ca6dc6c53c2c43c41caf7d03d63bee9f8a3fa98bc2b17884944af5e"
+      },
+      {
+        "anchor_sha256": "49479059f4d2d705fdfc56770131d1a7fcfb5321e12ea02c0a2732fb62c4a64a",
+        "name": "access-budget",
+        "source": "budget",
+        "substitution_sha256": "c200e4baba36f5a3f454b0264579dd5ad05a1ede5ccfd85a3f1700cc09c693a1"
+      },
+      {
+        "anchor_sha256": "8c9d2bf00d2f18e7f4c5acc77442f1fbe4c70ddaa67c019d007b3c7520ce134a",
+        "name": "access-budget",
+        "source": "budget",
+        "substitution_sha256": "744e1f216523d7971b203045a59a79adfff34043d260767b4ab7eaa975e94fe7"
+      },
+      {
+        "anchor_sha256": "bbfb5150960803d7acaea288c81a2844ac0aa03327b35b2bc3fa804bd142f462",
+        "name": "host-call-dispatch",
+        "source": "extension",
+        "substitution_sha256": "c91696ce40c1b010169937b9f6b0f8a8bf0bbc4ca7ebb3e94f7e48adc54c0dae"
+      }
+    ]
+  },
+  "schema": "openrecomp-phase10-timing-frontier-v1",
+  "stage": "P10-08",
+  "synthetic_negatives": [
+    {
+      "address": "0x1f801074",
+      "denied": "1",
+      "direction": "read",
+      "error": "runtime memory read failed",
+      "failed": "1",
+      "name": "interrupt-mask-read"
+    },
+    {
+      "address": "0x1f8010a8",
+      "denied": "1",
+      "direction": "write",
+      "error": "runtime memory write failed",
+      "failed": "1",
+      "name": "dma-channel2-write"
+    },
+    {
+      "address": "0x1f801020",
+      "denied": "1",
+      "direction": "write",
+      "error": "runtime memory write failed",
+      "failed": "1",
+      "name": "memory-control-delay-write"
+    }
+  ],
+  "synthetic_timer_fixture": {
+    "denied": "0",
+    "failed": "0",
+    "ticks_observed": [
+      0,
+      1,
+      2
+    ],
+    "words": [
+      "0x3c081f80",
+      "0x35081100",
+      "0x8d090000",
+      "0x8d0a0000",
+      "0x8d0b0000",
+      "0x03e00008",
+      "0x00000000"
+    ]
+  },
+  "timing_abstraction": {
+    "counter_read": "timer counter reads return (tick & 0xffff) and advance the tick by one",
+    "cycle_accuracy": "not claimed",
+    "max_counter_reads_before_wrap": 65536,
+    "resolution": "one tick per counter read (read-driven, not clock-driven)",
+    "tick_origin": "zero at runtime initialisation",
+    "wall_clock_dependency": "none"
+  }
+}

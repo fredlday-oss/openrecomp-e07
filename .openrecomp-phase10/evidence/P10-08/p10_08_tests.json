@@ -1,0 +1,221 @@
+{
+  "checks": [
+    {
+      "check": "build:status",
+      "detail": "OK,OK",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:general-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:native-execution-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:playability-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:runtime-substitutions",
+      "detail": "5",
+      "status": "PASS"
+    },
+    {
+      "check": "native:blocked-addresses",
+      "detail": "{\"0x1f801074\": 1, \"0x1f801801\": 1}",
+      "status": "PASS"
+    },
+    {
+      "check": "native:budget-denials",
+      "detail": "5",
+      "status": "PASS"
+    },
+    {
+      "check": "native:budget-reached",
+      "detail": "2000005 > 2000000",
+      "status": "PASS"
+    },
+    {
+      "check": "native:denied-classes",
+      "detail": "AUDITED_CDROM_BLOCKED,AUDITED_INTERRUPT_BLOCKED,BUDGET_DENIED,OUTSIDE_AUDITED_RANGES",
+      "status": "PASS"
+    },
+    {
+      "check": "native:denied-total",
+      "detail": "11",
+      "status": "PASS"
+    },
+    {
+      "check": "native:gpu-timer-pairing",
+      "detail": "109035/109035",
+      "status": "PASS"
+    },
+    {
+      "check": "native:log-not-truncated",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "native:logged-budget-subset",
+      "detail": "{\"budget_denials\": 5, \"expected_total\": 11, \"logged_budget_denial_observations\": 1, \"logged_budget_subset_of_counter\": true, \"matches\": true, \"platform_denial_observations\": 6, \"reported_denied\": 11}",
+      "status": "PASS"
+    },
+    {
+      "check": "native:platform-denials",
+      "detail": "6",
+      "status": "PASS"
+    },
+    {
+      "check": "native:reconciliation",
+      "detail": "{\"budget_denials\": 5, \"expected_total\": 11, \"logged_budget_denial_observations\": 1, \"logged_budget_subset_of_counter\": true, \"matches\": true, \"platform_denial_observations\": 6, \"reported_denied\": 11}",
+      "status": "PASS"
+    },
+    {
+      "check": "native:served-observations",
+      "detail": "218112",
+      "status": "PASS"
+    },
+    {
+      "check": "native:signature-count",
+      "detail": "17",
+      "status": "PASS"
+    },
+    {
+      "check": "native:signatures",
+      "detail": "[[\"0x1f801074\", 16, \"read\", 0, 1], [\"0x1f8010a8\", 32, \"write\", 0, 1], [\"0x00000000\", 8, \"write\", 0, 1], [\"0x1f801800\", 8, \"write\", 0, 15], [\"0x1f801803\", 8, \"read\", 0, 2], [\"0x1f801803\", 8, \"write\", 0, 3], [\"0x1f801020\", 32, \"write\", 0, 2], [\"0x1f801db8\", 16, \"read\", 0, 1], [\"0x1f801dba\", 16, \"read\", 0, 1], [\"0x1f801db0\", 16, \"write\", 0, 1], [\"0x1f801db2\", 16, \"write\", 0, 1], [\"0x1f801daa\", 16, \"write\", 0, 1], [\"0x1f801802\", 8, \"write\", 0, 8], [\"0x1f801801\", 8, \"write\", 0, 10], [\"0x1f801814\", 32, \"read\", 0, 109035], [\"0x1f801110\", 32, \"read\", 0, 109035], [\"0x14802000\", 32, \"read\", 1, 1]]",
+      "status": "PASS"
+    },
+    {
+      "check": "native:termination",
+      "detail": "unresolved indirect jump",
+      "status": "PASS"
+    },
+    {
+      "check": "private:present",
+      "detail": "private fixture present",
+      "status": "PASS"
+    },
+    {
+      "check": "ranges:audited",
+      "detail": "8",
+      "status": "PASS"
+    },
+    {
+      "check": "requirements:all-fail-closed",
+      "detail": "[{\"evidence\": \"paired one-to-one with the GPU status reads; served by the deterministic virtual-time counter\", \"implemented\": \"already served by the Phase-9 runtime\", \"interaction\": \"timer counter rea",
+      "status": "PASS"
+    },
+    {
+      "check": "requirements:dma-not-ready",
+      "detail": "the DMA disposition records the VRAM dependency",
+      "status": "PASS"
+    },
+    {
+      "check": "requirements:no-new-implementation",
+      "detail": "none",
+      "status": "PASS"
+    },
+    {
+      "check": "requirements:timer-required",
+      "detail": "timer counter reads are required and already served",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:dma-channel2-write:build",
+      "detail": "OK,OK",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:dma-channel2-write:denied",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:dma-channel2-write:fail-closed",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:interrupt-mask-read:build",
+      "detail": "OK,OK",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:interrupt-mask-read:denied",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:interrupt-mask-read:fail-closed",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:memory-control-delay-write:build",
+      "detail": "OK,OK",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:memory-control-delay-write:denied",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:memory-control-delay-write:fail-closed",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:timer:build",
+      "detail": "OK,OK",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:timer:first-tick",
+      "detail": "0x0000",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:timer:monotone",
+      "detail": "0x0000 0x0001 0x0002",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:timer:no-denial",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:timer:not-failed",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "timing:no-cycle-accuracy",
+      "detail": "not claimed",
+      "status": "PASS"
+    },
+    {
+      "check": "timing:no-wall-clock",
+      "detail": "none",
+      "status": "PASS"
+    },
+    {
+      "check": "timing:read-driven",
+      "detail": "one tick per counter read (read-driven, not clock-driven)",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 42,
+  "stage": "P10-08",
+  "stage_name": "Interrupt / DMA / timing frontier",
+  "status": "PASS",
+  "tests": 42
+}

@@ -1,0 +1,42 @@
+{
+  "artifact_sha256": {
+    "p10_08_tests.json": "ab9c7b340a7a004ec70f77b69084897006faedac921844afd34a751f882a394f",
+    "timing_frontier.json": "a2dc8506a5444be019662cb5ae9042483c74b8993ecc9af1a191c5cf1d735eb2"
+  },
+  "artifacts_identical": true,
+  "gate": "tools/test_phase10_timing_v1.py",
+  "gate_sha256": "0ac7093bb92a89a024b787bcfdc90ed2ae405fd8c1919854970c450465c44e53",
+  "general_marker": "OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+  "playability_marker": "OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "p10_08_tests.json": "ab9c7b340a7a004ec70f77b69084897006faedac921844afd34a751f882a394f",
+        "timing_frontier.json": "a2dc8506a5444be019662cb5ae9042483c74b8993ecc9af1a191c5cf1d735eb2"
+      },
+      "p10_08_tests_sha256": "ab9c7b340a7a004ec70f77b69084897006faedac921844afd34a751f882a394f",
+      "returncode": 0,
+      "stdout_bytes_raw": 1708,
+      "stdout_sha256_lf": "749e3c6e6afa76b3d1fc0dec453934ee4cc1800bb982b864ee1b8b5b7db95703",
+      "stdout_sha256_raw": "b3024958322ee9cf4c4e9e6473f83de4dffbac7806ebded9c70d10be62af7bb3"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "p10_08_tests.json": "ab9c7b340a7a004ec70f77b69084897006faedac921844afd34a751f882a394f",
+        "timing_frontier.json": "a2dc8506a5444be019662cb5ae9042483c74b8993ecc9af1a191c5cf1d735eb2"
+      },
+      "p10_08_tests_sha256": "ab9c7b340a7a004ec70f77b69084897006faedac921844afd34a751f882a394f",
+      "returncode": 0,
+      "stdout_bytes_raw": 1708,
+      "stdout_sha256_lf": "749e3c6e6afa76b3d1fc0dec453934ee4cc1800bb982b864ee1b8b5b7db95703",
+      "stdout_sha256_raw": "b3024958322ee9cf4c4e9e6473f83de4dffbac7806ebded9c70d10be62af7bb3"
+    }
+  },
+  "schema": "openrecomp-phase10-determinism-v1",
+  "stage": "P10-08",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true,
+  "terminal_marker": "OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN"
+}

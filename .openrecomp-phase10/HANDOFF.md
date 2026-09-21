@@ -29,37 +29,38 @@
   GP1 status polling only (`0x14802000` stub, 65536 reads), zero GP0/GP1
   writes, zero unknown commands, no DMA, no modelled VRAM; the GPU is not
   the blocker;
-- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-07/`.
+- `P10-08` `PASS` (42 checks): the interrupt/DMA/timing frontier is exactly
+  classified, all 11 denials are attributed by address and cause, the
+  read-driven virtual-time contract is proven, and every unproven
+  interaction stays fail-closed;
+- evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-08/`.
 
 ## Immediate next action
 
-`P10-08` - interrupt / DMA / timing frontier, prioritized by the dependencies
-`P10-07` exposed:
+`P10-09` - disc / CD-ROM / streaming frontier.
 
-1. the `I_MASK` write at `0x1f801074` (1 BLOCKER event, denied) and the
-   interrupt status/mask contract (`p9_input_timer_v1.I_STAT`/`I_MASK`);
-2. the 9 unrecorded denials: addresses inside the I/O window outside the
-   modelled ports, or outside the modelled windows. The denied address is not
-   observable; obtaining it needs either an anchored runtime substitution that
-   records the first denied address, or an equivalent mechanism;
-3. the deterministic virtual-time contract: timer counter reads at
-   `0x1f801110` return `g_p9_ticks & 0xffff` and advance the tick; timer
-   mode/target reads return 0. Determine what the guest actually depends on;
-4. the bounded-execution limitation: the access budget bounds memory accesses,
-   not execution. A post-truncation loop with no memory access hangs. Add a
-   deterministic bound that cannot hang (for example a bounded count of
-   denied/budget-denied accesses after which the runtime keeps failing
-   deterministically *and* the emission cannot spin without an access), or
-   record the limitation with an explicit mitigation decision;
-5. the CD-ROM unknown command `0x80` is owned by `P10-09`; record the
-   dependency but do not implement disc behaviour here.
+Use the already verified CUE as the authoritative private disc source
+(`P10-00` recorded its identity and the `SYSTEM.CNF` boot relationship; the CUE
+and BIN filenames must again be discovered from the fixture directory, never
+assumed). Evidence already available from `P10-07`/`P10-08`:
 
-Do not claim cycle accuracy; document every timing abstraction explicitly.
+- CD-ROM register traffic: index/status writes at `0x1f801800` (15), parameter
+  writes at `0x1f801802` (8), register-3 reads/writes at `0x1f801803` (2/3),
+  and 10 command writes at `0x1f801801` of which 9 were served by the Phase-9
+  boundary and 1 (command `0x80`) was blocked as unknown;
+- no sector read has been observed, no ISO9660 access, no streaming and no XA
+  evidence exists in the recorded frontier. Determine whether the blocked
+  command and the absence of sector reads are pre- or post-failure behaviour
+  and classify the actual requirement;
+- do not extract or commit disc contents; record only hashes, names, counts,
+  access classifications and operation traces;
+- the P10-01/P10-06/P10-08 rule applies: no host-filesystem substitution for PS1
+  CD behaviour, and unknown commands stay fail-closed.
 
-## Known work queued after P10-08
+## Known work queued after P10-09
 
-- `P10-09` .. `P10-11`: disc/CD-ROM/streaming, controller/SPU/game-loop,
-  highest milestone;
+- `P10-10`: controller/SPU/game-loop frontier;
+- `P10-11`: highest evidence-supported milestone;
 - `P10-12`, `P10-90`, `P10-91`, `P10-99`: hardening, whole-project regression,
   evidence closure and the final bounded verdict.
 

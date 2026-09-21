@@ -63,7 +63,8 @@ runtime architecture is created.
 | P10-05 | PASS |
 | P10-06 | PASS |
 | P10-07 | PASS |
-| P10-08 .. P10-12 | QUEUED |
+| P10-08 | PASS |
+| P10-09 .. P10-12 | QUEUED |
 | P10-90, P10-91, P10-99 | QUEUED |
 
 ## Stage records
@@ -288,15 +289,42 @@ Phase-10 stage runner with byte-identical stdout (2036 bytes LF, sha256
   falsified, so no earlier stage was re-issued;
 - evidence: `.openrecomp-phase10/evidence/P10-07/`.
 
+### P10-08 - Interrupt / DMA / timing frontier
+
+PASS (42 checks). Gate `tools/test_phase10_timing_v1.py` ran twice through the
+Phase-10 stage runner with byte-identical stdout (1661 bytes LF, sha256
+`749e3c6e...`), empty stderr and exit 0.
+
+- the deterministic non-RAM access log (17 signatures, no overflow) closes the
+  `P10-07` open item: platform denials 6 (`I_MASK` read 1, DMA channel-2 write
+  1, low/null write 1, memory-control delay writes 2, CD-ROM unknown command 1)
+  plus budget denials 5 equal the runtime's denied counter 11 exactly;
+- served observations 218112: GPU status 109035 and timer1 counter 109035
+  (exactly one-to-one, i.e. a single polling loop with both probes served) plus
+  CD-ROM 37 and SPU 5;
+- the virtual-time abstraction is recorded explicitly: a read-driven counter
+  returning `tick & 0xffff` (not cycle accurate, no wall-clock dependency), and
+  is proven by a public synthetic fixture (0, 1, 2 across three reads);
+- nothing new is implemented: the interrupt-mask read, the DMA channel-2
+  configuration write and the memory-control delay writes are all left
+  fail-closed with the evidence showing none is proven required; DMA needs
+  VRAM/transfer state and delay registers need a timing model, so accepting
+  them would invent device behaviour;
+- public synthetic native negatives confirm the deterministic fail-closed
+  behaviour for all three denied interactions;
+- the bounded-execution limitation (the access budget bounds accesses, not
+  execution) is recorded as a `P10-12` hardening item;
+- evidence: `.openrecomp-phase10/evidence/P10-08/`.
+
 ## Open blockers
 
-- the executed unresolved indirect jump (18 candidate sites) blocks the GPU/init
-  command stream; the exact failing guest PC remains unobservable;
-- the access-budget bound does not bound execution: a post-truncation guest loop
-  with no memory access can hang (hardening item for `P10-08`/`P10-12`);
-- 9 denials remain unattributed (addresses not observable);
-- the CD-ROM unknown command `0x80` and the `I_MASK` write are fail-closed
-  blockers owned by `P10-08`/`P10-09`.
+- the executed unresolved indirect jump blocks progress; the exact failing
+  guest PC remains unobservable;
+- the bounded-execution budget cannot interrupt a post-truncation guest loop
+  with no memory access (`P10-12` hardening item);
+- DMA, interrupt delivery and memory-control timing remain unimplemented and
+  fail-closed (not proven required).
+
 
 
 

@@ -1,0 +1,47 @@
+PASS: build:status
+PASS: claim:general-not-promoted
+PASS: claim:native-execution-not-promoted
+PASS: claim:playability-not-promoted
+PASS: emission:runtime-substitutions
+PASS: native:blocked-addresses
+PASS: native:budget-denials
+PASS: native:budget-reached
+PASS: native:denied-classes
+PASS: native:denied-total
+PASS: native:gpu-timer-pairing
+PASS: native:log-not-truncated
+PASS: native:logged-budget-subset
+PASS: native:platform-denials
+PASS: native:reconciliation
+PASS: native:served-observations
+PASS: native:signature-count
+PASS: native:signatures
+PASS: native:termination
+PASS: private:present
+PASS: ranges:audited
+PASS: requirements:all-fail-closed
+PASS: requirements:dma-not-ready
+PASS: requirements:no-new-implementation
+PASS: requirements:timer-required
+PASS: synthetic:dma-channel2-write:build
+PASS: synthetic:dma-channel2-write:denied
+PASS: synthetic:dma-channel2-write:fail-closed
+PASS: synthetic:interrupt-mask-read:build
+PASS: synthetic:interrupt-mask-read:denied
+PASS: synthetic:interrupt-mask-read:fail-closed
+PASS: synthetic:memory-control-delay-write:build
+PASS: synthetic:memory-control-delay-write:denied
+PASS: synthetic:memory-control-delay-write:fail-closed
+PASS: synthetic:timer:build
+PASS: synthetic:timer:first-tick
+PASS: synthetic:timer:monotone
+PASS: synthetic:timer:no-denial
+PASS: synthetic:timer:not-failed
+PASS: timing:no-cycle-accuracy
+PASS: timing:no-wall-clock
+PASS: timing:read-driven
+OPENRECOMP_P10_08=PASS
+OPENRECOMP_PHASE10_TIMING_FRONTIER_V1=PASS tests=42
+OPENRECOMP_PHASE10_HERCULES_NATIVE_EXECUTION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE10_HERCULES_PLAYABILITY=NOT_PROVEN
+OPENRECOMP_PHASE10_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN

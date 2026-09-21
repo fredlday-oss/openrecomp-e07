@@ -67,8 +67,95 @@ READ_ANCHOR = (
     "    uint64_t index;\n"
     "    int status = p9_width_bytes(width_bits, &width);\n"
 )
+#: Bound on the recorded distinct non-RAM access signatures.
+NONRAM_LOG_CAPACITY = 64
+
+#: Non-RAM access log substitution. Every guest access whose address is
+#: outside the two modelled main-RAM windows is logged (deduplicated by
+#: address/width/direction) so the platform port boundary's denials can be
+#: attributed to exact addresses instead of an unattributed count. The log is
+#: bounded; overflow is counted explicitly.
+#: Bound on the recorded distinct non-RAM access signatures.
+NONRAM_LOG_CAPACITY = 64
+
+#: Non-RAM access log substitution. Every guest access whose address is
+#: outside the two modelled main-RAM windows is logged (deduplicated by
+#: address/width/direction/denial-reason) so the platform port boundary's
+#: denials can be attributed to exact addresses and to a cause instead of an
+#: unattributed count. The log is bounded; overflow is counted explicitly.
+NONRAM_LOG_DECLARATION = (
+    "struct p10_access_signature {\n"
+    "    uint32_t address;\n"
+    "    uint32_t width_bits;\n"
+    "    uint32_t is_write;\n"
+    "    uint32_t reason;\n"
+    "    uint64_t count;\n"
+    "};\n"
+    "\n"
+    "#define P10_NONRAM_LOG_CAPACITY 64u\n"
+    "static struct p10_access_signature g_p10_nonram[P10_NONRAM_LOG_CAPACITY];\n"
+    "static uint32_t g_p10_nonram_count;\n"
+    "static uint64_t g_p10_nonram_overflow;\n"
+    "\n"
+    "static void p10_log_nonram(uint64_t address, uint32_t width_bits, uint32_t is_write, uint32_t reason)\n"
+    "{\n"
+    "    uint32_t index;\n"
+    "    if (address >= (uint64_t)P9_RAM_KSEG0_BASE\n"
+    "        && address < (uint64_t)P9_RAM_KSEG0_BASE + (uint64_t)P9_IMAGE_SIZE) {\n"
+    "        return;\n"
+    "    }\n"
+    "    if (address >= (uint64_t)P9_RAM_KSEG1_BASE\n"
+    "        && address < (uint64_t)P9_RAM_KSEG1_BASE + (uint64_t)P9_IMAGE_SIZE) {\n"
+    "        return;\n"
+    "    }\n"
+    "    for (index = 0; index < g_p10_nonram_count; ++index) {\n"
+    "        if (g_p10_nonram[index].address == (uint32_t)address\n"
+    "            && g_p10_nonram[index].width_bits == width_bits\n"
+    "            && g_p10_nonram[index].is_write == is_write\n"
+    "            && g_p10_nonram[index].reason == reason) {\n"
+    "            ++g_p10_nonram[index].count;\n"
+    "            return;\n"
+    "        }\n"
+    "    }\n"
+    "    if (g_p10_nonram_count < P10_NONRAM_LOG_CAPACITY) {\n"
+    "        g_p10_nonram[g_p10_nonram_count].address = (uint32_t)address;\n"
+    "        g_p10_nonram[g_p10_nonram_count].width_bits = width_bits;\n"
+    "        g_p10_nonram[g_p10_nonram_count].is_write = is_write;\n"
+    "        g_p10_nonram[g_p10_nonram_count].reason = reason;\n"
+    "        g_p10_nonram[g_p10_nonram_count].count = UINT64_C(1);\n"
+    "        ++g_p10_nonram_count;\n"
+    "        return;\n"
+    "    }\n"
+    "    ++g_p10_nonram_overflow;\n"
+    "}\n"
+    "\n"
+    "uint32_t p10_runtime_nonram_count(void) { return g_p10_nonram_count; }\n"
+    "uint64_t p10_runtime_nonram_overflow(void) { return g_p10_nonram_overflow; }\n"
+    "uint32_t p10_runtime_nonram_address(uint32_t index)\n"
+    "{\n"
+    "    return index < g_p10_nonram_count ? g_p10_nonram[index].address : 0u;\n"
+    "}\n"
+    "uint32_t p10_runtime_nonram_width(uint32_t index)\n"
+    "{\n"
+    "    return index < g_p10_nonram_count ? g_p10_nonram[index].width_bits : 0u;\n"
+    "}\n"
+    "uint32_t p10_runtime_nonram_is_write(uint32_t index)\n"
+    "{\n"
+    "    return index < g_p10_nonram_count ? g_p10_nonram[index].is_write : 0u;\n"
+    "}\n"
+    "uint32_t p10_runtime_nonram_reason(uint32_t index)\n"
+    "{\n"
+    "    return index < g_p10_nonram_count ? g_p10_nonram[index].reason : 0u;\n"
+    "}\n"
+    "uint64_t p10_runtime_nonram_observations(uint32_t index)\n"
+    "{\n"
+    "    return index < g_p10_nonram_count ? g_p10_nonram[index].count : UINT64_C(0);\n"
+    "}\n"
+)
+
 READ_REPLACEMENT = (
-    "static uint64_t g_p10_access_budget = UINT64_C(2000000);\n"
+    NONRAM_LOG_DECLARATION
+    + "static uint64_t g_p10_access_budget = UINT64_C(2000000);\n"
     "static uint64_t g_p10_access_count;\n"
     "static uint64_t g_p10_budget_denials;\n"
     "\n"
@@ -103,9 +190,13 @@ READ_REPLACEMENT = (
     "    uint64_t value = 0;\n"
     "    uint64_t index;\n"
     "    int status;\n"
-    "    if (p10_budget_exceeded()) {\n"
-    "        ++g_p9_denied_accesses;\n"
-    "        return P9_RT_UNSUPPORTED_OPERATION;\n"
+    "    {\n"
+    "        int p10_over_budget = p10_budget_exceeded();\n"
+    "        p10_log_nonram(address, width_bits, 0u, (uint32_t)p10_over_budget);\n"
+    "        if (p10_over_budget) {\n"
+    "            ++g_p9_denied_accesses;\n"
+    "            return P9_RT_UNSUPPORTED_OPERATION;\n"
+    "        }\n"
     "    }\n"
     "    status = p9_width_bytes(width_bits, &width);\n"
 )
@@ -125,9 +216,13 @@ WRITE_REPLACEMENT = (
     "    uint32_t offset = 0;\n"
     "    uint64_t index;\n"
     "    int status;\n"
-    "    if (p10_budget_exceeded()) {\n"
-    "        ++g_p9_denied_accesses;\n"
-    "        return P9_RT_UNSUPPORTED_OPERATION;\n"
+    "    {\n"
+    "        int p10_over_budget = p10_budget_exceeded();\n"
+    "        p10_log_nonram(address, width_bits, 1u, (uint32_t)p10_over_budget);\n"
+    "        if (p10_over_budget) {\n"
+    "            ++g_p9_denied_accesses;\n"
+    "            return P9_RT_UNSUPPORTED_OPERATION;\n"
+    "        }\n"
     "    }\n"
     "    status = p9_width_bytes(width_bits, &width);\n"
 )

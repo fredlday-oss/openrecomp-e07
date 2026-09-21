@@ -48,6 +48,13 @@ uint64_t p10_runtime_budget_denials(void);
 uint64_t p10_runtime_mips_service_calls(void);
 uint64_t p10_runtime_mips_service_failures(void);
 void p10_runtime_set_access_budget(uint64_t budget);
+uint32_t p10_runtime_nonram_count(void);
+uint64_t p10_runtime_nonram_overflow(void);
+uint32_t p10_runtime_nonram_address(uint32_t index);
+uint32_t p10_runtime_nonram_width(uint32_t index);
+uint32_t p10_runtime_nonram_is_write(uint32_t index);
+uint32_t p10_runtime_nonram_reason(uint32_t index);
+uint64_t p10_runtime_nonram_observations(uint32_t index);
 
 #define P10_EVENT_PRINT_LIMIT 512u
 #define P10_GPU_EVENT_PRINT_LIMIT 65536u
@@ -168,6 +175,20 @@ int main(int argc, char **argv)
     printf("printed_event_limit=%u\n", (unsigned)P10_EVENT_PRINT_LIMIT);
     printf("printed_gpu_event_limit=%u\n", (unsigned)P10_GPU_EVENT_PRINT_LIMIT);
 
+    {
+        uint32_t index;
+        uint32_t nonram = p10_runtime_nonram_count();
+        printf("nonram_signatures=%lu\n", (unsigned long)nonram);
+        printf("nonram_overflow=%llu\n", (unsigned long long)p10_runtime_nonram_overflow());
+        for (index = 0; index < nonram; ++index) {
+            printf("nonram_%u=0x%08x,%u,%u,%u,%llu\n", index,
+                   (unsigned)p10_runtime_nonram_address(index),
+                   (unsigned)p10_runtime_nonram_width(index),
+                   (unsigned)p10_runtime_nonram_is_write(index),
+                   (unsigned)p10_runtime_nonram_reason(index),
+                   (unsigned long long)p10_runtime_nonram_observations(index));
+        }
+    }
     p10_print_events("gpu", p9_runtime_gpu_events(), gpu_count);
     p10_print_events("input", p9_runtime_input_events(), input_count);
     p10_print_events("spu", p9_runtime_spu_events(), spu_count);
