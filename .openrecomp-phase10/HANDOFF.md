@@ -46,6 +46,7 @@
 - `P10-12` `PASS` (56 checks): malformed-input rejection, live
   fail-closed negatives, an identity-bound analysis cache, public-safety
   closure and clean-rebuild reproducibility;
+- `P10-90` reconstruction diagnosis recorded in `STATE.md` (`P10-90 reconstruction diagnosis`): identity exact, manifests zero-mismatch after audited-byte materialisation, `P8-91`/`P8-99` byte-identical, one residual `P8-00` residue assertion over two paths with identical blobs; the next exact measurement is listed there;
 - `P10-90` audit **NOT PASS** (audit incomplete; no stage claim): see the `P10-90 audit status` section of `STATE.md` for the findings, the corrected defects and the exact remaining re-issue sequence;
 - evidence in `.openrecomp-phase10/evidence/P10-00/` .. `P10-12/`.
 

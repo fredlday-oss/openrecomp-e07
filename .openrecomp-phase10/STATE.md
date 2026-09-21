@@ -522,6 +522,95 @@ on one tree:
 
 No stage claim is made until that sequence completes.
 
+## P10-90 reconstruction diagnosis (deterministic, read-only)
+
+### 1. Identity of the reconstruction
+
+| Item | Value |
+|---|---|
+| expected frozen commit | `08c639d9032a364163f2985432744be420d402eb` |
+| expected frozen tree | `900dccf06ce3d5df7b499a9f05a6ceea060114d7` |
+| actual HEAD (worktree) | `08c639d9032a364163f2985432744be420d402eb` (match) |
+| actual tree (worktree) | `900dccf06ce3d5df7b499a9f05a6ceea060114d7` (match) |
+| branch in worktree | `phase8/mips32-end-to-end-native-v1` (the branch the frozen gates assert) |
+
+### 2-4. Mismatch set against the audited source material
+
+Tracked files (2922): 2659 byte-identical; **261 line-ending-only** (identical
+Git blobs, differing working-tree bytes only - checkout normalisation); **2
+content mismatches**, both the *documented pre-existing Phase-3 residue*
+(`.openrecomp-phase3/evidence/P3-00/p3_00_tests.json`,
+`.openrecomp-phase3/evidence/P3-00/residue_manifest.txt`), whose audited form is
+the modified main-worktree form while the reconstruction holds the committed
+blob - i.e. the reconstruction is *more* frozen there, which is correct.
+
+**15644 untracked files (310 MB) plus ignored generated outputs** (for example
+`.openrecomp-phase8/build/P8-01/candidate-a/p8_aes128_mips32_O1.elf`, the zig
+toolchain under `.openrecomp-phase3/tools/zig`, and the audit input
+`tools/test_build_package_reproducibility_v1.py`) are absent in a fresh
+worktree. These are generated/untracked dependencies of the frozen gates.
+
+After materialising the audited working-tree bytes for every file under the
+frozen roots (`phase1..phase9`, `tools`, `openrecomp`, `adapters`, `contracts`,
+`schema`, `corpus`), all three frozen manifests verify with **zero** mismatches:
+root 134/134, Phase-8 30/30, Phase-9 35/35 entries.
+
+### 5. Provenance of the one frozen-manifest failure before the fix
+
+`.openrecomp-phase8/fixture/p8_start.S`: expected/main SHA-256
+`9ee18734…`; reconstruction SHA-256 `3f1a17cd…`; **blob ids identical**
+(`713f25e7…` for HEAD, main and the blob) - a pure line-ending/checkout
+normalisation artefact (cause D), not a content difference.
+
+### 6. Root cause classification
+
+| Class | Finding |
+|---|---|
+| A incorrect reconstruction source | no - the worktree head/tree equal the frozen commit/tree exactly |
+| B incomplete materialisation | yes - the untracked/ignored dependency set (occurrence) |
+| C generated files required by the frozen gate | yes - compiled fixtures, toolchain, audit inputs |
+| D line-ending / checkout normalisation | yes - 261 tracked files plus `p8_start.S`; blobs identical |
+| E pre-verdict state absent from the frozen commit | no for the Phase-8 terminal gates; the pre-verdict reconstruction is only needed for the Phase-7 chain, which P8-90 performs internally with a detached worktree |
+| F Phase-10 files leaking into the historical worktree | no - the worktree contains zero reconstruction-only untracked files |
+| G other | one residual: `P8-00`'s `frozen:no-new-prior-residue` flags exactly two paths as modified in the reconstruction - `.openrecomp-phase1/UPDATE_ROM_INVENTORY.ps1` and `.openrecomp-phase4/fixture/p4_start.S` - while the *same bytes* are status-clean in the audited main worktree. The check tolerates residue only for phases 2 and 3. Disproved explanations: `assume-unchanged`/`skip-worktree` index flags (both paths report normal `H`), writing the frozen blob form (still flagged), writing the audited byte form (still flagged). |
+
+### 7. What the historical gate genuinely requires
+
+The frozen Phase-8 terminal gates require a **hybrid reconstructed state**: the
+frozen committed tree, **plus** the audited working-tree byte forms for tracked
+files **plus** the audited untracked/ignored generated material. They do not
+require a pre-verdict control-plane reconstruction (that is needed only for the
+Phase-7 stage chain, which the frozen P8-90 gate reconstructs internally with a
+detached worktree at the frozen P7-90 commit).
+
+### 8. Comparison with the successful Phase-8/Phase-9 mechanisms
+
+* the frozen `P8-90` gate reconstructs the Phase-7 chain with
+  `git worktree add --detach <tmp> <P7_90_COMMIT>`, verifies the pre-verdict
+  marker and runs the Phase-7 stage gates with scratch evidence - a detached
+  worktree works there because those gates assert pre-verdict markers only, not
+  branch or worktree hygiene;
+* `P9-90` ran the Phase-8 terminal gates **in place** because Phase 9 remained
+  on the frozen branch, so the audited working-tree state existed naturally; it
+  only snapshotted/restored frozen evidence;
+* Phase 10 deliberately works on `phase10/ps1-commercial-game-native-v1`
+  (P10-00 policy), so "in place" cannot satisfy the frozen branch assertions;
+  the equivalent mechanism is the **branch-checkout worktree plus audited-byte
+  materialisation**, which this diagnosis validated to the point where
+  `P8-91` and `P8-99` reproduce **byte-identical stdout** and `P8-90` fails only
+  through its inner `P8-00` residue assertion.
+
+### Next exact measurement (do not patch before this)
+
+For the two flagged paths, in one reconstruction worktree, print:
+`git ls-files --eol -- <paths>`, `git -c core.autocrlf=true status --porcelain -- <paths>`,
+`git -c core.autocrlf=false status --porcelain -- <paths>`,
+`git check-attr -a -- <paths>`, and the byte/CRLF counts of the audited and
+reconstructed copies. That fixes the exact conversion rule the audited checkout
+used, after which the smallest correction is to reproduce that rule for the
+reconstruction's status (or to mirror the audited index entries for those two
+paths) and re-verify with zero unexplained differences.
+
 ## Open blockers
 
 - the executed unresolved indirect jump blocks initialisation; the exact
