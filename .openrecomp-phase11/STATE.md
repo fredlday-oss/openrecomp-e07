@@ -72,7 +72,7 @@ OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 | P11-03 | PASS |
 | P11-04 | PASS |
 | P11-05 | PASS |
-| P11-06 | PENDING |
+| P11-06 | PASS |
 | P11-07 | PENDING |
 | P11-08 | PENDING |
 | P11-09 | PENDING |
@@ -84,6 +84,34 @@ OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 | P11-99 | PENDING |
 
 ## Stage records
+
+### P11-06 — GPU/DMA/VRAM semantic closure
+
+PASS (75 checks). Gate `tools/test_phase11_gpu_closure_v1.py` run twice
+through the Phase-11 stage runner with byte-identical stdout (3273 raw bytes,
+LF SHA-256 `e93cf4cc...`), empty stderr, exit 0 and byte-identical sidecars.
+The unchanged P11-05 direct-dependency gate also passes twice at 294 checks.
+
+- the P11-05 runtime target `0x8001a7dc` is proven by the exact RAM pointer
+  chain (`0x8002a284` -> `0x8002a244`, field +16 at `0x8002a254`) and is an
+  independently decoded entry;
+- extending the frontier adds exactly 10 reachable words, one function and one
+  block; the existing exact-target machinery resolves `0x8001882c` with a
+  guarded dispatch and no general semantic change;
+- the newly translated guest function loads the initial `0x1f801814` GP1
+  pointer and reaches the frozen typed boundary with `0x03000001`, which the
+  frozen classifier records as known `DISPLAY_ENABLE`; it then performs one
+  guest RAM bookkeeping byte write;
+- the causal prefix A/B is byte-identical through 468323 block events; at full
+  budget B adds exactly one ordered known GP1 write, one guest RAM write and
+  zero host/service calls; no renderer, DMA, VRAM or interrupt behavior is
+  added;
+- the ordered GPU write transcript is GP0 `0x0002a244` / `NOP`, then GP1
+  `0x03000001` / `DISPLAY_ENABLE`, both known and non-emulated;
+- the exact new frontier is fail-closed `B0:0x57` at `0x80015fa4`, source
+  `0x000000b0`, block index 468341; its service identity/contract is not in the
+  current documented surface and no behavior is inferred;
+- evidence: `.openrecomp-phase11/evidence/P11-06/`.
 
 ### P11-05 — GPU command-stream frontier
 

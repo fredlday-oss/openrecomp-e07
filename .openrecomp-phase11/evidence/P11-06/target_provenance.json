@@ -1,0 +1,55 @@
+{
+  "classification": "EXACT_CONSTANT_TARGET",
+  "extension": {
+    "base_entry": "0x800132e8",
+    "base_reachable_words": 4068,
+    "delay_slot_count": 683,
+    "dynamic_version": "1.0.0",
+    "extra_entries": [
+      {
+        "entry": "0x80016384",
+        "new_reachable_words": 264,
+        "reachable_words": 281
+      },
+      {
+        "entry": "0x8001a7dc",
+        "new_reachable_words": 10,
+        "reachable_words": 10
+      }
+    ],
+    "merged_reachable_sha256": "01ec984437b68234279188515779173e4d1dd86d9fd22f06108ef78f8b728b62",
+    "merged_reachable_words": 4342,
+    "record_count": 31744
+  },
+  "guarded_resolution": {
+    "basis": "EXACT_CONSTANT_TARGET",
+    "guarded": true,
+    "kind": "INDIRECT_CALL",
+    "site": "0x8001882c",
+    "targets": [
+      "0x8001a7dc"
+    ]
+  },
+  "observed_target": "0x8001a7dc",
+  "pointer_chain": {
+    "base_pointer_address": "0x8002a284",
+    "base_pointer_initial": "0x8002a244",
+    "effective_address": "0x8002a254",
+    "field_initial": "0x8001a7dc",
+    "field_offset": 16,
+    "runtime_loaded_value": "0x8001a7dc"
+  },
+  "privacy": "addresses, counts, classifications and hashes only",
+  "schema": "openrecomp-phase11-gpu-target-provenance-v1",
+  "site": "0x8001882c",
+  "source_register": "$v0",
+  "stage": "P11-06",
+  "target": {
+    "blocks_added": 1,
+    "entry": "0x8001a7dc",
+    "functions_added": 1,
+    "gp1_pointer_address": "0x8002a360",
+    "gp1_pointer_initial": "0x1f801814",
+    "reachable_words": 10
+  }
+}

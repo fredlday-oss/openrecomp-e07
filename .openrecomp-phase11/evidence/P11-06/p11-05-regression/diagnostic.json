@@ -1,0 +1,52 @@
+{
+  "argument_provenance": {
+    "initial_word": "0x8002a244",
+    "kind": "stable RAM-derived pointer",
+    "overlapping_writes_before_call": 0,
+    "reference_value": "0x0002a244",
+    "runtime_mask": "0x00ffffff"
+  },
+  "argument_register": "$a0",
+  "argument_value": "0x0002a244",
+  "bios_site": "0x8001b424",
+  "bios_vector": "A0",
+  "classification": "GUEST_VALUE_CONFIRMED",
+  "divergence": null,
+  "excluded_defects": [
+    "CPU semantics",
+    "translation",
+    "ABI",
+    "memory",
+    "runtime state"
+  ],
+  "failure_block_index": 468286,
+  "function_index": "0x49",
+  "gp0": {
+    "class": "NOP",
+    "emulated": false,
+    "known": true,
+    "opcode": "0x00"
+  },
+  "privacy": {
+    "payload_bytes": "not recorded",
+    "private_paths": "not recorded",
+    "raw_instruction_words": "not recorded",
+    "reconstructive_disassembly": "not recorded"
+  },
+  "schema": "openrecomp-phase11-gpu-cw-diagnostic-v1",
+  "service": "ps1.bios.A0.49",
+  "stage": "P11-05",
+  "vector_provenance": {
+    "block_transition": "same block to 0x8001b424",
+    "category": "arithmetic immediate",
+    "defining_pc": "0x8001b420",
+    "delay_slot": false,
+    "destination_register": "$t2",
+    "operation": "addiu",
+    "result_value": "0x000000a0",
+    "source_register": "$zero",
+    "source_value": "0x00000000"
+  },
+  "vector_register": "$t2",
+  "vector_value": "0x000000a0"
+}

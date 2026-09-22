@@ -42,19 +42,30 @@
   to `0x8001882c` at block index 468323. Milestone C is PROVEN for the exact
   private fixture; B, D and G remain NOT_PROVEN. The frozen P11-04 gate passes
   unchanged at 851 checks.
+- `P11-06` `PASS` (75 checks): the exact RAM pointer chain proves the observed
+  target `0x8001a7dc`; extending from it adds 10 reachable words / one function
+  / one block and the existing guarded exact-target dispatch resolves
+  `0x8001882c`. The translated guest function reaches the frozen typed GP1
+  boundary with `0x03000001`, classified known `DISPLAY_ENABLE`, then performs
+  one guest RAM bookkeeping byte. A/B is byte-identical before the old
+  frontier; B adds one GP1 write, one RAM write and zero host-service calls.
+  No GPU/DMA/VRAM behavior is added. The new exact frontier is fail-closed
+  `B0:0x57` at `0x80015fa4`, block index 468341. P11-05 passes unchanged at
+  294 checks.
 
 ## Immediate next action
 
-`P11-06` - GPU/DMA/VRAM semantic closure. Start from the exact first B failure:
-the unresolved indirect call (`jalr`) at `0x8001882c`, source value
-`0x8001a7dc`, in `blk_80018824` / `fn_800187b0` (entry context `0x8001b3f4`),
-block index 468323. Establish the dynamic target provenance and resolve it only
-if independently proven and reachable, using a guarded dispatch. Then classify
-the first post-resolution GPU/DMA/VRAM request and perform a causal A/B before
-adding semantics. Do not infer the target or behavior from the pointer value,
-function proximity, GPU_cw name or polling loop. Reuse the P11-05 ordered GPU
-write transcript and frozen classifier. Instrumented and uninstrumented build
-products live under `.openrecomp-phase11/build/` (untracked).
+`P11-07` - Milestone D: first valid frame. Start from the exact fail-closed
+indirect call at `0x80015fa4` (`B0` vector, delay-slot index `0x57`, source
+`0x000000b0`) in `blk_80015fa0` / `fn_80015f90`, block index 468341. The
+current documented BIOS surface does not identify `B0:0x57`; establish the
+service identity, signature and return contract from public documentation
+before changing classification or runtime behavior. If that evidence is not
+available, record `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE`. Do not infer a
+service from the nearby typed GP0/GP1 activity and do not bypass the call.
+Milestone D still requires a valid rendered frame proven semantically or by a
+non-reconstructive hash; the current ordered command transcript alone does not
+qualify. Build products live under `.openrecomp-phase11/build/` (untracked).
 
 ## Private fixture notes
 

@@ -1,0 +1,123 @@
+{
+  "closure": {
+    "basis": "guarded target translation reaches frozen typed GP1 classifier",
+    "dma_behavior_added": false,
+    "gpu_behavior_added": false,
+    "renderer_added": false,
+    "status": "PROVEN_EXISTING_TYPED_PATH",
+    "vram_behavior_added": false
+  },
+  "new_frontier": {
+    "bios_vector": "B0",
+    "block_id": "blk_80015fa0",
+    "block_index": 468341,
+    "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+    "failure_count": 22,
+    "function_entry": "0x80015f18",
+    "function_id": "fn_80015f90",
+    "function_index": "0x57",
+    "message": "unresolved indirect call",
+    "site": "0x80015fa4",
+    "site_classification": null,
+    "source_value": "0x000000b0",
+    "terminal_op": "jalr"
+  },
+  "ordered_gpu_writes": [
+    {
+      "address": "0x1f801810",
+      "classification": {
+        "class": "NOP",
+        "command": "0x00",
+        "emulated": false,
+        "known": true,
+        "port": "GP0"
+      },
+      "command": "0x00",
+      "direction": 1,
+      "flags": 1,
+      "sequence": 0,
+      "service": 1,
+      "value": "0x0002a244",
+      "width_bits": 32
+    },
+    {
+      "address": "0x1f801814",
+      "classification": {
+        "class": "DISPLAY_ENABLE",
+        "command": "0x03",
+        "emulated": false,
+        "known": true,
+        "port": "GP1"
+      },
+      "command": "0x03",
+      "direction": 1,
+      "flags": 1,
+      "sequence": 1,
+      "service": 1,
+      "value": "0x03000001",
+      "width_bits": 32
+    }
+  ],
+  "private_run": {
+    "access_budget": 1500000,
+    "block_budget": 8000000,
+    "executable_sha256": "3df3551d0ff437674fba55de21edacf483cb92bf786e23dc0652f73fd4755bde",
+    "observables": {
+      "cdrom": "0xe4c1b16e328991fd",
+      "cdrom_events": "33",
+      "denied": "2344661",
+      "error": "runtime memory write failed",
+      "exit_status": "0x000013c7",
+      "failed": "1",
+      "gpu": "0x7878de93d92dc0e1",
+      "gpu_events": "65536",
+      "host_calls": "84",
+      "input": "0x9cae47670d966e9a",
+      "input_events": "65536",
+      "memory": "0x7bc8b3b63d58c482",
+      "nonram_overflow": "1525610",
+      "nonram_signatures": "64",
+      "p10_access_budget": "1500000",
+      "p10_access_count": "3844653",
+      "p10_budget_denials": "2344653",
+      "p10_service_calls": "84",
+      "p10_service_failures": "0",
+      "reads": "636988",
+      "registers": "0xd6e50b79955158bf",
+      "spu": "0xcbf29ce484222325",
+      "spu_events": "0",
+      "writes": "721769"
+    },
+    "stdout_sha256": "02e0eeeb847eff1c7a320f6c3d6f09893d5fc17f1258dbb1edd5204adc43a484"
+  },
+  "public_synthetic": [
+    {
+      "classification": {
+        "class": "DISPLAY_ENABLE",
+        "command": "0x03",
+        "emulated": false,
+        "known": true,
+        "port": "GP1"
+      },
+      "command": "0x03000001",
+      "failed": "0",
+      "name": "display-enable",
+      "stdout_sha256": "7fdaf74345773473f6e9338abae77b80d413d5817ca1c9178b3a85eb621c9ba4"
+    },
+    {
+      "classification": {
+        "class": "UNKNOWN_COMMAND",
+        "command": "0x09",
+        "emulated": false,
+        "known": false,
+        "port": "GP1"
+      },
+      "command": "0x09000000",
+      "failed": "1",
+      "name": "unknown-command",
+      "stdout_sha256": "bbd505869650a75c08af97435e44788b40c508fdc8f461fe492dcf176d571903"
+    }
+  ],
+  "schema": "openrecomp-phase11-gpu-semantic-closure-frontier-v1",
+  "stage": "P11-06"
+}
