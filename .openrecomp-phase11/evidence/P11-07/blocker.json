@@ -1,0 +1,41 @@
+{
+  "causal_ab": {
+    "A": "existing fail-closed B0:57 boundary at block 468341",
+    "B": "NOT_CONSTRUCTED",
+    "decision": "a B variant would require an arbitrary pointer, placeholder table, or BIOS code layout",
+    "prefix_requirement": "preserved by retaining A unchanged"
+  },
+  "classification": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+  "current_frontier": {
+    "block_index": 468341,
+    "disposition": "FAIL_CLOSED",
+    "service": "ps1.bios.B0.57",
+    "site": "0x80015fa4"
+  },
+  "established": [
+    "GetB0Table has no arguments and returns a mutable B0 jump-table guest pointer in v0",
+    "entries are 32-bit function pointers indexed by B0 function number",
+    "this caller first requires B0:0x5B and performs the publicly described relative patch pattern"
+  ],
+  "implementation_delta": {
+    "bios_service_added": false,
+    "device_behavior_added": false,
+    "guest_table_added": false,
+    "indirect_target_added": false,
+    "runtime_dispatch_added": false
+  },
+  "milestones": {
+    "C": "PROVEN_IN_P11_05",
+    "D": "NOT_PROVEN",
+    "E": "NOT_PROVEN",
+    "F": "NOT_PROVEN",
+    "G": "NOT_PROVEN"
+  },
+  "missing_evidence": [
+    "a portable public guest address and callable representation for the B0:0x5B entry target",
+    "a public guest code/data object that makes the required target-relative writes valid without BIOS execution",
+    "a non-fabricated fail-closed target mapping for all other readable table entries"
+  ],
+  "schema": "openrecomp-phase11-b0-57-blocker-v1",
+  "stage": "P11-07"
+}

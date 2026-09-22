@@ -1,0 +1,86 @@
+{
+  "address_and_initialization_boundary": {
+    "contract_table_address": "implementation-defined",
+    "legacy_hle_address": "0x00000874",
+    "openbios_address": "linker-assigned B0table object",
+    "phase11_selected_address": null,
+    "phase11_selected_entry_5b_target": null,
+    "reason": "no public source defines a portable guest code object satisfying the caller's B0:5B-relative accesses"
+  },
+  "established_contract": {
+    "arguments": [],
+    "entry_model": "32-bit guest function pointers indexed by B0 function number",
+    "excluded_behavior": [
+      "GPU",
+      "renderer",
+      "DMA",
+      "VRAM",
+      "interrupt",
+      "timing",
+      "frame"
+    ],
+    "function_index": "0x57",
+    "name": "GetB0Table",
+    "object": "mutable B0 BIOS jump table",
+    "result": {
+      "kind": "guest_pointer",
+      "register": "$v0"
+    },
+    "vector": "B0"
+  },
+  "public_sources": [
+    {
+      "establishes": [
+        "B0:57 returns the B0 jump-list address for entry patching",
+        "B0 entry 0x5B is read at byte offset 0x16C in the published patch pattern",
+        "the published pattern derives offsets 0x884 and 0x894 and mutates eleven words from 0x594"
+      ],
+      "locations": [
+        "B(57h) GetB0Table",
+        "public pad-error patch descriptions"
+      ],
+      "name": "PSX-SPX",
+      "path": "docs/kernelbios.md",
+      "revision": "f37fc9a7a889a55e3bdec2d09a8a34640edf3082",
+      "url": "https://github.com/psx-spx/psx-spx.github.io/blob/f37fc9a7a889a55e3bdec2d09a8a34640edf3082/docs/kernelbios.md"
+    },
+    {
+      "establishes": [
+        "B0table is a mutable 0x60-entry pointer array",
+        "entry 0x57 returns B0table",
+        "unsupported entries use an explicit unimplemented thunk",
+        "B0table address is assigned by that implementation's linker, not fixed by the API"
+      ],
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "license_url": "https://github.com/pcsx-redux/nugget/blob/77adff516017044f2c6d9b21f66c124b9593959a/LICENSE",
+      "name": "PCSX-Redux OpenBIOS",
+      "paths": [
+        "openbios/kernel/handlers.c",
+        "openbios/kernel/vectors.s",
+        "openbios/psx-bios.ld",
+        "LICENSE"
+      ],
+      "submodule_revision": "77adff516017044f2c6d9b21f66c124b9593959a",
+      "superproject_revision": "911271b7af5008a2fbbcb9b2390e26475208423d",
+      "url": "https://github.com/pcsx-redux/nugget/tree/77adff516017044f2c6d9b21f66c124b9593959a/openbios"
+    },
+    {
+      "establishes": [
+        "an independently structured HLE returns 0x00000874 in v0",
+        "the HLE dispatch maps B0:57 to GetB0Table",
+        "the HLE does not establish guest B0 entry contents for this caller"
+      ],
+      "license": "GPL-2.0",
+      "license_path": "COPYING",
+      "license_url": "https://cgit.grumpycoder.net/cgit/PSX-Bundle/tree/COPYING?h=origin&id=7787631c6ee37a489732c95cb0864422e3a3bdd1",
+      "name": "PCSX HLE BIOS in PSX-Bundle",
+      "path": "PcsxSrc/PsxBios.c",
+      "revision": "7787631c6ee37a489732c95cb0864422e3a3bdd1",
+      "url": "https://cgit.grumpycoder.net/cgit/PSX-Bundle/tree/PcsxSrc/PsxBios.c?h=origin&id=7787631c6ee37a489732c95cb0864422e3a3bdd1"
+    }
+  ],
+  "schema": "openrecomp-phase11-b0-57-public-contract-v1",
+  "service_id": "ps1.bios.B0.57",
+  "stage": "P11-07"
+}

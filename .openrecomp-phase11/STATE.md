@@ -73,7 +73,7 @@ OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 | P11-04 | PASS |
 | P11-05 | PASS |
 | P11-06 | PASS |
-| P11-07 | PENDING |
+| P11-07 | PASS (bounded blocker) |
 | P11-08 | PENDING |
 | P11-09 | PENDING |
 | P11-10 | PENDING |
@@ -84,6 +84,37 @@ OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 | P11-99 | PENDING |
 
 ## Stage records
+
+### P11-07 — B0:57 public contract and bounded first-frame blocker
+
+PASS, rigorously bounded with `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE`
+(41 checks). Gate `tools/test_phase11_b0_table_v1.py` ran twice through the
+Phase-11 stage runner with byte-identical stdout (2548 raw bytes, LF SHA-256
+`db460f21...`), empty stderr, exit 0 and byte-identical sidecars. The
+unchanged P11-06 and P11-05 dependency gates also pass twice at 75 and 294
+checks.
+
+- pinned public evidence records PSX-SPX revision `f37fc9a...`, PCSX-Redux
+  `911271b7...` with OpenBIOS/nugget `77adff51...` under MIT, and the
+  independently structured GPL-2.0 PCSX HLE source at `7787631c...`;
+- the established contract is only: `B0:0x57` `GetB0Table`, no arguments,
+  mutable word-indexed B0 jump-table guest pointer in `$v0`, with no GPU,
+  renderer, DMA, VRAM, interrupt, timing or frame behavior;
+- the exact private caller first reads the 32-bit B0:0x5B entry at offset
+  `0x16c`, derives pointers at target-relative offsets `0x884` and `0x894`,
+  then clears eleven target-relative words at offsets `0x594..0x5bc`; PSX-SPX
+  independently documents this pattern;
+- the caller therefore requires a guest B0:0x5B function target and internal
+  writable layout, not merely a stable table pointer; public sources do not
+  establish a portable guest target object that can be represented without
+  inventing a pointer or importing/executing BIOS code;
+- no B variant is constructed: B0:57 gains only its public name in the
+  existing index classification and remains `BIOS_VECTOR_NOT_IMPLEMENTED` /
+  `FAIL_CLOSED`; no runtime service, table, indirect target or device behavior
+  is added;
+- the exact frontier stays `0x80015fa4`, block index 468341; no valid next
+  dynamic frontier is established and milestone D remains `NOT_PROVEN`;
+- evidence: `.openrecomp-phase11/evidence/P11-07/`.
 
 ### P11-06 — GPU/DMA/VRAM semantic closure
 
@@ -307,4 +338,7 @@ exists under `.openrecomp-phase2/`, `.openrecomp-phase3/`, `artifacts/` and
 
 ## Open blockers
 
-- none recorded yet.
+- `P11-07`: `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE` — the caller requires the
+  B0:0x5B guest function pointer and a valid writable function-relative object.
+  Public sources establish the lookup and patch offsets but not a portable
+  guest target representation compatible with the no-BIOS-runtime scope.

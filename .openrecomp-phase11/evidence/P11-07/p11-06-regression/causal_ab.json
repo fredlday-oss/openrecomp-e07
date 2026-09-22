@@ -1,0 +1,158 @@
+{
+  "a": {
+    "failure": {
+      "block_id": "blk_80018824",
+      "block_index": 468323,
+      "failure_count": 23,
+      "function_entry": "0x8001b3f4",
+      "function_id": "fn_800187b0",
+      "message": "unresolved indirect call",
+      "site": "0x8001882c",
+      "site_classification": null,
+      "source_value": "0x8001a7dc",
+      "terminal_op": "jalr"
+    },
+    "gpu_writes": [
+      {
+        "address": "0x1f801810",
+        "classification": {
+          "class": "NOP",
+          "command": "0x00",
+          "emulated": false,
+          "known": true,
+          "port": "GP0"
+        },
+        "command": "0x00",
+        "direction": 1,
+        "flags": 1,
+        "sequence": 0,
+        "service": 1,
+        "value": "0x0002a244",
+        "width_bits": 32
+      }
+    ],
+    "observables": {
+      "cdrom": "0xe4c1b16e328991fd",
+      "cdrom_events": "33",
+      "denied": "12",
+      "error": "runtime memory write failed",
+      "exit_status": "0x00000000",
+      "failed": "1",
+      "gpu": "0xebe61697ee8f259a",
+      "gpu_events": "65536",
+      "host_calls": "84",
+      "input": "0x9cae47670d966e9a",
+      "input_events": "65536",
+      "memory": "0xde34cc0a740699af",
+      "nonram_overflow": "0",
+      "nonram_signatures": "14",
+      "p10_access_budget": "1500000",
+      "p10_access_count": "1500004",
+      "p10_budget_denials": "4",
+      "p10_service_calls": "84",
+      "p10_service_failures": "0",
+      "reads": "636990",
+      "registers": "0xf609221e27b7e83e",
+      "spu": "0xcbf29ce484222325",
+      "spu_events": "0",
+      "writes": "721768"
+    },
+    "stdout_sha256": "95ceb79ef0de83020dfe306fce5989ab3db37b90e50dd92950843d3d627ba3a0"
+  },
+  "b": {
+    "failure": {
+      "block_id": "blk_80015fa0",
+      "block_index": 468341,
+      "failure_count": 22,
+      "function_entry": "0x80015f18",
+      "function_id": "fn_80015f90",
+      "message": "unresolved indirect call",
+      "site": "0x80015fa4",
+      "site_classification": null,
+      "source_value": "0x000000b0",
+      "terminal_op": "jalr"
+    },
+    "gpu_writes": [
+      {
+        "address": "0x1f801810",
+        "classification": {
+          "class": "NOP",
+          "command": "0x00",
+          "emulated": false,
+          "known": true,
+          "port": "GP0"
+        },
+        "command": "0x00",
+        "direction": 1,
+        "flags": 1,
+        "sequence": 0,
+        "service": 1,
+        "value": "0x0002a244",
+        "width_bits": 32
+      },
+      {
+        "address": "0x1f801814",
+        "classification": {
+          "class": "DISPLAY_ENABLE",
+          "command": "0x03",
+          "emulated": false,
+          "known": true,
+          "port": "GP1"
+        },
+        "command": "0x03",
+        "direction": 1,
+        "flags": 1,
+        "sequence": 1,
+        "service": 1,
+        "value": "0x03000001",
+        "width_bits": 32
+      }
+    ],
+    "observables": {
+      "cdrom": "0xe4c1b16e328991fd",
+      "cdrom_events": "33",
+      "denied": "2344661",
+      "error": "runtime memory write failed",
+      "exit_status": "0x000013c7",
+      "failed": "1",
+      "gpu": "0x7878de93d92dc0e1",
+      "gpu_events": "65536",
+      "host_calls": "84",
+      "input": "0x9cae47670d966e9a",
+      "input_events": "65536",
+      "memory": "0x7bc8b3b63d58c482",
+      "nonram_overflow": "1525610",
+      "nonram_signatures": "64",
+      "p10_access_budget": "1500000",
+      "p10_access_count": "3844653",
+      "p10_budget_denials": "2344653",
+      "p10_service_calls": "84",
+      "p10_service_failures": "0",
+      "reads": "636988",
+      "registers": "0xd6e50b79955158bf",
+      "spu": "0xcbf29ce484222325",
+      "spu_events": "0",
+      "writes": "721769"
+    },
+    "stdout_sha256": "02e0eeeb847eff1c7a320f6c3d6f09893d5fc17f1258dbb1edd5204adc43a484"
+  },
+  "budgets": {
+    "access": 1500000,
+    "full_blocks": 8000000,
+    "prefix_blocks": 468322
+  },
+  "prefix": {
+    "block_digest": "0xea6f643720ff69b9",
+    "block_events": "468323",
+    "byte_identical": true,
+    "stdout_sha256": "14362582661b6ee65b2ca1084beb314a3dbfa6ec54e57a39dff44c9042d837de"
+  },
+  "required_delta": {
+    "guest_ram_writes": 1,
+    "host_service_calls": 0,
+    "translated_blocks": 1,
+    "typed_gp1_writes": 1
+  },
+  "schema": "openrecomp-phase11-gpu-closure-causal-ab-v1",
+  "stage": "P11-06"
+}

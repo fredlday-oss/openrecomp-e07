@@ -99,6 +99,7 @@ DOCUMENTED_INDEX_NAMES = {
     ("A0", 0x49): "GPU_cw",
     ("A0", 0x70): "_bu_init",
     ("B0", 0x3F): "puts",
+    ("B0", 0x57): "GetB0Table",
     ("C0", 0x02): "SysEnqIntRP",
     ("C0", 0x03): "SysDeqIntRP",
 }

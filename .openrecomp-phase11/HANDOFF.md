@@ -52,20 +52,33 @@
   No GPU/DMA/VRAM behavior is added. The new exact frontier is fail-closed
   `B0:0x57` at `0x80015fa4`, block index 468341. P11-05 passes unchanged at
   294 checks.
+- `P11-07` `PASS`, rigorously bounded (41 checks): pinned PSX-SPX,
+  PCSX-Redux/OpenBIOS and independent PCSX HLE sources establish B0:57 as
+  no-argument `GetB0Table`, returning a mutable word-indexed B0 table guest
+  pointer in `$v0`. The private caller immediately requires the 32-bit B0:0x5B
+  entry and performs the publicly documented target-relative pad-error patch
+  pattern (two derived pointers and eleven word clears). No public source
+  establishes a portable guest B0:0x5B target/code object compatible with the
+  no-BIOS-runtime scope, so the stage records
+  `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE`. No runtime service/table/target or
+  device behavior is added; the frontier remains `0x80015fa4`, block 468341,
+  and milestone D remains NOT_PROVEN. P11-06 and P11-05 pass unchanged twice.
 
 ## Immediate next action
 
-`P11-07` - Milestone D: first valid frame. Start from the exact fail-closed
-indirect call at `0x80015fa4` (`B0` vector, delay-slot index `0x57`, source
-`0x000000b0`) in `blk_80015fa0` / `fn_80015f90`, block index 468341. The
-current documented BIOS surface does not identify `B0:0x57`; establish the
-service identity, signature and return contract from public documentation
-before changing classification or runtime behavior. If that evidence is not
-available, record `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE`. Do not infer a
-service from the nearby typed GP0/GP1 activity and do not bypass the call.
-Milestone D still requires a valid rendered frame proven semantically or by a
-non-reconstructive hash; the current ordered command transcript alone does not
-qualify. Build products live under `.openrecomp-phase11/build/` (untracked).
+Stop at the P11-07 `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE` boundary. To resume,
+obtain public evidence for a guest-addressable B0:0x5B target representation
+and its required writable target-relative object, including how unsupported
+readable entries remain callable fail-closed stubs, without loading or
+executing a BIOS. A retail table value, private reference value, arbitrary
+pointer, empty table or OpenBIOS build address alone is insufficient.
+
+Do not start P11-08 while this serial frontier is unresolved. If adequate
+public evidence becomes available, construct the bounded B variant, require an
+identical prefix through block 468341, and record the exact next fail-closed
+frontier. Milestone D still requires a valid rendered frame proven
+semantically or by an approved non-reconstructive hash. Build products live
+under `.openrecomp-phase11/build/` (untracked).
 
 ## Private fixture notes
 
