@@ -74,16 +74,51 @@ OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 | P11-05 | PASS |
 | P11-06 | PASS |
 | P11-07 | PASS (bounded blocker) |
-| P11-08 | PENDING |
-| P11-09 | PENDING |
-| P11-10 | PENDING |
-| P11-11 | PENDING |
-| P11-12 | PENDING |
+| P11-RC | PASS (authorized control-only reconciliation) |
+| P11-08 | NOT EXECUTED — no stage verdict assigned |
+| P11-09 | NOT EXECUTED — no stage verdict assigned |
+| P11-10 | NOT EXECUTED — no stage verdict assigned |
+| P11-11 | NOT EXECUTED — no stage verdict assigned |
+| P11-12 | NOT EXECUTED — no stage verdict assigned |
 | P11-90 | PENDING |
 | P11-91 | PENDING |
 | P11-99 | PENDING |
 
 ## Stage records
+
+### P11-RC — authorized bounded terminal-route reconciliation
+
+PASS (179 checks). The required control decision is
+`QUEUE_RECONCILIATION_REQUIRED`; the user explicitly authorized the route
+`P11-RC -> P11-90 -> P11-91 -> P11-99` from baseline commit
+`515e3fb0e660d3c7975e3828eb3e26ac025c7cf2`.
+
+The gate `tools/test_phase11_queue_reconciliation_v1.py` ran twice through
+the Phase-11 stage runner with byte-identical stdout (16009 raw bytes, LF
+SHA-256 `432963df...`), empty stderr, exit 0 and byte-identical sidecars. The
+unchanged P11-00, P11-07, P11-06 and P11-05 gates also pass twice at 482, 41,
+75 and 294 checks respectively, and source integrity passes with 23 entries.
+
+- every committed file under evidence `P11-00` through `P11-07` must remain
+  byte-for-byte unchanged;
+- the exact forcing dependency is the P11-07 `B0:0x57 GetB0Table` frontier at
+  `0x80015fa4`, block 468341, whose caller requires a callable guest B0:0x5B
+  target plus writable target-relative state not established by acceptable
+  public evidence;
+- the blocker is architectural/evidentiary, not a CPU, translation, ABI,
+  memory, service-state or runtime implementation defect;
+- the original P11-08 through P11-12 queue rows remain verbatim, while those
+  stages are recorded as not executed with no stage verdict assigned;
+- no runtime, BIOS, semantic, translation, emission, guest-memory, device or
+  control-flow behavior changes;
+- milestone C remains the highest proven milestone and is exact-private-
+  fixture bounded; B and D through G remain `NOT_PROVEN`, and general PS1
+  compatibility remains permanently `NOT_PROVEN`;
+- a licensed replacement-BIOS integration is a future-phase option requiring
+  a new control plane, branch, architecture/license review and explicit user
+  authorization; it is outside Phase 11.
+
+Evidence target: `.openrecomp-phase11/evidence/P11-RC/`.
 
 ### P11-07 — B0:57 public contract and bounded first-frame blocker
 
@@ -342,3 +377,6 @@ exists under `.openrecomp-phase2/`, `.openrecomp-phase3/`, `artifacts/` and
   B0:0x5B guest function pointer and a valid writable function-relative object.
   Public sources establish the lookup and patch offsets but not a portable
   guest target representation compatible with the no-BIOS-runtime scope.
+- `P11-RC`: queue reconciliation passed. The next authorized work is
+  evidence-only `P11-90`; no permission exists to start or simulate `P11-08`
+  through `P11-12`.

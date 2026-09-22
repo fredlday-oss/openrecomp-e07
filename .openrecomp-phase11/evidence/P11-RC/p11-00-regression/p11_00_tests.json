@@ -1,0 +1,2421 @@
+{
+  "checks": [
+    {
+      "check": "baseline:branch-reachable",
+      "detail": "phase10/ps1-commercial-game-native-v1",
+      "status": "PASS"
+    },
+    {
+      "check": "baseline:commit-tree",
+      "detail": "4a58d9238d76a490560c588bb470fd9e6a58cafe",
+      "status": "PASS"
+    },
+    {
+      "check": "baseline:commit-type",
+      "detail": "8961682aa36e14db979e8e8dbe88e04fa2b4c87a",
+      "status": "PASS"
+    },
+    {
+      "check": "branch:head-descends-from-baseline",
+      "detail": "515e3fb0e660d3c7975e3828eb3e26ac025c7cf2",
+      "status": "PASS"
+    },
+    {
+      "check": "branch:name",
+      "detail": "phase11/ps1-playability-v1",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:frame-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:general-permanent",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:initialization-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:playability-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase11/.gitignore",
+      "detail": ".openrecomp-phase11/.gitignore",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase11/CONTROL_POLICY.md",
+      "detail": ".openrecomp-phase11/CONTROL_POLICY.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase11/EVIDENCE_SCHEMA.md",
+      "detail": ".openrecomp-phase11/EVIDENCE_SCHEMA.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase11/FIXTURE_POLICY.md",
+      "detail": ".openrecomp-phase11/FIXTURE_POLICY.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase11/HANDOFF.md",
+      "detail": ".openrecomp-phase11/HANDOFF.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase11/SCOPE.md",
+      "detail": ".openrecomp-phase11/SCOPE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase11/STAGE_QUEUE.md",
+      "detail": ".openrecomp-phase11/STAGE_QUEUE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase11/STATE.md",
+      "detail": ".openrecomp-phase11/STATE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase11/evidence/README.md",
+      "detail": ".openrecomp-phase11/evidence/README.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase11/src/p11_source_manifest_v1.py",
+      "detail": ".openrecomp-phase11/src/p11_source_manifest_v1.py",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:.openrecomp-phase11/src/p11_stage_runner_v1.py",
+      "detail": ".openrecomp-phase11/src/p11_stage_runner_v1.py",
+      "status": "PASS"
+    },
+    {
+      "check": "control:file:tools/test_phase11_boundary_v1.py",
+      "detail": "tools/test_phase11_boundary_v1.py",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P11-00",
+      "detail": "P11-00",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P11-01",
+      "detail": "P11-01",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P11-02",
+      "detail": "P11-02",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P11-03",
+      "detail": "P11-03",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P11-04",
+      "detail": "P11-04",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P11-05",
+      "detail": "P11-05",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P11-06",
+      "detail": "P11-06",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P11-07",
+      "detail": "P11-07",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P11-08",
+      "detail": "P11-08",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P11-09",
+      "detail": "P11-09",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P11-10",
+      "detail": "P11-10",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P11-11",
+      "detail": "P11-11",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P11-12",
+      "detail": "P11-12",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P11-90",
+      "detail": "P11-90",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P11-91",
+      "detail": "P11-91",
+      "status": "PASS"
+    },
+    {
+      "check": "control:queue:P11-99",
+      "detail": "P11-99",
+      "status": "PASS"
+    },
+    {
+      "check": "control:source-manifest",
+      "detail": "OPENRECOMP_PHASE11_SOURCE_INTEGRITY=PASS entries=23",
+      "status": "PASS"
+    },
+    {
+      "check": "control:state:OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY",
+      "detail": "OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "control:state:OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF",
+      "detail": "OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF=NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "control:state:OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF",
+      "detail": "OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "control:state:OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF",
+      "detail": "OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:function-count",
+      "detail": "110",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:inert-image-unit",
+      "detail": "guest image emitted as inert data",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-guest-machine-code",
+      "detail": "no guest payload bytes in the generated program",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-opcode-dispatch",
+      "detail": "generated program is a direct translation, not a decode loop",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:program-fingerprint",
+      "detail": "a047a52fb460d3786e5bff03b5c26ac2978ae768b581f5e6c4a9cbc284db4a9a",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:entry",
+      "detail": "0x800132e8",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:stack-pointer",
+      "detail": "0x801ffff0",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:text-address",
+      "detail": "0x80010000",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:text-size",
+      "detail": "0x0001f000",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-count",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-sha256",
+      "detail": "2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-size",
+      "detail": "409452624",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:boot-extent-sha256",
+      "detail": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:boot-target",
+      "detail": "SLUS_005.29",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-sha256",
+      "detail": "beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-single-track",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-size",
+      "detail": "101",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-track-type",
+      "detail": "MODE2/2352",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:directory",
+      "detail": "private fixture directory present",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:executable-entry",
+      "detail": "SLUS_005.29",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:executable-sha256",
+      "detail": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:executable-size",
+      "detail": "129024",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:root-extent",
+      "detail": "22",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:volume-space-size",
+      "detail": "174087",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:no-new-prior-residue",
+      "detail": "none",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:no-prior-tracked-change-outside-documented-residue",
+      "detail": ".openrecomp-phase3/evidence/P3-00/p3_00_tests.json,.openrecomp-phase3/evidence/P3-00/residue_manifest.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10-evidence-index-count",
+      "detail": "135",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10-evidence-index-verified",
+      "detail": "135 files",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10-source-manifest",
+      "detail": "OPENRECOMP_PHASE10_SOURCE_INTEGRITY=PASS entries=35",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/ACCELERATION_POLICY.md",
+      "detail": "910e648877b2083b9e9dce0c4d21950670f0523686925a40c146692ca9293382",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/CONTROL_POLICY.md",
+      "detail": "dfc740776cddb7a5a6d6511ef133355bfd6e7a7cadcc5581f9982b21ee30089c",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/EVIDENCE_SCHEMA.md",
+      "detail": "d1a9c29adab9779d0b693d830be00e0cfc79c8df84fb9d829fae8a29ff0feacb",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/FIXTURE_POLICY.md",
+      "detail": "cdcef2c50e799471e45f38b3bfc02935b3db54edea4c467dbc96054dbaf48e84",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/HANDOFF.md",
+      "detail": "dc9226e8b19f5977cadbfefb3b426e3e7c223c39fc2fd7589dfa11cc090ccd56",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/SCOPE.md",
+      "detail": "84759c9184bc378e165d83d80cda5da54cf07366609623fda775789f823a6aac",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/SOURCE_SHA256SUMS.txt",
+      "detail": "3606939526bc81d2e10f008129e4f33d6e0d660237f3090e5bbe79223d78051b",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/STAGE_QUEUE.md",
+      "detail": "72c4f91fc7d0185910b621cc7b7aa043ae38fb0b930fb5cda7550235f8b129b2",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/STATE.md",
+      "detail": "c309ff68ded252f6b8a3a8a0de677c4ee786622b087972fa0351ed1f5570f111",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/evidence/P10-00/baseline.json",
+      "detail": "000318f679737ccb0801a8ec5748e684a4181eccc900fab8aa7c65fa5f106abe",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/evidence/P10-00/fixture_identity.json",
+      "detail": "449111519b372126ea0e330b05d6883b369b50b42b97fae79e92432d4dd7e014",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/evidence/P10-00/frontier.json",
+      "detail": "0b4f1c4905852f6195a030d5860ef99a3675ce09933fc252c7f986b05e5441c2",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/evidence/P10-05/native_entry.json",
+      "detail": "ef7b834293e4e5ff1067c78154ccbbeac218276bea1375000bd380e3cb6c05e9",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/evidence/P10-07/gpu_frontier.json",
+      "detail": "e60c4dc20089bcb7d70d11247ecaadd44b750437c14e3bea3f4fce452632d73a",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/evidence/P10-08/timing_frontier.json",
+      "detail": "a2dc8506a5444be019662cb5ae9042483c74b8993ecc9af1a191c5cf1d735eb2",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/evidence/P10-09/disc_frontier.json",
+      "detail": "9e8715c489a033b717e5b69607d747c4315c99d0fed11234845fcc49b4ca0896",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/evidence/P10-10/input_spu_frontier.json",
+      "detail": "2b697b82813aa14af1f0744e76cb0d534a0dc3a4263544a10e0b6bb5b35bb538",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/evidence/P10-11/milestone.json",
+      "detail": "77dd3edc8aded9dd478b04ad8c6ec9fc47592349e62260660c0ae3744b5d64cd",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/evidence/P10-91/evidence_index.json",
+      "detail": "640575858d5c548fbb8c4604ca1744c1f60e6e00414962c9daa73908ff206213",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/evidence/P10-99/RESULT.md",
+      "detail": "51de2cde4c933cf4eae4cb8ed53df3a4009d4231ceeda242f16c813fe19e040b",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/evidence/P10-99/determinism.json",
+      "detail": "a9fe544a15e1006a75e09330c3c05430ba647c91266d4a8cccecfdbe0e735891",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/evidence/P10-99/official_runs.json",
+      "detail": "d391c2301f66ac16ec13828dfdd74b3b3138288702d80d1a32fa5799020de9b3",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/evidence/P10-99/p10_99_tests.json",
+      "detail": "de06056f8daf6ae275889a0b53cdd98d7ab1f747fd5cdf82fbdbb49bf3f82309",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/evidence/P10-99/terminal_verdict.json",
+      "detail": "4aa3ad7b8cdb111e9afcb3f569e460dfb2d0799632462e1d5981c5dc63440cb3",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p10:.openrecomp-phase10/evidence/P10-99/verdict_record.json",
+      "detail": "cd63014e7d07b13c29f3b1f9a76d45f461b9dd5a9da2cc6398c11ef4239ccdee",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:p9-source-manifest",
+      "detail": "OPENRECOMP_PHASE9_SOURCE_INTEGRITY=PASS entries=35",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-capture:P10-00",
+      "detail": "P10-00",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-capture:P10-01",
+      "detail": "P10-01",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-capture:P10-02",
+      "detail": "P10-02",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-capture:P10-03",
+      "detail": "P10-03",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-capture:P10-04",
+      "detail": "P10-04",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-capture:P10-05",
+      "detail": "P10-05",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-capture:P10-06",
+      "detail": "P10-06",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-capture:P10-07",
+      "detail": "P10-07",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-capture:P10-08",
+      "detail": "P10-08",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-capture:P10-09",
+      "detail": "P10-09",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-capture:P10-10",
+      "detail": "P10-10",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-capture:P10-11",
+      "detail": "P10-11",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-capture:P10-12",
+      "detail": "P10-12",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-capture:P10-90",
+      "detail": "P10-90",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-capture:P10-91",
+      "detail": "P10-91",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-capture:P10-99",
+      "detail": "P10-99",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-failed:P10-00",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-failed:P10-01",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-failed:P10-02",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-failed:P10-03",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-failed:P10-04",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-failed:P10-05",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-failed:P10-06",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-failed:P10-07",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-failed:P10-08",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-failed:P10-09",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-failed:P10-10",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-failed:P10-11",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-failed:P10-12",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-failed:P10-90",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-failed:P10-91",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-failed:P10-99",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-marker:P10-00",
+      "detail": "P10-00",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-marker:P10-01",
+      "detail": "P10-01",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-marker:P10-02",
+      "detail": "P10-02",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-marker:P10-03",
+      "detail": "P10-03",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-marker:P10-04",
+      "detail": "P10-04",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-marker:P10-05",
+      "detail": "P10-05",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-marker:P10-06",
+      "detail": "P10-06",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-marker:P10-07",
+      "detail": "P10-07",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-marker:P10-08",
+      "detail": "P10-08",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-marker:P10-09",
+      "detail": "P10-09",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-marker:P10-10",
+      "detail": "P10-10",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-marker:P10-11",
+      "detail": "P10-11",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-marker:P10-12",
+      "detail": "P10-12",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-marker:P10-90",
+      "detail": "P10-90",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-marker:P10-91",
+      "detail": "P10-91",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-marker:P10-99",
+      "detail": "P10-99",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-record:P10-00",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-record:P10-01",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-record:P10-02",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-record:P10-03",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-record:P10-04",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-record:P10-05",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-record:P10-06",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-record:P10-07",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-record:P10-08",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-record:P10-09",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-record:P10-10",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-record:P10-11",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-record:P10-12",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-record:P10-90",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-record:P10-91",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-record:P10-99",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-status:P10-00",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-status:P10-01",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-status:P10-02",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-status:P10-03",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-status:P10-04",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-status:P10-05",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-status:P10-06",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-status:P10-07",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-status:P10-08",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-status:P10-09",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-status:P10-10",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-status:P10-11",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-status:P10-12",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-status:P10-90",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-status:P10-91",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-status:P10-99",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-tests:P10-00",
+      "detail": "192",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-tests:P10-01",
+      "detail": "265",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-tests:P10-02",
+      "detail": "641",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-tests:P10-03",
+      "detail": "151",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-tests:P10-04",
+      "detail": "51",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-tests:P10-05",
+      "detail": "31",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-tests:P10-06",
+      "detail": "26",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-tests:P10-07",
+      "detail": "58",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-tests:P10-08",
+      "detail": "42",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-tests:P10-09",
+      "detail": "46",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-tests:P10-10",
+      "detail": "36",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-tests:P10-11",
+      "detail": "38",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-tests:P10-12",
+      "detail": "56",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-tests:P10-90",
+      "detail": "155",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-tests:P10-91",
+      "detail": "323",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:stage-tests:P10-99",
+      "detail": "166",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:terminal-count:P10-90",
+      "detail": "155 != 155",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:terminal-count:P10-91",
+      "detail": "323 != 323",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:terminal-count:P10-99",
+      "detail": "166 != 166",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:total-stage-tests",
+      "detail": "2277",
+      "status": "PASS"
+    },
+    {
+      "check": "inherit:b-not-established",
+      "detail": "B",
+      "status": "PASS"
+    },
+    {
+      "check": "inherit:c-not-established",
+      "detail": "C",
+      "status": "PASS"
+    },
+    {
+      "check": "inherit:controller-not-reached",
+      "detail": "False",
+      "status": "PASS"
+    },
+    {
+      "check": "inherit:d-not-established",
+      "detail": "D",
+      "status": "PASS"
+    },
+    {
+      "check": "inherit:disc-data-path-not-reached",
+      "detail": "False",
+      "status": "PASS"
+    },
+    {
+      "check": "inherit:e-not-established",
+      "detail": "E",
+      "status": "PASS"
+    },
+    {
+      "check": "inherit:f-not-established",
+      "detail": "F",
+      "status": "PASS"
+    },
+    {
+      "check": "inherit:g-not-established",
+      "detail": "G",
+      "status": "PASS"
+    },
+    {
+      "check": "inherit:gpu-polling-non-causal",
+      "detail": "identical",
+      "status": "PASS"
+    },
+    {
+      "check": "inherit:highest-a",
+      "detail": "A",
+      "status": "PASS"
+    },
+    {
+      "check": "inherit:milestone-a",
+      "detail": "A",
+      "status": "PASS"
+    },
+    {
+      "check": "inherit:milestone-a-native-execution",
+      "detail": "UNRESOLVED_INDIRECT_JUMP",
+      "status": "PASS"
+    },
+    {
+      "check": "inherit:milestone-c-not-established",
+      "detail": "false",
+      "status": "PASS"
+    },
+    {
+      "check": "inherit:no-frame-loop",
+      "detail": "False",
+      "status": "PASS"
+    },
+    {
+      "check": "inherit:no-gpu-command-writes",
+      "detail": "0/0",
+      "status": "PASS"
+    },
+    {
+      "check": "native:budget-reached",
+      "detail": "2000005",
+      "status": "PASS"
+    },
+    {
+      "check": "native:build-reproducible",
+      "detail": "22285c26147d3c25d0c77531ca640121a3880d98f5f369a7bee8d6d0a117de96",
+      "status": "PASS"
+    },
+    {
+      "check": "native:build-status",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "native:denied",
+      "detail": "11",
+      "status": "PASS"
+    },
+    {
+      "check": "native:deterministic",
+      "detail": "byte-identical stdout",
+      "status": "PASS"
+    },
+    {
+      "check": "native:error",
+      "detail": "unresolved indirect jump",
+      "status": "PASS"
+    },
+    {
+      "check": "native:executable-present",
+      "detail": "both runs",
+      "status": "PASS"
+    },
+    {
+      "check": "native:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "native:failed",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "native:gpu-status-polling",
+      "detail": "109035",
+      "status": "PASS"
+    },
+    {
+      "check": "native:host_calls",
+      "detail": "79",
+      "status": "PASS"
+    },
+    {
+      "check": "native:memory",
+      "detail": "0x18131c6ef356df7d",
+      "status": "PASS"
+    },
+    {
+      "check": "native:nonram_overflow",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "native:nonram_signatures",
+      "detail": "17",
+      "status": "PASS"
+    },
+    {
+      "check": "native:p10_access_budget",
+      "detail": "2000000",
+      "status": "PASS"
+    },
+    {
+      "check": "native:p10_access_count",
+      "detail": "2000005",
+      "status": "PASS"
+    },
+    {
+      "check": "native:p10_budget_denials",
+      "detail": "5",
+      "status": "PASS"
+    },
+    {
+      "check": "native:reads",
+      "detail": "982859",
+      "status": "PASS"
+    },
+    {
+      "check": "native:register:r10",
+      "detail": "0x801f7ffc",
+      "status": "PASS"
+    },
+    {
+      "check": "native:register:r17",
+      "detail": "0x80028588",
+      "status": "PASS"
+    },
+    {
+      "check": "native:register:r28",
+      "detail": "0x8002ed78",
+      "status": "PASS"
+    },
+    {
+      "check": "native:register:r29",
+      "detail": "0x801ffe00",
+      "status": "PASS"
+    },
+    {
+      "check": "native:register:r30",
+      "detail": "0x80200000",
+      "status": "PASS"
+    },
+    {
+      "check": "native:register:r31",
+      "detail": "0x80015840",
+      "status": "PASS"
+    },
+    {
+      "check": "native:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "native:timer-polling",
+      "detail": "109035",
+      "status": "PASS"
+    },
+    {
+      "check": "native:writes",
+      "detail": "799023",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:no-base64",
+      "detail": "payload base64 present",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:no-hex",
+      "detail": "payload hex present",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "30 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "40 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "40 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "37 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "55 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "50 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "55 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "26 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "40 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "40 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "13 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "28 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "100 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "90 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:baseline:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:no-base64",
+      "detail": "payload base64 present",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:no-hex",
+      "detail": "payload hex present",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "38 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "39 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "39 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "39 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "39 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "0 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "19 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "8 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:fixture:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:no-base64",
+      "detail": "payload base64 present",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:no-hex",
+      "detail": "payload hex present",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "30 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "47 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "51 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "14 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "20 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "13 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "13 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "9 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier:string-length",
+      "detail": "33 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:no-base64",
+      "detail": "payload base64 present",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:no-hex",
+      "detail": "payload hex present",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:string-length",
+      "detail": "43 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:string-length",
+      "detail": "49 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:string-length",
+      "detail": "67 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:string-length",
+      "detail": "66 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:string-length",
+      "detail": "60 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:string-length",
+      "detail": "69 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:string-length",
+      "detail": "68 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:milestones:string-length",
+      "detail": "38 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "reconcile:phase6-tag-absent",
+      "detail": "absent",
+      "status": "PASS"
+    },
+    {
+      "check": "reconcile:phase7-tag-commit",
+      "detail": "phase7 commit",
+      "status": "PASS"
+    },
+    {
+      "check": "reconcile:phase7-tag-object",
+      "detail": "phase7 tag object",
+      "status": "PASS"
+    },
+    {
+      "check": "reconcile:phase7-tag-tree",
+      "detail": "phase7 tree",
+      "status": "PASS"
+    },
+    {
+      "check": "reconcile:tag-absent:openrecomp-phase10*",
+      "detail": "absent",
+      "status": "PASS"
+    },
+    {
+      "check": "reconcile:tag-absent:openrecomp-phase11*",
+      "detail": "absent",
+      "status": "PASS"
+    },
+    {
+      "check": "reconcile:tag-absent:openrecomp-phase8*",
+      "detail": "absent",
+      "status": "PASS"
+    },
+    {
+      "check": "reconcile:tag-absent:openrecomp-phase9*",
+      "detail": "absent",
+      "status": "PASS"
+    },
+    {
+      "check": "reconcile:tag-set",
+      "detail": "openrecomp-phase1-pass,openrecomp-phase2-pass,openrecomp-phase3-pass,openrecomp-phase4-pass,openrecomp-phase5-pass,openrecomp-phase7-pass,openrecomp-phase7-pass-v2",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:blocks",
+      "detail": "739",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:call_edges_internal",
+      "detail": "209",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:call_edges_unresolved",
+      "detail": "22",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:edges",
+      "detail": "889",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:exception_site_count",
+      "detail": "3",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:folded_delay_slots",
+      "detail": "635",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:functions",
+      "detail": "110",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:neutral_instructions",
+      "detail": "3433",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:non_nop_delay_slots",
+      "detail": "328",
+      "status": "PASS"
+    },
+    {
+      "check": "structure:translation_units",
+      "detail": "110",
+      "status": "PASS"
+    },
+    {
+      "check": "terminal:p10-99-all-stages-pass",
+      "detail": "15/15",
+      "status": "PASS"
+    },
+    {
+      "check": "terminal:p10-99-decision",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "terminal:p10-99-guard:cdrom_disc_reading_streaming",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "terminal:p10-99-guard:controller_input_consumption",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "terminal:p10-99-guard:general_ps1_compatibility",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "terminal:p10-99-guard:gpu_rendering_vram",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "terminal:p10-99-guard:hercules_playability",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "terminal:p10-99-guard:interrupt_delivery_dma_timing",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "terminal:p10-99-guard:milestones_b_g",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "terminal:p10-99-marker",
+      "detail": "terminal PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "terminal:p10-99-required-set",
+      "detail": "P10-00,P10-01,P10-02,P10-03,P10-04,P10-05,P10-06,P10-07,P10-08,P10-09,P10-10,P10-11,P10-12,P10-90,P10-91",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:clang-cl",
+      "detail": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:git",
+      "detail": "git version 2.55.0.windows.3",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:lld-link",
+      "detail": "LLD 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+      "status": "PASS"
+    },
+    {
+      "check": "toolchain:python",
+      "detail": "Python 3.11.9",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 482,
+  "stage": "P11-00",
+  "stage_name": "Phase-11 boundary + control plane",
+  "status": "PASS",
+  "tests": 482
+}

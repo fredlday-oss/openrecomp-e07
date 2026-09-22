@@ -1,0 +1,152 @@
+{
+  "emission": {
+    "driver": "phase10",
+    "functions": 110,
+    "image_bytes": 750534,
+    "image_sha256": "77a340448081cc606b16e104734b3a48d11483210520618dcca8b1266c43f96b",
+    "program_bytes": 520039,
+    "program_fingerprint": "a047a52fb460d3786e5bff03b5c26ac2978ae768b581f5e6c4a9cbc284db4a9a",
+    "runtime_composition": {
+      "composed_bytes": 29239,
+      "composed_sha256": "8123a52b7855f30e72b5cfb127f254bef1c0af3a76097e818d80a3771f63c42a",
+      "extension_sha256": "c91696ce40c1b010169937b9f6b0f8a8bf0bbc4ca7ebb3e94f7e48adc54c0dae",
+      "extension_source": ".openrecomp-phase10/runtime/p10_mips_extension_v1.c",
+      "frozen_manifest_sha256": "59507a2c1fd8928a6ac100b324339c25d9079bafeee0cba47a7a93d1aab7dc6d",
+      "frozen_sha256": "59507a2c1fd8928a6ac100b324339c25d9079bafeee0cba47a7a93d1aab7dc6d",
+      "frozen_source": ".openrecomp-phase9/runtime/p9_runtime_support.c",
+      "frozen_source_reused_verbatim": true,
+      "runtime_version": "1.0.0",
+      "substitution_count": 5,
+      "substitutions": [
+        {
+          "anchor_sha256": "93f5557b0d3a659641c60524670fe2093c99ec8785dcec7ce3794f367f57c1f4",
+          "name": "event-capacity",
+          "source": "budget",
+          "substitution_sha256": "97b77d4b190222a1874d86872550835774168c9f40df726c7ca0078fb6c98207"
+        },
+        {
+          "anchor_sha256": "db927b8f8950b488b14722525e36a014eec6224403c397c962bd1d4edeb9728a",
+          "name": "gpu-status-read-stub",
+          "source": "budget",
+          "substitution_sha256": "4aa4fe017ca6dc6c53c2c43c41caf7d03d63bee9f8a3fa98bc2b17884944af5e"
+        },
+        {
+          "anchor_sha256": "49479059f4d2d705fdfc56770131d1a7fcfb5321e12ea02c0a2732fb62c4a64a",
+          "name": "access-budget",
+          "source": "budget",
+          "substitution_sha256": "c200e4baba36f5a3f454b0264579dd5ad05a1ede5ccfd85a3f1700cc09c693a1"
+        },
+        {
+          "anchor_sha256": "8c9d2bf00d2f18e7f4c5acc77442f1fbe4c70ddaa67c019d007b3c7520ce134a",
+          "name": "access-budget",
+          "source": "budget",
+          "substitution_sha256": "744e1f216523d7971b203045a59a79adfff34043d260767b4ab7eaa975e94fe7"
+        },
+        {
+          "anchor_sha256": "bbfb5150960803d7acaea288c81a2844ac0aa03327b35b2bc3fa804bd142f462",
+          "name": "host-call-dispatch",
+          "source": "extension",
+          "substitution_sha256": "c91696ce40c1b010169937b9f6b0f8a8bf0bbc4ca7ebb3e94f7e48adc54c0dae"
+        }
+      ]
+    }
+  },
+  "inherited_boundary": {
+    "b_through_g": "NOT_PROVEN",
+    "controller_window_accesses": 0,
+    "disc_data_path_reached": false,
+    "first_unresolved_blocker": "executed unresolved indirect jump",
+    "frame_loop_reached": false,
+    "gpu_command_writes": 0,
+    "highest_milestone": "A"
+  },
+  "label": "hercules-private-fixture",
+  "milestone_a_reproduction": {
+    "attested": true,
+    "build_reproducible": true,
+    "executable_sha256": "22285c26147d3c25d0c77531ca640121a3880d98f5f369a7bee8d6d0a117de96",
+    "nonram": {
+      "0x00000000:8:1:0": "1",
+      "0x14802000:32:0:1": "1",
+      "0x1f801020:32:1:0": "2",
+      "0x1f801074:16:0:0": "1",
+      "0x1f8010a8:32:1:0": "1",
+      "0x1f801110:32:0:0": "109035",
+      "0x1f801800:8:1:0": "15",
+      "0x1f801801:8:1:0": "10",
+      "0x1f801802:8:1:0": "8",
+      "0x1f801803:8:0:0": "2",
+      "0x1f801803:8:1:0": "3",
+      "0x1f801814:32:0:0": "109035",
+      "0x1f801daa:16:1:0": "1",
+      "0x1f801db0:16:1:0": "1",
+      "0x1f801db2:16:1:0": "1",
+      "0x1f801db8:16:0:0": "1",
+      "0x1f801dba:16:0:0": "1"
+    },
+    "observables": {
+      "denied": "11",
+      "error": "unresolved indirect jump",
+      "failed": "1",
+      "host_calls": "79",
+      "memory": "0x18131c6ef356df7d",
+      "nonram_overflow": "0",
+      "nonram_signatures": "17",
+      "p10_access_budget": "2000000",
+      "p10_access_count": "2000005",
+      "p10_budget_denials": "5",
+      "reads": "982859",
+      "writes": "799023"
+    },
+    "register_file": {
+      "r00": "0x00000000",
+      "r01": "0x80030000",
+      "r02": "0x00000000",
+      "r03": "0x00000000",
+      "r04": "0x00000002",
+      "r05": "0x00000000",
+      "r06": "0x00000000",
+      "r07": "0x00000001",
+      "r08": "0x00000000",
+      "r09": "0x00000000",
+      "r10": "0x801f7ffc",
+      "r11": "0x00000001",
+      "r12": "0x80000000",
+      "r13": "0x00000000",
+      "r14": "0x00000000",
+      "r15": "0x00000000",
+      "r16": "0x14802000",
+      "r17": "0x80028588",
+      "r18": "0x00000000",
+      "r19": "0x00000000",
+      "r20": "0x00000000",
+      "r21": "0x00000000",
+      "r22": "0x00000000",
+      "r23": "0x00000000",
+      "r24": "0x00000000",
+      "r25": "0x00000000",
+      "r26": "0x00000000",
+      "r27": "0x00000000",
+      "r28": "0x8002ed78",
+      "r29": "0x801ffe00",
+      "r30": "0x80200000",
+      "r31": "0x80015840"
+    },
+    "stdout_bytes": 2964443,
+    "stdout_sha256": "99040628b85ee2f8bff5176ab4b27c73bfb380e52af10cdb1946c90d9b41f9c7"
+  },
+  "schema": "openrecomp-phase11-frontier-v1",
+  "stage": "P11-00",
+  "structure": {
+    "blocks": 739,
+    "call_edges_internal": 209,
+    "call_edges_unresolved": 22,
+    "edges": 889,
+    "exception_site_count": 3,
+    "folded_delay_slots": 635,
+    "functions": 110,
+    "neutral_instructions": 3433,
+    "non_nop_delay_slots": 328,
+    "translation_units": 110
+  }
+}

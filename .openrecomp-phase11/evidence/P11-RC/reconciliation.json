@@ -1,0 +1,147 @@
+{
+  "authorization": "explicit-user-authorized-control-only-route",
+  "authorized_terminal_route": [
+    "P11-RC",
+    "P11-90",
+    "P11-91",
+    "P11-99"
+  ],
+  "baseline": {
+    "branch": "phase11/ps1-playability-v1",
+    "commit": "515e3fb0e660d3c7975e3828eb3e26ac025c7cf2"
+  },
+  "control_decision": "QUEUE_RECONCILIATION_REQUIRED",
+  "dependency_regressions": {
+    "P11-00": {
+      "checks": 482,
+      "deterministic": true,
+      "returncode_zero": true,
+      "stderr_empty": true,
+      "stdout_sha256_lf": "5bb0760de329ae71efdcb856f8cecf271b6a2196cae625e35ef7ba5e9f3b6904",
+      "stdout_sha256_raw": "1d75d45a874531b986e79c83a0c9a517da2ba81053c945b06f20554790b0ba7a"
+    },
+    "P11-05": {
+      "checks": 294,
+      "deterministic": true,
+      "returncode_zero": true,
+      "stderr_empty": true,
+      "stdout_sha256_lf": "7a860bea311a4795280121cf8a207de60b33b350f540b90b1068eae708ac50a8",
+      "stdout_sha256_raw": "9c0a63eb0c15eeb9b20be051861c1743e5b4ad8017ecf4fb9666a8f339ab51e8"
+    },
+    "P11-06": {
+      "checks": 75,
+      "deterministic": true,
+      "returncode_zero": true,
+      "stderr_empty": true,
+      "stdout_sha256_lf": "e93cf4cc7b54982e7c9c290ed58bea0927341e88bc6595b611662fbed2ac9c5c",
+      "stdout_sha256_raw": "f83019d443e838c3b7d089971840afa72db6bbb2ca64ed45ef5783e8dd52a737"
+    },
+    "P11-07": {
+      "checks": 41,
+      "deterministic": true,
+      "returncode_zero": true,
+      "stderr_empty": true,
+      "stdout_sha256_lf": "db460f211b69e0350e6fe0a5e0a5fc8e9fe309fc48db82e39d92efb08a0f7ad6",
+      "stdout_sha256_raw": "ebaeb8088fbcf66099ce071c672ad07bcdd37f7e98b5ce8bd1f530209c4b8709"
+    }
+  },
+  "forcing_dependency": {
+    "block_index": 468341,
+    "cause": "architectural/evidentiary, not implementation defect",
+    "classification": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+    "completed_stage": "P11-07",
+    "first_required_entry": "B0:0x5B ChangeClearPAD",
+    "required_accesses": {
+      "derived_pointer_offsets": [
+        "0x884",
+        "0x894"
+      ],
+      "table_entry_offset": "0x16c",
+      "write_span": "eleven aligned words at 0x594..0x5bc"
+    },
+    "service": "ps1.bios.B0.57",
+    "site": "0x80015fa4"
+  },
+  "future_phase_option": {
+    "inside_phase11": false,
+    "kind": "licensed replacement-BIOS integration",
+    "requirements": [
+      "new control plane",
+      "new branch",
+      "architecture review",
+      "license and redistribution review",
+      "explicit user authorization"
+    ]
+  },
+  "historical_queue": {
+    "rows_preserved_verbatim": true,
+    "stage_verdict_assigned": false,
+    "unexecuted_stages": [
+      "P11-08",
+      "P11-09",
+      "P11-10",
+      "P11-11",
+      "P11-12"
+    ]
+  },
+  "implementation_delta": {
+    "bios": false,
+    "device_behavior": false,
+    "emission": false,
+    "guest_memory": false,
+    "guest_registers": false,
+    "runtime": false,
+    "semantics": false,
+    "translation": false
+  },
+  "milestones": {
+    "A": "INHERITED_PROVEN",
+    "B": "NOT_PROVEN",
+    "C": "PROVEN_PRIVATE_FIXTURE_BOUNDED",
+    "D": "NOT_PROVEN",
+    "E": "NOT_PROVEN",
+    "F": "NOT_PROVEN",
+    "G": "NOT_PROVEN",
+    "general_ps1_compatibility": "NOT_PROVEN_PERMANENT"
+  },
+  "preserved_evidence": {
+    "baseline_commit": "515e3fb0e660d3c7975e3828eb3e26ac025c7cf2",
+    "comparison": "byte-for-byte tracked file set and content",
+    "stages": {
+      "P11-00": {
+        "file_count": 12,
+        "tree_sha256": "4f043b24d4278a07b14b7bfa0b7b995a5c06943ba06eabdc8a8f181b0baa9a5e"
+      },
+      "P11-01": {
+        "file_count": 12,
+        "tree_sha256": "e5cd47f39e402279400f60406104df0b757c56c62da1bbd0216c672560985f62"
+      },
+      "P11-02": {
+        "file_count": 10,
+        "tree_sha256": "dc41f6788853ae311b32c855d0e06501c1da9aed3eb6db9ff45298d616924e4d"
+      },
+      "P11-03": {
+        "file_count": 10,
+        "tree_sha256": "768b87b63524a942f60cd8eabf8225f12a54898dbc5e556645b45a99e6b67305"
+      },
+      "P11-04": {
+        "file_count": 9,
+        "tree_sha256": "70fdbc9c45f1c27f09521ee120d7ed61f755b28f582e96e904ba55936b6e4894"
+      },
+      "P11-05": {
+        "file_count": 19,
+        "tree_sha256": "940cf3fcfa9f7325c064129763598a713df076b1fd2c86f9a75d2a885270edde"
+      },
+      "P11-06": {
+        "file_count": 21,
+        "tree_sha256": "8152803f6016806116c0fde0a6ef70dae65dd89d5671a0d11760103a9d29d28d"
+      },
+      "P11-07": {
+        "file_count": 31,
+        "tree_sha256": "d82bf7442d5423449d1dd03bd0cba60dd33301ebb9e25fc323ec63791350d159"
+      }
+    }
+  },
+  "schema": "openrecomp-phase11-queue-reconciliation-v1",
+  "stage": "P11-RC"
+}

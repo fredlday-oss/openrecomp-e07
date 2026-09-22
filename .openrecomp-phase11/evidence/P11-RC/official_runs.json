@@ -1,0 +1,80 @@
+{
+  "artifact_sha256": {
+    "p11_rc_tests.json": "505895179d3dcff6e333b4b909ae4ad7831f5092ba612987a686441cc308ea20",
+    "reconciliation.json": "4b3b039b3874eeb363437ebf390ea40f175dc4f351d32131a6297092ec3ea6ce",
+    "source_exhaustion.json": "9ab926778bf4e12b223a794870b7ae80e2e616f579eaa9657ea8c3202960f9bd"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "p11_rc_tests.json": "505895179d3dcff6e333b4b909ae4ad7831f5092ba612987a686441cc308ea20",
+        "reconciliation.json": "4b3b039b3874eeb363437ebf390ea40f175dc4f351d32131a6297092ec3ea6ce",
+        "source_exhaustion.json": "9ab926778bf4e12b223a794870b7ae80e2e616f579eaa9657ea8c3202960f9bd"
+      },
+      "command": [
+        "python",
+        "tools/test_phase11_queue_reconciliation_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase11/evidence/P11-RC"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P11_RC=PASS",
+        "OPENRECOMP_PHASE11_QUEUE_RECONCILIATION=QUEUE_RECONCILIATION_REQUIRED",
+        "OPENRECOMP_PHASE11_HIGHEST_MILESTONE=C_PRIVATE_FIXTURE_BOUNDED",
+        "OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p11_rc_tests_sha256": "505895179d3dcff6e333b4b909ae4ad7831f5092ba612987a686441cc308ea20",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 16009,
+      "stdout_bytes_lf": 15822,
+      "stdout_sha256_lf": "432963dfc4646db2f41b8c62744b38ca635c5eb0b9eb29984ad4084113260e35",
+      "stdout_sha256_raw": "87366c052ccdf568f0cbd873c0ae5eedf65fc459217097a48372046005470128"
+    },
+    {
+      "artifact_sha256": {
+        "p11_rc_tests.json": "505895179d3dcff6e333b4b909ae4ad7831f5092ba612987a686441cc308ea20",
+        "reconciliation.json": "4b3b039b3874eeb363437ebf390ea40f175dc4f351d32131a6297092ec3ea6ce",
+        "source_exhaustion.json": "9ab926778bf4e12b223a794870b7ae80e2e616f579eaa9657ea8c3202960f9bd"
+      },
+      "command": [
+        "python",
+        "tools/test_phase11_queue_reconciliation_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase11/evidence/P11-RC"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P11_RC=PASS",
+        "OPENRECOMP_PHASE11_QUEUE_RECONCILIATION=QUEUE_RECONCILIATION_REQUIRED",
+        "OPENRECOMP_PHASE11_HIGHEST_MILESTONE=C_PRIVATE_FIXTURE_BOUNDED",
+        "OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p11_rc_tests_sha256": "505895179d3dcff6e333b4b909ae4ad7831f5092ba612987a686441cc308ea20",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 16009,
+      "stdout_bytes_lf": 15822,
+      "stdout_sha256_lf": "432963dfc4646db2f41b8c62744b38ca635c5eb0b9eb29984ad4084113260e35",
+      "stdout_sha256_raw": "87366c052ccdf568f0cbd873c0ae5eedf65fc459217097a48372046005470128"
+    }
+  ],
+  "schema": "openrecomp-phase11-official-runs-v1",
+  "stage": "P11-RC",
+  "stderr_empty_both": true
+}

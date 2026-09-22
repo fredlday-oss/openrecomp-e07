@@ -33,3 +33,24 @@ Claim markers:
 - `OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN` (permanent).
 
 A queue change requires `QUEUE_RECONCILIATION_REQUIRED` and a stop.
+
+## Authorized reconciliation after P11-07
+
+The table above remains the verbatim historical queue frozen at `P11-00`.
+After `P11-07` reached a specific public-evidence blocker, the user explicitly
+authorized the control-only stage below. This is the sole reconciliation of
+the frozen queue.
+
+| Stage | Objective | Marker |
+|---|---|---|
+| P11-RC | Preserve P11-00 through P11-07; record the unreachable serial frontier and authorize bounded terminal closure | `OPENRECOMP_P11_RC=PASS` |
+
+Authorized terminal route:
+
+`P11-RC -> P11-90 -> P11-91 -> P11-99`
+
+`P11-08` through `P11-12` were not executed because their serial runtime
+frontier is unreachable at the P11-07 `B0:0x57` blocker. No stage verdict is
+assigned to them. Their historical rows and objectives remain unchanged, and
+they are not treated as passed, failed, skipped, inherited-blocked or
+not-applicable.

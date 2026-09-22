@@ -1,0 +1,179 @@
+{
+  "builds": {
+    "a_executable_sha256": "aae2644da8aa33867564cf0eb8450c52717c30eba6aa4b7ee0caf5094ba60db2",
+    "a_program_sha256": "18d8a61570d2ff5c115772b08082ba0009652c1f96c717e500eeb92271aef17f",
+    "b_executable_sha256": "4e26c830ce58e37f7c639096be83ed3dcf5a51777e733915ddd69ddec2190ebd",
+    "b_program_sha256": "fc941ed6e7b2ca4db797d243eb9a0b6b47eafab6151bc7f2ae74e9e5c5a79631"
+  },
+  "implementation": {
+    "bios_service": "ps1.bios.A0.49",
+    "dma": false,
+    "frozen_classifier_reused": true,
+    "interrupt": false,
+    "renderer": false,
+    "typed_boundary": "or_rt_memory_write(P9_GP0_ADDR, 32, command)",
+    "unrelated_gpu_state": false,
+    "vram_mutation": false
+  },
+  "milestone_b": {
+    "established": false,
+    "reason": "initialization completion not proven"
+  },
+  "milestone_c": {
+    "basis": "genuine typed GP0 write with deterministic ordering and NOP classification",
+    "established": true
+  },
+  "new_frontier": {
+    "block_id": "blk_80018824",
+    "block_index": 468323,
+    "failure_count": 23,
+    "function_entry": "0x8001b3f4",
+    "function_id": "fn_800187b0",
+    "message": "unresolved indirect call",
+    "site": "0x8001882c",
+    "site_classification": null,
+    "source_value": "0x8001a7dc",
+    "terminal_op": "jalr"
+  },
+  "private_run": {
+    "access_budget": 1500000,
+    "block_budget": 8000000,
+    "executable_sha256": "4e26c830ce58e37f7c639096be83ed3dcf5a51777e733915ddd69ddec2190ebd",
+    "gpu_writes": [
+      {
+        "address": "0x1f801810",
+        "classification": {
+          "class": "NOP",
+          "command": "0x00",
+          "emulated": false,
+          "known": true,
+          "port": "GP0"
+        },
+        "command": "0x00",
+        "direction": 1,
+        "flags": 1,
+        "sequence": 0,
+        "service": 1,
+        "value": "0x0002a244",
+        "width_bits": 32
+      }
+    ],
+    "observables": {
+      "cdrom": "0xe4c1b16e328991fd",
+      "cdrom_events": "33",
+      "denied": "12",
+      "error": "runtime memory write failed",
+      "exit_status": "0x00000000",
+      "failed": "1",
+      "gpu": "0xebe61697ee8f259a",
+      "gpu_events": "65536",
+      "host_calls": "84",
+      "input": "0x9cae47670d966e9a",
+      "input_events": "65536",
+      "memory": "0xde34cc0a740699af",
+      "nonram_overflow": "0",
+      "nonram_signatures": "14",
+      "p10_access_budget": "1500000",
+      "p10_access_count": "1500004",
+      "p10_budget_denials": "4",
+      "p10_service_calls": "84",
+      "p10_service_failures": "0",
+      "reads": "636990",
+      "registers": "0xf609221e27b7e83e",
+      "spu": "0xcbf29ce484222325",
+      "spu_events": "0",
+      "writes": "721768"
+    },
+    "stdout_sha256": "95ceb79ef0de83020dfe306fce5989ab3db37b90e50dd92950843d3d627ba3a0"
+  },
+  "public_synthetic": {
+    "known_nop": {
+      "commands": [
+        "0x00000000",
+        "0x00000001"
+      ],
+      "fabricated_gpu_state": false,
+      "gpu_writes": [
+        {
+          "address": "0x1f801810",
+          "classification": {
+            "class": "NOP",
+            "command": "0x00",
+            "emulated": false,
+            "known": true,
+            "port": "GP0"
+          },
+          "command": "0x00",
+          "direction": 1,
+          "flags": 1,
+          "sequence": 0,
+          "service": 1,
+          "value": "0x00000000",
+          "width_bits": 32
+        },
+        {
+          "address": "0x1f801810",
+          "classification": {
+            "class": "NOP",
+            "command": "0x00",
+            "emulated": false,
+            "known": true,
+            "port": "GP0"
+          },
+          "command": "0x00",
+          "direction": 1,
+          "flags": 1,
+          "sequence": 1,
+          "service": 1,
+          "value": "0x00000001",
+          "width_bits": 32
+        }
+      ],
+      "ram_unchanged": true,
+      "stdout_sha256": "b459d7d4d4c103323c6f28ac691f310978b3828e4f1ba08adafbb0d11460cfd0"
+    },
+    "malformed_call": {
+      "rejected": true,
+      "result": {
+        "gpu_events": "0",
+        "host_calls": "1",
+        "out_value": "0x11223344",
+        "service_calls": "1",
+        "service_failures": "1",
+        "status": "13"
+      },
+      "stdout_sha256": "33a67e76addb33438db1c554f24cc3fbcc52e0e88ef47bfdce5784398dfe4c19"
+    },
+    "unknown_opcode": {
+      "command": "0x03000000",
+      "gpu_writes": [
+        {
+          "address": "0x1f801810",
+          "classification": {
+            "class": "UNKNOWN_COMMAND",
+            "command": "0x03",
+            "emulated": false,
+            "known": false,
+            "port": "GP0"
+          },
+          "command": "0x03",
+          "direction": 1,
+          "flags": 2,
+          "sequence": 0,
+          "service": 1,
+          "value": "0x03000000",
+          "width_bits": 32
+        }
+      ],
+      "rejected": true,
+      "stdout_sha256": "e83916d122d282c2c76fcf4da504055fa2d49c07c39d97311be36f03efce858d"
+    }
+  },
+  "schema": "openrecomp-phase11-gpu-command-frontier-v1",
+  "stage": "P11-05",
+  "structure": {
+    "blocks": 793,
+    "functions": 121,
+    "proven_entry": "0x80016384"
+  }
+}

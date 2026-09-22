@@ -1,0 +1,144 @@
+{
+  "a": {
+    "failure": {
+      "block_id": "blk_8001b420",
+      "block_index": 468286,
+      "failure_count": 24,
+      "function_entry": "0x8001b420",
+      "function_id": "fn_8001b420",
+      "message": "unresolved indirect jump",
+      "site": "0x8001b424",
+      "site_classification": null,
+      "source_value": "0x000000a0",
+      "terminal_op": "jr_indirect"
+    },
+    "observables": {
+      "cdrom": "0xe4c1b16e328991fd",
+      "cdrom_events": "33",
+      "denied": "2344659",
+      "error": "runtime memory write failed",
+      "exit_status": "0x80030000",
+      "failed": "1",
+      "gpu": "0x06d525ee19a82325",
+      "gpu_events": "65536",
+      "host_calls": "83",
+      "input": "0x9cae47670d966e9a",
+      "input_events": "65536",
+      "memory": "0xde34cc0a740699af",
+      "nonram_overflow": "1525606",
+      "nonram_signatures": "64",
+      "p10_access_budget": "1500000",
+      "p10_access_count": "3844651",
+      "p10_budget_denials": "2344651",
+      "p10_service_calls": "83",
+      "p10_service_failures": "0",
+      "reads": "636991",
+      "registers": "0xf66b7a7e809a9cca",
+      "spu": "0xcbf29ce484222325",
+      "spu_events": "0",
+      "writes": "721768"
+    },
+    "policy": "A0:49 remains fail closed",
+    "stdout_sha256": "19f545a75065ab12886d021bd16923e763d13ce302f31021585b97494b43e6ce"
+  },
+  "b": {
+    "failure": {
+      "block_id": "blk_80018824",
+      "block_index": 468323,
+      "failure_count": 23,
+      "function_entry": "0x8001b3f4",
+      "function_id": "fn_800187b0",
+      "message": "unresolved indirect call",
+      "site": "0x8001882c",
+      "site_classification": null,
+      "source_value": "0x8001a7dc",
+      "terminal_op": "jalr"
+    },
+    "gpu_writes": [
+      {
+        "address": "0x1f801810",
+        "classification": {
+          "class": "NOP",
+          "command": "0x00",
+          "emulated": false,
+          "known": true,
+          "port": "GP0"
+        },
+        "command": "0x00",
+        "direction": 1,
+        "flags": 1,
+        "sequence": 0,
+        "service": 1,
+        "value": "0x0002a244",
+        "width_bits": 32
+      }
+    ],
+    "observables": {
+      "cdrom": "0xe4c1b16e328991fd",
+      "cdrom_events": "33",
+      "denied": "12",
+      "error": "runtime memory write failed",
+      "exit_status": "0x00000000",
+      "failed": "1",
+      "gpu": "0xebe61697ee8f259a",
+      "gpu_events": "65536",
+      "host_calls": "84",
+      "input": "0x9cae47670d966e9a",
+      "input_events": "65536",
+      "memory": "0xde34cc0a740699af",
+      "nonram_overflow": "0",
+      "nonram_signatures": "14",
+      "p10_access_budget": "1500000",
+      "p10_access_count": "1500004",
+      "p10_budget_denials": "4",
+      "p10_service_calls": "84",
+      "p10_service_failures": "0",
+      "reads": "636990",
+      "registers": "0xf609221e27b7e83e",
+      "spu": "0xcbf29ce484222325",
+      "spu_events": "0",
+      "writes": "721768"
+    },
+    "policy": "documented A0:49 through typed GP0 boundary",
+    "stdout_sha256": "95ceb79ef0de83020dfe306fce5989ab3db37b90e50dd92950843d3d627ba3a0"
+  },
+  "budgets": {
+    "access": 1500000,
+    "full_blocks": 8000000,
+    "prefix_blocks": 468286
+  },
+  "conclusion": "frontier moved; only the documented void service and typed NOP differ pre-frontier",
+  "prefix": {
+    "a_access_count": "506048",
+    "a_host_calls": "39",
+    "a_nonram_signatures": "1",
+    "a_service_calls": "39",
+    "b_access_count": "506049",
+    "b_host_calls": "40",
+    "b_nonram_signatures": "2",
+    "b_service_calls": "40",
+    "required_gpu_write": [
+      {
+        "address": "0x1f801810",
+        "classification": {
+          "class": "NOP",
+          "command": "0x00",
+          "emulated": false,
+          "known": true,
+          "port": "GP0"
+        },
+        "command": "0x00",
+        "direction": 1,
+        "flags": 1,
+        "sequence": 0,
+        "service": 1,
+        "value": "0x0002a244",
+        "width_bits": 32
+      }
+    ],
+    "same_block_digest": "0xa9fd6af484ceb63b",
+    "same_block_events": "468287"
+  },
+  "schema": "openrecomp-phase11-gpu-cw-causal-ab-v1",
+  "stage": "P11-05"
+}

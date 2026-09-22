@@ -63,22 +63,28 @@
   `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE`. No runtime service/table/target or
   device behavior is added; the frontier remains `0x80015fa4`, block 468341,
   and milestone D remains NOT_PROVEN. P11-06 and P11-05 pass unchanged twice.
+- `P11-RC` `PASS` (179 checks), control-only, from baseline
+  `515e3fb0e660d3c7975e3828eb3e26ac025c7cf2`: 124 committed files under
+  P11-00 through P11-07 are byte-identical; the source-integrity manifest
+  passes with 23 entries; P11-00/P11-07/P11-06/P11-05 pass unchanged twice at
+  482/41/75/294 checks. The original P11-08 through P11-12 rows remain
+  verbatim, those stages were not executed and have no verdict, and the only
+  permitted route is `P11-RC -> P11-90 -> P11-91 -> P11-99`. No runtime,
+  BIOS, semantic, translation, emission or guest-state behavior changes.
 
 ## Immediate next action
 
-Stop at the P11-07 `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE` boundary. To resume,
-obtain public evidence for a guest-addressable B0:0x5B target representation
-and its required writable target-relative object, including how unsupported
-readable entries remain callable fail-closed stubs, without loading or
-executing a BIOS. A retail table value, private reference value, arbitrary
-pointer, empty table or OpenBIOS build address alone is insufficient.
+Proceed only to `P11-90`, the reconciled whole-project regression. Do not
+start, simulate or assign a verdict to P11-08 through P11-12. P11-90 must
+verify the frozen earlier-phase boundaries, every executed P11-00 through
+P11-07 stage, P11-RC, source/evidence integrity, public safety, determinism and
+the unchanged milestone/compatibility claims. Build products live under
+`.openrecomp-phase11/build/` (untracked).
 
-Do not start P11-08 while this serial frontier is unresolved. If adequate
-public evidence becomes available, construct the bounded B variant, require an
-identical prefix through block 468341, and record the exact next fail-closed
-frontier. Milestone D still requires a valid rendered frame proven
-semantically or by an approved non-reconstructive hash. Build products live
-under `.openrecomp-phase11/build/` (untracked).
+The P11-07 `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE` result remains the exact
+runtime frontier. A future licensed replacement-BIOS investigation is outside
+Phase 11 and requires a new control plane, branch, architecture/license review
+and explicit user authorization.
 
 ## Private fixture notes
 

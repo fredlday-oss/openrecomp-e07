@@ -1,0 +1,1481 @@
+{
+  "checks": [
+    {
+      "check": "bios:a0-49-added-only-in-b",
+      "detail": "[\"ps1.bios.A0.49\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "bios:a0-49-one-argument",
+      "detail": "[\"command\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "bios:a0-49-one-site",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "bios:a0-49-site",
+      "detail": "0x8001b424",
+      "status": "PASS"
+    },
+    {
+      "check": "bios:a0-49-vector-index",
+      "detail": "A0:73",
+      "status": "PASS"
+    },
+    {
+      "check": "bios:a0-49-void",
+      "detail": "None",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:frame-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:general-permanent",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:gpu-command-stream-promoted",
+      "detail": "PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:initialization-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:playability-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "private:a-frontier",
+      "detail": "0x8001b424@468286",
+      "status": "PASS"
+    },
+    {
+      "check": "private:a-preserves-24-p11-04-observables",
+      "detail": "24 observables",
+      "status": "PASS"
+    },
+    {
+      "check": "private:a:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "private:a:build-reproducible",
+      "detail": "aae2644da8aa33867564cf0eb8450c52717c30eba6aa4b7ee0caf5094ba60db2",
+      "status": "PASS"
+    },
+    {
+      "check": "private:b-exact-frontier",
+      "detail": "{\"block_id\": \"blk_80018824\", \"block_index\": 468323, \"failure_count\": 23, \"function_entry\": \"0x8001b3f4\", \"function_id\": \"fn_800187b0\", \"message\": \"unresolved indirect call\", \"site\": \"0x8001882c\", \"site_classification\": null, \"source_value\": \"0x8001a7dc\", \"terminal_op\": \"jalr\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "private:b-genuine-first-gp0-write",
+      "detail": "[{\"address\": \"0x1f801810\", \"classification\": {\"class\": \"NOP\", \"command\": \"0x00\", \"emulated\": false, \"known\": true, \"port\": \"GP0\"}, \"command\": \"0x00\", \"direction\": 1, \"flags\": 1, \"sequence\": 0, \"service\": 1, \"value\": \"0x0002a244\", \"width_bits\": 32}]",
+      "status": "PASS"
+    },
+    {
+      "check": "private:b-moves-frontier",
+      "detail": "0x8001882c@468323",
+      "status": "PASS"
+    },
+    {
+      "check": "private:b:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "private:b:build-reproducible",
+      "detail": "4e26c830ce58e37f7c639096be83ed3dcf5a51777e733915ddd69ddec2190ebd",
+      "status": "PASS"
+    },
+    {
+      "check": "private:full-a:deterministic",
+      "detail": "19f545a75065ab12886d021bd16923e763d13ce302f31021585b97494b43e6ce",
+      "status": "PASS"
+    },
+    {
+      "check": "private:full-a:exit-stderr",
+      "detail": "exit 0 and empty stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "private:full-b:deterministic",
+      "detail": "95ceb79ef0de83020dfe306fce5989ab3db37b90e50dd92950843d3d627ba3a0",
+      "status": "PASS"
+    },
+    {
+      "check": "private:full-b:exit-stderr",
+      "detail": "exit 0 and empty stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix-a:deterministic",
+      "detail": "10bf07a2f42ab80ab44e12bfc5f23ff6a4cbf177d38ca3e64b46de5d8f9185ec",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix-a:exit-stderr",
+      "detail": "exit 0 and empty stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix-b:deterministic",
+      "detail": "59fd68e8d5243660d8f1d6341e937632539de198878c082ada15f0e63bbf159f",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix-b:exit-stderr",
+      "detail": "exit 0 and empty stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:a-no-gpu-write",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:access-delta",
+      "detail": "506048/506049",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:b-one-typed-write",
+      "detail": "[{\"address\": \"0x1f801810\", \"classification\": {\"class\": \"NOP\", \"command\": \"0x00\", \"emulated\": false, \"known\": true, \"port\": \"GP0\"}, \"command\": \"0x00\", \"direction\": 1, \"flags\": 1, \"sequence\": 0, \"service\": 1, \"value\": \"0x0002a244\", \"width_bits\": 32}]",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:block-count",
+      "detail": "('468287', '468287')",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:block-stream",
+      "detail": "('0xa9fd6af484ceb63b', '0xa9fd6af484ceb63b')",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:host-service-delta",
+      "detail": "39/40",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:nonram-signature-delta",
+      "detail": "1/2",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:same:cdrom",
+      "detail": "('0xcbf29ce484222325', '0xcbf29ce484222325')",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:same:cdrom_events",
+      "detail": "('0', '0')",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:same:denied",
+      "detail": "('1', '1')",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:same:input",
+      "detail": "('0xb0635e129cda5367', '0xb0635e129cda5367')",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:same:input_events",
+      "detail": "('1', '1')",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:same:memory",
+      "detail": "('0xe97673682e167a98', '0xe97673682e167a98')",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:same:nonram_overflow",
+      "detail": "('0', '0')",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:same:p10_budget_denials",
+      "detail": "('0', '0')",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:same:p10_service_failures",
+      "detail": "('0', '0')",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:same:reads",
+      "detail": "('86', '86')",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:same:registers",
+      "detail": "('0x3c5c2f80cf5216cf', '0x3c5c2f80cf5216cf')",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:same:spu",
+      "detail": "('0xcbf29ce484222325', '0xcbf29ce484222325')",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:same:spu_events",
+      "detail": "('0', '0')",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix:same:writes",
+      "detail": "('505961', '505961')",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:no-base64",
+      "detail": "payload base64 absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:no-hex",
+      "detail": "payload hex absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "38 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "25 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "27 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "43 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "27 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:string-length",
+      "detail": "82 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:no-base64",
+      "detail": "payload base64 absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:no-hex",
+      "detail": "payload hex absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "39 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "21 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "14 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "20 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "26 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "13 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "13 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:diagnostic.json:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:no-base64",
+      "detail": "payload base64 absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:no-hex",
+      "detail": "payload hex absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "42 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "74 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "36 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "24 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "11 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "12 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "27 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "5 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "18 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "6 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "7 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "14 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "44 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "3 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "4 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "15 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "2 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "1 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "10 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:string-length",
+      "detail": "64 chars",
+      "status": "PASS"
+    },
+    {
+      "check": "semantics:a0-49-arity-result",
+      "detail": "{\"args\": [\"bios_arg0\"], \"op\": \"jump_bios_a0_49\", \"result\": null, \"service\": \"ps1.bios.A0.49\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "semantics:a0-49-one-rule",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "semantics:a0-49-service-arity",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:malformed:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:malformed:build-reproducible",
+      "detail": "f59cc82d979c9767afb30f6725ffe3e34bca7508b3b449ddf33d1d241acdf3bb",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:malformed:deterministic",
+      "detail": "33a67e76addb33438db1c554f24cc3fbcc52e0e88ef47bfdce5784398dfe4c19",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:malformed:exit-stderr",
+      "detail": "exit 0 and empty stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:malformed:rejected",
+      "detail": "{\"gpu_events\": \"0\", \"host_calls\": \"1\", \"out_value\": \"0x11223344\", \"service_calls\": \"1\", \"service_failures\": \"1\", \"status\": \"13\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:positive:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:positive:build-reproducible",
+      "detail": "3d3758a3260226ddc2b92b31e0d6985c90d5977317c6cbc91699b5dc216d5d18",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:positive:classification",
+      "detail": "[{\"address\": \"0x1f801810\", \"classification\": {\"class\": \"NOP\", \"command\": \"0x00\", \"emulated\": false, \"known\": true, \"port\": \"GP0\"}, \"command\": \"0x00\", \"direction\": 1, \"flags\": 1, \"sequence\": 0, \"service\": 1, \"value\": \"0x00000000\", \"width_bits\": 32}, {\"address\": \"0x1f801810\", \"classification\": {\"class\": \"NOP\", \"command\": \"0x00\", \"emulated\": false, \"known\": true, \"port\": \"GP0\"}, \"command\": \"0x00\", \"direction\": 1, \"flags\": 1, \"sequence\": 1, \"service\": 1, \"value\": \"0x00000001\", \"width_bits\": 32}]",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:positive:continuation",
+      "detail": "0x00000055",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:positive:deterministic",
+      "detail": "b459d7d4d4c103323c6f28ac691f310978b3828e4f1ba08adafbb0d11460cfd0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:positive:exit",
+      "detail": "0/0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:positive:gpu-counts",
+      "detail": "typed ordered GP0 NOP writes only",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:positive:host-call-arity",
+      "detail": "one-argument host call emitted",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:positive:no-fabricated-devices",
+      "detail": "no RAM/device/interrupt/DMA side effect",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:positive:no-raw-port-literal",
+      "detail": "service uses the named typed boundary",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:positive:ordered-sequence",
+      "detail": "[0, 1]",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:positive:ordered-values",
+      "detail": "[\"0x00000000\", \"0x00000001\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:positive:ram-unchanged",
+      "detail": "0xaa703679c8bf8799",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:positive:stderr",
+      "detail": "0/0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:positive:success",
+      "detail": "('0', '')",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:positive:typed-boundary",
+      "detail": "typed GP0 write is the implementation",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:positive:void-no-result-assignment",
+      "detail": "void call preserves r2",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:positive:void-return-preserved",
+      "detail": "0x00001234",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown:build-reproducible",
+      "detail": "134265c424308f0ea040049d145db62beb10b81998e4e336784eb006286a9ff0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown:counters",
+      "detail": "unknown command fails closed once",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown:deterministic",
+      "detail": "e83916d122d282c2c76fcf4da504055fa2d49c07c39d97311be36f03efce858d",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown:exit-stderr",
+      "detail": "exit 0 and empty stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown:ram-unchanged",
+      "detail": "0x020b0bbc5f6e8a55",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown:rejected",
+      "detail": "('1', 'runtime host service ps1.bios.A0.49 failed')",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown:typed-blocker",
+      "detail": "[{\"address\": \"0x1f801810\", \"classification\": {\"class\": \"UNKNOWN_COMMAND\", \"command\": \"0x03\", \"emulated\": false, \"known\": false, \"port\": \"GP0\"}, \"command\": \"0x03\", \"direction\": 1, \"flags\": 2, \"sequence\": 0, \"service\": 1, \"value\": \"0x03000000\", \"width_bits\": 32}]",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 294,
+  "stage": "P11-05",
+  "stage_name": "GPU command-stream frontier",
+  "status": "PASS",
+  "tests": 294
+}

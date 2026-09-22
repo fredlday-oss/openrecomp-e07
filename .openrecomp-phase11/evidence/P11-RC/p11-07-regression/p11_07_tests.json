@@ -1,0 +1,216 @@
+{
+  "checks": [
+    {
+      "check": "classification:one-site",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "classification:vector-index",
+      "detail": "B0:57",
+      "status": "PASS"
+    },
+    {
+      "check": "classification:public-name",
+      "detail": "GetB0Table",
+      "status": "PASS"
+    },
+    {
+      "check": "classification:still-unimplemented",
+      "detail": "BIOS_VECTOR_NOT_IMPLEMENTED/FAIL_CLOSED",
+      "status": "PASS"
+    },
+    {
+      "check": "classification:no-b0-runtime-service",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "caller:one-function",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "caller:required-pcs",
+      "detail": "11",
+      "status": "PASS"
+    },
+    {
+      "check": "caller:b0-vector-setup",
+      "detail": "t2 receives B0",
+      "status": "PASS"
+    },
+    {
+      "check": "caller:indirect-call",
+      "detail": "jalr through t2",
+      "status": "PASS"
+    },
+    {
+      "check": "caller:index-delay-slot",
+      "detail": "t1 receives 0x57",
+      "status": "PASS"
+    },
+    {
+      "check": "caller:first-use-entry-5b",
+      "detail": "32-bit read at v0+0x16c",
+      "status": "PASS"
+    },
+    {
+      "check": "caller:first-derived-pointer",
+      "detail": "B0[0x5b]+0x884 -> 0x8002ed84",
+      "status": "PASS"
+    },
+    {
+      "check": "caller:second-derived-pointer",
+      "detail": "B0[0x5b]+0x894 -> 0x8002ed88",
+      "status": "PASS"
+    },
+    {
+      "check": "caller:eleven-word-clear",
+      "detail": "11 aligned 32-bit writes at offsets 0x594..0x5bc",
+      "status": "PASS"
+    },
+    {
+      "check": "caller:post-patch-direct-call",
+      "detail": "direct call follows patch loop",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:exact-a",
+      "detail": "0x80015fa4/468341",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:no-b0-57-dispatch",
+      "detail": "runtime remains fail closed",
+      "status": "PASS"
+    },
+    {
+      "check": "public:revisions-pinned",
+      "detail": "four full Git revisions",
+      "status": "PASS"
+    },
+    {
+      "check": "public:openbios-license",
+      "detail": "MIT",
+      "status": "PASS"
+    },
+    {
+      "check": "public:corroborating-license",
+      "detail": "GPL-2.0",
+      "status": "PASS"
+    },
+    {
+      "check": "public:contract-no-arguments",
+      "detail": "argc=0",
+      "status": "PASS"
+    },
+    {
+      "check": "public:contract-v0-result",
+      "detail": "guest pointer in v0",
+      "status": "PASS"
+    },
+    {
+      "check": "public:mutable-b0-object",
+      "detail": "mutable table",
+      "status": "PASS"
+    },
+    {
+      "check": "public:no-fixed-contract-address",
+      "detail": "no invented pointer",
+      "status": "PASS"
+    },
+    {
+      "check": "blocker:no-b-variant",
+      "detail": "zero implementation delta",
+      "status": "PASS"
+    },
+    {
+      "check": "blocker:frame-not-proven",
+      "detail": "milestone D unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "public:contract:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:contract:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:contract:no-payload-base64",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:contract:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:contract:bounded-strings",
+      "detail": "all strings bounded",
+      "status": "PASS"
+    },
+    {
+      "check": "public:caller:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:caller:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:caller:no-payload-base64",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:caller:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:caller:bounded-strings",
+      "detail": "all strings bounded",
+      "status": "PASS"
+    },
+    {
+      "check": "public:blocker:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:blocker:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:blocker:no-payload-base64",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:blocker:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:blocker:bounded-strings",
+      "detail": "all strings bounded",
+      "status": "PASS"
+    }
+  ],
+  "classification": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+  "schema": "openrecomp-phase11-tests-v1",
+  "stage": "P11-07",
+  "summary": {
+    "failed": 0,
+    "passed": 41
+  }
+}

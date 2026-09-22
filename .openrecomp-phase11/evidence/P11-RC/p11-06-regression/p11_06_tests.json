@@ -1,0 +1,386 @@
+{
+  "checks": [
+    {
+      "check": "claim:frame-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:general-permanent",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:gpu-command-stream-retained",
+      "detail": "PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:initialization-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claim:playability-not-promoted",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "dynamic:exact-guarded-resolution",
+      "detail": "[{\"basis\": \"EXACT_CONSTANT_TARGET\", \"guarded\": true, \"kind\": \"INDIRECT_CALL\", \"site\": \"0x8001882c\", \"targets\": [\"0x8001a7dc\"]}]",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:b-guarded-default",
+      "detail": "guarded default retained",
+      "status": "PASS"
+    },
+    {
+      "check": "extension:merged-count",
+      "detail": "{\"base_entry\": \"0x800132e8\", \"base_reachable_words\": 4068, \"delay_slot_count\": 683, \"dynamic_version\": \"1.0.0\", \"extra_entries\": [{\"entry\": \"0x80016384\", \"new_reachable_words\": 264, \"reachable_words\": 281}, {\"entry\": \"0x8001a7dc\", \"new_reachable_words\": 10, \"reachable_words\": 10}], \"merged_reachable_sha256\": \"01ec984437b68234279188515779173e4d1dd86d9fd22f06108ef78f8b728b62\", \"merged_reachable_words\": 4342, \"record_count\": 31744}",
+      "status": "PASS"
+    },
+    {
+      "check": "extension:target-exact",
+      "detail": "[{\"entry\": \"0x8001a7dc\", \"new_reachable_words\": 10, \"reachable_words\": 10}]",
+      "status": "PASS"
+    },
+    {
+      "check": "extension:target-function",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:b0-57-classified-fail-closed",
+      "detail": "[{\"block_id\": null, \"classification\": \"BIOS_VECTOR_NOT_IMPLEMENTED\", \"disposition\": \"FAIL_CLOSED\", \"documented_name\": \"GetB0Table\", \"function_id\": null, \"function_index\": 87, \"index_evidence\": [\"index-addiu@0x80015fa8\"], \"kind\": \"INDIRECT_CALL\", \"op\": \"jalr\", \"op_name\": null, \"service_id\": null, \"site\": 2147573668, \"site_hex\": \"0x80015fa4\", \"slice_evidence\": [\"addiu@0x80015fa0\"], \"source_register\": 10, \"vector\": \"B0\", \"vector_value\": \"0x000000b0\"}]",
+      "status": "PASS"
+    },
+    {
+      "check": "private:a-exact-frontier",
+      "detail": "{\"block_id\": \"blk_80018824\", \"block_index\": 468323, \"failure_count\": 23, \"function_entry\": \"0x8001b3f4\", \"function_id\": \"fn_800187b0\", \"message\": \"unresolved indirect call\", \"site\": \"0x8001882c\", \"site_classification\": null, \"source_value\": \"0x8001a7dc\", \"terminal_op\": \"jalr\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "private:a-one-gp0",
+      "detail": "[{\"address\": \"0x1f801810\", \"classification\": {\"class\": \"NOP\", \"command\": \"0x00\", \"emulated\": false, \"known\": true, \"port\": \"GP0\"}, \"command\": \"0x00\", \"direction\": 1, \"flags\": 1, \"sequence\": 0, \"service\": 1, \"value\": \"0x0002a244\", \"width_bits\": 32}]",
+      "status": "PASS"
+    },
+    {
+      "check": "private:a-preserves-p11-05-observables",
+      "detail": "24 observables",
+      "status": "PASS"
+    },
+    {
+      "check": "private:a:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "private:a:build-reproducible",
+      "detail": "4e26c830ce58e37f7c639096be83ed3dcf5a51777e733915ddd69ddec2190ebd",
+      "status": "PASS"
+    },
+    {
+      "check": "private:b-exact-frontier",
+      "detail": "{\"block_id\": \"blk_80015fa0\", \"block_index\": 468341, \"failure_count\": 22, \"function_entry\": \"0x80015f18\", \"function_id\": \"fn_80015f90\", \"message\": \"unresolved indirect call\", \"site\": \"0x80015fa4\", \"site_classification\": null, \"source_value\": \"0x000000b0\", \"terminal_op\": \"jalr\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "private:b-gp1-classification",
+      "detail": "{\"class\": \"DISPLAY_ENABLE\", \"command\": \"0x03\", \"emulated\": false, \"known\": true, \"port\": \"GP1\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "private:b-no-gpu-blocker",
+      "detail": "('2', '0')",
+      "status": "PASS"
+    },
+    {
+      "check": "private:b-not-host-shortcut",
+      "detail": "('84', '84')",
+      "status": "PASS"
+    },
+    {
+      "check": "private:b-one-guest-ram-write",
+      "detail": "721768/721769",
+      "status": "PASS"
+    },
+    {
+      "check": "private:b-ordered-gp0-gp1",
+      "detail": "[{\"address\": \"0x1f801810\", \"classification\": {\"class\": \"NOP\", \"command\": \"0x00\", \"emulated\": false, \"known\": true, \"port\": \"GP0\"}, \"command\": \"0x00\", \"direction\": 1, \"flags\": 1, \"sequence\": 0, \"service\": 1, \"value\": \"0x0002a244\", \"width_bits\": 32}, {\"address\": \"0x1f801814\", \"classification\": {\"class\": \"DISPLAY_ENABLE\", \"command\": \"0x03\", \"emulated\": false, \"known\": true, \"port\": \"GP1\"}, \"command\": \"0x03\", \"direction\": 1, \"flags\": 1, \"sequence\": 1, \"service\": 1, \"value\": \"0x03000001\", \"width_bits\": 32}]",
+      "status": "PASS"
+    },
+    {
+      "check": "private:b:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "private:b:build-reproducible",
+      "detail": "3df3551d0ff437674fba55de21edacf483cb92bf786e23dc0652f73fd4755bde",
+      "status": "PASS"
+    },
+    {
+      "check": "private:full-a:deterministic",
+      "detail": "95ceb79ef0de83020dfe306fce5989ab3db37b90e50dd92950843d3d627ba3a0",
+      "status": "PASS"
+    },
+    {
+      "check": "private:full-a:exit-stderr",
+      "detail": "exit 0 and empty stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "private:full-b:deterministic",
+      "detail": "02e0eeeb847eff1c7a320f6c3d6f09893d5fc17f1258dbb1edd5204adc43a484",
+      "status": "PASS"
+    },
+    {
+      "check": "private:full-b:exit-stderr",
+      "detail": "exit 0 and empty stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix-a:deterministic",
+      "detail": "14362582661b6ee65b2ca1084beb314a3dbfa6ec54e57a39dff44c9042d837de",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix-a:exit-stderr",
+      "detail": "exit 0 and empty stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix-b:deterministic",
+      "detail": "14362582661b6ee65b2ca1084beb314a3dbfa6ec54e57a39dff44c9042d837de",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix-b:exit-stderr",
+      "detail": "exit 0 and empty stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "private:prefix-byte-identical",
+      "detail": "14362582661b6ee65b2ca1084beb314a3dbfa6ec54e57a39dff44c9042d837de",
+      "status": "PASS"
+    },
+    {
+      "check": "provenance:base-pointer",
+      "detail": "0x8002a244",
+      "status": "PASS"
+    },
+    {
+      "check": "provenance:field-load",
+      "detail": "{\"imm\": 16, \"rs\": 2, \"rt\": 2}",
+      "status": "PASS"
+    },
+    {
+      "check": "provenance:gp1-pointer",
+      "detail": "0x1f801814",
+      "status": "PASS"
+    },
+    {
+      "check": "provenance:indirect-source",
+      "detail": "{\"rd\": 31, \"rs\": 2}",
+      "status": "PASS"
+    },
+    {
+      "check": "provenance:p11-05-guest-value",
+      "detail": "GUEST_VALUE_CONFIRMED",
+      "status": "PASS"
+    },
+    {
+      "check": "provenance:target-field",
+      "detail": "0x8001a7dc",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:bounded-strings",
+      "detail": "all strings bounded",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:no-base64",
+      "detail": "payload base64 absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:no-hex",
+      "detail": "payload hex absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:no-private-path",
+      "detail": "absolute fixture path absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:causal_ab.json:no-raw-words",
+      "detail": "raw instruction words absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:bounded-strings",
+      "detail": "all strings bounded",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:no-base64",
+      "detail": "payload base64 absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:no-hex",
+      "detail": "payload hex absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:no-private-path",
+      "detail": "absolute fixture path absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:frontier.json:no-raw-words",
+      "detail": "raw instruction words absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:target_provenance.json:bounded-strings",
+      "detail": "all strings bounded",
+      "status": "PASS"
+    },
+    {
+      "check": "public:target_provenance.json:no-base64",
+      "detail": "payload base64 absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:target_provenance.json:no-hex",
+      "detail": "payload hex absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:target_provenance.json:no-private-path",
+      "detail": "absolute fixture path absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:target_provenance.json:no-raw-words",
+      "detail": "raw instruction words absent",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:display-enable:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:display-enable:build-reproducible",
+      "detail": "c990f32584df735d8c317d0d210da4a48b226e8080834050e0d339be9a3ec014",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:display-enable:classification",
+      "detail": "{\"class\": \"DISPLAY_ENABLE\", \"command\": \"0x03\", \"emulated\": false, \"known\": true, \"port\": \"GP1\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:display-enable:continuation",
+      "detail": "0x00000055",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:display-enable:deterministic",
+      "detail": "7fdaf74345773473f6e9338abae77b80d413d5817ca1c9178b3a85eb621c9ba4",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:display-enable:exit-stderr",
+      "detail": "exit 0 and empty stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:display-enable:failure-policy",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:display-enable:one-gp1-write",
+      "detail": "[{\"address\": \"0x1f801814\", \"classification\": {\"class\": \"DISPLAY_ENABLE\", \"command\": \"0x03\", \"emulated\": false, \"known\": true, \"port\": \"GP1\"}, \"command\": \"0x03\", \"direction\": 1, \"flags\": 1, \"sequence\": 0, \"service\": 1, \"value\": \"0x03000001\", \"width_bits\": 32}]",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:display-enable:ram-unchanged",
+      "detail": "0x14c85550fc809fbc",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown-command:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown-command:build-reproducible",
+      "detail": "2b69afff519ce40065f6196051916670211928af3f14fd55463c39e8740fc05f",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown-command:classification",
+      "detail": "{\"class\": \"UNKNOWN_COMMAND\", \"command\": \"0x09\", \"emulated\": false, \"known\": false, \"port\": \"GP1\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown-command:continuation",
+      "detail": "0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown-command:deterministic",
+      "detail": "bbd505869650a75c08af97435e44788b40c508fdc8f461fe492dcf176d571903",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown-command:exit-stderr",
+      "detail": "exit 0 and empty stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown-command:failure-policy",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown-command:one-gp1-write",
+      "detail": "[{\"address\": \"0x1f801814\", \"classification\": {\"class\": \"UNKNOWN_COMMAND\", \"command\": \"0x09\", \"emulated\": false, \"known\": false, \"port\": \"GP1\"}, \"command\": \"0x09\", \"direction\": 1, \"flags\": 2, \"sequence\": 0, \"service\": 1, \"value\": \"0x09000000\", \"width_bits\": 32}]",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:unknown-command:ram-unchanged",
+      "detail": "0x8b35963c0cc64b73",
+      "status": "PASS"
+    },
+    {
+      "check": "target:guest-store",
+      "detail": "guest command store",
+      "status": "PASS"
+    },
+    {
+      "check": "target:ram-bookkeeping",
+      "detail": "one guest RAM bookkeeping byte",
+      "status": "PASS"
+    },
+    {
+      "check": "target:typed-port-load",
+      "detail": "fixed GP1 pointer load",
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "failure": null,
+  "passed": 75,
+  "stage": "P11-06",
+  "stage_name": "GPU/DMA/VRAM semantic closure",
+  "status": "PASS",
+  "tests": 75
+}

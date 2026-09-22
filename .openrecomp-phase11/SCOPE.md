@@ -44,7 +44,8 @@ never proves G.
 Phase 11 is complete when:
 
 1. every frozen stage `P11-00` .. `P11-12` has an official `PASS` or a
-   rigorously bounded `PASS` that records the exact next blocker;
+   rigorously bounded `PASS` that records the exact next blocker, unless the
+   single authorized reconciliation route below applies;
 2. `P11-90` re-runs the frozen Phase-1 .. Phase-11 regression and passes;
 3. `P11-91` closes the evidence chain with a milestone matrix and claim
    ledger;
@@ -57,6 +58,30 @@ Phase 11 is complete when:
 `P11-99` may `PASS` for a rigorously bounded phase even if milestone G is not
 reached, provided the phase mission and evidence closure contract is satisfied
 and the highest achieved milestone is reported honestly.
+
+### Authorized P11-RC completion route
+
+The user authorized one queue reconciliation after the completed `P11-07`
+boundary at commit `515e3fb0e660d3c7975e3828eb3e26ac025c7cf2`.
+`P11-07` proves that its serial runtime frontier is unreachable without a
+guest-addressable `B0:0x5B` code/data representation that acceptable public
+evidence does not establish within this phase's architecture.
+
+Under this single exception:
+
+1. `P11-00` through `P11-07` and their evidence remain byte-for-byte frozen;
+2. the historical `P11-08` through `P11-12` queue rows remain present, but
+   those stages are not executed and receive no stage verdict;
+3. `P11-RC` must pass its control, history-preservation, source-integrity and
+   direct-dependency regressions;
+4. the only terminal route is `P11-RC -> P11-90 -> P11-91 -> P11-99`;
+5. `P11-90`, `P11-91` and `P11-99` retain their original regression,
+   evidence-closure and bounded-verdict responsibilities;
+6. this route cannot promote milestones or compatibility claims that the
+   executed evidence did not prove.
+
+This exception is a recorded queue amendment, not a `PASS`, `FAIL`, skip,
+inherited blocker or not-applicable result for any unexecuted stage.
 
 ## Permanent non-claims
 

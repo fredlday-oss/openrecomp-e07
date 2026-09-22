@@ -1,0 +1,47 @@
+PASS: classification:one-site 1
+PASS: classification:vector-index B0:57
+PASS: classification:public-name GetB0Table
+PASS: classification:still-unimplemented BIOS_VECTOR_NOT_IMPLEMENTED/FAIL_CLOSED
+PASS: classification:no-b0-runtime-service 0
+PASS: caller:one-function 1
+PASS: caller:required-pcs 11
+PASS: caller:b0-vector-setup t2 receives B0
+PASS: caller:indirect-call jalr through t2
+PASS: caller:index-delay-slot t1 receives 0x57
+PASS: caller:first-use-entry-5b 32-bit read at v0+0x16c
+PASS: caller:first-derived-pointer B0[0x5b]+0x884 -> 0x8002ed84
+PASS: caller:second-derived-pointer B0[0x5b]+0x894 -> 0x8002ed88
+PASS: caller:eleven-word-clear 11 aligned 32-bit writes at offsets 0x594..0x5bc
+PASS: caller:post-patch-direct-call direct call follows patch loop
+PASS: frontier:exact-a 0x80015fa4/468341
+PASS: runtime:no-b0-57-dispatch runtime remains fail closed
+PASS: public:revisions-pinned four full Git revisions
+PASS: public:openbios-license MIT
+PASS: public:corroborating-license GPL-2.0
+PASS: public:contract-no-arguments argc=0
+PASS: public:contract-v0-result guest pointer in v0
+PASS: public:mutable-b0-object mutable table
+PASS: public:no-fixed-contract-address no invented pointer
+PASS: blocker:no-b-variant zero implementation delta
+PASS: blocker:frame-not-proven milestone D unchanged
+PASS: public:contract:no-private-path absolute private paths absent
+PASS: public:contract:no-payload-hex payload sample absent
+PASS: public:contract:no-payload-base64 payload sample absent
+PASS: public:contract:no-raw-words reconstructive fields absent
+PASS: public:contract:bounded-strings all strings bounded
+PASS: public:caller:no-private-path absolute private paths absent
+PASS: public:caller:no-payload-hex payload sample absent
+PASS: public:caller:no-payload-base64 payload sample absent
+PASS: public:caller:no-raw-words reconstructive fields absent
+PASS: public:caller:bounded-strings all strings bounded
+PASS: public:blocker:no-private-path absolute private paths absent
+PASS: public:blocker:no-payload-hex payload sample absent
+PASS: public:blocker:no-payload-base64 payload sample absent
+PASS: public:blocker:no-raw-words reconstructive fields absent
+PASS: public:blocker:bounded-strings all strings bounded
+OPENRECOMP_P11_07=PASS
+OPENRECOMP_PHASE11_P11_07_CLASSIFICATION=BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE
+OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P11_07_CHECKS=41

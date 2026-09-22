@@ -1,0 +1,66 @@
+{
+  "call": {
+    "argument_count": 0,
+    "block_id": "blk_80015fa0",
+    "block_index": 468341,
+    "function_id": "fn_80015f90",
+    "function_index": "0x57",
+    "result_register": "$v0",
+    "site": "0x80015fa4",
+    "vector": "B0"
+  },
+  "classification": {
+    "expects_function_pointer": true,
+    "first_required_entry": "B0:0x5b ChangeClearPAD",
+    "only_stores_table_pointer": false,
+    "patches_table_entry": false,
+    "public_pattern_corroboration": "PSX-SPX pad-error patch description",
+    "subsequent_access": "mutating 32-bit writes to entry-target-relative guest memory",
+    "table_access": "read-only 32-bit entry lookup"
+  },
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "next_frontier": {
+    "dynamic_site": null,
+    "reason": "a valid post-return state cannot be constructed without an evidenced B0:5B guest target object",
+    "status": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE"
+  },
+  "post_return_use": [
+    {
+      "base": "$v0",
+      "byte_offset": "0x16c",
+      "entry_index": "0x5b",
+      "kind": "table_entry_read",
+      "pc": "0x80015fac",
+      "result": "$v0",
+      "width_bits": 32
+    },
+    {
+      "base": "B0[0x5b]",
+      "byte_offset": "0x884",
+      "kind": "derive_function_relative_pointer",
+      "pc": "0x80015fb4",
+      "stored_at": "0x8002ed84",
+      "width_bits": 32
+    },
+    {
+      "base": "B0[0x5b]",
+      "byte_offset": "0x894",
+      "kind": "derive_function_relative_pointer",
+      "pc": "0x80015fc0",
+      "stored_at": "0x8002ed88",
+      "width_bits": 32
+    },
+    {
+      "base": "B0[0x5b]",
+      "first_byte_offset": "0x594",
+      "kind": "function_relative_clear_loop",
+      "last_byte_offset": "0x5bc",
+      "pc": "0x80015fd0",
+      "value": "0x00000000",
+      "width_bits": 32,
+      "write_count": 11
+    }
+  ],
+  "schema": "openrecomp-phase11-b0-57-caller-use-v1",
+  "stage": "P11-07"
+}

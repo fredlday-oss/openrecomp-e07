@@ -1,0 +1,46 @@
+{
+  "artifact_sha256": {
+    "p11_rc_tests.json": "505895179d3dcff6e333b4b909ae4ad7831f5092ba612987a686441cc308ea20",
+    "reconciliation.json": "4b3b039b3874eeb363437ebf390ea40f175dc4f351d32131a6297092ec3ea6ce",
+    "source_exhaustion.json": "9ab926778bf4e12b223a794870b7ae80e2e616f579eaa9657ea8c3202960f9bd"
+  },
+  "artifacts_identical": true,
+  "frame_marker": "OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF=NOT_PROVEN",
+  "gate": "tools/test_phase11_queue_reconciliation_v1.py",
+  "gate_sha256": "f20b28fd8c3c383d96f5a95480230a97f7d557722a718505afc26664a4c43413",
+  "general_marker": "OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+  "playability_marker": "OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "p11_rc_tests.json": "505895179d3dcff6e333b4b909ae4ad7831f5092ba612987a686441cc308ea20",
+        "reconciliation.json": "4b3b039b3874eeb363437ebf390ea40f175dc4f351d32131a6297092ec3ea6ce",
+        "source_exhaustion.json": "9ab926778bf4e12b223a794870b7ae80e2e616f579eaa9657ea8c3202960f9bd"
+      },
+      "p11_rc_tests_sha256": "505895179d3dcff6e333b4b909ae4ad7831f5092ba612987a686441cc308ea20",
+      "returncode": 0,
+      "stdout_bytes_raw": 16009,
+      "stdout_sha256_lf": "432963dfc4646db2f41b8c62744b38ca635c5eb0b9eb29984ad4084113260e35",
+      "stdout_sha256_raw": "87366c052ccdf568f0cbd873c0ae5eedf65fc459217097a48372046005470128"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "p11_rc_tests.json": "505895179d3dcff6e333b4b909ae4ad7831f5092ba612987a686441cc308ea20",
+        "reconciliation.json": "4b3b039b3874eeb363437ebf390ea40f175dc4f351d32131a6297092ec3ea6ce",
+        "source_exhaustion.json": "9ab926778bf4e12b223a794870b7ae80e2e616f579eaa9657ea8c3202960f9bd"
+      },
+      "p11_rc_tests_sha256": "505895179d3dcff6e333b4b909ae4ad7831f5092ba612987a686441cc308ea20",
+      "returncode": 0,
+      "stdout_bytes_raw": 16009,
+      "stdout_sha256_lf": "432963dfc4646db2f41b8c62744b38ca635c5eb0b9eb29984ad4084113260e35",
+      "stdout_sha256_raw": "87366c052ccdf568f0cbd873c0ae5eedf65fc459217097a48372046005470128"
+    }
+  },
+  "schema": "openrecomp-phase11-determinism-v1",
+  "stage": "P11-RC",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true,
+  "terminal_marker": "OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN"
+}

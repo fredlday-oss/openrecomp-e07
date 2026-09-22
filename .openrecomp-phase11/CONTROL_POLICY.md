@@ -92,6 +92,35 @@ Work branch: `phase11/ps1-playability-v1`.
     not commit failed or partial stages. Do not push unless the user explicitly
     instructs it.
 
+## Authorized queue reconciliation
+
+The serial runtime frontier became unreachable at the completed `P11-07`
+boundary because the caller requires a guest-addressable `B0:0x5B` code/data
+representation that is not established by acceptable public evidence. The
+required queue decision is `QUEUE_RECONCILIATION_REQUIRED`.
+
+The user explicitly authorized one control-only reconciliation stage,
+`P11-RC`, whose baseline is commit
+`515e3fb0e660d3c7975e3828eb3e26ac025c7cf2`. This authorization:
+
+- preserves every completed `P11-00` through `P11-07` commit and evidence
+  record byte-for-byte;
+- preserves the original `P11-08` through `P11-12` queue rows verbatim as the
+  historical frozen plan;
+- records that `P11-08` through `P11-12` were not executed and receive no
+  stage verdict because their serial runtime frontier is unreachable;
+- authorizes only the terminal route `P11-RC -> P11-90 -> P11-91 -> P11-99`;
+- does not authorize a BIOS replacement, B0 table, HLE opcode, guest target,
+  runtime bypass, or any other semantic implementation;
+- leaves all milestone and compatibility promotion rules unchanged.
+
+`P11-RC` is a completed boundary only when its gate and the required
+P11-00/P11-07/P11-06/P11-05 regressions each pass twice with deterministic
+evidence. The reconciled route does not reinterpret an unexecuted stage as
+`PASS`, `FAIL`, skipped, inherited-blocked or not-applicable. `P11-90`,
+`P11-91` and `P11-99` remain independent evidence stages and may begin only
+after their predecessor commits successfully.
+
 ## Analysis cache
 
 Cache keys must include, as applicable: the executable SHA-256, the CUE

@@ -1,0 +1,174 @@
+{
+  "classification": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+  "decision": "no candidate establishes all required facts; importing a replacement BIOS or emulator HLE runtime is outside Phase 11",
+  "question": "legal architecture-compatible guest representation for the B0:0x5B target and required writable target-relative object",
+  "required_but_unavailable": [
+    "deterministic guest-addressable mutable B0 table representation",
+    "normal callable guest representation for B0:0x5B",
+    "established initialization and meaning for target offsets 0x594..0x5BC",
+    "established pointer meaning at target offsets 0x884 and 0x894",
+    "callable fail-closed unsupported entries",
+    "compatibility with no BIOS image, no BIOS execution and one runtime"
+  ],
+  "schema": "openrecomp-phase11-source-exhaustion-v1",
+  "sources": [
+    {
+      "establishes": [
+        "B0:0x57 GetB0Table contract",
+        "B0:0x5B lookup and documented target-relative patch pattern"
+      ],
+      "files": [
+        {
+          "git_blob": "02145e7b785f4e20ed8e0f13deb44c54758ddfe6",
+          "path": "docs/kernelbios.md"
+        }
+      ],
+      "insufficient": "documentation supplies no licensed callable guest code object, initialized table representation or fail-closed entry targets",
+      "name": "PSX-SPX",
+      "repository": "https://github.com/psx-spx/psx-spx.github.io",
+      "revision": "f37fc9a7a889a55e3bdec2d09a8a34640edf3082"
+    },
+    {
+      "establishes": [
+        "mutable 0x60-entry B0 table",
+        "B0:0x57 returns the table",
+        "B0:0x5B calls setSIO0AutoAck and returns the old value",
+        "unsupported entries use an explicit thunk"
+      ],
+      "files": [
+        {
+          "git_blob": "490e7cb3ef1aebb1c931ff365233bb7adeaaf54f",
+          "path": "LICENSE"
+        },
+        {
+          "git_blob": "55f56a3cae2dacd0e52cdefcee785631885e4a11",
+          "path": "openbios/kernel/handlers.c"
+        },
+        {
+          "git_blob": "70367583247abc3782759ab13266350af5b48f23",
+          "path": "openbios/kernel/vectors.s"
+        },
+        {
+          "git_blob": "b3450294e0a7c246a9705845f5ce1dd9863fd28c",
+          "path": "openbios/psx-bios.ld"
+        },
+        {
+          "git_blob": "b846e440f98f89f55cd8eecd93fa815e424c4099",
+          "path": "openbios/sio0/driver.c"
+        },
+        {
+          "git_blob": "c23fdff10fb9f994796c61c97265d0b6a0fa2592",
+          "path": "openbios/sio0/sio0.h"
+        }
+      ],
+      "insufficient": "addresses and relative layout are linker-specific and entries depend on the complete replacement BIOS; the required target-relative object is not a portable API guarantee",
+      "license": "MIT",
+      "name": "PCSX-Redux OpenBIOS/nugget",
+      "repository": "https://github.com/pcsx-redux/nugget",
+      "revision": "77adff516017044f2c6d9b21f66c124b9593959a",
+      "superproject_repository": "https://github.com/grumpycoders/pcsx-redux",
+      "superproject_revision": "911271b7af5008a2fbbcb9b2390e26475208423d",
+      "symbols": [
+        "B0table",
+        "getB0table",
+        "setSIO0AutoAck",
+        "unimplementedThunk"
+      ]
+    },
+    {
+      "establishes": [
+        "host HLE returns 0x00000874 for B0:0x57"
+      ],
+      "files": [
+        {
+          "git_blob": "5b6e7c66c276e7610d4a73c70ec1a1f7c1003259",
+          "path": "COPYING"
+        },
+        {
+          "git_blob": "5494a20310c74d640ce3e5b79be6a5aae1bed838",
+          "path": "PcsxSrc/PsxBios.c"
+        }
+      ],
+      "insufficient": "no callable guest B0:0x5B target, initialized guest table entries or documented writable target-relative object",
+      "license": "GPL-2.0",
+      "name": "PCSX HLE BIOS in PSX-Bundle",
+      "repository": "https://cgit.grumpycoder.net/cgit/PSX-Bundle",
+      "revision": "7787631c6ee37a489732c95cb0864422e3a3bdd1",
+      "symbols": [
+        "bios_GetB0Table",
+        "bios_ChangeClearPad"
+      ]
+    },
+    {
+      "establishes": [
+        "emulator-specific fake B0 table and 0x43d0 HLE trap",
+        "synthetic helper code at the documented relative call offsets"
+      ],
+      "files": [
+        {
+          "git_blob": "abacb82956be1ca676b1f864c9df61752deba442",
+          "path": "COPYING"
+        },
+        {
+          "git_blob": "542b9d4d3fd92b92f8f5f74421bc79f1b7f806f8",
+          "path": "libpcsxcore/psxbios.c"
+        }
+      ],
+      "insufficient": "the entry is a custom emulator HLE opcode, the patch span is not an independently specified guest object, and reuse requires a second HLE runtime",
+      "license": "GPL-2.0",
+      "name": "PCSX-ReARMed HLE BIOS",
+      "repository": "https://github.com/notaz/pcsx_rearmed",
+      "revision": "17b970035fee27a0e21f1ba9f9b1e75377329de3",
+      "symbols": [
+        "psxBios_GetB0Table",
+        "psxBios_ChangeClearPad",
+        "A_B0_5B_TRAP"
+      ]
+    },
+    {
+      "establishes": [
+        "legacy 0x00000874 host-HLE table convention"
+      ],
+      "files": [
+        {
+          "git_blob": "78d6dccf703947ae1db5a967866fa80b721f8df0",
+          "path": "COPYING"
+        },
+        {
+          "git_blob": "204e75365ca1fe0194881b7ea4bc3fca8d61d209",
+          "path": "libpcsxcore/psxbios.c"
+        }
+      ],
+      "insufficient": "placeholder entries and emulator-only HLE opcodes do not provide a normal callable guest target or a proven writable target object",
+      "license": "GPL-3.0",
+      "name": "PCSX-Reloaded mirror HLE BIOS",
+      "repository": "https://github.com/mirror/pcsxr",
+      "revision": "51b2ad7c2bdc83ed6a0f297679233bc4d19de027",
+      "symbols": [
+        "psxBios_GetB0Table",
+        "psxBios_ChangeClearPad"
+      ]
+    },
+    {
+      "establishes": [
+        "PCSX-derived 0x00000874 host-HLE convention"
+      ],
+      "files": [
+        {
+          "git_blob": "420ed6b69948ce630c7d66d789034cee264f09b5",
+          "path": "src/psx/bios.cpp"
+        }
+      ],
+      "insufficient": "no independent normal guest representation and incomplete repository-level license record; it retains the same host-HLE architectural dependency",
+      "license": "source header GPL-2.0-or-later; no top-level license file at pin",
+      "name": "EmuMaster PCSX-derived HLE BIOS",
+      "repository": "https://github.com/ruedigergad/emumaster",
+      "revision": "9ab6e8d2bc3966fcb80f6a085346fb0e509bd9e0",
+      "symbols": [
+        "psxBios_GetB0Table",
+        "psxBios_ChangeClearPad"
+      ]
+    }
+  ],
+  "stage": "P11-RC"
+}

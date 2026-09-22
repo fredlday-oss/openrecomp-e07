@@ -1,0 +1,84 @@
+{
+  "artifact_sha256": {
+    "baseline.json": "b97341a9f3fb67778612d12384768abc70e4a7dc26b663dabcc6b43e0de96668",
+    "fixture_identity.json": "3daf28e628c4a945069fbd39a218038b996792fecfe60f409e98a40def445c4f",
+    "frontier.json": "0c693ce4a7821d3f48c5bc2a2d0e43b2eab0b82a1c327c972f0c72607c0865e8",
+    "milestone_inheritance.json": "13c79feb37177b3d08f3b907339ec8c4d73ce7bc5c44a430c5ec2e2bd43f82f1",
+    "p11_00_tests.json": "c424c5d1b3d132e8f9068e666b58003915f8cf86d70e684f57b987aa8a44be09"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "baseline.json": "b97341a9f3fb67778612d12384768abc70e4a7dc26b663dabcc6b43e0de96668",
+        "fixture_identity.json": "3daf28e628c4a945069fbd39a218038b996792fecfe60f409e98a40def445c4f",
+        "frontier.json": "0c693ce4a7821d3f48c5bc2a2d0e43b2eab0b82a1c327c972f0c72607c0865e8",
+        "milestone_inheritance.json": "13c79feb37177b3d08f3b907339ec8c4d73ce7bc5c44a430c5ec2e2bd43f82f1",
+        "p11_00_tests.json": "c424c5d1b3d132e8f9068e666b58003915f8cf86d70e684f57b987aa8a44be09"
+      },
+      "command": [
+        "python",
+        "tools/test_phase11_boundary_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase11/evidence/P11-RC/p11-00-regression"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P11_00=PASS",
+        "OPENRECOMP_PHASE11_BOUNDARY_V1=PASS tests=482",
+        "OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p11_00_tests_sha256": "c424c5d1b3d132e8f9068e666b58003915f8cf86d70e684f57b987aa8a44be09",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 18236,
+      "stdout_bytes_lf": 17748,
+      "stdout_sha256_lf": "5bb0760de329ae71efdcb856f8cecf271b6a2196cae625e35ef7ba5e9f3b6904",
+      "stdout_sha256_raw": "1d75d45a874531b986e79c83a0c9a517da2ba81053c945b06f20554790b0ba7a"
+    },
+    {
+      "artifact_sha256": {
+        "baseline.json": "b97341a9f3fb67778612d12384768abc70e4a7dc26b663dabcc6b43e0de96668",
+        "fixture_identity.json": "3daf28e628c4a945069fbd39a218038b996792fecfe60f409e98a40def445c4f",
+        "frontier.json": "0c693ce4a7821d3f48c5bc2a2d0e43b2eab0b82a1c327c972f0c72607c0865e8",
+        "milestone_inheritance.json": "13c79feb37177b3d08f3b907339ec8c4d73ce7bc5c44a430c5ec2e2bd43f82f1",
+        "p11_00_tests.json": "c424c5d1b3d132e8f9068e666b58003915f8cf86d70e684f57b987aa8a44be09"
+      },
+      "command": [
+        "python",
+        "tools/test_phase11_boundary_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase11/evidence/P11-RC/p11-00-regression"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P11_00=PASS",
+        "OPENRECOMP_PHASE11_BOUNDARY_V1=PASS tests=482",
+        "OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p11_00_tests_sha256": "c424c5d1b3d132e8f9068e666b58003915f8cf86d70e684f57b987aa8a44be09",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 18236,
+      "stdout_bytes_lf": 17748,
+      "stdout_sha256_lf": "5bb0760de329ae71efdcb856f8cecf271b6a2196cae625e35ef7ba5e9f3b6904",
+      "stdout_sha256_raw": "1d75d45a874531b986e79c83a0c9a517da2ba81053c945b06f20554790b0ba7a"
+    }
+  ],
+  "schema": "openrecomp-phase11-official-runs-v1",
+  "stage": "P11-00",
+  "stderr_empty_both": true
+}
