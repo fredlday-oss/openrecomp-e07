@@ -23,22 +23,32 @@
   zero device traffic, zero non-RAM signatures) so no event/interrupt/DMA/
   timer/memory-control behaviour is proven necessary (zero delta); the new
   exact frontier is the driver-method indirect call at `0x80016204` with the
-  statically proven method pointer `0x80016384`.
+  statically proven method pointer `0x80016384`;
+- `P11-04` `PASS` (851 checks): the frozen frontier is extended from the
+  statically proven driver-method entry `0x80016384` (4068 + 264 = 4332
+  reachable words; 121 functions / 793 blocks), the driver-method call is
+  resolved with `EXACT_CONSTANT_TARGET` evidence through the additive guarded
+  dispatch, two newly reachable op types (`nor`, `sllv`) receive independently
+  verified additive rules, and the frontier moves to the documented `A0:0x49`
+  GPU_cw vector call at `0x8001b424` (block index 468286). Milestone B is
+  NOT promoted.
 
 ## Immediate next action
 
-`P11-04` - milestone B: initialization completion. The exact next blocker is
-the driver-method indirect call at `0x80016204` (`fn_800161ec`, block index
-468281) whose source pointer `0x80016384` is a statically initialized image
-value (driver structure `0x80029624`, field offset 12; the pointer occurs
-exactly once in the image at `0x80029630` and starts with a function prologue).
-P11-04 should translate the proven target as an additional entry point,
-classify the site with explicit evidence (dynamic/static proven target set with
-a fail-closed default), and continue until a post-initialization boundary can
-be defined and tested; if initialization cannot be proven complete, classify
-the exact remaining blocker without promoting milestone B. Instrumented and
-uninstrumented build products live under `.openrecomp-phase11/build/`
-(untracked).
+`P11-05` - GPU command-stream frontier. The exact next blocker is the
+documented `A0:0x49` GPU_cw vector call at `0x8001b424` in `fn_8001b420`
+(source `$t2` = `0x000000a0`, delay slot holds index `0x49`). P11-05 must
+classify the request (the command word argument and its provenance, the call
+site context, the register state), determine by causal A/B whether serving it
+is required for progress, and implement only the evidence-required behaviour
+through the frozen Phase-9 typed GPU boundary (known commands served, unknown
+commands fail closed). Milestone C may be promoted only if genuine GP0/GP1
+command writes are reached, ordered deterministically and classified; GP1
+status polling alone does not qualify. Record the exact new frontier either
+way. Working-tree note: the P11-02 gate's rule-count expectation is now
+surface-relative to accommodate the growing additive rule set; its printed
+stdout is unchanged. Instrumented and uninstrumented build products live under
+`.openrecomp-phase11/build/` (untracked).
 
 ## Private fixture notes
 

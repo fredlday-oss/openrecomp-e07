@@ -85,6 +85,15 @@ DEFAULT_PRIVATE_FIXTURE_ROOT = ROOT.parents[1] / "fixtures" / "psx" / "hercules"
 
 FROZEN_PROGRAM_FINGERPRINT = "a047a52fb460d3786e5bff03b5c26ac2978ae768b581f5e6c4a9cbc284db4a9a"
 
+#: The documented service surface this stage resolved. Later stages extend the
+#: module surface; this stage pins its own subset so its record stays exactly
+#: reproducible.
+SERVICE_SUBSET = {
+    "A0": {0x2B: bios.DOCUMENTED_A0_SERVICES[0x2B]},
+    "B0": {},
+    "C0": {},
+}
+
 EXPECTED_SERVICE_SITE = {
     "site": "0x80026ccc",
     "vector": "A0",
@@ -228,7 +237,7 @@ def structure_for_words(words: list[int]):
     )
     base = p10_structure.analyze_structure(pipeline.analysis, source=source, entry=image.header.pc0)
     result, document = structure_bridge.analyze_structure_with_bios(
-        pipeline.analysis, source=source, entry=image.header.pc0
+        pipeline.analysis, source=source, entry=image.header.pc0, services=SERVICE_SUBSET
     )
     sites = bios.resolved_sites(document)
     return image, contract, flat, base, result, sites, document
@@ -296,10 +305,10 @@ def main() -> int:
         pipeline = bridge.analyze(image, contract, flat)
         base_result = p10_structure.analyze_structure(pipeline.analysis, source=source, entry=image.header.pc0)
         result, site_document = structure_bridge.analyze_structure_with_bios(
-            pipeline.analysis, source=source, entry=image.header.pc0
+            pipeline.analysis, source=source, entry=image.header.pc0, services=SERVICE_SUBSET
         )
         sites = bios.resolved_sites(site_document)
-        classification = bios.classify_vector_sites(pipeline.analysis)
+        classification = bios.classify_vector_sites(pipeline.analysis, services=SERVICE_SUBSET)
         check(
             "bios:histogram",
             classification["histogram"] == {"BIOS_VECTOR_SERVICE": 1, "BIOS_VECTOR_NOT_IMPLEMENTED": 18},
@@ -402,7 +411,8 @@ def main() -> int:
         )
         check(
             "semantics:phase10-rules-reused",
-            rule_document["rules_total"] == len(p10_structure_rule_count()) + 1,
+            rule_document["rules_total"]
+            == len(p10_structure_rule_count()) + len(semantics_added_rules()) + 1,
             str(rule_document["rules_total"]),
         )
         check(
@@ -842,6 +852,12 @@ def p10_structure_rule_count() -> list:
     import p10_mips32_semantics_v1 as p10_semantics
 
     return list(p10_semantics.semantics_rules())
+
+
+def semantics_added_rules() -> list:
+    import p11_semantics_v1 as p11_semantics
+
+    return list(p11_semantics.added_rules())
 
 
 def p10_service_ids() -> list:

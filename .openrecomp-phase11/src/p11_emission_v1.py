@@ -201,6 +201,7 @@ def build_bios_build_set(
     *,
     sites: Any,
     trace: bool,
+    guarded_resolved_indirect: bool = False,
 ) -> dict[str, Any]:
     """The Phase-11 BIOS-service emission set (optionally instrumented).
 
@@ -215,10 +216,16 @@ def build_bios_build_set(
     import p11_runtime_v1 as p11_runtime
     import p11_semantics_v1 as p11_semantics
 
-    base = p10_emission.build_build_set(base_structure, contract, flat, fixture_sha256, driver="phase10")
+    base = None
+    base_error = None
+    try:
+        base = p10_emission.build_build_set(base_structure, contract, flat, fixture_sha256, driver="phase10")
+    except Exception as exc:  # the frozen Phase-10 rule table may not cover a newly added op
+        base_error = f"{type(exc).__name__}: {exc}"
     instrumentation = TRACE_INSTRUMENTATION if trace else None
     config = p11_semantics.build_emitter_config(
-        structure.discovery.entry_function_id, list(sites), instrumentation=instrumentation
+        structure.discovery.entry_function_id, list(sites), instrumentation=instrumentation,
+        guarded_resolved_indirect=guarded_resolved_indirect,
     )
     program = emit_host_translation(structure.units, structure.classification, config=config)
     support_text, runtime_record = p11_runtime.compose_runtime_source(list(sites), trace=trace)
@@ -245,8 +252,9 @@ def build_bios_build_set(
         "files": files,
         "hashes": {name: sha256_text(text) for name, text in files.items()},
         "program_fingerprint": program.fingerprint(),
-        "base_program_fingerprint": base["program_fingerprint"],
-        "base_hashes": base["hashes"],
+        "base_program_fingerprint": None if base is None else base["program_fingerprint"],
+        "base_hashes": None if base is None else base["hashes"],
+        "base_error": base_error,
         "runtime_composition": runtime_record,
         "trace": runtime_record.get("trace_fragment"),
         "trace_configuration": TRACE_CONFIGURATION if trace else None,

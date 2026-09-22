@@ -61,7 +61,7 @@ from openrecomp.translation_units import TranslationUnit, TranslationUnitSet
 
 HOST_EMITTER_VERSION = "1.0.0"
 
-_BINOP_KINDS = frozenset({"add", "sub", "mul", "and", "or", "xor", "shl", "lshr", "ashr"})
+_BINOP_KINDS = frozenset({"add", "sub", "mul", "and", "or", "xor", "nor", "shl", "shlv", "lshr", "ashr"})
 _UNSIGNED_PREDICATES = frozenset({"eq", "ne", "ult", "ule", "ugt", "uge"})
 _SIGNED_PREDICATES = frozenset({"slt", "sle", "sgt", "sge"})
 _PREDICATES = _UNSIGNED_PREDICATES | _SIGNED_PREDICATES
@@ -491,6 +491,7 @@ class HostEmitterConfig:
     delay_slot_metadata_key: str | None = None
     link_register: str | None = None
     instrumentation: HostInstrumentation | None = None
+    guarded_resolved_indirect: bool = False
 
     def __post_init__(self) -> None:
         if not isinstance(self.semantics, HostSemantics):
@@ -521,6 +522,8 @@ class HostEmitterConfig:
                 raise HostEmitterError("config.instrumentation must be a HostInstrumentation or null")
             if not self.instrumentation.enabled():
                 raise HostEmitterError("config.instrumentation must enable at least one hook or be null")
+        if not isinstance(self.guarded_resolved_indirect, bool):
+            raise HostEmitterError("config.guarded_resolved_indirect must be a bool")
 
 
 @dataclass(frozen=True)
@@ -935,6 +938,14 @@ class HostEmitter:
         simple = {"add": "+", "sub": "-", "mul": "*", "and": "&", "or": "|", "xor": "^"}
         if kind in simple:
             return [f"    {dest} = (({lhs}) {simple[kind]} ({rhs})) & or_mask({bits}u);"]
+        if kind == "nor":
+            return [f"    {dest} = (~(({lhs}) | ({rhs}))) & or_mask({bits}u);"]
+        if kind == "shlv":
+            # Architecture-exact MIPS variable shift: the shift amount is masked
+            # to the low log2(bits) bits (it is never a fail-closed condition).
+            return [
+                f"    {dest} = (({lhs}) << (({rhs}) & {bits - 1}u)) & or_mask({bits}u);"
+            ]
         if kind in {"shl", "lshr", "ashr"}:
             lines = [f'    if (({rhs}) >= {bits}u) {{ or_fail("shift count is not normalized"); return; }}']
             if kind == "shl":
@@ -1237,7 +1248,7 @@ class HostEmitter:
         targets = classification.targets
         if not targets:
             raise HostEmitterError(f"unit {context.unit.unit_id}: RESOLVED indirect jump has no targets")
-        if len(targets) == 1:
+        if len(targets) == 1 and not self.config.guarded_resolved_indirect:
             return [f"    goto {self._resolved_label(context, targets[0])};"]
         lines = [f"    switch ((uint64_t)({self._indirect_source(rule, block, context)})) {{"]
         for target in targets:
@@ -1257,7 +1268,7 @@ class HostEmitter:
         if not targets:
             raise HostEmitterError(f"unit {context.unit.unit_id}: RESOLVED indirect call has no targets")
         continuation = self._continuation(block, context)
-        if len(targets) == 1:
+        if len(targets) == 1 and not self.config.guarded_resolved_indirect:
             callee = self._resolved_callee(context, targets[0])
             if callee not in context.references:
                 context.references.append(callee)

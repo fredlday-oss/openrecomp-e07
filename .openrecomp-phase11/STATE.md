@@ -67,7 +67,7 @@ OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 | P11-01 | PASS |
 | P11-02 | PASS |
 | P11-03 | PASS |
-| P11-04 | PENDING |
+| P11-04 | PASS |
 | P11-05 | PENDING |
 | P11-06 | PENDING |
 | P11-07 | PENDING |
@@ -81,6 +81,33 @@ OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 | P11-99 | PENDING |
 
 ## Stage records
+
+### P11-04 — Milestone B: initialization completion
+
+PASS (851 checks). Gate `tools/test_phase11_initialization_v1.py` run twice
+through the Phase-11 stage runner with byte-identical stdout (30792 bytes LF,
+sha256 `448c9dcb...`), empty stderr and exit 0. Milestone B is **NOT**
+promoted.
+
+- the frozen Phase-3 code frontier is re-run from the statically proven
+  driver-method entry `0x80016384` and merged with the inherited frontier
+  (4068 + 264 = 4332 reachable words, 682 delay slots, records must agree
+  exactly); the merged structure has 121 functions and 793 blocks;
+- the P11-03 driver-method indirect call is resolved with
+  `EXACT_CONSTANT_TARGET` evidence and emitted through the additive guarded
+  dispatch (`default: or_fail("indirect target outside proven set")`);
+- two newly reachable op types (`nor`, `sllv`) receive architecture-exact
+  additive rules, independently verified with a boundary case;
+- public synthetic native fixtures verify the guarded dispatch both ways and
+  the two rules;
+- the frontier moves again to the documented `A0:0x49` GPU_cw vector call at
+  `0x8001b424` (block index 468286); the exact remaining blocker is recorded
+  and milestone B remains `NOT_PROVEN`;
+- documented divergence: the additive semantics surface grew, so the P11-02
+  gate rule-count expectation is now surface-relative (labels and stdout
+  unchanged); the committed P11-02/P11-03 sidecars remain historically
+  accurate and are not rewritten;
+- evidence: `.openrecomp-phase11/evidence/P11-04/`.
 
 ### P11-03 — Event / interrupt / DMA progress contract
 

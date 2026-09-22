@@ -22,6 +22,7 @@ import p10_mips32_semantics_v1 as p10_semantics
 import p11_bios_v1 as bios
 from openrecomp import runtime_abi as rt_abi
 from openrecomp.host_emitter import (
+    HostBinop,
     HostCallOperation,
     HostEmitterConfig,
     HostInstrumentation,
@@ -34,6 +35,11 @@ from openrecomp.program_model import InstructionFlow
 SEMANTICS_VERSION = "1.1.0"
 
 ARCHITECTURE = p10_semantics.ARCHITECTURE
+
+#: Additive Phase-11 rules for op types that only become reachable through a
+#: proven additional entry point. Each rule is architecture-exact and verified
+#: independently (see the stage gate's synthetic reference comparison).
+ADDED_OPS = ("nor", "sllv")
 
 ERROR_CODES = (
     "BIOS_RULE_DUPLICATE",
@@ -86,8 +92,31 @@ def bios_rules(sites: list[bios.BiosVectorSite]) -> tuple[HostInstructionSemanti
     return tuple(rules)
 
 
+def added_rules() -> tuple[HostInstructionSemantics, ...]:
+    """The additive Phase-11 rules for newly reachable op types."""
+    r = HostRegister
+    frozen_ops = {rule.op for rule in p10_semantics.semantics_rules()}
+    drift = sorted(op for op in ADDED_OPS if op in frozen_ops)
+    if drift:
+        raise Phase11SemanticsError("BIOS_RULE_DRIFT", ",".join(drift))
+    return (
+        HostInstructionSemantics(
+            ARCHITECTURE,
+            "nor",
+            InstructionFlow.NORMAL,
+            operations=(HostBinop(r("rd"), r("rs"), r("rt"), "nor"),),
+        ),
+        HostInstructionSemantics(
+            ARCHITECTURE,
+            "sllv",
+            InstructionFlow.NORMAL,
+            operations=(HostBinop(r("rd"), r("rt"), r("rs"), "shlv"),),
+        ),
+    )
+
+
 def build_semantics(sites: list[bios.BiosVectorSite]) -> HostSemantics:
-    return HostSemantics(p10_semantics.semantics_rules() + bios_rules(sites))
+    return HostSemantics(p10_semantics.semantics_rules() + added_rules() + bios_rules(sites))
 
 
 def build_service_table(sites: list[bios.BiosVectorSite]) -> rt_abi.RuntimeServiceTable:
@@ -110,6 +139,7 @@ def build_emitter_config(
     sites: list[bios.BiosVectorSite],
     *,
     instrumentation: HostInstrumentation | None = None,
+    guarded_resolved_indirect: bool = False,
 ) -> HostEmitterConfig:
     return HostEmitterConfig(
         semantics=build_semantics(sites),
@@ -120,6 +150,7 @@ def build_emitter_config(
         delay_slot_metadata_key=p10_semantics.DELAY_SLOT_METADATA_KEY,
         link_register=p10_semantics.LINK_REGISTER,
         instrumentation=instrumentation,
+        guarded_resolved_indirect=guarded_resolved_indirect,
     )
 
 
