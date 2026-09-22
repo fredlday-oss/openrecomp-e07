@@ -14,9 +14,10 @@
  *   - the first fail-closed indirect site with its address, message, enclosing
  *     function and its position in the block stream.
  *
- * It prints no per-event device streams: the counts and digests are the
- * comparable observables. It contains no guest machine code, no BIOS image, no
- * guest payload bytes and no console-derived material.
+ * Device reads remain count/digest-only. GPU writes additionally have a bounded
+ * ordered typed transcript sourced from the frozen Phase-9 event records; this
+ * exposes port, width, classifier flag, value and opcode without adding GPU
+ * emulation. It contains no guest machine code, BIOS image or guest payload.
  */
 
 #include <setjmp.h>
@@ -97,6 +98,9 @@ uint64_t p11_bound_denials(void);
 int p11_bound_reached(void);
 
 #define P11_TRACE_LAST_PRINT_LIMIT 512u
+#define P11_GPU_DIRECTION_WRITE 1u
+#define P11_GPU_EVENT_FLAG_KNOWN 1u
+#define P11_GPU_EVENT_FLAG_BLOCKER 2u
 
 static uint64_t p10_fnv1a64(const unsigned char *data, size_t length)
 {
@@ -151,6 +155,11 @@ int main(int argc, char **argv)
     uint64_t memory;
     size_t count;
     uint32_t gpu_count;
+    uint32_t gpu_write_count = 0u;
+    uint32_t gp0_write_count = 0u;
+    uint32_t gp1_write_count = 0u;
+    uint32_t gpu_known_write_count = 0u;
+    uint32_t gpu_blocker_write_count = 0u;
     uint32_t input_count;
     uint32_t spu_count;
     uint32_t cdrom_count;
@@ -192,6 +201,41 @@ int main(int argc, char **argv)
     printf("memory=0x%016llx\n", (unsigned long long)memory);
     printf("gpu_events=%lu\n", (unsigned long)gpu_count);
     printf("gpu=0x%016llx\n", (unsigned long long)p10_event_digest(p9_runtime_gpu_events(), gpu_count));
+    for (index = 0; index < gpu_count; ++index) {
+        const struct p9_event *event = &p9_runtime_gpu_events()[index];
+        if (event->direction == P11_GPU_DIRECTION_WRITE) {
+            ++gpu_write_count;
+            if (event->address == (uint32_t)P9_GP0_ADDR) { ++gp0_write_count; }
+            if (event->address == (uint32_t)P9_GP1_ADDR) { ++gp1_write_count; }
+            if (event->flags == P11_GPU_EVENT_FLAG_KNOWN) { ++gpu_known_write_count; }
+            if (event->flags == P11_GPU_EVENT_FLAG_BLOCKER) { ++gpu_blocker_write_count; }
+        }
+    }
+    printf("gpu_write_events=%lu\n", (unsigned long)gpu_write_count);
+    printf("gpu_gp0_writes=%lu\n", (unsigned long)gp0_write_count);
+    printf("gpu_gp1_writes=%lu\n", (unsigned long)gp1_write_count);
+    printf("gpu_known_writes=%lu\n", (unsigned long)gpu_known_write_count);
+    printf("gpu_blocker_writes=%lu\n", (unsigned long)gpu_blocker_write_count);
+    {
+        uint32_t write_position = 0u;
+        for (index = 0; index < gpu_count; ++index) {
+            const struct p9_event *event = &p9_runtime_gpu_events()[index];
+            if (event->direction != P11_GPU_DIRECTION_WRITE) {
+                continue;
+            }
+            printf("gpu_write_%lu=%llu,%u,%u,%u,%u,0x%08x,0x%08x,0x%02x\n",
+                   (unsigned long)write_position,
+                   (unsigned long long)index,
+                   (unsigned)event->service,
+                   (unsigned)event->direction,
+                   (unsigned)event->width_bits,
+                   (unsigned)event->flags,
+                   (unsigned)event->address,
+                   (unsigned)event->value,
+                   (unsigned)((event->value >> 24u) & 0xFFu));
+            ++write_position;
+        }
+    }
     printf("input_events=%lu\n", (unsigned long)input_count);
     printf("input=0x%016llx\n", (unsigned long long)p10_event_digest(p9_runtime_input_events(), input_count));
     printf("spu_events=%lu\n", (unsigned long)spu_count);

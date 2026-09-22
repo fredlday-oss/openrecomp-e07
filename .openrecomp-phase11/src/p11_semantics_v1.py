@@ -32,7 +32,7 @@ from openrecomp.host_emitter import (
 )
 from openrecomp.program_model import InstructionFlow
 
-SEMANTICS_VERSION = "1.1.0"
+SEMANTICS_VERSION = "1.2.0"
 
 ARCHITECTURE = p10_semantics.ARCHITECTURE
 
@@ -73,6 +73,12 @@ def bios_rules(sites: list[bios.BiosVectorSite]) -> tuple[HostInstructionSemanti
         seen[site.op_name] = site.service_id
         if site.kind != "INDIRECT_JUMP":
             raise Phase11SemanticsError("BIOS_RULE_DRIFT", f"{site.op_name}:{site.kind}")
+        service = bios.VECTOR_TABLES[site.vector][site.function_index]
+        args = tuple(
+            HostRegister(f"bios_arg{position}")
+            for position in range(len(service["signature"]))
+        )
+        result_register = service.get("result_register", bios.BIOS_RETURN_REGISTER)
         rules.append(
             HostInstructionSemantics(
                 ARCHITECTURE,
@@ -80,12 +86,8 @@ def bios_rules(sites: list[bios.BiosVectorSite]) -> tuple[HostInstructionSemanti
                 InstructionFlow.INDIRECT_JUMP,
                 host_call=HostCallOperation(
                     site.service_id,
-                    (
-                        HostRegister("bios_arg0"),
-                        HostRegister("bios_arg1"),
-                        HostRegister("bios_arg2"),
-                    ),
-                    result=HostRegister("bios_ret"),
+                    args,
+                    result=(HostRegister("bios_ret") if result_register is not None else None),
                 ),
             )
         )

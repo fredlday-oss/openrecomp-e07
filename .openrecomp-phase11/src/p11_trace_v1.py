@@ -24,7 +24,7 @@ from openrecomp import build_pipeline as bp
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 
-TRACE_VERSION = "1.0.0"
+TRACE_VERSION = "1.1.0"
 
 BUILD_WORKSPACE = ROOT / ".openrecomp-phase11" / "build" / "p11-trace"
 
@@ -32,6 +32,8 @@ TRACE_SCALAR_KEYS = (
     "fixture", "failed", "error", "exit_status",
     "registers", "memory",
     "gpu_events", "gpu", "input_events", "input", "spu_events", "spu",
+    "gpu_write_events", "gpu_gp0_writes", "gpu_gp1_writes",
+    "gpu_known_writes", "gpu_blocker_writes",
     "cdrom_events", "cdrom",
     "reads", "writes", "denied", "host_calls",
     "p10_access_budget", "p10_access_count", "p10_budget_denials",
@@ -54,7 +56,8 @@ def sha256_bytes(data: bytes) -> str:
 
 def parse_driver_output(stdout: str) -> dict[str, Any]:
     """Parse the Phase-11 observable driver output into a deterministic record."""
-    record: dict[str, Any] = {"register_file": {}, "nonram": {}, "trace_first": [], "trace_last": [],
+    record: dict[str, Any] = {"register_file": {}, "nonram": {}, "gpu_writes": [],
+                              "trace_first": [], "trace_last": [],
                               "trace_before": [], "trace_after": [],
                               "trace_block_counts": {}, "trace_function_counts": {}}
     for line in stdout.splitlines():
@@ -68,6 +71,18 @@ def parse_driver_output(stdout: str) -> dict[str, Any]:
         elif key.startswith("nonram_") and key not in ("nonram_signatures", "nonram_overflow"):
             address, width, is_write, reason, count = value.split(",")
             record["nonram"][f"{address}:{width}:{is_write}:{reason}"] = count
+        elif key.startswith("gpu_write_"):
+            sequence, service, direction, width, flags, address, event_value, command = value.split(",")
+            record["gpu_writes"].append({
+                "sequence": int(sequence),
+                "service": int(service),
+                "direction": int(direction),
+                "width_bits": int(width),
+                "flags": int(flags),
+                "address": address,
+                "value": event_value,
+                "command": command,
+            })
         elif key.startswith("trace_first_"):
             record["trace_first"].append(value)
         elif key.startswith("trace_last_"):

@@ -24,6 +24,8 @@ evidence-demonstrated gaps are extended.
 
 ## Claim markers
 
+- `OPENRECOMP_PHASE11_HERCULES_GPU_COMMAND_PROOF=PROVEN` (milestone C,
+  private-fixture bounded: one genuine typed GP0 command write reached)
 - `OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN` (promote only
   if milestone B is actually proven)
 - `OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF=NOT_PROVEN` (promote only if
@@ -36,6 +38,7 @@ evidence-demonstrated gaps are extended.
 
 STATUS=IN_PROGRESS
 FINAL_VERDICT=PENDING
+OPENRECOMP_PHASE11_HERCULES_GPU_COMMAND_PROOF=PROVEN
 OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
 OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF=NOT_PROVEN
 OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
@@ -68,7 +71,7 @@ OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 | P11-02 | PASS |
 | P11-03 | PASS |
 | P11-04 | PASS |
-| P11-05 | PENDING |
+| P11-05 | PASS |
 | P11-06 | PENDING |
 | P11-07 | PENDING |
 | P11-08 | PENDING |
@@ -81,6 +84,37 @@ OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 | P11-99 | PENDING |
 
 ## Stage records
+
+### P11-05 — GPU command-stream frontier
+
+PASS (294 checks). Gate `tools/test_phase11_gpu_v1.py` run twice through the
+Phase-11 stage runner with byte-identical stdout (12416 raw bytes, LF SHA-256
+`7a860bea...`), empty stderr, exit 0 and byte-identical JSON sidecars. The
+frozen P11-04 gate was also run unchanged twice: 851 checks PASS, identical
+stdout, empty stderr and exit 0.
+
+- diagnostic classification `GUEST_VALUE_CONFIRMED`: native and reference
+  agree on the documented `A0:0x49` call and `$a0 = 0x0002a244`; the argument
+  is a stable RAM-derived pointer with zero overlapping writes before the call,
+  not a CPU, translation, ABI, memory or runtime-state defect;
+- the documented one-argument, void `GPU_cw` service is lowered to a normal
+  host call and implemented only as
+  `or_rt_memory_write(P9_GP0_ADDR, 32, command)`; the frozen Phase-9 typed GPU
+  boundary and classifier are reused unchanged;
+- public original synthetic fixtures prove known-NOP ordering and
+  classification, void return/control flow, unknown opcode rejection,
+  malformed-call rejection and absence of fabricated rendering, VRAM, DMA,
+  interrupt or unrelated device state;
+- at the causal prefix A and B have the same 468287 block events and digest,
+  registers, RAM and device state; B differs only by +1 host/service call, +1
+  checked access, +1 non-RAM signature and the genuine typed GP0 write
+  `0x0002a244`, classified opcode `0x00` / `NOP` / known;
+- milestone C is **PROVEN** for the exact private fixture; milestones B, D and
+  G remain `NOT_PROVEN`;
+- the exact new frontier is an unresolved indirect call at `0x8001882c`
+  (`jalr`, source `0x8001a7dc`) in `blk_80018824` / `fn_800187b0`, block index
+  468323;
+- evidence: `.openrecomp-phase11/evidence/P11-05/`.
 
 ### P11-04 — Milestone B: initialization completion
 

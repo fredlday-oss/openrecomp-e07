@@ -39,7 +39,7 @@ from openrecomp.indirect_control_flow import (
 )
 from openrecomp.program_model import EvidenceClass
 
-BIOS_VERSION = "1.1.0"
+BIOS_VERSION = "1.2.0"
 
 #: The MIPS argument registers of the documented A0/B0/C0 calling convention.
 BIOS_ARGUMENT_REGISTERS = (4, 5, 6)
@@ -70,6 +70,15 @@ DOCUMENTED_A0_SERVICES = {
             "width, precision); the host has no console, so the formatted text is",
             "consumed and discarded; only the documented count and a digest are kept",
         ],
+        "source": "public PS1 BIOS function table documentation (PSX-SPX BIOS function summary)",
+    },
+    0x49: {
+        "name": "GPU_cw",
+        "signature": ["command"],
+        "returns": "none",
+        "result_register": None,
+        "refusal": "malformed invocation or a command rejected by the typed GP0 boundary",
+        "semantics": "submit one 32-bit command word to the checked GP0 write boundary; classify and record only",
         "source": "public PS1 BIOS function table documentation (PSX-SPX BIOS function summary)",
     },
 }
@@ -347,19 +356,21 @@ def site_plan(classification: dict[str, Any]) -> dict[str, Any]:
     """A deterministic site -> (op name, service id, argument fields) plan."""
     plan: dict[str, Any] = {}
     for document in classification["services"]:
+        service = VECTOR_TABLES[document["vector"]][document["function_index"]]
+        argument_fields = {
+            f"bios_arg{position}": register
+            for position, register in enumerate(BIOS_ARGUMENT_REGISTERS[: len(service["signature"])])
+        }
+        if service.get("result_register", BIOS_RETURN_REGISTER) is not None:
+            argument_fields["bios_ret"] = BIOS_RETURN_REGISTER
+        argument_fields["bios_index"] = document["function_index"]
         plan[document["site_hex"]] = {
             "op_name": document["op_name"],
             "service_id": document["service_id"],
             "kind": document["kind"],
             "function_index": document["function_index"],
             "vector": document["vector"],
-            "argument_fields": {
-                "bios_arg0": BIOS_ARGUMENT_REGISTERS[0],
-                "bios_arg1": BIOS_ARGUMENT_REGISTERS[1],
-                "bios_arg2": BIOS_ARGUMENT_REGISTERS[2],
-                "bios_ret": BIOS_RETURN_REGISTER,
-                "bios_index": document["function_index"],
-            },
+            "argument_fields": argument_fields,
         }
     return plan
 

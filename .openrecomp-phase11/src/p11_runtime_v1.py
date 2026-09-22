@@ -30,7 +30,7 @@ import p10_runtime_v1 as p10_runtime
 import p11_bios_v1 as bios
 import p11_semantics_v1 as semantics
 
-RUNTIME_VERSION = "1.1.0"
+RUNTIME_VERSION = "1.2.0"
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 

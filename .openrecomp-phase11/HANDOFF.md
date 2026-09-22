@@ -32,23 +32,29 @@
   verified additive rules, and the frontier moves to the documented `A0:0x49`
   GPU_cw vector call at `0x8001b424` (block index 468286). Milestone B is
   NOT promoted.
+- `P11-05` `PASS` (294 checks): `GUEST_VALUE_CONFIRMED` preserves the
+  diagnostic result without private payload material; the documented
+  one-argument, void `A0:0x49` `GPU_cw` service submits through the frozen
+  typed GP0 boundary; public original fixtures cover ordered known NOPs,
+  unknown commands, malformed calls, control flow and absence of fabricated
+  GPU/device state; the causal A/B records exactly one required GP0 write of
+  `0x0002a244`, classified opcode `0x00` / known `NOP`, and moves the frontier
+  to `0x8001882c` at block index 468323. Milestone C is PROVEN for the exact
+  private fixture; B, D and G remain NOT_PROVEN. The frozen P11-04 gate passes
+  unchanged at 851 checks.
 
 ## Immediate next action
 
-`P11-05` - GPU command-stream frontier. The exact next blocker is the
-documented `A0:0x49` GPU_cw vector call at `0x8001b424` in `fn_8001b420`
-(source `$t2` = `0x000000a0`, delay slot holds index `0x49`). P11-05 must
-classify the request (the command word argument and its provenance, the call
-site context, the register state), determine by causal A/B whether serving it
-is required for progress, and implement only the evidence-required behaviour
-through the frozen Phase-9 typed GPU boundary (known commands served, unknown
-commands fail closed). Milestone C may be promoted only if genuine GP0/GP1
-command writes are reached, ordered deterministically and classified; GP1
-status polling alone does not qualify. Record the exact new frontier either
-way. Working-tree note: the P11-02 gate's rule-count expectation is now
-surface-relative to accommodate the growing additive rule set; its printed
-stdout is unchanged. Instrumented and uninstrumented build products live under
-`.openrecomp-phase11/build/` (untracked).
+`P11-06` - GPU/DMA/VRAM semantic closure. Start from the exact first B failure:
+the unresolved indirect call (`jalr`) at `0x8001882c`, source value
+`0x8001a7dc`, in `blk_80018824` / `fn_800187b0` (entry context `0x8001b3f4`),
+block index 468323. Establish the dynamic target provenance and resolve it only
+if independently proven and reachable, using a guarded dispatch. Then classify
+the first post-resolution GPU/DMA/VRAM request and perform a causal A/B before
+adding semantics. Do not infer the target or behavior from the pointer value,
+function proximity, GPU_cw name or polling loop. Reuse the P11-05 ordered GPU
+write transcript and frozen classifier. Instrumented and uninstrumented build
+products live under `.openrecomp-phase11/build/` (untracked).
 
 ## Private fixture notes
 

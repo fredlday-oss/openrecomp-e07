@@ -25,6 +25,13 @@
  *       recorded. Malformed or unsupported conversions, an over-long format or
  *       string, or more varargs than the declared surface fail closed.
  *
+ *   - `ps1.bios.A0.49` GPU_cw(command):
+ *       submits exactly one 32-bit command through `or_rt_memory_write` at the
+ *       declared GP0 port. The frozen Phase-9 typed boundary performs command
+ *       classification, records the ordered event and fails closed for an
+ *       unknown command. This service performs no rendering or GPU emulation
+ *       and has no return value.
+ *
  * Unknown service ids, unknown vector indices and wrong arities fail closed
  * with an explicit unresolved record. The dispatch is reached only from the
  * generated code's declared host call for a site that was proven to be that
@@ -54,6 +61,11 @@ static int p11_bios_memset(uint32_t dst, uint32_t fill_byte, uint32_t length, ui
         *out_value = (uint64_t)dst;
     }
     return P9_RT_OK;
+}
+
+static int p11_bios_gpu_cw(uint32_t command)
+{
+    return or_rt_memory_write((uint64_t)P9_GP0_ADDR, 32u, (uint64_t)command);
 }
 
 /* --- documented A0:0x3f printf (bounded, no console) --------------------- */
@@ -444,6 +456,20 @@ int p11_bios_dispatch(uint64_t service_id, uint32_t argc, const uint64_t *args, 
             return P9_RT_UNSUPPORTED_OPERATION;
         }
         status = p11_bios_printf((uint32_t)args[0], (uint32_t)args[1], (uint32_t)args[2], out_value);
+        if (status != P9_RT_OK) {
+            ++g_p10_service_failures;
+        }
+        return status;
+    }
+#endif
+#ifdef OR_RT_SERVICE_PS1_BIOS_A0_49
+    if (service_id == OR_RT_SERVICE_PS1_BIOS_A0_49) {
+        int status;
+        if (argc != 1u || args == NULL) {
+            ++g_p10_service_failures;
+            return P9_RT_UNSUPPORTED_OPERATION;
+        }
+        status = p11_bios_gpu_cw((uint32_t)args[0]);
         if (status != P9_RT_OK) {
             ++g_p10_service_failures;
         }

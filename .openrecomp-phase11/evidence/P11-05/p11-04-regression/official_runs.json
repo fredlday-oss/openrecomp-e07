@@ -1,0 +1,75 @@
+{
+  "artifact_sha256": {
+    "frontier.json": "0fae5744d33b0721ac5f7ec65c36718996a81fe74665a5386d9708e1301191b9",
+    "p11_04_tests.json": "06e17e93f7fdade5e7d421c308b739b19463eb12a84f23c3270c661298cf590e"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "frontier.json": "0fae5744d33b0721ac5f7ec65c36718996a81fe74665a5386d9708e1301191b9",
+        "p11_04_tests.json": "06e17e93f7fdade5e7d421c308b739b19463eb12a84f23c3270c661298cf590e"
+      },
+      "command": [
+        "python",
+        "tools/test_phase11_initialization_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase11/evidence/P11-05/p11-04-regression"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P11_04=PASS",
+        "OPENRECOMP_PHASE11_INITIALIZATION_V1=PASS tests=851",
+        "OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p11_04_tests_sha256": "06e17e93f7fdade5e7d421c308b739b19463eb12a84f23c3270c661298cf590e",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 31649,
+      "stdout_bytes_lf": 30792,
+      "stdout_sha256_lf": "448c9dcbda12e210c8c157d80e43f0e4e8c236eac34c9344a98733c9f9ac803b",
+      "stdout_sha256_raw": "648ddd31dc3bff4b27a45b611720d57f9c4082d3446e40b27078123c6aebb699"
+    },
+    {
+      "artifact_sha256": {
+        "frontier.json": "0fae5744d33b0721ac5f7ec65c36718996a81fe74665a5386d9708e1301191b9",
+        "p11_04_tests.json": "06e17e93f7fdade5e7d421c308b739b19463eb12a84f23c3270c661298cf590e"
+      },
+      "command": [
+        "python",
+        "tools/test_phase11_initialization_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase11/evidence/P11-05/p11-04-regression"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P11_04=PASS",
+        "OPENRECOMP_PHASE11_INITIALIZATION_V1=PASS tests=851",
+        "OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p11_04_tests_sha256": "06e17e93f7fdade5e7d421c308b739b19463eb12a84f23c3270c661298cf590e",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 31649,
+      "stdout_bytes_lf": 30792,
+      "stdout_sha256_lf": "448c9dcbda12e210c8c157d80e43f0e4e8c236eac34c9344a98733c9f9ac803b",
+      "stdout_sha256_raw": "648ddd31dc3bff4b27a45b611720d57f9c4082d3446e40b27078123c6aebb699"
+    }
+  ],
+  "schema": "openrecomp-phase11-official-runs-v1",
+  "stage": "P11-04",
+  "stderr_empty_both": true
+}
