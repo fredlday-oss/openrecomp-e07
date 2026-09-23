@@ -81,10 +81,40 @@ OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 | P11-11 | NOT EXECUTED — no stage verdict assigned |
 | P11-12 | NOT EXECUTED — no stage verdict assigned |
 | P11-90 | PASS (whole-regression gate, 262 checks, deterministic twice) |
-| P11-91 | PENDING |
+| P11-91 | PASS (evidence closure and proof matrix, 385 checks, deterministic twice) |
 | P11-99 | PENDING |
 
 ## Stage records
+
+### P11-91 — evidence closure and bounded proof matrix
+
+PASS (385 checks). Gate `tools/test_phase11_evidence_closure_v1.py` ran
+twice through the Phase-11 stage runner with byte-identical stdout (23157
+raw bytes, SHA-256 `3eedfc0e...`), empty stderr, exit 0 and byte-identical
+JSON sidecars.
+
+- every completed stage (`P11-00` through `P11-07`, `P11-RC`, `P11-90`) is
+  verified as committed deterministic evidence: byte-identical two-run
+  official stdout, no `FAIL:` line, the stage's own gate marker, identical
+  sidecars, an uncommitted-diff-free gate script, and a `PASS` tests record;
+- the exact pinned facts from every completed stage are cross-checked
+  directly against their committed JSON (fixture hashes; the `P11-01` causal
+  site `0x80026ccc`/`ps1.bios.A0.2b`; the `P11-05` required GP0 write
+  `0x0002a244`; the `P11-06` `EXACT_CONSTANT_TARGET` `0x8001a7dc`; the
+  `P11-07` `B0:0x57` `GetB0Table` contract and the exact caller frontier
+  `0x80015fa4`/block `468341`/`BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE`; the
+  `P11-RC` authorized route; the `P11-90` reconciled claims);
+- a 185-file evidence index, a bounded proof matrix (milestones A-G,
+  highest proven milestone C, the exact unresolved `B0:0x57` frontier, the
+  deliberate `P11-08`..`P11-12` exclusions, the permanent non-claim, the
+  four reserved markers) and a claim ledger (every claim keyed to its
+  supporting stage evidence) are produced;
+- a tracked-evidence private-payload and host-path safety scan reports zero
+  violations across 185 scanned files;
+- no runtime, BIOS, translation, emission or device behavior changes; no
+  milestone is promoted; the four reserved markers remain `NOT_PROVEN` and
+  the already-promoted GPU command-proof marker is verified unchanged;
+- evidence: `.openrecomp-phase11/evidence/P11-91/`.
 
 ### P11-90 — reconciled whole-project regression
 

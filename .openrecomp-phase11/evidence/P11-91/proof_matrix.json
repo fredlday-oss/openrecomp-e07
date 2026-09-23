@@ -1,0 +1,82 @@
+{
+  "authorized_terminal_route": [
+    "P11-RC",
+    "P11-90",
+    "P11-91",
+    "P11-99"
+  ],
+  "completed_stages": [
+    "P11-00",
+    "P11-01",
+    "P11-02",
+    "P11-03",
+    "P11-04",
+    "P11-05",
+    "P11-06",
+    "P11-07",
+    "P11-RC",
+    "P11-90"
+  ],
+  "deliberate_exclusions": [
+    "P11-08 CD-ROM / overlay / resource-loading frontier",
+    "P11-09 Controller / event / SPU frontier",
+    "P11-10 Title/menu progression (milestones E and F)",
+    "P11-11 Milestone G: controllable gameplay",
+    "P11-12 Playability hardening + reproducibility"
+  ],
+  "fixture": {
+    "executable": "SLUS_005.29",
+    "executable_sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "label": "hercules-private-fixture"
+  },
+  "frontier": {
+    "block_index": 468341,
+    "cause": "architectural/evidentiary, not implementation defect",
+    "function_index": "0x57",
+    "public_name": "GetB0Table",
+    "required_entry": "B0:0x5b ChangeClearPAD",
+    "site": "0x80015fa4",
+    "status": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+    "vector": "B0"
+  },
+  "gpu_command_proof_marker": "OPENRECOMP_PHASE11_HERCULES_GPU_COMMAND_PROOF=PROVEN",
+  "highest_proven_milestone": "C",
+  "milestones": {
+    "A": "INHERITED_PROVEN",
+    "B": "NOT_PROVEN",
+    "C": "PROVEN_PRIVATE_FIXTURE_BOUNDED",
+    "D": "NOT_PROVEN",
+    "E": "NOT_PROVEN",
+    "F": "NOT_PROVEN",
+    "G": "NOT_PROVEN"
+  },
+  "permanent_non_claims": [
+    "OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+  ],
+  "schema": "openrecomp-phase11-proof-matrix-v1",
+  "stage": "P11-91",
+  "terminal_claims_reserved_at_p11_91": [
+    "OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+    "OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF=NOT_PROVEN",
+    "OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+    "OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+  ],
+  "unexecuted_stages": [
+    "P11-08",
+    "P11-09",
+    "P11-10",
+    "P11-11",
+    "P11-12"
+  ],
+  "unresolved_blockers": [
+    {
+      "block_index": 468341,
+      "classification": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+      "function_index": "0x57",
+      "public_name": "GetB0Table",
+      "reason": "no public source establishes a portable guest B0:0x5B callable target and writable target-relative object compatible with the no-BIOS-runtime scope",
+      "site": "0x80015fa4",
+      "vector": "B0"
+    }
+  ]
+}

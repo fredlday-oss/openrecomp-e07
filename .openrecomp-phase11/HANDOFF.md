@@ -88,14 +88,29 @@
   `evidence/P11-90/initial-failed-attempt/`. No proof marker moved; P11-91
   and P11-99 were not started.
 
+- `P11-91` `PASS` (385 checks): every completed stage (`P11-00` through
+  `P11-07`, `P11-RC`, `P11-90`) is re-verified as committed deterministic
+  evidence (two-run byte-identical official stdout, no `FAIL:` line, stage
+  gate marker, identical sidecars, clean gate script, `PASS` tests record),
+  and the exact pinned facts from every stage are cross-checked directly
+  against their committed JSON. A 185-file evidence index, a bounded proof
+  matrix (milestones A-G, highest proven milestone C, the exact unresolved
+  `B0:0x57` `GetB0Table` frontier at `0x80015fa4` block `468341`, the
+  deliberate `P11-08`..`P11-12` exclusions, the permanent non-claim, the
+  four reserved markers) and a claim ledger are produced. A tracked-evidence
+  safety scan reports zero private-payload/host-path violations across 185
+  files. No milestone is promoted; the four reserved markers remain
+  `NOT_PROVEN` and the GPU command-proof marker (milestone C) is verified
+  unchanged.
+
 ## Immediate next action
 
-The P11-90 whole-project regression gate passes deterministically and its
-official evidence is recorded under `.openrecomp-phase11/evidence/P11-90/`;
-the Phase-11 regression repair commit is the P11-90 predecessor commit.
-P11-91 and P11-99 may begin only after that commit exists; do not start,
-simulate or assign a verdict to them, or to P11-08 through P11-12, before
-then. The isolated Phase-10 worktree stays at
+The P11-91 evidence closure and proof matrix gate passes deterministically
+and its official evidence is recorded under
+`.openrecomp-phase11/evidence/P11-91/`; the P11-91 commit is its
+predecessor. Only `P11-99`, the final bounded terminal verdict, remains.
+Do not start, simulate or assign a verdict to `P11-08` through `P11-12`.
+The isolated Phase-10 worktree stays at
 `D:/OpenRecomp/worktrees/p11-90-phase10-regression` with its recovered
 verification-context files untracked. The original Phase-2/Phase-3 residue
 and root untracked file remain untouched.

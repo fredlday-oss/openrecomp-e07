@@ -1,0 +1,1936 @@
+{
+  "checks": [
+    {
+      "check": "claims:queue:authorized-route",
+      "detail": "route",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:queue:general-non-claim",
+      "detail": "general non-claim",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:state:OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+      "detail": "OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:state:OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF=NOT_PROVEN",
+      "detail": "OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF=NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:state:OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+      "detail": "OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:state:OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+      "detail": "OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:state:gpu-marker",
+      "detail": "OPENRECOMP_PHASE11_HERCULES_GPU_COMMAND_PROOF=PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:state:stage-row-not-executed:P11-08",
+      "detail": "P11-08",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:state:stage-row-not-executed:P11-09",
+      "detail": "P11-09",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:state:stage-row-not-executed:P11-10",
+      "detail": "P11-10",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:state:stage-row-not-executed:P11-11",
+      "detail": "P11-11",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:state:stage-row-not-executed:P11-12",
+      "detail": "P11-12",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:state:stage-row-pass:P11-00",
+      "detail": "P11-00",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:state:stage-row-pass:P11-01",
+      "detail": "P11-01",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:state:stage-row-pass:P11-02",
+      "detail": "P11-02",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:state:stage-row-pass:P11-03",
+      "detail": "P11-03",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:state:stage-row-pass:P11-04",
+      "detail": "P11-04",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:state:stage-row-pass:P11-05",
+      "detail": "P11-05",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:state:stage-row-pass:P11-06",
+      "detail": "P11-06",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:state:stage-row-pass:P11-07",
+      "detail": "P11-07",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:state:stage-row-pass:P11-90",
+      "detail": "P11-90",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:state:stage-row-pass:P11-RC",
+      "detail": "P11-RC",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-00:bin-sha256",
+      "detail": "2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-00:cue-sha256",
+      "detail": "beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-00:executable-sha256",
+      "detail": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-00:highest-milestone",
+      "detail": "A",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-00:program-fingerprint",
+      "detail": "a047a52fb460d3786e5bff03b5c26ac2978ae768b581f5e6c4a9cbc284db4a9a",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-01:block-index",
+      "detail": "9424",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-01:service-id",
+      "detail": "ps1.bios.A0.2b",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-01:site",
+      "detail": "0x80026ccc",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-05:frontier-b-site",
+      "detail": "0x8001882c",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-05:frontier-b-source-value",
+      "detail": "0x8001a7dc",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-05:required-gpu-write-command",
+      "detail": "{'class': 'NOP', 'command': '0x00', 'emulated': False, 'known': True, 'port': 'GP0'}",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-05:required-gpu-write-value",
+      "detail": "0x0002a244",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-06:classification",
+      "detail": "EXACT_CONSTANT_TARGET",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-06:observed-target",
+      "detail": "0x8001a7dc",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-07:blocker-classification",
+      "detail": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-07:blocker-frontier",
+      "detail": "{'block_index': 468341, 'disposition': 'FAIL_CLOSED', 'service': 'ps1.bios.B0.57', 'site': '0x80015fa4'}",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-07:blocker-milestone-c",
+      "detail": "PROVEN_IN_P11_05",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-07:blocker-no-implementation-delta",
+      "detail": "{'bios_service_added': False, 'device_behavior_added': False, 'guest_table_added': False, 'indirect_target_added': False, 'runtime_dispatch_added': False}",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-07:caller-block-index",
+      "detail": "468341",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-07:caller-site",
+      "detail": "0x80015fa4",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-07:contract-name",
+      "detail": "GetB0Table",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-07:contract-vector-index",
+      "detail": "('B0', '0x57')",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-07:first-required-entry",
+      "detail": "B0:0x5b ChangeClearPAD",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-07:next-frontier-status",
+      "detail": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-90:claims-c",
+      "detail": "PROVEN_PRIVATE_FIXTURE_BOUNDED",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-90:claims-general",
+      "detail": "NOT_PROVEN_PERMANENT",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-90:stage-verdict-not-assigned",
+      "detail": "False",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-90:unexecuted",
+      "detail": "['P11-08', 'P11-09', 'P11-10', 'P11-11', 'P11-12']",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-rc:authorized-route",
+      "detail": "['P11-RC', 'P11-90', 'P11-91', 'P11-99']",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-rc:control-decision",
+      "detail": "QUEUE_RECONCILIATION_REQUIRED",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-rc:forcing-dependency",
+      "detail": "{'block_index': 468341, 'cause': 'architectural/evidentiary, not implementation defect', 'classification': 'BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE', 'completed_stage': 'P11-07', 'first_required_entry': 'B0:0x5B ChangeClearPAD', 'required_accesses': {'derived_pointer_offsets': ['0x884', '0x894'], 'table_entry_offset': '0x16c', 'write_span': 'eleven aligned words at 0x594..0x5bc'}, 'service': 'ps1.bios.B0.57', 'site': '0x80015fa4'}",
+      "status": "PASS"
+    },
+    {
+      "check": "exact:p11-rc:milestone-c",
+      "detail": "PROVEN_PRIVATE_FIXTURE_BOUNDED",
+      "status": "PASS"
+    },
+    {
+      "check": "index:file-count-positive",
+      "detail": "185",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:reserved-count",
+      "detail": "['OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN', 'OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF=NOT_PROVEN', 'OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN', 'OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN']",
+      "status": "PASS"
+    },
+    {
+      "check": "matrix:highest-milestone",
+      "detail": "C",
+      "status": "PASS"
+    },
+    {
+      "check": "matrix:reserved-count",
+      "detail": "['OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN', 'OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF=NOT_PROVEN', 'OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN', 'OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN']",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:files-scanned",
+      "detail": "186",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:no-host-paths",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:no-private-payload",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/RESULT.md",
+      "detail": ".openrecomp-phase11/evidence/P11-00/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/baseline.json",
+      "detail": ".openrecomp-phase11/evidence/P11-00/baseline.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-00/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/fixture_identity.json",
+      "detail": ".openrecomp-phase11/evidence/P11-00/fixture_identity.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-00/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/milestone_inheritance.json",
+      "detail": ".openrecomp-phase11/evidence/P11-00/milestone_inheritance.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-00/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/p11_00_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-00/p11_00_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-00/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-00/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-00/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-00/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/RESULT.md",
+      "detail": ".openrecomp-phase11/evidence/P11-01/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/cache.json",
+      "detail": ".openrecomp-phase11/evidence/P11-01/cache.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/causality.json",
+      "detail": ".openrecomp-phase11/evidence/P11-01/causality.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-01/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/instrumentation.json",
+      "detail": ".openrecomp-phase11/evidence/P11-01/instrumentation.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-01/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/p11_01_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-01/p11_01_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-01/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-01/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-01/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-01/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/trace_execution.json",
+      "detail": ".openrecomp-phase11/evidence/P11-01/trace_execution.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-02/RESULT.md",
+      "detail": ".openrecomp-phase11/evidence/P11-02/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-02/cache.json",
+      "detail": ".openrecomp-phase11/evidence/P11-02/cache.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-02/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-02/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-02/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-02/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-02/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-02/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-02/p11_02_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-02/p11_02_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-02/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-02/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-02/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-02/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-02/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-02/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-02/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-02/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-03/RESULT.md",
+      "detail": ".openrecomp-phase11/evidence/P11-03/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-03/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-03/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-03/event_contract.json",
+      "detail": ".openrecomp-phase11/evidence/P11-03/event_contract.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-03/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-03/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-03/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-03/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-03/p11_03_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-03/p11_03_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-03/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-03/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-03/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-03/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-03/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-03/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-03/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-03/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-04/RESULT.md",
+      "detail": ".openrecomp-phase11/evidence/P11-04/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-04/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-04/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-04/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-04/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-04/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-04/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-04/p11_04_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-04/p11_04_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-04/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-04/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-04/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-04/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-04/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-04/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-04/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-04/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/RESULT.md",
+      "detail": ".openrecomp-phase11/evidence/P11-05/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/causal_ab.json",
+      "detail": ".openrecomp-phase11/evidence/P11-05/causal_ab.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-05/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/diagnostic.json",
+      "detail": ".openrecomp-phase11/evidence/P11-05/diagnostic.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-05/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-05/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/p11-04-regression/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-05/p11-04-regression/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/p11-04-regression/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-05/p11-04-regression/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/p11-04-regression/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-05/p11-04-regression/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/p11-04-regression/p11_04_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-05/p11-04-regression/p11_04_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/p11-04-regression/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-05/p11-04-regression/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/p11-04-regression/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-05/p11-04-regression/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/p11-04-regression/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-05/p11-04-regression/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/p11-04-regression/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-05/p11-04-regression/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/p11_05_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-05/p11_05_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-05/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-05/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-05/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-05/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/RESULT.md",
+      "detail": ".openrecomp-phase11/evidence/P11-06/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/causal_ab.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/causal_ab.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11-05-regression/causal_ab.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11-05-regression/causal_ab.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11-05-regression/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11-05-regression/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11-05-regression/diagnostic.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11-05-regression/diagnostic.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11-05-regression/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11-05-regression/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11-05-regression/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11-05-regression/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11-05-regression/p11_05_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11-05-regression/p11_05_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11-05-regression/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11-05-regression/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11-05-regression/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11-05-regression/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11-05-regression/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11-05-regression/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11-05-regression/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11-05-regression/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11_06_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11_06_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-06/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-06/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-06/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-06/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/target_provenance.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/target_provenance.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/RESULT.md",
+      "detail": ".openrecomp-phase11/evidence/P11-07/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/blocker.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/blocker.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/caller_use.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/caller_use.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-05-regression/causal_ab.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-05-regression/causal_ab.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-05-regression/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-05-regression/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-05-regression/diagnostic.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-05-regression/diagnostic.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-05-regression/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-05-regression/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-05-regression/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-05-regression/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-05-regression/p11_05_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-05-regression/p11_05_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-05-regression/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-05-regression/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-05-regression/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-05-regression/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-05-regression/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-05-regression/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-05-regression/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-05-regression/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-06-regression/causal_ab.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-06-regression/causal_ab.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-06-regression/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-06-regression/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-06-regression/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-06-regression/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-06-regression/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-06-regression/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-06-regression/p11_06_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-06-regression/p11_06_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-06-regression/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-06-regression/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-06-regression/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-06-regression/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-06-regression/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-06-regression/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-06-regression/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-06-regression/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-06-regression/target_provenance.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-06-regression/target_provenance.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11_07_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11_07_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/public_contract.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/public_contract.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-90/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-90/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-90/initial-failed-attempt/p11_90_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-90/initial-failed-attempt/p11_90_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-90/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-90/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-90/p11_90_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-90/p11_90_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-90/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-90/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-90/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-90/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-90/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-90/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-90/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-90/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-90/verification_context.json",
+      "detail": ".openrecomp-phase11/evidence/P11-90/verification_context.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-90/whole_regression.json",
+      "detail": ".openrecomp-phase11/evidence/P11-90/whole_regression.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/RESULT.md",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/baseline.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/baseline.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/fixture_identity.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/fixture_identity.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/milestone_inheritance.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/milestone_inheritance.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/p11_00_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/p11_00_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-05-regression/causal_ab.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-05-regression/causal_ab.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-05-regression/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-05-regression/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-05-regression/diagnostic.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-05-regression/diagnostic.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-05-regression/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-05-regression/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-05-regression/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-05-regression/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-05-regression/p11_05_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-05-regression/p11_05_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-05-regression/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-05-regression/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-05-regression/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-05-regression/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-05-regression/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-05-regression/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-05-regression/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-05-regression/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-06-regression/causal_ab.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-06-regression/causal_ab.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-06-regression/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-06-regression/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-06-regression/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-06-regression/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-06-regression/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-06-regression/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-06-regression/p11_06_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-06-regression/p11_06_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-06-regression/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-06-regression/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-06-regression/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-06-regression/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-06-regression/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-06-regression/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-06-regression/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-06-regression/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-06-regression/target_provenance.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-06-regression/target_provenance.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-07-regression/blocker.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-07-regression/blocker.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-07-regression/caller_use.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-07-regression/caller_use.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-07-regression/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-07-regression/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-07-regression/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-07-regression/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-07-regression/p11_07_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-07-regression/p11_07_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-07-regression/public_contract.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-07-regression/public_contract.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-07-regression/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-07-regression/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-07-regression/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-07-regression/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-07-regression/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-07-regression/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-07-regression/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-07-regression/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11_rc_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11_rc_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/reconciliation.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/reconciliation.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/source_exhaustion.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/source_exhaustion.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/README.md",
+      "detail": ".openrecomp-phase11/evidence/README.md",
+      "status": "PASS"
+    },
+    {
+      "check": "source:p11-manifest",
+      "detail": "OPENRECOMP_PHASE11_SOURCE_INTEGRITY=PASS entries=26",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-00:determinism-artifacts-identical",
+      "detail": "sidecars",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-00:dir",
+      "detail": "D:\\OpenRecomp\\worktrees\\phase2-opencode\\.openrecomp-phase11\\evidence\\P11-00",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-00:gate-marker",
+      "detail": "OPENRECOMP_P11_00=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-00:gate-no-uncommitted-diff",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-00:gate-unchanged",
+      "detail": "6da531b358f87eb2a2c527a31658a65e71b8592c14b6ee5fc2460863433462f5",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-00:official-identical-lf",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-00:official-identical-raw",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-00:official-markers-present",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-00:official-no-fail-lines",
+      "detail": "no FAIL lines",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-00:official-returncode-zero",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-00:official-stderr-empty",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-00:result-md",
+      "detail": "RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-00:tests-failed-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-00:tests-status",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-01:determinism-artifacts-identical",
+      "detail": "sidecars",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-01:dir",
+      "detail": "D:\\OpenRecomp\\worktrees\\phase2-opencode\\.openrecomp-phase11\\evidence\\P11-01",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-01:gate-marker",
+      "detail": "OPENRECOMP_P11_01=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-01:gate-no-uncommitted-diff",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-01:gate-unchanged",
+      "detail": "9b9e6ca87b3222e55128e3efbeb92929a96e0452719ee1672e30503adc7b622e",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-01:official-identical-lf",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-01:official-identical-raw",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-01:official-markers-present",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-01:official-no-fail-lines",
+      "detail": "no FAIL lines",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-01:official-returncode-zero",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-01:official-stderr-empty",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-01:result-md",
+      "detail": "RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-01:tests-failed-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-01:tests-status",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-02:determinism-artifacts-identical",
+      "detail": "sidecars",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-02:dir",
+      "detail": "D:\\OpenRecomp\\worktrees\\phase2-opencode\\.openrecomp-phase11\\evidence\\P11-02",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-02:gate-marker",
+      "detail": "OPENRECOMP_P11_02=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-02:gate-no-uncommitted-diff",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-02:official-identical-lf",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-02:official-identical-raw",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-02:official-markers-present",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-02:official-no-fail-lines",
+      "detail": "no FAIL lines",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-02:official-returncode-zero",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-02:official-stderr-empty",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-02:result-md",
+      "detail": "RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-02:tests-failed-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-02:tests-status",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-03:determinism-artifacts-identical",
+      "detail": "sidecars",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-03:dir",
+      "detail": "D:\\OpenRecomp\\worktrees\\phase2-opencode\\.openrecomp-phase11\\evidence\\P11-03",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-03:gate-marker",
+      "detail": "OPENRECOMP_P11_03=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-03:gate-no-uncommitted-diff",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-03:official-identical-lf",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-03:official-identical-raw",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-03:official-markers-present",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-03:official-no-fail-lines",
+      "detail": "no FAIL lines",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-03:official-returncode-zero",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-03:official-stderr-empty",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-03:result-md",
+      "detail": "RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-03:tests-failed-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-03:tests-status",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-04:determinism-artifacts-identical",
+      "detail": "sidecars",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-04:dir",
+      "detail": "D:\\OpenRecomp\\worktrees\\phase2-opencode\\.openrecomp-phase11\\evidence\\P11-04",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-04:gate-marker",
+      "detail": "OPENRECOMP_P11_04=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-04:gate-no-uncommitted-diff",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-04:gate-unchanged",
+      "detail": "a9b3df13f3d387650cf45e684a6467858f02c9814ad60a1f3a92be7be959fe96",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-04:official-identical-lf",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-04:official-identical-raw",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-04:official-markers-present",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-04:official-no-fail-lines",
+      "detail": "no FAIL lines",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-04:official-returncode-zero",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-04:official-stderr-empty",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-04:result-md",
+      "detail": "RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-04:tests-failed-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-04:tests-status",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-05:determinism-artifacts-identical",
+      "detail": "sidecars",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-05:dir",
+      "detail": "D:\\OpenRecomp\\worktrees\\phase2-opencode\\.openrecomp-phase11\\evidence\\P11-05",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-05:gate-marker",
+      "detail": "OPENRECOMP_P11_05=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-05:gate-no-uncommitted-diff",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-05:gate-unchanged",
+      "detail": "d59eaeab52e4498f474e387bfd7a63bd4568e0704a7cca5fc8c9d7f4eee7936e",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-05:official-identical-lf",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-05:official-identical-raw",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-05:official-markers-present",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-05:official-no-fail-lines",
+      "detail": "no FAIL lines",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-05:official-returncode-zero",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-05:official-stderr-empty",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-05:result-md",
+      "detail": "RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-05:tests-failed-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-05:tests-status",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-06:determinism-artifacts-identical",
+      "detail": "sidecars",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-06:dir",
+      "detail": "D:\\OpenRecomp\\worktrees\\phase2-opencode\\.openrecomp-phase11\\evidence\\P11-06",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-06:gate-marker",
+      "detail": "OPENRECOMP_P11_06=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-06:gate-no-uncommitted-diff",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-06:gate-unchanged",
+      "detail": "27a4a5e508da0ee6e46d6179887003ddbede329cd40588d1474f513a30ca9895",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-06:official-identical-lf",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-06:official-identical-raw",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-06:official-markers-present",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-06:official-no-fail-lines",
+      "detail": "no FAIL lines",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-06:official-returncode-zero",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-06:official-stderr-empty",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-06:result-md",
+      "detail": "RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-06:tests-failed-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-06:tests-status",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-07:determinism-artifacts-identical",
+      "detail": "sidecars",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-07:dir",
+      "detail": "D:\\OpenRecomp\\worktrees\\phase2-opencode\\.openrecomp-phase11\\evidence\\P11-07",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-07:gate-marker",
+      "detail": "OPENRECOMP_P11_07=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-07:gate-no-uncommitted-diff",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-07:gate-unchanged",
+      "detail": "36f5482a7dfcd627eb55380dc1565f6ac7dcae20f9259c9407ba2a87aabe5140",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-07:official-identical-lf",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-07:official-identical-raw",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-07:official-markers-present",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-07:official-no-fail-lines",
+      "detail": "no FAIL lines",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-07:official-returncode-zero",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-07:official-stderr-empty",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-07:result-md",
+      "detail": "RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-07:tests-failed-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-07:tests-status",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-90:determinism-artifacts-identical",
+      "detail": "sidecars",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-90:dir",
+      "detail": "D:\\OpenRecomp\\worktrees\\phase2-opencode\\.openrecomp-phase11\\evidence\\P11-90",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-90:gate-marker",
+      "detail": "OPENRECOMP_P11_90=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-90:gate-no-uncommitted-diff",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-90:gate-unchanged",
+      "detail": "62d9e568fdae5bd4af59d30a122a2d5f0326a4dc56e036f74f0509a0b0d26e7f",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-90:official-identical-lf",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-90:official-identical-raw",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-90:official-markers-present",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-90:official-no-fail-lines",
+      "detail": "no FAIL lines",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-90:official-returncode-zero",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-90:official-stderr-empty",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-90:tests-failed-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-90:tests-status",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-RC:determinism-artifacts-identical",
+      "detail": "sidecars",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-RC:dir",
+      "detail": "D:\\OpenRecomp\\worktrees\\phase2-opencode\\.openrecomp-phase11\\evidence\\P11-RC",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-RC:gate-marker",
+      "detail": "OPENRECOMP_P11_RC=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-RC:gate-no-uncommitted-diff",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-RC:gate-unchanged",
+      "detail": "f20b28fd8c3c383d96f5a95480230a97f7d557722a718505afc26664a4c43413",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-RC:official-identical-lf",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-RC:official-identical-raw",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-RC:official-markers-present",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-RC:official-no-fail-lines",
+      "detail": "no FAIL lines",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-RC:official-returncode-zero",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-RC:official-stderr-empty",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-RC:result-md",
+      "detail": "RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-RC:tests-failed-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "stage:P11-RC:tests-status",
+      "detail": "PASS",
+      "status": "PASS"
+    }
+  ],
+  "schema": "openrecomp-phase11-tests-v1",
+  "stage": "P11-91",
+  "status": "PASS",
+  "summary": {
+    "failed": 0,
+    "passed": 385
+  }
+}
