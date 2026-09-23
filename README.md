@@ -159,6 +159,14 @@ Repeated deterministic gates, integrity hashes, fail-closed behaviour and machin
 
 See [`docs/EVIDENCE_MODEL.md`](docs/EVIDENCE_MODEL.md).
 
+## Support OpenRecomp
+
+OpenRecomp is developed independently. Sponsorship helps fund development hardware, compute, cross-platform testing, compiler and runtime work, reproducibility infrastructure, public documentation and rights-safe validation material.
+
+You can support the project through [GitHub Sponsors](https://github.com/sponsors/fredlday-oss).
+
+Sponsorship funds the work, but it does **not** determine technical outcomes, compatibility claims, evidence classifications or PASS/FAIL results. See [SPONSORS.md](SPONSORS.md) for the project sponsorship principles and acknowledgement policy.
+
 ## Development process
 
 OpenRecomp uses a human-led process that may include automated and AI-assisted development/review tools. Material machine assistance is disclosed, but generated output is never treated as proof by itself. Acceptance remains evidence-driven through tests, runtime checks and review.
