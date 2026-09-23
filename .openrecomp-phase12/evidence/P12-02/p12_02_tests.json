@@ -1,0 +1,120 @@
+{
+  "checks": [
+    {
+      "check": "inventory:b0-57-bases",
+      "detail": "[2147573664, 2147643248]",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:b0-57-sites",
+      "detail": "[2147573668, 2147643252]",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:entry-reads",
+      "detail": "{\"0x80015fa4\": \"0x80015fac\", \"0x80026f74\": \"0x80026f7c\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:stub-words",
+      "detail": "(604635312, 20971528, 604569691)",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:stub-callers",
+      "detail": "[2147572796, 2147572936, 2147573032, 2147574168, 2147575564, 2147642740, 2147642832]",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:b0-57-reachable",
+      "detail": "[\"0x80015fa4\", \"0x80026f74\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:b0-57-service",
+      "detail": "[{\"block_id\": null, \"classification\": \"BIOS_VECTOR_SERVICE\", \"disposition\": \"EXACT_EXTERNAL_SERVICE\", \"documented_name\": \"GetB0Table\", \"function_id\": null, \"function_index\": 87, \"index_evidence\": [\"index-addiu@0x80015fa8\"], \"kind\": \"INDIRECT_CALL\", \"op\": \"jalr\", \"op_name\": \"call_bios_b0_57\", \"service_id\": \"ps1.bios.B0.57\", \"site\": 2147573668, \"site_hex\": \"0x80015fa4\", \"slice_evidence\": [\"addiu@0x80015fa0\"], \"source_register\": 10, \"vector\": \"B0\", \"vector_value\": \"0x000000b0\"}, {\"block_id\": null, \"classification\": \"BIOS_VECTOR_SERVICE\", \"disposition\": \"EXACT_EXTERNAL_SERVICE\", \"documented_name\": \"GetB0Table\", \"function_id\": null, \"function_index\": 87, \"index_evidence\": [\"index-addiu@0x80026f78\"], \"kind\": \"INDIRECT_CALL\", \"op\": \"jalr\", \"op_name\": \"call_bios_b0_57\", \"service_id\": \"ps1.bios.B0.57\", \"site\": 2147643252, \"site_hex\": \"0x80026f74\", \"slice_evidence\": [\"addiu@0x80026f70\"], \"source_register\": 10, \"vector\": \"B0\", \"vector_value\": \"0x000000b0\"}]",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:second-b0-57-reachable",
+      "detail": "second B0:0x57 site is reachable and resolved",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:b0-5b-direct-resolved",
+      "detail": "[{\"block_id\": null, \"classification\": \"BIOS_VECTOR_SERVICE\", \"disposition\": \"EXACT_EXTERNAL_SERVICE\", \"documented_name\": \"ChangeClearPAD\", \"function_id\": null, \"function_index\": 91, \"index_evidence\": [\"index-addiu@0x80015f40\"], \"kind\": \"INDIRECT_JUMP\", \"op\": \"jr\", \"op_name\": \"jump_bios_b0_5b\", \"service_id\": \"ps1.bios.B0.5b\", \"site\": 2147573564, \"site_hex\": \"0x80015f3c\", \"slice_evidence\": [\"addiu@0x80015f38\"], \"source_register\": 10, \"vector\": \"B0\", \"vector_value\": \"0x000000b0\"}]",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:unknown-b0-fail-closed",
+      "detail": "[18, 19, 23, 25, 63, 74, 75, 86]",
+      "status": "PASS"
+    },
+    {
+      "check": "classify:direct-callers-reachable-subset",
+      "detail": "{\"0x80015c3c\": false, \"0x80015cc8\": true, \"0x80015d28\": true, \"0x80016198\": true, \"0x8001670c\": false, \"0x80026d74\": true, \"0x80026dd0\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:both-b0-macros",
+      "detail": "both B0 service ids defined",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:chained-dispatcher",
+      "detail": "phase-12 dispatcher chains the phase-11 dispatcher",
+      "status": "PASS"
+    },
+    {
+      "check": "semantics:b0-57-rule",
+      "detail": "[{\"args\": [], \"flow\": \"INDIRECT_CALL\", \"op\": \"call_bios_b0_57\", \"result\": \"bios_ret\", \"service\": \"ps1.bios.B0.57\"}]",
+      "status": "PASS"
+    },
+    {
+      "check": "semantics:b0-5b-rule",
+      "detail": "[{\"args\": [\"bios_arg0\"], \"flow\": \"INDIRECT_JUMP\", \"op\": \"jump_bios_b0_5b\", \"result\": null, \"service\": \"ps1.bios.B0.5b\"}]",
+      "status": "PASS"
+    },
+    {
+      "check": "semantics:no-unknown-b0-rule",
+      "detail": "no unknown B0 rule",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "inventory:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "coverage:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "coverage:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "coverage:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "schema": "openrecomp-phase12-tests-v1",
+  "stage": "P12-02",
+  "summary": {
+    "failed": 0,
+    "passed": 22
+  }
+}

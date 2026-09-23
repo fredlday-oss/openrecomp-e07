@@ -11,15 +11,24 @@
   service installed through the existing mediation architecture plus a
   synthetic project-owned B0 window; positive/fail-closed emitter and direct
   dispatcher coverage; `OPENRECOMP_PHASE12_B0_5B_CHANGECLEARPAD_V1=PASS`;
-- next stage `P12-02` (complete B0:0x5B caller coverage).
+- `P12-02` `PASS` (22 checks): independently re-derived two reachable `B0:0x57`
+  sites, the direct `B0:0x5B` stub and seven callers; all reachable B0 paths
+  resolve consistently and unknown entries fail closed;
+- `P12-03` `PASS` (22 checks): the real initialization path runs past the
+  Phase-11 frontier; GetB0Table mediation, entry `0x5B`, derived pointers and
+  the eleven-word clear are all observed; unknown entries stay zero; the new
+  exact frontier is A0 `0x44` `FlushCache` at `0x80015b94`; markers
+  `OPENRECOMP_PHASE12_B0_TABLE_INDIRECT_V1=PASS`;
+- next stage `P12-04` (Hercules initialization frontier loop).
 
 ## Exact next action
 
-Independently re-derive the B0:0x5B caller inventory on the private fixture
-(reconnaissance lists two `B0:0x57` sites and seven direct callers via stub
-`0x80015f38`), classify direct/GetB0Table/trampoline/reachability, and test that
-all reachable required paths resolve consistently. Then run the `P12-02` gate
-twice.
+Implement the minimum, documented A0:0x44 `FlushCache` semantics (no-arg, void,
+cache flush with no observable effect in the non-cached flat-memory model),
+keep every other A0 service fail-closed, add positive/negative tests, rerun the
+private fixture and record the new exact frontier. Continue the frontier loop
+while each blocker remains a documented, evidence-justified semantic; then run
+the `P12-04` gate twice.
 
 ## Verification commands
 

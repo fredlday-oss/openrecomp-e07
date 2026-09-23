@@ -1,0 +1,120 @@
+{
+  "checks": [
+    {
+      "check": "entry:stride",
+      "detail": "0x16c == 0x5b*4",
+      "status": "PASS"
+    },
+    {
+      "check": "private:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "private:reproducible",
+      "detail": "6da1552be31273b5f9fafd0583f99a80515244ae00a320ba5fb253fb9c1b256e",
+      "status": "PASS"
+    },
+    {
+      "check": "private:exit-stderr",
+      "detail": "exit 0 and empty stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "private:deterministic",
+      "detail": "f220a40aed34085af7014d2aaefa564ead583f8e0fb7c0d8893467d587c4b1dc",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:table-base",
+      "detail": "0x1f000000",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:entry-5b",
+      "detail": "0x1f001000",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:derived-884",
+      "detail": "0x1f001884",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:derived-894",
+      "detail": "0x1f001894",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:eleven-word-clear",
+      "detail": "[\"0x00000000\", \"0x00000000\", \"0x00000000\", \"0x00000000\", \"0x00000000\", \"0x00000000\", \"0x00000000\", \"0x00000000\", \"0x00000000\", \"0x00000000\", \"0x00000000\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:entry-read-observed",
+      "detail": "synthetic table entry read observed",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:clear-write-signatures",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:change-pad-called",
+      "detail": "4",
+      "status": "PASS"
+    },
+    {
+      "check": "mediate:no-service-failure",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:past-p11-07",
+      "detail": "0x80015b94",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:exact",
+      "detail": "{\"block_id\": \"blk_80015b90\", \"block_index\": 468355, \"failure_count\": 18, \"function_entry\": \"0x80015b90\", \"function_id\": \"fn_80015b90\", \"message\": \"unresolved indirect jump\", \"site\": \"0x80015b94\", \"site_classification\": null, \"source_value\": \"0x000000a0\", \"terminal_op\": \"jr_indirect\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "bios:b0-57-service",
+      "detail": "[{\"block_id\": null, \"classification\": \"BIOS_VECTOR_SERVICE\", \"disposition\": \"EXACT_EXTERNAL_SERVICE\", \"documented_name\": \"GetB0Table\", \"function_id\": null, \"function_index\": 87, \"index_evidence\": [\"index-addiu@0x80015fa8\"], \"kind\": \"INDIRECT_CALL\", \"op\": \"jalr\", \"op_name\": \"call_bios_b0_57\", \"service_id\": \"ps1.bios.B0.57\", \"site\": 2147573668, \"site_hex\": \"0x80015fa4\", \"slice_evidence\": [\"addiu@0x80015fa0\"], \"source_register\": 10, \"vector\": \"B0\", \"vector_value\": \"0x000000b0\"}, {\"block_id\": null, \"classification\": \"BIOS_VECTOR_SERVICE\", \"disposition\": \"EXACT_EXTERNAL_SERVICE\", \"documented_name\": \"GetB0Table\", \"function_id\": null, \"function_index\": 87, \"index_evidence\": [\"index-addiu@0x80026f78\"], \"kind\": \"INDIRECT_CALL\", \"op\": \"jalr\", \"op_name\": \"call_bios_b0_57\", \"service_id\": \"ps1.bios.B0.57\", \"site\": 2147643252, \"site_hex\": \"0x80026f74\", \"slice_evidence\": [\"addiu@0x80026f70\"], \"source_register\": 10, \"vector\": \"B0\", \"vector_value\": \"0x000000b0\"}]",
+      "status": "PASS"
+    },
+    {
+      "check": "unknown:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "unknown:deterministic",
+      "detail": "33149e3280929ec3a06fdf597a5f18ebbd3cdefba0ae62916f0318e65e516346",
+      "status": "PASS"
+    },
+    {
+      "check": "unknown:entries-zero",
+      "detail": "{\"entry_10\": \"0x00000000\", \"entry_19\": \"0x00000000\", \"entry_44\": \"0x00000000\", \"entry_57\": \"0x00000000\", \"entry_5b\": \"0x1f001000\", \"get_status\": \"0\", \"table_0000\": \"0x00000000\", \"table_05b0\": \"0x00000000\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "no:guest-interpreter",
+      "detail": "no guest-code interpreter",
+      "status": "PASS"
+    },
+    {
+      "check": "no:unknown-pointer",
+      "detail": "synthetic object stays inside the project-owned window",
+      "status": "PASS"
+    }
+  ],
+  "schema": "openrecomp-phase12-tests-v1",
+  "stage": "P12-03",
+  "summary": {
+    "failed": 0,
+    "passed": 22
+  }
+}

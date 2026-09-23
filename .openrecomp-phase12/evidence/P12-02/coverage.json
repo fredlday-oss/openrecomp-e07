@@ -1,0 +1,144 @@
+{
+  "b0_57": {
+    "base_sites": [
+      "0x80015fa0",
+      "0x80026f70"
+    ],
+    "call_sites": [
+      "0x80015fa4",
+      "0x80026f74"
+    ],
+    "entry_reads": {
+      "0x80015fa4": "0x80015fac",
+      "0x80026f74": "0x80026f7c"
+    },
+    "reachable_call_sites": [
+      "0x80015fa4",
+      "0x80026f74"
+    ],
+    "reachable_classification": "ps1.bios.B0.57"
+  },
+  "b0_5b_direct": {
+    "caller_count": 7,
+    "caller_reachability": {
+      "0x80015c3c": false,
+      "0x80015cc8": true,
+      "0x80015d28": true,
+      "0x80016198": true,
+      "0x8001670c": false,
+      "0x80026d74": true,
+      "0x80026dd0": true
+    },
+    "callers": [
+      "0x80015c3c",
+      "0x80015cc8",
+      "0x80015d28",
+      "0x80016198",
+      "0x8001670c",
+      "0x80026d74",
+      "0x80026dd0"
+    ],
+    "stub_jr": "0x80015f3c",
+    "stub_pc": "0x80015f38",
+    "stub_reachable_and_resolved": true
+  },
+  "consistency": {
+    "direct_and_indirect_converge": true,
+    "reachable_required_paths_resolved": true,
+    "unknown_b0_entries_fail_closed": true
+  },
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "schema": "openrecomp-phase12-b0-5b-caller-coverage-v1",
+  "stage": "P12-02",
+  "unknown_b0_fail_closed_count": 8,
+  "vector_sites": [
+    {
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "function_index": 18,
+      "kind": "INDIRECT_JUMP",
+      "service_id": null,
+      "site": "0x80015edc"
+    },
+    {
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "function_index": 19,
+      "kind": "INDIRECT_JUMP",
+      "service_id": null,
+      "site": "0x80015eec"
+    },
+    {
+      "classification": "BIOS_VECTOR_SERVICE",
+      "disposition": "EXACT_EXTERNAL_SERVICE",
+      "function_index": 91,
+      "kind": "INDIRECT_JUMP",
+      "service_id": "ps1.bios.B0.5b",
+      "site": "0x80015f3c"
+    },
+    {
+      "classification": "BIOS_VECTOR_SERVICE",
+      "disposition": "EXACT_EXTERNAL_SERVICE",
+      "function_index": 87,
+      "kind": "INDIRECT_CALL",
+      "service_id": "ps1.bios.B0.57",
+      "site": "0x80015fa4"
+    },
+    {
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "function_index": 23,
+      "kind": "INDIRECT_JUMP",
+      "service_id": null,
+      "site": "0x80016920"
+    },
+    {
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "function_index": 25,
+      "kind": "INDIRECT_JUMP",
+      "service_id": null,
+      "site": "0x80016940"
+    },
+    {
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "function_index": 63,
+      "kind": "INDIRECT_JUMP",
+      "service_id": null,
+      "site": "0x80026c74"
+    },
+    {
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "function_index": 74,
+      "kind": "INDIRECT_JUMP",
+      "service_id": null,
+      "site": "0x80026e24"
+    },
+    {
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "function_index": 75,
+      "kind": "INDIRECT_JUMP",
+      "service_id": null,
+      "site": "0x80026e34"
+    },
+    {
+      "classification": "BIOS_VECTOR_NOT_IMPLEMENTED",
+      "disposition": "FAIL_CLOSED",
+      "function_index": 86,
+      "kind": "INDIRECT_CALL",
+      "service_id": null,
+      "site": "0x80026ebc"
+    },
+    {
+      "classification": "BIOS_VECTOR_SERVICE",
+      "disposition": "EXACT_EXTERNAL_SERVICE",
+      "function_index": 87,
+      "kind": "INDIRECT_CALL",
+      "service_id": "ps1.bios.B0.57",
+      "site": "0x80026f74"
+    }
+  ]
+}

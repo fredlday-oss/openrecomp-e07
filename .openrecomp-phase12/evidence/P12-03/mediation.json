@@ -1,0 +1,55 @@
+{
+  "acquisition": {
+    "entry_byte_offset": "0x16c",
+    "entry_index": "0x5b",
+    "entry_stride": "0x16c == 0x5b*4",
+    "entry_value": "0x1f001000",
+    "service": "ps1.bios.B0.57",
+    "synthetic_table_base": "0x1f000000"
+  },
+  "caller_use": {
+    "clear_write_signatures": [
+      "0x1f001594",
+      "0x1f001598",
+      "0x1f00159c",
+      "0x1f0015a0",
+      "0x1f0015a4",
+      "0x1f0015a8",
+      "0x1f0015ac",
+      "0x1f0015b0",
+      "0x1f0015b4",
+      "0x1f0015b8",
+      "0x1f0015bc"
+    ],
+    "derived_pointer_884": "0x1f001884",
+    "derived_pointer_894": "0x1f001894",
+    "eleven_word_clear": "all zero",
+    "entry_read": "0x1f00016c"
+  },
+  "direct_call_count": "4",
+  "direct_indirect_convergence": {
+    "direct_site": "0x80015f3c",
+    "indirect_entry": "0x5b",
+    "same_implementation": "p12_bios_set_change_clear_pad",
+    "service": "ps1.bios.B0.5b"
+  },
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "new_frontier": {
+    "block_id": "blk_80015b90",
+    "block_index": 468355,
+    "failure_count": 18,
+    "function_entry": "0x80015b90",
+    "function_id": "fn_80015b90",
+    "message": "unresolved indirect jump",
+    "site": "0x80015b94",
+    "site_classification": null,
+    "source_value": "0x000000a0",
+    "terminal_op": "jr_indirect"
+  },
+  "no_arbitrary_guest_execution": true,
+  "schema": "openrecomp-phase12-b0-table-mediation-v1",
+  "stage": "P12-03",
+  "synthetic_reads": "8",
+  "synthetic_writes": "16",
+  "unknown_entry_policy": "zero and fail-closed; no pointer into BIOS or code"
+}

@@ -18,9 +18,9 @@ must NOT claim playability or general PS1 compatibility.
 
 ## Progress
 
-- CURRENT_STAGE: P12-02
-- LAST_COMPLETED_STAGE: P12-01
-- NEXT_STAGE: P12-02
+- CURRENT_STAGE: P12-04
+- LAST_COMPLETED_STAGE: P12-03
+- NEXT_STAGE: P12-04
 
 ## Proof markers
 
@@ -35,8 +35,8 @@ must NOT claim playability or general PS1 compatibility.
 |---|---|
 | P12-00 | PASS (23 checks) |
 | P12-01 | PASS (35 checks) |
-| P12-02 | not started |
-| P12-03 | not started |
+| P12-02 | PASS (22 checks) |
+| P12-03 | PASS (22 checks) |
 | P12-04 | not started |
 | P12-05 | not started |
 | P12-06 | not started |
@@ -88,6 +88,34 @@ exit 0 and byte-identical JSON sidecars.
 - markers `OPENRECOMP_P12_01=PASS` and
   `OPENRECOMP_PHASE12_B0_5B_CHANGECLEARPAD_V1=PASS`;
 - evidence: `.openrecomp-phase12/evidence/P12-01/`.
+
+### P12-02 — complete B0:0x5B caller coverage
+
+PASS (22 checks). Gate `tools/test_phase12_caller_coverage_v1.py` ran twice with
+byte-identical stdout, empty stderr, exit 0 and byte-identical sidecars.
+
+- independently re-derived two reachable `B0:0x57` sites (`0x80015fa4`,
+  `0x80026f74`), the direct `B0:0x5B` stub (`0x80015f3c`) and seven callers;
+- both `B0:0x57` sites and the direct stub resolve to `ps1.bios.B0.57` /
+  `ps1.bios.B0.5b`; eight other reachable B0 indices stay fail-closed;
+- direct and indirect paths converge on the Phase-12 dispatcher; no unknown-B0
+  rule is emitted; committed evidence is public-safe;
+- evidence: `.openrecomp-phase12/evidence/P12-02/`.
+
+### P12-03 — GetB0Table indirect service mediation
+
+PASS (22 checks). Gate `tools/test_phase12_b0_mediation_v1.py` ran twice with
+byte-identical stdout, empty stderr, exit 0 and byte-identical sidecars.
+
+- the real initialization path runs past the frozen P11-07 frontier; the
+  synthetic table base, entry `0x5B`, derived pointers (`0x1f001884`,
+  `0x1f001894`) and the eleven-word clear are all observed;
+- `ChangeClearPAD` invoked 4 times; zero service failures; both reachable
+  `B0:0x57` sites resolve;
+- unknown table entries stay zero; no guest-code interpreter;
+- new exact frontier: unresolved indirect jump at `0x80015b94`
+  (`fn_80015b90`, block 468355) resolving to A0 `0x44` `FlushCache`;
+- evidence: `.openrecomp-phase12/evidence/P12-03/`.
 
 ## Third-party code
 
