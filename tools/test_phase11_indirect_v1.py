@@ -116,7 +116,7 @@ EXPECTED_VECTOR_SITES = {
     "0x80015f3c": ("B0", 0x5B, None),
     "0x80015f4c": ("C0", 0x02, "SysEnqIntRP"),
     "0x80015f5c": ("C0", 0x03, "SysDeqIntRP"),
-    "0x80015fa4": ("B0", 0x57, None),
+    "0x80015fa4": ("B0", 0x57, "GetB0Table"),
     "0x800161e0": ("C0", 0x0A, None),
     "0x8001b424": ("A0", 0x49, "GPU_cw"),
     "0x80026c74": ("B0", 0x3F, "puts"),
@@ -126,7 +126,7 @@ EXPECTED_VECTOR_SITES = {
     "0x80026e24": ("B0", 0x4A, None),
     "0x80026e34": ("B0", 0x4B, None),
     "0x80026ebc": ("B0", 0x56, None),
-    "0x80026f74": ("B0", 0x57, None),
+    "0x80026f74": ("B0", 0x57, "GetB0Table"),
 }
 
 #: The new frontier after the resolution (access budget 1500000, no bound hit).

@@ -121,6 +121,63 @@ evidence. The reconciled route does not reinterpret an unexecuted stage as
 `P11-91` and `P11-99` remain independent evidence stages and may begin only
 after their predecessor commits successfully.
 
+## P11-90 verification-context recovery
+
+The frozen Phase-2 verification context contains 28 files that Phase 2
+deliberately left untracked and hash-pinned (27 UTF-16LE captured artifacts
+plus `tools/test_build_package_reproducibility_v1.py`). The frozen root
+`SOURCE_SHA256SUMS.txt` and the frozen Phase-3/4 boundary gates require those
+bytes to be present on disk. A clean isolated checkout therefore cannot run the
+frozen Phase-1..Phase-10 regression.
+
+For `P11-90` only, and only inside the isolated Phase-10 regression worktree at
+`D:/OpenRecomp/worktrees/p11-90-phase10-regression`, the frozen verification
+context is recovered as follows:
+
+- the worktree's exact branch, commit, tree and tracked-file cleanliness are
+  confirmed first; a tracked modification fails closed;
+- the 28 paths are enumerated from the frozen Phase-3 boundary gate in that
+  worktree; an entry-set change fails closed;
+- each file is materialized only from the tracked historical blob at the
+  pre-untracking Phase-2 commit `b9356999` read through Git plumbing, and every
+  blob id, byte length and SHA-256 is recorded;
+- an existing file is never overwritten; if it exists with different bytes the
+  stage fails closed with `EVIDENCE_INTEGRITY_FAILURE`;
+- the root-manifest SHA-256 for `tools/test_build_package_reproducibility_v1.py`
+  (`2b9b09386c6f530f41b4cfe3b8d9dec868ae858603e5b0bc54ae8f5c37691085`) and the
+  frozen aggregate residue digest for all 28 files
+  (`40e4f23a35f40c5d25da630467d46f5e8ad8409a40efff8412892217447a8349`) are
+  verified before the frozen gate runs; any mismatch or missing blob fails
+  closed;
+- clean tracked LF text files whose line endings the Windows checkout
+  normalized (for example the `.S` fixtures under `* text=auto`) are
+  re-materialized from their own Git blobs so the frozen working-tree hashes
+  match; a genuinely modified tracked file is excluded and never touched, and
+  the index stat cache is refreshed without staging any content.
+
+Two external, intentionally untracked dependencies are also required, and each
+is admitted only by exact audited identity:
+
+- the pinned Zig 0.13.0 toolchain is materialized at
+  `.openrecomp-phase3/tools/zig/` from a local copy only when its `zig.exe`
+  SHA-256 equals
+  `2e44af5bbf7a72ef8cbdae370284687c95d65a19affa469d2ad0364d905b8e84` and
+  `zig version` is `0.13.0` (frozen archive SHA-256
+  `d859994725ef9402381e557c60bb57497215682e355204d754ee3df75ee3c158` is recorded
+  as provenance); a newer or different Zig is refused even though the frozen
+  boundary gate would accept it.
+
+This exact-toolchain clause is the only exception to the historical-blob rule;
+no other untracked directory is authorized, and no toolchain is downloaded,
+installed or upgraded.
+
+The recovered files stay untracked, are never staged or committed, and never
+enter Phase-11 evidence as raw bytes. Only blob ids, sizes, SHA-256 values,
+checks and classifications are recorded. The frozen root manifest, gates,
+commits, tags and evidence remain byte-for-byte unchanged, and the ambient
+Phase-11 worktree is never used as the byte source for the 28 historical
+verification-context files.
+
 ## Analysis cache
 
 Cache keys must include, as applicable: the executable SHA-256, the CUE

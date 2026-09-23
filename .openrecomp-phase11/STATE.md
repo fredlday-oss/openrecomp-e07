@@ -80,11 +80,54 @@ OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 | P11-10 | NOT EXECUTED — no stage verdict assigned |
 | P11-11 | NOT EXECUTED — no stage verdict assigned |
 | P11-12 | NOT EXECUTED — no stage verdict assigned |
-| P11-90 | PENDING |
+| P11-90 | PASS (whole-regression gate, 262 checks, deterministic twice) |
 | P11-91 | PENDING |
 | P11-99 | PENDING |
 
 ## Stage records
+
+### P11-90 — reconciled whole-project regression
+
+The first execution stopped FAIL under `EVIDENCE_INTEGRITY_FAILURE`: in an
+isolated worktree at the exact frozen Phase-10 branch, commit and tree, the
+unchanged frozen P10-90 regression passed the frozen P10-00 branch assertion
+but its Phase-1 host harness failed source integrity because that checkout
+lacked the pre-existing untracked `tools/test_build_package_reproducibility_v1.py`
+file listed in the frozen root `SOURCE_SHA256SUMS.txt` (the original worktree
+copy matches the recorded SHA-256
+`2b9b09386c6f530f41b4cfe3b8d9dec868ae858603e5b0bc54ae8f5c37691085`; the
+isolated harness reported 43 PASS, one FAIL and two toolchain skips). That
+failed attempt is preserved under
+`.openrecomp-phase11/evidence/P11-90/initial-failed-attempt/`.
+
+The blocker was resolved only by the audited verification-context recovery
+defined in `CONTROL_POLICY.md` ("P11-90 verification-context recovery"): the
+28 hash-pinned untracked Phase-2 files were materialized in the isolated
+worktree exclusively from their tracked pre-untracking Git blobs at
+`b9356999`, with blob ids, lengths and SHA-256 values recorded, the frozen
+aggregate residue digest verified, and no ambient-worktree byte source and no
+tracked modification.
+
+After recovery the gate `tools/test_phase11_whole_regression_v1.py` ran twice
+with byte-identical stdout (17588 raw bytes, SHA-256 `2f18d76d...`), empty
+stderr, exit 0 and byte-identical sidecars: `OPENRECOMP_P11_90=PASS` with 262
+checks. The gate re-executes the frozen Phase-1..Phase-10 whole regression
+live in the isolated worktree (155 checks), re-executes P11-00 through P11-07
+live into scratch evidence (P11-02 at 1471 and P11-03 at 1331 checks against
+their current shared-contract identities; the other six against their
+committed official stdout), verifies P11-RC as a committed deterministic
+boundary (179 checks), pins the P11-02 repair to exactly the two
+proven-metadata expectation lines, and scans tracked P11-00..P11-RC evidence
+for private-payload and host-path leaks.
+
+- the P11-02/P11-03 current identities are metadata-only enrichments from the
+  proven P11-07 `B0:0x57` `GetB0Table` public name; both sites remain
+  `BIOS_VECTOR_NOT_IMPLEMENTED` / `FAIL_CLOSED` with `op_name` and
+  `service_id` null;
+- all four proof markers remain `NOT_PROVEN` and milestone C remains the
+  highest proven milestone;
+- P11-91 and P11-99 are not started and may begin only after this
+  predecessor commits successfully.
 
 ### P11-RC — authorized bounded terminal-route reconciliation
 

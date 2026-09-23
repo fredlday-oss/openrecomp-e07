@@ -71,15 +71,34 @@
   verbatim, those stages were not executed and have no verdict, and the only
   permitted route is `P11-RC -> P11-90 -> P11-91 -> P11-99`. No runtime,
   BIOS, semantic, translation, emission or guest-state behavior changes.
+- `P11-90` first stopped with FAIL before a PASS boundary: in an isolated
+  checkout on the exact frozen Phase-10 branch, commit and tree, the Phase-1
+  host harness failed source integrity because the checkout lacked the
+  pre-existing untracked `tools/test_build_package_reproducibility_v1.py`
+  file listed in the frozen root manifest (the original worktree copy matches
+  the manifest SHA-256
+  `2b9b09386c6f530f41b4cfe3b8d9dec868ae858603e5b0bc54ae8f5c37691085`;
+  the isolated harness reported 43 PASS, one FAIL and two toolchain skips).
+  The audited verification-context recovery defined in `CONTROL_POLICY.md`
+  then materialized the 28 hash-pinned Phase-2 files in the isolated worktree
+  only from their tracked pre-untracking Git blobs at `b9356999`, and the
+  re-run gate passed twice with byte-identical stdout (17588 raw bytes,
+  SHA-256 `2f18d76d...`) and sidecars: `OPENRECOMP_P11_90=PASS`, 262 checks,
+  empty stderr, exit 0. The failed attempt is preserved under
+  `evidence/P11-90/initial-failed-attempt/`. No proof marker moved; P11-91
+  and P11-99 were not started.
 
 ## Immediate next action
 
-Proceed only to `P11-90`, the reconciled whole-project regression. Do not
-start, simulate or assign a verdict to P11-08 through P11-12. P11-90 must
-verify the frozen earlier-phase boundaries, every executed P11-00 through
-P11-07 stage, P11-RC, source/evidence integrity, public safety, determinism and
-the unchanged milestone/compatibility claims. Build products live under
-`.openrecomp-phase11/build/` (untracked).
+The P11-90 whole-project regression gate passes deterministically and its
+official evidence is recorded under `.openrecomp-phase11/evidence/P11-90/`;
+the Phase-11 regression repair commit is the P11-90 predecessor commit.
+P11-91 and P11-99 may begin only after that commit exists; do not start,
+simulate or assign a verdict to them, or to P11-08 through P11-12, before
+then. The isolated Phase-10 worktree stays at
+`D:/OpenRecomp/worktrees/p11-90-phase10-regression` with its recovered
+verification-context files untracked. The original Phase-2/Phase-3 residue
+and root untracked file remain untouched.
 
 The P11-07 `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE` result remains the exact
 runtime frontier. A future licensed replacement-BIOS investigation is outside

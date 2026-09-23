@@ -1,0 +1,91 @@
+{
+  "checks": [
+    {
+      "check": "authority:branch",
+      "detail": "phase11/ps1-playability-v1",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:commit-subject",
+      "detail": "P11-RC subject",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:head",
+      "detail": "1292b923af0af75424cec95e1c14f95c8b3d1fd0",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:tree",
+      "detail": "f20c22b3ac9727ea67e448413cea79e302f5a1cb",
+      "status": "PASS"
+    },
+    {
+      "check": "delta:no-runtime-or-completed-gate-change",
+      "detail": "none",
+      "status": "PASS"
+    },
+    {
+      "check": "gate:assertion",
+      "detail": "phase1-10:p10-90:exit: 1",
+      "status": "FAIL"
+    },
+    {
+      "check": "p11-rc:deterministic-sidecars",
+      "detail": "sidecars",
+      "status": "PASS"
+    },
+    {
+      "check": "p11-rc:no-fail-lines",
+      "detail": "no FAIL",
+      "status": "PASS"
+    },
+    {
+      "check": "p11-rc:official-pass",
+      "detail": "official",
+      "status": "PASS"
+    },
+    {
+      "check": "phase1-10:p10-90:exit",
+      "detail": "1",
+      "status": "FAIL"
+    },
+    {
+      "check": "phase10-worktree:branch",
+      "detail": "phase10/ps1-commercial-game-native-v1",
+      "status": "PASS"
+    },
+    {
+      "check": "phase10-worktree:commit",
+      "detail": "8961682aa36e14db979e8e8dbe88e04fa2b4c87a",
+      "status": "PASS"
+    },
+    {
+      "check": "phase10-worktree:exists",
+      "detail": "present",
+      "status": "PASS"
+    },
+    {
+      "check": "phase10-worktree:parent",
+      "detail": "fixed sibling worktree",
+      "status": "PASS"
+    },
+    {
+      "check": "phase10-worktree:tree",
+      "detail": "4a58d9238d76a490560c588bb470fd9e6a58cafe",
+      "status": "PASS"
+    },
+    {
+      "check": "source:p11-manifest",
+      "detail": "OPENRECOMP_PHASE11_SOURCE_INTEGRITY=PASS entries=24",
+      "status": "PASS"
+    }
+  ],
+  "schema": "openrecomp-phase11-tests-v1",
+  "stage": "P11-90",
+  "status": "FAIL",
+  "summary": {
+    "failed": 2,
+    "passed": 14
+  }
+}

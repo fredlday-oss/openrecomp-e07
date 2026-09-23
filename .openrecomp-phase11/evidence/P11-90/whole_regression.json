@@ -1,0 +1,132 @@
+{
+  "baseline": {
+    "branch": "phase11/ps1-playability-v1",
+    "commit": "1292b923af0af75424cec95e1c14f95c8b3d1fd0",
+    "tree": "f20c22b3ac9727ea67e448413cea79e302f5a1cb"
+  },
+  "claims": {
+    "A": "INHERITED_PROVEN",
+    "B": "NOT_PROVEN",
+    "C": "PROVEN_PRIVATE_FIXTURE_BOUNDED",
+    "D": "NOT_PROVEN",
+    "E": "NOT_PROVEN",
+    "F": "NOT_PROVEN",
+    "G": "NOT_PROVEN",
+    "general_ps1_compatibility": "NOT_PROVEN_PERMANENT"
+  },
+  "counts": {
+    "executed_phase11_checks": 5128,
+    "executed_phase11_gates": 8,
+    "p11_rc_checks": 179,
+    "phase10_whole_regression_checks": 155
+  },
+  "executed_phase11_stages": [
+    {
+      "checks": 482,
+      "committed_stdout_match": true,
+      "historical_stdout_sha256_raw": "1d75d45a874531b986e79c83a0c9a517da2ba81053c945b06f20554790b0ba7a",
+      "identity_basis": "committed stage stdout",
+      "stage": "P11-00",
+      "stdout_sha256_raw": "1d75d45a874531b986e79c83a0c9a517da2ba81053c945b06f20554790b0ba7a"
+    },
+    {
+      "checks": 583,
+      "committed_stdout_match": true,
+      "historical_stdout_sha256_raw": "784e54d5019a3b802d5f2aa3a090297aaca18da70c86e462799d383ea979eda2",
+      "identity_basis": "committed stage stdout",
+      "stage": "P11-01",
+      "stdout_sha256_raw": "784e54d5019a3b802d5f2aa3a090297aaca18da70c86e462799d383ea979eda2"
+    },
+    {
+      "checks": 1471,
+      "committed_stdout_match": false,
+      "historical_stdout_sha256_raw": "efcdd15a1e25420ea7e9ddc1bf9c7530381a116a8168e020eba33597bf99c3cd",
+      "identity_basis": "current shared contracts after later proven Phase-11 refinements",
+      "stage": "P11-02",
+      "stdout_sha256_raw": "0a9f7efca00000497efa11978c3ec56cf9a8094cd48c0a88cf936bb4a347fcb1"
+    },
+    {
+      "checks": 1331,
+      "committed_stdout_match": false,
+      "historical_stdout_sha256_raw": "b17a3954a55f67cae2465bc84ad6111da11ca9fd8947577abf4192c55a9ae254",
+      "identity_basis": "current shared contracts after later proven Phase-11 refinements",
+      "stage": "P11-03",
+      "stdout_sha256_raw": "e442fcde36a8e5d1613476b4ea88e38d3b990b72e083e6206aac3e20dea0c325"
+    },
+    {
+      "checks": 851,
+      "committed_stdout_match": true,
+      "historical_stdout_sha256_raw": "648ddd31dc3bff4b27a45b611720d57f9c4082d3446e40b27078123c6aebb699",
+      "identity_basis": "committed stage stdout",
+      "stage": "P11-04",
+      "stdout_sha256_raw": "648ddd31dc3bff4b27a45b611720d57f9c4082d3446e40b27078123c6aebb699"
+    },
+    {
+      "checks": 294,
+      "committed_stdout_match": true,
+      "historical_stdout_sha256_raw": "9c0a63eb0c15eeb9b20be051861c1743e5b4ad8017ecf4fb9666a8f339ab51e8",
+      "identity_basis": "committed stage stdout",
+      "stage": "P11-05",
+      "stdout_sha256_raw": "9c0a63eb0c15eeb9b20be051861c1743e5b4ad8017ecf4fb9666a8f339ab51e8"
+    },
+    {
+      "checks": 75,
+      "committed_stdout_match": true,
+      "historical_stdout_sha256_raw": "f83019d443e838c3b7d089971840afa72db6bbb2ca64ed45ef5783e8dd52a737",
+      "identity_basis": "committed stage stdout",
+      "stage": "P11-06",
+      "stdout_sha256_raw": "f83019d443e838c3b7d089971840afa72db6bbb2ca64ed45ef5783e8dd52a737"
+    },
+    {
+      "checks": 41,
+      "committed_stdout_match": true,
+      "historical_stdout_sha256_raw": "ebaeb8088fbcf66099ce071c672ad07bcdd37f7e98b5ce8bd1f530209c4b8709",
+      "identity_basis": "committed stage stdout",
+      "stage": "P11-07",
+      "stdout_sha256_raw": "ebaeb8088fbcf66099ce071c672ad07bcdd37f7e98b5ce8bd1f530209c4b8709"
+    }
+  ],
+  "p11_rc": {
+    "deterministic": true,
+    "evidence_tree": "ada0ed28a36b88430aef978abf080cfa77f17d48",
+    "official_runs": "PASS"
+  },
+  "phase1_through_phase10": {
+    "aggregate_residue_sha256": "40e4f23a35f40c5d25da630467d46f5e8ad8409a40efff8412892217447a8349",
+    "branch": "phase10/ps1-commercial-game-native-v1",
+    "checks": 155,
+    "commit": "8961682aa36e14db979e8e8dbe88e04fa2b4c87a",
+    "committed_stdout_match": true,
+    "frozen_untracked_files": 28,
+    "gate": "tools/test_phase10_whole_regression_v1.py",
+    "historical_source_commit": "b935699991bdcbea518e5f6fbbd69ecb45bc12cf",
+    "historical_source_tree": "e84ed211a5abac3dfa738cdca48aadddf15ba6ee",
+    "reconstruction": "verified untracked Phase-2 Git blobs in an isolated worktree on the frozen Phase-10 branch and commit",
+    "stdout_sha256_raw": "90630afd040fe19f21c6ae25f07e6e6efba07aa95c061f15c8488e32a2fd1aad",
+    "tree": "4a58d9238d76a490560c588bb470fd9e6a58cafe",
+    "verification_context": "verification_context.json"
+  },
+  "reconciled_queue": {
+    "stage_verdict_assigned": false,
+    "terminal_route": [
+      "P11-RC",
+      "P11-90",
+      "P11-91",
+      "P11-99"
+    ],
+    "unexecuted_stages": [
+      "P11-08",
+      "P11-09",
+      "P11-10",
+      "P11-11",
+      "P11-12"
+    ]
+  },
+  "safety": {
+    "files_scanned": 176,
+    "host_path_violations": [],
+    "private_payload_violations": []
+  },
+  "schema": "openrecomp-phase11-whole-regression-v1",
+  "stage": "P11-90"
+}

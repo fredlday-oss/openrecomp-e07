@@ -1,0 +1,1321 @@
+{
+  "checks": [
+    {
+      "check": "authority:branch",
+      "detail": "phase11/ps1-playability-v1",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:commit-subject",
+      "detail": "P11-RC subject",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:head",
+      "detail": "1292b923af0af75424cec95e1c14f95c8b3d1fd0",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:tree",
+      "detail": "f20c22b3ac9727ea67e448413cea79e302f5a1cb",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+      "detail": "OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF=NOT_PROVEN",
+      "detail": "OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF=NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:OPENRECOMP_PHASE11_HERCULES_GPU_COMMAND_PROOF=PROVEN",
+      "detail": "OPENRECOMP_PHASE11_HERCULES_GPU_COMMAND_PROOF=PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+      "detail": "OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+      "detail": "OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:highest-C",
+      "detail": "milestone C",
+      "status": "PASS"
+    },
+    {
+      "check": "delta:no-runtime-or-completed-gate-change",
+      "detail": "none",
+      "status": "PASS"
+    },
+    {
+      "check": "delta:p11-02-proven-metadata-expectation-only",
+      "detail": "[(119, '    \"0x80015fa4\": (\"B0\", 0x57, None),', '    \"0x80015fa4\": (\"B0\", 0x57, \"GetB0Table\"),'), (129, '    \"0x80026f74\": (\"B0\", 0x57, None),', '    \"0x80026f74\": (\"B0\", 0x57, \"GetB0Table\"),')]",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:executed-history-untouched",
+      "detail": "clean",
+      "status": "PASS"
+    },
+    {
+      "check": "p11-rc:deterministic-sidecars",
+      "detail": "sidecars",
+      "status": "PASS"
+    },
+    {
+      "check": "p11-rc:no-fail-lines",
+      "detail": "no FAIL",
+      "status": "PASS"
+    },
+    {
+      "check": "p11-rc:official-pass",
+      "detail": "official",
+      "status": "PASS"
+    },
+    {
+      "check": "phase1-10:p10-90:checks",
+      "detail": "155",
+      "status": "PASS"
+    },
+    {
+      "check": "phase1-10:p10-90:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "phase1-10:p10-90:marker",
+      "detail": "OPENRECOMP_P10_90=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "phase1-10:p10-90:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "phase1-10:p10-90:stdout-identity",
+      "detail": "90630afd040fe19f21c6ae25f07e6e6efba07aa95c061f15c8488e32a2fd1aad",
+      "status": "PASS"
+    },
+    {
+      "check": "phase10-worktree:branch",
+      "detail": "phase10/ps1-commercial-game-native-v1",
+      "status": "PASS"
+    },
+    {
+      "check": "phase10-worktree:commit",
+      "detail": "8961682aa36e14db979e8e8dbe88e04fa2b4c87a",
+      "status": "PASS"
+    },
+    {
+      "check": "phase10-worktree:exists",
+      "detail": "present",
+      "status": "PASS"
+    },
+    {
+      "check": "phase10-worktree:parent",
+      "detail": "fixed sibling worktree",
+      "status": "PASS"
+    },
+    {
+      "check": "phase10-worktree:tracked-clean",
+      "detail": "no tracked modification",
+      "status": "PASS"
+    },
+    {
+      "check": "phase10-worktree:tree",
+      "detail": "4a58d9238d76a490560c588bb470fd9e6a58cafe",
+      "status": "PASS"
+    },
+    {
+      "check": "phase10-worktree:verification-context-digest",
+      "detail": "40e4f23a35f40c5d25da630467d46f5e8ad8409a40efff8412892217447a8349",
+      "status": "PASS"
+    },
+    {
+      "check": "phase10-worktree:verification-context:prepare",
+      "detail": "OPENRECOMP_PHASE11_VERIFICATION_CONTEXT=PASS files=28 aggregate=40e4f23a35f40c5d25da630467d46f5e8ad8409a40efff8412892217447a8349\r\nOPENRECOMP_PHASE11_VERIFICATION_CONTEXT_TOOLCHAIN=PASS zig=0.13.0 sha256=2e44af5bbf7a72ef8cbdae370284687c95d65a19affa469d2ad0364d905b8e84",
+      "status": "PASS"
+    },
+    {
+      "check": "phase10-worktree:verification-context:verify",
+      "detail": "OPENRECOMP_PHASE11_VERIFICATION_CONTEXT=PASS files=28 aggregate=40e4f23a35f40c5d25da630467d46f5e8ad8409a40efff8412892217447a8349\r\nOPENRECOMP_PHASE11_VERIFICATION_CONTEXT_TOOLCHAIN=PASS zig=0.13.0 sha256=2e44af5bbf7a72ef8cbdae370284687c95d65a19affa469d2ad0364d905b8e84",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-00:checks",
+      "detail": "482",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-00:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-00:marker",
+      "detail": "OPENRECOMP_P11_00=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-00:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-00:stdout-identity",
+      "detail": "1d75d45a874531b986e79c83a0c9a517da2ba81053c945b06f20554790b0ba7a",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-01:checks",
+      "detail": "583",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-01:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-01:marker",
+      "detail": "OPENRECOMP_P11_01=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-01:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-01:stdout-identity",
+      "detail": "784e54d5019a3b802d5f2aa3a090297aaca18da70c86e462799d383ea979eda2",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-02:checks",
+      "detail": "1471",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-02:current-check-count",
+      "detail": "1471",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-02:current-public-name",
+      "detail": "B0:0x57=GetB0Table at both sites",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-02:current-stdout-identity",
+      "detail": "0a9f7efca00000497efa11978c3ec56cf9a8094cd48c0a88cf936bb4a347fcb1",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-02:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-02:marker",
+      "detail": "OPENRECOMP_P11_02=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-02:name-does-not-implement-service",
+      "detail": "metadata-only and fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-02:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-03:checks",
+      "detail": "1331",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-03:current-check-count",
+      "detail": "1331",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-03:current-stdout-identity",
+      "detail": "e442fcde36a8e5d1613476b4ea88e38d3b990b72e083e6206aac3e20dea0c325",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-03:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-03:later-proven-versions",
+      "detail": "bios/semantics/runtime=1.2.0 rules=51",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-03:marker",
+      "detail": "OPENRECOMP_P11_03=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-03:name-does-not-implement-service",
+      "detail": "metadata-only and fail-closed",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-03:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-04:checks",
+      "detail": "851",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-04:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-04:marker",
+      "detail": "OPENRECOMP_P11_04=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-04:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-04:stdout-identity",
+      "detail": "648ddd31dc3bff4b27a45b611720d57f9c4082d3446e40b27078123c6aebb699",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-05:checks",
+      "detail": "294",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-05:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-05:marker",
+      "detail": "OPENRECOMP_P11_05=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-05:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-05:stdout-identity",
+      "detail": "9c0a63eb0c15eeb9b20be051861c1743e5b4ad8017ecf4fb9666a8f339ab51e8",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-06:checks",
+      "detail": "75",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-06:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-06:marker",
+      "detail": "OPENRECOMP_P11_06=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-06:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-06:stdout-identity",
+      "detail": "f83019d443e838c3b7d089971840afa72db6bbb2ca64ed45ef5783e8dd52a737",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-07:checks",
+      "detail": "41",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-07:exit",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-07:marker",
+      "detail": "OPENRECOMP_P11_07=PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-07:stderr",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "phase11:P11-07:stdout-identity",
+      "detail": "ebaeb8088fbcf66099ce071c672ad07bcdd37f7e98b5ce8bd1f530209c4b8709",
+      "status": "PASS"
+    },
+    {
+      "check": "queue:P11-08:not-executed",
+      "detail": "P11-08",
+      "status": "PASS"
+    },
+    {
+      "check": "queue:P11-09:not-executed",
+      "detail": "P11-09",
+      "status": "PASS"
+    },
+    {
+      "check": "queue:P11-10:not-executed",
+      "detail": "P11-10",
+      "status": "PASS"
+    },
+    {
+      "check": "queue:P11-11:not-executed",
+      "detail": "P11-11",
+      "status": "PASS"
+    },
+    {
+      "check": "queue:P11-12:not-executed",
+      "detail": "P11-12",
+      "status": "PASS"
+    },
+    {
+      "check": "queue:authorized-route",
+      "detail": "route",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:files-scanned",
+      "detail": "176",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:no-host-paths",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:no-private-payload",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/RESULT.md",
+      "detail": ".openrecomp-phase11/evidence/P11-00/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/baseline.json",
+      "detail": ".openrecomp-phase11/evidence/P11-00/baseline.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-00/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/fixture_identity.json",
+      "detail": ".openrecomp-phase11/evidence/P11-00/fixture_identity.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-00/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/milestone_inheritance.json",
+      "detail": ".openrecomp-phase11/evidence/P11-00/milestone_inheritance.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-00/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/p11_00_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-00/p11_00_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-00/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-00/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-00/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-00/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-00/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/RESULT.md",
+      "detail": ".openrecomp-phase11/evidence/P11-01/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/cache.json",
+      "detail": ".openrecomp-phase11/evidence/P11-01/cache.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/causality.json",
+      "detail": ".openrecomp-phase11/evidence/P11-01/causality.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-01/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/instrumentation.json",
+      "detail": ".openrecomp-phase11/evidence/P11-01/instrumentation.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-01/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/p11_01_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-01/p11_01_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-01/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-01/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-01/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-01/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-01/trace_execution.json",
+      "detail": ".openrecomp-phase11/evidence/P11-01/trace_execution.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-02/RESULT.md",
+      "detail": ".openrecomp-phase11/evidence/P11-02/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-02/cache.json",
+      "detail": ".openrecomp-phase11/evidence/P11-02/cache.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-02/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-02/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-02/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-02/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-02/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-02/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-02/p11_02_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-02/p11_02_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-02/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-02/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-02/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-02/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-02/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-02/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-02/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-02/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-03/RESULT.md",
+      "detail": ".openrecomp-phase11/evidence/P11-03/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-03/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-03/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-03/event_contract.json",
+      "detail": ".openrecomp-phase11/evidence/P11-03/event_contract.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-03/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-03/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-03/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-03/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-03/p11_03_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-03/p11_03_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-03/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-03/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-03/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-03/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-03/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-03/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-03/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-03/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-04/RESULT.md",
+      "detail": ".openrecomp-phase11/evidence/P11-04/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-04/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-04/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-04/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-04/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-04/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-04/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-04/p11_04_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-04/p11_04_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-04/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-04/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-04/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-04/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-04/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-04/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-04/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-04/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/RESULT.md",
+      "detail": ".openrecomp-phase11/evidence/P11-05/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/causal_ab.json",
+      "detail": ".openrecomp-phase11/evidence/P11-05/causal_ab.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-05/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/diagnostic.json",
+      "detail": ".openrecomp-phase11/evidence/P11-05/diagnostic.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-05/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-05/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/p11-04-regression/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-05/p11-04-regression/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/p11-04-regression/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-05/p11-04-regression/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/p11-04-regression/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-05/p11-04-regression/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/p11-04-regression/p11_04_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-05/p11-04-regression/p11_04_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/p11-04-regression/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-05/p11-04-regression/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/p11-04-regression/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-05/p11-04-regression/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/p11-04-regression/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-05/p11-04-regression/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/p11-04-regression/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-05/p11-04-regression/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/p11_05_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-05/p11_05_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-05/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-05/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-05/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-05/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-05/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/RESULT.md",
+      "detail": ".openrecomp-phase11/evidence/P11-06/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/causal_ab.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/causal_ab.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11-05-regression/causal_ab.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11-05-regression/causal_ab.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11-05-regression/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11-05-regression/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11-05-regression/diagnostic.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11-05-regression/diagnostic.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11-05-regression/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11-05-regression/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11-05-regression/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11-05-regression/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11-05-regression/p11_05_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11-05-regression/p11_05_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11-05-regression/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11-05-regression/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11-05-regression/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11-05-regression/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11-05-regression/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11-05-regression/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11-05-regression/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11-05-regression/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/p11_06_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/p11_06_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-06/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-06/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-06/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-06/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-06/target_provenance.json",
+      "detail": ".openrecomp-phase11/evidence/P11-06/target_provenance.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/RESULT.md",
+      "detail": ".openrecomp-phase11/evidence/P11-07/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/blocker.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/blocker.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/caller_use.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/caller_use.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-05-regression/causal_ab.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-05-regression/causal_ab.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-05-regression/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-05-regression/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-05-regression/diagnostic.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-05-regression/diagnostic.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-05-regression/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-05-regression/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-05-regression/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-05-regression/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-05-regression/p11_05_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-05-regression/p11_05_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-05-regression/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-05-regression/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-05-regression/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-05-regression/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-05-regression/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-05-regression/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-05-regression/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-05-regression/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-06-regression/causal_ab.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-06-regression/causal_ab.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-06-regression/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-06-regression/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-06-regression/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-06-regression/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-06-regression/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-06-regression/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-06-regression/p11_06_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-06-regression/p11_06_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-06-regression/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-06-regression/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-06-regression/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-06-regression/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-06-regression/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-06-regression/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-06-regression/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-06-regression/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11-06-regression/target_provenance.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11-06-regression/target_provenance.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/p11_07_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/p11_07_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/public_contract.json",
+      "detail": ".openrecomp-phase11/evidence/P11-07/public_contract.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-07/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-07/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/RESULT.md",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/RESULT.md",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/baseline.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/baseline.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/fixture_identity.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/fixture_identity.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/milestone_inheritance.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/milestone_inheritance.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/p11_00_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/p11_00_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-00-regression/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-00-regression/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-05-regression/causal_ab.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-05-regression/causal_ab.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-05-regression/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-05-regression/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-05-regression/diagnostic.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-05-regression/diagnostic.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-05-regression/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-05-regression/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-05-regression/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-05-regression/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-05-regression/p11_05_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-05-regression/p11_05_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-05-regression/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-05-regression/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-05-regression/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-05-regression/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-05-regression/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-05-regression/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-05-regression/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-05-regression/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-06-regression/causal_ab.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-06-regression/causal_ab.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-06-regression/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-06-regression/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-06-regression/frontier.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-06-regression/frontier.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-06-regression/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-06-regression/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-06-regression/p11_06_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-06-regression/p11_06_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-06-regression/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-06-regression/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-06-regression/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-06-regression/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-06-regression/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-06-regression/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-06-regression/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-06-regression/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-06-regression/target_provenance.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-06-regression/target_provenance.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-07-regression/blocker.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-07-regression/blocker.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-07-regression/caller_use.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-07-regression/caller_use.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-07-regression/determinism.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-07-regression/determinism.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-07-regression/official_runs.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-07-regression/official_runs.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-07-regression/p11_07_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-07-regression/p11_07_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-07-regression/public_contract.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-07-regression/public_contract.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-07-regression/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-07-regression/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-07-regression/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-07-regression/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-07-regression/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-07-regression/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11-07-regression/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11-07-regression/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/p11_rc_tests.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/p11_rc_tests.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/reconciliation.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/reconciliation.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/run1.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/run1.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/run1.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/run1.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/run2.err.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/run2.err.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/run2.txt",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/run2.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/P11-RC/source_exhaustion.json",
+      "detail": ".openrecomp-phase11/evidence/P11-RC/source_exhaustion.json",
+      "status": "PASS"
+    },
+    {
+      "check": "safety:tracked:.openrecomp-phase11/evidence/README.md",
+      "detail": ".openrecomp-phase11/evidence/README.md",
+      "status": "PASS"
+    },
+    {
+      "check": "source:p11-manifest",
+      "detail": "OPENRECOMP_PHASE11_SOURCE_INTEGRITY=PASS entries=25",
+      "status": "PASS"
+    }
+  ],
+  "schema": "openrecomp-phase11-tests-v1",
+  "stage": "P11-90",
+  "status": "PASS",
+  "summary": {
+    "failed": 0,
+    "passed": 262
+  }
+}
