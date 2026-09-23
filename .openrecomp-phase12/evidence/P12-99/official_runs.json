@@ -1,0 +1,92 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "cf142a565a6abab3a00ba80e2f9b0879bdf3f387b1a7da0cc9e08ef9473bde93",
+    "final_verdict.json": "00a5723e946d373b01a17b37fa40d0fdcc70876bebec620ff3ff5ed487c6b07a",
+    "p12_99_tests.json": "1e7b51ad79cf8fd6ca2cffe89c692125f221cab71973ebad1d44361c35436d5b"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "cf142a565a6abab3a00ba80e2f9b0879bdf3f387b1a7da0cc9e08ef9473bde93",
+        "final_verdict.json": "00a5723e946d373b01a17b37fa40d0fdcc70876bebec620ff3ff5ed487c6b07a",
+        "p12_99_tests.json": "1e7b51ad79cf8fd6ca2cffe89c692125f221cab71973ebad1d44361c35436d5b"
+      },
+      "command": [
+        "python",
+        "tools/test_phase12_final_verdict_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase12/evidence/P12-99"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P12_99=PASS",
+        "OPENRECOMP_PHASE12_B0_5B_CHANGECLEARPAD_V1=PASS",
+        "OPENRECOMP_PHASE12_B0_TABLE_INDIRECT_V1=PASS",
+        "OPENRECOMP_PHASE12_END_TO_END_REPLAY_V1=PASS",
+        "OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_GPU_OT_DMA_V1=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_GTE_GEOMETRY_V1=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_TEXTURE_VRAM_V1=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_INITIALIZATION_AND_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12=PASS_BOUNDED_B0_MEDIATION_PRIVATE_FIXTURE"
+      ],
+      "name": "run1",
+      "p12_99_tests_sha256": "1e7b51ad79cf8fd6ca2cffe89c692125f221cab71973ebad1d44361c35436d5b",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2391,
+      "stdout_bytes_lf": 2334,
+      "stdout_sha256_lf": "43d57d4cd4ba60185558be683cf14be50d352fdd08a110803cc7547962fc8ae2",
+      "stdout_sha256_raw": "f33995d0d496c5b66c471c4331fb9053be00351c3fbb5a7af07deecb650387e3"
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "cf142a565a6abab3a00ba80e2f9b0879bdf3f387b1a7da0cc9e08ef9473bde93",
+        "final_verdict.json": "00a5723e946d373b01a17b37fa40d0fdcc70876bebec620ff3ff5ed487c6b07a",
+        "p12_99_tests.json": "1e7b51ad79cf8fd6ca2cffe89c692125f221cab71973ebad1d44361c35436d5b"
+      },
+      "command": [
+        "python",
+        "tools/test_phase12_final_verdict_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase12/evidence/P12-99"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P12_99=PASS",
+        "OPENRECOMP_PHASE12_B0_5B_CHANGECLEARPAD_V1=PASS",
+        "OPENRECOMP_PHASE12_B0_TABLE_INDIRECT_V1=PASS",
+        "OPENRECOMP_PHASE12_END_TO_END_REPLAY_V1=PASS",
+        "OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_GPU_OT_DMA_V1=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_GTE_GEOMETRY_V1=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_TEXTURE_VRAM_V1=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_INITIALIZATION_AND_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12=PASS_BOUNDED_B0_MEDIATION_PRIVATE_FIXTURE"
+      ],
+      "name": "run2",
+      "p12_99_tests_sha256": "1e7b51ad79cf8fd6ca2cffe89c692125f221cab71973ebad1d44361c35436d5b",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2391,
+      "stdout_bytes_lf": 2334,
+      "stdout_sha256_lf": "43d57d4cd4ba60185558be683cf14be50d352fdd08a110803cc7547962fc8ae2",
+      "stdout_sha256_raw": "f33995d0d496c5b66c471c4331fb9053be00351c3fbb5a7af07deecb650387e3"
+    }
+  ],
+  "schema": "openrecomp-phase12-official-runs-v1",
+  "stage": "P12-99",
+  "stderr_empty_both": true
+}

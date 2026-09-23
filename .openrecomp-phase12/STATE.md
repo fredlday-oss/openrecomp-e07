@@ -18,9 +18,9 @@ must NOT claim playability or general PS1 compatibility.
 
 ## Progress
 
-- CURRENT_STAGE: P12-99
-- LAST_COMPLETED_STAGE: P12-91
-- NEXT_STAGE: P12-99
+- CURRENT_STAGE: COMPLETE
+- LAST_COMPLETED_STAGE: P12-99
+- NEXT_STAGE: NONE
 
 ## Proof markers
 
@@ -49,7 +49,7 @@ must NOT claim playability or general PS1 compatibility.
 | P12-40 | PASS (4 checks), deterministic replay PASS |
 | P12-90 | PASS (66 checks; 14 stages, 183 stage checks) |
 | P12-91 | PASS (114 checks; 249 stage checks) |
-| P12-99 | not started |
+| P12-99 | PASS (10 checks) |
 
 ## Stage records
 
@@ -185,6 +185,30 @@ marker is `PROVEN`.
 PASS (114 checks). 15 stages audited; manifest, frozen boundary, public safety,
 reconnaissance hashes and the proof matrix verified; 81 evidence files indexed,
 249 committed stage checks.
+
+### P12-99 — final bounded verdict
+
+PASS (10 checks). `FINAL_VERDICT=PASS_BOUNDED_B0_MEDIATION_PRIVATE_FIXTURE`.
+The Phase-12 infrastructure and regression integrity are `PASS`; the B0:0x5B
+service, GetB0Table mediation and deterministic replay are `PASS`; the Hercules
+initialization and first-frame proofs are `NOT_PROVEN`; playability and general
+compatibility remain reserved `NOT_PROVEN`.
+
+## Terminal status
+
+```
+STATUS=COMPLETE
+FINAL_VERDICT=PASS_BOUNDED_B0_MEDIATION_PRIVATE_FIXTURE
+OPENRECOMP_PHASE12=PASS_BOUNDED_B0_MEDIATION_PRIVATE_FIXTURE
+OPENRECOMP_PHASE12_INITIALIZATION_AND_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+OPENRECOMP_PHASE12_B0_5B_CHANGECLEARPAD_V1=PASS
+OPENRECOMP_PHASE12_B0_TABLE_INDIRECT_V1=PASS
+OPENRECOMP_PHASE12_END_TO_END_REPLAY_V1=PASS
+```
 
 ## Third-party code
 

@@ -14,9 +14,11 @@
 
 ## Exact next action
 
-Run `tools/test_phase12_final_verdict_v1.py` twice through the Phase-12 stage
-runner, record the bounded terminal verdict, update STATE/HANDOFF, regenerate
-`SOURCE_SHA256SUMS.txt`, and commit `P12-99`.
+None. Phase 12 is complete with the bounded terminal verdict
+`PASS_BOUNDED_B0_MEDIATION_PRIVATE_FIXTURE`; the initialization and first-frame
+target proofs remain `NOT_PROVEN` and record the exact C0 blocker. Further work
+would require a new control plane authorized to model the interrupt/callback
+subsystem.
 
 ## Proven Phase-12 results
 
