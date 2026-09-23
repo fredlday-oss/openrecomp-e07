@@ -18,9 +18,9 @@ must NOT claim playability or general PS1 compatibility.
 
 ## Progress
 
-- CURRENT_STAGE: P12-90
-- LAST_COMPLETED_STAGE: P12-40
-- NEXT_STAGE: P12-90
+- CURRENT_STAGE: P12-99
+- LAST_COMPLETED_STAGE: P12-91
+- NEXT_STAGE: P12-99
 
 ## Proof markers
 
@@ -47,8 +47,8 @@ must NOT claim playability or general PS1 compatibility.
 | P12-20 | PASS (7 checks), fail-closed hardening |
 | P12-30 | PASS (10 checks), direct/indirect consistency |
 | P12-40 | PASS (4 checks), deterministic replay PASS |
-| P12-90 | not started |
-| P12-91 | not started |
+| P12-90 | PASS (66 checks; 14 stages, 183 stage checks) |
+| P12-91 | PASS (114 checks; 249 stage checks) |
 | P12-99 | not started |
 
 ## Stage records
@@ -173,6 +173,18 @@ fallback.
 PASS (10/4 checks). Direct and indirect B0:0x5B paths converge on one bounded
 implementation with all seven callers accounted for; the bounded
 initialization run replays byte-identically (`OPENRECOMP_PHASE12_END_TO_END_REPLAY_V1=PASS`).
+
+### P12-90 — whole Phase-12 regression
+
+PASS (66 checks). Frozen Phase-11 boundary and source integrity verified; all
+14 required stages carry two-run deterministic `PASS` evidence and no proof
+marker is `PROVEN`.
+
+### P12-91 — evidence closure
+
+PASS (114 checks). 15 stages audited; manifest, frozen boundary, public safety,
+reconnaissance hashes and the proof matrix verified; 81 evidence files indexed,
+249 committed stage checks.
 
 ## Third-party code
 

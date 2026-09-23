@@ -1,0 +1,60 @@
+{
+  "checks": [
+    {
+      "check": "predecessor:p12-91",
+      "detail": "{\"OPENRECOMP_P12_91\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "infrastructure:all-stages-pass",
+      "detail": "{\"P12-00\": \"PASS\", \"P12-01\": \"PASS\", \"P12-02\": \"PASS\", \"P12-03\": \"PASS\", \"P12-04\": \"PASS\", \"P12-05\": \"PASS\", \"P12-06\": \"PASS\", \"P12-07\": \"PASS\", \"P12-08\": \"PASS\", \"P12-09\": \"PASS\", \"P12-10\": \"PASS\", \"P12-20\": \"PASS\", \"P12-30\": \"PASS\", \"P12-40\": \"PASS\", \"P12-90\": \"PASS\", \"P12-91\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "proof:b0-5b",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "proof:b0-table",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "proof:replay",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "proof:initialization-not-proven",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "proof:frame-not-proven",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "proof:playability-reserved",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "proof:general-reserved",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "target-proof-not-complete",
+      "detail": "NO",
+      "status": "PASS"
+    }
+  ],
+  "schema": "openrecomp-phase12-tests-v1",
+  "stage": "P12-99",
+  "summary": {
+    "failed": 0,
+    "passed": 10
+  }
+}

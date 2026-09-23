@@ -1,0 +1,60 @@
+{
+  "evidence_files": 81,
+  "frozen_phase11_unchanged": true,
+  "manifest_entries": 26,
+  "phase11_base_commit": "665d11dc9f760d0c4ea2486e186c1fe5c762647c",
+  "proof_matrix": {
+    "OPENRECOMP_PHASE12_B0_5B_CHANGECLEARPAD_V1": {
+      "result": "PASS",
+      "stage": "P12-01"
+    },
+    "OPENRECOMP_PHASE12_B0_TABLE_INDIRECT_V1": {
+      "result": "PASS",
+      "stage": "P12-03"
+    },
+    "OPENRECOMP_PHASE12_END_TO_END_REPLAY_V1": {
+      "result": "PASS",
+      "stage": "P12-40"
+    },
+    "OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY": {
+      "result": "NOT_PROVEN",
+      "stage": "reserved"
+    },
+    "OPENRECOMP_PHASE12_GPU_OT_DMA_V1": {
+      "result": "NOT_PROVEN",
+      "stage": "P12-06"
+    },
+    "OPENRECOMP_PHASE12_GTE_GEOMETRY_V1": {
+      "result": "NOT_PROVEN",
+      "stage": "P12-08"
+    },
+    "OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF": {
+      "result": "NOT_PROVEN",
+      "stage": "P12-10"
+    },
+    "OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF": {
+      "result": "NOT_PROVEN",
+      "stage": "P12-05"
+    },
+    "OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF": {
+      "result": "NOT_PROVEN",
+      "stage": "reserved"
+    },
+    "OPENRECOMP_PHASE12_TEXTURE_VRAM_V1": {
+      "result": "NOT_PROVEN",
+      "stage": "P12-07"
+    }
+  },
+  "reconnaissance": "reconnaissance-directory-present",
+  "safety": {
+    "binary_fixture_files": false,
+    "bios_rom_bytes": false,
+    "host_secrets": false,
+    "private_host_paths": false,
+    "private_payload_bytes": false
+  },
+  "schema": "openrecomp-phase12-evidence-closure-v1",
+  "stage": "P12-91",
+  "stage_count": 15,
+  "total_stage_checks": 249
+}

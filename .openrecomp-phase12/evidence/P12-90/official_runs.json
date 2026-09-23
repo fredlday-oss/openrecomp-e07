@@ -1,0 +1,68 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "41cc47db7e3abe3b22fd77781a1b0965b0e429e263dc30d76e5bd8dfe9087b52",
+    "p12_90_tests.json": "099f2b0a1c1fa56969f0904112250e3838d34cf52120ee41222b888235306537",
+    "regression.json": "464631e332bab7ed5e157a61535531e4eac162cc16bb0aae2400729dea4628b4"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "41cc47db7e3abe3b22fd77781a1b0965b0e429e263dc30d76e5bd8dfe9087b52",
+        "p12_90_tests.json": "099f2b0a1c1fa56969f0904112250e3838d34cf52120ee41222b888235306537",
+        "regression.json": "464631e332bab7ed5e157a61535531e4eac162cc16bb0aae2400729dea4628b4"
+      },
+      "command": [
+        "python",
+        "tools/test_phase12_whole_regression_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase12/evidence/P12-90"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P12_90=PASS"
+      ],
+      "name": "run1",
+      "p12_90_tests_sha256": "099f2b0a1c1fa56969f0904112250e3838d34cf52120ee41222b888235306537",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 8757,
+      "stdout_bytes_lf": 8688,
+      "stdout_sha256_lf": "fbab14568788a1477b5ccbf22f7b90797e670bacb49467f052c4f5ec91ff7d5e",
+      "stdout_sha256_raw": "d903b93c56baae79fa769a9f06460a0257ca646418fc1049c77f10c59381291b"
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "41cc47db7e3abe3b22fd77781a1b0965b0e429e263dc30d76e5bd8dfe9087b52",
+        "p12_90_tests.json": "099f2b0a1c1fa56969f0904112250e3838d34cf52120ee41222b888235306537",
+        "regression.json": "464631e332bab7ed5e157a61535531e4eac162cc16bb0aae2400729dea4628b4"
+      },
+      "command": [
+        "python",
+        "tools/test_phase12_whole_regression_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase12/evidence/P12-90"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P12_90=PASS"
+      ],
+      "name": "run2",
+      "p12_90_tests_sha256": "099f2b0a1c1fa56969f0904112250e3838d34cf52120ee41222b888235306537",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 8757,
+      "stdout_bytes_lf": 8688,
+      "stdout_sha256_lf": "fbab14568788a1477b5ccbf22f7b90797e670bacb49467f052c4f5ec91ff7d5e",
+      "stdout_sha256_raw": "d903b93c56baae79fa769a9f06460a0257ca646418fc1049c77f10c59381291b"
+    }
+  ],
+  "schema": "openrecomp-phase12-official-runs-v1",
+  "stage": "P12-90",
+  "stderr_empty_both": true
+}
