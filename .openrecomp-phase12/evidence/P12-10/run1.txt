@@ -1,0 +1,14 @@
+PASS: predecessor:initialization-not-proven NOT_PROVEN
+PASS: predecessor:same-frontier {"block_id": "blk_80015f58", "block_index": 468365, "failure_count": 16, "function_entry": "0x80015f58", "function_id": "fn_80015f58", "message": "unresolved indirect jump", "site": "0x80015f5c", "site_classification": null, "source_value": "0x000000c0", "terminal_op": "jr_indirect"}
+PASS: contract:predecessor-fails initialization not proven
+PASS: contract:no-primitive 0
+PASS: contract:deterministic 4378fc705e0404e9b4c2d3d6daa534b81d689a23aad2fd87b127a07fc116181a
+PASS: contract:not-satisfied {"FRAME-DETERMINISTIC": true, "FRAME-NOT-PLAYABILITY": true, "FRAME-OT": false, "FRAME-PREDECESSOR": false, "FRAME-PRIMITIVE": false, "FRAME-SUBMIT": false}
+PASS: reserved:playability-not-proven reserved
+PASS: reserved:general-not-proven reserved
+OPENRECOMP_P12_10=PASS
+OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P12_10_CHECKS=8

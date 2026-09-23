@@ -1,0 +1,50 @@
+{
+  "checks": [
+    {
+      "check": "predecessor:initialization-not-proven",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "predecessor:same-frontier",
+      "detail": "{\"block_id\": \"blk_80015f58\", \"block_index\": 468365, \"failure_count\": 16, \"function_entry\": \"0x80015f58\", \"function_id\": \"fn_80015f58\", \"message\": \"unresolved indirect jump\", \"site\": \"0x80015f5c\", \"site_classification\": null, \"source_value\": \"0x000000c0\", \"terminal_op\": \"jr_indirect\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:predecessor-fails",
+      "detail": "initialization not proven",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:no-primitive",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:deterministic",
+      "detail": "4378fc705e0404e9b4c2d3d6daa534b81d689a23aad2fd87b127a07fc116181a",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:not-satisfied",
+      "detail": "{\"FRAME-DETERMINISTIC\": true, \"FRAME-NOT-PLAYABILITY\": true, \"FRAME-OT\": false, \"FRAME-PREDECESSOR\": false, \"FRAME-PRIMITIVE\": false, \"FRAME-SUBMIT\": false}",
+      "status": "PASS"
+    },
+    {
+      "check": "reserved:playability-not-proven",
+      "detail": "reserved",
+      "status": "PASS"
+    },
+    {
+      "check": "reserved:general-not-proven",
+      "detail": "reserved",
+      "status": "PASS"
+    }
+  ],
+  "schema": "openrecomp-phase12-tests-v1",
+  "stage": "P12-10",
+  "summary": {
+    "failed": 0,
+    "passed": 8
+  }
+}

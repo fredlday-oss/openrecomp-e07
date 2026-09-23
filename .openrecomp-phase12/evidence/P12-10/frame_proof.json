@@ -1,0 +1,37 @@
+{
+  "current_frontier": {
+    "block_id": "blk_80015f58",
+    "block_index": 468365,
+    "failure_count": 16,
+    "function_entry": "0x80015f58",
+    "function_id": "fn_80015f58",
+    "message": "unresolved indirect jump",
+    "site": "0x80015f5c",
+    "site_classification": null,
+    "source_value": "0x000000c0",
+    "terminal_op": "jr_indirect"
+  },
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "explicitly_not_a_frame": [
+    "initialization GPU traffic is classification-only (one GP0 NOP, one GP1 DISPLAY_ENABLE)",
+    "the detected repeating 14-block cycle is post-failure polling"
+  ],
+  "marker": "OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF",
+  "predicates": {
+    "FRAME-DETERMINISTIC": true,
+    "FRAME-NOT-PLAYABILITY": true,
+    "FRAME-OT": false,
+    "FRAME-PREDECESSOR": false,
+    "FRAME-PRIMITIVE": false,
+    "FRAME-SUBMIT": false
+  },
+  "reason": "the initialization predecessor is not proven and no frame-submission boundary is reachable",
+  "reserved_markers": {
+    "OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+    "OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN"
+  },
+  "result": "NOT_PROVEN",
+  "satisfied": false,
+  "schema": "openrecomp-phase12-frame-proof-v1",
+  "stage": "P12-10"
+}

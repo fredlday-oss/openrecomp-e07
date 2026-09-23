@@ -18,9 +18,9 @@ must NOT claim playability or general PS1 compatibility.
 
 ## Progress
 
-- CURRENT_STAGE: P12-09
-- LAST_COMPLETED_STAGE: P12-08
-- NEXT_STAGE: P12-09
+- CURRENT_STAGE: P12-20
+- LAST_COMPLETED_STAGE: P12-10
+- NEXT_STAGE: P12-20
 
 ## Proof markers
 
@@ -42,8 +42,8 @@ must NOT claim playability or general PS1 compatibility.
 | P12-06 | PASS (6 checks), GPU/OT/DMA NOT_PROVEN |
 | P12-07 | PASS (4 checks), texture/VRAM NOT_PROVEN |
 | P12-08 | PASS (3 checks), GTE/geometry NOT_PROVEN |
-| P12-09 | not started |
-| P12-10 | not started |
+| P12-09 | PASS (7 checks), frame frontier blocked |
+| P12-10 | PASS (8 checks), frame proof NOT_PROVEN |
 | P12-20 | not started |
 | P12-30 | not started |
 | P12-40 | not started |
@@ -153,6 +153,13 @@ the bounded runtime. The existing production typed GP0/GP1 classifier is
 re-verified; the markers `OPENRECOMP_PHASE12_GPU_OT_DMA_V1`,
 `OPENRECOMP_PHASE12_TEXTURE_VRAM_V1` and `OPENRECOMP_PHASE12_GTE_GEOMETRY_V1`
 remain `NOT_PROVEN`.
+
+### P12-09/10 — first-frame frontier and proof
+
+PASS (7/8 checks). No frame-submission boundary is reachable; the frontier is
+the C0 dispatcher; GPU traffic is initialization-only; the frame contract fails
+on its predecessor and boundary predicates. `OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF`
+remains `NOT_PROVEN`; playability/general remain reserved `NOT_PROVEN`.
 
 ## Third-party code
 
