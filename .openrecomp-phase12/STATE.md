@@ -18,9 +18,9 @@ must NOT claim playability or general PS1 compatibility.
 
 ## Progress
 
-- CURRENT_STAGE: P12-05
-- LAST_COMPLETED_STAGE: P12-04
-- NEXT_STAGE: P12-05
+- CURRENT_STAGE: P12-06
+- LAST_COMPLETED_STAGE: P12-05
+- NEXT_STAGE: P12-06
 
 ## Proof markers
 
@@ -38,7 +38,7 @@ must NOT claim playability or general PS1 compatibility.
 | P12-02 | PASS (22 checks) |
 | P12-03 | PASS (22 checks) |
 | P12-04 | PASS (20 checks) |
-| P12-05 | not started |
+| P12-05 | PASS (12 checks) |
 | P12-06 | not started |
 | P12-07 | not started |
 | P12-08 | not started |
@@ -132,6 +132,18 @@ byte-identical stdout, empty stderr, exit 0 and byte-identical sidecars.
 - initialization frontier recorded
   `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE`; milestone B `NOT_PROVEN`;
 - evidence: `.openrecomp-phase12/evidence/P12-04/`.
+
+### P12-05 — Hercules initialization proof
+
+PASS (12 checks). Gate `tools/test_phase12_init_proof_v1.py` ran twice with
+byte-identical stdout, empty stderr, exit 0 and byte-identical sidecars.
+
+- two fresh deterministic runs of the final-tree initialization path;
+- `INIT-PREDECESSOR`/`INIT-B0-PATCH`/`INIT-DETERMINISTIC`/`INIT-NO-FABRICATION`
+  pass; `INIT-BOUNDARY` and `INIT-NO-FAIL-CLOSED` fail;
+- `OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN`, frontier
+  `0x80015f5c`, blocker `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE`;
+- evidence: `.openrecomp-phase12/evidence/P12-05/`.
 
 ## Third-party code
 

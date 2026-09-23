@@ -1,0 +1,18 @@
+PASS: run:build ['OK', 'OK']
+PASS: run:build-reproducible reproducible
+PASS: run:exit-stderr exit 0 and empty stderr
+PASS: run:two-fresh-deterministic 4378fc705e0404e9b4c2d3d6daa534b81d689a23aad2fd87b127a07fc116181a
+PASS: contract:predecessor P12-00..04 present
+PASS: contract:b0-patch GetB0Table entry 0x5B, derived pointers, eleven-word clear
+PASS: contract:deterministic two-run determinism
+PASS: contract:no-fabrication true
+PASS: contract:boundary-not-reached {"block_id": "blk_80015f58", "block_index": 468365, "failure_count": 16, "function_entry": "0x80015f58", "function_id": "fn_80015f58", "message": "unresolved indirect jump", "site": "0x80015f5c", "site_classification": null, "source_value": "0x000000c0", "terminal_op": "jr_indirect"}
+PASS: contract:no-fail-closed-false fail-closed events remain on the prefix
+PASS: contract:not-satisfied initialization contract not satisfied
+PASS: contract:milestone-b-not-proven NOT_PROVEN
+OPENRECOMP_P12_05=PASS
+OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P12_05_CHECKS=12

@@ -1,0 +1,70 @@
+{
+  "checks": [
+    {
+      "check": "run:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "run:build-reproducible",
+      "detail": "reproducible",
+      "status": "PASS"
+    },
+    {
+      "check": "run:exit-stderr",
+      "detail": "exit 0 and empty stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "run:two-fresh-deterministic",
+      "detail": "4378fc705e0404e9b4c2d3d6daa534b81d689a23aad2fd87b127a07fc116181a",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:predecessor",
+      "detail": "P12-00..04 present",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:b0-patch",
+      "detail": "GetB0Table entry 0x5B, derived pointers, eleven-word clear",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:deterministic",
+      "detail": "two-run determinism",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:no-fabrication",
+      "detail": "true",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:boundary-not-reached",
+      "detail": "{\"block_id\": \"blk_80015f58\", \"block_index\": 468365, \"failure_count\": 16, \"function_entry\": \"0x80015f58\", \"function_id\": \"fn_80015f58\", \"message\": \"unresolved indirect jump\", \"site\": \"0x80015f5c\", \"site_classification\": null, \"source_value\": \"0x000000c0\", \"terminal_op\": \"jr_indirect\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:no-fail-closed-false",
+      "detail": "fail-closed events remain on the prefix",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:not-satisfied",
+      "detail": "initialization contract not satisfied",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:milestone-b-not-proven",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    }
+  ],
+  "schema": "openrecomp-phase12-tests-v1",
+  "stage": "P12-05",
+  "summary": {
+    "failed": 0,
+    "passed": 12
+  }
+}

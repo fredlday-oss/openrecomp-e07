@@ -24,14 +24,19 @@
   interrupt-routine dispatcher at `0x80015f5c`; C0 `0x02`/`0x03`/`0x0a` stay
   fail-closed and the initialization frontier is recorded
   `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE` (interrupt delivery not modelled);
-- next stage `P12-05` (Hercules initialization proof evaluation).
+- `P12-05` `PASS` (12 checks): the initialization contract is evaluated on two
+  fresh deterministic runs; `INIT-BOUNDARY` and `INIT-NO-FAIL-CLOSED` fail, so
+  `OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN`;
+- next stage `P12-06` (GPU DMA / DrawOTag / OT promotion assessment).
 
 ## Exact next action
 
-Run the P12-00 initialization contract: execute the final-tree private
-initialization path twice, evaluate every predicate, and honestly report
-`NOT_PROVEN` because the `INIT-BOUNDARY` predicate is not reached (C0 interrupt
-services stay fail-closed). Then run the `P12-05` gate twice.
+Assess graphics promotion: re-verify the existing production typed GPU
+boundary with public synthetic fixtures, and record honestly that the Hercules
+frame path is unreachable (initialization blocked at C0) and that DMA2/OT
+linked-list semantics are not modelled, so
+`OPENRECOMP_PHASE12_GPU_OT_DMA_V1` remains `NOT_PROVEN`. Then run the `P12-06`
+gate twice.
 
 ## Verification commands
 
