@@ -2,7 +2,7 @@
 
 This is a forward-looking development roadmap. It is **not** a historical schedule and does not imply that external grant funding has been awarded.
 
-Some work was completed earlier than the original phase ordering. The current baseline already includes bounded RV32I validation, the original MIPS32 vertical slice, post-v0.2.0 MIPS32 Expansion V1 with five little/big-endian synthetic fixtures, IR V1/Core API V1, the additive IR V1.1 `integer-divrem-v1` feature contract, a hardened common portable-C AOT backend, Native AOT ABI V1, Linux/Windows x64 portability, a one-command reproducible Linux external-reviewer path for the bounded open-core evidence, a reproducible Windows Native AOT host-core matrix, a reusable code-only `OpenRecompRuntime` Unreal plugin, local UE5.8 runtime evidence for both the Native AOT host proof and Plugin V1 synthetic consumer, and a bounded UE5.8 Windows x64 Development packaged-build/runtime PASS outside Editor/PIE.
+Some work was completed earlier than the original phase ordering. The current baseline already includes bounded RV32I validation, the original MIPS32 vertical slice, post-v0.2.0 MIPS32 Expansion V1 with five little/big-endian synthetic fixtures, IR V1/Core API V1, the additive IR V1.1 `integer-divrem-v1` feature contract, a hardened common portable-C AOT backend, Native AOT ABI V1, Linux/Windows x64 portability, a one-command reproducible Linux external-reviewer path for the bounded open-core evidence, a reproducible Windows Native AOT host-core matrix, a reusable code-only `OpenRecompRuntime` Unreal plugin, local UE5.8 runtime evidence, a bounded end-to-end NES/NROM static-recompilation proof, a bounded NES/MMC1 platform proof, and a deterministic fail-closed ROM-to-native workflow for supported NES inputs.
 
 The roadmap below therefore describes **remaining hardening, generalization, reproducibility and packaging work**, not a claim that every listed area is still unimplemented. The reusable open core and optional host-integration track are separated further in [`FUNDING_SCOPE.md`](FUNDING_SCOPE.md).
 
@@ -65,18 +65,65 @@ Remaining Unreal/engine-host work includes:
 
 The current UE5.8 PIE and Development packaged-build evidence is intentionally described as **local runtime PASS**, while the engine-independent Windows host core and Plugin/Packaged-Build source/module gates are reproducible in hosted CI.
 
-## Phase 5 — Documentation and clean examples
+## Phase 5 — NES/NROM end-to-end static recompilation — complete
 
-- publish architecture and integration walkthroughs;
-- package redistributable synthetic/homebrew examples;
-- maintain the one-command external-reviewer path and document the reference-vs-AOT, Native-ABI and cross-OS validation workflow for third-party contributors;
-- maintain explicit development-process and evidence-provenance documentation;
-- keep funding/milestone descriptions clear about completed work versus proposed work.
+Phase 5 proved a bounded NES platform path using an original Apache-2.0 NROM fixture.
 
-## Phase 6 — Next public milestone
+Completed evidence includes:
 
-- close selected validation gaps after v0.2.0 without rewriting the published tag or release evidence;
-- improve CI and reproducibility beyond the current Linux external-reviewer baseline;
-- produce a later tagged public milestone only when its bounded evidence scope is stable;
-- publish an updated technical demonstration/evidence summary when useful;
-- avoid broadening PROVEN/PASS claims beyond the actual evidence matrix.
+- fail-closed iNES/NES 2.0 ingestion and inventory;
+- exact reachable 2A03/6502 frontier and differential CPU-semantics validation;
+- neutral ProgramModel/CFG/function/translation-unit integration;
+- bounded NES CPU bus, PPU, input/timing/interrupt and runtime boundaries;
+- generated host-native execution of the public fixture;
+- exact independent-reference equivalence across deterministic input plans;
+- reproducible public packaging with no private/commercial ROM bytes;
+- explicit retention of `OPENRECOMP_PHASE5_GENERAL_NES_COMPATIBILITY=NOT_PROVEN`.
+
+## Phase 6 — MMC1 compatibility expansion — complete
+
+Phase 6 extended the bounded NES path from NROM to MMC1 using an original Apache-2.0 public fixture.
+
+Completed evidence includes:
+
+- MMC1 serial-register protocol;
+- required PRG/CHR bank switching and mirroring modes;
+- bounded variant/PRG-RAM handling with fail-closed unsupported cases;
+- generated native execution and independent MMC1 reference equivalence;
+- a deterministic ROM-to-native workflow that classifies unsupported container/mapper/variant/opcode/control-flow/bank-state/toolchain cases explicitly;
+- private commercial MMC1 compatibility analysis with no ROM redistribution.
+
+The private commercial MMC1 compatibility fixture is **not** claimed playable. MMC1 is no longer the blocker; the current private frontier is translation/control-flow related.
+
+## Phase 7 — NES translation/control-flow frontier — current
+
+Phase 7 focuses on the exact frontier exposed by the private commercial MMC1 compatibility run while keeping the public proof based on redistributable fixtures.
+
+Planned work includes:
+
+- evidence-backed classification of opcode byte `0x7C` at `0xC570`;
+- bank-aware executable identity and reachability across MMC1 PRG states;
+- bounded indirect-control-flow recovery for the three observed `jmp ($E2)` sites without guessing targets;
+- public fixtures for any newly supported semantics/control-flow mechanism;
+- generated native execution and independent-reference equivalence for the bounded Phase-7 public proof;
+- repeated private commercial-fixture frontier runs to identify the next exact blocker;
+- extension of the reusable ROM-to-native workflow only for mechanisms actually proven by evidence.
+
+Commercial-fixture playability is not required for Phase-7 PASS and must remain unproven unless meaningful generated-native interactive execution is actually demonstrated.
+
+## Phase 8 — return to MIPS32 end-to-end native recompilation — planned
+
+After the Phase-7 NES translation/control-flow frontier is frozen, the main implementation frontier is expected to return to MIPS32.
+
+The intended Phase-8 direction is:
+
+- reuse the already-proven real-ELF ingestion/decode work rather than rebuilding it;
+- keep one legally redistributable real MIPS32 ELF continuously exercising the pipeline;
+- drive that ELF through the shared ProgramModel/CFG/translation layers;
+- generate host-native code through the common runtime/ABI path;
+- require deterministic native execution and independently structured reference equivalence;
+- use targeted intermediate gates and reserve the expensive full historical regression primarily for the terminal whole-regression stage;
+- cache immutable-hash analysis and stable generated build artifacts where safe;
+- preserve one serial implementation frontier while allowing only non-mutating parallel verification/documentation/test-vector work.
+
+A later console-specific MIPS track should begin only after the architecture-neutral real-MIPS32 native path is itself evidence-backed.
