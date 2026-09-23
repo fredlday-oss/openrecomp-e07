@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "check": "sites:three",
+      "detail": "3",
+      "status": "PASS"
+    },
+    {
+      "check": "ids:expected",
+      "detail": "[\"ps1.bios.A0.44\", \"ps1.bios.B0.57\", \"ps1.bios.B0.5b\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic",
+      "detail": "ca5ecdb4e79eeffb199fa0cb65c459d83c4dad590526437fc61c1a71a321319f",
+      "status": "PASS"
+    },
+    {
+      "check": "dispatcher:exact-fail-closed",
+      "detail": "{}",
+      "status": "PASS"
+    },
+    {
+      "check": "production:no-private-path",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "production:no-fail-open",
+      "detail": "unknown services still fail closed",
+      "status": "PASS"
+    }
+  ],
+  "schema": "openrecomp-phase12-tests-v1",
+  "stage": "P12-20",
+  "summary": {
+    "failed": 0,
+    "passed": 7
+  }
+}

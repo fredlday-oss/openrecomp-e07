@@ -1,0 +1,76 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "deb60deafcabbd756754ea2bc59e21164be51786baa93888e300a97117676437",
+    "hardening.json": "ff50a566b02fd251c2f4b0edff3398eb483375e1820564aeff16a24a8ae026a4",
+    "p12_20_tests.json": "0704d102921ff21aaed5040d2bdee414dc19a5aad82002bb3a95e37867236097"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "deb60deafcabbd756754ea2bc59e21164be51786baa93888e300a97117676437",
+        "hardening.json": "ff50a566b02fd251c2f4b0edff3398eb483375e1820564aeff16a24a8ae026a4",
+        "p12_20_tests.json": "0704d102921ff21aaed5040d2bdee414dc19a5aad82002bb3a95e37867236097"
+      },
+      "command": [
+        "python",
+        "tools/test_phase12_hardening_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase12/evidence/P12-20"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P12_20=PASS",
+        "OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p12_20_tests_sha256": "0704d102921ff21aaed5040d2bdee414dc19a5aad82002bb3a95e37867236097",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 619,
+      "stdout_bytes_lf": 606,
+      "stdout_sha256_lf": "7b86f9f42a8fb463893e53003c5c52301aa96e06c6d5c746f5c2ea6ab46d779e",
+      "stdout_sha256_raw": "4726b1af38d0c3cbc4be14f32f41ce7cc55d845307c3cb887033ac5bb4be189f"
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "deb60deafcabbd756754ea2bc59e21164be51786baa93888e300a97117676437",
+        "hardening.json": "ff50a566b02fd251c2f4b0edff3398eb483375e1820564aeff16a24a8ae026a4",
+        "p12_20_tests.json": "0704d102921ff21aaed5040d2bdee414dc19a5aad82002bb3a95e37867236097"
+      },
+      "command": [
+        "python",
+        "tools/test_phase12_hardening_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase12/evidence/P12-20"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P12_20=PASS",
+        "OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p12_20_tests_sha256": "0704d102921ff21aaed5040d2bdee414dc19a5aad82002bb3a95e37867236097",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 619,
+      "stdout_bytes_lf": 606,
+      "stdout_sha256_lf": "7b86f9f42a8fb463893e53003c5c52301aa96e06c6d5c746f5c2ea6ab46d779e",
+      "stdout_sha256_raw": "4726b1af38d0c3cbc4be14f32f41ce7cc55d845307c3cb887033ac5bb4be189f"
+    }
+  ],
+  "schema": "openrecomp-phase12-official-runs-v1",
+  "stage": "P12-20",
+  "stderr_empty_both": true
+}

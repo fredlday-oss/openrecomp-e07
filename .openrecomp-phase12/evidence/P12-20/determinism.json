@@ -1,0 +1,46 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "deb60deafcabbd756754ea2bc59e21164be51786baa93888e300a97117676437",
+    "hardening.json": "ff50a566b02fd251c2f4b0edff3398eb483375e1820564aeff16a24a8ae026a4",
+    "p12_20_tests.json": "0704d102921ff21aaed5040d2bdee414dc19a5aad82002bb3a95e37867236097"
+  },
+  "artifacts_identical": true,
+  "frame_marker": "OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF",
+  "gate": "tools/test_phase12_hardening_v1.py",
+  "gate_sha256": "00dd0740c8fc16d3f7182fdc792882a3f067d1d4949de2a3904aba2b90f95008",
+  "general_marker": "OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY",
+  "initialization_marker": "OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF",
+  "playability_marker": "OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "RESULT.json": "deb60deafcabbd756754ea2bc59e21164be51786baa93888e300a97117676437",
+        "hardening.json": "ff50a566b02fd251c2f4b0edff3398eb483375e1820564aeff16a24a8ae026a4",
+        "p12_20_tests.json": "0704d102921ff21aaed5040d2bdee414dc19a5aad82002bb3a95e37867236097"
+      },
+      "p12_20_tests_sha256": "0704d102921ff21aaed5040d2bdee414dc19a5aad82002bb3a95e37867236097",
+      "returncode": 0,
+      "stdout_bytes_raw": 619,
+      "stdout_sha256_lf": "7b86f9f42a8fb463893e53003c5c52301aa96e06c6d5c746f5c2ea6ab46d779e",
+      "stdout_sha256_raw": "4726b1af38d0c3cbc4be14f32f41ce7cc55d845307c3cb887033ac5bb4be189f"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "RESULT.json": "deb60deafcabbd756754ea2bc59e21164be51786baa93888e300a97117676437",
+        "hardening.json": "ff50a566b02fd251c2f4b0edff3398eb483375e1820564aeff16a24a8ae026a4",
+        "p12_20_tests.json": "0704d102921ff21aaed5040d2bdee414dc19a5aad82002bb3a95e37867236097"
+      },
+      "p12_20_tests_sha256": "0704d102921ff21aaed5040d2bdee414dc19a5aad82002bb3a95e37867236097",
+      "returncode": 0,
+      "stdout_bytes_raw": 619,
+      "stdout_sha256_lf": "7b86f9f42a8fb463893e53003c5c52301aa96e06c6d5c746f5c2ea6ab46d779e",
+      "stdout_sha256_raw": "4726b1af38d0c3cbc4be14f32f41ce7cc55d845307c3cb887033ac5bb4be189f"
+    }
+  },
+  "schema": "openrecomp-phase12-determinism-v1",
+  "stage": "P12-20",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true
+}

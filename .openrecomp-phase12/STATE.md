@@ -18,9 +18,9 @@ must NOT claim playability or general PS1 compatibility.
 
 ## Progress
 
-- CURRENT_STAGE: P12-20
-- LAST_COMPLETED_STAGE: P12-10
-- NEXT_STAGE: P12-20
+- CURRENT_STAGE: P12-30
+- LAST_COMPLETED_STAGE: P12-20
+- NEXT_STAGE: P12-30
 
 ## Proof markers
 
@@ -44,7 +44,7 @@ must NOT claim playability or general PS1 compatibility.
 | P12-08 | PASS (3 checks), GTE/geometry NOT_PROVEN |
 | P12-09 | PASS (7 checks), frame frontier blocked |
 | P12-10 | PASS (8 checks), frame proof NOT_PROVEN |
-| P12-20 | not started |
+| P12-20 | PASS (7 checks), fail-closed hardening |
 | P12-30 | not started |
 | P12-40 | not started |
 | P12-90 | not started |
@@ -160,6 +160,13 @@ PASS (7/8 checks). No frame-submission boundary is reachable; the frontier is
 the C0 dispatcher; GPU traffic is initialization-only; the frame contract fails
 on its predecessor and boundary predicates. `OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF`
 remains `NOT_PROVEN`; playability/general remain reserved `NOT_PROVEN`.
+
+### P12-20 — runtime / fail-closed hardening
+
+PASS (7 checks). Malformed/unsupported dispatcher inputs reject (unknown
+service `6`; wrong arity/mode `13`; null target read `1`), unknown B0 entries
+stay zero, the production runtime has no private-fixture path and no permissive
+fallback.
 
 ## Third-party code
 
