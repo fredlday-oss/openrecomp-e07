@@ -82,8 +82,9 @@ def assert_public_safe(label: str, document: dict[str, Any], payload: bytes) -> 
           "reconstructive fields absent")
 
 
-def build_phase12_private(fixture_root: pathlib.Path) -> dict[str, Any]:
-    tables = services.install()
+def build_phase12_private(fixture_root: pathlib.Path,
+                          extra_a0: tuple[int, ...] = ()) -> dict[str, Any]:
+    tables = services.install(extra_a0)
     image = psx.ingest((fixture_root / p11_05.fixture.PRIMARY_EXECUTABLE).read_bytes())
     contract = memory_map.build_contract(image)
     flat = memory_map.flat_image(image)
