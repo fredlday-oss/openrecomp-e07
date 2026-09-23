@@ -1,0 +1,22 @@
+{
+  "marker": "OPENRECOMP_PHASE12_GPU_OT_DMA_V1",
+  "predecessor": {
+    "OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN"
+  },
+  "reason": "the Hercules frame path is unreachable (initialization blocked at C0 interrupt services); DMA2 linked-list mode, ordering-table traversal and draw-OT submission are not modelled by the bounded runtime",
+  "result": "NOT_PROVEN",
+  "runtime_token_counts": {
+    "addprim": 0,
+    "clearotag": 0,
+    "dma": 0,
+    "drawotag": 0,
+    "linked list": 0,
+    "ordering": 0
+  },
+  "schema": "openrecomp-phase12-gpu-ot-dma-assessment-v1",
+  "stage": "P12-06",
+  "verified_production_semantics": {
+    "emulated": false,
+    "typed_gp0_gp1_classifier": "present (frozen Phase-9 boundary)"
+  }
+}

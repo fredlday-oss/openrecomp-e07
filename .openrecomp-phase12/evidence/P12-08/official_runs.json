@@ -1,0 +1,78 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "a106b858f8b74a23ba4521b4b159db61f178dc0849af78526cf11aeb88741e15",
+    "assessment.json": "593202a942284d2e1454756443de3acfe36e6a2fbffd0b1e539a7bbc6da2c716",
+    "p12_08_tests.json": "d0b44351332f5c00a65591d8d339ef3c189e99dd625b35cb4c43988dbd1772f1"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "a106b858f8b74a23ba4521b4b159db61f178dc0849af78526cf11aeb88741e15",
+        "assessment.json": "593202a942284d2e1454756443de3acfe36e6a2fbffd0b1e539a7bbc6da2c716",
+        "p12_08_tests.json": "d0b44351332f5c00a65591d8d339ef3c189e99dd625b35cb4c43988dbd1772f1"
+      },
+      "command": [
+        "python",
+        "tools/test_phase12_gte_geometry_assessment_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase12/evidence/P12-08"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P12_08=PASS",
+        "OPENRECOMP_PHASE12_GTE_GEOMETRY_V1=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p12_08_tests_sha256": "d0b44351332f5c00a65591d8d339ef3c189e99dd625b35cb4c43988dbd1772f1",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 488,
+      "stdout_bytes_lf": 478,
+      "stdout_sha256_lf": "c73586ec27e8d945eb442d83da8b875976b8ed83495239540aea064bf33958d6",
+      "stdout_sha256_raw": "e5a73e83d423fd2d6130764bba4e00a967c9ac2a077ba7c00b924940def29b9c"
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "a106b858f8b74a23ba4521b4b159db61f178dc0849af78526cf11aeb88741e15",
+        "assessment.json": "593202a942284d2e1454756443de3acfe36e6a2fbffd0b1e539a7bbc6da2c716",
+        "p12_08_tests.json": "d0b44351332f5c00a65591d8d339ef3c189e99dd625b35cb4c43988dbd1772f1"
+      },
+      "command": [
+        "python",
+        "tools/test_phase12_gte_geometry_assessment_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase12/evidence/P12-08"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P12_08=PASS",
+        "OPENRECOMP_PHASE12_GTE_GEOMETRY_V1=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p12_08_tests_sha256": "d0b44351332f5c00a65591d8d339ef3c189e99dd625b35cb4c43988dbd1772f1",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 488,
+      "stdout_bytes_lf": 478,
+      "stdout_sha256_lf": "c73586ec27e8d945eb442d83da8b875976b8ed83495239540aea064bf33958d6",
+      "stdout_sha256_raw": "e5a73e83d423fd2d6130764bba4e00a967c9ac2a077ba7c00b924940def29b9c"
+    }
+  ],
+  "schema": "openrecomp-phase12-official-runs-v1",
+  "stage": "P12-08",
+  "stderr_empty_both": true
+}

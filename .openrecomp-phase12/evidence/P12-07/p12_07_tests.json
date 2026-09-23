@@ -1,0 +1,30 @@
+{
+  "checks": [
+    {
+      "check": "predecessor:initialization-not-proven",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:no-vram-modelled",
+      "detail": "{'vram': 0, 'loadimage': 0, 'texture': 0, 'palette': 0, 'texpage': 0, 'tpage': 0, 'texel': 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:no-texture-modelled",
+      "detail": "{'vram': 0, 'loadimage': 0, 'texture': 0, 'palette': 0, 'texpage': 0, 'tpage': 0, 'texel': 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu:cpu-to-vram-classified-not-emulated",
+      "detail": "{\"class\": \"CPU_TO_VRAM_COPY\", \"command\": \"0xa0\", \"emulated\": false, \"known\": true, \"port\": \"GP0\"}",
+      "status": "PASS"
+    }
+  ],
+  "schema": "openrecomp-phase12-tests-v1",
+  "stage": "P12-07",
+  "summary": {
+    "failed": 0,
+    "passed": 4
+  }
+}

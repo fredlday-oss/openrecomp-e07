@@ -1,0 +1,40 @@
+{
+  "checks": [
+    {
+      "check": "predecessor:initialization-not-proven",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:no-dma-modelled",
+      "detail": "{'dma': 0, 'drawotag': 0, 'ordering': 0, 'linked list': 0, 'clearotag': 0, 'addprim': 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:no-ot-modelled",
+      "detail": "{'dma': 0, 'drawotag': 0, 'ordering': 0, 'linked list': 0, 'clearotag': 0, 'addprim': 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu:gp0-known-nop",
+      "detail": "{\"class\": \"NOP\", \"command\": \"0x00\", \"emulated\": false, \"known\": true, \"port\": \"GP0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu:gp1-display-enable",
+      "detail": "{\"class\": \"DISPLAY_ENABLE\", \"command\": \"0x03\", \"emulated\": false, \"known\": true, \"port\": \"GP1\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu:boundary-classification-only",
+      "detail": "GP0 boundary classifies, never renders",
+      "status": "PASS"
+    }
+  ],
+  "schema": "openrecomp-phase12-tests-v1",
+  "stage": "P12-06",
+  "summary": {
+    "failed": 0,
+    "passed": 6
+  }
+}

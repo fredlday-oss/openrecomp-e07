@@ -1,0 +1,11 @@
+PASS: predecessor:initialization-not-proven NOT_PROVEN
+PASS: runtime:no-vram-modelled {'vram': 0, 'loadimage': 0, 'texture': 0, 'palette': 0, 'texpage': 0, 'tpage': 0, 'texel': 0}
+PASS: runtime:no-texture-modelled {'vram': 0, 'loadimage': 0, 'texture': 0, 'palette': 0, 'texpage': 0, 'tpage': 0, 'texel': 0}
+PASS: gpu:cpu-to-vram-classified-not-emulated {"class": "CPU_TO_VRAM_COPY", "command": "0xa0", "emulated": false, "known": true, "port": "GP0"}
+OPENRECOMP_P12_07=PASS
+OPENRECOMP_PHASE12_TEXTURE_VRAM_V1=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P12_07_CHECKS=4

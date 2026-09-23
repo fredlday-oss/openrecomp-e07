@@ -1,0 +1,20 @@
+{
+  "marker": "OPENRECOMP_PHASE12_TEXTURE_VRAM_V1",
+  "reason": "the Hercules frame path is unreachable (initialization blocked at C0 interrupt services); VRAM, LoadImage and texture/palette provenance are not modelled by the bounded runtime",
+  "result": "NOT_PROVEN",
+  "runtime_token_counts": {
+    "loadimage": 0,
+    "palette": 0,
+    "texel": 0,
+    "texpage": 0,
+    "texture": 0,
+    "tpage": 0,
+    "vram": 0
+  },
+  "schema": "openrecomp-phase12-texture-vram-assessment-v1",
+  "stage": "P12-07",
+  "verified_production_semantics": {
+    "gp0_cpu_to_vram": "classified only; not emulated",
+    "vram_state": "absent"
+  }
+}

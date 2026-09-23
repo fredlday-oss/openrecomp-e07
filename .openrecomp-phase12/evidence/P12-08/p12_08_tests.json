@@ -1,0 +1,25 @@
+{
+  "checks": [
+    {
+      "check": "predecessor:initialization-not-proven",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "semantics:no-gte-rule",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "semantics:fail-closed-policy",
+      "detail": "the frozen dynamic resolver is reused unchanged",
+      "status": "PASS"
+    }
+  ],
+  "schema": "openrecomp-phase12-tests-v1",
+  "stage": "P12-08",
+  "summary": {
+    "failed": 0,
+    "passed": 3
+  }
+}

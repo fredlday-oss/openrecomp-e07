@@ -1,0 +1,78 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "ea95c965a3ff527bf270a158a7af847a26570612eed6c294a1b761eed356e795",
+    "assessment.json": "fe3db95fcca36a651842f7a699086b2cfece06cf6b0f7c36c1c89fcd29fb494b",
+    "p12_07_tests.json": "d16cbf3baa0e13c352db967444f184a4292c79fdc6323a3cc7c62bafe18d0889"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "ea95c965a3ff527bf270a158a7af847a26570612eed6c294a1b761eed356e795",
+        "assessment.json": "fe3db95fcca36a651842f7a699086b2cfece06cf6b0f7c36c1c89fcd29fb494b",
+        "p12_07_tests.json": "d16cbf3baa0e13c352db967444f184a4292c79fdc6323a3cc7c62bafe18d0889"
+      },
+      "command": [
+        "python",
+        "tools/test_phase12_texture_vram_assessment_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase12/evidence/P12-07"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P12_07=PASS",
+        "OPENRECOMP_PHASE12_TEXTURE_VRAM_V1=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p12_07_tests_sha256": "d16cbf3baa0e13c352db967444f184a4292c79fdc6323a3cc7c62bafe18d0889",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 772,
+      "stdout_bytes_lf": 761,
+      "stdout_sha256_lf": "c3a7b2ea3a657c3e20e3563420c48cf4641518f54c3971c4d97ec999ecc91337",
+      "stdout_sha256_raw": "67b537001a0715cf8707401e344d9d92dcbce6686066f5ff6bfa316e0b35ac39"
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "ea95c965a3ff527bf270a158a7af847a26570612eed6c294a1b761eed356e795",
+        "assessment.json": "fe3db95fcca36a651842f7a699086b2cfece06cf6b0f7c36c1c89fcd29fb494b",
+        "p12_07_tests.json": "d16cbf3baa0e13c352db967444f184a4292c79fdc6323a3cc7c62bafe18d0889"
+      },
+      "command": [
+        "python",
+        "tools/test_phase12_texture_vram_assessment_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase12/evidence/P12-07"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P12_07=PASS",
+        "OPENRECOMP_PHASE12_TEXTURE_VRAM_V1=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p12_07_tests_sha256": "d16cbf3baa0e13c352db967444f184a4292c79fdc6323a3cc7c62bafe18d0889",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 772,
+      "stdout_bytes_lf": 761,
+      "stdout_sha256_lf": "c3a7b2ea3a657c3e20e3563420c48cf4641518f54c3971c4d97ec999ecc91337",
+      "stdout_sha256_raw": "67b537001a0715cf8707401e344d9d92dcbce6686066f5ff6bfa316e0b35ac39"
+    }
+  ],
+  "schema": "openrecomp-phase12-official-runs-v1",
+  "stage": "P12-07",
+  "stderr_empty_both": true
+}

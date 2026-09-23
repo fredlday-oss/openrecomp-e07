@@ -27,16 +27,18 @@
 - `P12-05` `PASS` (12 checks): the initialization contract is evaluated on two
   fresh deterministic runs; `INIT-BOUNDARY` and `INIT-NO-FAIL-CLOSED` fail, so
   `OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN`;
-- next stage `P12-06` (GPU DMA / DrawOTag / OT promotion assessment).
+- `P12-06/07/08` `PASS` (6/4/3 checks): bounded graphics promotion assessments;
+  the frame path is unreachable and DMA/OT, VRAM/texture and GTE geometry are
+  not modelled, so `OPENRECOMP_PHASE12_GPU_OT_DMA_V1`,
+  `OPENRECOMP_PHASE12_TEXTURE_VRAM_V1` and `OPENRECOMP_PHASE12_GTE_GEOMETRY_V1`
+  remain `NOT_PROVEN`;
+- next stage `P12-09` (first-frame execution frontier loop).
 
 ## Exact next action
 
-Assess graphics promotion: re-verify the existing production typed GPU
-boundary with public synthetic fixtures, and record honestly that the Hercules
-frame path is unreachable (initialization blocked at C0) and that DMA2/OT
-linked-list semantics are not modelled, so
-`OPENRECOMP_PHASE12_GPU_OT_DMA_V1` remains `NOT_PROVEN`. Then run the `P12-06`
-gate twice.
+Run the first-frame frontier loop: execute the final-tree initialization path
+and record that no frame-submission boundary is reachable while initialization
+is blocked at C0; emit the exact frontier. Then run the `P12-09` gate twice.
 
 ## Verification commands
 

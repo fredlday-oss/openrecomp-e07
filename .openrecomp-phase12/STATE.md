@@ -18,9 +18,9 @@ must NOT claim playability or general PS1 compatibility.
 
 ## Progress
 
-- CURRENT_STAGE: P12-06
-- LAST_COMPLETED_STAGE: P12-05
-- NEXT_STAGE: P12-06
+- CURRENT_STAGE: P12-09
+- LAST_COMPLETED_STAGE: P12-08
+- NEXT_STAGE: P12-09
 
 ## Proof markers
 
@@ -39,9 +39,9 @@ must NOT claim playability or general PS1 compatibility.
 | P12-03 | PASS (22 checks) |
 | P12-04 | PASS (20 checks) |
 | P12-05 | PASS (12 checks) |
-| P12-06 | not started |
-| P12-07 | not started |
-| P12-08 | not started |
+| P12-06 | PASS (6 checks), GPU/OT/DMA NOT_PROVEN |
+| P12-07 | PASS (4 checks), texture/VRAM NOT_PROVEN |
+| P12-08 | PASS (3 checks), GTE/geometry NOT_PROVEN |
 | P12-09 | not started |
 | P12-10 | not started |
 | P12-20 | not started |
@@ -144,6 +144,15 @@ byte-identical stdout, empty stderr, exit 0 and byte-identical sidecars.
 - `OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN`, frontier
   `0x80015f5c`, blocker `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE`;
 - evidence: `.openrecomp-phase12/evidence/P12-05/`.
+
+### P12-06/07/08 — graphics promotion assessments
+
+PASS (6/4/3 checks). The frame path is unreachable because initialization is
+blocked at C0, and DMA2/OT, VRAM/texture and GTE geometry are not modelled by
+the bounded runtime. The existing production typed GP0/GP1 classifier is
+re-verified; the markers `OPENRECOMP_PHASE12_GPU_OT_DMA_V1`,
+`OPENRECOMP_PHASE12_TEXTURE_VRAM_V1` and `OPENRECOMP_PHASE12_GTE_GEOMETRY_V1`
+remain `NOT_PROVEN`.
 
 ## Third-party code
 

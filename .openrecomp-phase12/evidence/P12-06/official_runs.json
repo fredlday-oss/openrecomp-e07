@@ -1,0 +1,78 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "4440d3d99340fdf19146d2b1c93e438199ead3bee31d0330938688187b8cf0d9",
+    "assessment.json": "0b35b755c3ea428b3f79ef1651ffdba7b1b2472b17e6d175b59237cc1e7e492f",
+    "p12_06_tests.json": "0a01ee63501f5a26763643541315faac065bba7214607d028c01376a3c6c8c87"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "4440d3d99340fdf19146d2b1c93e438199ead3bee31d0330938688187b8cf0d9",
+        "assessment.json": "0b35b755c3ea428b3f79ef1651ffdba7b1b2472b17e6d175b59237cc1e7e492f",
+        "p12_06_tests.json": "0a01ee63501f5a26763643541315faac065bba7214607d028c01376a3c6c8c87"
+      },
+      "command": [
+        "python",
+        "tools/test_phase12_gpu_ot_assessment_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase12/evidence/P12-06"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P12_06=PASS",
+        "OPENRECOMP_PHASE12_GPU_OT_DMA_V1=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p12_06_tests_sha256": "0a01ee63501f5a26763643541315faac065bba7214607d028c01376a3c6c8c87",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 924,
+      "stdout_bytes_lf": 911,
+      "stdout_sha256_lf": "7f31f6bc4cd7a63fa4cdd2f8210aeb6c52e2514d92bd6dbb6c6c69b8f6d58b98",
+      "stdout_sha256_raw": "5f86ae2a7d7f1d887c6d827048e0d322cb7564284d1035cd2d5080e8a07cb5b3"
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "4440d3d99340fdf19146d2b1c93e438199ead3bee31d0330938688187b8cf0d9",
+        "assessment.json": "0b35b755c3ea428b3f79ef1651ffdba7b1b2472b17e6d175b59237cc1e7e492f",
+        "p12_06_tests.json": "0a01ee63501f5a26763643541315faac065bba7214607d028c01376a3c6c8c87"
+      },
+      "command": [
+        "python",
+        "tools/test_phase12_gpu_ot_assessment_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase12/evidence/P12-06"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P12_06=PASS",
+        "OPENRECOMP_PHASE12_GPU_OT_DMA_V1=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p12_06_tests_sha256": "0a01ee63501f5a26763643541315faac065bba7214607d028c01376a3c6c8c87",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 924,
+      "stdout_bytes_lf": 911,
+      "stdout_sha256_lf": "7f31f6bc4cd7a63fa4cdd2f8210aeb6c52e2514d92bd6dbb6c6c69b8f6d58b98",
+      "stdout_sha256_raw": "5f86ae2a7d7f1d887c6d827048e0d322cb7564284d1035cd2d5080e8a07cb5b3"
+    }
+  ],
+  "schema": "openrecomp-phase12-official-runs-v1",
+  "stage": "P12-06",
+  "stderr_empty_both": true
+}

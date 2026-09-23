@@ -1,0 +1,13 @@
+PASS: predecessor:initialization-not-proven NOT_PROVEN
+PASS: runtime:no-dma-modelled {'dma': 0, 'drawotag': 0, 'ordering': 0, 'linked list': 0, 'clearotag': 0, 'addprim': 0}
+PASS: runtime:no-ot-modelled {'dma': 0, 'drawotag': 0, 'ordering': 0, 'linked list': 0, 'clearotag': 0, 'addprim': 0}
+PASS: gpu:gp0-known-nop {"class": "NOP", "command": "0x00", "emulated": false, "known": true, "port": "GP0"}
+PASS: gpu:gp1-display-enable {"class": "DISPLAY_ENABLE", "command": "0x03", "emulated": false, "known": true, "port": "GP1"}
+PASS: gpu:boundary-classification-only GP0 boundary classifies, never renders
+OPENRECOMP_P12_06=PASS
+OPENRECOMP_PHASE12_GPU_OT_DMA_V1=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P12_06_CHECKS=6

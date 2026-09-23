@@ -1,0 +1,17 @@
+{
+  "gte_ops_absent_from_rule_table": [
+    "cop2",
+    "lwc2",
+    "swc2",
+    "mfc2",
+    "mtc2",
+    "cfc2",
+    "ctc2"
+  ],
+  "marker": "OPENRECOMP_PHASE12_GTE_GEOMETRY_V1",
+  "policy": "any GTE coprocessor operation remains fail-closed",
+  "reason": "the Hercules frame path is unreachable (initialization blocked at C0 interrupt services); GTE geometry (RTPT/RTPS/NCLIP) and depth-ordered OT insertion are not reached or modelled",
+  "result": "NOT_PROVEN",
+  "schema": "openrecomp-phase12-gte-geometry-assessment-v1",
+  "stage": "P12-08"
+}
