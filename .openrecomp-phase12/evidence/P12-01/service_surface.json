@@ -1,0 +1,44 @@
+{
+  "b0_services": {
+    "0x57": {
+      "name": "GetB0Table",
+      "op_name": "call_bios_b0_57",
+      "result_register": 2,
+      "semantics": "return the synthetic project-owned B0 table pointer; no GPU, renderer, DMA, VRAM, interrupt, timing or frame behaviour",
+      "service_id": "ps1.bios.B0.57",
+      "signature": [],
+      "source": "public PS1 BIOS function table documentation (PSX-SPX BIOS function summary)"
+    },
+    "0x5b": {
+      "name": "ChangeClearPAD",
+      "op_name": "call_bios_b0_5b",
+      "result_register": null,
+      "semantics": "record the documented pad/card clear auto-acknowledge mode in typed BIOS state; no SIO, interrupt, DMA or device behaviour is modelled",
+      "service_id": "ps1.bios.B0.5b",
+      "signature": [
+        "mode"
+      ],
+      "source": "public PS1 BIOS function table documentation (PSX-SPX BIOS function summary: B(5Bh) ChangeClearPAD(int))"
+    }
+  },
+  "schema": "openrecomp-phase12-b0-service-surface-v1",
+  "services_version": "1.0.0",
+  "synthetic_window": {
+    "base": "0x1f000000",
+    "classification": "synthetic-project-owned-not-a-recovered-bios-address",
+    "derived_pointer_offsets": [
+      "0x884",
+      "0x894"
+    ],
+    "entry_count": 96,
+    "size": 8192,
+    "table_entry_5b_offset": "0x16c",
+    "target_offset": "0x1000",
+    "target_relative_offsets": [
+      "0x594",
+      "0x5bc"
+    ]
+  },
+  "third_party_code_imported": "NO",
+  "unknown_entry_policy": "zero and fail-closed when dereferenced"
+}

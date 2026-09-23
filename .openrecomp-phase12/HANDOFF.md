@@ -7,13 +7,18 @@
 - `P12-00` `PASS` (23 checks): ancestry/freeze verification, frozen Phase-1..11
   trees untouched, private fixture identity re-derived, machine-readable proof
   contracts written, reserved markers `NOT_PROVEN`;
-- next stage `P12-01` (B0:0x5B ChangeClearPAD service V1).
+- `P12-01` `PASS` (35 checks): documented `ps1.bios.B0.5b` `ChangeClearPAD`
+  service installed through the existing mediation architecture plus a
+  synthetic project-owned B0 window; positive/fail-closed emitter and direct
+  dispatcher coverage; `OPENRECOMP_PHASE12_B0_5B_CHANGECLEARPAD_V1=PASS`;
+- next stage `P12-02` (complete B0:0x5B caller coverage).
 
 ## Exact next action
 
-Implement the minimum typed `ps1.bios.B0.5b` `ChangeClearPAD(int)` service
-under `.openrecomp-phase12/` through the existing runtime/service mediation
-architecture, with positive and fail-closed tests, then run the `P12-01` gate
+Independently re-derive the B0:0x5B caller inventory on the private fixture
+(reconnaissance lists two `B0:0x57` sites and seven direct callers via stub
+`0x80015f38`), classify direct/GetB0Table/trampoline/reachability, and test that
+all reachable required paths resolve consistently. Then run the `P12-02` gate
 twice.
 
 ## Verification commands

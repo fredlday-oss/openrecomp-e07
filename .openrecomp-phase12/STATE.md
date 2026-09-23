@@ -18,9 +18,9 @@ must NOT claim playability or general PS1 compatibility.
 
 ## Progress
 
-- CURRENT_STAGE: P12-01
-- LAST_COMPLETED_STAGE: P12-00
-- NEXT_STAGE: P12-01
+- CURRENT_STAGE: P12-02
+- LAST_COMPLETED_STAGE: P12-01
+- NEXT_STAGE: P12-02
 
 ## Proof markers
 
@@ -34,7 +34,7 @@ must NOT claim playability or general PS1 compatibility.
 | Stage | Status |
 |---|---|
 | P12-00 | PASS (23 checks) |
-| P12-01 | not started |
+| P12-01 | PASS (35 checks) |
 | P12-02 | not started |
 | P12-03 | not started |
 | P12-04 | not started |
@@ -68,6 +68,26 @@ byte-identical JSON sidecars.
 - proof contracts written (`proof_contracts.json`); reserved markers
   `NOT_PROVEN`;
 - evidence: `.openrecomp-phase12/evidence/P12-00/`.
+
+### P12-01 — B0:0x5B ChangeClearPAD service V1
+
+PASS (35 checks). Gate `tools/test_phase12_changeclear_pad_v1.py` ran twice
+through the Phase-12 stage runner with byte-identical stdout, empty stderr,
+exit 0 and byte-identical JSON sidecars.
+
+- installed the documented Phase-12 B0 surface (`0x57` GetB0Table, `0x5b`
+  ChangeClearPAD) and a synthetic project-owned window (`0x1f000000`) that is
+  not a recovered BIOS address;
+- minimum semantics: `ChangeClearPAD(mode)` records the documented pad/card
+  clear auto-acknowledge mode for `mode in {0,1}`; other values/arity fail
+  closed; no SIO/interrupt/DMA/device behaviour;
+- public synthetic emitter fixtures (mode 0/1) and a direct production
+  dispatcher fixture verify identity, dispatch, deterministic state, void
+  return, continuation, exact observables and fail-closed refusal;
+- unrelated B0 entry `0x58` stays fail-closed;
+- markers `OPENRECOMP_P12_01=PASS` and
+  `OPENRECOMP_PHASE12_B0_5B_CHANGECLEARPAD_V1=PASS`;
+- evidence: `.openrecomp-phase12/evidence/P12-01/`.
 
 ## Third-party code
 

@@ -1,0 +1,185 @@
+{
+  "checks": [
+    {
+      "check": "service:b0-surface",
+      "detail": "[87, 91]",
+      "status": "PASS"
+    },
+    {
+      "check": "service:changeclearpad-name",
+      "detail": "{\"name\": \"ChangeClearPAD\", \"refusal\": \"unsupported mode value (only 0 and 1 are established) or wrong argument count\", \"result_register\": null, \"returns\": \"none\", \"semantics\": \"record the documented pad/card clear auto-acknowledge mode in typed BIOS state; no SIO, interrupt, DMA or device behaviour is modelled\", \"signature\": [\"mode\"], \"source\": \"public PS1 BIOS function table documentation (PSX-SPX BIOS function summary: B(5Bh) ChangeClearPAD(int))\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "service:no-unrelated-b0",
+      "detail": "[87, 91]",
+      "status": "PASS"
+    },
+    {
+      "check": "service:index-names",
+      "detail": "B0 names present",
+      "status": "PASS"
+    },
+    {
+      "check": "service:synthetic-not-bios-address",
+      "detail": "0x1f000000",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode0:one-site",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode0:service",
+      "detail": "{\"block_id\": null, \"classification\": \"BIOS_VECTOR_SERVICE\", \"disposition\": \"EXACT_EXTERNAL_SERVICE\", \"documented_name\": \"ChangeClearPAD\", \"function_id\": null, \"function_index\": 91, \"index_evidence\": [\"index-addiu@0x80010024\"], \"kind\": \"INDIRECT_JUMP\", \"op\": \"jr\", \"op_name\": \"jump_bios_b0_5b\", \"service_id\": \"ps1.bios.B0.5b\", \"site\": 2147549216, \"site_hex\": \"0x80010020\", \"slice_evidence\": [\"addiu@0x8001001c\"], \"source_register\": 10, \"vector\": \"B0\", \"vector_value\": \"0x000000b0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode0:one-rule",
+      "detail": "[{\"args\": [\"bios_arg0\"], \"flow\": \"INDIRECT_JUMP\", \"op\": \"jump_bios_b0_5b\", \"result\": null, \"service\": \"ps1.bios.B0.5b\"}]",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode0:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode0:reproducible",
+      "detail": "ca9e286e6804a923a917a59fe63778e7ce3d706558240e41a16e700debb310e9",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode0:exit-stderr",
+      "detail": "exit 0 and empty stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode0:deterministic",
+      "detail": "5533a2b68adeab81aac28534d920ed6fb268710efc1e4e69d54d99c564844948",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode0:success",
+      "detail": "('0', '')",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode0:state",
+      "detail": "0/1",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode0:void-return-preserved",
+      "detail": "0x00001234",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode0:continuation",
+      "detail": "0x00000055",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode1:one-site",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode1:service",
+      "detail": "{\"block_id\": null, \"classification\": \"BIOS_VECTOR_SERVICE\", \"disposition\": \"EXACT_EXTERNAL_SERVICE\", \"documented_name\": \"ChangeClearPAD\", \"function_id\": null, \"function_index\": 91, \"index_evidence\": [\"index-addiu@0x80010024\"], \"kind\": \"INDIRECT_JUMP\", \"op\": \"jr\", \"op_name\": \"jump_bios_b0_5b\", \"service_id\": \"ps1.bios.B0.5b\", \"site\": 2147549216, \"site_hex\": \"0x80010020\", \"slice_evidence\": [\"addiu@0x8001001c\"], \"source_register\": 10, \"vector\": \"B0\", \"vector_value\": \"0x000000b0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode1:one-rule",
+      "detail": "[{\"args\": [\"bios_arg0\"], \"flow\": \"INDIRECT_JUMP\", \"op\": \"jump_bios_b0_5b\", \"result\": null, \"service\": \"ps1.bios.B0.5b\"}]",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode1:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode1:reproducible",
+      "detail": "5678cf5a04852b5a8faa7ff0dea3d5c0842c3d063eacaa7765a75b209cda52ff",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode1:exit-stderr",
+      "detail": "exit 0 and empty stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode1:deterministic",
+      "detail": "ea3204693c25c83feb074238820d2d2fc6729387c99409b37fcb9591dc5035b4",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode1:success",
+      "detail": "('0', '')",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode1:state",
+      "detail": "1/1",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode1:void-return-preserved",
+      "detail": "0x00001234",
+      "status": "PASS"
+    },
+    {
+      "check": "emitter:mode1:continuation",
+      "detail": "0x00000055",
+      "status": "PASS"
+    },
+    {
+      "check": "unrelated:no-service",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "unrelated:not-implemented",
+      "detail": "[{\"block_id\": null, \"classification\": \"BIOS_VECTOR_NOT_IMPLEMENTED\", \"disposition\": \"FAIL_CLOSED\", \"documented_name\": null, \"function_id\": null, \"function_index\": 88, \"index_evidence\": [\"index-addiu@0x8001001c\"], \"kind\": \"INDIRECT_JUMP\", \"op\": \"jr\", \"op_name\": null, \"service_id\": null, \"site\": 2147549208, \"site_hex\": \"0x80010018\", \"slice_evidence\": [\"addiu@0x80010014\"], \"source_register\": 10, \"vector\": \"B0\", \"vector_value\": \"0x000000b0\"}]",
+      "status": "PASS"
+    },
+    {
+      "check": "dispatch:two-sites",
+      "detail": "2",
+      "status": "PASS"
+    },
+    {
+      "check": "dispatch:ids",
+      "detail": "[\"ps1.bios.B0.57\", \"ps1.bios.B0.5b\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "dispatch:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "dispatch:exit-stderr",
+      "detail": "exit 0 and empty stderr",
+      "status": "PASS"
+    },
+    {
+      "check": "dispatch:deterministic",
+      "detail": "c746e2ec95082b563e9c7aa34e19924bfba78d4b94078cf973253b1c60509238",
+      "status": "PASS"
+    },
+    {
+      "check": "dispatch:exact-observables",
+      "detail": "{}",
+      "status": "PASS"
+    }
+  ],
+  "schema": "openrecomp-phase12-tests-v1",
+  "stage": "P12-01",
+  "summary": {
+    "failed": 0,
+    "passed": 35
+  }
+}

@@ -1,0 +1,42 @@
+PASS: service:b0-surface [87, 91]
+PASS: service:changeclearpad-name {"name": "ChangeClearPAD", "refusal": "unsupported mode value (only 0 and 1 are established) or wrong argument count", "result_register": null, "returns": "none", "semantics": "record the documented pad/card clear auto-acknowledge mode in typed BIOS state; no SIO, interrupt, DMA or device behaviour is modelled", "signature": ["mode"], "source": "public PS1 BIOS function table documentation (PSX-SPX BIOS function summary: B(5Bh) ChangeClearPAD(int))"}
+PASS: service:no-unrelated-b0 [87, 91]
+PASS: service:index-names B0 names present
+PASS: service:synthetic-not-bios-address 0x1f000000
+PASS: emitter:mode0:one-site 1
+PASS: emitter:mode0:service {"block_id": null, "classification": "BIOS_VECTOR_SERVICE", "disposition": "EXACT_EXTERNAL_SERVICE", "documented_name": "ChangeClearPAD", "function_id": null, "function_index": 91, "index_evidence": ["index-addiu@0x80010024"], "kind": "INDIRECT_JUMP", "op": "jr", "op_name": "jump_bios_b0_5b", "service_id": "ps1.bios.B0.5b", "site": 2147549216, "site_hex": "0x80010020", "slice_evidence": ["addiu@0x8001001c"], "source_register": 10, "vector": "B0", "vector_value": "0x000000b0"}
+PASS: emitter:mode0:one-rule [{"args": ["bios_arg0"], "flow": "INDIRECT_JUMP", "op": "jump_bios_b0_5b", "result": null, "service": "ps1.bios.B0.5b"}]
+PASS: emitter:mode0:build ['OK', 'OK']
+PASS: emitter:mode0:reproducible ca9e286e6804a923a917a59fe63778e7ce3d706558240e41a16e700debb310e9
+PASS: emitter:mode0:exit-stderr exit 0 and empty stderr
+PASS: emitter:mode0:deterministic 5533a2b68adeab81aac28534d920ed6fb268710efc1e4e69d54d99c564844948
+PASS: emitter:mode0:success ('0', '')
+PASS: emitter:mode0:state 0/1
+PASS: emitter:mode0:void-return-preserved 0x00001234
+PASS: emitter:mode0:continuation 0x00000055
+PASS: emitter:mode1:one-site 1
+PASS: emitter:mode1:service {"block_id": null, "classification": "BIOS_VECTOR_SERVICE", "disposition": "EXACT_EXTERNAL_SERVICE", "documented_name": "ChangeClearPAD", "function_id": null, "function_index": 91, "index_evidence": ["index-addiu@0x80010024"], "kind": "INDIRECT_JUMP", "op": "jr", "op_name": "jump_bios_b0_5b", "service_id": "ps1.bios.B0.5b", "site": 2147549216, "site_hex": "0x80010020", "slice_evidence": ["addiu@0x8001001c"], "source_register": 10, "vector": "B0", "vector_value": "0x000000b0"}
+PASS: emitter:mode1:one-rule [{"args": ["bios_arg0"], "flow": "INDIRECT_JUMP", "op": "jump_bios_b0_5b", "result": null, "service": "ps1.bios.B0.5b"}]
+PASS: emitter:mode1:build ['OK', 'OK']
+PASS: emitter:mode1:reproducible 5678cf5a04852b5a8faa7ff0dea3d5c0842c3d063eacaa7765a75b209cda52ff
+PASS: emitter:mode1:exit-stderr exit 0 and empty stderr
+PASS: emitter:mode1:deterministic ea3204693c25c83feb074238820d2d2fc6729387c99409b37fcb9591dc5035b4
+PASS: emitter:mode1:success ('0', '')
+PASS: emitter:mode1:state 1/1
+PASS: emitter:mode1:void-return-preserved 0x00001234
+PASS: emitter:mode1:continuation 0x00000055
+PASS: unrelated:no-service 0
+PASS: unrelated:not-implemented [{"block_id": null, "classification": "BIOS_VECTOR_NOT_IMPLEMENTED", "disposition": "FAIL_CLOSED", "documented_name": null, "function_id": null, "function_index": 88, "index_evidence": ["index-addiu@0x8001001c"], "kind": "INDIRECT_JUMP", "op": "jr", "op_name": null, "service_id": null, "site": 2147549208, "site_hex": "0x80010018", "slice_evidence": ["addiu@0x80010014"], "source_register": 10, "vector": "B0", "vector_value": "0x000000b0"}]
+PASS: dispatch:two-sites 2
+PASS: dispatch:ids ["ps1.bios.B0.57", "ps1.bios.B0.5b"]
+PASS: dispatch:build ['OK', 'OK']
+PASS: dispatch:exit-stderr exit 0 and empty stderr
+PASS: dispatch:deterministic c746e2ec95082b563e9c7aa34e19924bfba78d4b94078cf973253b1c60509238
+PASS: dispatch:exact-observables {}
+OPENRECOMP_P12_01=PASS
+OPENRECOMP_PHASE12_B0_5B_CHANGECLEARPAD_V1=PASS
+OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P12_01_CHECKS=35
