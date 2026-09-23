@@ -1,0 +1,127 @@
+{
+  "decision": "PASS",
+  "fixture": {
+    "bin_sha256": "2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365",
+    "cue_sha256": "beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2",
+    "executable_sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "executable_size": 129024,
+    "label": "hercules-private-fixture"
+  },
+  "frontier": {
+    "block_index": 468341,
+    "cause": "architectural/evidentiary, not implementation defect",
+    "function_index": "0x57",
+    "public_name": "GetB0Table",
+    "required_entry": "B0:0x5b ChangeClearPAD",
+    "site": "0x80015fa4",
+    "status": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+    "vector": "B0"
+  },
+  "highest_proven_milestone": "C",
+  "markers_issued": [
+    "OPENRECOMP_P11_99=PASS",
+    "OPENRECOMP_PHASE11_HERCULES_GPU_COMMAND_PROOF=PROVEN",
+    "OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+    "OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF=NOT_PROVEN",
+    "OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+    "OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+  ],
+  "milestone_c_evidence": {
+    "classification": "known NOP",
+    "gp0_write": "0x0002a244",
+    "stage": "P11-05"
+  },
+  "required_stages": [
+    {
+      "checks_passed": 482,
+      "gate_marker": "OPENRECOMP_P11_00=PASS",
+      "outcome": "PASS",
+      "stage": "P11-00"
+    },
+    {
+      "checks_passed": 583,
+      "gate_marker": "OPENRECOMP_P11_01=PASS",
+      "outcome": "PASS",
+      "stage": "P11-01"
+    },
+    {
+      "checks_passed": 1466,
+      "gate_marker": "OPENRECOMP_P11_02=PASS",
+      "outcome": "PASS",
+      "stage": "P11-02"
+    },
+    {
+      "checks_passed": 1329,
+      "gate_marker": "OPENRECOMP_P11_03=PASS",
+      "outcome": "PASS",
+      "stage": "P11-03"
+    },
+    {
+      "checks_passed": 851,
+      "gate_marker": "OPENRECOMP_P11_04=PASS",
+      "outcome": "PASS",
+      "stage": "P11-04"
+    },
+    {
+      "checks_passed": 294,
+      "gate_marker": "OPENRECOMP_P11_05=PASS",
+      "outcome": "PASS",
+      "stage": "P11-05"
+    },
+    {
+      "checks_passed": 75,
+      "gate_marker": "OPENRECOMP_P11_06=PASS",
+      "outcome": "PASS",
+      "stage": "P11-06"
+    },
+    {
+      "checks_passed": 41,
+      "gate_marker": "OPENRECOMP_P11_07=PASS",
+      "outcome": "PASS",
+      "stage": "P11-07"
+    },
+    {
+      "checks_passed": 262,
+      "gate_marker": "OPENRECOMP_P11_90=PASS",
+      "outcome": "PASS",
+      "stage": "P11-90"
+    },
+    {
+      "checks_passed": 385,
+      "gate_marker": "OPENRECOMP_P11_91=PASS",
+      "outcome": "PASS",
+      "stage": "P11-91"
+    },
+    {
+      "checks_passed": 179,
+      "gate_marker": "OPENRECOMP_P11_RC=PASS",
+      "outcome": "PASS",
+      "stage": "P11-RC"
+    }
+  ],
+  "schema": "openrecomp-phase11-terminal-verdict-v1",
+  "scope_guards": {
+    "arbitrary_psx_exe": "NOT_TESTED",
+    "bios_emulation": "NOT_PROVEN",
+    "cdrom_disc_reading_streaming": "NOT_PROVEN",
+    "controller_input_consumption": "NOT_PROVEN",
+    "general_ps1_compatibility": "NOT_PROVEN_PERMANENT",
+    "gpu_rendering_vram": "NOT_PROVEN",
+    "interrupt_delivery_dma_timing": "NOT_PROVEN",
+    "memory_cards_link_cable": "NOT_TESTED",
+    "milestone_b": "NOT_PROVEN",
+    "milestone_d": "NOT_PROVEN",
+    "milestone_e": "NOT_PROVEN",
+    "milestone_f": "NOT_PROVEN",
+    "milestone_g": "NOT_PROVEN",
+    "spu_audio_synthesis": "NOT_PROVEN"
+  },
+  "stage": "P11-99",
+  "unexecuted_stages": [
+    "P11-08",
+    "P11-09",
+    "P11-10",
+    "P11-11",
+    "P11-12"
+  ]
+}

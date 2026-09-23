@@ -36,8 +36,8 @@ evidence-demonstrated gaps are extended.
 
 ## Terminal status
 
-STATUS=IN_PROGRESS
-FINAL_VERDICT=PENDING
+STATUS=COMPLETE
+FINAL_VERDICT=PASS_BOUNDED_MILESTONE_C_PRIVATE_FIXTURE
 OPENRECOMP_PHASE11_HERCULES_GPU_COMMAND_PROOF=PROVEN
 OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
 OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF=NOT_PROVEN
@@ -82,9 +82,40 @@ OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 | P11-12 | NOT EXECUTED — no stage verdict assigned |
 | P11-90 | PASS (whole-regression gate, 262 checks, deterministic twice) |
 | P11-91 | PASS (evidence closure and proof matrix, 385 checks, deterministic twice) |
-| P11-99 | PENDING |
+| P11-99 | PASS (final bounded verdict, 143 checks, deterministic twice) |
 
 ## Stage records
+
+### P11-99 — final bounded verdict
+
+PASS (143 checks). Gate `tools/test_phase11_final_verdict_v1.py` ran twice
+through the Phase-11 stage runner with byte-identical stdout (422 raw
+bytes, SHA-256 `cd673fda...`), empty stderr, exit 0 and byte-identical JSON
+sidecars.
+
+- the frozen Phase-10 terminal boundary is re-verified untouched: commit
+  `8961682a` tree `4a58d923`, branch tip `phase10/ps1-commercial-game-native-v1`,
+  and the `.openrecomp-phase10` subtree is byte-identical to the historical
+  terminal commit;
+- every required Phase-11 stage (`P11-00` through `P11-07`, `P11-RC`,
+  `P11-90`, `P11-91`) is verified `PASS` with two byte-identical official
+  runs, empty stderr, exit 0, its gate marker present, no `FAIL:` line and a
+  `PASS` tests record;
+- the `P11-91` proof matrix and claim ledger verify: highest proven
+  milestone `C`, milestones `B`/`D`/`E`/`F`/`G` `NOT_PROVEN`, the exact
+  unresolved `B0:0x57` `GetB0Table` frontier at `0x80015fa4` block `468341`
+  `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE`, the four reserved markers and the
+  permanent general-PS1 non-claim;
+- the exact private fixture identity and the milestone-C GPU evidence
+  (required GP0 write `0x0002a244`, known `NOP`) match the committed
+  records;
+- the scope guards keep the four reserved markers `NOT_PROVEN` and the
+  permanent general-PS1 non-claim, and the public-safety verification is
+  clean;
+- the terminal verdict is bounded: `PASS` for the evidence closure and
+  milestone-C private-fixture-bounded claim only; no milestone is promoted
+  and no reserved marker is changed;
+- evidence: `.openrecomp-phase11/evidence/P11-99/`.
 
 ### P11-91 — evidence closure and bounded proof matrix
 

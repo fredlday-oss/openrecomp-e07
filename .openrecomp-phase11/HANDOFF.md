@@ -103,22 +103,44 @@
   `NOT_PROVEN` and the GPU command-proof marker (milestone C) is verified
   unchanged.
 
-## Immediate next action
+- `P11-99` `PASS` (143 checks): the frozen Phase-10 terminal boundary is
+  re-verified untouched (commit `8961682a`, tree `4a58d923`, branch tip
+  `phase10/ps1-commercial-game-native-v1`, `.openrecomp-phase10` subtree
+  byte-identical to the historical terminal commit); every required Phase-11
+  stage (`P11-00` through `P11-07`, `P11-RC`, `P11-90`, `P11-91`) is
+  verified `PASS` with two byte-identical official runs, empty stderr, exit
+  0, its gate marker present, no `FAIL:` line and a `PASS` tests record; the
+  `P11-91` proof matrix and claim ledger verify (highest proven milestone C,
+  milestones B/D/E/F/G `NOT_PROVEN`, the exact unresolved `B0:0x57`
+  `GetB0Table` frontier at `0x80015fa4` block `468341`
+  `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE`, the four reserved markers, the
+  permanent general-PS1 non-claim); the exact private fixture identity and
+  the milestone-C GPU evidence (required GP0 write `0x0002a244`, known
+  `NOP`) match the committed records; the scope guards keep the four
+  reserved markers `NOT_PROVEN` and the permanent general-PS1 non-claim, and
+  the public-safety verification is clean. The terminal verdict is bounded:
+  `PASS` for the evidence closure and milestone-C private-fixture-bounded
+  claim only; no milestone is promoted and no reserved marker is changed.
 
-The P11-91 evidence closure and proof matrix gate passes deterministically
-and its official evidence is recorded under
-`.openrecomp-phase11/evidence/P11-91/`; the P11-91 commit is its
-predecessor. Only `P11-99`, the final bounded terminal verdict, remains.
-Do not start, simulate or assign a verdict to `P11-08` through `P11-12`.
-The isolated Phase-10 worktree stays at
-`D:/OpenRecomp/worktrees/p11-90-phase10-regression` with its recovered
+## Terminal closure
+
+Phase 11 is complete. `STATUS=COMPLETE`,
+`FINAL_VERDICT=PASS_BOUNDED_MILESTONE_C_PRIVATE_FIXTURE`. The highest
+achieved milestone is C (GPU command stream reached, private-fixture
+bounded); milestones B, D, E, F and G remain `NOT_PROVEN`, and the four
+reserved claim markers remain `NOT_PROVEN`:
+`OPENRECOMP_PHASE11_HERCULES_INITIALIZATION_PROOF`,
+`OPENRECOMP_PHASE11_HERCULES_FRAME_PROOF`,
+`OPENRECOMP_PHASE11_HERCULES_PLAYABILITY_PROOF` and
+`OPENRECOMP_PHASE11_GENERAL_PS1_COMPATIBILITY` (permanent). The exact
+runtime frontier remains the `B0:0x57` `GetB0Table` caller at `0x80015fa4`
+(block 468341) requiring a guest `B0:0x5B` target that public evidence does
+not establish. A future licensed replacement-BIOS investigation is outside
+Phase 11 and requires a new control plane, branch, architecture/license
+review and explicit user authorization. The isolated Phase-10 worktree stays
+at `D:/OpenRecomp/worktrees/p11-90-phase10-regression` with its recovered
 verification-context files untracked. The original Phase-2/Phase-3 residue
 and root untracked file remain untouched.
-
-The P11-07 `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE` result remains the exact
-runtime frontier. A future licensed replacement-BIOS investigation is outside
-Phase 11 and requires a new control plane, branch, architecture/license review
-and explicit user authorization.
 
 ## Private fixture notes
 
