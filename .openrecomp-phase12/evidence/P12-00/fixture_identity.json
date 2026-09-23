@@ -1,0 +1,54 @@
+{
+  "bins": [
+    {
+      "directory_entry": "Disney's Hercules Action Game (USA).bin",
+      "sha256": "2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365",
+      "size": 409452624
+    }
+  ],
+  "cue": {
+    "cue_sha256": "beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2",
+    "cue_size": 101,
+    "directory_entry": "Disney's Hercules Action Game (USA).cue",
+    "file_entry": "Disney's Hercules Action Game (USA).bin",
+    "file_type": "BINARY",
+    "referenced_bins": [
+      "Disney's Hercules Action Game (USA).bin"
+    ],
+    "track_count": 1,
+    "tracks": [
+      {
+        "index1_msf": [
+          0,
+          0,
+          0
+        ],
+        "number": 1,
+        "type": "MODE2/2352"
+      }
+    ]
+  },
+  "executable": {
+    "directory_entry": "SLUS_005.29",
+    "sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "size": 129024
+  },
+  "schema": "openrecomp-phase12-fixture-identity-v1",
+  "stage": "P12-00",
+  "system_cnf": {
+    "boot_extent_lba": 23,
+    "boot_extent_sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "boot_extent_size": 129024,
+    "boot_target": "SLUS_005.29",
+    "directory_entry": "SYSTEM.CNF;1",
+    "extent_lba": 86,
+    "fields": {
+      "BOOT": "cdrom:SLUS_005.29;1",
+      "EVENT": "16",
+      "STACK": "801FFF00",
+      "TCB": "4"
+    },
+    "matches_primary_executable": true,
+    "size": 67
+  }
+}

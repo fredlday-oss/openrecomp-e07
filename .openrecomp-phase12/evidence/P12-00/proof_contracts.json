@@ -1,0 +1,110 @@
+{
+  "bounded_service_markers": {
+    "OPENRECOMP_PHASE12_B0_5B_CHANGECLEARPAD_V1": "PASS|NOT_PROVEN",
+    "OPENRECOMP_PHASE12_B0_TABLE_INDIRECT_V1": "PASS|NOT_PROVEN",
+    "OPENRECOMP_PHASE12_END_TO_END_REPLAY_V1": "PASS|NOT_PROVEN",
+    "OPENRECOMP_PHASE12_GPU_OT_DMA_V1": "PASS|NOT_PROVEN",
+    "OPENRECOMP_PHASE12_GTE_GEOMETRY_V1": "PASS|NOT_PROVEN",
+    "OPENRECOMP_PHASE12_TEXTURE_VRAM_V1": "PASS|NOT_PROVEN"
+  },
+  "contracts_version": "1.0.0",
+  "frame": {
+    "bounded": "PRIVATE_FIXTURE_BOUNDED",
+    "explicitly_not_required": [
+      "literal framebuffer or screenshot (unless the contract is amended by evidence)",
+      "playability",
+      "general PS1 compatibility"
+    ],
+    "marker": "OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF",
+    "milestone": "D",
+    "predicate_dependency": "OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF",
+    "predicates": [
+      {
+        "id": "FRAME-PREDECESSOR",
+        "mechanical": "OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=PASS",
+        "requirement": "initialization proof PASS"
+      },
+      {
+        "id": "FRAME-PRIMITIVE",
+        "mechanical": ">=1 ordered typed GP0/GP1 write with classification",
+        "requirement": "genuine typed GPU primitive/command submission"
+      },
+      {
+        "id": "FRAME-OT",
+        "mechanical": "guest OT node write subsequently traversed",
+        "requirement": "active ordering-table insertion observed"
+      },
+      {
+        "id": "FRAME-SUBMIT",
+        "mechanical": "active OT submitted via documented GPU/DMA path; active-buffer/OT transition observed",
+        "requirement": "frame-submission boundary and buffer transition"
+      },
+      {
+        "id": "FRAME-DETERMINISTIC",
+        "mechanical": "block digest, register file, RAM digest, device transcripts",
+        "requirement": "two fresh runs byte-identical on deterministic fields"
+      },
+      {
+        "id": "FRAME-NOT-PLAYABILITY",
+        "mechanical": "playability and general markers remain NOT_PROVEN",
+        "requirement": "no playability or general-compatibility claim"
+      }
+    ],
+    "schema": "openrecomp-phase12-proof-contract-v1",
+    "target": "deterministic Hercules first-frame submission"
+  },
+  "initialization": {
+    "bounded": "PRIVATE_FIXTURE_BOUNDED",
+    "marker": "OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF",
+    "milestone": "B",
+    "not_required": [
+      "playability",
+      "general PS1 compatibility"
+    ],
+    "predicates": [
+      {
+        "id": "INIT-PREDECESSOR",
+        "mechanical": "ancestry from 665d11dc; P12-00..P12-04 markers PASS",
+        "requirement": "frozen Phase-11 boundary and Phase-12 predecessors PASS"
+      },
+      {
+        "id": "INIT-B0-PATCH",
+        "mechanical": "GetB0Table returns a table pointer; entry 0x5B read; derived pointers at +0x884/+0x894; eleven words cleared at +0x594..+0x5bc; each recorded as a deterministic observable",
+        "requirement": "documented B0 pad-patch sequence observed"
+      },
+      {
+        "id": "INIT-BOUNDARY",
+        "mechanical": "first steady-state repeating block cycle after INIT-B0-PATCH",
+        "requirement": "reach a mechanically defined initialization-completion boundary"
+      },
+      {
+        "id": "INIT-NO-FAIL-CLOSED",
+        "mechanical": "trace failure count is zero from entry to INIT-BOUNDARY",
+        "requirement": "no fail-closed event on the proven prefix"
+      },
+      {
+        "id": "INIT-DETERMINISTIC",
+        "mechanical": "block digest, register file, RAM digest, device transcripts",
+        "requirement": "two fresh runs byte-identical on deterministic fields"
+      },
+      {
+        "id": "INIT-NO-FABRICATION",
+        "mechanical": "no BIOS image, no fabricated guest code, no fail-open fallback",
+        "requirement": "no fabrication and no guest machine-code execution"
+      }
+    ],
+    "schema": "openrecomp-phase12-proof-contract-v1",
+    "target": "deterministic Hercules initialization completion"
+  },
+  "phase11_terminal_boundary": {
+    "branch": "phase11/ps1-playability-v1",
+    "commit": "665d11dc9f760d0c4ea2486e186c1fe5c762647c",
+    "verdict": "PASS_BOUNDED_MILESTONE_C_PRIVATE_FIXTURE"
+  },
+  "reserved_markers": {
+    "OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+    "OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN"
+  },
+  "schema": "openrecomp-phase12-proof-contracts-v1",
+  "third_party_code_imported": "NO"
+}

@@ -1,0 +1,125 @@
+{
+  "checks": [
+    {
+      "check": "boundary:branch",
+      "detail": "phase12/ps1-hercules-init-frame-v1",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:base-commit",
+      "detail": "commit",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:base-is-ancestor",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:ancestor-1aef50f6",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:ancestor-615e769c",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:phase11-tip-frozen",
+      "detail": "665d11dc9f760d0c4ea2486e186c1fe5c762647c",
+      "status": "PASS"
+    },
+    {
+      "check": "freeze:tracked-tree-unchanged",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "freeze:worktree-clean",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:executable-entry",
+      "detail": "SLUS_005.29",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:executable-size",
+      "detail": "129024",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:executable-sha256",
+      "detail": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:boot-extent-matches",
+      "detail": "boot extent == primary executable",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:track-layout",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:initialization-predicates",
+      "detail": "6",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:frame-predicates",
+      "detail": "6",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:reserved-markers",
+      "detail": "{\"OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY\": \"NOT_PROVEN\", \"OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF\": \"NOT_PROVEN\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:no-third-party",
+      "detail": "NO",
+      "status": "PASS"
+    },
+    {
+      "check": "contracts:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "contracts:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "contracts:bounded",
+      "detail": "all strings bounded",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:bounded",
+      "detail": "all strings bounded",
+      "status": "PASS"
+    }
+  ],
+  "schema": "openrecomp-phase12-tests-v1",
+  "stage": "P12-00",
+  "summary": {
+    "failed": 0,
+    "passed": 23
+  }
+}

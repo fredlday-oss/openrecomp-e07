@@ -1,0 +1,29 @@
+PASS: boundary:branch phase12/ps1-hercules-init-frame-v1
+PASS: boundary:base-commit commit
+PASS: boundary:base-is-ancestor 0
+PASS: boundary:ancestor-1aef50f6 0
+PASS: boundary:ancestor-615e769c 0
+PASS: boundary:phase11-tip-frozen 665d11dc9f760d0c4ea2486e186c1fe5c762647c
+PASS: freeze:tracked-tree-unchanged
+PASS: freeze:worktree-clean
+PASS: fixture:executable-entry SLUS_005.29
+PASS: fixture:executable-size 129024
+PASS: fixture:executable-sha256 c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f
+PASS: fixture:boot-extent-matches boot extent == primary executable
+PASS: fixture:track-layout 1
+PASS: contract:initialization-predicates 6
+PASS: contract:frame-predicates 6
+PASS: contract:reserved-markers {"OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN", "OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN"}
+PASS: contract:no-third-party NO
+PASS: contracts:no-private-path absolute private paths absent
+PASS: contracts:no-raw-words reconstructive fields absent
+PASS: contracts:bounded all strings bounded
+PASS: boundary:no-private-path absolute private paths absent
+PASS: boundary:no-raw-words reconstructive fields absent
+PASS: boundary:bounded all strings bounded
+OPENRECOMP_P12_00=PASS
+OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P12_00_CHECKS=23
