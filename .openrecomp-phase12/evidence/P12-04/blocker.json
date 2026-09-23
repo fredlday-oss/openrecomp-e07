@@ -1,0 +1,50 @@
+{
+  "blocking_c0_sites": [
+    {
+      "function_index": "0x02",
+      "name": "SysEnqIntRP",
+      "site": "0x80015f4c"
+    },
+    {
+      "function_index": "0x03",
+      "name": "SysDeqIntRP",
+      "site": "0x80015f5c"
+    },
+    {
+      "function_index": "0x0a",
+      "name": null,
+      "site": "0x800161e0"
+    }
+  ],
+  "classification": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+  "current_frontier": {
+    "block_id": "blk_80015f58",
+    "block_index": 468365,
+    "failure_count": 16,
+    "function_entry": "0x80015f58",
+    "function_id": "fn_80015f58",
+    "message": "unresolved indirect jump",
+    "site": "0x80015f5c",
+    "site_classification": null,
+    "source_value": "0x000000c0",
+    "terminal_op": "jr_indirect"
+  },
+  "decision": "the C0 interrupt services remain fail-closed; implementing only registration would be a permissive partial model without evidence for delivery semantics",
+  "implemented_this_stage": {
+    "name": "FlushCache",
+    "semantics": "documented cache flush; no observable effect in the non-cached flat-memory bounded model",
+    "service": "ps1.bios.A0.44"
+  },
+  "milestone_b": "NOT_PROVEN",
+  "missing_evidence": [
+    "faithful BIOS interrupt-routine registration semantics (C0:0x02/0x03)",
+    "root-counter interrupt-clear semantics (C0:0x0a)",
+    "interrupt delivery and callback invocation ordering, which the bounded architecture does not model and must not guess"
+  ],
+  "previous_frontier": {
+    "service": "ps1.bios.A0.44",
+    "site": "0x80015b94"
+  },
+  "schema": "openrecomp-phase12-initialization-frontier-v1",
+  "stage": "P12-04"
+}

@@ -18,9 +18,9 @@ must NOT claim playability or general PS1 compatibility.
 
 ## Progress
 
-- CURRENT_STAGE: P12-04
-- LAST_COMPLETED_STAGE: P12-03
-- NEXT_STAGE: P12-04
+- CURRENT_STAGE: P12-05
+- LAST_COMPLETED_STAGE: P12-04
+- NEXT_STAGE: P12-05
 
 ## Proof markers
 
@@ -37,7 +37,7 @@ must NOT claim playability or general PS1 compatibility.
 | P12-01 | PASS (35 checks) |
 | P12-02 | PASS (22 checks) |
 | P12-03 | PASS (22 checks) |
-| P12-04 | not started |
+| P12-04 | PASS (20 checks) |
 | P12-05 | not started |
 | P12-06 | not started |
 | P12-07 | not started |
@@ -116,6 +116,22 @@ byte-identical stdout, empty stderr, exit 0 and byte-identical sidecars.
 - new exact frontier: unresolved indirect jump at `0x80015b94`
   (`fn_80015b90`, block 468355) resolving to A0 `0x44` `FlushCache`;
 - evidence: `.openrecomp-phase12/evidence/P12-03/`.
+
+### P12-04 — Hercules initialization frontier loop
+
+PASS (20 checks). Gate `tools/test_phase12_init_frontier_v1.py` ran twice with
+byte-identical stdout, empty stderr, exit 0 and byte-identical sidecars.
+
+- implemented documented `ps1.bios.A0.44` `FlushCache` (void, no observable
+  effect in the non-cached flat-memory model) with public positive/negative
+  fixtures;
+- the initialization path advances past the A0 site to the C0 interrupt-routine
+  dispatcher at `0x80015f5c` (`fn_80015f58`, block 468365);
+- C0 `0x02`/`0x03`/`0x0a` stay fail-closed; faithful semantics require
+  interrupt delivery not modelled by the bounded architecture;
+- initialization frontier recorded
+  `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE`; milestone B `NOT_PROVEN`;
+- evidence: `.openrecomp-phase12/evidence/P12-04/`.
 
 ## Third-party code
 

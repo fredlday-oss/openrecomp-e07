@@ -1,0 +1,27 @@
+PASS: surface:flushcache-installed {"name": "FlushCache", "refusal": "wrong argument count", "result_register": null, "returns": "none", "semantics": "documented instruction/data cache flush; the bounded runtime models a flat, immediately-coherent memory with no caches, so the flush has no observable architectural effect and is recorded as a typed no-op", "signature": [], "source": "public PS1 BIOS function table documentation (PSX-SPX BIOS function summary: A(44h) FlushCache)"}
+PASS: synthetic:one-site 1
+PASS: synthetic:service {"block_id": null, "classification": "BIOS_VECTOR_SERVICE", "disposition": "EXACT_EXTERNAL_SERVICE", "documented_name": "FlushCache", "function_id": null, "function_index": 68, "index_evidence": ["index-addiu@0x80010020"], "kind": "INDIRECT_JUMP", "op": "jr", "op_name": "jump_bios_a0_44", "service_id": "ps1.bios.A0.44", "site": 2147549212, "site_hex": "0x8001001c", "slice_evidence": ["addiu@0x80010018"], "source_register": 10, "vector": "A0", "vector_value": "0x000000a0"}
+PASS: synthetic:build ['OK', 'OK']
+PASS: synthetic:deterministic ed9608e35fa3f76dcbc6812fd751add14e6380b229a0c86ac0a0bd106fa18a38
+PASS: synthetic:success 0
+PASS: synthetic:ram-unchanged 0xed03fda3a50182ab
+PASS: synthetic:void-return 0x00001234
+PASS: synthetic:continuation 0x00000055
+PASS: dispatch:id-present ["ps1.bios.A0.44"]
+PASS: dispatch:build ['OK', 'OK']
+PASS: dispatch:deterministic cc7732f908c54c3a289fee438098ed1db15f0965a0e303fdf08af840519481c1
+PASS: dispatch:exact {"flush_arity_status": "13", "flush_status": "0", "reads": "0", "service_calls": "2", "service_failures": "1", "writes": "0"}
+PASS: private:build ['OK', 'OK']
+PASS: private:deterministic 4378fc705e0404e9b4c2d3d6daa534b81d689a23aad2fd87b127a07fc116181a
+PASS: private:flushcache-exercised 94
+PASS: private:frontier-past-flushcache 0x80015f5c
+PASS: private:exact-frontier {"block_id": "blk_80015f58", "block_index": 468365, "failure_count": 16, "function_entry": "0x80015f58", "function_id": "fn_80015f58", "message": "unresolved indirect jump", "site": "0x80015f5c", "site_classification": null, "source_value": "0x000000c0", "terminal_op": "jr_indirect"}
+PASS: c0:reachable-sites [[2147573580, 2], [2147573596, 3], [2147574240, 10]]
+PASS: c0:all-fail-closed [{"block_id": null, "classification": "BIOS_VECTOR_NOT_IMPLEMENTED", "disposition": "FAIL_CLOSED", "documented_name": "SysEnqIntRP", "function_id": null, "function_index": 2, "index_evidence": ["index-addiu@0x80015f50"], "kind": "INDIRECT_JUMP", "op": "jr", "op_name": null, "service_id": null, "site": 2147573580, "site_hex": "0x80015f4c", "slice_evidence": ["addiu@0x80015f48"], "source_register": 10, "vector": "C0", "vector_value": "0x000000c0"}, {"block_id": null, "classification": "BIOS_VECTOR_NOT_IMPLEMENTED", "disposition": "FAIL_CLOSED", "documented_name": "SysDeqIntRP", "function_id": null, "function_index": 3, "index_evidence": ["index-addiu@0x80015f60"], "kind": "INDIRECT_JUMP", "op": "jr", "op_name": null, "service_id": null, "site": 2147573596, "site_hex": "0x80015f5c", "slice_evidence": ["addiu@0x80015f58"], "source_register": 10, "vector": "C0", "vector_value": "0x000000c0"}, {"block_id": null, "classification": "BIOS_VECTOR_NOT_IMPLEMENTED", "disposition": "FAIL_CLOSED", "documented_name": null, "function_id": null, "function_index": 10, "index_evidence": ["index-addiu@0x800161e4"], "kind": "INDIRECT_JUMP", "op": "jr", "op_name": null, "service_id": null, "site": 2147574240, "site_hex": "0x800161e0", "slice_evidence": ["addiu@0x800161dc"], "source_register": 10, "vector": "C0", "vector_value": "0x000000c0"}]
+OPENRECOMP_P12_04=PASS
+OPENRECOMP_PHASE12_INITIALIZATION_FRONTIER=BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE
+OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P12_04_CHECKS=20

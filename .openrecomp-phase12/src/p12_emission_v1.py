@@ -101,9 +101,10 @@ def build_build_set(
     sites: list[Any],
     trace: bool,
     guarded_resolved_indirect: bool = False,
+    extra_a0: tuple[int, ...] = (),
 ) -> dict[str, Any]:
     """The Phase-12 BIOS-service emission set (optionally instrumented)."""
-    services.install()
+    services.install(extra_a0)
     instrumentation = p11_emission_instrumentation() if trace else None
     config = p12_semantics.build_emitter_config(
         structure.discovery.entry_function_id, list(sites),

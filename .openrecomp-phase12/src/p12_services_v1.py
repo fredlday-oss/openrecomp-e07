@@ -70,14 +70,52 @@ DOCUMENTED_B0_SERVICES: dict[int, dict[str, Any]] = {
     },
 }
 
+#: Documented A0 services additionally modelled by the Phase-12 frontier loop.
+#: Each is a documented no-argument, void service whose architectural effect is
+#: absent in the bounded, non-cached, flat-memory runtime model. Unknown A0
+#: services remain fail-closed.
+DOCUMENTED_A0_SERVICES_ADDITIONS: dict[int, dict[str, Any]] = {
+    0x44: {
+        "name": "FlushCache",
+        "signature": [],
+        "returns": "none",
+        "result_register": None,
+        "refusal": "wrong argument count",
+        "semantics": (
+            "documented instruction/data cache flush; the bounded runtime models "
+            "a flat, immediately-coherent memory with no caches, so the flush has "
+            "no observable architectural effect and is recorded as a typed no-op"
+        ),
+        "source": "public PS1 BIOS function table documentation (PSX-SPX BIOS function summary: A(44h) FlushCache)",
+    },
+}
+
 DOCUMENTED_INDEX_NAMES_ADDITIONS = {
     ("B0", 0x57): "GetB0Table",
     ("B0", 0x5B): "ChangeClearPAD",
+    ("A0", 0x44): "FlushCache",
 }
 
+#: Snapshot of the frozen Phase-11 A0 surface, captured before any Phase-12
+#: install so that a stage can pin its own service surface deterministically.
+BASE_A0_SERVICES: dict[int, dict[str, Any]] = dict(p11_bios.DOCUMENTED_A0_SERVICES)
 
-def install() -> dict[str, dict[int, dict[str, Any]]]:
-    """Install the Phase-12 B0 surface into the in-memory Phase-11 tables."""
+
+
+def install(extra_a0: tuple[int, ...] = ()) -> dict[str, dict[int, dict[str, Any]]]:
+    """Install a pinned Phase-12 service surface into the in-memory tables.
+
+    ``extra_a0`` selects which documented A0 additions are modelled by the
+    calling stage, so each stage keeps a deterministic, reproducible surface.
+    """
+    a0 = dict(BASE_A0_SERVICES)
+    for index in extra_a0:
+        if index not in DOCUMENTED_A0_SERVICES_ADDITIONS:
+            raise KeyError(f"no documented A0 addition for 0x{index:02x}")
+        a0[index] = DOCUMENTED_A0_SERVICES_ADDITIONS[index]
+    p11_bios.DOCUMENTED_A0_SERVICES.clear()
+    p11_bios.DOCUMENTED_A0_SERVICES.update(a0)
+    p11_bios.VECTOR_TABLES["A0"] = p11_bios.DOCUMENTED_A0_SERVICES
     p11_bios.DOCUMENTED_B0_SERVICES.clear()
     p11_bios.DOCUMENTED_B0_SERVICES.update(DOCUMENTED_B0_SERVICES)
     p11_bios.DOCUMENTED_INDEX_NAMES.update(DOCUMENTED_INDEX_NAMES_ADDITIONS)
@@ -121,5 +159,15 @@ def service_surface_document() -> dict[str, Any]:
             "classification": "synthetic-project-owned-not-a-recovered-bios-address",
         },
         "unknown_entry_policy": "zero and fail-closed when dereferenced",
+        "a0_additions": {
+            f"0x{index:02x}": {
+                "service_id": f"ps1.bios.A0.{index:02x}",
+                "name": document["name"],
+                "signature": document["signature"],
+                "result_register": document["result_register"],
+                "semantics": document["semantics"],
+            }
+            for index, document in sorted(DOCUMENTED_A0_SERVICES_ADDITIONS.items())
+        },
         "third_party_code_imported": "NO",
     }

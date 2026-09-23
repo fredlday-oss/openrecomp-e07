@@ -19,16 +19,19 @@
   the eleven-word clear are all observed; unknown entries stay zero; the new
   exact frontier is A0 `0x44` `FlushCache` at `0x80015b94`; markers
   `OPENRECOMP_PHASE12_B0_TABLE_INDIRECT_V1=PASS`;
-- next stage `P12-04` (Hercules initialization frontier loop).
+- `P12-04` `PASS` (20 checks): documented `A0:0x44` `FlushCache` implemented
+  with positive/negative fixtures; the initialization path advances to the C0
+  interrupt-routine dispatcher at `0x80015f5c`; C0 `0x02`/`0x03`/`0x0a` stay
+  fail-closed and the initialization frontier is recorded
+  `BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE` (interrupt delivery not modelled);
+- next stage `P12-05` (Hercules initialization proof evaluation).
 
 ## Exact next action
 
-Implement the minimum, documented A0:0x44 `FlushCache` semantics (no-arg, void,
-cache flush with no observable effect in the non-cached flat-memory model),
-keep every other A0 service fail-closed, add positive/negative tests, rerun the
-private fixture and record the new exact frontier. Continue the frontier loop
-while each blocker remains a documented, evidence-justified semantic; then run
-the `P12-04` gate twice.
+Run the P12-00 initialization contract: execute the final-tree private
+initialization path twice, evaluate every predicate, and honestly report
+`NOT_PROVEN` because the `INIT-BOUNDARY` predicate is not reached (C0 interrupt
+services stay fail-closed). Then run the `P12-05` gate twice.
 
 ## Verification commands
 

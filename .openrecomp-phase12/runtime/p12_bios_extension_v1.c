@@ -48,6 +48,7 @@ static int p12_synth_translate(uint64_t address, uint64_t width, uint32_t *out_o
 static uint32_t g_p12_b0_table_ready;
 static uint32_t g_p12_change_clear_pad;
 static uint64_t g_p12_change_clear_calls;
+static uint64_t g_p12_cache_flushes;
 
 static void p12_b0_table_init(void)
 {
@@ -67,6 +68,7 @@ uint32_t p12_bios_table_base(void) { return (uint32_t)P12_SYNTH_BASE; }
 uint32_t p12_bios_b0_entry(uint32_t index) { return p12_synth_read32(index * 4u); }
 uint32_t p12_bios_change_clear_pad(void) { return g_p12_change_clear_pad; }
 uint64_t p12_bios_change_clear_calls(void) { return g_p12_change_clear_calls; }
+uint64_t p12_bios_cache_flushes(void) { return g_p12_cache_flushes; }
 uint64_t p12_bios_synth_reads(void) { return g_p12_synth_reads; }
 uint64_t p12_bios_synth_writes(void) { return g_p12_synth_writes; }
 
@@ -92,6 +94,12 @@ static int p12_bios_set_change_clear_pad(uint32_t mode)
     return P9_RT_OK;
 }
 
+static int p12_bios_flush_cache(void)
+{
+    ++g_p12_cache_flushes;
+    return P9_RT_OK;
+}
+
 int p12_bios_dispatch(uint64_t service_id, uint32_t argc, const uint64_t *args, uint64_t *out_value)
 {
     int status = p11_bios_dispatch(service_id, argc, args, out_value);
@@ -114,6 +122,15 @@ int p12_bios_dispatch(uint64_t service_id, uint32_t argc, const uint64_t *args, 
             return P9_RT_UNSUPPORTED_OPERATION;
         }
         return p12_bios_set_change_clear_pad((uint32_t)args[0]);
+    }
+#endif
+#ifdef OR_RT_SERVICE_PS1_BIOS_A0_44
+    if (service_id == OR_RT_SERVICE_PS1_BIOS_A0_44) {
+        if (argc != 0u) {
+            ++g_p10_service_failures;
+            return P9_RT_UNSUPPORTED_OPERATION;
+        }
+        return p12_bios_flush_cache();
     }
 #endif
     return P9_RT_UNKNOWN_HOST_SERVICE;
