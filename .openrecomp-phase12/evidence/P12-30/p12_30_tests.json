@@ -1,0 +1,60 @@
+{
+  "checks": [
+    {
+      "check": "direct:seven-callers",
+      "detail": "[\"0x80015c3c\", \"0x80015cc8\", \"0x80015d28\", \"0x80016198\", \"0x8001670c\", \"0x80026d74\", \"0x80026dd0\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "direct:stub-site",
+      "detail": "0x80015f3c",
+      "status": "PASS"
+    },
+    {
+      "check": "direct:resolved",
+      "detail": "direct stub resolved to ps1.bios.B0.5b",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect:table-base",
+      "detail": "0x1f000000",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect:entry-5b",
+      "detail": "0x1f001000",
+      "status": "PASS"
+    },
+    {
+      "check": "indirect:entry-stride",
+      "detail": "0x16c == 0x5b*4",
+      "status": "PASS"
+    },
+    {
+      "check": "convergence:same-service",
+      "detail": "{\"direct_site\": \"0x80015f3c\", \"indirect_entry\": \"0x5b\", \"same_implementation\": \"p12_bios_set_change_clear_pad\", \"service\": \"ps1.bios.B0.5b\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:one-implementation",
+      "detail": "single ChangeClearPAD implementation",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:both-macros-handled",
+      "detail": "direct and indirect service ids handled by one dispatcher",
+      "status": "PASS"
+    },
+    {
+      "check": "deps:inventory-consistent",
+      "detail": "caller inventories agree",
+      "status": "PASS"
+    }
+  ],
+  "schema": "openrecomp-phase12-tests-v1",
+  "stage": "P12-30",
+  "summary": {
+    "failed": 0,
+    "passed": 10
+  }
+}

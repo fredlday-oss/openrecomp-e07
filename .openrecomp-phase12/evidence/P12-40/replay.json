@@ -1,0 +1,51 @@
+{
+  "byte_identical": true,
+  "deterministic_fields": {
+    "cdrom": "0xe4c1b16e328991fd",
+    "cdrom_events": "33",
+    "denied": "13",
+    "error": "runtime memory write failed",
+    "exit_status": "0x00000000",
+    "failed": "1",
+    "gpu": "0x7878de93d92dc0e1",
+    "gpu_events": "65536",
+    "host_calls": "94",
+    "input": "0x9cae47670d966e9a",
+    "input_events": "65536",
+    "memory": "0xf63dafdcd928aff9",
+    "nonram_overflow": "0",
+    "nonram_signatures": "37",
+    "p10_access_budget": "1500000",
+    "p10_access_count": "1500005",
+    "p10_budget_denials": "5",
+    "p10_service_calls": "94",
+    "p10_service_failures": "0",
+    "reads": "636980",
+    "registers": "0x3ddee4f120c93246",
+    "spu": "0xcbf29ce484222325",
+    "spu_events": "0",
+    "trace_block_digest": "0xf45458d488b7102b",
+    "trace_block_events": "966056",
+    "trace_distinct_blocks": "365",
+    "trace_distinct_functions": "92",
+    "trace_function_events": "71757",
+    "writes": "721783"
+  },
+  "excluded_nondeterministic": [
+    "host paths",
+    "timestamps",
+    "process identity"
+  ],
+  "replay_digest": "3a805a311df07d1993f9c07d366ee1339253418ce22ab87bafcb5cef634f642f",
+  "result": "PASS",
+  "run1": {
+    "replay_digest": "3a805a311df07d1993f9c07d366ee1339253418ce22ab87bafcb5cef634f642f",
+    "stdout_sha256": "4378fc705e0404e9b4c2d3d6daa534b81d689a23aad2fd87b127a07fc116181a"
+  },
+  "run2": {
+    "replay_digest": "3a805a311df07d1993f9c07d366ee1339253418ce22ab87bafcb5cef634f642f",
+    "stdout_sha256": "4378fc705e0404e9b4c2d3d6daa534b81d689a23aad2fd87b127a07fc116181a"
+  },
+  "schema": "openrecomp-phase12-end-to-end-replay-v1",
+  "stage": "P12-40"
+}

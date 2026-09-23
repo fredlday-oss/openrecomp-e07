@@ -1,0 +1,28 @@
+{
+  "all_known_callers_accounted": true,
+  "convergence": {
+    "fabricated_bios_address": false,
+    "same_implementation": "p12_bios_set_change_clear_pad"
+  },
+  "direct_path": {
+    "callers": [
+      "0x80015c3c",
+      "0x80015cc8",
+      "0x80015d28",
+      "0x80016198",
+      "0x8001670c",
+      "0x80026d74",
+      "0x80026dd0"
+    ],
+    "service": "ps1.bios.B0.5b",
+    "stub_site": "0x80015f3c"
+  },
+  "indirect_path": {
+    "entry_index": "0x5b",
+    "entry_value": "0x1f001000",
+    "service": "ps1.bios.B0.57",
+    "table_base": "0x1f000000"
+  },
+  "schema": "openrecomp-phase12-bios-path-consistency-v1",
+  "stage": "P12-30"
+}

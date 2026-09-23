@@ -1,0 +1,16 @@
+PASS: direct:seven-callers ["0x80015c3c", "0x80015cc8", "0x80015d28", "0x80016198", "0x8001670c", "0x80026d74", "0x80026dd0"]
+PASS: direct:stub-site 0x80015f3c
+PASS: direct:resolved direct stub resolved to ps1.bios.B0.5b
+PASS: indirect:table-base 0x1f000000
+PASS: indirect:entry-5b 0x1f001000
+PASS: indirect:entry-stride 0x16c == 0x5b*4
+PASS: convergence:same-service {"direct_site": "0x80015f3c", "indirect_entry": "0x5b", "same_implementation": "p12_bios_set_change_clear_pad", "service": "ps1.bios.B0.5b"}
+PASS: runtime:one-implementation single ChangeClearPAD implementation
+PASS: runtime:both-macros-handled direct and indirect service ids handled by one dispatcher
+PASS: deps:inventory-consistent caller inventories agree
+OPENRECOMP_P12_30=PASS
+OPENRECOMP_PHASE12_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE12_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P12_30_CHECKS=10
