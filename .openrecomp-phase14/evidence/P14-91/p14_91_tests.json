@@ -1,0 +1,81 @@
+{
+  "checks": [
+    {
+      "check": "record:P14-00",
+      "detail": "RESULT.json",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P14-01",
+      "detail": "RESULT.json",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P14-05",
+      "detail": "RESULT.json",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P14-20",
+      "detail": "RESULT.json",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P14-30",
+      "detail": "RESULT.json",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P14-40",
+      "detail": "RESULT.json",
+      "status": "PASS"
+    },
+    {
+      "check": "record:P14-50",
+      "detail": "RESULT.json",
+      "status": "PASS"
+    },
+    {
+      "check": "source-integrity",
+      "detail": "OPENRECOMP_PHASE14_SOURCE_INTEGRITY=PASS entries=26",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:phase13-unchanged",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "private:no-fixture-bytes-tracked",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "proof:marker-matches-evidence",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "proof:predicates-honest",
+      "detail": "{\"INIT-B0-PATCH\": true, \"INIT-BOUNDARY\": true, \"INIT-DETERMINISTIC\": true, \"INIT-NO-FABRICATION\": true, \"INIT-NO-FAIL-CLOSED\": false, \"INIT-PREDECESSOR\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:project-owned",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "reserved:frame-playability-general",
+      "detail": "",
+      "status": "PASS"
+    }
+  ],
+  "name": "evidence-closure",
+  "schema": "openrecomp-phase14-tests-v1",
+  "stage": "P14-91",
+  "summary": {
+    "failed": 0,
+    "passed": 14
+  }
+}

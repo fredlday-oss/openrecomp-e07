@@ -1,0 +1,51 @@
+PASS: unique:service-ids openrecomp.mips.add.overflow.check,openrecomp.mips.lwl,openrecomp.mips.lwr,openrecomp.mips.mfhi,openrecomp.mips.mult,openrecomp.mips.swl,openrecomp.mips.swr,ps1.bios.A0.2b,ps1.bios.A0.30,ps1.bios.A0.3f,ps1.bios.A0.44,ps1.bios.A0.49,ps1.bios.A0.70,ps1.bios.B0.12,ps1.bios.B0.13,ps1.bios.B0.14,ps1.bios.B0.3f,ps1.bios.B0.4a,ps1.bios.B0.4b,ps1.bios.B0.4c,ps1.bios.B0.56,ps1.bios.B0.57,ps1.bios.B0.5b,ps1.bios.C0.02,ps1.bios.C0.03,ps1.bios.internal.card_continuation,ps1.bios.internal.pad_start_hook,ps1.bios.internal.pad_stop_hook,ps1.mips.mflo
+PASS: alias:A0:2b ('A0', 43)
+PASS: alias:A0:30 ('A0', 48)
+PASS: alias:A0:3f ('A0', 63)
+PASS: alias:A0:44 ('A0', 68)
+PASS: alias:A0:49 ('A0', 73)
+PASS: alias:A0:70 ('A0', 112)
+PASS: alias:B0:12 ('B0', 18)
+PASS: alias:B0:13 ('B0', 19)
+PASS: alias:B0:14 ('B0', 20)
+PASS: alias:B0:3f ('B0', 63)
+PASS: alias:B0:4a ('B0', 74)
+PASS: alias:B0:4b ('B0', 75)
+PASS: alias:B0:4c ('B0', 76)
+PASS: alias:B0:56 ('B0', 86)
+PASS: alias:B0:57 ('B0', 87)
+PASS: alias:B0:5b ('B0', 91)
+PASS: alias:C0:02 ('C0', 2)
+PASS: alias:C0:03 ('C0', 3)
+PASS: arity:ps1.bios.A0.2b {"arity": 3, "index": "0x2b", "name": "memset", "result_register": null, "service_id": "ps1.bios.A0.2b", "vector": "A0"}
+PASS: arity:ps1.bios.A0.30 {"arity": 1, "index": "0x30", "name": "abs", "result_register": 2, "service_id": "ps1.bios.A0.30", "vector": "A0"}
+PASS: arity:ps1.bios.A0.3f {"arity": 3, "index": "0x3f", "name": "printf", "result_register": null, "service_id": "ps1.bios.A0.3f", "vector": "A0"}
+PASS: arity:ps1.bios.A0.44 {"arity": 0, "index": "0x44", "name": "FlushCache", "result_register": null, "service_id": "ps1.bios.A0.44", "vector": "A0"}
+PASS: arity:ps1.bios.A0.49 {"arity": 1, "index": "0x49", "name": "GPU_cw", "result_register": null, "service_id": "ps1.bios.A0.49", "vector": "A0"}
+PASS: arity:ps1.bios.A0.70 {"arity": 0, "index": "0x70", "name": "_bu_init", "result_register": 2, "service_id": "ps1.bios.A0.70", "vector": "A0"}
+PASS: arity:ps1.bios.B0.12 {"arity": 4, "index": "0x12", "name": "InitPAD2", "result_register": null, "service_id": "ps1.bios.B0.12", "vector": "B0"}
+PASS: arity:ps1.bios.B0.13 {"arity": 0, "index": "0x13", "name": "StartPAD2", "result_register": null, "service_id": "ps1.bios.B0.13", "vector": "B0"}
+PASS: arity:ps1.bios.B0.14 {"arity": 0, "index": "0x14", "name": "StopPAD2", "result_register": null, "service_id": "ps1.bios.B0.14", "vector": "B0"}
+PASS: arity:ps1.bios.B0.3f {"arity": 1, "index": "0x3f", "name": "puts", "result_register": null, "service_id": "ps1.bios.B0.3f", "vector": "B0"}
+PASS: arity:ps1.bios.B0.4a {"arity": 1, "index": "0x4a", "name": "InitCARD2", "result_register": null, "service_id": "ps1.bios.B0.4a", "vector": "B0"}
+PASS: arity:ps1.bios.B0.4b {"arity": 0, "index": "0x4b", "name": "StartCARD2", "result_register": null, "service_id": "ps1.bios.B0.4b", "vector": "B0"}
+PASS: arity:ps1.bios.B0.4c {"arity": 0, "index": "0x4c", "name": "StopCARD2", "result_register": null, "service_id": "ps1.bios.B0.4c", "vector": "B0"}
+PASS: arity:ps1.bios.B0.56 {"arity": 0, "index": "0x56", "name": "GetC0Table", "result_register": 2, "service_id": "ps1.bios.B0.56", "vector": "B0"}
+PASS: arity:ps1.bios.B0.57 {"arity": 0, "index": "0x57", "name": "GetB0Table", "result_register": 2, "service_id": "ps1.bios.B0.57", "vector": "B0"}
+PASS: arity:ps1.bios.B0.5b {"arity": 1, "index": "0x5b", "name": "ChangeClearPAD", "result_register": null, "service_id": "ps1.bios.B0.5b", "vector": "B0"}
+PASS: arity:ps1.bios.C0.02 {"arity": 2, "index": "0x02", "name": "SysEnqIntRP", "result_register": 2, "service_id": "ps1.bios.C0.02", "vector": "C0"}
+PASS: arity:ps1.bios.C0.03 {"arity": 2, "index": "0x03", "name": "SysDeqIntRP", "result_register": 2, "service_id": "ps1.bios.C0.03", "vector": "C0"}
+PASS: helper:ps1.bios.internal.card_continuation ps1.bios.internal.card_continuation
+PASS: helper:ps1.mips.mflo ps1.mips.mflo
+PASS: helper:ps1.bios.internal.pad_start_hook ps1.bios.internal.pad_start_hook
+PASS: helper:ps1.bios.internal.pad_stop_hook ps1.bios.internal.pad_stop_hook
+PASS: mflo:arity
+PASS: continuation:arity
+PASS: synthetic:no-overlap
+PASS: synthetic:pad-hook-distinct 0x1884
+OPENRECOMP_P14_30=PASS
+OPENRECOMP_PHASE14_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE14_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE14_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE14_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P14-30_CHECKS=45

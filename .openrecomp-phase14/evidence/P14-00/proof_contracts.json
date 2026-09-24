@@ -1,0 +1,43 @@
+{
+  "bounded_service_markers": {
+    "OPENRECOMP_PHASE14_B0_56_GETC0TABLE_V1": "PASS|NOT_PROVEN",
+    "OPENRECOMP_PHASE14_B0_57_LIVE_VALIDATION_V1": "PASS|NOT_PROVEN",
+    "OPENRECOMP_PHASE14_C0_TABLE_SURFACE_V1": "PASS|NOT_PROVEN",
+    "OPENRECOMP_PHASE14_CARD_CONTINUATION_V1": "PASS|NOT_PROVEN",
+    "OPENRECOMP_PHASE14_CARD_INIT_CHAIN_V1": "PASS|NOT_PROVEN",
+    "OPENRECOMP_PHASE14_CARD_IRQ_V1": "PASS|NOT_REQUIRED|NOT_PROVEN",
+    "OPENRECOMP_PHASE14_EARLY_CARD_PATCH_V1": "PASS|NOT_PROVEN",
+    "OPENRECOMP_PHASE14_INITIALIZATION_REPLAY_V1": "PASS|NOT_PROVEN"
+  },
+  "contracts_version": "1.0.0",
+  "frame_marker": "OPENRECOMP_PHASE14_HERCULES_FRAME_PROOF",
+  "general_marker": "OPENRECOMP_PHASE14_GENERAL_PS1_COMPATIBILITY",
+  "inherited_initialization_predicates": [
+    "INIT-PREDECESSOR",
+    "INIT-B0-PATCH",
+    "INIT-BOUNDARY",
+    "INIT-NO-FAIL-CLOSED",
+    "INIT-DETERMINISTIC",
+    "INIT-NO-FABRICATION"
+  ],
+  "initialization_contract_changed": "NO",
+  "initialization_contract_source": ".openrecomp-phase12/src/p12_contracts_v1.py",
+  "initialization_marker": "OPENRECOMP_PHASE14_HERCULES_INITIALIZATION_PROOF",
+  "phase12_ancestor": {
+    "branch": "phase12/ps1-hercules-init-frame-v1",
+    "commit": "7d76f242db2e9233ad9e023d0c63a6984fb118a0"
+  },
+  "phase13_terminal_boundary": {
+    "branch": "phase13/ps1-hercules-c0-init-v1",
+    "commit": "7bb4502450d47a0d3f3b207a072c5729277af278",
+    "verdict": "PASS_BOUNDED_C0_AND_CALLBACK_MEDIATION"
+  },
+  "playability_marker": "OPENRECOMP_PHASE14_HERCULES_PLAYABILITY_PROOF",
+  "reserved_markers": {
+    "OPENRECOMP_PHASE14_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+    "OPENRECOMP_PHASE14_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE14_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN"
+  },
+  "schema": "openrecomp-phase14-proof-contracts-v1",
+  "third_party_code_imported": "NO"
+}

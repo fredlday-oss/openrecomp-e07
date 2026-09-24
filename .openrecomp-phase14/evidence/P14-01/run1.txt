@@ -1,0 +1,40 @@
+PASS: dispatch:id:ps1.bios.B0.56 ['ps1.bios.A0.2b', 'ps1.bios.A0.30', 'ps1.bios.A0.3f', 'ps1.bios.A0.44', 'ps1.bios.A0.49', 'ps1.bios.A0.70', 'ps1.bios.B0.12', 'ps1.bios.B0.13', 'ps1.bios.B0.3f', 'ps1.bios.B0.4a', 'ps1.bios.B0.4b', 'ps1.bios.B0.56', 'ps1.bios.B0.57', 'ps1.bios.B0.5b', 'ps1.bios.C0.02', 'ps1.bios.C0.03', 'ps1.bios.internal.card_continuation', 'ps1.bios.internal.pad_start_hook', 'ps1.bios.internal.pad_stop_hook', 'ps1.mips.mflo']
+PASS: dispatch:id:ps1.bios.internal.card_continuation ['ps1.bios.A0.2b', 'ps1.bios.A0.30', 'ps1.bios.A0.3f', 'ps1.bios.A0.44', 'ps1.bios.A0.49', 'ps1.bios.A0.70', 'ps1.bios.B0.12', 'ps1.bios.B0.13', 'ps1.bios.B0.3f', 'ps1.bios.B0.4a', 'ps1.bios.B0.4b', 'ps1.bios.B0.56', 'ps1.bios.B0.57', 'ps1.bios.B0.5b', 'ps1.bios.C0.02', 'ps1.bios.C0.03', 'ps1.bios.internal.card_continuation', 'ps1.bios.internal.pad_start_hook', 'ps1.bios.internal.pad_stop_hook', 'ps1.mips.mflo']
+PASS: dispatch:id:ps1.bios.A0.70 ['ps1.bios.A0.2b', 'ps1.bios.A0.30', 'ps1.bios.A0.3f', 'ps1.bios.A0.44', 'ps1.bios.A0.49', 'ps1.bios.A0.70', 'ps1.bios.B0.12', 'ps1.bios.B0.13', 'ps1.bios.B0.3f', 'ps1.bios.B0.4a', 'ps1.bios.B0.4b', 'ps1.bios.B0.56', 'ps1.bios.B0.57', 'ps1.bios.B0.5b', 'ps1.bios.C0.02', 'ps1.bios.C0.03', 'ps1.bios.internal.card_continuation', 'ps1.bios.internal.pad_start_hook', 'ps1.bios.internal.pad_stop_hook', 'ps1.mips.mflo']
+PASS: dispatch:id:ps1.bios.A0.30 ['ps1.bios.A0.2b', 'ps1.bios.A0.30', 'ps1.bios.A0.3f', 'ps1.bios.A0.44', 'ps1.bios.A0.49', 'ps1.bios.A0.70', 'ps1.bios.B0.12', 'ps1.bios.B0.13', 'ps1.bios.B0.3f', 'ps1.bios.B0.4a', 'ps1.bios.B0.4b', 'ps1.bios.B0.56', 'ps1.bios.B0.57', 'ps1.bios.B0.5b', 'ps1.bios.C0.02', 'ps1.bios.C0.03', 'ps1.bios.internal.card_continuation', 'ps1.bios.internal.pad_start_hook', 'ps1.bios.internal.pad_stop_hook', 'ps1.mips.mflo']
+PASS: dispatch:id:ps1.bios.B0.3f ['ps1.bios.A0.2b', 'ps1.bios.A0.30', 'ps1.bios.A0.3f', 'ps1.bios.A0.44', 'ps1.bios.A0.49', 'ps1.bios.A0.70', 'ps1.bios.B0.12', 'ps1.bios.B0.13', 'ps1.bios.B0.3f', 'ps1.bios.B0.4a', 'ps1.bios.B0.4b', 'ps1.bios.B0.56', 'ps1.bios.B0.57', 'ps1.bios.B0.5b', 'ps1.bios.C0.02', 'ps1.bios.C0.03', 'ps1.bios.internal.card_continuation', 'ps1.bios.internal.pad_start_hook', 'ps1.bios.internal.pad_stop_hook', 'ps1.mips.mflo']
+PASS: dispatch:id:ps1.mips.mflo ['ps1.bios.A0.2b', 'ps1.bios.A0.30', 'ps1.bios.A0.3f', 'ps1.bios.A0.44', 'ps1.bios.A0.49', 'ps1.bios.A0.70', 'ps1.bios.B0.12', 'ps1.bios.B0.13', 'ps1.bios.B0.3f', 'ps1.bios.B0.4a', 'ps1.bios.B0.4b', 'ps1.bios.B0.56', 'ps1.bios.B0.57', 'ps1.bios.B0.5b', 'ps1.bios.C0.02', 'ps1.bios.C0.03', 'ps1.bios.internal.card_continuation', 'ps1.bios.internal.pad_start_hook', 'ps1.bios.internal.pad_stop_hook', 'ps1.mips.mflo']
+PASS: dispatch:build ['OK', 'OK']
+PASS: dispatch:deterministic addc345d207a71870347f7ed6b8e23ab0193622d8316932aef1dd26ac3481e69
+PASS: getc0:status 0
+PASS: getc0:pointer 0x1f000800
+PASS: c0:slot6 0x1f001800
+PASS: c0:reconstruct-handler 0x1f001900
+PASS: getc0:arity-refused 13
+PASS: continuation:accepted 0
+PASS: continuation:arbitrary-refused 13
+PASS: continuation:arity-refused 13
+PASS: bu_init:status 0:0x00000000
+PASS: bu_init:arity-refused 13
+PASS: abs:negative 0:0x00000005
+PASS: abs:positive 0x00000007
+PASS: abs:arity-refused 13
+PASS: puts:accepted 0
+PASS: puts:null-refused 13
+PASS: puts:oob-refused 13
+PASS: puts:arity-refused 13
+PASS: unknown:refused 6
+PASS: surface:no-generic-fallback 8
+PASS: dispatch:no-private-path absolute private paths absent
+PASS: dispatch:no-payload-hex payload sample absent
+PASS: dispatch:no-raw-words reconstructive fields absent
+OPENRECOMP_P14_01=PASS
+OPENRECOMP_P14_02=PASS
+OPENRECOMP_PHASE14_B0_56_GETC0TABLE_V1=PASS
+OPENRECOMP_PHASE14_C0_TABLE_SURFACE_V1=PASS
+OPENRECOMP_PHASE14_CARD_CONTINUATION_V1=PASS
+OPENRECOMP_PHASE14_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE14_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE14_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE14_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P14-01_CHECKS=30

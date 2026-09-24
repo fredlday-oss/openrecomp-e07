@@ -1,0 +1,32 @@
+{
+  "banked_recon_used_as_proof": false,
+  "banked_reconnaissance": [
+    "clearimage-gpustat-packet-v1",
+    "title-cd-sector-delivery-v1",
+    "post-timer-first-frame-bridge-v1",
+    "dma2-madr-origin-v1",
+    "drawotag-linked-list-v1",
+    "ot-population-v1",
+    "texture-provenance-v1",
+    "gte-geometry-v1"
+  ],
+  "candidate_next_phase": "NOT_READY_WAIT_INTERRUPT_MMIO_AND_ROOT_COUNTER",
+  "initialization_boundary": "REACHED",
+  "initialization_no_fail_closed": "FALSE",
+  "initialization_proof": "NOT_PROVEN",
+  "next_frontier": {
+    "claimed_exec_boundary_reached": false,
+    "device_registers": {
+      "cdrom_index_command": true,
+      "gpu_status": true,
+      "interrupt_mask": true,
+      "timer1_counter": true
+    },
+    "memory_denials": 14
+  },
+  "next_phase_ready": "NO",
+  "next_subsystem": "interrupt MMIO (I_STAT/I_MASK) and root-counter / GPU-status wait",
+  "note": "first-frame graphics/CD scope is NOT authorized by Phase 14; the banked reconnaissance is recorded, not promoted.",
+  "schema": "openrecomp-phase14-readiness-v1",
+  "stage": "P14-50"
+}

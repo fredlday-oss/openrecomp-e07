@@ -1,0 +1,40 @@
+{
+  "byte_identical": true,
+  "observables": {
+    "denied": "14",
+    "p10_service_failures": "0",
+    "p14_abs_calls": "1",
+    "p14_bu_init_calls": "1",
+    "p14_c0_ready": "1",
+    "p14_card_patch_fnv": "0x7c78ebd39cb95dad",
+    "p14_card_patch_writes": "10",
+    "p14_continuation_calls": "0",
+    "p14_getc0_calls": "1",
+    "p14_mflo_calls": "2",
+    "p14_puts_calls": "1",
+    "p14_ram_2ed90": "0x1f00193c",
+    "trace_block_digest": "0x91227a347a86f53b",
+    "trace_failure_count": "0"
+  },
+  "run1_sha256": "b558396738c93ac47e6854462a6b87cc265842c07ab66199b8bc5fa6c9b44c96",
+  "run2_sha256": "b558396738c93ac47e6854462a6b87cc265842c07ab66199b8bc5fa6c9b44c96",
+  "schema": "openrecomp-phase14-initialization-replay-v1",
+  "service_sequence": [
+    "ChangeClearPAD",
+    "EnterCriticalSection",
+    "InitCARD2",
+    "GetC0Table/early-card-patch",
+    "GetB0Table/card-delay-patch",
+    "StopCARD2",
+    "ExitCriticalSection",
+    "_bu_init",
+    "abs",
+    "puts"
+  ],
+  "stage": "P14-40",
+  "synthetic_state": {
+    "c0_table": "0x1f000800",
+    "card_continuation": null,
+    "early_handler": "0x1f001900"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "575f9c30848ee7eadba12f4ca27026b1261cd03a417d25e95beba2a1535dce10",
+    "p14_50_tests.json": "45b84be9d0d1d52c7b2e9f61d7b6f3f8c95340029eff17b0ad25e4a6773cfc84",
+    "readiness.json": "bc906b5a47b51daf725730dfb4a7cf01ab5fdbc9811545d0ecffbed32f98e2d0"
+  },
+  "artifacts_identical": true,
+  "gate": "tools/test_phase14_readiness_v1.py",
+  "gate_sha256": "91f311a53a307fadf6facc9a4903277aa2dfe470ed51b8558f5379b1f45e7264",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "RESULT.json": "575f9c30848ee7eadba12f4ca27026b1261cd03a417d25e95beba2a1535dce10",
+        "p14_50_tests.json": "45b84be9d0d1d52c7b2e9f61d7b6f3f8c95340029eff17b0ad25e4a6773cfc84",
+        "readiness.json": "bc906b5a47b51daf725730dfb4a7cf01ab5fdbc9811545d0ecffbed32f98e2d0"
+      },
+      "p14_50_tests_sha256": "45b84be9d0d1d52c7b2e9f61d7b6f3f8c95340029eff17b0ad25e4a6773cfc84",
+      "returncode": 0,
+      "stdout_bytes_raw": 407,
+      "stdout_sha256_lf": "ed53c01cd47bd3165d838b9693e5ef9b5927f93c96fb34ab17be955a14db8526",
+      "stdout_sha256_raw": "0652b0bbe4ade76856c5507ff9348996badcdcf2c4d2e4fcc1f193530a06f2dc"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "RESULT.json": "575f9c30848ee7eadba12f4ca27026b1261cd03a417d25e95beba2a1535dce10",
+        "p14_50_tests.json": "45b84be9d0d1d52c7b2e9f61d7b6f3f8c95340029eff17b0ad25e4a6773cfc84",
+        "readiness.json": "bc906b5a47b51daf725730dfb4a7cf01ab5fdbc9811545d0ecffbed32f98e2d0"
+      },
+      "p14_50_tests_sha256": "45b84be9d0d1d52c7b2e9f61d7b6f3f8c95340029eff17b0ad25e4a6773cfc84",
+      "returncode": 0,
+      "stdout_bytes_raw": 407,
+      "stdout_sha256_lf": "ed53c01cd47bd3165d838b9693e5ef9b5927f93c96fb34ab17be955a14db8526",
+      "stdout_sha256_raw": "0652b0bbe4ade76856c5507ff9348996badcdcf2c4d2e4fcc1f193530a06f2dc"
+    }
+  },
+  "schema": "openrecomp-phase14-determinism-v1",
+  "stage": "P14-50",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true
+}

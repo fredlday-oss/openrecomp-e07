@@ -1,0 +1,36 @@
+{
+  "checks": [
+    {
+      "check": "replay:stdout-identical",
+      "detail": "b558396738c93ac47e6854462a6b87cc265842c07ab66199b8bc5fa6c9b44c96",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:stderr-empty",
+      "detail": "0:0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "replay",
+  "schema": "openrecomp-phase14-tests-v1",
+  "stage": "P14-40",
+  "summary": {
+    "failed": 0,
+    "passed": 5
+  }
+}

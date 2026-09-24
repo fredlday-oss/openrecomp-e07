@@ -1,0 +1,55 @@
+PASS: build ['OK', 'OK']
+PASS: replay:deterministic 1f230d62753f3a6acf6ec9c0b0631d0bcbc1f5a177a26a1d895ef6f098ef8007
+PASS: patch:guest-apply 10
+PASS: patch:exact-20-byte-copy 0x7c78ebd39cb95dad:0x7c78ebd39cb95dad
+PASS: patch:continuation-stored 0x1f00193c
+PASS: c0:surface-initialized 1:1
+PASS: continuation:typed-identity {"c0_exception_slot": 520095768, "c0_table": 520095744, "card_continuation": 520100156, "card_patch": 520100136, "early_handler": 520100096, "exception_handler": 520099840, "exception_handler_high": 520099952, "exception_handler_low": 520099956, "window_base": 520093696, "window_size": 8192}
+PASS: continuation:not-executed-in-init 0:0
+PASS: continuation:handler-not-reached 0
+PASS: b0_57:site-resolved {"site": 2147643252, "site_hex": "0x80026f74", "op": "jalr", "kind": "INDIRECT_CALL", "source_register": 10, "vector": "B0", "vector_value": "0x000000b0", "function_index": 87, "service_id": "ps1.bios.B0.57", "op_name": "call_bios_b0_57", "classification": "BIOS_VECTOR_SERVICE", "disposition": "EXACT_EXTERNAL_SERVICE", "slice_evidence": ["addiu@0x80026f70"], "index_evidence": ["index-addiu@0x80026f78"], "function_id": null, "block_id": null, "documented_name": "GetB0Table"}
+PASS: b0_57:table-live 0x1f000000:0x1f001000
+PASS: b0_57:pad-derived-pointers 0x1f001884:0x1f001894
+PASS: chain:card-init {"change_clear_pad_calls": "4", "change_clear_pad_mode": "0", "card_init_calls": "1", "card_stop_calls": "0", "getc0_calls": "1", "bu_init_calls": "1", "abs_calls": "1", "puts_calls": "1", "mflo_calls": "2", "p10_service_failures": "0"}
+PASS: chain:getc0 1
+PASS: chain:bu-init 1
+PASS: chain:no-service-failures 0
+PASS: frontier:trace-failures-zero 0
+PASS: frontier:historical-sites-closed 0x00000000
+PASS: frontier:memory-denial-reached 14:1
+PASS: frontier:interrupt-mask-observed {"timer1_counter": true, "gpu_status": true, "interrupt_mask": true, "cdrom_index_command": true}
+PASS: frontier:no-private-path absolute private paths absent
+PASS: frontier:no-payload-hex payload sample absent
+PASS: frontier:no-raw-words reconstructive fields absent
+PASS: card_patch:no-private-path absolute private paths absent
+PASS: card_patch:no-payload-hex payload sample absent
+PASS: card_patch:no-raw-words reconstructive fields absent
+PASS: chain:no-private-path absolute private paths absent
+PASS: chain:no-payload-hex payload sample absent
+PASS: chain:no-raw-words reconstructive fields absent
+PASS: card_irq:no-private-path absolute private paths absent
+PASS: card_irq:no-payload-hex payload sample absent
+PASS: card_irq:no-raw-words reconstructive fields absent
+PASS: boundary:no-private-path absolute private paths absent
+PASS: boundary:no-payload-hex payload sample absent
+PASS: boundary:no-raw-words reconstructive fields absent
+PASS: proof:no-private-path absolute private paths absent
+PASS: proof:no-payload-hex payload sample absent
+PASS: proof:no-raw-words reconstructive fields absent
+OPENRECOMP_P14_03=PASS
+OPENRECOMP_P14_04=PASS
+OPENRECOMP_P14_05=PASS
+OPENRECOMP_P14_06=PASS
+OPENRECOMP_P14_07=PASS
+OPENRECOMP_PHASE14_CARD_IRQ_V1=NOT_REQUIRED
+OPENRECOMP_P14_09=PASS
+OPENRECOMP_P14_10=PASS
+OPENRECOMP_P14_11=PASS
+OPENRECOMP_PHASE14_EARLY_CARD_PATCH_V1=PASS
+OPENRECOMP_PHASE14_B0_57_LIVE_VALIDATION_V1=PASS
+OPENRECOMP_PHASE14_CARD_INIT_CHAIN_V1=PASS
+OPENRECOMP_PHASE14_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE14_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE14_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE14_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P14-05_CHECKS=38

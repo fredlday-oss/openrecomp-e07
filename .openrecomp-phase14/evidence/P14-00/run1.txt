@@ -1,0 +1,21 @@
+PASS: git:rev-parse
+PASS: ancestry:phase13-base 7bb4502450d47a0d3f3b207a072c5729277af278
+PASS: ancestry:phase12-base 7bb4502450d47a0d3f3b207a072c5729277af278
+PASS: git:rev-parse
+PASS: branch:phase14 phase14/ps1-hercules-init-closure-v1
+PASS: git:diff
+PASS: freeze:phase13-untouched
+PASS: git:rev-parse
+PASS: freeze:phase13-tree a74a602c19c18e11a918848e3d1a63d911c243f3
+PASS: contract:source-present .openrecomp-phase12/src/p12_contracts_v1.py
+PASS: contract:unchanged-flag
+PASS: contract:p12-sidecar-present .openrecomp-phase12\evidence\P12-00\proof_contracts.json
+PASS: boundary:no-private-path absolute private paths absent
+PASS: boundary:no-payload-hex no payload supplied
+PASS: boundary:no-raw-words reconstructive fields absent
+OPENRECOMP_P14_00=PASS
+OPENRECOMP_PHASE14_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE14_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE14_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE14_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P14-00_CHECKS=15

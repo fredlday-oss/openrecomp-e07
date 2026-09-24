@@ -1,0 +1,79 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "52c55afc1f85635de2c243597ba8d6814caccd599c48190c763c1d98f63b838d",
+    "boundary.json": "0693d3d8bb326f79ee361b45ea58c1187080911c012677d0b4e8f8832ae0628f",
+    "p14_00_tests.json": "e58726da6aa361101786f9ae7b1fb839b2eca03f18d24f35fc8b89c5887b2907",
+    "proof_contracts.json": "e0072633c96ba9b923684352cec6de9d73f26fe500a222f24f7b66b5c3b627f9"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "52c55afc1f85635de2c243597ba8d6814caccd599c48190c763c1d98f63b838d",
+        "boundary.json": "0693d3d8bb326f79ee361b45ea58c1187080911c012677d0b4e8f8832ae0628f",
+        "p14_00_tests.json": "e58726da6aa361101786f9ae7b1fb839b2eca03f18d24f35fc8b89c5887b2907",
+        "proof_contracts.json": "e0072633c96ba9b923684352cec6de9d73f26fe500a222f24f7b66b5c3b627f9"
+      },
+      "command": [
+        "python",
+        "tools/test_phase14_boundary_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase14/evidence/P14-00"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P14_00=PASS",
+        "OPENRECOMP_PHASE14_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE14_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE14_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE14_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p14_00_tests_sha256": "e58726da6aa361101786f9ae7b1fb839b2eca03f18d24f35fc8b89c5887b2907",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1018,
+      "stdout_bytes_lf": 997,
+      "stdout_sha256_lf": "2d86bc7a9e70d9dd44db4f98d804d9a45ab7530621417536d2b356b0a81a1ddb",
+      "stdout_sha256_raw": "6cf4006ac82e2478ee54dd5933d14e6e582ea5f3fe4dc682058477cd7a74bf31"
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "52c55afc1f85635de2c243597ba8d6814caccd599c48190c763c1d98f63b838d",
+        "boundary.json": "0693d3d8bb326f79ee361b45ea58c1187080911c012677d0b4e8f8832ae0628f",
+        "p14_00_tests.json": "e58726da6aa361101786f9ae7b1fb839b2eca03f18d24f35fc8b89c5887b2907",
+        "proof_contracts.json": "e0072633c96ba9b923684352cec6de9d73f26fe500a222f24f7b66b5c3b627f9"
+      },
+      "command": [
+        "python",
+        "tools/test_phase14_boundary_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase14/evidence/P14-00"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P14_00=PASS",
+        "OPENRECOMP_PHASE14_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE14_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE14_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE14_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p14_00_tests_sha256": "e58726da6aa361101786f9ae7b1fb839b2eca03f18d24f35fc8b89c5887b2907",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1018,
+      "stdout_bytes_lf": 997,
+      "stdout_sha256_lf": "2d86bc7a9e70d9dd44db4f98d804d9a45ab7530621417536d2b356b0a81a1ddb",
+      "stdout_sha256_raw": "6cf4006ac82e2478ee54dd5933d14e6e582ea5f3fe4dc682058477cd7a74bf31"
+    }
+  ],
+  "schema": "openrecomp-phase14-official-runs-v1",
+  "stage": "P14-00",
+  "stderr_empty_both": true
+}

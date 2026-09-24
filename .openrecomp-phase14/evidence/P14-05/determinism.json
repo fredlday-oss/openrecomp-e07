@@ -1,0 +1,57 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "db8ec88732f6d1438a02874242827acecf4970c7f5d69110e1c9f96b6a13774e",
+    "boundary_recovery.json": "564511707610de7847c17690d06c820b709e95e9fed82922eca1a7356309ae44",
+    "card_init_chain.json": "ebd56fdfb623a287e662e288a8c1c64e9d3a368c77268cc5c6321ea2a08a7f8b",
+    "card_irq.json": "91a6af43ec58c8dae9b48b1aad1cb364594c234e595eb49183dd00070e0c1f01",
+    "card_patch.json": "8eb83a0c12ef251c41a75d4aa6ae3eba41fc34c308bc7a75108485e725aa71f0",
+    "initialization_frontier.json": "79156cd3e996dcb21fa1caa4b19fda8f254ae68f04b42bf589310c5f417f20d2",
+    "initialization_proof.json": "57704ccbe79b9be2c9a996ddecec6eff018ff8e9c1f4561a04052b7debc14aea",
+    "p14_05_tests.json": "5245bcba055ee22da824ea07f552d3ba92d9a3461b1caab065d17b8e06172852"
+  },
+  "artifacts_identical": true,
+  "gate": "tools/test_phase14_frontier_v1.py",
+  "gate_sha256": "8d4fcb823f57c0a6680d14fa23bdfa948ee8fe85d1eed78797963880d5c4c556",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "RESULT.json": "db8ec88732f6d1438a02874242827acecf4970c7f5d69110e1c9f96b6a13774e",
+        "boundary_recovery.json": "564511707610de7847c17690d06c820b709e95e9fed82922eca1a7356309ae44",
+        "card_init_chain.json": "ebd56fdfb623a287e662e288a8c1c64e9d3a368c77268cc5c6321ea2a08a7f8b",
+        "card_irq.json": "91a6af43ec58c8dae9b48b1aad1cb364594c234e595eb49183dd00070e0c1f01",
+        "card_patch.json": "8eb83a0c12ef251c41a75d4aa6ae3eba41fc34c308bc7a75108485e725aa71f0",
+        "initialization_frontier.json": "79156cd3e996dcb21fa1caa4b19fda8f254ae68f04b42bf589310c5f417f20d2",
+        "initialization_proof.json": "57704ccbe79b9be2c9a996ddecec6eff018ff8e9c1f4561a04052b7debc14aea",
+        "p14_05_tests.json": "5245bcba055ee22da824ea07f552d3ba92d9a3461b1caab065d17b8e06172852"
+      },
+      "p14_05_tests_sha256": "5245bcba055ee22da824ea07f552d3ba92d9a3461b1caab065d17b8e06172852",
+      "returncode": 0,
+      "stdout_bytes_raw": 3575,
+      "stdout_sha256_lf": "14ead47e8d3d433e6bd3ca570d91e1caad1eda863c6de8e6f26b513e599b2250",
+      "stdout_sha256_raw": "ac90268fa05d9a8170c6f660778c0e138a7a04da8739a05df8d606a833d66472"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "RESULT.json": "db8ec88732f6d1438a02874242827acecf4970c7f5d69110e1c9f96b6a13774e",
+        "boundary_recovery.json": "564511707610de7847c17690d06c820b709e95e9fed82922eca1a7356309ae44",
+        "card_init_chain.json": "ebd56fdfb623a287e662e288a8c1c64e9d3a368c77268cc5c6321ea2a08a7f8b",
+        "card_irq.json": "91a6af43ec58c8dae9b48b1aad1cb364594c234e595eb49183dd00070e0c1f01",
+        "card_patch.json": "8eb83a0c12ef251c41a75d4aa6ae3eba41fc34c308bc7a75108485e725aa71f0",
+        "initialization_frontier.json": "79156cd3e996dcb21fa1caa4b19fda8f254ae68f04b42bf589310c5f417f20d2",
+        "initialization_proof.json": "57704ccbe79b9be2c9a996ddecec6eff018ff8e9c1f4561a04052b7debc14aea",
+        "p14_05_tests.json": "5245bcba055ee22da824ea07f552d3ba92d9a3461b1caab065d17b8e06172852"
+      },
+      "p14_05_tests_sha256": "5245bcba055ee22da824ea07f552d3ba92d9a3461b1caab065d17b8e06172852",
+      "returncode": 0,
+      "stdout_bytes_raw": 3575,
+      "stdout_sha256_lf": "14ead47e8d3d433e6bd3ca570d91e1caad1eda863c6de8e6f26b513e599b2250",
+      "stdout_sha256_raw": "ac90268fa05d9a8170c6f660778c0e138a7a04da8739a05df8d606a833d66472"
+    }
+  },
+  "schema": "openrecomp-phase14-determinism-v1",
+  "stage": "P14-05",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true
+}

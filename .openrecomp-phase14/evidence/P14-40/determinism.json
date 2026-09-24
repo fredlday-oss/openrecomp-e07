@@ -1,0 +1,42 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "5cc5b8480b3fa46248b55a56e780be08f46a298efe24ef668501370a7e6fd641",
+    "p14_40_tests.json": "da65cbc6682f16a920b7a7698ca4a45631b7548a79f2b9861204e382ad6d24a0",
+    "replay.json": "9ce83e5eb954472866eb2b5e0f146bd6778e3fe20e4ff52f21f6b082c1feb999"
+  },
+  "artifacts_identical": true,
+  "gate": "tools/test_phase14_replay_v1.py",
+  "gate_sha256": "f1a9436d881c5167dcf1def7a2678c0f16553d7b6058ed630fc6597e0f0c1906",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "RESULT.json": "5cc5b8480b3fa46248b55a56e780be08f46a298efe24ef668501370a7e6fd641",
+        "p14_40_tests.json": "da65cbc6682f16a920b7a7698ca4a45631b7548a79f2b9861204e382ad6d24a0",
+        "replay.json": "9ce83e5eb954472866eb2b5e0f146bd6778e3fe20e4ff52f21f6b082c1feb999"
+      },
+      "p14_40_tests_sha256": "da65cbc6682f16a920b7a7698ca4a45631b7548a79f2b9861204e382ad6d24a0",
+      "returncode": 0,
+      "stdout_bytes_raw": 613,
+      "stdout_sha256_lf": "0f046cbe1d7dd698d2abb58470bf2bdfc447e96ef0a01cd46d5475ecdd4b2d46",
+      "stdout_sha256_raw": "7e180774b4801b21adebc0e78de0b3018f6dae36c1f2c23eee55a7e5a05b10ca"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "RESULT.json": "5cc5b8480b3fa46248b55a56e780be08f46a298efe24ef668501370a7e6fd641",
+        "p14_40_tests.json": "da65cbc6682f16a920b7a7698ca4a45631b7548a79f2b9861204e382ad6d24a0",
+        "replay.json": "9ce83e5eb954472866eb2b5e0f146bd6778e3fe20e4ff52f21f6b082c1feb999"
+      },
+      "p14_40_tests_sha256": "da65cbc6682f16a920b7a7698ca4a45631b7548a79f2b9861204e382ad6d24a0",
+      "returncode": 0,
+      "stdout_bytes_raw": 613,
+      "stdout_sha256_lf": "0f046cbe1d7dd698d2abb58470bf2bdfc447e96ef0a01cd46d5475ecdd4b2d46",
+      "stdout_sha256_raw": "7e180774b4801b21adebc0e78de0b3018f6dae36c1f2c23eee55a7e5a05b10ca"
+    }
+  },
+  "schema": "openrecomp-phase14-determinism-v1",
+  "stage": "P14-40",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true
+}

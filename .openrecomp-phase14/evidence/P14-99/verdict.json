@@ -1,0 +1,51 @@
+{
+  "branch": "phase14/ps1-hercules-init-closure-v1",
+  "claim_markers": {
+    "OPENRECOMP_PHASE14_B0_56_GETC0TABLE_V1": "PASS",
+    "OPENRECOMP_PHASE14_B0_57_LIVE_VALIDATION_V1": "PASS",
+    "OPENRECOMP_PHASE14_C0_TABLE_SURFACE_V1": "PASS",
+    "OPENRECOMP_PHASE14_CARD_CONTINUATION_V1": "PASS",
+    "OPENRECOMP_PHASE14_CARD_INIT_CHAIN_V1": "PASS",
+    "OPENRECOMP_PHASE14_CARD_IRQ_V1": "NOT_REQUIRED",
+    "OPENRECOMP_PHASE14_EARLY_CARD_PATCH_V1": "PASS",
+    "OPENRECOMP_PHASE14_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+    "OPENRECOMP_PHASE14_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE14_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE14_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE14_INITIALIZATION_REPLAY_V1": "PASS"
+  },
+  "commits_created": [
+    "0e6cac2f phase14: implement B0 GetC0Table, bounded C0 surface, card patch and continuation closure"
+  ],
+  "current_technical_frontier": "0x1F801074 interrupt-mask MMIO (I_STAT/I_MASK) reached on the live post-card path; the bounded device boundary fails closed",
+  "final_verdict": "PASS_BOUNDED_INITIALIZATION_CLOSURE_FRONTIER_REMAINS",
+  "initialization_proof_complete": "NO",
+  "next_frame_frontier": "NOT_READY",
+  "phase13_base_commit": "7bb4502450d47a0d3f3b207a072c5729277af278",
+  "phase14_head": "0e6cac2f610aac11a2dc1f1f217b19abd3c776ba",
+  "phase14_target_proof_complete": "NO",
+  "remaining_worktree_changes": [],
+  "schema": "openrecomp-phase14-final-verdict-v1",
+  "stage": "P14-99",
+  "stage_results": {
+    "P14_00_RESULT": "PASS",
+    "P14_01_RESULT": "PASS",
+    "P14_02_RESULT": "PASS",
+    "P14_03_RESULT": "PASS",
+    "P14_04_RESULT": "PASS",
+    "P14_05_RESULT": "PASS",
+    "P14_06_RESULT": "PASS",
+    "P14_07_RESULT": "PASS",
+    "P14_08_RESULT": "FAIL",
+    "P14_09_RESULT": "PASS",
+    "P14_10_RESULT": "PASS",
+    "P14_11_RESULT": "PASS",
+    "P14_20_RESULT": "PASS",
+    "P14_30_RESULT": "PASS",
+    "P14_40_RESULT": "PASS",
+    "P14_50_RESULT": "PASS",
+    "P14_90_RESULT": "PASS",
+    "P14_91_RESULT": "PASS",
+    "P14_99_RESULT": "PASS"
+  }
+}

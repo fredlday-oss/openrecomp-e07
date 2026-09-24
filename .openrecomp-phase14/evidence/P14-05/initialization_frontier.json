@@ -1,0 +1,34 @@
+{
+  "bound_reached": "1",
+  "device_register_hits": {
+    "cdrom_index_command": true,
+    "gpu_status": true,
+    "interrupt_mask": true,
+    "timer1_counter": true
+  },
+  "error": "runtime memory write failed",
+  "failed": "1",
+  "first_memory_denial_subsystem": "interrupt-mask MMIO (I_MASK)",
+  "memory_denials": 14,
+  "next_subsystem": "interrupt MMIO / root-counter / GPU-status wait",
+  "resolved_indirect_sites": {
+    "0x80016234": [
+      "0x80016648"
+    ],
+    "0x8001889c": [
+      "0x8001b030"
+    ],
+    "0x80018a4c": [
+      "0x8001a908"
+    ],
+    "0x80018b54": [
+      "0x8001a908"
+    ],
+    "0x8001aa14": [
+      "0x8001a31c"
+    ]
+  },
+  "schema": "openrecomp-phase14-frontier-v1",
+  "trace_failure_count": 0,
+  "trace_failure_site": "0x00000000"
+}

@@ -1,0 +1,42 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "b33d99c15da944c89ccaf345781f9ebcdd1563a8587c6ed0edbda164ebf31fa7",
+    "consistency.json": "de2cf7c0ed22184c0a85df9ec022f26887607fca97424349999d70acd3b64065",
+    "p14_30_tests.json": "a2641c5cb9af3a45821a1602799c2932a0981f522bec42c4fc7692b0672954e8"
+  },
+  "artifacts_identical": true,
+  "gate": "tools/test_phase14_consistency_v1.py",
+  "gate_sha256": "c9ea2f661c468a3f1b4b263317b600741380de51939a82b1f7ec6f69bc6a0aed",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "RESULT.json": "b33d99c15da944c89ccaf345781f9ebcdd1563a8587c6ed0edbda164ebf31fa7",
+        "consistency.json": "de2cf7c0ed22184c0a85df9ec022f26887607fca97424349999d70acd3b64065",
+        "p14_30_tests.json": "a2641c5cb9af3a45821a1602799c2932a0981f522bec42c4fc7692b0672954e8"
+      },
+      "p14_30_tests_sha256": "a2641c5cb9af3a45821a1602799c2932a0981f522bec42c4fc7692b0672954e8",
+      "returncode": 0,
+      "stdout_bytes_raw": 4485,
+      "stdout_sha256_lf": "4fccbb121aaf32e324c65aa5980127aab483869bb50a91735a56c379401f604d",
+      "stdout_sha256_raw": "69064f71c43857a164dbf6df38fd5af9b8ad3ece8077c3fd093e74f287cc70da"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "RESULT.json": "b33d99c15da944c89ccaf345781f9ebcdd1563a8587c6ed0edbda164ebf31fa7",
+        "consistency.json": "de2cf7c0ed22184c0a85df9ec022f26887607fca97424349999d70acd3b64065",
+        "p14_30_tests.json": "a2641c5cb9af3a45821a1602799c2932a0981f522bec42c4fc7692b0672954e8"
+      },
+      "p14_30_tests_sha256": "a2641c5cb9af3a45821a1602799c2932a0981f522bec42c4fc7692b0672954e8",
+      "returncode": 0,
+      "stdout_bytes_raw": 4485,
+      "stdout_sha256_lf": "4fccbb121aaf32e324c65aa5980127aab483869bb50a91735a56c379401f604d",
+      "stdout_sha256_raw": "69064f71c43857a164dbf6df38fd5af9b8ad3ece8077c3fd093e74f287cc70da"
+    }
+  },
+  "schema": "openrecomp-phase14-determinism-v1",
+  "stage": "P14-30",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true
+}

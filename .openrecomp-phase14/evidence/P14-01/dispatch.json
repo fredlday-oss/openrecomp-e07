@@ -1,0 +1,145 @@
+{
+  "b0_56": {
+    "name": "GetC0Table",
+    "service": "ps1.bios.B0.56",
+    "synthetic_table": "0x1f000800"
+  },
+  "c0_surface": {
+    "authentic_bios_address_claimed": false,
+    "classification": "synthetic-project-owned-not-a-recovered-bios-address",
+    "derivations": {
+      "continuation": "early_handler + 0x3c",
+      "early_handler": "((word[handler+0x70] & 0xffff) << 16) | (word[handler+0x74] & 0xffff)",
+      "guest_slot": "0x8002ed90",
+      "patch_destination": "early_handler + 0x28"
+    },
+    "objects": {
+      "c0_exception_index": 6,
+      "c0_exception_slot_offset": "0x818",
+      "c0_table_offset": "0x800",
+      "card_continuation_offset": "0x193c",
+      "card_patch_bytes": 20,
+      "card_patch_offset": "0x1928",
+      "early_handler_offset": "0x1900",
+      "exception_handler_offset": "0x1800"
+    },
+    "schema": "openrecomp-phase14-c0-surface-v1",
+    "surface_version": "1.0.0",
+    "third_party_code_imported": "NO",
+    "window": {
+      "base": "0x1f000000",
+      "reused_from": "phase12-synthetic-b0-window",
+      "size": 8192
+    }
+  },
+  "closure_surface": {
+    "arbitrary_indirect_execution": false,
+    "c0_surface": {
+      "authentic_bios_address_claimed": false,
+      "classification": "synthetic-project-owned-not-a-recovered-bios-address",
+      "derivations": {
+        "continuation": "early_handler + 0x3c",
+        "early_handler": "((word[handler+0x70] & 0xffff) << 16) | (word[handler+0x74] & 0xffff)",
+        "guest_slot": "0x8002ed90",
+        "patch_destination": "early_handler + 0x28"
+      },
+      "objects": {
+        "c0_exception_index": 6,
+        "c0_exception_slot_offset": "0x818",
+        "c0_table_offset": "0x800",
+        "card_continuation_offset": "0x193c",
+        "card_patch_bytes": 20,
+        "card_patch_offset": "0x1928",
+        "early_handler_offset": "0x1900",
+        "exception_handler_offset": "0x1800"
+      },
+      "schema": "openrecomp-phase14-c0-surface-v1",
+      "surface_version": "1.0.0",
+      "third_party_code_imported": "NO",
+      "window": {
+        "base": "0x1f000000",
+        "reused_from": "phase12-synthetic-b0-window",
+        "size": 8192
+      }
+    },
+    "card_irq_delivery": "NOT_MODELED",
+    "extra_a0": [
+      68
+    ],
+    "extra_b0": [
+      18,
+      19,
+      20,
+      74,
+      75,
+      76
+    ],
+    "extra_c0": [
+      2,
+      3
+    ],
+    "frontier_block_budget": 520000,
+    "internal_targets": {
+      "0x80016234": [
+        "0x80016648"
+      ],
+      "0x8001889c": [
+        "0x8001b030"
+      ],
+      "0x80018a4c": [
+        "0x8001a908"
+      ],
+      "0x80018b54": [
+        "0x8001a908"
+      ],
+      "0x8001aa14": [
+        "0x8001a31c"
+      ]
+    },
+    "interrupt_mmio": "NOT_MODELED",
+    "p14_a0": [
+      112,
+      48
+    ],
+    "p14_b0": [
+      86,
+      63
+    ],
+    "schema": "openrecomp-phase14-closure-surface-v1",
+    "service_block_budget": 475000,
+    "surface_version": "1.0.0",
+    "third_party_code_imported": "NO"
+  },
+  "continuation": {
+    "service": "ps1.bios.internal.card_continuation",
+    "typed_identity": "0x1f00193c"
+  },
+  "direct": {
+    "abs_arity_status": "13",
+    "abs_neg_out": "0x00000005",
+    "abs_neg_status": "0",
+    "abs_pos_out": "0x00000007",
+    "abs_pos_status": "0",
+    "bu_arity_status": "13",
+    "bu_out": "0x00000000",
+    "bu_status": "0",
+    "c0_handler": "0x1f001900",
+    "c0_slot6": "0x1f001800",
+    "cont_arity_status": "13",
+    "cont_bad_status": "13",
+    "cont_status": "0",
+    "getc0_arity_status": "13",
+    "getc0_out": "0x1f000800",
+    "getc0_status": "0",
+    "puts_arity_status": "13",
+    "puts_null_status": "13",
+    "puts_oob_status": "13",
+    "puts_status": "0",
+    "service_calls": "15",
+    "service_failures": "8",
+    "unknown_status": "6"
+  },
+  "evidence_class": "PUBLIC_SYNTHETIC",
+  "schema": "openrecomp-phase14-service-observation-v1",
+  "stage": "P14-01"
+}

@@ -1,0 +1,186 @@
+{
+  "arity_contradictions": false,
+  "helper_services": [
+    {
+      "arity": 1,
+      "service_id": "ps1.bios.internal.pad_start_hook"
+    },
+    {
+      "arity": 1,
+      "service_id": "ps1.bios.internal.pad_stop_hook"
+    },
+    {
+      "arity": 1,
+      "service_id": "ps1.bios.internal.card_continuation"
+    },
+    {
+      "arity": 0,
+      "service_id": "ps1.mips.mflo"
+    }
+  ],
+  "index_aliasing": false,
+  "schema": "openrecomp-phase14-service-matrix-v1",
+  "services": [
+    {
+      "arity": 3,
+      "index": "0x2b",
+      "name": "memset",
+      "result_register": null,
+      "service_id": "ps1.bios.A0.2b",
+      "vector": "A0"
+    },
+    {
+      "arity": 1,
+      "index": "0x30",
+      "name": "abs",
+      "result_register": 2,
+      "service_id": "ps1.bios.A0.30",
+      "vector": "A0"
+    },
+    {
+      "arity": 3,
+      "index": "0x3f",
+      "name": "printf",
+      "result_register": null,
+      "service_id": "ps1.bios.A0.3f",
+      "vector": "A0"
+    },
+    {
+      "arity": 0,
+      "index": "0x44",
+      "name": "FlushCache",
+      "result_register": null,
+      "service_id": "ps1.bios.A0.44",
+      "vector": "A0"
+    },
+    {
+      "arity": 1,
+      "index": "0x49",
+      "name": "GPU_cw",
+      "result_register": null,
+      "service_id": "ps1.bios.A0.49",
+      "vector": "A0"
+    },
+    {
+      "arity": 0,
+      "index": "0x70",
+      "name": "_bu_init",
+      "result_register": 2,
+      "service_id": "ps1.bios.A0.70",
+      "vector": "A0"
+    },
+    {
+      "arity": 4,
+      "index": "0x12",
+      "name": "InitPAD2",
+      "result_register": null,
+      "service_id": "ps1.bios.B0.12",
+      "vector": "B0"
+    },
+    {
+      "arity": 0,
+      "index": "0x13",
+      "name": "StartPAD2",
+      "result_register": null,
+      "service_id": "ps1.bios.B0.13",
+      "vector": "B0"
+    },
+    {
+      "arity": 0,
+      "index": "0x14",
+      "name": "StopPAD2",
+      "result_register": null,
+      "service_id": "ps1.bios.B0.14",
+      "vector": "B0"
+    },
+    {
+      "arity": 1,
+      "index": "0x3f",
+      "name": "puts",
+      "result_register": null,
+      "service_id": "ps1.bios.B0.3f",
+      "vector": "B0"
+    },
+    {
+      "arity": 1,
+      "index": "0x4a",
+      "name": "InitCARD2",
+      "result_register": null,
+      "service_id": "ps1.bios.B0.4a",
+      "vector": "B0"
+    },
+    {
+      "arity": 0,
+      "index": "0x4b",
+      "name": "StartCARD2",
+      "result_register": null,
+      "service_id": "ps1.bios.B0.4b",
+      "vector": "B0"
+    },
+    {
+      "arity": 0,
+      "index": "0x4c",
+      "name": "StopCARD2",
+      "result_register": null,
+      "service_id": "ps1.bios.B0.4c",
+      "vector": "B0"
+    },
+    {
+      "arity": 0,
+      "index": "0x56",
+      "name": "GetC0Table",
+      "result_register": 2,
+      "service_id": "ps1.bios.B0.56",
+      "vector": "B0"
+    },
+    {
+      "arity": 0,
+      "index": "0x57",
+      "name": "GetB0Table",
+      "result_register": 2,
+      "service_id": "ps1.bios.B0.57",
+      "vector": "B0"
+    },
+    {
+      "arity": 1,
+      "index": "0x5b",
+      "name": "ChangeClearPAD",
+      "result_register": null,
+      "service_id": "ps1.bios.B0.5b",
+      "vector": "B0"
+    },
+    {
+      "arity": 2,
+      "index": "0x02",
+      "name": "SysEnqIntRP",
+      "result_register": 2,
+      "service_id": "ps1.bios.C0.02",
+      "vector": "C0"
+    },
+    {
+      "arity": 2,
+      "index": "0x03",
+      "name": "SysDeqIntRP",
+      "result_register": 2,
+      "service_id": "ps1.bios.C0.03",
+      "vector": "C0"
+    }
+  ],
+  "stage": "P14-30",
+  "synthetic_ranges": {
+    "b0_target": 4096,
+    "c0_table": [
+      2048,
+      2080
+    ],
+    "early_handler": [
+      6400,
+      6464
+    ],
+    "exception_handler": [
+      6144,
+      6264
+    ]
+  },
+  "synthetic_target_collisions": false
+}

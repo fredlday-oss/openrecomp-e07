@@ -1,0 +1,38 @@
+{
+  "c0_surface": {
+    "authentic_bios_address_claimed": false,
+    "classification": "synthetic-project-owned-not-a-recovered-bios-address",
+    "derivations": {
+      "continuation": "early_handler + 0x3c",
+      "early_handler": "((word[handler+0x70] & 0xffff) << 16) | (word[handler+0x74] & 0xffff)",
+      "guest_slot": "0x8002ed90",
+      "patch_destination": "early_handler + 0x28"
+    },
+    "objects": {
+      "c0_exception_index": 6,
+      "c0_exception_slot_offset": "0x818",
+      "c0_table_offset": "0x800",
+      "card_continuation_offset": "0x193c",
+      "card_patch_bytes": 20,
+      "card_patch_offset": "0x1928",
+      "early_handler_offset": "0x1900",
+      "exception_handler_offset": "0x1800"
+    },
+    "schema": "openrecomp-phase14-c0-surface-v1",
+    "surface_version": "1.0.0",
+    "third_party_code_imported": "NO",
+    "window": {
+      "base": "0x1f000000",
+      "reused_from": "phase12-synthetic-b0-window",
+      "size": 8192
+    }
+  },
+  "continuation_slot": "0x8002ed90",
+  "continuation_value": "0x1f00193c",
+  "expected_fnv1a64": "0x7c78ebd39cb95dad",
+  "patch_fnv1a64": "0x7c78ebd39cb95dad",
+  "patch_words": 5,
+  "patch_writes_nonzero_bytes": "10",
+  "schema": "openrecomp-phase14-card-patch-v1",
+  "stage": "P14-03"
+}

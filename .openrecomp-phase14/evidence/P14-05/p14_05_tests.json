@@ -1,0 +1,201 @@
+{
+  "checks": [
+    {
+      "check": "build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:deterministic",
+      "detail": "1f230d62753f3a6acf6ec9c0b0631d0bcbc1f5a177a26a1d895ef6f098ef8007",
+      "status": "PASS"
+    },
+    {
+      "check": "patch:guest-apply",
+      "detail": "10",
+      "status": "PASS"
+    },
+    {
+      "check": "patch:exact-20-byte-copy",
+      "detail": "0x7c78ebd39cb95dad:0x7c78ebd39cb95dad",
+      "status": "PASS"
+    },
+    {
+      "check": "patch:continuation-stored",
+      "detail": "0x1f00193c",
+      "status": "PASS"
+    },
+    {
+      "check": "c0:surface-initialized",
+      "detail": "1:1",
+      "status": "PASS"
+    },
+    {
+      "check": "continuation:typed-identity",
+      "detail": "{\"c0_exception_slot\": 520095768, \"c0_table\": 520095744, \"card_continuation\": 520100156, \"card_patch\": 520100136, \"early_handler\": 520100096, \"exception_handler\": 520099840, \"exception_handler_high\": 520099952, \"exception_handler_low\": 520099956, \"window_base\": 520093696, \"window_size\": 8192}",
+      "status": "PASS"
+    },
+    {
+      "check": "continuation:not-executed-in-init",
+      "detail": "0:0",
+      "status": "PASS"
+    },
+    {
+      "check": "continuation:handler-not-reached",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "b0_57:site-resolved",
+      "detail": "{\"site\": 2147643252, \"site_hex\": \"0x80026f74\", \"op\": \"jalr\", \"kind\": \"INDIRECT_CALL\", \"source_register\": 10, \"vector\": \"B0\", \"vector_value\": \"0x000000b0\", \"function_index\": 87, \"service_id\": \"ps1.bios.B0.57\", \"op_name\": \"call_bios_b0_57\", \"classification\": \"BIOS_VECTOR_SERVICE\", \"disposition\": \"EXACT_EXTERNAL_SERVICE\", \"slice_evidence\": [\"addiu@0x80026f70\"], \"index_evidence\": [\"index-addiu@0x80026f78\"], \"function_id\": null, \"block_id\": null, \"documented_name\": \"GetB0Table\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "b0_57:table-live",
+      "detail": "0x1f000000:0x1f001000",
+      "status": "PASS"
+    },
+    {
+      "check": "b0_57:pad-derived-pointers",
+      "detail": "0x1f001884:0x1f001894",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:card-init",
+      "detail": "{\"change_clear_pad_calls\": \"4\", \"change_clear_pad_mode\": \"0\", \"card_init_calls\": \"1\", \"card_stop_calls\": \"0\", \"getc0_calls\": \"1\", \"bu_init_calls\": \"1\", \"abs_calls\": \"1\", \"puts_calls\": \"1\", \"mflo_calls\": \"2\", \"p10_service_failures\": \"0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:getc0",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:bu-init",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:no-service-failures",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:trace-failures-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:historical-sites-closed",
+      "detail": "0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:memory-denial-reached",
+      "detail": "14:1",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:interrupt-mask-observed",
+      "detail": "{\"timer1_counter\": true, \"gpu_status\": true, \"interrupt_mask\": true, \"cdrom_index_command\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "card_patch:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "card_patch:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "card_patch:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "card_irq:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "card_irq:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "card_irq:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "proof:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "proof:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "proof:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "frontier",
+  "schema": "openrecomp-phase14-tests-v1",
+  "stage": "P14-05",
+  "summary": {
+    "failed": 0,
+    "passed": 38
+  }
+}

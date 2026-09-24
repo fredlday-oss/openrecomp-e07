@@ -1,0 +1,42 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "3459bb8fcebb507c22ac80d38ed96625166768ae4a33716d55296f46ca9bd436",
+    "p14_90_tests.json": "581b22bc0d86e8987155c305e9c28ec0601ca101c7408a00e03d8a16fbb1812c",
+    "regression.json": "470784b812b55140b44bc23f868c2dd90ea248c0783ec87ed5b327ceb62471ef"
+  },
+  "artifacts_identical": true,
+  "gate": "tools/test_phase14_whole_regression_v1.py",
+  "gate_sha256": "8be79ba5babc6e15638cc15cc16df68fe5435093e7b22cb19060f46a17286a16",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "RESULT.json": "3459bb8fcebb507c22ac80d38ed96625166768ae4a33716d55296f46ca9bd436",
+        "p14_90_tests.json": "581b22bc0d86e8987155c305e9c28ec0601ca101c7408a00e03d8a16fbb1812c",
+        "regression.json": "470784b812b55140b44bc23f868c2dd90ea248c0783ec87ed5b327ceb62471ef"
+      },
+      "p14_90_tests_sha256": "581b22bc0d86e8987155c305e9c28ec0601ca101c7408a00e03d8a16fbb1812c",
+      "returncode": 0,
+      "stdout_bytes_raw": 2774,
+      "stdout_sha256_lf": "e5001ee094f2cf49efaa2871cf5898c3586488bee2f283a4ccc688c6d2234a01",
+      "stdout_sha256_raw": "2afee968109e9e302256870f2d669b6af24f39661fe46b2e3eafd0b8620f8d9e"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "RESULT.json": "3459bb8fcebb507c22ac80d38ed96625166768ae4a33716d55296f46ca9bd436",
+        "p14_90_tests.json": "581b22bc0d86e8987155c305e9c28ec0601ca101c7408a00e03d8a16fbb1812c",
+        "regression.json": "470784b812b55140b44bc23f868c2dd90ea248c0783ec87ed5b327ceb62471ef"
+      },
+      "p14_90_tests_sha256": "581b22bc0d86e8987155c305e9c28ec0601ca101c7408a00e03d8a16fbb1812c",
+      "returncode": 0,
+      "stdout_bytes_raw": 2774,
+      "stdout_sha256_lf": "e5001ee094f2cf49efaa2871cf5898c3586488bee2f283a4ccc688c6d2234a01",
+      "stdout_sha256_raw": "2afee968109e9e302256870f2d669b6af24f39661fe46b2e3eafd0b8620f8d9e"
+    }
+  },
+  "schema": "openrecomp-phase14-determinism-v1",
+  "stage": "P14-90",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true
+}

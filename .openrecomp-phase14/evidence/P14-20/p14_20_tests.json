@@ -1,0 +1,126 @@
+{
+  "checks": [
+    {
+      "check": "surface:c0-0a-unimplemented",
+      "detail": "C0:0x0A stays fail closed",
+      "status": "PASS"
+    },
+    {
+      "check": "surface:a0-72-unimplemented",
+      "detail": "A0:0x72 stays fail closed",
+      "status": "PASS"
+    },
+    {
+      "check": "surface:b0-17-19-unimplemented",
+      "detail": "B0:0x17/0x19 stay fail closed",
+      "status": "PASS"
+    },
+    {
+      "check": "analysis:unresolved-sites-fail-closed",
+      "detail": "[\"0x80015b84\", \"0x800161e0\", \"0x80016908\", \"0x80016920\", \"0x80016940\", \"0x80026c8c\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "guarded:80016234",
+      "detail": "{\"address\": 2147574324, \"basis\": \"EXACT_CONSTANT_TARGET\", \"block_id\": \"blk_8001621c\", \"detail\": \"observed_targets=0x80016648; observed deterministically at runtime; every observed target is a reachable instruction boundary; guarded dispatch: any other runtime value fails closed\", \"entry_address\": 2147574300, \"evidence\": \"PROVEN\", \"external_mechanism\": null, \"function_id\": \"fn_8001621c\", \"kind\": \"INDIRECT_CALL\", \"op\": \"jalr\", \"provenance\": [\"P2-02:InstructionFlow.INDIRECT_CALL\", \"P2-04:CallGraphEdge.UNRESOLVED_INDIRECT\", \"P2-05:TranslationUnit.unresolved_call_sites\", \"evidence:phase11-dynamic-execution-evidence\"], \"status\": \"RESOLVED\", \"target_functions\": [\"fn_80016648\"], \"targets\": [2147575368], \"unit_id\": \"tu_fn_8001621c\", \"unresolved_site\": {\"address\": 2147574324, \"block\": \"blk_8001621c\", \"evidence\": \"PROVEN\", \"op\": \"jalr\", \"reason\": \"unresolved indirect call target\"}}",
+      "status": "PASS"
+    },
+    {
+      "check": "guarded:8001889c",
+      "detail": "{\"address\": 2147584156, \"basis\": \"EXACT_CONSTANT_TARGET\", \"block_id\": \"blk_80018888\", \"detail\": \"observed_targets=0x8001b030; observed deterministically at runtime; every observed target is a reachable instruction boundary; guarded dispatch: any other runtime value fails closed\", \"entry_address\": 2147584076, \"evidence\": \"PROVEN\", \"external_mechanism\": null, \"function_id\": \"fn_8001884c\", \"kind\": \"INDIRECT_CALL\", \"op\": \"jalr\", \"provenance\": [\"P2-02:InstructionFlow.INDIRECT_CALL\", \"P2-04:CallGraphEdge.UNRESOLVED_INDIRECT\", \"P2-05:TranslationUnit.unresolved_call_sites\", \"evidence:phase11-dynamic-execution-evidence\"], \"status\": \"RESOLVED\", \"target_functions\": [\"fn_8001b030\"], \"targets\": [2147594288], \"unit_id\": \"tu_fn_8001884c\", \"unresolved_site\": {\"address\": 2147584156, \"block\": \"blk_80018888\", \"evidence\": \"PROVEN\", \"op\": \"jalr\", \"reason\": \"unresolved indirect call target\"}}",
+      "status": "PASS"
+    },
+    {
+      "check": "guarded:80018a4c",
+      "detail": "{\"address\": 2147584588, \"basis\": \"EXACT_CONSTANT_TARGET\", \"block_id\": \"blk_80018a18\", \"detail\": \"observed_targets=0x8001a908; observed deterministically at runtime; every observed target is a reachable instruction boundary; guarded dispatch: any other runtime value fails closed\", \"entry_address\": 2147584480, \"evidence\": \"PROVEN\", \"external_mechanism\": null, \"function_id\": \"fn_800189e0\", \"kind\": \"INDIRECT_CALL\", \"op\": \"jalr\", \"provenance\": [\"P2-02:InstructionFlow.INDIRECT_CALL\", \"P2-04:CallGraphEdge.UNRESOLVED_INDIRECT\", \"P2-05:TranslationUnit.unresolved_call_sites\", \"evidence:phase11-dynamic-execution-evidence\"], \"status\": \"RESOLVED\", \"target_functions\": [\"fn_8001a908\"], \"targets\": [2147592456], \"unit_id\": \"tu_fn_800189e0\", \"unresolved_site\": {\"address\": 2147584588, \"block\": \"blk_80018a18\", \"evidence\": \"PROVEN\", \"op\": \"jalr\", \"reason\": \"unresolved indirect call target\"}}",
+      "status": "PASS"
+    },
+    {
+      "check": "guarded:80018b54",
+      "detail": "{\"address\": 2147584852, \"basis\": \"EXACT_CONSTANT_TARGET\", \"block_id\": \"blk_80018b38\", \"detail\": \"observed_targets=0x8001a908; observed deterministically at runtime; every observed target is a reachable instruction boundary; guarded dispatch: any other runtime value fails closed\", \"entry_address\": 2147584784, \"evidence\": \"PROVEN\", \"external_mechanism\": null, \"function_id\": \"fn_80018b10\", \"kind\": \"INDIRECT_CALL\", \"op\": \"jalr\", \"provenance\": [\"P2-02:InstructionFlow.INDIRECT_CALL\", \"P2-04:CallGraphEdge.UNRESOLVED_INDIRECT\", \"P2-05:TranslationUnit.unresolved_call_sites\", \"evidence:phase11-dynamic-execution-evidence\"], \"status\": \"RESOLVED\", \"target_functions\": [\"fn_8001a908\"], \"targets\": [2147592456], \"unit_id\": \"tu_fn_80018b10\", \"unresolved_site\": {\"address\": 2147584852, \"block\": \"blk_80018b38\", \"evidence\": \"PROVEN\", \"op\": \"jalr\", \"reason\": \"unresolved indirect call target\"}}",
+      "status": "PASS"
+    },
+    {
+      "check": "guarded:8001aa14",
+      "detail": "{\"address\": 2147592724, \"basis\": \"EXACT_CONSTANT_TARGET\", \"block_id\": \"blk_8001aa10\", \"detail\": \"observed_targets=0x8001a31c; observed deterministically at runtime; every observed target is a reachable instruction boundary; guarded dispatch: any other runtime value fails closed\", \"entry_address\": 2147592456, \"evidence\": \"PROVEN\", \"external_mechanism\": null, \"function_id\": \"fn_8001a908\", \"kind\": \"INDIRECT_CALL\", \"op\": \"jalr\", \"provenance\": [\"P2-02:InstructionFlow.INDIRECT_CALL\", \"P2-04:CallGraphEdge.UNRESOLVED_INDIRECT\", \"P2-05:TranslationUnit.unresolved_call_sites\", \"evidence:phase11-dynamic-execution-evidence\"], \"status\": \"RESOLVED\", \"target_functions\": [\"fn_8001a31c\"], \"targets\": [2147590940], \"unit_id\": \"tu_fn_8001a908\", \"unresolved_site\": {\"address\": 2147592724, \"block\": \"blk_8001aa10\", \"evidence\": \"PROVEN\", \"op\": \"jalr\", \"reason\": \"unresolved indirect call target\"}}",
+      "status": "PASS"
+    },
+    {
+      "check": "guarded:all-sites",
+      "detail": "5/5",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:window-bounds",
+      "detail": "{\"c0_exception_index\": 6, \"c0_exception_slot_offset\": 2072, \"c0_table_offset\": 2048, \"card_continuation_offset\": 6460, \"card_patch_bytes\": 20, \"card_patch_offset\": 6440, \"card_patch_words\": 5, \"early_handler_offset\": 6400, \"exception_handler_high_offset\": 6256, \"exception_handler_low_offset\": 6260, \"exception_handler_offset\": 6144}",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:handler-reconstruction-exact",
+      "detail": "guest derivation reproduced exactly",
+      "status": "PASS"
+    },
+    {
+      "check": "synthetic:not-authentic-bios",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:deterministic",
+      "detail": "29682d93f44363bd05c91ea9b76fab460cbc1878981cb8e21060437c66ae7582",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:b0-56-arity",
+      "detail": "13",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:b0-57-arity",
+      "detail": "13",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:continuation-patch-dest",
+      "detail": "13",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:continuation-guest-target",
+      "detail": "13",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unknown-identity",
+      "detail": "6",
+      "status": "PASS"
+    },
+    {
+      "check": "hardening:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "hardening:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "hardening:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "hardening",
+  "schema": "openrecomp-phase14-tests-v1",
+  "stage": "P14-20",
+  "summary": {
+    "failed": 0,
+    "passed": 23
+  }
+}

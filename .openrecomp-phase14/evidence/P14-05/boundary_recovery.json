@@ -1,0 +1,18 @@
+{
+  "inherited_mechanics": {
+    "first_repeating_cycle_detected": true,
+    "first_repeating_cycle_length": 14,
+    "memory_denials": 14,
+    "trace_failure_count_after": 0,
+    "trace_failure_count_before": 9
+  },
+  "initialization_boundary_ready": "NO",
+  "predicates": {
+    "INIT-BOUNDARY": true,
+    "INIT-DETERMINISTIC": true,
+    "INIT-NO-FAIL-CLOSED": false
+  },
+  "remaining_blocker": "interrupt-mask MMIO (I_MASK) fail-closed event on the live post-card path; the bounded run is not fail-closed clean",
+  "schema": "openrecomp-phase14-boundary-recovery-v1",
+  "stage": "P14-10"
+}

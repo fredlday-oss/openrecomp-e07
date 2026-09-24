@@ -1,0 +1,59 @@
+{
+  "broad_synthetic_memory": false,
+  "evidence_class": "PUBLIC_SYNTHETIC",
+  "generic_allow_all_bios": false,
+  "generic_allow_all_indirect": false,
+  "guarded_indirect_sites": [
+    "0x80016234",
+    "0x8001889c",
+    "0x80018a4c",
+    "0x80018b54",
+    "0x8001aa14"
+  ],
+  "runtime_negatives": {
+    "b0_56_arity": "13",
+    "b0_56_ok": "0",
+    "b0_57_arity": "13",
+    "cont_guest_target_rejected": "13",
+    "cont_patch_dest_rejected": "13",
+    "unknown_identity": "6"
+  },
+  "schema": "openrecomp-phase14-hardening-v1",
+  "stage": "P14-20",
+  "synthetic_surface": {
+    "authentic_bios_address_claimed": false,
+    "classification": "synthetic-project-owned-not-a-recovered-bios-address",
+    "derivations": {
+      "continuation": "early_handler + 0x3c",
+      "early_handler": "((word[handler+0x70] & 0xffff) << 16) | (word[handler+0x74] & 0xffff)",
+      "guest_slot": "0x8002ed90",
+      "patch_destination": "early_handler + 0x28"
+    },
+    "objects": {
+      "c0_exception_index": 6,
+      "c0_exception_slot_offset": "0x818",
+      "c0_table_offset": "0x800",
+      "card_continuation_offset": "0x193c",
+      "card_patch_bytes": 20,
+      "card_patch_offset": "0x1928",
+      "early_handler_offset": "0x1900",
+      "exception_handler_offset": "0x1800"
+    },
+    "schema": "openrecomp-phase14-c0-surface-v1",
+    "surface_version": "1.0.0",
+    "third_party_code_imported": "NO",
+    "window": {
+      "base": "0x1f000000",
+      "reused_from": "phase12-synthetic-b0-window",
+      "size": 8192
+    }
+  },
+  "unresolved_sites": [
+    "0x80015b84",
+    "0x800161e0",
+    "0x80016908",
+    "0x80016920",
+    "0x80016940",
+    "0x80026c8c"
+  ]
+}

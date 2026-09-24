@@ -1,0 +1,21 @@
+{
+  "checks": [
+    {
+      "check": "evidence:initialization-proof",
+      "detail": "initialization_proof.json",
+      "status": "PASS"
+    },
+    {
+      "check": "proof:not-proven",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    }
+  ],
+  "name": "readiness",
+  "schema": "openrecomp-phase14-tests-v1",
+  "stage": "P14-50",
+  "summary": {
+    "failed": 0,
+    "passed": 2
+  }
+}
