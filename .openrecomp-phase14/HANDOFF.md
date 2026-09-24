@@ -13,7 +13,8 @@
 
 None. Phase 14 is complete with the bounded terminal verdict
 `PASS_BOUNDED_INITIALIZATION_CLOSURE_FRONTIER_REMAINS`. Terminal HEAD:
-`0aab59bf9688c5ee6abe982c2bfa57e7a52d10ee` (commits `0e6cac2f`, `0aab59bf`).
+`716b3a493105e6d19e2c8ee4838add60257339b3` (commits `0e6cac2f`, `0aab59bf`,
+`2c862f1b`, `716b3a49`).
 The initialization proof remains `NOT_PROVEN` at the exact technical frontier
 `0x1F801074` (I_STAT/I_MASK interrupt-mask MMIO), which the frozen Phase-9 device
 boundary fails closed. The next work would implement a bounded, deterministic

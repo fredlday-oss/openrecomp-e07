@@ -27,10 +27,12 @@ blocker is established.
 
 ## Terminal closure
 
-- PHASE14_HEAD: `0aab59bf9688c5ee6abe982c2bfa57e7a52d10ee` (branch
+- PHASE14_HEAD: `716b3a493105e6d19e2c8ee4838add60257339b3` (branch
   `phase14/ps1-hercules-init-closure-v1`).
 - Commits: `0e6cac2f` (implementation, control plane, gates), `0aab59bf`
-  (deterministic evidence, whole regression, bounded verdict).
+  (deterministic evidence, whole regression, bounded verdict), `2c862f1b`
+  (terminal state/handoff), `716b3a49` (P14-08 terminal marker fix and refreshed
+  final evidence).
 - FINAL_VERDICT: `PASS_BOUNDED_INITIALIZATION_CLOSURE_FRONTIER_REMAINS`.
 - CURRENT_TECHNICAL_FRONTIER: `0x1F801074` (I_STAT/I_MASK interrupt-mask MMIO
   memory-denial channel).
