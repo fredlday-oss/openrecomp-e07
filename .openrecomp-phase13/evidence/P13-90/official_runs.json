@@ -1,0 +1,78 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "fc165eff2fc1c83153ed100084597374370c754e5ea1d8d6c34cd56c5d3b0f9b",
+    "p13_90_tests.json": "7883a267a17ede1ff5d8de574231006dd3e064ab5f2e1bb24d8561b79e73b877",
+    "regression.json": "9eb2ce07b4438c9a336837ce547c3bce6ece21413398f0903fad1bde82bdf120"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "fc165eff2fc1c83153ed100084597374370c754e5ea1d8d6c34cd56c5d3b0f9b",
+        "p13_90_tests.json": "7883a267a17ede1ff5d8de574231006dd3e064ab5f2e1bb24d8561b79e73b877",
+        "regression.json": "9eb2ce07b4438c9a336837ce547c3bce6ece21413398f0903fad1bde82bdf120"
+      },
+      "command": [
+        "python",
+        "tools/test_phase13_whole_regression_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase13/evidence/P13-90"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P13_90=PASS",
+        "OPENRECOMP_P13_91=PASS",
+        "OPENRECOMP_PHASE13_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE13_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE13_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE13_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p13_90_tests_sha256": "7883a267a17ede1ff5d8de574231006dd3e064ab5f2e1bb24d8561b79e73b877",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1500,
+      "stdout_bytes_lf": 1459,
+      "stdout_sha256_lf": "e40ec7660e5d7a83512f92480b2a5e4f1b4f4e7ff86bc82c7a874bb6c109c4be",
+      "stdout_sha256_raw": "4e25e59f64aeea49a7c0875d23327f6f254daa32616f290de412869dcea415f7"
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "fc165eff2fc1c83153ed100084597374370c754e5ea1d8d6c34cd56c5d3b0f9b",
+        "p13_90_tests.json": "7883a267a17ede1ff5d8de574231006dd3e064ab5f2e1bb24d8561b79e73b877",
+        "regression.json": "9eb2ce07b4438c9a336837ce547c3bce6ece21413398f0903fad1bde82bdf120"
+      },
+      "command": [
+        "python",
+        "tools/test_phase13_whole_regression_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase13/evidence/P13-90"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P13_90=PASS",
+        "OPENRECOMP_P13_91=PASS",
+        "OPENRECOMP_PHASE13_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE13_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE13_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE13_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p13_90_tests_sha256": "7883a267a17ede1ff5d8de574231006dd3e064ab5f2e1bb24d8561b79e73b877",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1500,
+      "stdout_bytes_lf": 1459,
+      "stdout_sha256_lf": "e40ec7660e5d7a83512f92480b2a5e4f1b4f4e7ff86bc82c7a874bb6c109c4be",
+      "stdout_sha256_raw": "4e25e59f64aeea49a7c0875d23327f6f254daa32616f290de412869dcea415f7"
+    }
+  ],
+  "schema": "openrecomp-phase13-official-runs-v1",
+  "stage": "P13-90",
+  "stderr_empty_both": true
+}

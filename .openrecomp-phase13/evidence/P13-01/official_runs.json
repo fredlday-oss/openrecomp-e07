@@ -1,0 +1,95 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "9c5f0f4c27c817d6bd8434eddff3ba19baf40a81d8268304903c7f4503956192",
+    "c0_observation.json": "e8c4da525efddbba7b2aaae51c3e9e79d3cf27bc8f4b7cb11fef737b59956c87",
+    "dispatch.json": "53946ed4d8905f2b92903b8456ca4ff4b721f9ed605ff61969c9316cc41afae5",
+    "p13_01_tests.json": "2ca57552ae440eb8a38d684afc3f1942ec377f1fbab934442d61570aaada7445"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "9c5f0f4c27c817d6bd8434eddff3ba19baf40a81d8268304903c7f4503956192",
+        "c0_observation.json": "e8c4da525efddbba7b2aaae51c3e9e79d3cf27bc8f4b7cb11fef737b59956c87",
+        "dispatch.json": "53946ed4d8905f2b92903b8456ca4ff4b721f9ed605ff61969c9316cc41afae5",
+        "p13_01_tests.json": "2ca57552ae440eb8a38d684afc3f1942ec377f1fbab934442d61570aaada7445"
+      },
+      "command": [
+        "python",
+        "tools/test_phase13_queue_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase13/evidence/P13-01"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P13_01=PASS",
+        "OPENRECOMP_P13_02=PASS",
+        "OPENRECOMP_P13_03=PASS",
+        "OPENRECOMP_P13_04=PASS",
+        "OPENRECOMP_P13_05=PASS",
+        "OPENRECOMP_PHASE13_SYSENQINTRP_V1=PASS",
+        "OPENRECOMP_PHASE13_SYSDEQINTRP_V1=PASS",
+        "OPENRECOMP_PHASE13_INTRP_ROUNDTRIP_V1=PASS",
+        "OPENRECOMP_PHASE13_CALLBACK_MEDIATION_V1=PASS",
+        "OPENRECOMP_PHASE13_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE13_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE13_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE13_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p13_01_tests_sha256": "2ca57552ae440eb8a38d684afc3f1942ec377f1fbab934442d61570aaada7445",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 3737,
+      "stdout_bytes_lf": 3686,
+      "stdout_sha256_lf": "010e59346618f7e1ff62c17f9d4b29fac1eaaece988ef010119e991faaec77f8",
+      "stdout_sha256_raw": "90ccb49d8157f55fc33d9c312bc6ff65b72ea7d1fc18dff0f6c008c2ef07c0d6"
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "9c5f0f4c27c817d6bd8434eddff3ba19baf40a81d8268304903c7f4503956192",
+        "c0_observation.json": "e8c4da525efddbba7b2aaae51c3e9e79d3cf27bc8f4b7cb11fef737b59956c87",
+        "dispatch.json": "53946ed4d8905f2b92903b8456ca4ff4b721f9ed605ff61969c9316cc41afae5",
+        "p13_01_tests.json": "2ca57552ae440eb8a38d684afc3f1942ec377f1fbab934442d61570aaada7445"
+      },
+      "command": [
+        "python",
+        "tools/test_phase13_queue_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase13/evidence/P13-01"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P13_01=PASS",
+        "OPENRECOMP_P13_02=PASS",
+        "OPENRECOMP_P13_03=PASS",
+        "OPENRECOMP_P13_04=PASS",
+        "OPENRECOMP_P13_05=PASS",
+        "OPENRECOMP_PHASE13_SYSENQINTRP_V1=PASS",
+        "OPENRECOMP_PHASE13_SYSDEQINTRP_V1=PASS",
+        "OPENRECOMP_PHASE13_INTRP_ROUNDTRIP_V1=PASS",
+        "OPENRECOMP_PHASE13_CALLBACK_MEDIATION_V1=PASS",
+        "OPENRECOMP_PHASE13_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE13_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE13_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE13_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p13_01_tests_sha256": "2ca57552ae440eb8a38d684afc3f1942ec377f1fbab934442d61570aaada7445",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 3737,
+      "stdout_bytes_lf": 3686,
+      "stdout_sha256_lf": "010e59346618f7e1ff62c17f9d4b29fac1eaaece988ef010119e991faaec77f8",
+      "stdout_sha256_raw": "90ccb49d8157f55fc33d9c312bc6ff65b72ea7d1fc18dff0f6c008c2ef07c0d6"
+    }
+  ],
+  "schema": "openrecomp-phase13-official-runs-v1",
+  "stage": "P13-01",
+  "stderr_empty_both": true
+}

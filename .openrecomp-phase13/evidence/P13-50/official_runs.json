@@ -1,0 +1,112 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "f2c877ecd375ea15b35401f198ed6595c154e0467fd8fbb0d7e1936886f01fa7",
+    "consistency.json": "c97c225cee1df3b58d98266a9588db365f88bd92c379b037e9b72694c15636ae",
+    "frame_frontier.json": "7fd07676a9750b2aaae4aea1d0a6acadfd21685123315208d6941b0450073fd2",
+    "hardening.json": "a0a4d637ef9065696cab7d940051c66ac3dd8fa5433c097e9ff4e61a22e230b1",
+    "initialization_proof.json": "81646191dae8903cc82fcb801c0525735f2b5e92a80a5081eabf860c55e81f31",
+    "p13_06_tests.json": "cd9406049036aac8fd0bf48ac7df6f82a3fb7c3b28446d38f7ac2d0fda61d4b4",
+    "replay.json": "f553fadcfab2964bea2040349be455a8c6180d1573578f82e5f063be9eccc7db"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "f2c877ecd375ea15b35401f198ed6595c154e0467fd8fbb0d7e1936886f01fa7",
+        "consistency.json": "c97c225cee1df3b58d98266a9588db365f88bd92c379b037e9b72694c15636ae",
+        "frame_frontier.json": "7fd07676a9750b2aaae4aea1d0a6acadfd21685123315208d6941b0450073fd2",
+        "hardening.json": "a0a4d637ef9065696cab7d940051c66ac3dd8fa5433c097e9ff4e61a22e230b1",
+        "initialization_proof.json": "81646191dae8903cc82fcb801c0525735f2b5e92a80a5081eabf860c55e81f31",
+        "p13_06_tests.json": "cd9406049036aac8fd0bf48ac7df6f82a3fb7c3b28446d38f7ac2d0fda61d4b4",
+        "replay.json": "f553fadcfab2964bea2040349be455a8c6180d1573578f82e5f063be9eccc7db"
+      },
+      "command": [
+        "python",
+        "tools/test_phase13_frontier_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase13/evidence/P13-50"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P13_06=PASS",
+        "OPENRECOMP_P13_10=PASS",
+        "OPENRECOMP_P13_11=PASS",
+        "OPENRECOMP_P13_20=PASS",
+        "OPENRECOMP_P13_30=PASS",
+        "OPENRECOMP_P13_40=PASS",
+        "OPENRECOMP_P13_50=PASS",
+        "OPENRECOMP_P13_07=PASS_NOT_REQUIRED",
+        "OPENRECOMP_P13_08=PASS_NOT_REQUIRED",
+        "OPENRECOMP_P13_09=PASS_NOT_REQUIRED",
+        "OPENRECOMP_PHASE13_CHANGECLEARRCNT_V1=NOT_REQUIRED",
+        "OPENRECOMP_PHASE13_TIMER1_V1=NOT_REQUIRED",
+        "OPENRECOMP_PHASE13_INTERRUPT_MMIO_V1=NOT_REQUIRED",
+        "OPENRECOMP_PHASE13_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE13_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE13_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE13_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p13_06_tests_sha256": "cd9406049036aac8fd0bf48ac7df6f82a3fb7c3b28446d38f7ac2d0fda61d4b4",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1905,
+      "stdout_bytes_lf": 1866,
+      "stdout_sha256_lf": "37d872e54aee556dd0ce8f592e2cd645374a344d7aec26e4fe0943747f19501e",
+      "stdout_sha256_raw": "7d081e08306296ce20bb640bff7bd2b5ac0186338e98492e9fc65b2237ac2360"
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "f2c877ecd375ea15b35401f198ed6595c154e0467fd8fbb0d7e1936886f01fa7",
+        "consistency.json": "c97c225cee1df3b58d98266a9588db365f88bd92c379b037e9b72694c15636ae",
+        "frame_frontier.json": "7fd07676a9750b2aaae4aea1d0a6acadfd21685123315208d6941b0450073fd2",
+        "hardening.json": "a0a4d637ef9065696cab7d940051c66ac3dd8fa5433c097e9ff4e61a22e230b1",
+        "initialization_proof.json": "81646191dae8903cc82fcb801c0525735f2b5e92a80a5081eabf860c55e81f31",
+        "p13_06_tests.json": "cd9406049036aac8fd0bf48ac7df6f82a3fb7c3b28446d38f7ac2d0fda61d4b4",
+        "replay.json": "f553fadcfab2964bea2040349be455a8c6180d1573578f82e5f063be9eccc7db"
+      },
+      "command": [
+        "python",
+        "tools/test_phase13_frontier_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase13/evidence/P13-50"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P13_06=PASS",
+        "OPENRECOMP_P13_10=PASS",
+        "OPENRECOMP_P13_11=PASS",
+        "OPENRECOMP_P13_20=PASS",
+        "OPENRECOMP_P13_30=PASS",
+        "OPENRECOMP_P13_40=PASS",
+        "OPENRECOMP_P13_50=PASS",
+        "OPENRECOMP_P13_07=PASS_NOT_REQUIRED",
+        "OPENRECOMP_P13_08=PASS_NOT_REQUIRED",
+        "OPENRECOMP_P13_09=PASS_NOT_REQUIRED",
+        "OPENRECOMP_PHASE13_CHANGECLEARRCNT_V1=NOT_REQUIRED",
+        "OPENRECOMP_PHASE13_TIMER1_V1=NOT_REQUIRED",
+        "OPENRECOMP_PHASE13_INTERRUPT_MMIO_V1=NOT_REQUIRED",
+        "OPENRECOMP_PHASE13_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE13_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE13_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE13_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p13_06_tests_sha256": "cd9406049036aac8fd0bf48ac7df6f82a3fb7c3b28446d38f7ac2d0fda61d4b4",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1905,
+      "stdout_bytes_lf": 1866,
+      "stdout_sha256_lf": "37d872e54aee556dd0ce8f592e2cd645374a344d7aec26e4fe0943747f19501e",
+      "stdout_sha256_raw": "7d081e08306296ce20bb640bff7bd2b5ac0186338e98492e9fc65b2237ac2360"
+    }
+  ],
+  "schema": "openrecomp-phase13-official-runs-v1",
+  "stage": "P13-50",
+  "stderr_empty_both": true
+}

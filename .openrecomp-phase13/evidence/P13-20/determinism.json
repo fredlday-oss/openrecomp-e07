@@ -1,0 +1,54 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "f2c877ecd375ea15b35401f198ed6595c154e0467fd8fbb0d7e1936886f01fa7",
+    "consistency.json": "c97c225cee1df3b58d98266a9588db365f88bd92c379b037e9b72694c15636ae",
+    "frame_frontier.json": "7fd07676a9750b2aaae4aea1d0a6acadfd21685123315208d6941b0450073fd2",
+    "hardening.json": "a0a4d637ef9065696cab7d940051c66ac3dd8fa5433c097e9ff4e61a22e230b1",
+    "initialization_proof.json": "81646191dae8903cc82fcb801c0525735f2b5e92a80a5081eabf860c55e81f31",
+    "p13_06_tests.json": "cd9406049036aac8fd0bf48ac7df6f82a3fb7c3b28446d38f7ac2d0fda61d4b4",
+    "replay.json": "f553fadcfab2964bea2040349be455a8c6180d1573578f82e5f063be9eccc7db"
+  },
+  "artifacts_identical": true,
+  "gate": "tools/test_phase13_frontier_v1.py",
+  "gate_sha256": "bfebf40ec1d7e253750429dd2af582c922115e00d02eb05594034a18a3076997",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "RESULT.json": "f2c877ecd375ea15b35401f198ed6595c154e0467fd8fbb0d7e1936886f01fa7",
+        "consistency.json": "c97c225cee1df3b58d98266a9588db365f88bd92c379b037e9b72694c15636ae",
+        "frame_frontier.json": "7fd07676a9750b2aaae4aea1d0a6acadfd21685123315208d6941b0450073fd2",
+        "hardening.json": "a0a4d637ef9065696cab7d940051c66ac3dd8fa5433c097e9ff4e61a22e230b1",
+        "initialization_proof.json": "81646191dae8903cc82fcb801c0525735f2b5e92a80a5081eabf860c55e81f31",
+        "p13_06_tests.json": "cd9406049036aac8fd0bf48ac7df6f82a3fb7c3b28446d38f7ac2d0fda61d4b4",
+        "replay.json": "f553fadcfab2964bea2040349be455a8c6180d1573578f82e5f063be9eccc7db"
+      },
+      "p13_06_tests_sha256": "cd9406049036aac8fd0bf48ac7df6f82a3fb7c3b28446d38f7ac2d0fda61d4b4",
+      "returncode": 0,
+      "stdout_bytes_raw": 1905,
+      "stdout_sha256_lf": "37d872e54aee556dd0ce8f592e2cd645374a344d7aec26e4fe0943747f19501e",
+      "stdout_sha256_raw": "7d081e08306296ce20bb640bff7bd2b5ac0186338e98492e9fc65b2237ac2360"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "RESULT.json": "f2c877ecd375ea15b35401f198ed6595c154e0467fd8fbb0d7e1936886f01fa7",
+        "consistency.json": "c97c225cee1df3b58d98266a9588db365f88bd92c379b037e9b72694c15636ae",
+        "frame_frontier.json": "7fd07676a9750b2aaae4aea1d0a6acadfd21685123315208d6941b0450073fd2",
+        "hardening.json": "a0a4d637ef9065696cab7d940051c66ac3dd8fa5433c097e9ff4e61a22e230b1",
+        "initialization_proof.json": "81646191dae8903cc82fcb801c0525735f2b5e92a80a5081eabf860c55e81f31",
+        "p13_06_tests.json": "cd9406049036aac8fd0bf48ac7df6f82a3fb7c3b28446d38f7ac2d0fda61d4b4",
+        "replay.json": "f553fadcfab2964bea2040349be455a8c6180d1573578f82e5f063be9eccc7db"
+      },
+      "p13_06_tests_sha256": "cd9406049036aac8fd0bf48ac7df6f82a3fb7c3b28446d38f7ac2d0fda61d4b4",
+      "returncode": 0,
+      "stdout_bytes_raw": 1905,
+      "stdout_sha256_lf": "37d872e54aee556dd0ce8f592e2cd645374a344d7aec26e4fe0943747f19501e",
+      "stdout_sha256_raw": "7d081e08306296ce20bb640bff7bd2b5ac0186338e98492e9fc65b2237ac2360"
+    }
+  },
+  "schema": "openrecomp-phase13-determinism-v1",
+  "stage": "P13-20",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true
+}

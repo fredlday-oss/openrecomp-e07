@@ -1,0 +1,39 @@
+PASS: build ['OK', 'OK']
+PASS: replay:deterministic 3c4eba5a9c8429733062df58164d1b50862ed394ef999d63aeb998ee49ee2cc0
+PASS: frontier:advanced-past-c0 0x80026ebc
+PASS: frontier:exact {"block_id": "blk_80026eb8", "block_index": 468385, "failure_count": 9, "function_entry": "0x80015f18", "function_id": "fn_80026ea8", "message": "unresolved indirect call", "site": "0x80026ebc", "site_classification": null, "source_value": "0x000000b0", "terminal_op": "jalr"}
+PASS: frontier:advanced-past-card 0x80026ebc
+PASS: frontier:no-c0-service-failure 0
+PASS: frontier:callback-mediated-on-path 1
+PASS: proof:deterministic
+PASS: proof:boundary-not-reached
+PASS: proof:fail-closed-frontier
+PASS: p13_07:not-required ChangeClearRCnt not reached
+PASS: p13_08:not-required Timer1 not reached
+PASS: p13_09:not-required I_STAT/I_MASK not reached
+PASS: consistency
+PASS: hardening:no-generic-fallback
+PASS: frontier:no-private-path absolute private paths absent
+PASS: frontier:no-payload-hex payload sample absent
+PASS: frontier:no-raw-words reconstructive fields absent
+PASS: frame:no-private-path absolute private paths absent
+PASS: frame:no-payload-hex payload sample absent
+PASS: frame:no-raw-words reconstructive fields absent
+OPENRECOMP_P13_06=PASS
+OPENRECOMP_P13_10=PASS
+OPENRECOMP_P13_11=PASS
+OPENRECOMP_P13_20=PASS
+OPENRECOMP_P13_30=PASS
+OPENRECOMP_P13_40=PASS
+OPENRECOMP_P13_50=PASS
+OPENRECOMP_P13_07=PASS_NOT_REQUIRED
+OPENRECOMP_P13_08=PASS_NOT_REQUIRED
+OPENRECOMP_P13_09=PASS_NOT_REQUIRED
+OPENRECOMP_PHASE13_CHANGECLEARRCNT_V1=NOT_REQUIRED
+OPENRECOMP_PHASE13_TIMER1_V1=NOT_REQUIRED
+OPENRECOMP_PHASE13_INTERRUPT_MMIO_V1=NOT_REQUIRED
+OPENRECOMP_PHASE13_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE13_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE13_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE13_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P13-06_CHECKS=21

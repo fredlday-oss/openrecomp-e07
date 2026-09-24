@@ -1,0 +1,32 @@
+{
+  "clauses": {
+    "callback_mediation": "PASS",
+    "callback_provenance": "PASS",
+    "changeclearrcnt": "NOT_REQUIRED",
+    "general_ps1_compatibility": "NOT_PROVEN",
+    "hardware_interrupt_delivery_required_now": "NO",
+    "hercules_first_frame_proof": "NOT_PROVEN",
+    "hercules_initialization_proof": "NOT_PROVEN",
+    "hercules_playability_proof": "NOT_PROVEN",
+    "interrupt_mmio": "NOT_REQUIRED",
+    "intrp_roundtrip": "PASS",
+    "sysdeqintrp": "PASS",
+    "sysenqintrp": "PASS",
+    "timer1": "NOT_REQUIRED"
+  },
+  "current_technical_frontier": "0x80026ebc",
+  "final_verdict": "PHASE13_EXECUTION_COMPLETE_INITIALIZATION_NOT_PROVEN_BOUNDED_C0_AND_CALLBACK",
+  "first_required_interrupt_source": "NOT_PROVEN",
+  "initialization_contract_changed": "NO",
+  "initialization_contract_source": ".openrecomp-phase12/src/p12_contracts_v1.py",
+  "initialization_proof_complete": "NO",
+  "next_frame_frontier": "BIOS B0 service chain (memory-card / pad driver region)",
+  "phase12_touched": "NO",
+  "phase13_execution": "COMPLETE",
+  "phase13_target_proof_complete": "NO",
+  "prior_recon_touched": "NO",
+  "private_fixture_bytes_committed": "NO",
+  "schema": "openrecomp-phase13-terminal-verdict-v1",
+  "stage": "P13-99",
+  "third_party_code_imported": "NO"
+}

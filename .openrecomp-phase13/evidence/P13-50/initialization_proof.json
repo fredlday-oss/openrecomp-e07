@@ -1,0 +1,33 @@
+{
+  "blocker": "BLOCKED_BY_SPECIFIC_MISSING_EVIDENCE",
+  "byte_identical": true,
+  "current_frontier": {
+    "block_id": "blk_80026eb8",
+    "block_index": 468385,
+    "failure_count": 9,
+    "function_entry": "0x80015f18",
+    "function_id": "fn_80026ea8",
+    "message": "unresolved indirect call",
+    "site": "0x80026ebc",
+    "site_classification": null,
+    "source_value": "0x000000b0",
+    "terminal_op": "jalr"
+  },
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "first_run_sha256": "3c4eba5a9c8429733062df58164d1b50862ed394ef999d63aeb998ee49ee2cc0",
+  "marker": "OPENRECOMP_PHASE13_HERCULES_INITIALIZATION_PROOF",
+  "milestone_b": "NOT_PROVEN",
+  "predicates": {
+    "INIT-B0-PATCH": true,
+    "INIT-BOUNDARY": false,
+    "INIT-DETERMINISTIC": true,
+    "INIT-NO-FABRICATION": true,
+    "INIT-NO-FAIL-CLOSED": false,
+    "INIT-PREDECESSOR": true
+  },
+  "result": "NOT_PROVEN",
+  "satisfied": false,
+  "schema": "openrecomp-phase13-initialization-proof-v1",
+  "second_run_sha256": "3c4eba5a9c8429733062df58164d1b50862ed394ef999d63aeb998ee49ee2cc0",
+  "stage": "P13-06"
+}

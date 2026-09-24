@@ -1,0 +1,51 @@
+PASS: surface:enq
+PASS: surface:deq
+PASS: surface:c0-index-0a-fail-closed
+PASS: semantics:ps1.bios.C0.02 openrecomp.mips.add.overflow.check,openrecomp.mips.lwl,openrecomp.mips.lwr,openrecomp.mips.mfhi,openrecomp.mips.mult,openrecomp.mips.swl,openrecomp.mips.swr,ps1.bios.A0.2b,ps1.bios.A0.3f,ps1.bios.A0.44,ps1.bios.A0.49,ps1.bios.B0.12,ps1.bios.B0.13,ps1.bios.B0.4a,ps1.bios.B0.4b,ps1.bios.B0.57,ps1.bios.B0.5b,ps1.bios.C0.02,ps1.bios.C0.03,ps1.bios.internal.pad_start_hook,ps1.bios.internal.pad_stop_hook
+PASS: semantics:ps1.bios.C0.03 openrecomp.mips.add.overflow.check,openrecomp.mips.lwl,openrecomp.mips.lwr,openrecomp.mips.mfhi,openrecomp.mips.mult,openrecomp.mips.swl,openrecomp.mips.swr,ps1.bios.A0.2b,ps1.bios.A0.3f,ps1.bios.A0.44,ps1.bios.A0.49,ps1.bios.B0.12,ps1.bios.B0.13,ps1.bios.B0.4a,ps1.bios.B0.4b,ps1.bios.B0.57,ps1.bios.B0.5b,ps1.bios.C0.02,ps1.bios.C0.03,ps1.bios.internal.pad_start_hook,ps1.bios.internal.pad_stop_hook
+PASS: semantics:ps1.bios.internal.pad_start_hook openrecomp.mips.add.overflow.check,openrecomp.mips.lwl,openrecomp.mips.lwr,openrecomp.mips.mfhi,openrecomp.mips.mult,openrecomp.mips.swl,openrecomp.mips.swr,ps1.bios.A0.2b,ps1.bios.A0.3f,ps1.bios.A0.44,ps1.bios.A0.49,ps1.bios.B0.12,ps1.bios.B0.13,ps1.bios.B0.4a,ps1.bios.B0.4b,ps1.bios.B0.57,ps1.bios.B0.5b,ps1.bios.C0.02,ps1.bios.C0.03,ps1.bios.internal.pad_start_hook,ps1.bios.internal.pad_stop_hook
+PASS: semantics:pad-hook-rule [{'op': 'jump_p13_pad_start_hook', 'flow': 'INDIRECT_JUMP', 'service': 'ps1.bios.internal.pad_start_hook', 'args': ['pad_hook_target'], 'result': None}]
+PASS: classify:c0-02-03-resolved [(2147573580, 'ps1.bios.C0.02'), (2147573596, 'ps1.bios.C0.03')]
+PASS: classify:c0-0a-fail-closed
+PASS: private:build ['OK', 'OK']
+PASS: private:deterministic 3c4eba5a9c8429733062df58164d1b50862ed394ef999d63aeb998ee49ee2cc0
+PASS: intrp:enq 1
+PASS: intrp:deq 1
+PASS: intrp:empty-deq-returns-zero 0x00000000
+PASS: intrp:registered 1
+PASS: intrp:head-priority-1 0x8002ffb4
+PASS: callback:func1-provenance 0x80015e98
+PASS: callback:func2-provenance 0x80015e30
+PASS: callback:pad-start-hook-mediated 1:0x1f001884
+PASS: callback:stop-hook-not-required 0
+PASS: fail-closed:no-service-failures 0
+PASS: observation:no-private-path absolute private paths absent
+PASS: observation:no-payload-hex payload sample absent
+PASS: observation:no-raw-words reconstructive fields absent
+PASS: dispatch:ids ['ps1.bios.A0.2b', 'ps1.bios.A0.3f', 'ps1.bios.A0.44', 'ps1.bios.A0.49', 'ps1.bios.B0.12', 'ps1.bios.B0.13', 'ps1.bios.B0.4a', 'ps1.bios.B0.4b', 'ps1.bios.B0.57', 'ps1.bios.B0.5b', 'ps1.bios.C0.02', 'ps1.bios.C0.03', 'ps1.bios.internal.pad_start_hook', 'ps1.bios.internal.pad_stop_hook']
+PASS: dispatch:build ['OK', 'OK']
+PASS: dispatch:enqueue 0
+PASS: dispatch:duplicate-rejected 13
+PASS: dispatch:dequeue 0:0x8002ffb4
+PASS: dispatch:empty-dequeue 0:0x00000000
+PASS: dispatch:bad-priority-rejected 13
+PASS: dispatch:null-struct-rejected 13
+PASS: dispatch:arity-rejected 13
+PASS: dispatch:failures 4
+PASS: dispatch:no-private-path absolute private paths absent
+PASS: dispatch:no-payload-hex payload sample absent
+PASS: dispatch:no-raw-words reconstructive fields absent
+OPENRECOMP_P13_01=PASS
+OPENRECOMP_P13_02=PASS
+OPENRECOMP_P13_03=PASS
+OPENRECOMP_P13_04=PASS
+OPENRECOMP_P13_05=PASS
+OPENRECOMP_PHASE13_SYSENQINTRP_V1=PASS
+OPENRECOMP_PHASE13_SYSDEQINTRP_V1=PASS
+OPENRECOMP_PHASE13_INTRP_ROUNDTRIP_V1=PASS
+OPENRECOMP_PHASE13_CALLBACK_MEDIATION_V1=PASS
+OPENRECOMP_PHASE13_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE13_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE13_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE13_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P13-01_CHECKS=37

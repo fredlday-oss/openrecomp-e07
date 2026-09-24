@@ -1,0 +1,116 @@
+{
+  "checks": [
+    {
+      "check": "build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:deterministic",
+      "detail": "3c4eba5a9c8429733062df58164d1b50862ed394ef999d63aeb998ee49ee2cc0",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:advanced-past-c0",
+      "detail": "0x80026ebc",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:exact",
+      "detail": "{\"block_id\": \"blk_80026eb8\", \"block_index\": 468385, \"failure_count\": 9, \"function_entry\": \"0x80015f18\", \"function_id\": \"fn_80026ea8\", \"message\": \"unresolved indirect call\", \"site\": \"0x80026ebc\", \"site_classification\": null, \"source_value\": \"0x000000b0\", \"terminal_op\": \"jalr\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:advanced-past-card",
+      "detail": "0x80026ebc",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-c0-service-failure",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:callback-mediated-on-path",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "proof:deterministic",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "proof:boundary-not-reached",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "proof:fail-closed-frontier",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p13_07:not-required",
+      "detail": "ChangeClearRCnt not reached",
+      "status": "PASS"
+    },
+    {
+      "check": "p13_08:not-required",
+      "detail": "Timer1 not reached",
+      "status": "PASS"
+    },
+    {
+      "check": "p13_09:not-required",
+      "detail": "I_STAT/I_MASK not reached",
+      "status": "PASS"
+    },
+    {
+      "check": "consistency",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "hardening:no-generic-fallback",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "frame:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "frame:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "frame:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "frontier",
+  "schema": "openrecomp-phase13-tests-v1",
+  "stage": "P13-06",
+  "summary": {
+    "failed": 0,
+    "passed": 21
+  }
+}

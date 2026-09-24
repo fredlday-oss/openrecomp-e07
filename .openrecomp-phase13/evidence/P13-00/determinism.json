@@ -1,0 +1,45 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "8f33d9c4700d2c4e75f46c3f353bf49555ea40756e1a4bddcb130ce251548e86",
+    "boundary.json": "39e061081c9214204fa8a4ce0d1633572c4367da6bd18df1811c95c6fc7ed029",
+    "p13_00_tests.json": "bc05f02b39c9c232a02083b6fb5b221897158dd6c7ba9763ee113290a389682d",
+    "proof_contracts.json": "86c67f422653c1d63a21f9400047b002d33f60516296cc8319bdbdedaa4f337b"
+  },
+  "artifacts_identical": true,
+  "gate": "tools/test_phase13_boundary_v1.py",
+  "gate_sha256": "93c0478b9639df6c1e05a8dc13418bbfe48c87247c2ad86d5669b0cb09016931",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "RESULT.json": "8f33d9c4700d2c4e75f46c3f353bf49555ea40756e1a4bddcb130ce251548e86",
+        "boundary.json": "39e061081c9214204fa8a4ce0d1633572c4367da6bd18df1811c95c6fc7ed029",
+        "p13_00_tests.json": "bc05f02b39c9c232a02083b6fb5b221897158dd6c7ba9763ee113290a389682d",
+        "proof_contracts.json": "86c67f422653c1d63a21f9400047b002d33f60516296cc8319bdbdedaa4f337b"
+      },
+      "p13_00_tests_sha256": "bc05f02b39c9c232a02083b6fb5b221897158dd6c7ba9763ee113290a389682d",
+      "returncode": 0,
+      "stdout_bytes_raw": 1013,
+      "stdout_sha256_lf": "78297152574974beffbcf43d456163d38484e4a364d841744f31cfd9f27fef11",
+      "stdout_sha256_raw": "c3d27867c8c9930ed4b71bedd9a4ab834947fb0db274988440cc364b8a0dfd8b"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "RESULT.json": "8f33d9c4700d2c4e75f46c3f353bf49555ea40756e1a4bddcb130ce251548e86",
+        "boundary.json": "39e061081c9214204fa8a4ce0d1633572c4367da6bd18df1811c95c6fc7ed029",
+        "p13_00_tests.json": "bc05f02b39c9c232a02083b6fb5b221897158dd6c7ba9763ee113290a389682d",
+        "proof_contracts.json": "86c67f422653c1d63a21f9400047b002d33f60516296cc8319bdbdedaa4f337b"
+      },
+      "p13_00_tests_sha256": "bc05f02b39c9c232a02083b6fb5b221897158dd6c7ba9763ee113290a389682d",
+      "returncode": 0,
+      "stdout_bytes_raw": 1013,
+      "stdout_sha256_lf": "78297152574974beffbcf43d456163d38484e4a364d841744f31cfd9f27fef11",
+      "stdout_sha256_raw": "c3d27867c8c9930ed4b71bedd9a4ab834947fb0db274988440cc364b8a0dfd8b"
+    }
+  },
+  "schema": "openrecomp-phase13-determinism-v1",
+  "stage": "P13-00",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true
+}

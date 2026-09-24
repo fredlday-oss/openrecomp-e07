@@ -1,0 +1,68 @@
+{
+  "callback": {
+    "start_hook_calls": "1",
+    "start_hook_last_target": "0x1f001884",
+    "stop_hook_calls": "0"
+  },
+  "callback_mediation": {
+    "field": "pad_hook_target",
+    "general_permissive_indirect": false,
+    "hooks": [
+      {
+        "offset": "0x884",
+        "op": "jump_p13_pad_start_hook",
+        "present": true,
+        "service_id": "ps1.bios.internal.pad_start_hook",
+        "site": "0x80015f74",
+        "slot": "0x8002ed84",
+        "synthetic_target": "0x1f001884"
+      },
+      {
+        "offset": "0x894",
+        "op": "jump_p13_pad_stop_hook",
+        "present": false,
+        "service_id": "ps1.bios.internal.pad_stop_hook",
+        "site": "0x80015f88",
+        "slot": "0x8002ed88",
+        "synthetic_target": "0x1f001894"
+      }
+    ],
+    "mediation": "SYNTHETIC_CONTROLLED_TARGET",
+    "schema": "openrecomp-phase13-pad-hook-mediation-v1",
+    "third_party_code_imported": "NO",
+    "version": "1.0.0"
+  },
+  "card": {
+    "init_calls": "1",
+    "pad_enable": "0",
+    "start_calls": "1",
+    "started": "1",
+    "stop_calls": "0"
+  },
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "frontier": "0x80026ebc",
+  "intrp": {
+    "deq_calls": "1",
+    "deq_result": "0x00000000",
+    "enq_calls": "1",
+    "func1": "0x80015e98",
+    "func2": "0x80015e30",
+    "head_0": "0x00000000",
+    "head_1": "0x8002ffb4",
+    "head_2": "0x00000000",
+    "head_3": "0x00000000",
+    "last_priority": "1",
+    "last_struct": "0x8002ffb4",
+    "registered": "1"
+  },
+  "pad": {
+    "buf1": "0x80038008",
+    "buf2": "0x8003802c",
+    "enable": "1",
+    "siz1": "34",
+    "siz2": "34",
+    "started": "1"
+  },
+  "schema": "openrecomp-phase13-c0-observation-v1",
+  "stage": "P13-01"
+}
