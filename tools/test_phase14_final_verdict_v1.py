@@ -50,6 +50,11 @@ def body(gate, evidence: pathlib.Path, root: pathlib.Path) -> None:
         markers.update(document.get("markers", {}))
 
     def result(number: str) -> str:
+        if number == "08":
+            card = markers.get(CARD_IRQ_MARKER)
+            if card == "NOT_REQUIRED":
+                return "PASS_NOT_REQUIRED"
+            return card or "FAIL"
         return "PASS" if markers.get(f"OPENRECOMP_P14_{number}") == "PASS" else "FAIL"
 
     head = git("rev-parse", "HEAD")

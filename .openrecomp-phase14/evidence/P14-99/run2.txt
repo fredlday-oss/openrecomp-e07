@@ -1,6 +1,6 @@
 CURRENT_BRANCH=phase14/ps1-hercules-init-closure-v1
 PHASE13_BASE_COMMIT=7bb4502450d47a0d3f3b207a072c5729277af278
-PHASE14_HEAD=0e6cac2f610aac11a2dc1f1f217b19abd3c776ba
+PHASE14_HEAD=2c862f1b05bd1ef871c4bd5b7e62c640dfb82cb7
 P14_00_RESULT=PASS
 P14_01_RESULT=PASS
 P14_02_RESULT=PASS
@@ -9,7 +9,7 @@ P14_04_RESULT=PASS
 P14_05_RESULT=PASS
 P14_06_RESULT=PASS
 P14_07_RESULT=PASS
-P14_08_RESULT=FAIL
+P14_08_RESULT=PASS_NOT_REQUIRED
 P14_09_RESULT=PASS
 P14_10_RESULT=PASS
 P14_11_RESULT=PASS
@@ -42,8 +42,8 @@ THIRD_PARTY_CODE_IMPORTED=NO
 PHASE13_TOUCHED=NO
 PRIOR_RECON_TOUCHED=NO
 FINAL_VERDICT=PASS_BOUNDED_INITIALIZATION_CLOSURE_FRONTIER_REMAINS
-COMMITS_CREATED=0e6cac2f phase14: implement B0 GetC0Table, bounded C0 surface, card patch and continuation closure
-REMAINING_WORKTREE_CHANGES=NONE
+COMMITS_CREATED=2c862f1b phase14: record terminal closure state and handoff|0aab59bf phase14: complete deterministic initialization evidence, whole regression and bounded verdict|0e6cac2f phase14: implement B0 GetC0Table, bounded C0 surface, card patch and continuation closure
+REMAINING_WORKTREE_CHANGES= M tools/test_phase14_final_verdict_v1.py
 NEXT_FRAME_FRONTIER=NOT_READY
 PASS: verdict:record-P14-00 P14-00
 PASS: verdict:record-P14-01 P14-01

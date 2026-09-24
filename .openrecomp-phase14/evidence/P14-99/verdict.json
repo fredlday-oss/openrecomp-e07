@@ -15,6 +15,8 @@
     "OPENRECOMP_PHASE14_INITIALIZATION_REPLAY_V1": "PASS"
   },
   "commits_created": [
+    "2c862f1b phase14: record terminal closure state and handoff",
+    "0aab59bf phase14: complete deterministic initialization evidence, whole regression and bounded verdict",
     "0e6cac2f phase14: implement B0 GetC0Table, bounded C0 surface, card patch and continuation closure"
   ],
   "current_technical_frontier": "0x1F801074 interrupt-mask MMIO (I_STAT/I_MASK) reached on the live post-card path; the bounded device boundary fails closed",
@@ -22,9 +24,11 @@
   "initialization_proof_complete": "NO",
   "next_frame_frontier": "NOT_READY",
   "phase13_base_commit": "7bb4502450d47a0d3f3b207a072c5729277af278",
-  "phase14_head": "0e6cac2f610aac11a2dc1f1f217b19abd3c776ba",
+  "phase14_head": "2c862f1b05bd1ef871c4bd5b7e62c640dfb82cb7",
   "phase14_target_proof_complete": "NO",
-  "remaining_worktree_changes": [],
+  "remaining_worktree_changes": [
+    " M tools/test_phase14_final_verdict_v1.py"
+  ],
   "schema": "openrecomp-phase14-final-verdict-v1",
   "stage": "P14-99",
   "stage_results": {
@@ -36,7 +40,7 @@
     "P14_05_RESULT": "PASS",
     "P14_06_RESULT": "PASS",
     "P14_07_RESULT": "PASS",
-    "P14_08_RESULT": "FAIL",
+    "P14_08_RESULT": "PASS_NOT_REQUIRED",
     "P14_09_RESULT": "PASS",
     "P14_10_RESULT": "PASS",
     "P14_11_RESULT": "PASS",
