@@ -25,6 +25,18 @@ blocker is established.
 - LAST_COMPLETED_STAGE: P14-99
 - NEXT_STAGE: NONE
 
+## Terminal closure
+
+- PHASE14_HEAD: `0aab59bf9688c5ee6abe982c2bfa57e7a52d10ee` (branch
+  `phase14/ps1-hercules-init-closure-v1`).
+- Commits: `0e6cac2f` (implementation, control plane, gates), `0aab59bf`
+  (deterministic evidence, whole regression, bounded verdict).
+- FINAL_VERDICT: `PASS_BOUNDED_INITIALIZATION_CLOSURE_FRONTIER_REMAINS`.
+- CURRENT_TECHNICAL_FRONTIER: `0x1F801074` (I_STAT/I_MASK interrupt-mask MMIO
+  memory-denial channel).
+- INITIALIZATION_PROOF_COMPLETE: NO (inherited contract unmet:
+  `INIT-BOUNDARY` true, `INIT-NO-FAIL-CLOSED` false).
+
 ## Proof markers
 
 - `OPENRECOMP_PHASE14_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN`

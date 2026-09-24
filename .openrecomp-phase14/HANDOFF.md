@@ -12,12 +12,13 @@
 ## Exact next action
 
 None. Phase 14 is complete with the bounded terminal verdict
-`PASS_BOUNDED_INITIALIZATION_CLOSURE_FRONTIER_REMAINS`. The initialization proof
-remains `NOT_PROVEN` at the exact technical frontier `0x1F801074` (I_STAT/I_MASK
-interrupt-mask MMIO), which the frozen Phase-9 device boundary fails closed. The
-next work would implement a bounded, deterministic interrupt-mask MMIO model
-(and root-counter/GPU-status wait semantics) then continue toward the `A0:0x43`
-`Exec` / TITLE-overlay transition.
+`PASS_BOUNDED_INITIALIZATION_CLOSURE_FRONTIER_REMAINS`. Terminal HEAD:
+`0aab59bf9688c5ee6abe982c2bfa57e7a52d10ee` (commits `0e6cac2f`, `0aab59bf`).
+The initialization proof remains `NOT_PROVEN` at the exact technical frontier
+`0x1F801074` (I_STAT/I_MASK interrupt-mask MMIO), which the frozen Phase-9 device
+boundary fails closed. The next work would implement a bounded, deterministic
+interrupt-mask MMIO model (and root-counter/GPU-status wait semantics) then
+continue toward the `A0:0x43` `Exec` / TITLE-overlay transition.
 
 ## Proven Phase-14 results
 
