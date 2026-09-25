@@ -1,0 +1,54 @@
+PASS: integrity:phase16-sources OPENRECOMP_PHASE16_SOURCE_INTEGRITY=PASS entries=28
+PASS: disc-present authentic disc image present
+PASS: analysis-ok private analysis produced
+PASS: build-set-files build set has all 4 C source units
+PASS: run1-build-ok run1 built OK
+PASS: run2-build-ok run2 built OK
+PASS: run1-rc-zero run1 returncode 0 (got 0)
+PASS: run2-rc-zero run2 returncode 0 (got 0)
+PASS: run1-stderr-empty run1 stderr empty
+PASS: run2-stderr-empty run2 stderr empty
+PASS: dual-run-stdout-identical dual runs byte-identical
+PASS: exec:calls Exec calls == 1 (got 1)
+PASS: exec:struct-addr Exec struct addr == 0x80034e80
+PASS: exec:pc0 Exec pc0 == 0x800380a0
+PASS: exec:sp-addr Exec sp == 0x801ffff0
+PASS: exec:payload-verified authentic TITLE overlay payload SHA-256 verified
+PASS: exec:first-word first word == 0x3c028008
+PASS: transition:dispatched transition dispatched == 1 (got 1)
+PASS: transition:target transition target == 0x800380a0 (got 0x800380a0)
+PASS: transition:sp transition sp == 0x801ffff0 (got 0x801ffff0)
+PASS: transition:entry-called title entry called == 1 (got 1)
+PASS: transition:initial-gp title gp == 0x8007a3e0 (got 0x8007a3e0)
+PASS: transition:heap-start heap start == 0x8007d8d0 (got 0x8007d8d0)
+PASS: transition:heap-size heap size == 0x7ff7a738 (got 0x7ff7a738)
+PASS: transition:cfg-param1 cfg param1 (heap start in RAM) == 0x8007d8d0 (got 0x8007d8d0)
+PASS: transition:cfg-param2 cfg param2 (heap size in RAM) == 0x7ff7a738 (got 0x7ff7a738)
+PASS: transition:main-reached title main reached == 1 (got 1)
+PASS: transition:main-target title main target == 0x8004ff54 (got 0x8004ff54)
+PASS: transition:failed-zero failed == 0 (got 0)
+PASS: transition:error-empty error empty (got )
+PASS: replay:executed title replay executed == 1 (got 1)
+PASS: replay:frontier-pc replay frontier PC == 0x80050110 (got 0x80050110)
+PASS: replay:blocks-executed replay blocks >= 5 (got 6)
+PASS: replay:alloc-calls title alloc calls == 0 (got 0)
+PASS: replay:memset-calls title memset calls == 0 (got 0)
+PASS: frontier:exact-pc frontier PC == 0x80050110 (got 0x80050110)
+PASS: frontier:block-count frontier blocks >= 5 (got 6)
+PASS: frontier:replay-success title replay successfully executed to frontier
+PASS: frontier:no-overflow nonram overflow == 0 (got 0)
+PASS: cd-read-calls CD read calls == 2 (got 2)
+PASS: cd-sectors CD sectors == 146 (got 146)
+PASS: cd-bytes CD bytes == 299008 (got 299008)
+PASS: cd-failures-zero CD read failures == 0
+PASS: frontier-closure:no-private-path absolute private paths absent
+PASS: frontier-closure:no-payload-hex no payload supplied
+PASS: frontier-closure:no-raw-words reconstructive fields absent
+OPENRECOMP_PHASE16_FRONTIER_CLOSURE_V1=PASS
+OPENRECOMP_P16_08=PASS
+OPENRECOMP_PHASE16_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE16_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE16_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE16_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+FIRST_FRAME_READY=NO
+P16-08_CHECKS=46

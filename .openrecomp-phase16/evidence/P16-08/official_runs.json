@@ -1,0 +1,81 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "845aa14445c7b0ddc20b27d8170f14bad4de9ad75c2fd009eac1bde8df0e041f",
+    "frontier_closure.json": "b952e18afcd96b895a87525a729df70a3d8b8876407b979c9a0c8cedf15e2bb2",
+    "p16_08_tests.json": "f6a29bbe516b7df5e6639b5a2846eb5013522e8edcaf48007b66fc1739ce3605"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "845aa14445c7b0ddc20b27d8170f14bad4de9ad75c2fd009eac1bde8df0e041f",
+        "frontier_closure.json": "b952e18afcd96b895a87525a729df70a3d8b8876407b979c9a0c8cedf15e2bb2",
+        "p16_08_tests.json": "f6a29bbe516b7df5e6639b5a2846eb5013522e8edcaf48007b66fc1739ce3605"
+      },
+      "command": [
+        "python",
+        "tools/test_phase16_frontier_closure_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase16/evidence/P16-08"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_PHASE16_FRONTIER_CLOSURE_V1=PASS",
+        "OPENRECOMP_P16_08=PASS",
+        "OPENRECOMP_PHASE16_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p16_08_tests_sha256": "f6a29bbe516b7df5e6639b5a2846eb5013522e8edcaf48007b66fc1739ce3605",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 3032,
+      "stdout_bytes_lf": 2978,
+      "stdout_sha256_lf": "55549059ab24690706229a927f1eac395be1467a54dec56eace61badaf283073",
+      "stdout_sha256_raw": "20a73873fa8936becfc97945a6afaf60b32a29c429bb8e265075007c9ed88f50",
+      "tests_json_present": true
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "845aa14445c7b0ddc20b27d8170f14bad4de9ad75c2fd009eac1bde8df0e041f",
+        "frontier_closure.json": "b952e18afcd96b895a87525a729df70a3d8b8876407b979c9a0c8cedf15e2bb2",
+        "p16_08_tests.json": "f6a29bbe516b7df5e6639b5a2846eb5013522e8edcaf48007b66fc1739ce3605"
+      },
+      "command": [
+        "python",
+        "tools/test_phase16_frontier_closure_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase16/evidence/P16-08"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_PHASE16_FRONTIER_CLOSURE_V1=PASS",
+        "OPENRECOMP_P16_08=PASS",
+        "OPENRECOMP_PHASE16_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p16_08_tests_sha256": "f6a29bbe516b7df5e6639b5a2846eb5013522e8edcaf48007b66fc1739ce3605",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 3032,
+      "stdout_bytes_lf": 2978,
+      "stdout_sha256_lf": "55549059ab24690706229a927f1eac395be1467a54dec56eace61badaf283073",
+      "stdout_sha256_raw": "20a73873fa8936becfc97945a6afaf60b32a29c429bb8e265075007c9ed88f50",
+      "tests_json_present": true
+    }
+  ],
+  "schema": "openrecomp-phase16-official-runs-v1",
+  "stage": "P16-08",
+  "stderr_empty_both": true,
+  "tests_json_present_both": true
+}
