@@ -1,0 +1,124 @@
+#!/usr/bin/env python3
+"""OpenRecomp Phase-16 gate helpers V1 (deterministic, fail-closed)."""
+
+from __future__ import annotations
+
+import json
+import pathlib
+import subprocess
+import sys
+from typing import Any
+
+from p16_contracts_v1 import (
+    FRAME_MARKER,
+    GENERAL_MARKER,
+    INITIALIZATION_MARKER,
+    PLAYABILITY_MARKER,
+)
+
+DEFAULT_CLAIM_MARKERS = {
+    INITIALIZATION_MARKER: "NOT_PROVEN",
+    FRAME_MARKER: "NOT_PROVEN",
+    PLAYABILITY_MARKER: "NOT_PROVEN",
+    GENERAL_MARKER: "NOT_PROVEN",
+}
+
+
+class Gate:
+    def __init__(self, stage: str) -> None:
+        self.stage = stage
+        self.results: list[dict[str, str]] = []
+        self.markers: list[str] = []
+
+    def check(self, label: str, condition: bool, detail: str = "") -> None:
+        self.results.append({
+            "check": label,
+            "status": "PASS" if condition else "FAIL",
+            "detail": detail,
+        })
+        if not condition:
+            raise AssertionError(f"{label}: condition failed ({detail})")
+
+    def mark(self, marker: str, value: str = "PASS") -> None:
+        self.markers.append(f"{marker}={value}")
+
+    def tests_document(self, name: str) -> dict[str, Any]:
+        return {
+            "schema": "openrecomp-phase16-tests-v1",
+            "stage": self.stage,
+            "checks": self.results,
+            "summary": {
+                "passed": sum(item["status"] == "PASS" for item in self.results),
+                "failed": sum(item["status"] == "FAIL" for item in self.results),
+            },
+            "name": name,
+        }
+
+    def emit(self) -> None:
+        for item in self.results:
+            detail = f" {item['detail']}" if item["detail"] else ""
+            print(f"{item['status']}: {item['check']}{detail}")
+        for marker in self.markers:
+            print(marker)
+        print(f"{self.stage}_CHECKS={len(self.results)}")
+
+
+def write_json(path: pathlib.Path, document: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(document, indent=2, sort_keys=True) + "\n",
+                    encoding="utf-8", newline="\n")
+
+
+def assert_public_safe(gate: Gate, label: str, document: dict[str, Any],
+                       payload: bytes) -> None:
+    text = json.dumps(document, sort_keys=True)
+    sample = payload[:64]
+    gate.check(f"{label}:no-private-path", ":\\" not in text and "fixtures/" not in text,
+               "absolute private paths absent")
+    if sample:
+        gate.check(f"{label}:no-payload-hex", sample.hex() not in text.lower(),
+                   "payload sample absent")
+    else:
+        gate.check(f"{label}:no-payload-hex", True, "no payload supplied")
+    gate.check(f"{label}:no-raw-words",
+               all(term not in text for term in ("raw_instruction", "instruction_word",
+                                                 "payload_bytes", "bios_bytes")),
+               "reconstructive fields absent")
+
+
+def run_stage(stage: str, body, default_evidence: str):
+    import argparse
+    import pathlib as _pathlib
+
+    root = _pathlib.Path(__file__).resolve().parents[2]
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--evidence-dir", default=default_evidence)
+    options = parser.parse_args()
+    evidence = (root / options.evidence_dir).resolve()
+    gate = Gate(stage)
+    try:
+        integrity = subprocess.run(
+            [sys.executable, str(root / ".openrecomp-phase16" / "src"
+                                 / "p16_source_manifest_v1.py")],
+            cwd=str(root), capture_output=True, text=True,
+        )
+        gate.check(
+            "integrity:phase16-sources",
+            integrity.returncode == 0 and "OPENRECOMP_PHASE16_SOURCE_INTEGRITY=PASS" in integrity.stdout,
+            integrity.stdout.strip() or integrity.stderr.strip(),
+        )
+        body(gate, evidence, root)
+    except AssertionError as err:
+        gate.emit()
+        sys.stderr.write(f"{stage} failed: {err}\n")
+        return 1
+    except Exception as err:
+        gate.check(f"{stage}:unhandled-exception", False, f"{type(err).__name__}: {err}")
+        gate.emit()
+        sys.stderr.write(f"{stage} exception: {err}\n")
+        return 2
+
+    write_json(evidence / f"{stage.lower().replace('-', '_')}_tests.json",
+               gate.tests_document(f"{stage} Test Results"))
+    gate.emit()
+    return 0

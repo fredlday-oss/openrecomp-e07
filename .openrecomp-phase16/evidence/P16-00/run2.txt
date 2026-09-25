@@ -1,0 +1,30 @@
+PASS: integrity:phase16-sources OPENRECOMP_PHASE16_SOURCE_INTEGRITY=PASS entries=7
+PASS: phase15:boundary-frozen frozen commit=5cec005d45e8361e5ea132731661b13a72a5ed13
+PASS: phase15:sources-intact 36 Phase-15 source blobs verified
+PASS: control:CONTROL_POLICY.md CONTROL_POLICY.md
+PASS: control:SCOPE.md SCOPE.md
+PASS: control:STAGE_QUEUE.md STAGE_QUEUE.md
+PASS: control:EVIDENCE_SCHEMA.md EVIDENCE_SCHEMA.md
+PASS: control:FIXTURE_POLICY.md FIXTURE_POLICY.md
+PASS: control:STATE.md STATE.md
+PASS: control:HANDOFF.md HANDOFF.md
+PASS: dir:src src
+PASS: dir:runtime runtime
+PASS: dir:evidence evidence
+PASS: dir:build build
+PASS: dir:scratch scratch
+PASS: fixture:bin-exists Disney's Hercules Action Game (USA).bin
+PASS: fixture:cue-exists Disney's Hercules Action Game (USA).cue
+PASS: fixture:slus-exists SLUS_005.29
+PASS: fixture:bin-hash 2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365
+PASS: fixture:cue-hash beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2
+PASS: fixture:slus-hash c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f
+PASS: bootstrap:no-private-path absolute private paths absent
+PASS: bootstrap:no-payload-hex no payload supplied
+PASS: bootstrap:no-raw-words reconstructive fields absent
+OPENRECOMP_P16_00=PASS
+OPENRECOMP_PHASE16_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE16_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE16_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE16_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P16-00_CHECKS=24
