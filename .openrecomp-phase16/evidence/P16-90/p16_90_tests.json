@@ -1,0 +1,91 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase16-sources",
+      "detail": "OPENRECOMP_PHASE16_SOURCE_INTEGRITY=PASS entries=29",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p16-source-integrity",
+      "detail": "{\"fail_lines\": [], \"name\": \"p16-source-integrity\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"8d2bbbd1713c9290736f08a437ee644e08a2ec6719da9869710f9dad33ae7edb\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p15-source-integrity",
+      "detail": "{\"fail_lines\": [], \"name\": \"p15-source-integrity\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"bac69606c00d1eb9feddc768946a225ee556ef60eb547a6ca98f4002113f6b29\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p15-frozen-boundary",
+      "detail": "{\"fail_lines\": [], \"name\": \"p15-frozen-boundary\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"e0d8fafe8345068ddabe473e1eed40ba7f61b53727e80eed42163be721e07294\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p16-bootstrap",
+      "detail": "{\"fail_lines\": [], \"name\": \"p16-bootstrap\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"906c5c6477caafbfab86944eaab7f59079cdb3a0113dac33fc91dff28cc675c3\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p16-exec-contract",
+      "detail": "{\"fail_lines\": [], \"name\": \"p16-exec-contract\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"0f62dd138c53526836d7ab72d76eb363bea7da0026915d4f71cde86ea7b953d7\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p16-title-mapping",
+      "detail": "{\"fail_lines\": [], \"name\": \"p16-title-mapping\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"80ee26af7cc57ad1e57964ee18c8dbd209832862f42549f2b5635f567f7b72bd\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p16-cdrom-source",
+      "detail": "{\"fail_lines\": [], \"name\": \"p16-cdrom-source\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"2818ef22aa3d4f8714bbd07f4e33eac18ee6cecc4b75923a6b99933785009c73\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p16-cdrom-production",
+      "detail": "{\"fail_lines\": [], \"name\": \"p16-cdrom-production\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"4a9b882b79be38a9dd0e8404600c52b5c8c5a3cdd2ea59155ec862149ef2820e\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p16-title-load-causality",
+      "detail": "{\"fail_lines\": [], \"name\": \"p16-title-load-causality\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"c342cde8e4745c3ecbd34dd7f7f22c5690673e1368f4793af20a6ab7411d0eae\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p16-title-exec-transition",
+      "detail": "{\"fail_lines\": [], \"name\": \"p16-title-exec-transition\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"4c00ccd9425db7ba03bd8392a6699c8a5e214427afa7bc2052ac49b36713e149\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p16-title-replay",
+      "detail": "{\"fail_lines\": [], \"name\": \"p16-title-replay\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"3b13ff01320b09b01193be6ee19608daa45842020f78a3039dcd854037b84229\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p16-frontier-closure",
+      "detail": "{\"fail_lines\": [], \"name\": \"p16-frontier-closure\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"faf49491b515d439ccd1ddf896ab4731b19851fadcb189b52acc8d70fd77bd41\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P16-90 Test Results",
+  "schema": "openrecomp-phase16-tests-v1",
+  "stage": "P16-90",
+  "summary": {
+    "failed": 0,
+    "passed": 16
+  }
+}

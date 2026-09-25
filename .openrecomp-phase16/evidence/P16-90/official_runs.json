@@ -1,0 +1,79 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "d7505e9a8b66f6612e42904710183376a1db00adb4c9c0e1162212e87f2461cc",
+    "p16_90_tests.json": "607d5c4041e5a7124b6b9df04c199efafe40ede840cd529f336cf1e01e214efa",
+    "regression.json": "3e273db350c173bfe677c14b6d572f844f1eb521018c723b467a7186fadd8bf2"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "d7505e9a8b66f6612e42904710183376a1db00adb4c9c0e1162212e87f2461cc",
+        "p16_90_tests.json": "607d5c4041e5a7124b6b9df04c199efafe40ede840cd529f336cf1e01e214efa",
+        "regression.json": "3e273db350c173bfe677c14b6d572f844f1eb521018c723b467a7186fadd8bf2"
+      },
+      "command": [
+        "python",
+        "tools/test_phase16_regression_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase16/evidence/P16-90"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P16_90=PASS",
+        "OPENRECOMP_PHASE16_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p16_90_tests_sha256": "607d5c4041e5a7124b6b9df04c199efafe40ede840cd529f336cf1e01e214efa",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 3346,
+      "stdout_bytes_lf": 3321,
+      "stdout_sha256_lf": "e60fa109e11bb0e799d56faff1c855f0ef5c117ac31b8fec9353c318fd16400a",
+      "stdout_sha256_raw": "8deb0e40f98efb34bb8570cdadc4c80aebc60cb428cd385cf52e89b286127dca",
+      "tests_json_present": true
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "d7505e9a8b66f6612e42904710183376a1db00adb4c9c0e1162212e87f2461cc",
+        "p16_90_tests.json": "607d5c4041e5a7124b6b9df04c199efafe40ede840cd529f336cf1e01e214efa",
+        "regression.json": "3e273db350c173bfe677c14b6d572f844f1eb521018c723b467a7186fadd8bf2"
+      },
+      "command": [
+        "python",
+        "tools/test_phase16_regression_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase16/evidence/P16-90"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P16_90=PASS",
+        "OPENRECOMP_PHASE16_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p16_90_tests_sha256": "607d5c4041e5a7124b6b9df04c199efafe40ede840cd529f336cf1e01e214efa",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 3346,
+      "stdout_bytes_lf": 3321,
+      "stdout_sha256_lf": "e60fa109e11bb0e799d56faff1c855f0ef5c117ac31b8fec9353c318fd16400a",
+      "stdout_sha256_raw": "8deb0e40f98efb34bb8570cdadc4c80aebc60cb428cd385cf52e89b286127dca",
+      "tests_json_present": true
+    }
+  ],
+  "schema": "openrecomp-phase16-official-runs-v1",
+  "stage": "P16-90",
+  "stderr_empty_both": true,
+  "tests_json_present_both": true
+}
