@@ -115,6 +115,32 @@ def assert_public_safe(gate: Gate, label: str, document: dict[str, Any],
     gate.check(f"{label}:no-private-path",
                not forbidden and ":\\" not in text and "fixtures/" not in text,
                "absolute private paths absent")
+    # Production path must use the same fail-closed helper as the test suite.
+    # Walk every string value in the document and reject any private absolute path.
+    def _walk(obj: Any) -> list[str]:
+        found: list[str] = []
+        if isinstance(obj, str):
+            found.append(obj)
+        elif isinstance(obj, dict):
+            for value in obj.values():
+                found.extend(_walk(value))
+        elif isinstance(obj, list):
+            for item in obj:
+                found.extend(_walk(item))
+        return found
+
+    private_hits: list[str] = []
+    for value in _walk(document):
+        rejected, matched = reject_private_path(value)
+        if rejected:
+            private_hits.append(value)
+    gate.check(f"{label}:reject-private-paths", not private_hits,
+               json.dumps(private_hits, sort_keys=True) if private_hits else "no private paths in values")
+    # Positive control: a normal relative safe path must be accepted by the
+    # production entry point (and not collide with the forbidden list).
+    positive_ok, _ = reject_private_path("relative/synthetic/control.bin")
+    gate.check(f"{label}:positive-safe-relative-path", not positive_ok,
+               "ordinary public-safe relative path accepted")
     if payload:
         sample = payload[:64]
         gate.check(f"{label}:no-payload-hex", sample.hex() not in text.lower(),

@@ -16,7 +16,7 @@ for extra in ("", ".openrecomp-phase17/src"):
 
 import p17_contracts_v1 as contract
 import p17_fixture_verification_v1 as fixture
-from p17_gate_v1 import assert_public_safe, reject_private_path, run_stage, write_json
+from p17_gate_v1 import assert_public_safe, Gate, reject_private_path, run_stage, write_json
 import p17_frozen_phase16_boundary_v1 as p16_boundary
 import p17_frozen_phase16_integrity_v1 as p16_integrity
 
@@ -123,15 +123,28 @@ FORBIDDEN_PRIVATE_PATHS = (
 
 
 def negative_private_path_safety() -> dict[str, object]:
-    """Directly assert rejection for each exact private-path case."""
+    """Assert rejection for each exact private-path case through assert_public_safe."""
     results: dict[str, object] = {}
     all_rejected = True
     for path in FORBIDDEN_PRIVATE_PATHS:
-        rejected, matched = reject_private_path(path)
-        results[path] = {"rejected": rejected, "matched": matched}
-        if not rejected:
+        gate = Gate("private-path")
+        try:
+            assert_public_safe(gate, "private-path", {"probe_path": path})
+            results[path] = {"rejected": False}
             all_rejected = False
+        except AssertionError:
+            results[path] = {"rejected": True}
     return {"all_rejected": all_rejected, "cases": results}
+
+
+def positive_safe_relative_path() -> bool:
+    """Ordinary public-safe relative path must pass through assert_public_safe."""
+    gate = Gate("positive-safe")
+    try:
+        assert_public_safe(gate, "positive-safe", {"probe_path": "relative/synthetic/control.bin"})
+        return True
+    except AssertionError:
+        return False
 
 
 def negative_manifest_completeness() -> dict[str, object]:
@@ -300,6 +313,9 @@ def body(gate, evidence: pathlib.Path, root: pathlib.Path) -> None:
     private_results = negative_private_path_safety()
     gate.check("negative:private-path-safety", private_results["all_rejected"],
                json.dumps(private_results["cases"], sort_keys=True))
+
+    gate.check("positive:safe-relative-path", positive_safe_relative_path(),
+               "ordinary public-safe relative path accepted")
 
     manifest_results = negative_manifest_completeness()
     gate.check("negative:manifest-completeness", manifest_results["all_rejected"],

@@ -25,11 +25,14 @@ PASS: title-payload:not-decoded NOT_DECODED
 PASS: negative:fixture-absent missing fixture rejected
 PASS: negative:fixture-digest-mismatch wrong digest rejected
 PASS: negative:fixture-malformed-metadata malformed metadata rejected
-PASS: negative:private-path-safety {"/Users/example/private/location": {"matched": "/Users/example/private/location", "rejected": true}, "/home/fred/private/location": {"matched": "/home/fred/private/location", "rejected": true}, "/tmp/private-fixture": {"matched": "/tmp/private-fixture", "rejected": true}, "C:\\private\\fixture": {"matched": "C:\\private\\fixture", "rejected": true}, "D:\\OpenRecomp\\fixtures\\private": {"matched": "D:\\OpenRecomp\\fixtures\\private", "rejected": true}, "\\\\server\\share\\private": {"matched": "\\\\server\\share\\private", "rejected": true}}
+PASS: negative:private-path-safety {"/Users/example/private/location": {"rejected": true}, "/home/fred/private/location": {"rejected": true}, "/tmp/private-fixture": {"rejected": true}, "C:\\private\\fixture": {"rejected": true}, "D:\\OpenRecomp\\fixtures\\private": {"rejected": true}, "\\\\server\\share\\private": {"rejected": true}}
+PASS: positive:safe-relative-path ordinary public-safe relative path accepted
 PASS: negative:manifest-completeness [{"name": "empty-manifest", "rejected": true}, {"name": "malformed-manifest", "rejected": true}, {"name": "one-valid-entry", "rejected": true}, {"name": "missing-middle-entry", "rejected": true}, {"name": "unexpected-extra-entry", "rejected": true}]
 PASS: negative:nondeterminism-rejected OPENRECOMP_P17_00_NONDETERMINISM_TEST=PASS
 PASS: negative:temp-repository OPENRECOMP_P17_00_TEMP_REPOSITORY_TEST=PASS
 PASS: bootstrap:no-private-path absolute private paths absent
+PASS: bootstrap:reject-private-paths no private paths in values
+PASS: bootstrap:positive-safe-relative-path ordinary public-safe relative path accepted
 PASS: bootstrap:no-payload-hex no payload supplied
 PASS: bootstrap:no-raw-words reconstructive fields absent
 OPENRECOMP_P17_00=PASS
@@ -38,4 +41,4 @@ OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN
 OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
 OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 FIRST_FRAME_READY=NO
-P17-00_CHECKS=34
+P17-00_CHECKS=37

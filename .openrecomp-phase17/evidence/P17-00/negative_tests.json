@@ -23,27 +23,21 @@
   ],
   "private_path_cases": {
     "/Users/example/private/location": {
-      "matched": "/Users/example/private/location",
       "rejected": true
     },
     "/home/fred/private/location": {
-      "matched": "/home/fred/private/location",
       "rejected": true
     },
     "/tmp/private-fixture": {
-      "matched": "/tmp/private-fixture",
       "rejected": true
     },
     "C:\\private\\fixture": {
-      "matched": "C:\\private\\fixture",
       "rejected": true
     },
     "D:\\OpenRecomp\\fixtures\\private": {
-      "matched": "D:\\OpenRecomp\\fixtures\\private",
       "rejected": true
     },
     "\\\\server\\share\\private": {
-      "matched": "\\\\server\\share\\private",
       "rejected": true
     }
   },

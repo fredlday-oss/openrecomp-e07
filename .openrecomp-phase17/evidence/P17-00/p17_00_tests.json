@@ -137,7 +137,12 @@
     },
     {
       "check": "negative:private-path-safety",
-      "detail": "{\"/Users/example/private/location\": {\"matched\": \"/Users/example/private/location\", \"rejected\": true}, \"/home/fred/private/location\": {\"matched\": \"/home/fred/private/location\", \"rejected\": true}, \"/tmp/private-fixture\": {\"matched\": \"/tmp/private-fixture\", \"rejected\": true}, \"C:\\\\private\\\\fixture\": {\"matched\": \"C:\\\\private\\\\fixture\", \"rejected\": true}, \"D:\\\\OpenRecomp\\\\fixtures\\\\private\": {\"matched\": \"D:\\\\OpenRecomp\\\\fixtures\\\\private\", \"rejected\": true}, \"\\\\\\\\server\\\\share\\\\private\": {\"matched\": \"\\\\\\\\server\\\\share\\\\private\", \"rejected\": true}}",
+      "detail": "{\"/Users/example/private/location\": {\"rejected\": true}, \"/home/fred/private/location\": {\"rejected\": true}, \"/tmp/private-fixture\": {\"rejected\": true}, \"C:\\\\private\\\\fixture\": {\"rejected\": true}, \"D:\\\\OpenRecomp\\\\fixtures\\\\private\": {\"rejected\": true}, \"\\\\\\\\server\\\\share\\\\private\": {\"rejected\": true}}",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
       "status": "PASS"
     },
     {
@@ -161,6 +166,16 @@
       "status": "PASS"
     },
     {
+      "check": "bootstrap:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "bootstrap:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
       "check": "bootstrap:no-payload-hex",
       "detail": "no payload supplied",
       "status": "PASS"
@@ -176,6 +191,6 @@
   "stage": "P17-00",
   "summary": {
     "failed": 0,
-    "passed": 34
+    "passed": 37
   }
 }
