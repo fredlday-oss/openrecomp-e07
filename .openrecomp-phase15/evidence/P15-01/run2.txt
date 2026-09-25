@@ -1,0 +1,27 @@
+PASS: integrity:phase15-sources OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=18
+PASS: mask:init 0:0x0
+PASS: mask:write-zero 0x0
+PASS: mask:read-zero 0:0x0
+PASS: mask:write-nonzero 0x1234
+PASS: mask:read-nonzero 0x1234
+PASS: mask:exact-16bit 0xabcd
+PASS: stat:read-pending 0:0x6
+PASS: stat:ack-and 0x2
+PASS: stat:ack-zero-clears 0x0
+PASS: neg:width8-mask width 8 rejected
+PASS: neg:width8-stat width 8 rejected
+PASS: neg:width-unsupported-counted 2
+PASS: neg:unaligned unaligned rejected
+PASS: neg:unknown-nearby unknown rejected
+PASS: c:ack-expression PS1 ack semantics present
+PASS: c:mask-store mask store present
+PASS: c:width-guard explicit width guard present
+PASS: c:unhandled-fallthrough unhandled fallthrough present
+PASS: c:harness-sequence init_stat=0x00000000 init_mask=0x00000000|mask_write0 s=0 mask=0x00000000|mask_read s=0 v=0x00000000|mask_write1234 s=0 mask=0x00001234|mask_read s=0 v=0x00001234|mask_write32 s=0 mask=0x0000abcd|stat_read s=0 v=0x00000000|stat_write0 s=0 stat=0x00000000|stat_writeFFFF s=0 stat=0x00000000|mask_read8 s=2 denied=1 unsupported=1|stat_write8 s=2 denied=2|unaligned_read s=-1000|unknown_read s=-1000|neighbor_read s=-1000
+PASS: c:harness-events events=8 digest=0xffa4cd295fd47904
+PASS: contract:no-private-path absolute private paths absent
+PASS: contract:no-payload-hex no payload supplied
+PASS: contract:no-raw-words reconstructive fields absent
+OPENRECOMP_PHASE15_INTERRUPT_MMIO_CONTRACT_V1=PASS
+OPENRECOMP_P15_01=PASS
+P15-01_CHECKS=24

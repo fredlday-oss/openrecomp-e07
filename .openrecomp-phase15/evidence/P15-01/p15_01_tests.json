@@ -1,0 +1,131 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase15-sources",
+      "detail": "OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=18",
+      "status": "PASS"
+    },
+    {
+      "check": "mask:init",
+      "detail": "0:0x0",
+      "status": "PASS"
+    },
+    {
+      "check": "mask:write-zero",
+      "detail": "0x0",
+      "status": "PASS"
+    },
+    {
+      "check": "mask:read-zero",
+      "detail": "0:0x0",
+      "status": "PASS"
+    },
+    {
+      "check": "mask:write-nonzero",
+      "detail": "0x1234",
+      "status": "PASS"
+    },
+    {
+      "check": "mask:read-nonzero",
+      "detail": "0x1234",
+      "status": "PASS"
+    },
+    {
+      "check": "mask:exact-16bit",
+      "detail": "0xabcd",
+      "status": "PASS"
+    },
+    {
+      "check": "stat:read-pending",
+      "detail": "0:0x6",
+      "status": "PASS"
+    },
+    {
+      "check": "stat:ack-and",
+      "detail": "0x2",
+      "status": "PASS"
+    },
+    {
+      "check": "stat:ack-zero-clears",
+      "detail": "0x0",
+      "status": "PASS"
+    },
+    {
+      "check": "neg:width8-mask",
+      "detail": "width 8 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "neg:width8-stat",
+      "detail": "width 8 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "neg:width-unsupported-counted",
+      "detail": "2",
+      "status": "PASS"
+    },
+    {
+      "check": "neg:unaligned",
+      "detail": "unaligned rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "neg:unknown-nearby",
+      "detail": "unknown rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "c:ack-expression",
+      "detail": "PS1 ack semantics present",
+      "status": "PASS"
+    },
+    {
+      "check": "c:mask-store",
+      "detail": "mask store present",
+      "status": "PASS"
+    },
+    {
+      "check": "c:width-guard",
+      "detail": "explicit width guard present",
+      "status": "PASS"
+    },
+    {
+      "check": "c:unhandled-fallthrough",
+      "detail": "unhandled fallthrough present",
+      "status": "PASS"
+    },
+    {
+      "check": "c:harness-sequence",
+      "detail": "init_stat=0x00000000 init_mask=0x00000000|mask_write0 s=0 mask=0x00000000|mask_read s=0 v=0x00000000|mask_write1234 s=0 mask=0x00001234|mask_read s=0 v=0x00001234|mask_write32 s=0 mask=0x0000abcd|stat_read s=0 v=0x00000000|stat_write0 s=0 stat=0x00000000|stat_writeFFFF s=0 stat=0x00000000|mask_read8 s=2 denied=1 unsupported=1|stat_write8 s=2 denied=2|unaligned_read s=-1000|unknown_read s=-1000|neighbor_read s=-1000",
+      "status": "PASS"
+    },
+    {
+      "check": "c:harness-events",
+      "detail": "events=8 digest=0xffa4cd295fd47904",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P15-01",
+  "schema": "openrecomp-phase15-tests-v1",
+  "stage": "P15-01",
+  "summary": {
+    "failed": 0,
+    "passed": 24
+  }
+}

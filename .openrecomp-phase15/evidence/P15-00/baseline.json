@@ -1,0 +1,36 @@
+{
+  "branch": "phase15/ps1-hercules-init-mmio-v1",
+  "fixture": {
+    "cue_present": true,
+    "disc_bin_size": 409452624,
+    "primary_executable": "SLUS_005.29",
+    "primary_sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "primary_size": 129024
+  },
+  "frozen_phase14_boundary": [
+    "OPENRECOMP_PHASE15_P14_BOUNDARY_FROZEN=PASS frozen_commit=830be0f7be998061e8d442134cfae511d5dd8c62 frozen_tree=3b5b998dacc60eff88258509bdb5cc548b8b1401"
+  ],
+  "frozen_phase14_sources": [
+    "OPENRECOMP_PHASE15_P14_SOURCE_INTEGRITY=PASS entries=26 canonical=git-blob crlf_variants=0",
+    "OPENRECOMP_PHASE14_SOURCE_INTEGRITY=PASS entries=26 (canonical committed Git blobs; frozen-commit==HEAD)"
+  ],
+  "head": "830be0f7be998061e8d442134cfae511d5dd8c62",
+  "phase14_base_commit": "830be0f7be998061e8d442134cfae511d5dd8c62",
+  "phase14_base_tree": "3b5b998dacc60eff88258509bdb5cc548b8b1401",
+  "phase14_worktree_clean": true,
+  "private_fixture_bytes_recorded": "NO",
+  "recon_digest": "60da793a4ec9d9eaf65377cfb612068843b896dc6f39fbc2566dd58f4ff39f97",
+  "repository_root_source_manifest": {
+    "authority": ".openrecomp-phase14/SOURCE_SHA256SUMS.txt",
+    "checked_entries": 133,
+    "classification": "INHERITED_FROZEN_ROOT_MANIFEST_GAP",
+    "manifest_sha256": "76f77bbc97780afe9c2b41a0cb89b5323ab22450c4b2a368dd03fb4d7bbe1095",
+    "mismatched_entries": [],
+    "missing_entries": [
+      "tools/test_build_package_reproducibility_v1.py"
+    ]
+  },
+  "schema": "openrecomp-phase15-baseline-v1",
+  "stage": "P15-00",
+  "third_party_code_imported": "NO"
+}

@@ -1,0 +1,46 @@
+{
+  "contract": {
+    "contract_version": "1.0.0",
+    "cpu_interrupt_delivery": "NOT_MODELED",
+    "d2_chcr_busy_bit": "0x01000000",
+    "registers": {
+      "0x1f801020": [
+        32
+      ],
+      "0x1f801070": [
+        16,
+        32
+      ],
+      "0x1f801074": [
+        16,
+        32
+      ],
+      "0x1f8010a0": [
+        32
+      ],
+      "0x1f8010a4": [
+        32
+      ],
+      "0x1f8010a8": [
+        32
+      ],
+      "0x1f8010f0": [
+        32
+      ],
+      "0x1f8010f4": [
+        32
+      ]
+    },
+    "schema": "openrecomp-phase15-interrupt-mmio-contract-v1",
+    "status": {
+      "ok": 0,
+      "unhandled": -1000,
+      "width_unsupported": 2
+    },
+    "third_party_code_imported": "NO"
+  },
+  "expected_sequence": "init_stat=0x00000000 init_mask=0x00000000\nmask_write0 s=0 mask=0x00000000\nmask_read s=0 v=0x00000000\nmask_write1234 s=0 mask=0x00001234\nmask_read s=0 v=0x00001234\nmask_write32 s=0 mask=0x0000abcd\nstat_read s=0 v=0x00000000\nstat_write0 s=0 stat=0x00000000\nstat_writeFFFF s=0 stat=0x00000000\nmask_read8 s=2 denied=1 unsupported=1\nstat_write8 s=2 denied=2\nunaligned_read s=-1000\nunknown_read s=-1000\nneighbor_read s=-1000",
+  "harness_output": "init_stat=0x00000000 init_mask=0x00000000\nmask_write0 s=0 mask=0x00000000\nmask_read s=0 v=0x00000000\nmask_write1234 s=0 mask=0x00001234\nmask_read s=0 v=0x00001234\nmask_write32 s=0 mask=0x0000abcd\nstat_read s=0 v=0x00000000\nstat_write0 s=0 stat=0x00000000\nstat_writeFFFF s=0 stat=0x00000000\nmask_read8 s=2 denied=1 unsupported=1\nstat_write8 s=2 denied=2\nunaligned_read s=-1000\nunknown_read s=-1000\nneighbor_read s=-1000\nevents=8 digest=0xffa4cd295fd47904\n",
+  "schema": "openrecomp-phase15-interrupt-mmio-contract-v1",
+  "stage": "P15-01"
+}

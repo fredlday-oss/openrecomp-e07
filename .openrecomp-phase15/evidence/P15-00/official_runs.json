@@ -1,0 +1,73 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "3f08eea8e074f14605aebc9f7df30758d03f8287c643f6ae39e380105166d83a",
+    "baseline.json": "ec88623e1f2bef4064c2931d8d147de5117f48cf6381b791ff90f1829a9e651c",
+    "p15_00_tests.json": "2eb455e1687d16208b63661fc39c8fb158d54af8a5caec98ea129113649840ca"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "3f08eea8e074f14605aebc9f7df30758d03f8287c643f6ae39e380105166d83a",
+        "baseline.json": "ec88623e1f2bef4064c2931d8d147de5117f48cf6381b791ff90f1829a9e651c",
+        "p15_00_tests.json": "2eb455e1687d16208b63661fc39c8fb158d54af8a5caec98ea129113649840ca"
+      },
+      "command": [
+        "python",
+        "tools/test_phase15_bootstrap_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase15/evidence/P15-00"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_PHASE14_SOURCE_INTEGRITY=PASS entries=26 (canonical committed Git blobs; frozen-commit==HEAD)",
+        "OPENRECOMP_P15_00=PASS"
+      ],
+      "name": "run1",
+      "p15_00_tests_sha256": "2eb455e1687d16208b63661fc39c8fb158d54af8a5caec98ea129113649840ca",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1468,
+      "stdout_bytes_lf": 1441,
+      "stdout_sha256_lf": "b4ae51001bdaeed166372b2a13ef79cd0756da27cb36067acd6781fe4e826c0d",
+      "stdout_sha256_raw": "1a7980992e8a9e7fe7dbbd5a65ab8dda766ce93461c571708c61a83c23038f78",
+      "tests_json_present": true
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "3f08eea8e074f14605aebc9f7df30758d03f8287c643f6ae39e380105166d83a",
+        "baseline.json": "ec88623e1f2bef4064c2931d8d147de5117f48cf6381b791ff90f1829a9e651c",
+        "p15_00_tests.json": "2eb455e1687d16208b63661fc39c8fb158d54af8a5caec98ea129113649840ca"
+      },
+      "command": [
+        "python",
+        "tools/test_phase15_bootstrap_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase15/evidence/P15-00"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_PHASE14_SOURCE_INTEGRITY=PASS entries=26 (canonical committed Git blobs; frozen-commit==HEAD)",
+        "OPENRECOMP_P15_00=PASS"
+      ],
+      "name": "run2",
+      "p15_00_tests_sha256": "2eb455e1687d16208b63661fc39c8fb158d54af8a5caec98ea129113649840ca",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1468,
+      "stdout_bytes_lf": 1441,
+      "stdout_sha256_lf": "b4ae51001bdaeed166372b2a13ef79cd0756da27cb36067acd6781fe4e826c0d",
+      "stdout_sha256_raw": "1a7980992e8a9e7fe7dbbd5a65ab8dda766ce93461c571708c61a83c23038f78",
+      "tests_json_present": true
+    }
+  ],
+  "schema": "openrecomp-phase15-official-runs-v1",
+  "stage": "P15-00",
+  "stderr_empty_both": true,
+  "tests_json_present_both": true
+}
