@@ -1,0 +1,28 @@
+{
+  "evidence_class": "REPRESENTATIVE_TEST_RECORD",
+  "fail_closed_discipline": {
+    "missing_file": "REFUSED_WITH_P9_RT_UNSUPPORTED_OPERATION",
+    "unmodeled_lba": "REFUSED_WITH_P9_RT_UNSUPPORTED_OPERATION",
+    "untranslated_ram": "REFUSED_WITH_P9_RT_MEMORY_OUT_OF_RANGE"
+  },
+  "fixture_bin_size": 409452624,
+  "private_fixture_bytes_recorded": "NO",
+  "schema": "openrecomp-phase16-cdrom-source-v1",
+  "stage": "P16-03",
+  "third_party_code_imported": "NO",
+  "total_sectors": 174087,
+  "verified_reads": [
+    {
+      "bytes": 2048,
+      "count": 1,
+      "lba": 88,
+      "tag": "PS-X EXE"
+    },
+    {
+      "bytes": 286720,
+      "count": 140,
+      "lba": 89,
+      "sha256": "fe1925b5dd7c7190802dbe37b162759467fdbbf95b707edb9c6bb1626b961ccc"
+    }
+  ]
+}

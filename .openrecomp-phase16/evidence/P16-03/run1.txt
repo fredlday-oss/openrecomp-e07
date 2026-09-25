@@ -1,0 +1,25 @@
+PASS: integrity:phase16-sources OPENRECOMP_PHASE16_SOURCE_INTEGRITY=PASS entries=14
+PASS: fixture:bin-exists Disney's Hercules Action Game (USA).bin
+PASS: py:total-sectors 174087
+PASS: py:sec88-size 2048
+PASS: py:sec88-magic PS-X EXE
+PASS: py:payload-size 286720
+PASS: py:payload-hash fe1925b5dd7c7190802dbe37b162759467fdbbf95b707edb9c6bb1626b961ccc
+PASS: py:neg-oob-sector LBA 200000 raised CdromReadError
+PASS: py:neg-oob-range Range [174080, 174100) raised CdromReadError
+PASS: c:neg-no-path unset path failed closed
+PASS: c:neg-oob-lba OOB LBA failed closed
+PASS: c:neg-oob-ram OOB RAM address failed closed
+PASS: c:pos-sec88 sector 88 delivered
+PASS: c:pos-payload payload delivered
+PASS: c:counters call/failure counters match
+PASS: cdrom-source:no-private-path absolute private paths absent
+PASS: cdrom-source:no-payload-hex no payload supplied
+PASS: cdrom-source:no-raw-words reconstructive fields absent
+OPENRECOMP_PHASE16_CDROM_SECTOR_SOURCE_V1=PASS
+OPENRECOMP_P16_03=PASS
+OPENRECOMP_PHASE16_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE16_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE16_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE16_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P16-03_CHECKS=18

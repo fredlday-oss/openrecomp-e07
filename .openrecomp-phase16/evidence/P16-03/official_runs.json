@@ -1,0 +1,81 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "2c6fb3ec0d70fcae486e2486c0aee68bfff112e93dd882f75c22d21ff35cd7cb",
+    "cdrom_source.json": "9b11a78c39e7ba64af001d3bb45b79d799c1d19a51926749c0ba3761b19ae43c",
+    "p16_03_tests.json": "734e05618b50c9381a7258a702b27266ff766e55edf6e7dfff7833c49c4f84e1"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "2c6fb3ec0d70fcae486e2486c0aee68bfff112e93dd882f75c22d21ff35cd7cb",
+        "cdrom_source.json": "9b11a78c39e7ba64af001d3bb45b79d799c1d19a51926749c0ba3761b19ae43c",
+        "p16_03_tests.json": "734e05618b50c9381a7258a702b27266ff766e55edf6e7dfff7833c49c4f84e1"
+      },
+      "command": [
+        "python",
+        "tools/test_phase16_cdrom_source_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase16/evidence/P16-03"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_PHASE16_CDROM_SECTOR_SOURCE_V1=PASS",
+        "OPENRECOMP_P16_03=PASS",
+        "OPENRECOMP_PHASE16_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p16_03_tests_sha256": "734e05618b50c9381a7258a702b27266ff766e55edf6e7dfff7833c49c4f84e1",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1249,
+      "stdout_bytes_lf": 1224,
+      "stdout_sha256_lf": "12c79550c1cec8e22000de067deef454aa6dcb93d933a01981c9daabe9d369e4",
+      "stdout_sha256_raw": "5dda9e703b0f318905b25e51c83d55fcaa82ef90f2720f79da994879678912f3",
+      "tests_json_present": true
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "2c6fb3ec0d70fcae486e2486c0aee68bfff112e93dd882f75c22d21ff35cd7cb",
+        "cdrom_source.json": "9b11a78c39e7ba64af001d3bb45b79d799c1d19a51926749c0ba3761b19ae43c",
+        "p16_03_tests.json": "734e05618b50c9381a7258a702b27266ff766e55edf6e7dfff7833c49c4f84e1"
+      },
+      "command": [
+        "python",
+        "tools/test_phase16_cdrom_source_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase16/evidence/P16-03"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_PHASE16_CDROM_SECTOR_SOURCE_V1=PASS",
+        "OPENRECOMP_P16_03=PASS",
+        "OPENRECOMP_PHASE16_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p16_03_tests_sha256": "734e05618b50c9381a7258a702b27266ff766e55edf6e7dfff7833c49c4f84e1",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1249,
+      "stdout_bytes_lf": 1224,
+      "stdout_sha256_lf": "12c79550c1cec8e22000de067deef454aa6dcb93d933a01981c9daabe9d369e4",
+      "stdout_sha256_raw": "5dda9e703b0f318905b25e51c83d55fcaa82ef90f2720f79da994879678912f3",
+      "tests_json_present": true
+    }
+  ],
+  "schema": "openrecomp-phase16-official-runs-v1",
+  "stage": "P16-03",
+  "stderr_empty_both": true,
+  "tests_json_present_both": true
+}

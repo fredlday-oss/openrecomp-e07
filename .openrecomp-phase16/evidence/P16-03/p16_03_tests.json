@@ -1,0 +1,101 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase16-sources",
+      "detail": "OPENRECOMP_PHASE16_SOURCE_INTEGRITY=PASS entries=14",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-exists",
+      "detail": "Disney's Hercules Action Game (USA).bin",
+      "status": "PASS"
+    },
+    {
+      "check": "py:total-sectors",
+      "detail": "174087",
+      "status": "PASS"
+    },
+    {
+      "check": "py:sec88-size",
+      "detail": "2048",
+      "status": "PASS"
+    },
+    {
+      "check": "py:sec88-magic",
+      "detail": "PS-X EXE",
+      "status": "PASS"
+    },
+    {
+      "check": "py:payload-size",
+      "detail": "286720",
+      "status": "PASS"
+    },
+    {
+      "check": "py:payload-hash",
+      "detail": "fe1925b5dd7c7190802dbe37b162759467fdbbf95b707edb9c6bb1626b961ccc",
+      "status": "PASS"
+    },
+    {
+      "check": "py:neg-oob-sector",
+      "detail": "LBA 200000 raised CdromReadError",
+      "status": "PASS"
+    },
+    {
+      "check": "py:neg-oob-range",
+      "detail": "Range [174080, 174100) raised CdromReadError",
+      "status": "PASS"
+    },
+    {
+      "check": "c:neg-no-path",
+      "detail": "unset path failed closed",
+      "status": "PASS"
+    },
+    {
+      "check": "c:neg-oob-lba",
+      "detail": "OOB LBA failed closed",
+      "status": "PASS"
+    },
+    {
+      "check": "c:neg-oob-ram",
+      "detail": "OOB RAM address failed closed",
+      "status": "PASS"
+    },
+    {
+      "check": "c:pos-sec88",
+      "detail": "sector 88 delivered",
+      "status": "PASS"
+    },
+    {
+      "check": "c:pos-payload",
+      "detail": "payload delivered",
+      "status": "PASS"
+    },
+    {
+      "check": "c:counters",
+      "detail": "call/failure counters match",
+      "status": "PASS"
+    },
+    {
+      "check": "cdrom-source:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "cdrom-source:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "cdrom-source:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P16-03 Test Results",
+  "schema": "openrecomp-phase16-tests-v1",
+  "stage": "P16-03",
+  "summary": {
+    "failed": 0,
+    "passed": 18
+  }
+}
