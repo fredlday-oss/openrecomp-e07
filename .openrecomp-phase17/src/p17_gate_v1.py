@@ -81,11 +81,22 @@ def write_json(path: pathlib.Path, document: dict[str, Any]) -> None:
                     encoding="utf-8", newline="\n")
 
 
+FORBIDDEN_PRIVATE_PATHS = (
+    "/home/fred/private/location",
+    "/Users/example/private/location",
+    "/tmp/private-fixture",
+    "C:\\private\\fixture",
+    "D:\\OpenRecomp\\fixtures\\private",
+    "\\\\server\\share\\private",
+)
+
+
 def assert_public_safe(gate: Gate, label: str, document: dict[str, Any],
                        payload: bytes | None = None) -> None:
     text = json.dumps(document, sort_keys=True)
+    forbidden = [path for path in FORBIDDEN_PRIVATE_PATHS if path in text]
     gate.check(f"{label}:no-private-path",
-               ":\\" not in text and "fixtures/" not in text,
+               not forbidden and ":\\" not in text and "fixtures/" not in text,
                "absolute private paths absent")
     if payload:
         sample = payload[:64]
