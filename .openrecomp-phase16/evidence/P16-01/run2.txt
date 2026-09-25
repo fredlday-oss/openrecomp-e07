@@ -1,0 +1,25 @@
+PASS: integrity:phase16-sources OPENRECOMP_PHASE16_SOURCE_INTEGRITY=PASS entries=9
+PASS: slus:file-exists SLUS_005.29
+PASS: exec:call-site-jal 0x0c0056e0
+PASS: exec:arg-a0-struct 0x26240004
+PASS: exec:arg-a1-zero 0x00002821
+PASS: exec:arg-a2-zero 0x00003021
+PASS: wrapper:addiu-a0 0x240a00a0
+PASS: wrapper:jr-t2 0x01400008
+PASS: wrapper:addiu-43 0x24090043
+PASS: prep:jal-memcpy 0x0c009b3e
+PASS: prep:jal-flushcache 0x0c0056e4
+PASS: prep:jal-setsp 0x0c0056f0
+PASS: bin:file-exists Disney's Hercules Action Game (USA).bin
+PASS: sec88:magic PS-X EXE
+PASS: sec88:struct-exec-valid VALID
+PASS: exec-contract:no-private-path absolute private paths absent
+PASS: exec-contract:no-payload-hex no payload supplied
+PASS: exec-contract:no-raw-words reconstructive fields absent
+OPENRECOMP_PHASE16_EXEC_CONTRACT_V1=PASS
+OPENRECOMP_P16_01=PASS
+OPENRECOMP_PHASE16_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE16_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE16_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE16_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P16-01_CHECKS=18

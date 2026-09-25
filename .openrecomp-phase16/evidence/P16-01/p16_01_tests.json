@@ -1,0 +1,101 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase16-sources",
+      "detail": "OPENRECOMP_PHASE16_SOURCE_INTEGRITY=PASS entries=9",
+      "status": "PASS"
+    },
+    {
+      "check": "slus:file-exists",
+      "detail": "SLUS_005.29",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:call-site-jal",
+      "detail": "0x0c0056e0",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:arg-a0-struct",
+      "detail": "0x26240004",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:arg-a1-zero",
+      "detail": "0x00002821",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:arg-a2-zero",
+      "detail": "0x00003021",
+      "status": "PASS"
+    },
+    {
+      "check": "wrapper:addiu-a0",
+      "detail": "0x240a00a0",
+      "status": "PASS"
+    },
+    {
+      "check": "wrapper:jr-t2",
+      "detail": "0x01400008",
+      "status": "PASS"
+    },
+    {
+      "check": "wrapper:addiu-43",
+      "detail": "0x24090043",
+      "status": "PASS"
+    },
+    {
+      "check": "prep:jal-memcpy",
+      "detail": "0x0c009b3e",
+      "status": "PASS"
+    },
+    {
+      "check": "prep:jal-flushcache",
+      "detail": "0x0c0056e4",
+      "status": "PASS"
+    },
+    {
+      "check": "prep:jal-setsp",
+      "detail": "0x0c0056f0",
+      "status": "PASS"
+    },
+    {
+      "check": "bin:file-exists",
+      "detail": "Disney's Hercules Action Game (USA).bin",
+      "status": "PASS"
+    },
+    {
+      "check": "sec88:magic",
+      "detail": "PS-X EXE",
+      "status": "PASS"
+    },
+    {
+      "check": "sec88:struct-exec-valid",
+      "detail": "VALID",
+      "status": "PASS"
+    },
+    {
+      "check": "exec-contract:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "exec-contract:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "exec-contract:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P16-01 Test Results",
+  "schema": "openrecomp-phase16-tests-v1",
+  "stage": "P16-01",
+  "summary": {
+    "failed": 0,
+    "passed": 18
+  }
+}
