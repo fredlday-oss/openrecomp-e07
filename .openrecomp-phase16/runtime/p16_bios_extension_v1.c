@@ -167,6 +167,20 @@ static int p16_bios_exec(uint32_t struct_addr)
         return P9_RT_UNSUPPORTED_OPERATION;
     }
 
+    if (p9_translate_ram((uint64_t)pc0, 4u, &entry_offset)) {
+        entry_word = *(const uint32_t *)(g_p9_ram + entry_offset);
+    } else {
+        entry_word = 0u;
+    }
+
+    ++g_p16_exec_calls;
+    g_p16_exec_struct_addr = struct_addr;
+    g_p16_exec_pc0 = pc0;
+    g_p16_exec_t_addr = t_addr;
+    g_p16_exec_t_size = t_size;
+    g_p16_exec_sp_addr = sp_addr;
+    g_p16_exec_first_word = entry_word;
+
     if (!p9_translate_ram((uint64_t)t_addr, t_size, &payload_offset)) {
         ++g_p16_bios_failures;
         return P9_RT_MEMORY_OUT_OF_RANGE;
@@ -176,29 +190,13 @@ static int p16_bios_exec(uint32_t struct_addr)
     p16_sha256_update(&ctx, g_p9_ram + payload_offset, t_size);
     p16_sha256_final(&ctx, digest);
 
-    if (memcmp(digest, g_p16_expected_title_sha256, 32) != 0) {
+    if (memcmp(digest, g_p16_expected_title_sha256, 32) != 0 || entry_word != 0x3c028008u) {
+        g_p16_exec_payload_verified = 0;
         ++g_p16_bios_failures;
         return P9_RT_UNSUPPORTED_OPERATION;
     }
 
-    if (!p9_translate_ram((uint64_t)pc0, 4u, &entry_offset)) {
-        ++g_p16_bios_failures;
-        return P9_RT_MEMORY_OUT_OF_RANGE;
-    }
-    entry_word = *(const uint32_t *)(g_p9_ram + entry_offset);
-    if (entry_word != 0x3c028008u) {
-        ++g_p16_bios_failures;
-        return P9_RT_UNSUPPORTED_OPERATION;
-    }
-
-    g_p16_exec_calls = 1;
-    g_p16_exec_struct_addr = struct_addr;
-    g_p16_exec_pc0 = pc0;
-    g_p16_exec_t_addr = t_addr;
-    g_p16_exec_t_size = t_size;
-    g_p16_exec_sp_addr = sp_addr;
     g_p16_exec_payload_verified = 1;
-    g_p16_exec_first_word = entry_word;
 
     /* A0:0x43 Exec terminates the caller and transfers execution. Cleanly unwind to host harness. */
     g_p11_bound_armed = 0;

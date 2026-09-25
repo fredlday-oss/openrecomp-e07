@@ -15,6 +15,7 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #define P16_CD_RAW_SECTOR_SIZE 2352u
@@ -61,6 +62,7 @@ int p16_cdrom_read_user_sectors(uint32_t start_lba, uint32_t count, uint32_t des
     uint32_t i;
     unsigned char sector_buf[P16_CD_RAW_SECTOR_SIZE];
     uint64_t total_bytes;
+    const char *ablation;
 
     ++g_p16_cdrom_read_calls;
 
@@ -73,6 +75,12 @@ int p16_cdrom_read_user_sectors(uint32_t start_lba, uint32_t count, uint32_t des
     if (!p9_translate_ram((uint64_t)dest_address, total_bytes, &ram_offset)) {
         ++g_p16_cdrom_read_failures;
         return P9_RT_MEMORY_OUT_OF_RANGE;
+    }
+
+    ablation = getenv("OPENRECOMP_CDROM_ABLATION");
+    if (ablation != NULL && strcmp(ablation, "NULL_DISC") == 0) {
+        ++g_p16_cdrom_read_failures;
+        return P9_RT_UNSUPPORTED_OPERATION;
     }
 
     if (g_p16_disc_path[0] == '\0') {
@@ -102,14 +110,29 @@ int p16_cdrom_read_user_sectors(uint32_t start_lba, uint32_t count, uint32_t des
             ++g_p16_cdrom_read_failures;
             return P9_RT_UNSUPPORTED_OPERATION;
         }
+        if (ablation != NULL && strcmp(ablation, "CORRUPT_SYNC") == 0) {
+            sector_buf[0] ^= 0xFF;
+        }
         if (memcmp(sector_buf, g_p16_sync_pattern, sizeof(g_p16_sync_pattern)) != 0) {
             fclose(fp);
             ++g_p16_cdrom_read_failures;
             return P9_RT_UNSUPPORTED_OPERATION;
         }
-        memcpy(g_p9_ram + ram_offset + (i * P16_CD_USER_DATA_SIZE),
-               sector_buf + P16_CD_USER_DATA_OFFSET,
-               P16_CD_USER_DATA_SIZE);
+        if (ablation != NULL && strcmp(ablation, "ZERO_PAYLOAD") == 0) {
+            if (count > 1u && i >= 1u) {
+                memset(g_p9_ram + ram_offset + (i * P16_CD_USER_DATA_SIZE),
+                       0,
+                       P16_CD_USER_DATA_SIZE);
+            } else {
+                memcpy(g_p9_ram + ram_offset + (i * P16_CD_USER_DATA_SIZE),
+                       sector_buf + P16_CD_USER_DATA_OFFSET,
+                       P16_CD_USER_DATA_SIZE);
+            }
+        } else {
+            memcpy(g_p9_ram + ram_offset + (i * P16_CD_USER_DATA_SIZE),
+                   sector_buf + P16_CD_USER_DATA_OFFSET,
+                   P16_CD_USER_DATA_SIZE);
+        }
     }
 
     fclose(fp);

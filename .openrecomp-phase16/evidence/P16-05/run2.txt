@@ -1,0 +1,65 @@
+PASS: integrity:phase16-sources OPENRECOMP_PHASE16_SOURCE_INTEGRITY=PASS entries=22
+PASS: disc-present authentic disc image present
+PASS: analysis-ok private analysis produced
+PASS: build-set-files build set has all 4 C source units
+PASS: run1-build-ok run1 built OK
+PASS: run2-build-ok run2 built OK
+PASS: determinism:NONE:rc-zero rc 0 for NONE
+PASS: determinism:NONE:stderr-empty stderr empty for NONE
+PASS: determinism:NONE:stdout-identical stdout identical for NONE
+PASS: determinism:NULL_DISC:rc-zero rc 0 for NULL_DISC
+PASS: determinism:NULL_DISC:stderr-empty stderr empty for NULL_DISC
+PASS: determinism:NULL_DISC:stdout-identical stdout identical for NULL_DISC
+PASS: determinism:CORRUPT_SYNC:rc-zero rc 0 for CORRUPT_SYNC
+PASS: determinism:CORRUPT_SYNC:stderr-empty stderr empty for CORRUPT_SYNC
+PASS: determinism:CORRUPT_SYNC:stdout-identical stdout identical for CORRUPT_SYNC
+PASS: determinism:ZERO_PAYLOAD:rc-zero rc 0 for ZERO_PAYLOAD
+PASS: determinism:ZERO_PAYLOAD:stderr-empty stderr empty for ZERO_PAYLOAD
+PASS: determinism:ZERO_PAYLOAD:stdout-identical stdout identical for ZERO_PAYLOAD
+PASS: baseline:failed-zero failed == 0 (got 0)
+PASS: baseline:error-empty error empty (got )
+PASS: baseline:cd-reads CD reads == 2 (got 2)
+PASS: baseline:cd-sectors CD sectors == 146 (got 146)
+PASS: baseline:cd-bytes CD bytes == 299008 (got 299008)
+PASS: baseline:cd-failures-zero CD failures == 0 (got 0)
+PASS: baseline:exec-calls Exec calls == 1 (got 1)
+PASS: baseline:exec-pc0 Exec pc0 == 0x800380a0
+PASS: baseline:exec-struct Exec struct == 0x80034e80
+PASS: baseline:exec-payload-verified payload verified == 1 (got 1)
+PASS: baseline:exec-first-word first word == 0x3c028008
+PASS: null-disc:failed-closed failed == 1 (got 1)
+PASS: null-disc:read-failed-msg error message match (got p16 cdrom read failed)
+PASS: null-disc:cd-reads CD reads attempted == 2 (got 2)
+PASS: null-disc:cd-sectors-zero CD sectors == 0 (got 0)
+PASS: null-disc:cd-failures-positive CD failures >= 1 (got 2)
+PASS: null-disc:exec-unreached Exec calls == 0 (got 0)
+PASS: null-disc:payload-unverified payload verified == 0 (got 0)
+PASS: corrupt-sync:failed-closed failed == 1 (got 1)
+PASS: corrupt-sync:read-failed-msg error message match (got p16 cdrom read failed)
+PASS: corrupt-sync:cd-reads CD reads attempted == 2 (got 2)
+PASS: corrupt-sync:cd-sectors-zero CD sectors == 0 (got 0)
+PASS: corrupt-sync:cd-failures-positive CD failures >= 1 (got 2)
+PASS: corrupt-sync:exec-unreached Exec calls == 0 (got 0)
+PASS: corrupt-sync:payload-unverified payload verified == 0 (got 0)
+PASS: zero-payload:failed-closed failed == 1 (got 1)
+PASS: zero-payload:error-msg error message match (got runtime host service ps1.bios.A0.43 failed)
+PASS: zero-payload:cd-reads CD reads == 2 (got 2)
+PASS: zero-payload:cd-sectors CD sectors == 146 (got 146)
+PASS: zero-payload:exec-reached Exec calls == 1 (got 1)
+PASS: zero-payload:exec-pc0 Exec pc0 == 0x800380a0
+PASS: zero-payload:payload-rejected payload verified == 0 (got 0)
+PASS: zero-payload:first-word-zero first word == 0 (got 0x00000000)
+PASS: causality:cd-delivery-necessary-for-exec CD sector delivery is causally necessary to reach A0:0x43 Exec
+PASS: causality:sync-validation-necessary-for-exec Mode 2 Form 1 sync pattern validation is causally necessary to reach A0:0x43 Exec
+PASS: causality:authentic-sectors-necessary-for-payload-verification Authentic disc bytes are causally necessary for TITLE payload SHA-256 verification
+PASS: causality:authentic-sectors-necessary-for-first-instruction Authentic disc bytes are causally necessary for valid TITLE entry instruction
+PASS: title-load-causality:no-private-path absolute private paths absent
+PASS: title-load-causality:no-payload-hex no payload supplied
+PASS: title-load-causality:no-raw-words reconstructive fields absent
+OPENRECOMP_PHASE16_TITLE_LOAD_CAUSALITY_V1=PASS
+OPENRECOMP_P16_05=PASS
+OPENRECOMP_PHASE16_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE16_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE16_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE16_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P16-05_CHECKS=58

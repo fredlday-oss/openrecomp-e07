@@ -1,0 +1,80 @@
+{
+  "ablations": {
+    "baseline": {
+      "ablation_mode": "NONE",
+      "cdrom_bytes_delivered": 299008,
+      "cdrom_read_calls": 2,
+      "cdrom_read_failures": 0,
+      "cdrom_sectors_delivered": 146,
+      "error": "",
+      "exec_calls": 1,
+      "exec_first_word": "0x3c028008",
+      "exec_payload_verified": 1,
+      "exec_pc0": "0x800380a0",
+      "failed": 0
+    },
+    "corrupt_sync": {
+      "ablation_mode": "CORRUPT_SYNC",
+      "cdrom_bytes_delivered": 0,
+      "cdrom_read_calls": 2,
+      "cdrom_read_failures": 2,
+      "cdrom_sectors_delivered": 0,
+      "error": "p16 cdrom read failed",
+      "exec_calls": 0,
+      "exec_payload_verified": 0,
+      "failed": 1
+    },
+    "null_disc": {
+      "ablation_mode": "NULL_DISC",
+      "cdrom_bytes_delivered": 0,
+      "cdrom_read_calls": 2,
+      "cdrom_read_failures": 2,
+      "cdrom_sectors_delivered": 0,
+      "error": "p16 cdrom read failed",
+      "exec_calls": 0,
+      "exec_payload_verified": 0,
+      "failed": 1
+    },
+    "zero_payload": {
+      "ablation_mode": "ZERO_PAYLOAD",
+      "cdrom_bytes_delivered": 299008,
+      "cdrom_read_calls": 2,
+      "cdrom_read_failures": 0,
+      "cdrom_sectors_delivered": 146,
+      "error": "runtime host service ps1.bios.A0.43 failed",
+      "exec_calls": 1,
+      "exec_first_word": "0x00000000",
+      "exec_payload_verified": 0,
+      "exec_pc0": "0x800380a0",
+      "failed": 1
+    }
+  },
+  "causal_proofs": {
+    "authentic_sectors_required_for_payload": true,
+    "cd_delivery_required_for_exec": true,
+    "sync_validation_active": true
+  },
+  "determinism": {
+    "CORRUPT_SYNC": {
+      "dual_runs_identical": true,
+      "stderr_empty": true
+    },
+    "NONE": {
+      "dual_runs_identical": true,
+      "stderr_empty": true
+    },
+    "NULL_DISC": {
+      "dual_runs_identical": true,
+      "stderr_empty": true
+    },
+    "ZERO_PAYLOAD": {
+      "dual_runs_identical": true,
+      "stderr_empty": true
+    }
+  },
+  "evidence_class": "REPRESENTATIVE_TEST_RECORD",
+  "private_fixture_bytes_recorded": "NO",
+  "schema": "openrecomp-phase16-title-load-causality-v1",
+  "stage": "P16-05",
+  "third_party_code_imported": "NO"
+}
