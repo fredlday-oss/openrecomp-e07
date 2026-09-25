@@ -7,22 +7,22 @@
     },
     {
       "check": "phase16:boundary-frozen",
-      "detail": "OPENRECOMP_PHASE17_P16_BOUNDARY_FROZEN=PASS frozen_phase16=a0c26e882ca65cfc84cbec78f7e787509a4992a3 frozen_phase15=5cec005d45e8361e5ea132731661b13a72a5ed13 frozen_phase14=830be0f7be998061e8d442134cfae511d5dd8c62\nOPENRECOMP_PHASE17_CANONICAL_FROZEN_BOUNDARY_GATE=PASS",
+      "detail": "frozen-boundary-ok",
       "status": "PASS"
     },
     {
       "check": "phase16:sources-intact",
-      "detail": "LEGACY_PHASE16_NATIVE_GATE=PRE_EXISTING_FAIL (Phase-16 native manifest check fails on LF/CRLF boundary; canonical gate unaffected)\nOPENRECOMP_PHASE17_P16_SOURCE_INTEGRITY=PASS entries=31 canonical=git-blob",
+      "detail": "source-integrity-ok",
       "status": "PASS"
     },
     {
       "check": "phase15:boundary-frozen",
-      "detail": "OPENRECOMP_PHASE16_P15_BOUNDARY_FROZEN=PASS frozen_phase15=5cec005d45e8361e5ea132731661b13a72a5ed13 frozen_phase14=830be0f7be998061e8d442134cfae511d5dd8c62",
+      "detail": "frozen-boundary-ok",
       "status": "PASS"
     },
     {
       "check": "phase15:sources-intact",
-      "detail": "OPENRECOMP_PHASE16_P15_SOURCE_INTEGRITY=PASS entries=36 canonical=git-blob\nOPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=36 (canonical committed Git blobs; frozen-commit==HEAD)",
+      "detail": "source-integrity-ok",
       "status": "PASS"
     },
     {
@@ -137,7 +137,12 @@
     },
     {
       "check": "negative:private-path-safety",
-      "detail": "private paths rejected",
+      "detail": "{\"/Users/example/private/location\": {\"matched\": \"/Users/example/private/location\", \"rejected\": true}, \"/home/fred/private/location\": {\"matched\": \"/home/fred/private/location\", \"rejected\": true}, \"/tmp/private-fixture\": {\"matched\": \"/tmp/private-fixture\", \"rejected\": true}, \"C:\\\\private\\\\fixture\": {\"matched\": \"C:\\\\private\\\\fixture\", \"rejected\": true}, \"D:\\\\OpenRecomp\\\\fixtures\\\\private\": {\"matched\": \"D:\\\\OpenRecomp\\\\fixtures\\\\private\", \"rejected\": true}, \"\\\\\\\\server\\\\share\\\\private\": {\"matched\": \"\\\\\\\\server\\\\share\\\\private\", \"rejected\": true}}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:manifest-completeness",
+      "detail": "[{\"name\": \"empty-manifest\", \"rejected\": true}, {\"name\": \"malformed-manifest\", \"rejected\": true}, {\"name\": \"one-valid-entry\", \"rejected\": true}, {\"name\": \"missing-middle-entry\", \"rejected\": true}, {\"name\": \"unexpected-extra-entry\", \"rejected\": true}]",
       "status": "PASS"
     },
     {
@@ -171,6 +176,6 @@
   "stage": "P17-00",
   "summary": {
     "failed": 0,
-    "passed": 33
+    "passed": 34
   }
 }

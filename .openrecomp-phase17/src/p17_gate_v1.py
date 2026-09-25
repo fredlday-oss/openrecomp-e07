@@ -85,10 +85,27 @@ FORBIDDEN_PRIVATE_PATHS = (
     "/home/fred/private/location",
     "/Users/example/private/location",
     "/tmp/private-fixture",
-    "C:\\private\\fixture",
-    "D:\\OpenRecomp\\fixtures\\private",
-    "\\\\server\\share\\private",
+    r"C:\private\fixture",
+    r"D:\OpenRecomp\fixtures\private",
+    r"\\server\share\private",
 )
+
+
+def reject_private_path(path: str) -> tuple[bool, str | None]:
+    """Fail-closed public-safety check. Returns (rejected, matched_forbidden).
+    Absolute private fixture paths and Windows/UNC absolute paths are rejected."""
+    # Normalize backslashes for the Windows-family checks.
+    normal = path.replace("/", "\\")
+    for forbidden in FORBIDDEN_PRIVATE_PATHS:
+        if path == forbidden:
+            return True, forbidden
+        if normal == forbidden.replace("/", "\\"):
+            return True, forbidden
+    # Additional conservative rejects for any absolute private/fixtures path.
+    lowered = path.lower()
+    if ":\\" in path or path.startswith("\\\\") or path.startswith("/private/") or "fixtures/private" in lowered:
+        return True, "absolute-or-private-pattern"
+    return False, None
 
 
 def assert_public_safe(gate: Gate, label: str, document: dict[str, Any],

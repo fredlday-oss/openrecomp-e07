@@ -2,7 +2,8 @@
   "artifact_sha256": {
     "RESULT.json": "c4546ffe370d26b6bb419c56855f9d93b3adebb90b5eed0a39fcb288277b1b07",
     "bootstrap.json": "032eaaced3b2efaac55e97fde534fcaee59492f5e0fcc30bbd0e0b0a5e578b66",
-    "p17_00_tests.json": "0fbdb316a84efe4d2ec7be7ead4b1411ca34f73ee125538c6382d1aac17eb0f1"
+    "negative_tests.json": "28c9e343b61a9deb2c51b5e8d224828f8501162332991e9b2656547d302cff65",
+    "p17_00_tests.json": "04ca55a135517e7655713af13309f5aa7a6457bf7f5b37622c1eb7786755070a"
   },
   "identical_lf": true,
   "identical_raw": true,
@@ -13,7 +14,8 @@
       "artifact_sha256": {
         "RESULT.json": "c4546ffe370d26b6bb419c56855f9d93b3adebb90b5eed0a39fcb288277b1b07",
         "bootstrap.json": "032eaaced3b2efaac55e97fde534fcaee59492f5e0fcc30bbd0e0b0a5e578b66",
-        "p17_00_tests.json": "0fbdb316a84efe4d2ec7be7ead4b1411ca34f73ee125538c6382d1aac17eb0f1"
+        "negative_tests.json": "28c9e343b61a9deb2c51b5e8d224828f8501162332991e9b2656547d302cff65",
+        "p17_00_tests.json": "04ca55a135517e7655713af13309f5aa7a6457bf7f5b37622c1eb7786755070a"
       },
       "command": [
         "python",
@@ -23,9 +25,6 @@
       ],
       "fail_lines": [],
       "markers": [
-        "OPENRECOMP_PHASE17_CANONICAL_FROZEN_BOUNDARY_GATE=PASS",
-        "OPENRECOMP_PHASE17_P16_SOURCE_INTEGRITY=PASS entries=31 canonical=git-blob",
-        "OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=36 (canonical committed Git blobs; frozen-commit==HEAD)",
         "OPENRECOMP_P17_00=PASS",
         "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
         "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN",
@@ -33,21 +32,22 @@
         "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
       ],
       "name": "run1",
-      "p17_00_tests_sha256": "0fbdb316a84efe4d2ec7be7ead4b1411ca34f73ee125538c6382d1aac17eb0f1",
+      "p17_00_tests_sha256": "04ca55a135517e7655713af13309f5aa7a6457bf7f5b37622c1eb7786755070a",
       "returncode": 0,
       "stderr_bytes": 0,
       "stderr_empty": true,
-      "stdout_bytes": 2695,
-      "stdout_bytes_lf": 2695,
-      "stdout_sha256_lf": "35df635bb0f607f0c950e7c18fb2c37b81d488d131c980bbbdd8a36ca3d3c410",
-      "stdout_sha256_raw": "35df635bb0f607f0c950e7c18fb2c37b81d488d131c980bbbdd8a36ca3d3c410",
+      "stdout_bytes": 2777,
+      "stdout_bytes_lf": 2777,
+      "stdout_sha256_lf": "de3c92a08956f41f630ca81b7bd7f2d5df985f46eff3ee7fd59a1d9a9eb59389",
+      "stdout_sha256_raw": "de3c92a08956f41f630ca81b7bd7f2d5df985f46eff3ee7fd59a1d9a9eb59389",
       "tests_json_present": true
     },
     {
       "artifact_sha256": {
         "RESULT.json": "c4546ffe370d26b6bb419c56855f9d93b3adebb90b5eed0a39fcb288277b1b07",
         "bootstrap.json": "032eaaced3b2efaac55e97fde534fcaee59492f5e0fcc30bbd0e0b0a5e578b66",
-        "p17_00_tests.json": "0fbdb316a84efe4d2ec7be7ead4b1411ca34f73ee125538c6382d1aac17eb0f1"
+        "negative_tests.json": "28c9e343b61a9deb2c51b5e8d224828f8501162332991e9b2656547d302cff65",
+        "p17_00_tests.json": "04ca55a135517e7655713af13309f5aa7a6457bf7f5b37622c1eb7786755070a"
       },
       "command": [
         "python",
@@ -57,9 +57,6 @@
       ],
       "fail_lines": [],
       "markers": [
-        "OPENRECOMP_PHASE17_CANONICAL_FROZEN_BOUNDARY_GATE=PASS",
-        "OPENRECOMP_PHASE17_P16_SOURCE_INTEGRITY=PASS entries=31 canonical=git-blob",
-        "OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=36 (canonical committed Git blobs; frozen-commit==HEAD)",
         "OPENRECOMP_P17_00=PASS",
         "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
         "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN",
@@ -67,14 +64,14 @@
         "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
       ],
       "name": "run2",
-      "p17_00_tests_sha256": "0fbdb316a84efe4d2ec7be7ead4b1411ca34f73ee125538c6382d1aac17eb0f1",
+      "p17_00_tests_sha256": "04ca55a135517e7655713af13309f5aa7a6457bf7f5b37622c1eb7786755070a",
       "returncode": 0,
       "stderr_bytes": 0,
       "stderr_empty": true,
-      "stdout_bytes": 2695,
-      "stdout_bytes_lf": 2695,
-      "stdout_sha256_lf": "35df635bb0f607f0c950e7c18fb2c37b81d488d131c980bbbdd8a36ca3d3c410",
-      "stdout_sha256_raw": "35df635bb0f607f0c950e7c18fb2c37b81d488d131c980bbbdd8a36ca3d3c410",
+      "stdout_bytes": 2777,
+      "stdout_bytes_lf": 2777,
+      "stdout_sha256_lf": "de3c92a08956f41f630ca81b7bd7f2d5df985f46eff3ee7fd59a1d9a9eb59389",
+      "stdout_sha256_raw": "de3c92a08956f41f630ca81b7bd7f2d5df985f46eff3ee7fd59a1d9a9eb59389",
       "tests_json_present": true
     }
   ],

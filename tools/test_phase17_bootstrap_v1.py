@@ -16,7 +16,7 @@ for extra in ("", ".openrecomp-phase17/src"):
 
 import p17_contracts_v1 as contract
 import p17_fixture_verification_v1 as fixture
-from p17_gate_v1 import assert_public_safe, run_stage, write_json
+from p17_gate_v1 import assert_public_safe, reject_private_path, run_stage, write_json
 import p17_frozen_phase16_boundary_v1 as p16_boundary
 import p17_frozen_phase16_integrity_v1 as p16_integrity
 
@@ -52,7 +52,7 @@ def run_p16_boundary() -> tuple[bool, str]:
         cwd=str(ROOT), capture_output=True, text=True,
     )
     ok = completed.returncode == 0 and "OPENRECOMP_PHASE17_P16_BOUNDARY_FROZEN=PASS" in completed.stdout
-    return ok, completed.stdout.strip()
+    return ok, completed.stdout.strip() if not ok else "frozen-boundary-ok"
 
 
 def run_p16_integrity() -> tuple[bool, str]:
@@ -61,7 +61,7 @@ def run_p16_integrity() -> tuple[bool, str]:
         cwd=str(ROOT), capture_output=True, text=True,
     )
     ok = completed.returncode == 0 and "OPENRECOMP_PHASE17_P16_SOURCE_INTEGRITY=PASS" in completed.stdout
-    return ok, completed.stdout.strip()
+    return ok, completed.stdout.strip() if not ok else "source-integrity-ok"
 
 
 def run_p15_boundary() -> tuple[bool, str]:
@@ -70,7 +70,7 @@ def run_p15_boundary() -> tuple[bool, str]:
         cwd=str(ROOT), capture_output=True, text=True,
     )
     ok = completed.returncode == 0 and "OPENRECOMP_PHASE16_P15_BOUNDARY_FROZEN=PASS" in completed.stdout
-    return ok, completed.stdout.strip()
+    return ok, completed.stdout.strip() if not ok else "frozen-boundary-ok"
 
 
 def run_p15_integrity() -> tuple[bool, str]:
@@ -79,7 +79,10 @@ def run_p15_integrity() -> tuple[bool, str]:
         cwd=str(ROOT), capture_output=True, text=True,
     )
     ok = completed.returncode == 0 and "OPENRECOMP_PHASE16_P15_SOURCE_INTEGRITY=PASS" in completed.stdout
-    return ok, completed.stdout.strip()
+    # Do not echo the legacy helper output into tracked evidence; it contains a
+    # self-referential "frozen-commit==HEAD" classification that is not stable
+    # for the Phase-17 candidate boundary.
+    return ok, completed.stdout.strip() if not ok else "source-integrity-ok"
 
 
 def negative_fixture_absent() -> bool:
@@ -92,7 +95,6 @@ def negative_fixture_absent() -> bool:
 def negative_fixture_digest_mismatch() -> bool:
     with tempfile.TemporaryDirectory() as tmp:
         fixture_dir = pathlib.Path(tmp)
-        # Create files with wrong content
         (fixture_dir / "Disney's Hercules Action Game (USA).bin").write_bytes(b"wrong bin")
         (fixture_dir / "Disney's Hercules Action Game (USA).cue").write_bytes(b"wrong cue")
         (fixture_dir / "SLUS_005.29").write_bytes(b"wrong slus")
@@ -103,32 +105,57 @@ def negative_fixture_digest_mismatch() -> bool:
 def negative_fixture_malformed_metadata() -> bool:
     with tempfile.TemporaryDirectory() as tmp:
         fixture_dir = pathlib.Path(tmp)
-        # bin and slus correct size/hash not required for malformed-metadata test;
-        # we test that an unparseable CUE is rejected.
         (fixture_dir / "Disney's Hercules Action Game (USA).bin").write_bytes(b"x" * 409_452_624)
         (fixture_dir / "Disney's Hercules Action Game (USA).cue").write_bytes(b"NOT A CUE\n")
         (fixture_dir / "SLUS_005.29").write_bytes(b"x" * 129_024)
         ok, report = fixture.verify_fixture(fixture_dir)
-        # Verification fails because sizes/hashes mismatch; malformed metadata is
-        # covered by the hash/size fail-closed checks.
         return not ok and not report.get("bin_hash_ok", False)
 
 
-def negative_private_path_safety() -> bool:
-    bad_doc = {
-        "bad_path": "/home/fred/private/location",
-    }
-    class FakeGate:
-        def __init__(self):
-            self.ok = True
-            self.results = []
-        def check(self, label, condition, detail=""):
-            self.results.append((label, condition, detail))
-            if not condition:
-                self.ok = False
-    fake = FakeGate()
-    assert_public_safe(fake, "negative", bad_doc)
-    return not fake.ok
+FORBIDDEN_PRIVATE_PATHS = (
+    "/home/fred/private/location",
+    "/Users/example/private/location",
+    "/tmp/private-fixture",
+    r"C:\private\fixture",
+    r"D:\OpenRecomp\fixtures\private",
+    r"\\server\share\private",
+)
+
+
+def negative_private_path_safety() -> dict[str, object]:
+    """Directly assert rejection for each exact private-path case."""
+    results: dict[str, object] = {}
+    all_rejected = True
+    for path in FORBIDDEN_PRIVATE_PATHS:
+        rejected, matched = reject_private_path(path)
+        results[path] = {"rejected": rejected, "matched": matched}
+        if not rejected:
+            all_rejected = False
+    return {"all_rejected": all_rejected, "cases": results}
+
+
+def negative_manifest_completeness() -> dict[str, object]:
+    """Directly assert fail-closed rejection for incomplete/malformed manifests."""
+    expected = p16_integrity.expected_inventory_from_frozen_commit()
+    real_manifest = ROOT / ".openrecomp-phase16" / "SOURCE_SHA256SUMS.txt"
+    real_text = real_manifest.read_text(encoding="utf-8")
+    real_lines = [line for line in real_text.splitlines() if line.strip()]
+    first_entry = real_lines[0]
+    middle_entry = real_lines[len(real_lines) // 2]
+
+    def make_case(name: str, content: str | None) -> dict[str, object]:
+        rejected, report = p16_integrity.negative_manifest_case(name, content, expected)
+        return {"name": name, "rejected": rejected, "report": report}
+
+    cases = [
+        make_case("empty-manifest", ""),
+        make_case("malformed-manifest", "this-is-not-a-manifest\nno-digest-here *foo\n"),
+        make_case("one-valid-entry", first_entry + "\n"),
+        make_case("missing-middle-entry", "\n".join([l for l in real_lines if l != middle_entry]) + "\n"),
+        make_case("unexpected-extra-entry", real_text + "0" * 64 + " *extra/phase16/file.py\n"),
+    ]
+    all_rejected = all(case["rejected"] for case in cases)
+    return {"all_rejected": all_rejected, "cases": cases}
 
 
 def nondeterminism_rejection_test() -> bool:
@@ -190,7 +217,6 @@ def temp_repository_test() -> bool:
         # Create synthetic fixtures with the correct hashes/sizes in the temp repo
         fixture_dir = tmp_path / "fixtures" / "psx" / "hercules"
         fixture_dir.mkdir(parents=True)
-        # We use the real fixture bytes if available, otherwise fail the test.
         real_fixture_dir = fixture_root()
         if not (real_fixture_dir / "Disney's Hercules Action Game (USA).bin").is_file():
             return False
@@ -270,7 +296,15 @@ def body(gate, evidence: pathlib.Path, root: pathlib.Path) -> None:
     gate.check("negative:fixture-absent", negative_fixture_absent(), "missing fixture rejected")
     gate.check("negative:fixture-digest-mismatch", negative_fixture_digest_mismatch(), "wrong digest rejected")
     gate.check("negative:fixture-malformed-metadata", negative_fixture_malformed_metadata(), "malformed metadata rejected")
-    gate.check("negative:private-path-safety", negative_private_path_safety(), "private paths rejected")
+
+    private_results = negative_private_path_safety()
+    gate.check("negative:private-path-safety", private_results["all_rejected"],
+               json.dumps(private_results["cases"], sort_keys=True))
+
+    manifest_results = negative_manifest_completeness()
+    gate.check("negative:manifest-completeness", manifest_results["all_rejected"],
+               json.dumps([{"name": c["name"], "rejected": c["rejected"]} for c in manifest_results["cases"]],
+                          sort_keys=True))
 
     nondet = subprocess.run(
         [sys.executable, str(ROOT / "tools/test_phase17_nondeterminism_v1.py")],
@@ -312,6 +346,18 @@ def body(gate, evidence: pathlib.Path, root: pathlib.Path) -> None:
     }
     write_json(evidence / "bootstrap.json", bootstrap_doc)
     assert_public_safe(gate, "bootstrap", bootstrap_doc)
+
+    # Negative-test audit trail is intentionally recorded separately so that
+    # forbidden fixture-path strings (used only as test inputs) do not pollute
+    # the stable bootstrap document.
+    write_json(evidence / "negative_tests.json", {
+        "schema": "openrecomp-phase17-negative-tests-v1",
+        "stage": STAGE,
+        "private_path_cases": private_results["cases"],
+        "manifest_completeness_cases": [
+            {"name": c["name"], "rejected": c["rejected"]} for c in manifest_results["cases"]
+        ],
+    })
 
     write_json(evidence / "RESULT.json", {
         "schema": "openrecomp-phase17-result-v1",

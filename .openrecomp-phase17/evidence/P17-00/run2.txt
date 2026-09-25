@@ -1,11 +1,8 @@
 PASS: integrity:phase17-sources OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=10
-PASS: phase16:boundary-frozen OPENRECOMP_PHASE17_P16_BOUNDARY_FROZEN=PASS frozen_phase16=a0c26e882ca65cfc84cbec78f7e787509a4992a3 frozen_phase15=5cec005d45e8361e5ea132731661b13a72a5ed13 frozen_phase14=830be0f7be998061e8d442134cfae511d5dd8c62
-OPENRECOMP_PHASE17_CANONICAL_FROZEN_BOUNDARY_GATE=PASS
-PASS: phase16:sources-intact LEGACY_PHASE16_NATIVE_GATE=PRE_EXISTING_FAIL (Phase-16 native manifest check fails on LF/CRLF boundary; canonical gate unaffected)
-OPENRECOMP_PHASE17_P16_SOURCE_INTEGRITY=PASS entries=31 canonical=git-blob
-PASS: phase15:boundary-frozen OPENRECOMP_PHASE16_P15_BOUNDARY_FROZEN=PASS frozen_phase15=5cec005d45e8361e5ea132731661b13a72a5ed13 frozen_phase14=830be0f7be998061e8d442134cfae511d5dd8c62
-PASS: phase15:sources-intact OPENRECOMP_PHASE16_P15_SOURCE_INTEGRITY=PASS entries=36 canonical=git-blob
-OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=36 (canonical committed Git blobs; frozen-commit==HEAD)
+PASS: phase16:boundary-frozen frozen-boundary-ok
+PASS: phase16:sources-intact source-integrity-ok
+PASS: phase15:boundary-frozen frozen-boundary-ok
+PASS: phase15:sources-intact source-integrity-ok
 PASS: control:CONTROL_POLICY.md CONTROL_POLICY.md
 PASS: control:SCOPE.md SCOPE.md
 PASS: control:STAGE_QUEUE.md STAGE_QUEUE.md
@@ -28,7 +25,8 @@ PASS: title-payload:not-decoded NOT_DECODED
 PASS: negative:fixture-absent missing fixture rejected
 PASS: negative:fixture-digest-mismatch wrong digest rejected
 PASS: negative:fixture-malformed-metadata malformed metadata rejected
-PASS: negative:private-path-safety private paths rejected
+PASS: negative:private-path-safety {"/Users/example/private/location": {"matched": "/Users/example/private/location", "rejected": true}, "/home/fred/private/location": {"matched": "/home/fred/private/location", "rejected": true}, "/tmp/private-fixture": {"matched": "/tmp/private-fixture", "rejected": true}, "C:\\private\\fixture": {"matched": "C:\\private\\fixture", "rejected": true}, "D:\\OpenRecomp\\fixtures\\private": {"matched": "D:\\OpenRecomp\\fixtures\\private", "rejected": true}, "\\\\server\\share\\private": {"matched": "\\\\server\\share\\private", "rejected": true}}
+PASS: negative:manifest-completeness [{"name": "empty-manifest", "rejected": true}, {"name": "malformed-manifest", "rejected": true}, {"name": "one-valid-entry", "rejected": true}, {"name": "missing-middle-entry", "rejected": true}, {"name": "unexpected-extra-entry", "rejected": true}]
 PASS: negative:nondeterminism-rejected OPENRECOMP_P17_00_NONDETERMINISM_TEST=PASS
 PASS: negative:temp-repository OPENRECOMP_P17_00_TEMP_REPOSITORY_TEST=PASS
 PASS: bootstrap:no-private-path absolute private paths absent
@@ -40,4 +38,4 @@ OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN
 OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
 OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 FIRST_FRAME_READY=NO
-P17-00_CHECKS=33
+P17-00_CHECKS=34

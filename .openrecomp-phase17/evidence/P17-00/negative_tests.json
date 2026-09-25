@@ -1,0 +1,52 @@
+{
+  "manifest_completeness_cases": [
+    {
+      "name": "empty-manifest",
+      "rejected": true
+    },
+    {
+      "name": "malformed-manifest",
+      "rejected": true
+    },
+    {
+      "name": "one-valid-entry",
+      "rejected": true
+    },
+    {
+      "name": "missing-middle-entry",
+      "rejected": true
+    },
+    {
+      "name": "unexpected-extra-entry",
+      "rejected": true
+    }
+  ],
+  "private_path_cases": {
+    "/Users/example/private/location": {
+      "matched": "/Users/example/private/location",
+      "rejected": true
+    },
+    "/home/fred/private/location": {
+      "matched": "/home/fred/private/location",
+      "rejected": true
+    },
+    "/tmp/private-fixture": {
+      "matched": "/tmp/private-fixture",
+      "rejected": true
+    },
+    "C:\\private\\fixture": {
+      "matched": "C:\\private\\fixture",
+      "rejected": true
+    },
+    "D:\\OpenRecomp\\fixtures\\private": {
+      "matched": "D:\\OpenRecomp\\fixtures\\private",
+      "rejected": true
+    },
+    "\\\\server\\share\\private": {
+      "matched": "\\\\server\\share\\private",
+      "rejected": true
+    }
+  },
+  "schema": "openrecomp-phase17-negative-tests-v1",
+  "stage": "P17-00"
+}
