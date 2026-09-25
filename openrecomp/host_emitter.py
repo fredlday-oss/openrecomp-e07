@@ -1086,7 +1086,16 @@ class HostEmitter:
                 rule.condition.predicate,
                 self.config.word_bits,
             )
-            return delay_lines + [
+            if delay_lines:
+                return [
+                    "    {",
+                    f"        const int or_cond = ({condition});",
+                    *delay_lines,
+                    f"        if (or_cond) goto {self._target_label(context, taken[0])}; "
+                    f"else goto {self._target_label(context, not_taken[0])};",
+                    "    }",
+                ]
+            return [
                 f"    if ({condition}) goto {self._target_label(context, taken[0])}; "
                 f"else goto {self._target_label(context, not_taken[0])};"
             ]

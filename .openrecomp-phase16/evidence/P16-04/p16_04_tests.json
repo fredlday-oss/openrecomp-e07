@@ -1,0 +1,166 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase16-sources",
+      "detail": "OPENRECOMP_PHASE16_SOURCE_INTEGRITY=PASS entries=20",
+      "status": "PASS"
+    },
+    {
+      "check": "disc-present",
+      "detail": "authentic disc image present",
+      "status": "PASS"
+    },
+    {
+      "check": "analysis-ok",
+      "detail": "private analysis produced",
+      "status": "PASS"
+    },
+    {
+      "check": "build-set-files",
+      "detail": "build set has all 4 C source units",
+      "status": "PASS"
+    },
+    {
+      "check": "run1-build-ok",
+      "detail": "run1 built OK",
+      "status": "PASS"
+    },
+    {
+      "check": "run2-build-ok",
+      "detail": "run2 built OK",
+      "status": "PASS"
+    },
+    {
+      "check": "run1-rc-zero",
+      "detail": "run1 returncode 0 (got 0)",
+      "status": "PASS"
+    },
+    {
+      "check": "run2-rc-zero",
+      "detail": "run2 returncode 0 (got 0)",
+      "status": "PASS"
+    },
+    {
+      "check": "run1-stderr-empty",
+      "detail": "run1 stderr empty",
+      "status": "PASS"
+    },
+    {
+      "check": "run2-stderr-empty",
+      "detail": "run2 stderr empty",
+      "status": "PASS"
+    },
+    {
+      "check": "dual-run-stdout-identical",
+      "detail": "dual runs byte-identical",
+      "status": "PASS"
+    },
+    {
+      "check": "failed-zero",
+      "detail": "failed == 0 (got 0)",
+      "status": "PASS"
+    },
+    {
+      "check": "error-empty",
+      "detail": "error empty (got )",
+      "status": "PASS"
+    },
+    {
+      "check": "cd-read-calls",
+      "detail": "CD read calls == 2 (got 2)",
+      "status": "PASS"
+    },
+    {
+      "check": "cd-sectors",
+      "detail": "CD sectors == 146 (got 146)",
+      "status": "PASS"
+    },
+    {
+      "check": "cd-bytes",
+      "detail": "CD bytes == 299008 (got 299008)",
+      "status": "PASS"
+    },
+    {
+      "check": "cd-no-failures",
+      "detail": "CD read failures == 0",
+      "status": "PASS"
+    },
+    {
+      "check": "cd-last-lba",
+      "detail": "CD last LBA == 88",
+      "status": "PASS"
+    },
+    {
+      "check": "cd-last-count",
+      "detail": "CD last count == 145",
+      "status": "PASS"
+    },
+    {
+      "check": "exec-calls",
+      "detail": "Exec calls == 1 (got 1)",
+      "status": "PASS"
+    },
+    {
+      "check": "exec-struct",
+      "detail": "Exec struct addr == 0x80034e80",
+      "status": "PASS"
+    },
+    {
+      "check": "exec-pc0",
+      "detail": "Exec pc0 == 0x800380a0",
+      "status": "PASS"
+    },
+    {
+      "check": "exec-t-addr",
+      "detail": "Exec t_addr == 0x80038098",
+      "status": "PASS"
+    },
+    {
+      "check": "exec-t-size",
+      "detail": "Exec t_size == 286720",
+      "status": "PASS"
+    },
+    {
+      "check": "exec-sp-addr",
+      "detail": "Exec sp_addr == 0x801ffff0",
+      "status": "PASS"
+    },
+    {
+      "check": "exec-payload-verified",
+      "detail": "authentic TITLE overlay payload SHA-256 verified",
+      "status": "PASS"
+    },
+    {
+      "check": "exec-first-word",
+      "detail": "first word == 0x3c028008",
+      "status": "PASS"
+    },
+    {
+      "check": "rcnt-clear-calls",
+      "detail": "ChangeClearRCnt calls == 1",
+      "status": "PASS"
+    },
+    {
+      "check": "cdrom-production:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "cdrom-production:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "cdrom-production:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P16-04 Test Results",
+  "schema": "openrecomp-phase16-tests-v1",
+  "stage": "P16-04",
+  "summary": {
+    "failed": 0,
+    "passed": 31
+  }
+}

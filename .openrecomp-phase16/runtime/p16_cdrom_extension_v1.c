@@ -64,12 +64,12 @@ int p16_cdrom_read_user_sectors(uint32_t start_lba, uint32_t count, uint32_t des
 
     ++g_p16_cdrom_read_calls;
 
+    total_bytes = (uint64_t)count * P16_CD_USER_DATA_SIZE;
     if (count == 0u || start_lba >= P16_CD_MAX_LBA || start_lba + count > P16_CD_MAX_LBA) {
         ++g_p16_cdrom_read_failures;
         return P9_RT_UNSUPPORTED_OPERATION;
     }
 
-    total_bytes = (uint64_t)count * P16_CD_USER_DATA_SIZE;
     if (!p9_translate_ram((uint64_t)dest_address, total_bytes, &ram_offset)) {
         ++g_p16_cdrom_read_failures;
         return P9_RT_MEMORY_OUT_OF_RANGE;
