@@ -103,7 +103,11 @@ def reject_private_path(path: str) -> tuple[bool, str | None]:
             return True, forbidden
     # Additional conservative rejects for any absolute private/fixtures path.
     lowered = path.lower()
-    if ":\\" in path or path.startswith("\\\\") or path.startswith("/private/") or "fixtures/private" in lowered:
+    if ":\\" in path or path.startswith("\\\\"):
+        return True, "windows-or-unc-absolute"
+    if path.startswith("/home/") or path.startswith("/Users/") or path.startswith("/tmp/"):
+        return True, "unix-absolute-home-or-tmp"
+    if path.startswith("/private/") or "fixtures/private" in lowered:
         return True, "absolute-or-private-pattern"
     return False, None
 

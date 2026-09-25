@@ -7,11 +7,15 @@ Phase 17 starts from the frozen Phase-16 terminal boundary on branch
 retroactive Phase-16 claim and preserves the frozen Phase-1 through Phase-16
 evidence chains intact.
 
-Work branch: `agent/kimi-phase17-p17-00`.
+Work branch: `agent/kimi-phase17-p17-01-r2`.
 
 1. Work as one agent on one serial production frontier at a time.
-2. Freeze the stage rows at the `P17-00` `PASS` boundary. Any stage queue
-   change requires explicit technical justification and fails closed.
+2. Freeze the stage rows at the `P17-00` `PASS` boundary and reconcile the
+   authoritative Phase-17 stage queue to exactly:
+   `P17-00, P17-01, P17-02, P17-03, P17-04, P17-05, P17-06, P17-07, P17-90, P17-91, P17-99`.
+   `P17-00` froze placeholder/reserved rows before the complete Phase-17
+   execution contract was supplied; the authoritative mission now assigns
+   evidence-bounded meanings.
 3. Never rewrite, amend, rebase, squash, force-push, delete or alter any
    frozen Phase-1 through Phase-16 commit, tag, evidence file, verdict,
    control file, source manifest or gate. Commit `a0c26e882ca65cfc84cbec78f7e787509a4992a3` is the Phase-17
@@ -40,5 +44,5 @@ Work branch: `agent/kimi-phase17-p17-00`.
     unwarranted general compatibility or playability claims.
 13. No generic IRQ delivery or speculative hardware simulation beyond what
     the reached fixture mechanically requires.
-14. The TITLE overlay payload remains `NOT_DECODED` at `P17-00`; do not
+14. The TITLE overlay payload remains `NOT_DECODED` at `P17-01`; do not
     decode or disassemble the TITLE payload until a later explicit stage.

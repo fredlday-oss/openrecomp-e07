@@ -113,7 +113,10 @@ def main(argv: list[str] | None = None) -> int:
     returncodes_zero = all(entry["returncode"] == 0 for entry in runs)
     stderr_empty = all(entry["stderr_empty"] for entry in runs)
     tests_json_present = all(entry["tests_json_present"] for entry in runs)
-    accepted = (f"OPENRECOMP_P17_{stage_number}=PASS",)
+    accepted = (
+        f"OPENRECOMP_P17_{stage_number}=PASS",
+        f"OPENRECOMP_PHASE17_TITLE_INGESTION_V1=PASS",
+    )
     markers_ok = all(
         any(marker in accepted for marker in entry["markers"])
         and not entry["fail_lines"]

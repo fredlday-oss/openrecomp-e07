@@ -1,0 +1,130 @@
+{
+  "cases": [
+    {
+      "name": "fixture-absent",
+      "rejected": true
+    },
+    {
+      "name": "fixture-digest-mismatch",
+      "rejected": true
+    },
+    {
+      "name": "malformed-cue",
+      "rejected": true
+    },
+    {
+      "name": "missing-title-path",
+      "rejected": true
+    },
+    {
+      "name": "malformed-iso-metadata",
+      "rejected": true
+    },
+    {
+      "name": "bad-sector-sync",
+      "rejected": true
+    },
+    {
+      "name": "bad-mode2-form1",
+      "rejected": true
+    },
+    {
+      "name": "directory-endian-mismatch",
+      "rejected": true
+    },
+    {
+      "name": "malformed-psx-exe",
+      "rejected": true
+    },
+    {
+      "name": "truncated-header",
+      "rejected": true
+    },
+    {
+      "name": "bad-magic",
+      "rejected": true
+    },
+    {
+      "name": "whole-file-digest-mismatch",
+      "rejected": true
+    },
+    {
+      "name": "payload-digest-mismatch",
+      "rejected": true
+    },
+    {
+      "name": "wrong-file-size",
+      "rejected": true
+    },
+    {
+      "name": "wrong-entry",
+      "rejected": true
+    },
+    {
+      "name": "wrong-load-address",
+      "rejected": true
+    },
+    {
+      "name": "wrong-text-size",
+      "rejected": true
+    },
+    {
+      "name": "text-end-overflow",
+      "rejected": true
+    },
+    {
+      "name": "wrong-gp0",
+      "rejected": true
+    },
+    {
+      "name": "wrong-data-field",
+      "rejected": true
+    },
+    {
+      "name": "wrong-bss-field",
+      "rejected": true
+    },
+    {
+      "name": "wrong-stack",
+      "rejected": true
+    },
+    {
+      "name": "wrong-stack-size",
+      "rejected": true
+    },
+    {
+      "name": "malformed-reserved-header",
+      "rejected": true
+    },
+    {
+      "name": "private-paths",
+      "rejected": true
+    },
+    {
+      "name": "public-safe-rejects-fixtures-path",
+      "rejected": true
+    },
+    {
+      "name": "public-safe-rejects-reconstructive-keys",
+      "rejected": true
+    },
+    {
+      "name": "frozen-phase16-integrity",
+      "rejected": false
+    },
+    {
+      "name": "frozen-boundary-fail-closed",
+      "rejected": true
+    },
+    {
+      "name": "frozen-manifest-mutation",
+      "rejected": true
+    },
+    {
+      "name": "malformed-frozen-manifest",
+      "rejected": true
+    }
+  ],
+  "schema": "openrecomp-phase17-negative-tests-v1",
+  "stage": "P17-01"
+}

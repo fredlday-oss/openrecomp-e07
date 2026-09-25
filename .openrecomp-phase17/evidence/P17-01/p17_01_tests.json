@@ -1,0 +1,336 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase17-sources",
+      "detail": "OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=13",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-exists",
+      "detail": "bin",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-hash",
+      "detail": "2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-exists",
+      "detail": "cue",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-hash",
+      "detail": "beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:slus-exists",
+      "detail": "slus",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:slus-hash",
+      "detail": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "status": "PASS"
+    },
+    {
+      "check": "iso:pvd-valid",
+      "detail": "PVD root directory located",
+      "status": "PASS"
+    },
+    {
+      "check": "iso:title-path-found",
+      "detail": "located \\EX\\TITLE.;1 at LBA 88",
+      "status": "PASS"
+    },
+    {
+      "check": "iso:title-lba-matches-frozen",
+      "detail": "LBA 88 == frozen 88",
+      "status": "PASS"
+    },
+    {
+      "check": "iso:title-size-matches-frozen",
+      "detail": "size 288768 == frozen 288768",
+      "status": "PASS"
+    },
+    {
+      "check": "title:whole-file-size",
+      "detail": "288768",
+      "status": "PASS"
+    },
+    {
+      "check": "title:whole-file-digest",
+      "detail": "whole-file SHA-256 verified",
+      "status": "PASS"
+    },
+    {
+      "check": "title:payload-digest",
+      "detail": "payload SHA-256 verified",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:magic",
+      "detail": "PS-X EXE",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:pc0",
+      "detail": "0x800380a0",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:t_addr",
+      "detail": "0x80038098",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:t_size",
+      "detail": "286720",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:text_end",
+      "detail": "0x8007e098",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:text_end_in_ram",
+      "detail": "text range within PS1 RAM",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:entry_aligned",
+      "detail": "0x800380a0",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:entry_in_text_range",
+      "detail": "entry inside loaded text range",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:gp0",
+      "detail": "0x00000000",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:data_zero",
+      "detail": "d_addr=0x00000000 d_size=0",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:bss_zero",
+      "detail": "b_addr=0x00000000 b_size=0",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:stack",
+      "detail": "s_addr=0x801ffff0 s_size=0",
+      "status": "PASS"
+    },
+    {
+      "check": "exe:reserved-summary",
+      "detail": "{\"first_relative_offset\": 20, \"last_relative_offset\": 74, \"nonzero_count\": 55}",
+      "status": "PASS"
+    },
+    {
+      "check": "cross-check:extent-vs-frozen",
+      "detail": "ISO lookup agrees with frozen Phase-16 mapping",
+      "status": "PASS"
+    },
+    {
+      "check": "cross-check:payload-sector-count",
+      "detail": "frozen sector geometry consistent",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:fixture-absent",
+      "detail": "missing fixture rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:fixture-digest-mismatch",
+      "detail": "wrong digest rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:malformed-cue",
+      "detail": "malformed CUE rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:missing-title-path",
+      "detail": "missing TITLE path rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:malformed-iso-metadata",
+      "detail": "malformed ISO metadata rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:bad-sector-sync",
+      "detail": "bad sector sync rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:bad-mode2-form1",
+      "detail": "non-Form-1 sector rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:directory-endian-mismatch",
+      "detail": "directory record endian mismatch rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:malformed-psx-exe",
+      "detail": "malformed PS-X EXE rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:truncated-header",
+      "detail": "truncated header rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:bad-magic",
+      "detail": "bad magic rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:whole-file-digest-mismatch",
+      "detail": "whole-file digest mismatch rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:payload-digest-mismatch",
+      "detail": "payload digest mismatch rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:wrong-file-size",
+      "detail": "wrong file size rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:wrong-entry",
+      "detail": "wrong entry rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:wrong-load-address",
+      "detail": "wrong load address rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:wrong-text-size",
+      "detail": "wrong text size rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:text-end-overflow",
+      "detail": "text range overflow rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:wrong-gp0",
+      "detail": "wrong gp0 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:wrong-data-field",
+      "detail": "non-zero data field rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:wrong-bss-field",
+      "detail": "non-zero BSS field rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:wrong-stack",
+      "detail": "wrong stack rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:wrong-stack-size",
+      "detail": "wrong stack size rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:malformed-reserved-header",
+      "detail": "nonzero reserved header field rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:private-paths",
+      "detail": "private absolute paths rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:public-safe-rejects-fixtures-path",
+      "detail": "fixtures/ path rejected by assert_public_safe",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:public-safe-rejects-reconstructive-keys",
+      "detail": "reconstructive keys rejected by assert_public_safe",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:frozen-phase16-integrity",
+      "detail": "frozen Phase-16 source integrity maintained",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:frozen-boundary-fail-closed",
+      "detail": "{\"returncode\": 1, \"stderr_has_traceback\": false, \"stdout_marker_fail\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:frozen-manifest-mutation",
+      "detail": "{\"completeness_error\": \"expected_paths != manifest_paths\", \"digest_mismatch\": []}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:malformed-frozen-manifest",
+      "detail": "[{\"name\": \"empty-manifest\", \"rejected\": true}, {\"name\": \"malformed-line\", \"rejected\": true}, {\"name\": \"missing-manifest\", \"rejected\": true}]",
+      "status": "PASS"
+    },
+    {
+      "check": "title-ingestion:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "title-ingestion:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "title-ingestion:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "title-ingestion:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "title-ingestion:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P17-01 Test Results",
+  "schema": "openrecomp-phase17-tests-v1",
+  "stage": "P17-01",
+  "summary": {
+    "failed": 0,
+    "passed": 65
+  }
+}

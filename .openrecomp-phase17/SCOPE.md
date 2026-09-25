@@ -14,6 +14,9 @@ Advance OpenRecomp autonomously from the frozen Phase-16 terminal checkpoint
    private tests; synthetic-only path available for public tests).
 6. Source-manifest discipline for all Phase-17 code and gates.
 7. A `P17-00` bootstrap gate that records the boundary and freezes the stage queue.
+8. A `P17-01` gate that authenticates the Hercules TITLE disc fixture, locates
+   `\\EX\\TITLE.;1` through validated ISO 9660 metadata, and ingests the file as a
+   bounded PS-X EXE using the frozen Phase-9 parser unchanged.
 
 ## Non-Goals
 

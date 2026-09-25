@@ -12,6 +12,10 @@ Every stage in `.openrecomp-phase17/evidence/P17-xx/` produces:
 3. Stage-specific JSON documents recording non-reconstructive metadata.
 4. `run1.txt`, `run2.txt`, `run1.err.txt`, `run2.err.txt`.
 
+P17-01 additionally records:
+- `title_ingestion.json`: non-reconstructive ISO 9660 path, extent, PS-X EXE header metadata, reserved-region summary, and payload decoding state.
+- `negative_tests.json`: summary of deterministic rejection cases.
+
 Public-Safety Rules:
 - No private host paths containing user directories.
 - No raw machine code instructions or raw payload hex.

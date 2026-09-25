@@ -1,0 +1,77 @@
+PASS: integrity:phase17-sources OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=13
+PASS: fixture:bin-exists bin
+PASS: fixture:bin-hash 2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365
+PASS: fixture:cue-exists cue
+PASS: fixture:cue-hash beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2
+PASS: fixture:slus-exists slus
+PASS: fixture:slus-hash c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f
+PASS: iso:pvd-valid PVD root directory located
+PASS: iso:title-path-found located \EX\TITLE.;1 at LBA 88
+PASS: iso:title-lba-matches-frozen LBA 88 == frozen 88
+PASS: iso:title-size-matches-frozen size 288768 == frozen 288768
+PASS: title:whole-file-size 288768
+PASS: title:whole-file-digest whole-file SHA-256 verified
+PASS: title:payload-digest payload SHA-256 verified
+PASS: exe:magic PS-X EXE
+PASS: exe:pc0 0x800380a0
+PASS: exe:t_addr 0x80038098
+PASS: exe:t_size 286720
+PASS: exe:text_end 0x8007e098
+PASS: exe:text_end_in_ram text range within PS1 RAM
+PASS: exe:entry_aligned 0x800380a0
+PASS: exe:entry_in_text_range entry inside loaded text range
+PASS: exe:gp0 0x00000000
+PASS: exe:data_zero d_addr=0x00000000 d_size=0
+PASS: exe:bss_zero b_addr=0x00000000 b_size=0
+PASS: exe:stack s_addr=0x801ffff0 s_size=0
+PASS: exe:reserved-summary {"first_relative_offset": 20, "last_relative_offset": 74, "nonzero_count": 55}
+PASS: cross-check:extent-vs-frozen ISO lookup agrees with frozen Phase-16 mapping
+PASS: cross-check:payload-sector-count frozen sector geometry consistent
+PASS: negative:fixture-absent missing fixture rejected
+PASS: negative:fixture-digest-mismatch wrong digest rejected
+PASS: negative:malformed-cue malformed CUE rejected
+PASS: negative:missing-title-path missing TITLE path rejected
+PASS: negative:malformed-iso-metadata malformed ISO metadata rejected
+PASS: negative:bad-sector-sync bad sector sync rejected
+PASS: negative:bad-mode2-form1 non-Form-1 sector rejected
+PASS: negative:directory-endian-mismatch directory record endian mismatch rejected
+PASS: negative:malformed-psx-exe malformed PS-X EXE rejected
+PASS: negative:truncated-header truncated header rejected
+PASS: negative:bad-magic bad magic rejected
+PASS: negative:whole-file-digest-mismatch whole-file digest mismatch rejected
+PASS: negative:payload-digest-mismatch payload digest mismatch rejected
+PASS: negative:wrong-file-size wrong file size rejected
+PASS: negative:wrong-entry wrong entry rejected
+PASS: negative:wrong-load-address wrong load address rejected
+PASS: negative:wrong-text-size wrong text size rejected
+PASS: negative:text-end-overflow text range overflow rejected
+PASS: negative:wrong-gp0 wrong gp0 rejected
+PASS: negative:wrong-data-field non-zero data field rejected
+PASS: negative:wrong-bss-field non-zero BSS field rejected
+PASS: negative:wrong-stack wrong stack rejected
+PASS: negative:wrong-stack-size wrong stack size rejected
+PASS: negative:malformed-reserved-header nonzero reserved header field rejected
+PASS: negative:private-paths private absolute paths rejected
+PASS: negative:public-safe-rejects-fixtures-path fixtures/ path rejected by assert_public_safe
+PASS: negative:public-safe-rejects-reconstructive-keys reconstructive keys rejected by assert_public_safe
+PASS: negative:frozen-phase16-integrity frozen Phase-16 source integrity maintained
+PASS: negative:frozen-boundary-fail-closed {"returncode": 1, "stderr_has_traceback": false, "stdout_marker_fail": true}
+PASS: negative:frozen-manifest-mutation {"completeness_error": "expected_paths != manifest_paths", "digest_mismatch": []}
+PASS: negative:malformed-frozen-manifest [{"name": "empty-manifest", "rejected": true}, {"name": "malformed-line", "rejected": true}, {"name": "missing-manifest", "rejected": true}]
+PASS: title-ingestion:no-private-path absolute private paths absent
+PASS: title-ingestion:reject-private-paths no private paths in values
+PASS: title-ingestion:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: title-ingestion:no-payload-hex payload sample absent
+PASS: title-ingestion:no-raw-words reconstructive fields absent
+OPENRECOMP_P17_00=PASS
+OPENRECOMP_PHASE17_TITLE_INGESTION_V1=PASS
+OPENRECOMP_PHASE17_TITLE_PAYLOAD_DECODING_POLICY_V1=PLANNED
+OPENRECOMP_PHASE17_TITLE_IR_CONTRACT_V1=PLANNED
+OPENRECOMP_PHASE17_TITLE_HOST_SURFACE_V1=PLANNED
+OPENRECOMP_PHASE17_TITLE_REPLAY_BOUNDARY_V1=PLANNED
+OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+FIRST_FRAME_READY=NO
+P17-01_CHECKS=65
