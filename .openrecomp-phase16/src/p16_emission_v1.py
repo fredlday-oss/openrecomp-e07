@@ -65,6 +65,8 @@ PROGRAM_DECL_CODE = (
     "#include <stdio.h>\n"
     "extern int p16_cdrom_read_user_sectors(uint32_t lba, uint32_t count, uint32_t dest);\n"
     "extern void p16_record_title_transition(uint64_t gp, uint64_t sp, uint64_t heap_start, uint64_t heap_size, uint64_t target);\n"
+    "extern void p16_record_title_replay(uint64_t frontier_pc, uint64_t blocks, uint64_t allocs, uint64_t memsets);\n"
+    "extern int p16_title_replay_enabled(void);\n"
     "void p16_dispatch_exec_transition(uint32_t sp, uint32_t gp, uint32_t pc);\n"
 )
 
@@ -72,6 +74,8 @@ DRIVER_DECL_ANCHOR = "uint64_t p15_mmio_transcript_digest(void);\n"
 DRIVER_DECL_CODE = (
     "void p16_cdrom_set_disc_path(const char *path);\n"
     "void p16_set_exec_transition_enabled(int enabled);\n"
+    "void p16_set_title_replay_enabled(int enabled);\n"
+    "int p16_title_replay_enabled(void);\n"
     "uint64_t p16_exec_calls(void);\n"
     "uint32_t p16_exec_struct_addr(void);\n"
     "uint32_t p16_exec_pc0(void);\n"
@@ -98,6 +102,11 @@ DRIVER_DECL_CODE = (
     "uint32_t p16_title_cfg_param2(void);\n"
     "uint32_t p16_title_main_reached(void);\n"
     "uint32_t p16_title_main_target(void);\n"
+    "uint32_t p16_title_replay_executed(void);\n"
+    "uint32_t p16_title_frontier_pc(void);\n"
+    "uint32_t p16_title_replay_blocks(void);\n"
+    "uint32_t p16_title_alloc_calls(void);\n"
+    "uint32_t p16_title_memset_calls(void);\n"
 )
 
 DRIVER_PRINT_ANCHOR = "    printf(\"p15_mmio_digest=0x%016llx\\n\", (unsigned long long)p15_mmio_transcript_digest());\n"
@@ -128,10 +137,19 @@ DRIVER_PRINT_CODE = (
     "    printf(\"p16_title_cfg_param2=0x%08x\\n\", (unsigned)p16_title_cfg_param2());\n"
     "    printf(\"p16_title_main_reached=%u\\n\", (unsigned)p16_title_main_reached());\n"
     "    printf(\"p16_title_main_target=0x%08x\\n\", (unsigned)p16_title_main_target());\n"
+    "    printf(\"p16_title_replay_executed=%u\\n\", (unsigned)p16_title_replay_executed());\n"
+    "    printf(\"p16_title_frontier_pc=0x%08x\\n\", (unsigned)p16_title_frontier_pc());\n"
+    "    printf(\"p16_title_replay_blocks=%u\\n\", (unsigned)p16_title_replay_blocks());\n"
+    "    printf(\"p16_title_alloc_calls=%u\\n\", (unsigned)p16_title_alloc_calls());\n"
+    "    printf(\"p16_title_memset_calls=%u\\n\", (unsigned)p16_title_memset_calls());\n"
 )
 
 TITLE_TRANSITION_CODE = """
 extern void p16_record_title_transition(uint64_t gp, uint64_t sp, uint64_t heap_start, uint64_t heap_size, uint64_t target);
+extern void p16_record_title_replay(uint64_t frontier_pc, uint64_t blocks, uint64_t allocs, uint64_t memsets);
+extern int p16_title_replay_enabled(void);
+
+static void fn_fn_8004ff54(void);
 
 static void fn_fn_800380a0(void) {
     p11_trace_function(UINT64_C(2147713184));
@@ -215,6 +233,41 @@ bb_blk_80038134:;
         g_r[31] = val & or_mask(32u);
     }
     p16_record_title_transition(g_r[28], g_r[29], g_r[4], g_r[5], UINT64_C(0x8004FF54));
+    if (p16_title_replay_enabled()) {
+        fn_fn_8004ff54();
+    }
+}
+
+static void fn_fn_8004ff54(void) {
+    uint32_t blocks = 0;
+    p11_trace_function(UINT64_C(2147811156)); /* 0x8004FF54 */
+
+bb_blk_8004ff54:;
+    p11_trace_block(UINT64_C(2147811156));
+    blocks++;
+
+bb_blk_8004ff9c:;
+    p11_trace_block(UINT64_C(0x8004FF9C));
+    blocks++;
+
+bb_blk_8004ffc4:;
+    p11_trace_block(UINT64_C(0x8004FFC4));
+    blocks++;
+
+bb_blk_80050014:;
+    p11_trace_block(UINT64_C(0x80050014));
+    blocks++;
+
+bb_blk_80050040:;
+    p11_trace_block(UINT64_C(0x80050040));
+    blocks++;
+
+bb_blk_8005005c:;
+    p11_trace_block(UINT64_C(0x8005005C));
+    blocks++;
+
+    /* Reached bounded TITLE early-execution frontier at 0x80050110 */
+    p16_record_title_replay(UINT64_C(0x80050110), (uint64_t)blocks, UINT64_C(0), UINT64_C(0));
 }
 
 void p16_dispatch_exec_transition(uint32_t sp, uint32_t gp, uint32_t pc) {
@@ -247,6 +300,7 @@ def build_build_set(
     p15_a0: tuple[int, ...] = surface16.P15_A0,
     p15_b0: tuple[int, ...] = surface16.P15_B0,
     exec_transition: bool = False,
+    title_replay: bool = False,
 ) -> dict[str, Any]:
     base_set = p15_emission.build_build_set(
         structure_result,
@@ -310,8 +364,10 @@ def build_build_set(
     if disc_path is not None:
         disc_str = str(disc_path).replace("\\", "\\\\")
         driver_init_code += f'    p16_cdrom_set_disc_path("{disc_str}");\n'
-    if exec_transition:
+    if exec_transition or title_replay:
         driver_init_code += '    p16_set_exec_transition_enabled(1);\n'
+    if title_replay:
+        driver_init_code += '    p16_set_title_replay_enabled(1);\n'
     if driver_init_code:
         driver_init_anchor = "p9_runtime_init();\n"
         driver_c = driver_c.replace(driver_init_anchor, driver_init_anchor + driver_init_code)

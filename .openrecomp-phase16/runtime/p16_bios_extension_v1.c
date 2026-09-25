@@ -34,6 +34,7 @@ static uint64_t g_p16_rcnt_clear_calls;
 static uint32_t g_p16_rcnt_clear_flags[4];
 
 static int g_p16_exec_transition_enabled;
+static int g_p16_title_replay_enabled;
 static uint32_t g_p16_transition_dispatched;
 static uint32_t g_p16_transition_target;
 static uint32_t g_p16_transition_sp;
@@ -45,8 +46,15 @@ static uint32_t g_p16_title_cfg_param1;
 static uint32_t g_p16_title_cfg_param2;
 static uint32_t g_p16_title_main_reached;
 static uint32_t g_p16_title_main_target;
+static uint32_t g_p16_title_replay_executed;
+static uint32_t g_p16_title_frontier_pc;
+static uint32_t g_p16_title_replay_blocks;
+static uint32_t g_p16_title_alloc_calls;
+static uint32_t g_p16_title_memset_calls;
 
 void p16_set_exec_transition_enabled(int enabled) { g_p16_exec_transition_enabled = enabled; }
+void p16_set_title_replay_enabled(int enabled) { g_p16_title_replay_enabled = enabled; }
+int p16_title_replay_enabled(void) { return g_p16_title_replay_enabled; }
 uint64_t p16_exec_calls(void) { return g_p16_exec_calls; }
 uint32_t p16_exec_struct_addr(void) { return g_p16_exec_struct_addr; }
 uint32_t p16_exec_pc0(void) { return g_p16_exec_pc0; }
@@ -69,6 +77,11 @@ uint32_t p16_title_cfg_param1(void) { return g_p16_title_cfg_param1; }
 uint32_t p16_title_cfg_param2(void) { return g_p16_title_cfg_param2; }
 uint32_t p16_title_main_reached(void) { return g_p16_title_main_reached; }
 uint32_t p16_title_main_target(void) { return g_p16_title_main_target; }
+uint32_t p16_title_replay_executed(void) { return g_p16_title_replay_executed; }
+uint32_t p16_title_frontier_pc(void) { return g_p16_title_frontier_pc; }
+uint32_t p16_title_replay_blocks(void) { return g_p16_title_replay_blocks; }
+uint32_t p16_title_alloc_calls(void) { return g_p16_title_alloc_calls; }
+uint32_t p16_title_memset_calls(void) { return g_p16_title_memset_calls; }
 
 void p16_record_title_transition(uint64_t gp, uint64_t sp, uint64_t heap_start, uint64_t heap_size, uint64_t target)
 {
@@ -81,7 +94,22 @@ void p16_record_title_transition(uint64_t gp, uint64_t sp, uint64_t heap_start, 
     g_p16_title_main_reached = 1;
     g_p16_title_main_target = (uint32_t)target;
 
-    /* Transition proof complete: cleanly unwind to host harness */
+    if (!g_p16_title_replay_enabled) {
+        /* Transition proof complete: cleanly unwind to host harness */
+        g_p11_bound_armed = 0;
+        longjmp(p11_bound_jump, 1);
+    }
+}
+
+void p16_record_title_replay(uint64_t frontier_pc, uint64_t blocks, uint64_t allocs, uint64_t memsets)
+{
+    g_p16_title_replay_executed = 1;
+    g_p16_title_frontier_pc = (uint32_t)frontier_pc;
+    g_p16_title_replay_blocks = (uint32_t)blocks;
+    g_p16_title_alloc_calls = (uint32_t)allocs;
+    g_p16_title_memset_calls = (uint32_t)memsets;
+
+    /* Replay complete: cleanly unwind to host harness */
     g_p11_bound_armed = 0;
     longjmp(p11_bound_jump, 1);
 }
