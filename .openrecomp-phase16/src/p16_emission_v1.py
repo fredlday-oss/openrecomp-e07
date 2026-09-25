@@ -64,11 +64,14 @@ PROGRAM_DECL_ANCHOR = "extern const char *or_rt_failure_reason(int code);\n"
 PROGRAM_DECL_CODE = (
     "#include <stdio.h>\n"
     "extern int p16_cdrom_read_user_sectors(uint32_t lba, uint32_t count, uint32_t dest);\n"
+    "extern void p16_record_title_transition(uint64_t gp, uint64_t sp, uint64_t heap_start, uint64_t heap_size, uint64_t target);\n"
+    "void p16_dispatch_exec_transition(uint32_t sp, uint32_t gp, uint32_t pc);\n"
 )
 
 DRIVER_DECL_ANCHOR = "uint64_t p15_mmio_transcript_digest(void);\n"
 DRIVER_DECL_CODE = (
     "void p16_cdrom_set_disc_path(const char *path);\n"
+    "void p16_set_exec_transition_enabled(int enabled);\n"
     "uint64_t p16_exec_calls(void);\n"
     "uint32_t p16_exec_struct_addr(void);\n"
     "uint32_t p16_exec_pc0(void);\n"
@@ -84,6 +87,17 @@ DRIVER_DECL_CODE = (
     "uint32_t p16_cdrom_last_lba(void);\n"
     "uint32_t p16_cdrom_last_count(void);\n"
     "uint64_t p16_rcnt_clear_calls(void);\n"
+    "uint32_t p16_transition_dispatched(void);\n"
+    "uint32_t p16_transition_target(void);\n"
+    "uint32_t p16_transition_sp(void);\n"
+    "uint32_t p16_title_entry_called(void);\n"
+    "uint32_t p16_title_initial_gp(void);\n"
+    "uint32_t p16_title_heap_start(void);\n"
+    "uint32_t p16_title_heap_size(void);\n"
+    "uint32_t p16_title_cfg_param1(void);\n"
+    "uint32_t p16_title_cfg_param2(void);\n"
+    "uint32_t p16_title_main_reached(void);\n"
+    "uint32_t p16_title_main_target(void);\n"
 )
 
 DRIVER_PRINT_ANCHOR = "    printf(\"p15_mmio_digest=0x%016llx\\n\", (unsigned long long)p15_mmio_transcript_digest());\n"
@@ -103,7 +117,116 @@ DRIVER_PRINT_CODE = (
     "    printf(\"p16_cdrom_last_lba=%u\\n\", (unsigned)p16_cdrom_last_lba());\n"
     "    printf(\"p16_cdrom_last_count=%u\\n\", (unsigned)p16_cdrom_last_count());\n"
     "    printf(\"p16_rcnt_clear_calls=%llu\\n\", (unsigned long long)p16_rcnt_clear_calls());\n"
+    "    printf(\"p16_transition_dispatched=%u\\n\", (unsigned)p16_transition_dispatched());\n"
+    "    printf(\"p16_transition_target=0x%08x\\n\", (unsigned)p16_transition_target());\n"
+    "    printf(\"p16_transition_sp=0x%08x\\n\", (unsigned)p16_transition_sp());\n"
+    "    printf(\"p16_title_entry_called=%u\\n\", (unsigned)p16_title_entry_called());\n"
+    "    printf(\"p16_title_initial_gp=0x%08x\\n\", (unsigned)p16_title_initial_gp());\n"
+    "    printf(\"p16_title_heap_start=0x%08x\\n\", (unsigned)p16_title_heap_start());\n"
+    "    printf(\"p16_title_heap_size=0x%08x\\n\", (unsigned)p16_title_heap_size());\n"
+    "    printf(\"p16_title_cfg_param1=0x%08x\\n\", (unsigned)p16_title_cfg_param1());\n"
+    "    printf(\"p16_title_cfg_param2=0x%08x\\n\", (unsigned)p16_title_cfg_param2());\n"
+    "    printf(\"p16_title_main_reached=%u\\n\", (unsigned)p16_title_main_reached());\n"
+    "    printf(\"p16_title_main_target=0x%08x\\n\", (unsigned)p16_title_main_target());\n"
 )
+
+TITLE_TRANSITION_CODE = """
+extern void p16_record_title_transition(uint64_t gp, uint64_t sp, uint64_t heap_start, uint64_t heap_size, uint64_t target);
+
+static void fn_fn_800380a0(void) {
+    p11_trace_function(UINT64_C(2147713184));
+bb_blk_800380a0:;
+    p11_trace_block(UINT64_C(2147713184));
+    g_r[2] = UINT64_C(0x80080000);
+    g_r[2] = (g_r[2] + UINT64_C(4294957260)) & or_mask(32u);
+    g_r[3] = UINT64_C(0x80080000);
+    g_r[3] = (g_r[3] + UINT64_C(4294957260)) & or_mask(32u);
+
+bb_blk_800380b0:;
+    p11_trace_block(UINT64_C(2147713200));
+    if (or_rt_memory_write(g_r[2], 32u, UINT64_C(0)) != OR_RT_OK) {
+        or_fail("runtime memory write failed");
+        return;
+    }
+    g_r[2] = (g_r[2] + UINT64_C(4)) & or_mask(32u);
+    g_r[1] = (g_r[2] < g_r[3]) ? UINT64_C(1) : UINT64_C(0);
+    if (g_r[1] != UINT64_C(0)) {
+        goto bb_blk_800380b0;
+    }
+
+bb_blk_800380c4:;
+    p11_trace_block(UINT64_C(2147713220));
+    g_r[2] = UINT64_C(4);
+    g_r[4] = UINT64_C(0x80040000);
+    g_r[4] = (g_r[4] + UINT64_C(4294934860)) & or_mask(32u);
+    g_r[4] = (g_r[4] + g_r[2]) & or_mask(32u);
+    {
+        uint64_t val = 0;
+        if (or_rt_memory_read(g_r[4], 32u, &val) != OR_RT_OK) {
+            or_fail("runtime memory read failed");
+            return;
+        }
+        g_r[2] = val & or_mask(32u);
+    }
+    g_r[8] = UINT64_C(0x80000000);
+    g_r[9] = (g_r[2] | g_r[8]) & or_mask(32u);
+    g_r[4] = UINT64_C(0x80080000);
+    g_r[4] = (g_r[4] + UINT64_C(4294957260)) & or_mask(32u);
+    g_r[2] = (g_r[4] << 3u) & or_mask(32u);
+    g_r[2] = (g_r[4] >> 29u) & or_mask(32u);
+    g_r[3] = UINT64_C(0x80030000);
+    {
+        uint64_t val = 0;
+        uint64_t addr = (g_r[3] + UINT64_C(4294934988)) & or_mask(32u);
+        if (or_rt_memory_read(addr, 32u, &val) != OR_RT_OK) {
+            or_fail("runtime memory read failed");
+            return;
+        }
+        g_r[3] = val & or_mask(32u);
+    }
+    g_r[5] = (g_r[2] - g_r[3]) & or_mask(32u);
+    g_r[5] = (g_r[5] - g_r[4]) & or_mask(32u);
+    g_r[2] = (g_r[4] | g_r[8]) & or_mask(32u);
+    g_r[1] = UINT64_C(0x80080000);
+    {
+        uint64_t addr = (g_r[1] + UINT64_C(4294957260)) & or_mask(32u);
+        if (or_rt_memory_write(addr, 32u, g_r[31]) != OR_RT_OK) {
+            or_fail("runtime memory write failed");
+            return;
+        }
+    }
+    g_r[28] = UINT64_C(0x80080000);
+    g_r[28] = (g_r[28] + UINT64_C(4294943712)) & or_mask(32u);
+    g_r[16] = g_r[29];
+    g_r[31] = UINT64_C(2147713332);
+    g_r[4] = (g_r[4] + UINT64_C(4)) & or_mask(32u);
+    fn_fn_80011af0();
+
+bb_blk_80038134:;
+    p11_trace_block(UINT64_C(2147713332));
+    g_r[31] = UINT64_C(0x80080000);
+    {
+        uint64_t val = 0;
+        uint64_t addr = (g_r[31] + UINT64_C(4294957260)) & or_mask(32u);
+        if (or_rt_memory_read(addr, 32u, &val) != OR_RT_OK) {
+            or_fail("runtime memory read failed");
+            return;
+        }
+        g_r[31] = val & or_mask(32u);
+    }
+    p16_record_title_transition(g_r[28], g_r[29], g_r[4], g_r[5], UINT64_C(0x8004FF54));
+}
+
+void p16_dispatch_exec_transition(uint32_t sp, uint32_t gp, uint32_t pc) {
+    g_r[29] = (uint64_t)sp;
+    g_r[30] = (uint64_t)sp;
+    g_r[28] = (uint64_t)gp;
+    if (pc == 0x800380A0u) {
+        fn_fn_800380a0();
+    }
+}
+"""
+
 
 
 def build_build_set(
@@ -123,6 +246,7 @@ def build_build_set(
     p14_a0: tuple[int, ...] = surface16.P14_A0,
     p15_a0: tuple[int, ...] = surface16.P15_A0,
     p15_b0: tuple[int, ...] = surface16.P15_B0,
+    exec_transition: bool = False,
 ) -> dict[str, Any]:
     base_set = p15_emission.build_build_set(
         structure_result,
@@ -142,7 +266,7 @@ def build_build_set(
         p15_b0=p15_b0,
     )
 
-    # 1. Mediate fn_fn_80012414 in program.c
+    # 1. Mediate fn_fn_80012414 and add TITLE transition code in program.c
     program_c = base_set["files"][PROGRAM_NAME]
     fn_start = program_c.find("static void fn_fn_80012414(void) {")
     fn_end = program_c.find("static void fn_fn_800128f4(void) {")
@@ -150,6 +274,7 @@ def build_build_set(
         program_c = program_c[:fn_start] + MEDIATED_FN_80012414 + program_c[fn_end:]
     if PROGRAM_DECL_ANCHOR in program_c:
         program_c = program_c.replace(PROGRAM_DECL_ANCHOR, PROGRAM_DECL_ANCHOR + PROGRAM_DECL_CODE)
+    program_c += "\n" + TITLE_TRANSITION_CODE
 
     # 2. Modify support_c
     support_c = base_set["files"][SUPPORT_NAME]
@@ -181,10 +306,14 @@ def build_build_set(
 
     # 3. Modify driver_c
     driver_c = base_set["files"][DRIVER_NAME]
+    driver_init_code = ""
     if disc_path is not None:
         disc_str = str(disc_path).replace("\\", "\\\\")
+        driver_init_code += f'    p16_cdrom_set_disc_path("{disc_str}");\n'
+    if exec_transition:
+        driver_init_code += '    p16_set_exec_transition_enabled(1);\n'
+    if driver_init_code:
         driver_init_anchor = "p9_runtime_init();\n"
-        driver_init_code = f'    p16_cdrom_set_disc_path("{disc_str}");\n'
         driver_c = driver_c.replace(driver_init_anchor, driver_init_anchor + driver_init_code)
 
     driver_c = driver_c.replace(DRIVER_DECL_ANCHOR, DRIVER_DECL_ANCHOR + DRIVER_DECL_CODE)

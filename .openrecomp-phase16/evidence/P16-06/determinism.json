@@ -1,0 +1,43 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "efa59646ab4f6bc305660960fc234c8bcab707053ccf1241664a19977eb07401",
+    "p16_06_tests.json": "1c959a50590e1b2f8b63e17efdb99d33cad2f03a5819bb93d8d5fe3c109a5083",
+    "title_exec_transition.json": "94db73876125733c3f2b18a857db8663d057b633ce4a2a92f441bf81f0c9e04b"
+  },
+  "artifacts_identical": true,
+  "gate": "tools/test_phase16_title_exec_transition_v1.py",
+  "gate_sha256": "ac0f8efa70a46a750905ec682b66f08eea9664e6fe1f7b209115c8da956a26e2",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "RESULT.json": "efa59646ab4f6bc305660960fc234c8bcab707053ccf1241664a19977eb07401",
+        "p16_06_tests.json": "1c959a50590e1b2f8b63e17efdb99d33cad2f03a5819bb93d8d5fe3c109a5083",
+        "title_exec_transition.json": "94db73876125733c3f2b18a857db8663d057b633ce4a2a92f441bf81f0c9e04b"
+      },
+      "p16_06_tests_sha256": "1c959a50590e1b2f8b63e17efdb99d33cad2f03a5819bb93d8d5fe3c109a5083",
+      "returncode": 0,
+      "stdout_bytes_raw": 2463,
+      "stdout_sha256_lf": "13b316f1402179b91c2578798ab4613075e6b0f552e2a6bd5c3f976376e4bce7",
+      "stdout_sha256_raw": "2a4253267d68ff584f515b4b831b34863bcb3b734964657a18f76aea4d0b5edf"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "RESULT.json": "efa59646ab4f6bc305660960fc234c8bcab707053ccf1241664a19977eb07401",
+        "p16_06_tests.json": "1c959a50590e1b2f8b63e17efdb99d33cad2f03a5819bb93d8d5fe3c109a5083",
+        "title_exec_transition.json": "94db73876125733c3f2b18a857db8663d057b633ce4a2a92f441bf81f0c9e04b"
+      },
+      "p16_06_tests_sha256": "1c959a50590e1b2f8b63e17efdb99d33cad2f03a5819bb93d8d5fe3c109a5083",
+      "returncode": 0,
+      "stdout_bytes_raw": 2463,
+      "stdout_sha256_lf": "13b316f1402179b91c2578798ab4613075e6b0f552e2a6bd5c3f976376e4bce7",
+      "stdout_sha256_raw": "2a4253267d68ff584f515b4b831b34863bcb3b734964657a18f76aea4d0b5edf"
+    }
+  },
+  "schema": "openrecomp-phase16-determinism-v1",
+  "stage": "P16-06",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true,
+  "tests_json_present_both": true
+}

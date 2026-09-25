@@ -1,0 +1,81 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "efa59646ab4f6bc305660960fc234c8bcab707053ccf1241664a19977eb07401",
+    "p16_06_tests.json": "1c959a50590e1b2f8b63e17efdb99d33cad2f03a5819bb93d8d5fe3c109a5083",
+    "title_exec_transition.json": "94db73876125733c3f2b18a857db8663d057b633ce4a2a92f441bf81f0c9e04b"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "efa59646ab4f6bc305660960fc234c8bcab707053ccf1241664a19977eb07401",
+        "p16_06_tests.json": "1c959a50590e1b2f8b63e17efdb99d33cad2f03a5819bb93d8d5fe3c109a5083",
+        "title_exec_transition.json": "94db73876125733c3f2b18a857db8663d057b633ce4a2a92f441bf81f0c9e04b"
+      },
+      "command": [
+        "python",
+        "tools/test_phase16_title_exec_transition_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase16/evidence/P16-06"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_PHASE16_TITLE_EXEC_TRANSITION_V1=PASS",
+        "OPENRECOMP_P16_06=PASS",
+        "OPENRECOMP_PHASE16_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p16_06_tests_sha256": "1c959a50590e1b2f8b63e17efdb99d33cad2f03a5819bb93d8d5fe3c109a5083",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2463,
+      "stdout_bytes_lf": 2419,
+      "stdout_sha256_lf": "13b316f1402179b91c2578798ab4613075e6b0f552e2a6bd5c3f976376e4bce7",
+      "stdout_sha256_raw": "2a4253267d68ff584f515b4b831b34863bcb3b734964657a18f76aea4d0b5edf",
+      "tests_json_present": true
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "efa59646ab4f6bc305660960fc234c8bcab707053ccf1241664a19977eb07401",
+        "p16_06_tests.json": "1c959a50590e1b2f8b63e17efdb99d33cad2f03a5819bb93d8d5fe3c109a5083",
+        "title_exec_transition.json": "94db73876125733c3f2b18a857db8663d057b633ce4a2a92f441bf81f0c9e04b"
+      },
+      "command": [
+        "python",
+        "tools/test_phase16_title_exec_transition_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase16/evidence/P16-06"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_PHASE16_TITLE_EXEC_TRANSITION_V1=PASS",
+        "OPENRECOMP_P16_06=PASS",
+        "OPENRECOMP_PHASE16_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE16_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p16_06_tests_sha256": "1c959a50590e1b2f8b63e17efdb99d33cad2f03a5819bb93d8d5fe3c109a5083",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2463,
+      "stdout_bytes_lf": 2419,
+      "stdout_sha256_lf": "13b316f1402179b91c2578798ab4613075e6b0f552e2a6bd5c3f976376e4bce7",
+      "stdout_sha256_raw": "2a4253267d68ff584f515b4b831b34863bcb3b734964657a18f76aea4d0b5edf",
+      "tests_json_present": true
+    }
+  ],
+  "schema": "openrecomp-phase16-official-runs-v1",
+  "stage": "P16-06",
+  "stderr_empty_both": true,
+  "tests_json_present_both": true
+}

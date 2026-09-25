@@ -12,11 +12,14 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <string.h>
 #include <setjmp.h>
 
 extern jmp_buf p11_bound_jump;
 extern int g_p11_bound_armed;
+
+extern void p16_dispatch_exec_transition(uint32_t sp, uint32_t gp, uint32_t pc);
 
 static uint64_t g_p16_exec_calls;
 static uint32_t g_p16_exec_struct_addr;
@@ -30,6 +33,20 @@ static uint64_t g_p16_bios_failures;
 static uint64_t g_p16_rcnt_clear_calls;
 static uint32_t g_p16_rcnt_clear_flags[4];
 
+static int g_p16_exec_transition_enabled;
+static uint32_t g_p16_transition_dispatched;
+static uint32_t g_p16_transition_target;
+static uint32_t g_p16_transition_sp;
+static uint32_t g_p16_title_entry_called;
+static uint32_t g_p16_title_initial_gp;
+static uint32_t g_p16_title_heap_start;
+static uint32_t g_p16_title_heap_size;
+static uint32_t g_p16_title_cfg_param1;
+static uint32_t g_p16_title_cfg_param2;
+static uint32_t g_p16_title_main_reached;
+static uint32_t g_p16_title_main_target;
+
+void p16_set_exec_transition_enabled(int enabled) { g_p16_exec_transition_enabled = enabled; }
 uint64_t p16_exec_calls(void) { return g_p16_exec_calls; }
 uint32_t p16_exec_struct_addr(void) { return g_p16_exec_struct_addr; }
 uint32_t p16_exec_pc0(void) { return g_p16_exec_pc0; }
@@ -40,6 +57,34 @@ uint32_t p16_exec_payload_verified(void) { return g_p16_exec_payload_verified; }
 uint32_t p16_exec_first_word(void) { return g_p16_exec_first_word; }
 uint64_t p16_bios_failures(void) { return g_p16_bios_failures; }
 uint64_t p16_rcnt_clear_calls(void) { return g_p16_rcnt_clear_calls; }
+
+uint32_t p16_transition_dispatched(void) { return g_p16_transition_dispatched; }
+uint32_t p16_transition_target(void) { return g_p16_transition_target; }
+uint32_t p16_transition_sp(void) { return g_p16_transition_sp; }
+uint32_t p16_title_entry_called(void) { return g_p16_title_entry_called; }
+uint32_t p16_title_initial_gp(void) { return g_p16_title_initial_gp; }
+uint32_t p16_title_heap_start(void) { return g_p16_title_heap_start; }
+uint32_t p16_title_heap_size(void) { return g_p16_title_heap_size; }
+uint32_t p16_title_cfg_param1(void) { return g_p16_title_cfg_param1; }
+uint32_t p16_title_cfg_param2(void) { return g_p16_title_cfg_param2; }
+uint32_t p16_title_main_reached(void) { return g_p16_title_main_reached; }
+uint32_t p16_title_main_target(void) { return g_p16_title_main_target; }
+
+void p16_record_title_transition(uint64_t gp, uint64_t sp, uint64_t heap_start, uint64_t heap_size, uint64_t target)
+{
+    g_p16_title_entry_called = 1;
+    g_p16_title_initial_gp = (uint32_t)gp;
+    g_p16_title_heap_start = (uint32_t)heap_start;
+    g_p16_title_heap_size = (uint32_t)heap_size;
+    g_p16_title_cfg_param1 = *(const uint32_t *)(g_p9_ram + 0x35D00);
+    g_p16_title_cfg_param2 = *(const uint32_t *)(g_p9_ram + 0x35D04);
+    g_p16_title_main_reached = 1;
+    g_p16_title_main_target = (uint32_t)target;
+
+    /* Transition proof complete: cleanly unwind to host harness */
+    g_p11_bound_armed = 0;
+    longjmp(p11_bound_jump, 1);
+}
 
 /* Compact SHA-256 implementation for deterministic payload verification */
 typedef struct {
@@ -198,9 +243,24 @@ static int p16_bios_exec(uint32_t struct_addr)
 
     g_p16_exec_payload_verified = 1;
 
-    /* A0:0x43 Exec terminates the caller and transfers execution. Cleanly unwind to host harness. */
-    g_p11_bound_armed = 0;
-    longjmp(p11_bound_jump, 1);
+    {
+        int transition_enabled = g_p16_exec_transition_enabled;
+        const char *env_trans = getenv("OPENRECOMP_EXEC_TRANSITION");
+        if (env_trans != NULL && strcmp(env_trans, "1") == 0) {
+            transition_enabled = 1;
+        }
+
+        if (transition_enabled) {
+            g_p16_transition_dispatched = 1;
+            g_p16_transition_target = pc0;
+            g_p16_transition_sp = sp_addr;
+            p16_dispatch_exec_transition(sp_addr, gp0, pc0);
+        } else {
+            /* A0:0x43 Exec terminates the caller and transfers execution. Cleanly unwind to host harness. */
+            g_p11_bound_armed = 0;
+            longjmp(p11_bound_jump, 1);
+        }
+    }
     return P9_RT_OK;
 }
 
