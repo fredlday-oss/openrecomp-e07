@@ -1,0 +1,247 @@
+{
+  "block_budget": 520000,
+  "boundary": {
+    "basis": "earlier A0:0x13 vector blocker remains active",
+    "kind": "A0:0x43 Exec",
+    "reached": false,
+    "site": "0x80015b84",
+    "title_entry": "0x800380a0"
+  },
+  "build_status": [
+    "OK",
+    "OK"
+  ],
+  "byte_identical": true,
+  "error": "unresolved indirect jump",
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "failed": 1,
+  "first_remaining_blocker": {
+    "block_event_index": 469338,
+    "classification": "PROVEN_BY_VERIFIED_RECON_AND_LIVE_A0_STUB",
+    "function_entry": "0x80026c88",
+    "kind": "BIOS_VECTOR_INDIRECT",
+    "occurrence_count": 15,
+    "service": "A0:0x13",
+    "site": "0x80026c8c",
+    "source_value": "0x000000a0"
+  },
+  "first_remaining_memory_denial": null,
+  "first_remaining_memory_denial_pc": null,
+  "fixture": {
+    "sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "size": 129024
+  },
+  "memory_denial_count": 0,
+  "mmio_inventory": [
+    {
+      "address": 528486432,
+      "count": 2,
+      "denied": 0,
+      "is_write": 1,
+      "width_bits": 32
+    },
+    {
+      "address": 528486512,
+      "count": 9,
+      "denied": 0,
+      "is_write": 0,
+      "width_bits": 16
+    },
+    {
+      "address": 528486512,
+      "count": 3,
+      "denied": 0,
+      "is_write": 1,
+      "width_bits": 16
+    },
+    {
+      "address": 528486516,
+      "count": 16,
+      "denied": 0,
+      "is_write": 0,
+      "width_bits": 16
+    },
+    {
+      "address": 528486516,
+      "count": 10,
+      "denied": 0,
+      "is_write": 1,
+      "width_bits": 16
+    },
+    {
+      "address": 528486560,
+      "count": 2,
+      "denied": 0,
+      "is_write": 1,
+      "width_bits": 32
+    },
+    {
+      "address": 528486564,
+      "count": 2,
+      "denied": 0,
+      "is_write": 1,
+      "width_bits": 32
+    },
+    {
+      "address": 528486568,
+      "count": 4,
+      "denied": 0,
+      "is_write": 0,
+      "width_bits": 32
+    },
+    {
+      "address": 528486568,
+      "count": 3,
+      "denied": 0,
+      "is_write": 1,
+      "width_bits": 32
+    },
+    {
+      "address": 528486640,
+      "count": 1,
+      "denied": 0,
+      "is_write": 0,
+      "width_bits": 32
+    },
+    {
+      "address": 528486640,
+      "count": 4,
+      "denied": 0,
+      "is_write": 1,
+      "width_bits": 32
+    },
+    {
+      "address": 528486644,
+      "count": 3,
+      "denied": 0,
+      "is_write": 1,
+      "width_bits": 32
+    },
+    {
+      "address": 528486672,
+      "count": 5447,
+      "denied": 0,
+      "is_write": 0,
+      "width_bits": 32
+    },
+    {
+      "address": 528486676,
+      "count": 3,
+      "denied": 0,
+      "is_write": 1,
+      "width_bits": 32
+    },
+    {
+      "address": 528488448,
+      "count": 17,
+      "denied": 0,
+      "is_write": 1,
+      "width_bits": 8
+    },
+    {
+      "address": 528488449,
+      "count": 12,
+      "denied": 0,
+      "is_write": 1,
+      "width_bits": 8
+    },
+    {
+      "address": 528488450,
+      "count": 8,
+      "denied": 0,
+      "is_write": 1,
+      "width_bits": 8
+    },
+    {
+      "address": 528488451,
+      "count": 2,
+      "denied": 0,
+      "is_write": 0,
+      "width_bits": 8
+    },
+    {
+      "address": 528488451,
+      "count": 3,
+      "denied": 0,
+      "is_write": 1,
+      "width_bits": 8
+    },
+    {
+      "address": 528488464,
+      "count": 2,
+      "denied": 0,
+      "is_write": 0,
+      "width_bits": 32
+    },
+    {
+      "address": 528488464,
+      "count": 10,
+      "denied": 0,
+      "is_write": 1,
+      "width_bits": 32
+    },
+    {
+      "address": 528488468,
+      "count": 5455,
+      "denied": 0,
+      "is_write": 0,
+      "width_bits": 32
+    },
+    {
+      "address": 528488468,
+      "count": 7,
+      "denied": 0,
+      "is_write": 1,
+      "width_bits": 32
+    },
+    {
+      "address": 528489898,
+      "count": 1,
+      "denied": 0,
+      "is_write": 1,
+      "width_bits": 16
+    },
+    {
+      "address": 528489904,
+      "count": 1,
+      "denied": 0,
+      "is_write": 1,
+      "width_bits": 16
+    },
+    {
+      "address": 528489906,
+      "count": 1,
+      "denied": 0,
+      "is_write": 1,
+      "width_bits": 16
+    },
+    {
+      "address": 528489912,
+      "count": 1,
+      "denied": 0,
+      "is_write": 0,
+      "width_bits": 16
+    },
+    {
+      "address": 528489914,
+      "count": 1,
+      "denied": 0,
+      "is_write": 0,
+      "width_bits": 16
+    }
+  ],
+  "p15_mmio_event_count": 59,
+  "p15_mmio_transcript_digest": "0x6da698bb1859da97",
+  "private_fixture_bytes_recorded": "NO",
+  "run1_sha256": "24be9da6c5884742bb5174c1cfc83c2b4eed82bb91dd227e88ecc586c0f195a1",
+  "run2_sha256": "24be9da6c5884742bb5174c1cfc83c2b4eed82bb91dd227e88ecc586c0f195a1",
+  "runtime_memory_error_count": 0,
+  "schema": "openrecomp-phase15-frontier-i-v1",
+  "stage": "P15-03",
+  "third_party_code_imported": "NO",
+  "trace_failure_count": 15,
+  "unexpected_mmio_count": 0,
+  "unknown_indirect_count": 15,
+  "unknown_service_count": 0,
+  "unsupported_instruction_count": 0
+}

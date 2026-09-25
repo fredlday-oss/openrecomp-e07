@@ -1,0 +1,111 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase15-sources",
+      "detail": "OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=23",
+      "status": "PASS"
+    },
+    {
+      "check": "model:timer-read0",
+      "detail": "263",
+      "status": "PASS"
+    },
+    {
+      "check": "model:timer-read1",
+      "detail": "526",
+      "status": "PASS"
+    },
+    {
+      "check": "model:timer-step",
+      "detail": "526",
+      "status": "PASS"
+    },
+    {
+      "check": "model:mode-good",
+      "detail": "263",
+      "status": "PASS"
+    },
+    {
+      "check": "model:mode-bad",
+      "detail": "wrong mode refused",
+      "status": "PASS"
+    },
+    {
+      "check": "model:timer-write-refused",
+      "detail": "counter write refused",
+      "status": "PASS"
+    },
+    {
+      "check": "c:harness",
+      "detail": "timer_read0=0,0x00000000\ntimer_read1=0,0x00000107\ntimer_count=0x0000020e reads=2\ntimer_read16=2\ntimer_write_count=13\nmode_read=13\nmode_bad=13\nmode_good=0\nmode=0x00000107 writes=1\nframe0=0,0x00000001\nframe1=0,0x00000002\nframe_value=0x00000002 reads=2 memory_reads=2\nframe_width16=2\nframe_unknown=-1000\ndenied=5 unsupported=5",
+      "status": "PASS"
+    },
+    {
+      "check": "live:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "live:build-reproducible",
+      "detail": "7c49578de1304de5f0b7c2bfd203e6f1cb9a46fc6f80c5fae6b7bf3059ffb314",
+      "status": "PASS"
+    },
+    {
+      "check": "live:stderr-empty",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "live:timer-reads",
+      "detail": "3814",
+      "status": "PASS"
+    },
+    {
+      "check": "live:timer-sequence",
+      "detail": "[0, 263, 526, 789, 1052, 1315, 1578, 1841]",
+      "status": "PASS"
+    },
+    {
+      "check": "live:mode-107",
+      "detail": "0x00000107",
+      "status": "PASS"
+    },
+    {
+      "check": "live:mode-writes",
+      "detail": "3",
+      "status": "PASS"
+    },
+    {
+      "check": "live:frame-tick-progress",
+      "detail": "3813:0x00000ee0",
+      "status": "PASS"
+    },
+    {
+      "check": "live:no-unsupported",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "timer1:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "timer1:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "timer1:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P15-06",
+  "schema": "openrecomp-phase15-tests-v1",
+  "stage": "P15-06",
+  "summary": {
+    "failed": 0,
+    "passed": 20
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "condition_evaluations": {
+    "INIT-B0-PATCH": true,
+    "INIT-BOUNDARY": false,
+    "INIT-DETERMINISTIC": true,
+    "INIT-NO-FABRICATION": true,
+    "INIT-NO-FAIL-CLOSED": false,
+    "INIT-PREDECESSOR": true,
+    "failed == 0": false,
+    "memory_denial_count == 0": true,
+    "trace_failure_count == 0": true
+  },
+  "evidence_class": "REPRESENTATIVE_TEST_RECORD",
+  "formal_formula": "INIT-PREDECESSOR and INIT-B0-PATCH and INIT-BOUNDARY and INIT-NO-FAIL-CLOSED and INIT-DETERMINISTIC and INIT-NO-FABRICATION and (trace_failure_count == 0) and (failed == 0) and (memory_denials == 0)",
+  "private_fixture_bytes_recorded": "NO",
+  "schema": "openrecomp-phase15-init-proof-evaluation-v1",
+  "stage": "P15-11",
+  "third_party_code_imported": "NO",
+  "unsatisfied_reasons": [
+    "INIT-BOUNDARY: A0:0x43 Exec handoff at 0x80015b84 requires TITLE overlay CD-ROM sector delivery",
+    "INIT-NO-FAIL-CLOSED: complete boundary traversal requires CD-ROM sector payload delivery",
+    "failed == 0: host budget boundary reached prior to semantic Exec handoff"
+  ],
+  "verdict": "NOT_PROVEN"
+}

@@ -1,0 +1,116 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase15-sources",
+      "detail": "OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=28",
+      "status": "PASS"
+    },
+    {
+      "check": "trap:unknown-mmio-read",
+      "detail": "unknown MMIO unhandled",
+      "status": "PASS"
+    },
+    {
+      "check": "trap:unknown-mmio-write",
+      "detail": "unknown MMIO unhandled",
+      "status": "PASS"
+    },
+    {
+      "check": "trap:width8-istat-read",
+      "detail": "width 8 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "trap:width8-istat-write",
+      "detail": "width 8 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "trap:unaligned-imask-read",
+      "detail": "unaligned unhandled",
+      "status": "PASS"
+    },
+    {
+      "check": "trap:unaligned-imask-write",
+      "detail": "unaligned unhandled",
+      "status": "PASS"
+    },
+    {
+      "check": "trap:timer1-irq-enable-rejected",
+      "detail": "IRQ enable rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "trap:timer1-mode-width16-rejected",
+      "detail": "width 16 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "trap:timer1-count-write-rejected",
+      "detail": "count write rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "trap:timer1-count-width16-rejected",
+      "detail": "width 16 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "trap:gpustat-width16-rejected",
+      "detail": "gpustat width 16 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "trap:d2-width16-rejected",
+      "detail": "DMA2 width 16 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "trap:critical-sel0-rejected",
+      "detail": "selector 0 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "trap:critical-sel3-rejected",
+      "detail": "selector 3 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "trap:critical-null-rejected",
+      "detail": "null out_value rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "trap:ram-oob-rejected",
+      "detail": "out of bounds rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "trap:bios-unhandled-falls-through",
+      "detail": "unhandled BIOS falls through",
+      "status": "PASS"
+    },
+    {
+      "check": "init-no-fail-closed:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "init-no-fail-closed:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "init-no-fail-closed:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P15-10",
+  "schema": "openrecomp-phase15-tests-v1",
+  "stage": "P15-10",
+  "summary": {
+    "failed": 0,
+    "passed": 21
+  }
+}

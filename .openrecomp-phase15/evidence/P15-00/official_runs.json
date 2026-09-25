@@ -1,8 +1,8 @@
 {
   "artifact_sha256": {
-    "RESULT.json": "3f08eea8e074f14605aebc9f7df30758d03f8287c643f6ae39e380105166d83a",
-    "baseline.json": "ec88623e1f2bef4064c2931d8d147de5117f48cf6381b791ff90f1829a9e651c",
-    "p15_00_tests.json": "2eb455e1687d16208b63661fc39c8fb158d54af8a5caec98ea129113649840ca"
+    "RESULT.json": "d7da898554ef23d43bb55949609886379b891405733ebc85742201a2f32b8cd1",
+    "baseline.json": "a1a338393e603442e05fdc93460eecd87db8eda42658d501f710bdb15bad5a31",
+    "p15_00_tests.json": "0ebe250abd0d74ae29131cf4683e446618ad7ef05dbbe937e351afa0adfa011a"
   },
   "identical_lf": true,
   "identical_raw": true,
@@ -11,9 +11,9 @@
   "runs": [
     {
       "artifact_sha256": {
-        "RESULT.json": "3f08eea8e074f14605aebc9f7df30758d03f8287c643f6ae39e380105166d83a",
-        "baseline.json": "ec88623e1f2bef4064c2931d8d147de5117f48cf6381b791ff90f1829a9e651c",
-        "p15_00_tests.json": "2eb455e1687d16208b63661fc39c8fb158d54af8a5caec98ea129113649840ca"
+        "RESULT.json": "d7da898554ef23d43bb55949609886379b891405733ebc85742201a2f32b8cd1",
+        "baseline.json": "a1a338393e603442e05fdc93460eecd87db8eda42658d501f710bdb15bad5a31",
+        "p15_00_tests.json": "0ebe250abd0d74ae29131cf4683e446618ad7ef05dbbe937e351afa0adfa011a"
       },
       "command": [
         "python",
@@ -24,24 +24,28 @@
       "fail_lines": [],
       "markers": [
         "OPENRECOMP_PHASE14_SOURCE_INTEGRITY=PASS entries=26 (canonical committed Git blobs; frozen-commit==HEAD)",
-        "OPENRECOMP_P15_00=PASS"
+        "OPENRECOMP_P15_00=PASS",
+        "OPENRECOMP_PHASE15_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE15_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE15_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE15_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
       ],
       "name": "run1",
-      "p15_00_tests_sha256": "2eb455e1687d16208b63661fc39c8fb158d54af8a5caec98ea129113649840ca",
+      "p15_00_tests_sha256": "0ebe250abd0d74ae29131cf4683e446618ad7ef05dbbe937e351afa0adfa011a",
       "returncode": 0,
       "stderr_bytes": 0,
       "stderr_empty": true,
-      "stdout_bytes": 1468,
-      "stdout_bytes_lf": 1441,
-      "stdout_sha256_lf": "b4ae51001bdaeed166372b2a13ef79cd0756da27cb36067acd6781fe4e826c0d",
-      "stdout_sha256_raw": "1a7980992e8a9e7fe7dbbd5a65ab8dda766ce93461c571708c61a83c23038f78",
+      "stdout_bytes": 1696,
+      "stdout_bytes_lf": 1665,
+      "stdout_sha256_lf": "033936b13b82c5a2f40d52dc6b4107cfc3a517ef6e3d3d295b79b43a91f9e57a",
+      "stdout_sha256_raw": "603d66ab20030e12e73f5ad51deb9513b098289935a57fadac7efa208abda1cf",
       "tests_json_present": true
     },
     {
       "artifact_sha256": {
-        "RESULT.json": "3f08eea8e074f14605aebc9f7df30758d03f8287c643f6ae39e380105166d83a",
-        "baseline.json": "ec88623e1f2bef4064c2931d8d147de5117f48cf6381b791ff90f1829a9e651c",
-        "p15_00_tests.json": "2eb455e1687d16208b63661fc39c8fb158d54af8a5caec98ea129113649840ca"
+        "RESULT.json": "d7da898554ef23d43bb55949609886379b891405733ebc85742201a2f32b8cd1",
+        "baseline.json": "a1a338393e603442e05fdc93460eecd87db8eda42658d501f710bdb15bad5a31",
+        "p15_00_tests.json": "0ebe250abd0d74ae29131cf4683e446618ad7ef05dbbe937e351afa0adfa011a"
       },
       "command": [
         "python",
@@ -52,17 +56,21 @@
       "fail_lines": [],
       "markers": [
         "OPENRECOMP_PHASE14_SOURCE_INTEGRITY=PASS entries=26 (canonical committed Git blobs; frozen-commit==HEAD)",
-        "OPENRECOMP_P15_00=PASS"
+        "OPENRECOMP_P15_00=PASS",
+        "OPENRECOMP_PHASE15_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE15_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE15_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE15_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
       ],
       "name": "run2",
-      "p15_00_tests_sha256": "2eb455e1687d16208b63661fc39c8fb158d54af8a5caec98ea129113649840ca",
+      "p15_00_tests_sha256": "0ebe250abd0d74ae29131cf4683e446618ad7ef05dbbe937e351afa0adfa011a",
       "returncode": 0,
       "stderr_bytes": 0,
       "stderr_empty": true,
-      "stdout_bytes": 1468,
-      "stdout_bytes_lf": 1441,
-      "stdout_sha256_lf": "b4ae51001bdaeed166372b2a13ef79cd0756da27cb36067acd6781fe4e826c0d",
-      "stdout_sha256_raw": "1a7980992e8a9e7fe7dbbd5a65ab8dda766ce93461c571708c61a83c23038f78",
+      "stdout_bytes": 1696,
+      "stdout_bytes_lf": 1665,
+      "stdout_sha256_lf": "033936b13b82c5a2f40d52dc6b4107cfc3a517ef6e3d3d295b79b43a91f9e57a",
+      "stdout_sha256_raw": "603d66ab20030e12e73f5ad51deb9513b098289935a57fadac7efa208abda1cf",
       "tests_json_present": true
     }
   ],

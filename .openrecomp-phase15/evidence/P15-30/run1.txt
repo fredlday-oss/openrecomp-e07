@@ -1,0 +1,72 @@
+PASS: integrity:phase15-sources OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=31
+PASS: surface:reg-exists:I_STAT I_STAT in surface
+PASS: addr-match:I_STAT I_STAT address match 0x1f801070 == 0x1f801070
+PASS: width-match:I_STAT I_STAT widths match (16, 32) == (16, 32)
+PASS: surface:reg-exists:I_MASK I_MASK in surface
+PASS: addr-match:I_MASK I_MASK address match 0x1f801074 == 0x1f801074
+PASS: width-match:I_MASK I_MASK widths match (16, 32) == (16, 32)
+PASS: surface:reg-exists:SYS_CONTROL SYS_CONTROL in surface
+PASS: addr-match:SYS_CONTROL SYS_CONTROL address match 0x1f801020 == 0x1f801020
+PASS: width-match:SYS_CONTROL SYS_CONTROL widths match (32,) == (32,)
+PASS: surface:reg-exists:D2_MADR D2_MADR in surface
+PASS: addr-match:D2_MADR D2_MADR address match 0x1f8010a0 == 0x1f8010a0
+PASS: width-match:D2_MADR D2_MADR widths match (32,) == (32,)
+PASS: surface:reg-exists:D2_BCR D2_BCR in surface
+PASS: addr-match:D2_BCR D2_BCR address match 0x1f8010a4 == 0x1f8010a4
+PASS: width-match:D2_BCR D2_BCR widths match (32,) == (32,)
+PASS: surface:reg-exists:D2_CHCR D2_CHCR in surface
+PASS: addr-match:D2_CHCR D2_CHCR address match 0x1f8010a8 == 0x1f8010a8
+PASS: width-match:D2_CHCR D2_CHCR widths match (32,) == (32,)
+PASS: surface:reg-exists:DPCR DPCR in surface
+PASS: addr-match:DPCR DPCR address match 0x1f8010f0 == 0x1f8010f0
+PASS: width-match:DPCR DPCR widths match (32,) == (32,)
+PASS: surface:reg-exists:DICR DICR in surface
+PASS: addr-match:DICR DICR address match 0x1f8010f4 == 0x1f8010f4
+PASS: width-match:DICR DICR widths match (32,) == (32,)
+PASS: surface:reg-exists:TIMER1_COUNT TIMER1_COUNT in surface
+PASS: addr-match:TIMER1_COUNT TIMER1_COUNT address match 0x1f801110 == 0x1f801110
+PASS: width-match:TIMER1_COUNT TIMER1_COUNT widths match (32,) == (32,)
+PASS: surface:reg-exists:TIMER1_MODE TIMER1_MODE in surface
+PASS: addr-match:TIMER1_MODE TIMER1_MODE address match 0x1f801114 == 0x1f801114
+PASS: width-match:TIMER1_MODE TIMER1_MODE widths match (32,) == (32,)
+PASS: surface:reg-exists:GPUSTAT GPUSTAT in surface
+PASS: addr-match:GPUSTAT GPUSTAT address match 0x1f801814 == 0x1f801814
+PASS: width-match:GPUSTAT GPUSTAT widths match (32,) == (32,)
+PASS: const:d2-chcr-busy
+PASS: const:gpustat-value
+PASS: const:frame-tick
+PASS: const:status-ok
+PASS: const:status-unhandled
+PASS: const:status-width
+PASS: const:status-op
+PASS: bios:a0-surface
+PASS: bios:b0-surface
+PASS: syscall:site-count
+PASS: syscall:site1-sel
+PASS: syscall:site2-sel
+PASS: emission:decl-block
+PASS: emission:decl-timer1
+PASS: emission:decl-gpustat
+PASS: runtime:sys_control_rw
+PASS: runtime:i_mask_rw
+PASS: runtime:i_stat_ack
+PASS: runtime:d2_chcr_busy_clear
+PASS: runtime:timer1_delta
+PASS: runtime:gpustat_val
+PASS: runtime:bios_setjmp
+PASS: runtime:bios_96remove
+PASS: runtime:bios_hook
+PASS: runtime:bios_reset
+PASS: runtime:bios_ret_exc
+PASS: runtime:crit_enter1
+PASS: runtime:crit_enter2
+PASS: runtime:crit_exit
+PASS: consistency:no-private-path absolute private paths absent
+PASS: consistency:no-payload-hex no payload supplied
+PASS: consistency:no-raw-words reconstructive fields absent
+OPENRECOMP_P15_30=PASS
+OPENRECOMP_PHASE15_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P15-30_CHECKS=66

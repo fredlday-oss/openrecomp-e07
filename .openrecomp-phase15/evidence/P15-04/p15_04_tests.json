@@ -1,0 +1,151 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase15-sources",
+      "detail": "OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=21",
+      "status": "PASS"
+    },
+    {
+      "check": "sys:write",
+      "detail": "0x1325",
+      "status": "PASS"
+    },
+    {
+      "check": "sys:read",
+      "detail": "(0, 4901)",
+      "status": "PASS"
+    },
+    {
+      "check": "sys:width16-refused",
+      "detail": "16-bit refused",
+      "status": "PASS"
+    },
+    {
+      "check": "dma:dpcr",
+      "detail": "0x33333333",
+      "status": "PASS"
+    },
+    {
+      "check": "dma:dicr",
+      "detail": "0x0",
+      "status": "PASS"
+    },
+    {
+      "check": "dma:madr",
+      "detail": "0x80029834",
+      "status": "PASS"
+    },
+    {
+      "check": "dma:bcr",
+      "detail": "0x1000010",
+      "status": "PASS"
+    },
+    {
+      "check": "dma:chcr-synchronous-completion",
+      "detail": "0x401",
+      "status": "PASS"
+    },
+    {
+      "check": "dma:width16-refused:1f8010f0",
+      "detail": "16-bit refused",
+      "status": "PASS"
+    },
+    {
+      "check": "dma:width16-refused:1f8010f4",
+      "detail": "16-bit refused",
+      "status": "PASS"
+    },
+    {
+      "check": "dma:width16-refused:1f8010a0",
+      "detail": "16-bit refused",
+      "status": "PASS"
+    },
+    {
+      "check": "dma:width16-refused:1f8010a4",
+      "detail": "16-bit refused",
+      "status": "PASS"
+    },
+    {
+      "check": "dma:width16-refused:1f8010a8",
+      "detail": "16-bit refused",
+      "status": "PASS"
+    },
+    {
+      "check": "live:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "live:build-reproducible",
+      "detail": "d5329c08f567c4f814be1df12e9fb674230beff0136f9855aae91a96ca47924b",
+      "status": "PASS"
+    },
+    {
+      "check": "live:stderr-empty",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "live:sys-write-1325",
+      "detail": "0x1325 observed",
+      "status": "PASS"
+    },
+    {
+      "check": "live:dpcr-write",
+      "detail": "0x33333333 observed",
+      "status": "PASS"
+    },
+    {
+      "check": "live:dicr-write",
+      "detail": "zero observed",
+      "status": "PASS"
+    },
+    {
+      "check": "live:d2-madr-write",
+      "detail": "MADR observed",
+      "status": "PASS"
+    },
+    {
+      "check": "live:d2-bcr-write",
+      "detail": "BCR observed",
+      "status": "PASS"
+    },
+    {
+      "check": "live:d2-chcr-start",
+      "detail": "busy/start write observed",
+      "status": "PASS"
+    },
+    {
+      "check": "live:d2-chcr-read-idle",
+      "detail": "read observes busy clear",
+      "status": "PASS"
+    },
+    {
+      "check": "live:no-width-failure",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "sys-control-dma2:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "sys-control-dma2:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "sys-control-dma2:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P15-04",
+  "schema": "openrecomp-phase15-tests-v1",
+  "stage": "P15-04",
+  "summary": {
+    "failed": 0,
+    "passed": 28
+  }
+}

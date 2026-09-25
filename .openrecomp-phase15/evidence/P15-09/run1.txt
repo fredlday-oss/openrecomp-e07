@@ -1,0 +1,35 @@
+PASS: integrity:phase15-sources OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=27
+PASS: unit:initial-ie init_ie=1 enter_calls=0 exit_calls=0 failures=0
+PASS: unit:enter1 enter returns prior state 1, sets ie=0
+PASS: unit:enter2 enter returns prior state 0, keeps ie=0
+PASS: unit:exit1 exit returns 0, sets ie=1
+PASS: unit:exit2-idempotent exit while enabled sets ie=1
+PASS: unit:sel0-fail-closed selector 0 rejected
+PASS: unit:sel3-fail-closed selector 3 rejected
+PASS: unit:null-out-value null pointer rejected
+PASS: unit:final-counts exact call counters match
+PASS: replay:build ['OK', 'OK']
+PASS: replay:deterministic ed8314e66b36e40b87163535ac411507a01dcbc11094cd03d6ae0cf37d47f5d1
+PASS: replay:stderr-empty 0:0
+PASS: replay:trace-indirect-clean 0
+PASS: replay:nonram-denials-zero 0
+PASS: replay:mmio-unsupported-zero 0
+PASS: replay:bios-failures-zero 0
+PASS: replay:critical-failures-zero 0
+PASS: replay:host-bound-reached 1:1
+PASS: critical:enter-count 7
+PASS: critical:exit-count 7
+PASS: critical:balanced 7:7
+PASS: critical:cpu-interrupt-enabled 1
+PASS: boundary:exec-handoff-not-reached 0
+PASS: boundary:title-entry-not-reached 0
+PASS: init-boundary:no-private-path absolute private paths absent
+PASS: init-boundary:no-payload-hex payload sample absent
+PASS: init-boundary:no-raw-words reconstructive fields absent
+OPENRECOMP_P15_09=PASS
+OPENRECOMP_PHASE15_INIT_BOUNDARY_V1=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P15-09_CHECKS=28

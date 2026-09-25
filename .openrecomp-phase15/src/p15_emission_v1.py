@@ -10,6 +10,7 @@ on top of the Phase-14 observable driver.
 from __future__ import annotations
 
 import hashlib
+import dataclasses
 import pathlib
 from typing import Any
 
@@ -22,6 +23,7 @@ from openrecomp.host_emitter import emit_host_translation
 
 import p15_runtime_v1 as p15_runtime
 import p15_services_v1 as services
+import p15_syscall_v1 as p15_syscall
 
 EMISSION_VERSION = "1.0.0"
 
@@ -43,6 +45,13 @@ DRIVER_DECLARATION_BLOCK = (
     "uint32_t p15_d2_chcr(void);\n"
     "uint32_t p15_dpcr(void);\n"
     "uint32_t p15_dicr(void);\n"
+    "uint32_t p15_timer1_count(void);\n"
+    "uint32_t p15_timer1_mode(void);\n"
+    "uint64_t p15_timer1_reads(void);\n"
+    "uint64_t p15_timer1_mode_writes(void);\n"
+    "uint64_t p15_frame_tick_reads(void);\n"
+    "uint32_t p15_frame_tick_value(void);\n"
+    "uint64_t p15_gpustat_reads(void);\n"
     "uint64_t p15_setjmp_calls(void);\n"
     "uint64_t p15_96remove_calls(void);\n"
     "uint64_t p15_hook_entry_int_calls(void);\n"
@@ -50,6 +59,10 @@ DRIVER_DECLARATION_BLOCK = (
     "uint64_t p15_return_from_exception_calls(void);\n"
     "uint32_t p15_entry_int_hook(void);\n"
     "uint64_t p15_bios_service_failures(void);\n"
+    "uint64_t p15_enter_critical_calls(void);\n"
+    "uint64_t p15_exit_critical_calls(void);\n"
+    "uint64_t p15_critical_syscall_failures(void);\n"
+    "uint32_t p15_cpu_interrupt_enabled(void);\n"
     "uint64_t p15_mmio_reads(void);\n"
     "uint64_t p15_mmio_writes(void);\n"
     "uint64_t p15_mmio_unsupported(void);\n"
@@ -72,6 +85,13 @@ DRIVER_PRINT_BLOCK = (
     "    printf(\"p15_d2_chcr=0x%08x\\n\", (unsigned)p15_d2_chcr());\n"
     "    printf(\"p15_dpcr=0x%08x\\n\", (unsigned)p15_dpcr());\n"
     "    printf(\"p15_dicr=0x%08x\\n\", (unsigned)p15_dicr());\n"
+    "    printf(\"p15_timer1_count=0x%08x\\n\", (unsigned)p15_timer1_count());\n"
+    "    printf(\"p15_timer1_mode=0x%08x\\n\", (unsigned)p15_timer1_mode());\n"
+    "    printf(\"p15_timer1_reads=%llu\\n\", (unsigned long long)p15_timer1_reads());\n"
+    "    printf(\"p15_timer1_mode_writes=%llu\\n\", (unsigned long long)p15_timer1_mode_writes());\n"
+    "    printf(\"p15_frame_tick_reads=%llu\\n\", (unsigned long long)p15_frame_tick_reads());\n"
+    "    printf(\"p15_frame_tick_value=0x%08x\\n\", (unsigned)p15_frame_tick_value());\n"
+    "    printf(\"p15_gpustat_reads=%llu\\n\", (unsigned long long)p15_gpustat_reads());\n"
     "    printf(\"p15_setjmp_calls=%llu\\n\", (unsigned long long)p15_setjmp_calls());\n"
     "    printf(\"p15_96remove_calls=%llu\\n\", (unsigned long long)p15_96remove_calls());\n"
     "    printf(\"p15_hook_entry_int_calls=%llu\\n\", (unsigned long long)p15_hook_entry_int_calls());\n"
@@ -79,6 +99,10 @@ DRIVER_PRINT_BLOCK = (
     "    printf(\"p15_return_from_exception_calls=%llu\\n\", (unsigned long long)p15_return_from_exception_calls());\n"
     "    printf(\"p15_entry_int_hook=0x%08x\\n\", (unsigned)p15_entry_int_hook());\n"
     "    printf(\"p15_bios_service_failures=%llu\\n\", (unsigned long long)p15_bios_service_failures());\n"
+    "    printf(\"p15_enter_critical_calls=%llu\\n\", (unsigned long long)p15_enter_critical_calls());\n"
+    "    printf(\"p15_exit_critical_calls=%llu\\n\", (unsigned long long)p15_exit_critical_calls());\n"
+    "    printf(\"p15_critical_syscall_failures=%llu\\n\", (unsigned long long)p15_critical_syscall_failures());\n"
+    "    printf(\"p15_cpu_interrupt_enabled=%lu\\n\", (unsigned long)p15_cpu_interrupt_enabled());\n"
     "    printf(\"p15_mmio_reads=%llu\\n\", (unsigned long long)p15_mmio_reads());\n"
     "    printf(\"p15_mmio_writes=%llu\\n\", (unsigned long long)p15_mmio_writes());\n"
     "    printf(\"p15_mmio_unsupported=%llu\\n\", (unsigned long long)p15_mmio_unsupported());\n"
@@ -134,6 +158,7 @@ def build_build_set(
     p14_a0: tuple[int, ...] = (),
     p15_a0: tuple[int, ...] = (),
     p15_b0: tuple[int, ...] = (),
+    p15_critical_syscalls: bool = True,
 ) -> dict[str, Any]:
     """The Phase-15 MMIO-service emission set (optionally instrumented)."""
     services.install(
@@ -147,6 +172,21 @@ def build_build_set(
         guarded_resolved_indirect=guarded_resolved_indirect,
     )
     program = emit_host_translation(structure.units, structure.classification, config=config)
+    if p15_critical_syscalls:
+        program_text, syscall_record = p15_syscall.compose_program_source(
+            program.source_text, trace=trace
+        )
+        program = dataclasses.replace(program, source_text=program_text)
+    else:
+        syscall_record = {
+            "schema": "openrecomp-phase15-critical-syscall-composition-v1",
+            "version": p15_syscall.SYSCALL_VERSION,
+            "trace_enabled": trace,
+            "substitutions": [],
+            "generic_exception_delivery": "NOT_ENABLED",
+            "generic_syscall_dispatch": "NOT_ENABLED",
+            "composed_sha256": "",
+        }
     support_text, runtime_record = p15_runtime.compose_runtime_source(
         p14_semantics.runtime_sites(list(sites)), trace=trace
     )
@@ -183,6 +223,7 @@ def build_build_set(
         "semantics": p14_semantics.semantics_document(list(sites)),
         "bios_sites": [site.to_document() for site in sites],
         "service_surface": services.service_surface_document(),
+        "critical_syscalls": syscall_record,
         "instrumentation_checks": {
             "function_entry_hook_calls": program.source_text.count("p11_trace_function(UINT64_C("),
             "block_entry_hook_calls": program.source_text.count("p11_trace_block(UINT64_C("),

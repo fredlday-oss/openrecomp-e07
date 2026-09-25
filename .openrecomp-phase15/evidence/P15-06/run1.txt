@@ -1,0 +1,41 @@
+PASS: integrity:phase15-sources OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=23
+PASS: model:timer-read0 263
+PASS: model:timer-read1 526
+PASS: model:timer-step 526
+PASS: model:mode-good 263
+PASS: model:mode-bad wrong mode refused
+PASS: model:timer-write-refused counter write refused
+PASS: c:harness timer_read0=0,0x00000000
+timer_read1=0,0x00000107
+timer_count=0x0000020e reads=2
+timer_read16=2
+timer_write_count=13
+mode_read=13
+mode_bad=13
+mode_good=0
+mode=0x00000107 writes=1
+frame0=0,0x00000001
+frame1=0,0x00000002
+frame_value=0x00000002 reads=2 memory_reads=2
+frame_width16=2
+frame_unknown=-1000
+denied=5 unsupported=5
+PASS: live:build ['OK', 'OK']
+PASS: live:build-reproducible 7c49578de1304de5f0b7c2bfd203e6f1cb9a46fc6f80c5fae6b7bf3059ffb314
+PASS: live:stderr-empty 0
+PASS: live:timer-reads 3814
+PASS: live:timer-sequence [0, 263, 526, 789, 1052, 1315, 1578, 1841]
+PASS: live:mode-107 0x00000107
+PASS: live:mode-writes 3
+PASS: live:frame-tick-progress 3813:0x00000ee0
+PASS: live:no-unsupported 0
+PASS: timer1:no-private-path absolute private paths absent
+PASS: timer1:no-payload-hex payload sample absent
+PASS: timer1:no-raw-words reconstructive fields absent
+OPENRECOMP_PHASE15_TIMER1_VIRTUAL_TIME_V1=PASS
+OPENRECOMP_P15_06=PASS
+OPENRECOMP_PHASE15_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P15-06_CHECKS=20

@@ -34,8 +34,24 @@ HARNESS = r"""
 #include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
-enum { P9_RT_OK = 0, P9_RT_MEMORY_WIDTH_UNSUPPORTED = 2 };
+enum {
+    P9_RT_OK = 0,
+    P9_RT_MEMORY_OUT_OF_RANGE = 1,
+    P9_RT_MEMORY_WIDTH_UNSUPPORTED = 2,
+    P9_RT_UNSUPPORTED_OPERATION = 13
+};
 static uint64_t g_p9_denied_accesses;
+static uint64_t g_p9_memory_reads;
+static unsigned char g_p9_ram[0x40000];
+static int p9_translate_ram(uint64_t address, uint64_t width, uint32_t *out_offset)
+{
+    if (address >= UINT64_C(0x80000000)
+        && address + width <= UINT64_C(0x80040000)) {
+        *out_offset = (uint32_t)(address - UINT64_C(0x80000000));
+        return 1;
+    }
+    return 0;
+}
 #include "p15_mmio_extension_v1.c"
 
 int main(void)

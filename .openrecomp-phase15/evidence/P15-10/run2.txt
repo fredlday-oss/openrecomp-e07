@@ -1,0 +1,28 @@
+PASS: integrity:phase15-sources OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=28
+PASS: trap:unknown-mmio-read unknown MMIO unhandled
+PASS: trap:unknown-mmio-write unknown MMIO unhandled
+PASS: trap:width8-istat-read width 8 rejected
+PASS: trap:width8-istat-write width 8 rejected
+PASS: trap:unaligned-imask-read unaligned unhandled
+PASS: trap:unaligned-imask-write unaligned unhandled
+PASS: trap:timer1-irq-enable-rejected IRQ enable rejected
+PASS: trap:timer1-mode-width16-rejected width 16 rejected
+PASS: trap:timer1-count-write-rejected count write rejected
+PASS: trap:timer1-count-width16-rejected width 16 rejected
+PASS: trap:gpustat-width16-rejected gpustat width 16 rejected
+PASS: trap:d2-width16-rejected DMA2 width 16 rejected
+PASS: trap:critical-sel0-rejected selector 0 rejected
+PASS: trap:critical-sel3-rejected selector 3 rejected
+PASS: trap:critical-null-rejected null out_value rejected
+PASS: trap:ram-oob-rejected out of bounds rejected
+PASS: trap:bios-unhandled-falls-through unhandled BIOS falls through
+PASS: init-no-fail-closed:no-private-path absolute private paths absent
+PASS: init-no-fail-closed:no-payload-hex no payload supplied
+PASS: init-no-fail-closed:no-raw-words reconstructive fields absent
+OPENRECOMP_P15_10=PASS
+OPENRECOMP_PHASE15_INIT_NO_FAIL_CLOSED_V1=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P15-10_CHECKS=21

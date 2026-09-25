@@ -1,0 +1,91 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase15-sources",
+      "detail": "OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=20",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:deterministic",
+      "detail": "24be9da6c5884742bb5174c1cfc83c2b4eed82bb91dd227e88ecc586c0f195a1",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:stderr-empty",
+      "detail": "0:0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:i-stat-i-mask-denials-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:memory-denials-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:mmio-denials-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:mmio-unsupported-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:first-site",
+      "detail": "0x80026c8c",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:first-function",
+      "detail": "0x80026c88",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:a0-vector",
+      "detail": "0x000000a0",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:classification",
+      "detail": "unresolved indirect jump",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:reached-after-interrupt-mmio",
+      "detail": "469338",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier-i:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier-i:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier-i:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P15-03",
+  "schema": "openrecomp-phase15-tests-v1",
+  "stage": "P15-03",
+  "summary": {
+    "failed": 0,
+    "passed": 16
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "build": {
+    "executable_sha256": "e16cb6498a768977f431da6882cf0925b535733fb3afe92db18aa01ddbf8d6d7",
+    "status": [
+      "OK",
+      "OK"
+    ],
+    "toolchain": {
+      "compiler": {
+        "identity": "clang-cl.exe",
+        "target": "x86_64-pc-windows-msvc",
+        "version": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"
+      },
+      "linker": {
+        "identity": "lld-link.exe",
+        "target": "x86_64-pc-windows-msvc",
+        "version": "LLD 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"
+      }
+    }
+  },
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "fixture": {
+    "sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "size": 129024
+  },
+  "gpu_command_execution": "NOT_MODELED_NOT_REQUIRED",
+  "gpu_rasterization": "NOT_MODELED_NOT_REQUIRED",
+  "gpustat": {
+    "address": "0x1f801814",
+    "dma_request_bit22": 0,
+    "reads": 3822,
+    "ready_for_command_bit26": 1,
+    "recorded_events": 2020,
+    "value": "0x14802000",
+    "width_bits": 32
+  },
+  "private_fixture_bytes_recorded": "NO",
+  "run": {
+    "access_budget": 8000000,
+    "block_budget": 520000,
+    "error": "guest trap is unsupported",
+    "failed": "1",
+    "stdout_sha256": "9156235f094207503ad7ca2c013df151130783cd2f7e02252ac9702954bf0257",
+    "trace_failure_count": "0"
+  },
+  "schema": "openrecomp-phase15-gpustat-v1",
+  "stage": "P15-07",
+  "third_party_code_imported": "NO"
+}

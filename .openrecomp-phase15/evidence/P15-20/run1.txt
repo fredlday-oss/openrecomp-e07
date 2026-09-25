@@ -1,0 +1,33 @@
+PASS: integrity:phase15-sources OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=30
+PASS: contract:unknown-addr-read unknown address unhandled
+PASS: contract:unknown-addr-write unknown address unhandled
+PASS: contract:width8-istat width 8 unsupported
+PASS: contract:width8-imask width 8 unsupported
+PASS: contract:timer1-irq-mode-rejected IRQ mode rejected
+PASS: runtime:unhandled-read unhandled read returns -1
+PASS: runtime:unhandled-write unhandled write returns -1
+PASS: runtime:istat-w8 I_STAT width 8 rejected
+PASS: runtime:imask-w8 I_MASK width 8 rejected
+PASS: runtime:gpustat-w16 GPUSTAT width 16 rejected
+PASS: runtime:t1count-w16 Timer1 count width 16 rejected
+PASS: runtime:t1mode-bad Timer1 mode non-0x107 rejected
+PASS: runtime:t1count-write Timer1 count write rejected
+PASS: runtime:crit-sel0 Critical syscall sel 0 rejected
+PASS: runtime:crit-sel3 Critical syscall sel 3 rejected
+PASS: runtime:crit-null Critical syscall null out rejected
+PASS: runtime:crit-exit-null Exit critical null out rejected
+PASS: runtime:bios-unhandled Unhandled BIOS falls through
+PASS: surface:cpu-interrupt-not-modeled
+PASS: surface:timer1-irq-not-modeled
+PASS: surface:gpu-command-not-modeled
+PASS: surface:gpu-raster-not-modeled
+PASS: surface:async-dma-not-modeled
+PASS: hardening:no-private-path absolute private paths absent
+PASS: hardening:no-payload-hex no payload supplied
+PASS: hardening:no-raw-words reconstructive fields absent
+OPENRECOMP_P15_20=PASS
+OPENRECOMP_PHASE15_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P15-20_CHECKS=27

@@ -1,0 +1,101 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase15-sources",
+      "detail": "OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=25",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:deterministic",
+      "detail": "bce0c7d7d1bc4bb4bd47b65ad2f29eeeada11064abc32883e5aa1624cc1b149b",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:stderr-empty",
+      "detail": "0:0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:trace-indirect-clean",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:nonram-denials-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:mmio-unsupported-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:bios-failures-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:host-bound-reached",
+      "detail": "1:1",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:enter-critical-reached",
+      "detail": "7",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:exit-critical-reached",
+      "detail": "7",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:balanced",
+      "detail": "7:7",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:entry-break-not-reached",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:failure-category",
+      "detail": "1:guest trap is unsupported",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:live-devices",
+      "detail": "3814:3813:3822",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier-ii:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier-ii:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier-ii:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P15-08",
+  "schema": "openrecomp-phase15-tests-v1",
+  "stage": "P15-08",
+  "summary": {
+    "failed": 0,
+    "passed": 18
+  }
+}

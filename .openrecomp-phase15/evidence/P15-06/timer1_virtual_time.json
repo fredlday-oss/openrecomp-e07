@@ -1,0 +1,72 @@
+{
+  "build": {
+    "executable_sha256": "7c49578de1304de5f0b7c2bfd203e6f1cb9a46fc6f80c5fae6b7bf3059ffb314",
+    "status": [
+      "OK",
+      "OK"
+    ],
+    "toolchain": {
+      "compiler": {
+        "identity": "clang-cl.exe",
+        "target": "x86_64-pc-windows-msvc",
+        "version": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"
+      },
+      "linker": {
+        "identity": "lld-link.exe",
+        "target": "x86_64-pc-windows-msvc",
+        "version": "LLD 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"
+      }
+    }
+  },
+  "cpu_interrupt_delivery": "NOT_MODELED_NOT_REQUIRED",
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "fixture": {
+    "sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "size": 129024
+  },
+  "frame_tick": {
+    "address": "0x80029678",
+    "final_value": "0x00000ee0",
+    "progression": "one per bounds-checked poll",
+    "reads": "3813"
+  },
+  "private_fixture_bytes_recorded": "NO",
+  "run": {
+    "access_budget": 8000000,
+    "block_budget": 520000,
+    "error": "guest trap is unsupported",
+    "failed": "1",
+    "stdout_sha256": "e019d94299ff7f1754a7b48e18ebca5d356b3562df59f4f0ff0175c37e212632",
+    "trace_failure_count": "0"
+  },
+  "schema": "openrecomp-phase15-timer1-virtual-time-v1",
+  "stage": "P15-06",
+  "third_party_code_imported": "NO",
+  "timer1": {
+    "counter_address": "0x1f801110",
+    "counter_step": 263,
+    "mode": "0x00000107",
+    "mode_address": "0x1f801114",
+    "mode_writes": "3",
+    "reads": "3814",
+    "sampled_values": [
+      0,
+      263,
+      526,
+      789,
+      1052,
+      1315,
+      1578,
+      1841,
+      2104,
+      2367,
+      2630,
+      2893,
+      3156,
+      3419,
+      3682,
+      3945
+    ]
+  },
+  "timer1_irq_delivery": "NOT_MODELED_NOT_REQUIRED"
+}

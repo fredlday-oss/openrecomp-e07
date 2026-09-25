@@ -1,0 +1,23 @@
+PASS: integrity:phase15-sources OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=32
+PASS: replay:build ['OK', 'OK']
+PASS: replay:deterministic-match ed8314e66b36e40b87163535ac411507a01dcbc11094cd03d6ae0cf37d47f5d1
+PASS: replay:stdout-identical sha256=ed8314e66b36e40b87163535ac411507a01dcbc11094cd03d6ae0cf37d47f5d1
+PASS: replay:stderr-empty 0:0
+PASS: replay:trace-indirect-clean 0
+PASS: replay:nonram-denials-zero 0
+PASS: replay:mmio-unsupported-zero 0
+PASS: replay:bios-failures-zero 0
+PASS: replay:critical-failures-zero 0
+PASS: replay:critical-balanced 7:7
+PASS: replay:cpu-interrupt-enabled 1
+PASS: replay:host-bound-reached 1:1
+PASS: replay:no-private-path absolute private paths absent
+PASS: replay:no-payload-hex payload sample absent
+PASS: replay:no-raw-words reconstructive fields absent
+OPENRECOMP_P15_40=PASS
+OPENRECOMP_PHASE15_INITIALIZATION_REPLAY_V1=PASS
+OPENRECOMP_PHASE15_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P15-40_CHECKS=16

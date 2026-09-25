@@ -1,0 +1,22 @@
+PASS: integrity:phase15-sources OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=20
+PASS: replay:build ['OK', 'OK']
+PASS: replay:deterministic 24be9da6c5884742bb5174c1cfc83c2b4eed82bb91dd227e88ecc586c0f195a1
+PASS: replay:stderr-empty 0:0
+PASS: replay:i-stat-i-mask-denials-zero 0
+PASS: replay:memory-denials-zero 0
+PASS: replay:mmio-denials-zero 0
+PASS: replay:mmio-unsupported-zero 0
+PASS: frontier:first-site 0x80026c8c
+PASS: frontier:first-function 0x80026c88
+PASS: frontier:a0-vector 0x000000a0
+PASS: frontier:classification unresolved indirect jump
+PASS: frontier:reached-after-interrupt-mmio 469338
+PASS: frontier-i:no-private-path absolute private paths absent
+PASS: frontier-i:no-payload-hex payload sample absent
+PASS: frontier-i:no-raw-words reconstructive fields absent
+OPENRECOMP_P15_03=PASS
+OPENRECOMP_PHASE15_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P15-03_CHECKS=16

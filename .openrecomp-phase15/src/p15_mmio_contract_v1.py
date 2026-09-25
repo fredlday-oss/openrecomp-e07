@@ -21,6 +21,7 @@ CONTRACT_VERSION = "1.0.0"
 STATUS_OK = 0
 STATUS_UNHANDLED = -1000
 STATUS_WIDTH_UNSUPPORTED = 2
+STATUS_OPERATION_UNSUPPORTED = 13
 
 I_STAT = 0x1F801070
 I_MASK = 0x1F801074
@@ -30,6 +31,11 @@ D2_BCR = 0x1F8010A4
 D2_CHCR = 0x1F8010A8
 DPCR = 0x1F8010F0
 DICR = 0x1F8010F4
+TIMER1_COUNT = 0x1F801110
+TIMER1_MODE = 0x1F801114
+GPUSTAT = 0x1F801814
+FRAME_TICK = 0x80029678
+GPUSTAT_VALUE = 0x14802000
 
 D2_CHCR_BUSY = 0x01000000
 
@@ -43,10 +49,15 @@ ALLOWED_WIDTHS: dict[int, tuple[int, ...]] = {
     D2_CHCR: (32,),
     DPCR: (32,),
     DICR: (32,),
+    TIMER1_COUNT: (32,),
+    TIMER1_MODE: (32,),
+    GPUSTAT: (32,),
 }
 
 #: Registers that are part of the contract but hold no read-observable data.
 ADDRESSES = frozenset(ALLOWED_WIDTHS)
+READABLE = ADDRESSES - {TIMER1_MODE}
+WRITABLE = ADDRESSES - {TIMER1_COUNT, GPUSTAT}
 
 
 @dataclass
@@ -61,6 +72,11 @@ class MmioModel:
     d2_chcr: int = 0
     dpcr: int = 0
     dicr: int = 0
+    timer1_count: int = 0
+    timer1_mode: int = 0
+    timer1_reads: int = 0
+    timer1_mode_writes: int = 0
+    gpustat_reads: int = 0
     reads: int = 0
     writes: int = 0
     unsupported: int = 0
@@ -83,6 +99,9 @@ class MmioModel:
         if width_bits not in ALLOWED_WIDTHS[address]:
             self.unsupported += 1
             return STATUS_WIDTH_UNSUPPORTED, 0
+        if address not in READABLE:
+            self.unsupported += 1
+            return STATUS_OPERATION_UNSUPPORTED, 0
         if address == I_STAT:
             value = self.i_stat
         elif address == I_MASK:
@@ -97,6 +116,13 @@ class MmioModel:
             value = self.d2_chcr
         elif address == DICR:
             value = self.dicr
+        elif address == TIMER1_COUNT:
+            value = self.timer1_count
+            self.timer1_count = (self.timer1_count + 263) & 0xFFFFFFFF
+            self.timer1_reads += 1
+        elif address == GPUSTAT:
+            value = GPUSTAT_VALUE
+            self.gpustat_reads += 1
         else:
             value = self.dpcr
         if width_bits == 16:
@@ -109,10 +135,21 @@ class MmioModel:
         """Return the status for one guest write."""
         if address not in ALLOWED_WIDTHS:
             return STATUS_UNHANDLED
+        if address == GPUSTAT:
+            return STATUS_UNHANDLED
         if width_bits not in ALLOWED_WIDTHS[address]:
             self.unsupported += 1
             return STATUS_WIDTH_UNSUPPORTED
-        if address == I_STAT:
+        if address not in WRITABLE:
+            self.unsupported += 1
+            return STATUS_OPERATION_UNSUPPORTED
+        if address == TIMER1_MODE:
+            if value != 0x00000107:
+                self.unsupported += 1
+                return STATUS_OPERATION_UNSUPPORTED
+            self.timer1_mode = value
+            self.timer1_mode_writes += 1
+        elif address == I_STAT:
             self.i_stat &= (value & 0xFFFF)
         elif address == I_MASK:
             self.i_mask = value & 0xFFFF
@@ -159,8 +196,12 @@ def contract_document() -> dict[str, Any]:
             "ok": STATUS_OK,
             "unhandled": STATUS_UNHANDLED,
             "width_unsupported": STATUS_WIDTH_UNSUPPORTED,
+            "operation_unsupported": STATUS_OPERATION_UNSUPPORTED,
         },
         "d2_chcr_busy_bit": f"0x{D2_CHCR_BUSY:08x}",
         "cpu_interrupt_delivery": "NOT_MODELED",
+        "timer1_irq_delivery": "NOT_MODELED",
+        "frame_tick_address": f"0x{FRAME_TICK:08x}",
+        "gpustat_value": f"0x{GPUSTAT_VALUE:08x}",
         "third_party_code_imported": "NO",
     }

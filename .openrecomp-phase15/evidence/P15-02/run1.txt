@@ -1,0 +1,27 @@
+PASS: integrity:phase15-sources OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=19
+PASS: production:build ['OK', 'OK']
+PASS: production:build-reproducible d5329c08f567c4f814be1df12e9fb674230beff0136f9855aae91a96ca47924b
+PASS: production:stdout-identical 24be9da6c5884742bb5174c1cfc83c2b4eed82bb91dd227e88ecc586c0f195a1
+PASS: production:stderr-empty 0:0
+PASS: composition:read-predispatch 1
+PASS: composition:write-predispatch 1
+PASS: composition:before-frozen-blocker Phase-15 hooks precede frozen blockers
+PASS: live:i-mask-read16 16
+PASS: live:i-mask-write16 10
+PASS: live:i-stat-read16 9
+PASS: live:i-stat-write16 3
+PASS: live:i-mask-init-zero observed write 0
+PASS: live:i-stat-ack-zero observed write 0
+PASS: live:no-mmio-width-failure 0
+PASS: live:interrupt-accesses-in-inventory 4
+PASS: live:historical-interrupt-denials-eliminated [{'address': 528486512, 'width_bits': 16, 'is_write': 0, 'denied': 0, 'count': 9}, {'address': 528486512, 'width_bits': 16, 'is_write': 1, 'denied': 0, 'count': 3}, {'address': 528486516, 'width_bits': 16, 'is_write': 0, 'denied': 0, 'count': 16}, {'address': 528486516, 'width_bits': 16, 'is_write': 1, 'denied': 0, 'count': 10}]
+PASS: live-i-stat-i-mask:no-private-path absolute private paths absent
+PASS: live-i-stat-i-mask:no-payload-hex payload sample absent
+PASS: live-i-stat-i-mask:no-raw-words reconstructive fields absent
+OPENRECOMP_PHASE15_I_STAT_I_MASK_V1=PASS
+OPENRECOMP_P15_02=PASS
+OPENRECOMP_PHASE15_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P15-02_CHECKS=20

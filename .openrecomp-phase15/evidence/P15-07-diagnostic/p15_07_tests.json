@@ -1,0 +1,96 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase15-sources",
+      "detail": "OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=24",
+      "status": "PASS"
+    },
+    {
+      "check": "model:read",
+      "detail": "0x14802000",
+      "status": "PASS"
+    },
+    {
+      "check": "model:counter",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "model:width-refused",
+      "detail": "16-bit refused",
+      "status": "PASS"
+    },
+    {
+      "check": "model:write-falls-through",
+      "detail": "GP1 write not intercepted",
+      "status": "PASS"
+    },
+    {
+      "check": "c:harness",
+      "detail": "read32=0,0x14802000\nreads=1 ready_cmd=1 ready_dma=0\nread16=2\nwrite=-1000\nunknown=-1000\ndenied=1 unsupported=1",
+      "status": "PASS"
+    },
+    {
+      "check": "live:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "live:build-reproducible",
+      "detail": "e16cb6498a768977f431da6882cf0925b535733fb3afe92db18aa01ddbf8d6d7",
+      "status": "PASS"
+    },
+    {
+      "check": "live:stderr-empty",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "live:reads",
+      "detail": "3822",
+      "status": "PASS"
+    },
+    {
+      "check": "live:event-value",
+      "detail": "['0x14802000', '0x14802000', '0x14802000', '0x14802000', '0x14802000', '0x14802000', '0x14802000', '0x14802000']",
+      "status": "PASS"
+    },
+    {
+      "check": "live:ready-command",
+      "detail": "bit26=1",
+      "status": "PASS"
+    },
+    {
+      "check": "live:dma-request-clear",
+      "detail": "bit22=0",
+      "status": "PASS"
+    },
+    {
+      "check": "live:no-unsupported",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "gpustat:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "gpustat:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "gpustat:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P15-07",
+  "schema": "openrecomp-phase15-tests-v1",
+  "stage": "P15-07",
+  "summary": {
+    "failed": 0,
+    "passed": 17
+  }
+}

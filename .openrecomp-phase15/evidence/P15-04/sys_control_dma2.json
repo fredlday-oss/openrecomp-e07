@@ -1,0 +1,189 @@
+{
+  "asynchronous_dma_timing": "NOT_MODELED",
+  "build": {
+    "executable_sha256": "d5329c08f567c4f814be1df12e9fb674230beff0136f9855aae91a96ca47924b",
+    "source_hashes": {
+      "p9_driver.c": "2e40bb312968c85586f7af24e68fcab4c97a451296cb980bd1a7ad54ef13f6e2",
+      "p9_image_v1.c": "77a340448081cc606b16e104734b3a48d11483210520618dcca8b1266c43f96b",
+      "p9_runtime_support.c": "1cf9ff5f274273bf5210cca830e804a37b74dcef3acfca82b71243460179767a",
+      "program.c": "aa5eecbbe5ff9bd99b45ed168c49804f13a540b04eba6ca214733f9fe9d39c18"
+    },
+    "status": [
+      "OK",
+      "OK"
+    ],
+    "toolchain": {
+      "compiler": {
+        "identity": "clang-cl.exe",
+        "target": "x86_64-pc-windows-msvc",
+        "version": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"
+      },
+      "linker": {
+        "identity": "lld-link.exe",
+        "target": "x86_64-pc-windows-msvc",
+        "version": "LLD 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"
+      }
+    }
+  },
+  "event_counts": {
+    "0x1f801020:32:write": 2,
+    "0x1f8010a0:32:write": 2,
+    "0x1f8010a4:32:write": 2,
+    "0x1f8010a8:32:read": 4,
+    "0x1f8010a8:32:write": 3,
+    "0x1f8010f0:32:read": 1,
+    "0x1f8010f0:32:write": 4,
+    "0x1f8010f4:32:write": 3
+  },
+  "events": [
+    {
+      "address": 528486640,
+      "is_write": 1,
+      "value": 858993459,
+      "width_bits": 32
+    },
+    {
+      "address": 528486644,
+      "is_write": 1,
+      "value": 0,
+      "width_bits": 32
+    },
+    {
+      "address": 528486568,
+      "is_write": 1,
+      "value": 1025,
+      "width_bits": 32
+    },
+    {
+      "address": 528486640,
+      "is_write": 0,
+      "value": 858993459,
+      "width_bits": 32
+    },
+    {
+      "address": 528486640,
+      "is_write": 1,
+      "value": 858995507,
+      "width_bits": 32
+    },
+    {
+      "address": 528486640,
+      "is_write": 1,
+      "value": 858993459,
+      "width_bits": 32
+    },
+    {
+      "address": 528486644,
+      "is_write": 1,
+      "value": 0,
+      "width_bits": 32
+    },
+    {
+      "address": 528486568,
+      "is_write": 0,
+      "value": 1025,
+      "width_bits": 32
+    },
+    {
+      "address": 528486560,
+      "is_write": 1,
+      "value": 2147653684,
+      "width_bits": 32
+    },
+    {
+      "address": 528486564,
+      "is_write": 1,
+      "value": 16777232,
+      "width_bits": 32
+    },
+    {
+      "address": 528486568,
+      "is_write": 1,
+      "value": 16777729,
+      "width_bits": 32
+    },
+    {
+      "address": 528486568,
+      "is_write": 0,
+      "value": 513,
+      "width_bits": 32
+    },
+    {
+      "address": 528486560,
+      "is_write": 1,
+      "value": 2147654196,
+      "width_bits": 32
+    },
+    {
+      "address": 528486564,
+      "is_write": 1,
+      "value": 33554448,
+      "width_bits": 32
+    },
+    {
+      "address": 528486568,
+      "is_write": 1,
+      "value": 16777729,
+      "width_bits": 32
+    },
+    {
+      "address": 528486568,
+      "is_write": 0,
+      "value": 513,
+      "width_bits": 32
+    },
+    {
+      "address": 528486640,
+      "is_write": 1,
+      "value": 858993459,
+      "width_bits": 32
+    },
+    {
+      "address": 528486644,
+      "is_write": 1,
+      "value": 0,
+      "width_bits": 32
+    },
+    {
+      "address": 528486432,
+      "is_write": 1,
+      "value": 4901,
+      "width_bits": 32
+    },
+    {
+      "address": 528486568,
+      "is_write": 0,
+      "value": 513,
+      "width_bits": 32
+    },
+    {
+      "address": 528486432,
+      "is_write": 1,
+      "value": 4901,
+      "width_bits": 32
+    }
+  ],
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "final_state": {
+    "d2_bcr": "0x02000010",
+    "d2_chcr": "0x00000201",
+    "d2_madr": "0x80029a34",
+    "dicr": "0x00000000",
+    "dpcr": "0x33333333",
+    "sys_control": "0x00001325"
+  },
+  "fixture": {
+    "sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "size": 129024
+  },
+  "gpu_command_execution": "NOT_MODELED",
+  "private_fixture_bytes_recorded": "NO",
+  "run": {
+    "block_budget": 520000,
+    "stderr_empty": true,
+    "stdout_sha256": "24be9da6c5884742bb5174c1cfc83c2b4eed82bb91dd227e88ecc586c0f195a1"
+  },
+  "schema": "openrecomp-phase15-sys-control-dma2-v1",
+  "stage": "P15-04",
+  "third_party_code_imported": "NO"
+}

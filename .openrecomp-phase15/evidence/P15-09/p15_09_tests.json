@@ -1,0 +1,151 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase15-sources",
+      "detail": "OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=27",
+      "status": "PASS"
+    },
+    {
+      "check": "unit:initial-ie",
+      "detail": "init_ie=1 enter_calls=0 exit_calls=0 failures=0",
+      "status": "PASS"
+    },
+    {
+      "check": "unit:enter1",
+      "detail": "enter returns prior state 1, sets ie=0",
+      "status": "PASS"
+    },
+    {
+      "check": "unit:enter2",
+      "detail": "enter returns prior state 0, keeps ie=0",
+      "status": "PASS"
+    },
+    {
+      "check": "unit:exit1",
+      "detail": "exit returns 0, sets ie=1",
+      "status": "PASS"
+    },
+    {
+      "check": "unit:exit2-idempotent",
+      "detail": "exit while enabled sets ie=1",
+      "status": "PASS"
+    },
+    {
+      "check": "unit:sel0-fail-closed",
+      "detail": "selector 0 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "unit:sel3-fail-closed",
+      "detail": "selector 3 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "unit:null-out-value",
+      "detail": "null pointer rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "unit:final-counts",
+      "detail": "exact call counters match",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:deterministic",
+      "detail": "ed8314e66b36e40b87163535ac411507a01dcbc11094cd03d6ae0cf37d47f5d1",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:stderr-empty",
+      "detail": "0:0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:trace-indirect-clean",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:nonram-denials-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:mmio-unsupported-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:bios-failures-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:critical-failures-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:host-bound-reached",
+      "detail": "1:1",
+      "status": "PASS"
+    },
+    {
+      "check": "critical:enter-count",
+      "detail": "7",
+      "status": "PASS"
+    },
+    {
+      "check": "critical:exit-count",
+      "detail": "7",
+      "status": "PASS"
+    },
+    {
+      "check": "critical:balanced",
+      "detail": "7:7",
+      "status": "PASS"
+    },
+    {
+      "check": "critical:cpu-interrupt-enabled",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:exec-handoff-not-reached",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "boundary:title-entry-not-reached",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "init-boundary:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "init-boundary:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "init-boundary:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P15-09",
+  "schema": "openrecomp-phase15-tests-v1",
+  "stage": "P15-09",
+  "summary": {
+    "failed": 0,
+    "passed": 28
+  }
+}

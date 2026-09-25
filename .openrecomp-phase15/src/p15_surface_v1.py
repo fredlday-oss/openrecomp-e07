@@ -116,6 +116,30 @@ MMIO_REGISTERS: dict[str, dict[str, Any]] = {
         "write_semantics": "store the 32-bit register; no DMA interrupt is generated",
         "class": "bounded-project-owned-register-model",
     },
+    "TIMER1_COUNT": {
+        "address": 0x1F801110,
+        "allowed_widths": (32,),
+        "operations": ("READ",),
+        "read_semantics": "return virtual scanline count then advance by 263",
+        "write_semantics": "unsupported and fail closed",
+        "class": "bounded-project-owned-register-model",
+    },
+    "TIMER1_MODE": {
+        "address": 0x1F801114,
+        "allowed_widths": (32,),
+        "operations": ("WRITE",),
+        "read_semantics": "unsupported and fail closed",
+        "write_semantics": "accept only live IRQ-disabled mode 0x00000107",
+        "class": "bounded-project-owned-register-model",
+    },
+    "GPUSTAT": {
+        "address": 0x1F801814,
+        "allowed_widths": (32,),
+        "operations": ("READ",),
+        "read_semantics": "return audited boundary contract value 0x14802000",
+        "write_semantics": "not intercepted; GP1 writes retain the frozen GPU command boundary",
+        "class": "bounded-project-owned-status-contract",
+    },
 }
 
 #: Device MMIO observed on the live post-card path.
@@ -128,6 +152,7 @@ OBSERVED_DEVICE_REGISTERS = {
 
 #: The documented bounded GPUSTAT contract stub.
 GPUSTAT_STUB = 0x14802000
+FRAME_TICK_ADDRESS = 0x80029678
 
 
 def mmio_addresses() -> set[int]:
@@ -164,7 +189,12 @@ def surface_document() -> dict[str, Any]:
             for name, entry in sorted(MMIO_REGISTERS.items())
         },
         "gpustat_stub": f"0x{GPUSTAT_STUB:08x}",
+        "frame_tick": {
+            "address": f"0x{FRAME_TICK_ADDRESS:08x}",
+            "semantics": "increment by one on each bounds-checked discrete-time poll",
+        },
         "cpu_interrupt_delivery": "NOT_MODELED",
+        "timer1_irq_delivery": "NOT_MODELED",
         "gpu_command_execution": "NOT_MODELED",
         "gpu_rasterization": "NOT_MODELED",
         "asynchronous_dma_timing": "NOT_MODELED",

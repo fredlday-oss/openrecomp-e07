@@ -10,6 +10,14 @@ import sys
 from typing import Any
 
 
+DEFAULT_CLAIM_MARKERS = {
+    "OPENRECOMP_PHASE15_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE15_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE15_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE15_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+}
+
+
 class Gate:
     def __init__(self, stage: str) -> None:
         self.stage = stage
@@ -100,6 +108,16 @@ def run_stage(stage: str, body, default_evidence: str):
     except Exception as exc:  # fail closed without a traceback
         print(f"FAIL: {stage}:{type(exc).__name__}:{exc}")
         return 1
+    for marker, value in DEFAULT_CLAIM_MARKERS.items():
+        if not any(item.startswith(f"{marker}=") for item in gate.markers):
+            gate.mark(marker, value)
+    result_path = evidence / "RESULT.json"
+    if result_path.is_file():
+        result = json.loads(result_path.read_text(encoding="utf-8"))
+        markers = result.setdefault("markers", {})
+        for marker, value in DEFAULT_CLAIM_MARKERS.items():
+            markers.setdefault(marker, value)
+        write_json(result_path, result)
     tests_name = f"{stage.lower().replace('-', '_')}_tests.json"
     write_json(evidence / tests_name, gate.tests_document(stage))
     gate.emit()

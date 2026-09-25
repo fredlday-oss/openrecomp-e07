@@ -1,0 +1,19 @@
+{
+  "candidate_next_phase": "OPENRECOMP PHASE 16: PS1 CD-ROM SECTOR DELIVERY & GPU PIPELINE",
+  "evidence_class": "REPRESENTATIVE_TEST_RECORD",
+  "first_frame_ready": "NO",
+  "gpu_command_execution": "NOT_MODELED",
+  "gpu_rasterization": "NOT_MODELED",
+  "initialization_boundary_reached": false,
+  "initialization_proof_status": "NOT_PROVEN",
+  "private_fixture_bytes_recorded": "NO",
+  "replay_byte_identical": true,
+  "schema": "openrecomp-phase15-first-frame-readiness-v1",
+  "stage": "P15-50",
+  "third_party_code_imported": "NO",
+  "unsatisfied_prerequisites": [
+    "OPENRECOMP_PHASE15_HERCULES_INITIALIZATION_PROOF is NOT_PROVEN",
+    "A0:0x43 Exec handoff to TITLE entry (0x800380a0) requires CD-ROM sector delivery",
+    "GPU command execution and rasterization are NOT_MODELED"
+  ]
+}

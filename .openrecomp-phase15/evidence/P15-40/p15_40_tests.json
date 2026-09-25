@@ -1,0 +1,91 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase15-sources",
+      "detail": "OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=32",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:deterministic-match",
+      "detail": "ed8314e66b36e40b87163535ac411507a01dcbc11094cd03d6ae0cf37d47f5d1",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:stdout-identical",
+      "detail": "sha256=ed8314e66b36e40b87163535ac411507a01dcbc11094cd03d6ae0cf37d47f5d1",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:stderr-empty",
+      "detail": "0:0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:trace-indirect-clean",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:nonram-denials-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:mmio-unsupported-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:bios-failures-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:critical-failures-zero",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:critical-balanced",
+      "detail": "7:7",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:cpu-interrupt-enabled",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:host-bound-reached",
+      "detail": "1:1",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "replay:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P15-40",
+  "schema": "openrecomp-phase15-tests-v1",
+  "stage": "P15-40",
+  "summary": {
+    "failed": 0,
+    "passed": 16
+  }
+}

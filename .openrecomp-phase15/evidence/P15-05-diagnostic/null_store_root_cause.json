@@ -1,0 +1,41 @@
+{
+  "address_zero_writable": false,
+  "causal_conclusion": "The historical address-zero store is a downstream cascade of the missing D2_CHCR producer/state: disabling only D2_CHCR handling restores both the D2 denial and the following null store; the full production model removes both.",
+  "d2_ablation": {
+    "address_zero_accesses": 1,
+    "aggregate_denied": 4,
+    "d2_chcr_accesses": 2,
+    "d2_chcr_model_events": 0,
+    "executable_sha256": "b0028f26ae84e70a9c98e3d57573e57fdba4495411c8a04138c8d9916b39f859",
+    "kind": "TEST_ONLY_DISABLE_D2_CHCR_READ_WRITE_PRE_DISPATCH",
+    "stdout_sha256": "0f4e7fe418baa32cd7e4b806ba1ea9fb5bcfc74411e94e7065c62a0fad66b900",
+    "support_sha256": "4bf7d71706a048b7e6925132e92ca92f2aa22a016a9a07c2b79dc00477605e52"
+  },
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED_CAUSAL_ABLATION",
+  "fixture": {
+    "sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "size": 129024
+  },
+  "full_production": {
+    "address_zero_accesses": 0,
+    "aggregate_denied": 1,
+    "d2_chcr_accesses": 7,
+    "d2_chcr_model_events": 7,
+    "executable_sha256": "d5329c08f567c4f814be1df12e9fb674230beff0136f9855aae91a96ca47924b",
+    "stdout_sha256": "24be9da6c5884742bb5174c1cfc83c2b4eed82bb91dd227e88ecc586c0f195a1",
+    "support_sha256": "1cf9ff5f274273bf5210cca830e804a37b74dcef3acfca82b71243460179767a"
+  },
+  "historical_observation": {
+    "d2_chcr_denial_event_index": 468293,
+    "d2_chcr_denial_ordinal": 3,
+    "null_store_address": "0x00000000",
+    "null_store_event_index": 468294,
+    "null_store_ordinal": 4,
+    "null_store_pc": "0x8001843c",
+    "source": "verified phase15-istat-imask-live-contract-v1 reconnaissance"
+  },
+  "private_fixture_bytes_recorded": "NO",
+  "schema": "openrecomp-phase15-null-store-root-cause-v1",
+  "stage": "P15-05",
+  "third_party_code_imported": "NO"
+}

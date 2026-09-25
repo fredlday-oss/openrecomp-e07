@@ -1,0 +1,29 @@
+PASS: integrity:phase15-sources OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=24
+PASS: model:read 0x14802000
+PASS: model:counter 1
+PASS: model:width-refused 16-bit refused
+PASS: model:write-falls-through GP1 write not intercepted
+PASS: c:harness read32=0,0x14802000
+reads=1 ready_cmd=1 ready_dma=0
+read16=2
+write=-1000
+unknown=-1000
+denied=1 unsupported=1
+PASS: live:build ['OK', 'OK']
+PASS: live:build-reproducible e16cb6498a768977f431da6882cf0925b535733fb3afe92db18aa01ddbf8d6d7
+PASS: live:stderr-empty 0
+PASS: live:reads 3822
+PASS: live:event-value ['0x14802000', '0x14802000', '0x14802000', '0x14802000', '0x14802000', '0x14802000', '0x14802000', '0x14802000']
+PASS: live:ready-command bit26=1
+PASS: live:dma-request-clear bit22=0
+PASS: live:no-unsupported 0
+PASS: gpustat:no-private-path absolute private paths absent
+PASS: gpustat:no-payload-hex payload sample absent
+PASS: gpustat:no-raw-words reconstructive fields absent
+OPENRECOMP_PHASE15_GPUSTAT_V1=PASS
+OPENRECOMP_P15_07=PASS
+OPENRECOMP_PHASE15_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P15-07_CHECKS=17

@@ -37,6 +37,10 @@ static uint64_t g_p15_hook_entry_int_calls;
 static uint64_t g_p15_reset_entry_int_calls;
 static uint64_t g_p15_return_from_exception_calls;
 static uint64_t g_p15_bios_service_failures;
+static uint64_t g_p15_enter_critical_calls;
+static uint64_t g_p15_exit_critical_calls;
+static uint64_t g_p15_critical_syscall_failures;
+static uint32_t g_p15_cpu_interrupt_enabled = 1u;
 
 uint32_t p15_entry_int_hook(void) { return g_p15_entry_int_hook; }
 uint64_t p15_setjmp_calls(void) { return g_p15_setjmp_calls; }
@@ -45,6 +49,36 @@ uint64_t p15_hook_entry_int_calls(void) { return g_p15_hook_entry_int_calls; }
 uint64_t p15_reset_entry_int_calls(void) { return g_p15_reset_entry_int_calls; }
 uint64_t p15_return_from_exception_calls(void) { return g_p15_return_from_exception_calls; }
 uint64_t p15_bios_service_failures(void) { return g_p15_bios_service_failures; }
+uint64_t p15_enter_critical_calls(void) { return g_p15_enter_critical_calls; }
+uint64_t p15_exit_critical_calls(void) { return g_p15_exit_critical_calls; }
+uint64_t p15_critical_syscall_failures(void) { return g_p15_critical_syscall_failures; }
+uint32_t p15_cpu_interrupt_enabled(void) { return g_p15_cpu_interrupt_enabled; }
+
+/* Exact execution-reached PS1 syscall selectors 1/2. Interrupt delivery is
+ * absent from the bounded initialization model, so the only observable state
+ * is the logical CPU interrupt-enable flag and the prior-state enter result.
+ * Every other selector fails closed; no generic exception dispatch exists. */
+int p15_critical_syscall(uint32_t selector, uint64_t *out_value)
+{
+    if (out_value == NULL) {
+        ++g_p15_critical_syscall_failures;
+        return P9_RT_UNSUPPORTED_OPERATION;
+    }
+    if (selector == 1u) {
+        *out_value = g_p15_cpu_interrupt_enabled != 0u ? UINT64_C(1) : UINT64_C(0);
+        g_p15_cpu_interrupt_enabled = 0u;
+        ++g_p15_enter_critical_calls;
+        return P9_RT_OK;
+    }
+    if (selector == 2u) {
+        g_p15_cpu_interrupt_enabled = 1u;
+        *out_value = UINT64_C(0);
+        ++g_p15_exit_critical_calls;
+        return P9_RT_OK;
+    }
+    ++g_p15_critical_syscall_failures;
+    return P9_RT_UNSUPPORTED_OPERATION;
+}
 
 /* A0:0x13 setjmp(buf): documented direct-call return of 0. The jump buffer is
  * not persisted because the A(14h) longjmp companion is unreachable in this

@@ -18,9 +18,9 @@ hardware/MMIO state required before the semantic initialization boundary
 
 ## Progress
 
-- CURRENT_STAGE: P15-02
-- LAST_COMPLETED_STAGE: P15-01
-- NEXT_STAGE: P15-03
+- CURRENT_STAGE: P15-99
+- LAST_COMPLETED_STAGE: P15-99
+- NEXT_STAGE: NONE (Phase 15 Terminal Verdict Reached)
 
 ## Proof markers
 
@@ -28,6 +28,8 @@ hardware/MMIO state required before the semantic initialization boundary
 - `OPENRECOMP_PHASE15_HERCULES_FRAME_PROOF=NOT_PROVEN`
 - `OPENRECOMP_PHASE15_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN`
 - `OPENRECOMP_PHASE15_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN`
+- `FIRST_FRAME_READY=NO`
+- `FINAL_VERDICT=PASS_BOUNDED_INITIALIZATION_CLOSURE_FRONTIER_REMAINS`
 
 ## Stage status
 
@@ -35,7 +37,23 @@ hardware/MMIO state required before the semantic initialization boundary
 |---|---|
 | P15-00 | PASS |
 | P15-01 | PASS |
-| P15-02 | IN_PROGRESS |
+| P15-02 | PASS |
+| P15-03 | PASS |
+| P15-04 | PASS |
+| P15-05 | PASS |
+| P15-06 | PASS |
+| P15-07 | PASS |
+| P15-08 | PASS |
+| P15-09 | PASS |
+| P15-10 | PASS |
+| P15-11 | PASS |
+| P15-20 | PASS |
+| P15-30 | PASS |
+| P15-40 | PASS |
+| P15-50 | PASS |
+| P15-90 | PASS |
+| P15-91 | PASS |
+| P15-99 | PASS |
 
 ## Verified recovery
 

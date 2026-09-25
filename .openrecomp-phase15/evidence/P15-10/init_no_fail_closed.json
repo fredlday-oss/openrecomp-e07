@@ -1,0 +1,36 @@
+{
+  "boundary_traversal": {
+    "basis": "TITLE overlay CD sector delivery absent from bounded model",
+    "boundary_event": "A0:0x43 Exec handoff at 0x80015b84",
+    "boundary_reached": false,
+    "predicate_status": "NOT_PROVEN"
+  },
+  "discipline": "No error suppression. All fail-closed traps remain strictly armed and unmodified.",
+  "evidence_class": "REPRESENTATIVE_TEST_RECORD",
+  "exact_conditions": {
+    "memory_denial_count": 0,
+    "runtime_failed": 0,
+    "runtime_service_error_count": 0,
+    "trace_failure_count": 0,
+    "unhandled_bios_service_count": 0,
+    "unhandled_indirect_target_count": 0,
+    "unsupported_instruction_count": 0
+  },
+  "private_fixture_bytes_recorded": "NO",
+  "schema": "openrecomp-phase15-init-no-fail-closed-v1",
+  "stage": "P15-10",
+  "third_party_code_imported": "NO",
+  "traps_verified": [
+    "unknown_mmio",
+    "unsupported_width",
+    "unaligned_mmio",
+    "timer1_irq_enable",
+    "timer1_count_write",
+    "gpustat_width",
+    "dma2_width",
+    "critical_syscall_selectors",
+    "critical_syscall_null",
+    "ram_oob",
+    "unhandled_bios_service"
+  ]
+}

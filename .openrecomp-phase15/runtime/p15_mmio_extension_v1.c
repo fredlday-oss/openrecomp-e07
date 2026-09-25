@@ -19,6 +19,12 @@
  *   D2_CHCR 0x1F8010A8   32-bit deterministic register; a write completes
  *                        synchronously so a following read observes bit 24
  *                        (busy) clear
+ *   TIMER1_COUNT 0x1F801110 32-bit read; returns a monotonic virtual scanline
+ *                        counter and advances by 263 scanlines
+ *   TIMER1_MODE 0x1F801114 32-bit write; accepts only the live IRQ-disabled
+ *                        mode 0x00000107
+ *   GPUSTAT 0x1F801814 32-bit read; returns the audited boundary contract
+ *                        value 0x14802000
  *
  * Every modelled register declares its allowed access widths. An unsupported
  * width or an unmodelled address returns `P15_MMIO_UNHANDLED`, so control falls
@@ -45,6 +51,11 @@
 #define P15_D2_CHCR      UINT32_C(0x1f8010a8)
 #define P15_DPCR         UINT32_C(0x1f8010f0)
 #define P15_DICR         UINT32_C(0x1f8010f4)
+#define P15_TIMER1_COUNT UINT32_C(0x1f801110)
+#define P15_TIMER1_MODE  UINT32_C(0x1f801114)
+#define P15_GPUSTAT      UINT32_C(0x1f801814)
+#define P15_FRAME_TICK   UINT32_C(0x80029678)
+#define P15_GPUSTAT_VALUE UINT32_C(0x14802000)
 
 /* Documented DMA channel-control start/busy bit (bit 24). */
 #define P15_D2_CHCR_BUSY UINT32_C(0x01000000)
@@ -66,6 +77,13 @@ static uint32_t g_p15_d2_bcr;
 static uint32_t g_p15_d2_chcr;
 static uint32_t g_p15_dpcr;
 static uint32_t g_p15_dicr;
+static uint32_t g_p15_timer1_count;
+static uint32_t g_p15_timer1_mode;
+static uint64_t g_p15_timer1_reads;
+static uint64_t g_p15_timer1_mode_writes;
+static uint64_t g_p15_frame_tick_reads;
+static uint32_t g_p15_frame_tick_value;
+static uint64_t g_p15_gpustat_reads;
 static struct p15_mmio_event g_p15_events[P15_MMIO_EVENT_CAPACITY];
 static uint32_t g_p15_event_count;
 static uint64_t g_p15_event_overflow;
@@ -109,6 +127,27 @@ int p15_mmio_read(uint64_t address, uint32_t width_bits, uint64_t *out_value)
             return P9_RT_MEMORY_WIDTH_UNSUPPORTED;
         }
         value = g_p15_i_mask;
+    } else if (a == P15_TIMER1_COUNT) {
+        if (width_bits != 32u) {
+            ++g_p15_mmio_unsupported;
+            ++g_p9_denied_accesses;
+            return P9_RT_MEMORY_WIDTH_UNSUPPORTED;
+        }
+        value = g_p15_timer1_count;
+        g_p15_timer1_count += UINT32_C(263);
+        ++g_p15_timer1_reads;
+    } else if (a == P15_TIMER1_MODE) {
+        ++g_p15_mmio_unsupported;
+        ++g_p9_denied_accesses;
+        return P9_RT_UNSUPPORTED_OPERATION;
+    } else if (a == P15_GPUSTAT) {
+        if (width_bits != 32u) {
+            ++g_p15_mmio_unsupported;
+            ++g_p9_denied_accesses;
+            return P9_RT_MEMORY_WIDTH_UNSUPPORTED;
+        }
+        value = P15_GPUSTAT_VALUE;
+        ++g_p15_gpustat_reads;
     } else if (a == P15_SYS_CONTROL || a == P15_D2_MADR || a == P15_D2_BCR
                || a == P15_D2_CHCR || a == P15_DPCR || a == P15_DICR) {
         if (width_bits != 32u) {
@@ -151,6 +190,23 @@ int p15_mmio_write(uint64_t address, uint32_t width_bits, uint32_t value)
             return P9_RT_MEMORY_WIDTH_UNSUPPORTED;
         }
         g_p15_i_mask = value & UINT32_C(0xffff);
+    } else if (a == P15_TIMER1_COUNT) {
+        ++g_p15_mmio_unsupported;
+        ++g_p9_denied_accesses;
+        return P9_RT_UNSUPPORTED_OPERATION;
+    } else if (a == P15_TIMER1_MODE) {
+        if (width_bits != 32u) {
+            ++g_p15_mmio_unsupported;
+            ++g_p9_denied_accesses;
+            return P9_RT_MEMORY_WIDTH_UNSUPPORTED;
+        }
+        if (value != UINT32_C(0x00000107)) {
+            ++g_p15_mmio_unsupported;
+            ++g_p9_denied_accesses;
+            return P9_RT_UNSUPPORTED_OPERATION;
+        }
+        g_p15_timer1_mode = value;
+        ++g_p15_timer1_mode_writes;
     } else if (a == P15_SYS_CONTROL) {
         if (width_bits != 32u) {
             ++g_p15_mmio_unsupported;
@@ -204,6 +260,43 @@ int p15_mmio_write(uint64_t address, uint32_t width_bits, uint32_t value)
     return P9_RT_OK;
 }
 
+/* Deterministic discrete frame time. The verified live wait loop polls the
+ * 32-bit RAM tick at 0x80029678. Each poll advances one virtual frame, writes
+ * the new value back to the same bounds-checked RAM location and returns it.
+ * This models no IRQ delivery and touches no other guest address. */
+int p15_virtual_time_read(uint64_t address, uint32_t width_bits, uint64_t *out_value)
+{
+    uint32_t offset = 0u;
+    uint32_t value;
+    if ((uint32_t)address != P15_FRAME_TICK) {
+        return P15_MMIO_UNHANDLED;
+    }
+    if (width_bits != 32u) {
+        ++g_p15_mmio_unsupported;
+        ++g_p9_denied_accesses;
+        return P9_RT_MEMORY_WIDTH_UNSUPPORTED;
+    }
+    if (out_value == NULL || !p9_translate_ram(address, 4u, &offset)) {
+        ++g_p15_mmio_unsupported;
+        ++g_p9_denied_accesses;
+        return P9_RT_MEMORY_OUT_OF_RANGE;
+    }
+    value = (uint32_t)g_p9_ram[offset]
+          | ((uint32_t)g_p9_ram[offset + 1u] << 8u)
+          | ((uint32_t)g_p9_ram[offset + 2u] << 16u)
+          | ((uint32_t)g_p9_ram[offset + 3u] << 24u);
+    value += 1u;
+    g_p9_ram[offset] = (unsigned char)(value & 0xffu);
+    g_p9_ram[offset + 1u] = (unsigned char)((value >> 8u) & 0xffu);
+    g_p9_ram[offset + 2u] = (unsigned char)((value >> 16u) & 0xffu);
+    g_p9_ram[offset + 3u] = (unsigned char)((value >> 24u) & 0xffu);
+    ++g_p9_memory_reads;
+    ++g_p15_frame_tick_reads;
+    g_p15_frame_tick_value = value;
+    *out_value = (uint64_t)value;
+    return P9_RT_OK;
+}
+
 /* ---- Phase-15 observables (non-reconstructive; driver only) ---------------- */
 
 uint32_t p15_i_stat(void) { return g_p15_i_stat; }
@@ -214,6 +307,13 @@ uint32_t p15_d2_bcr(void) { return g_p15_d2_bcr; }
 uint32_t p15_d2_chcr(void) { return g_p15_d2_chcr; }
 uint32_t p15_dpcr(void) { return g_p15_dpcr; }
 uint32_t p15_dicr(void) { return g_p15_dicr; }
+uint32_t p15_timer1_count(void) { return g_p15_timer1_count; }
+uint32_t p15_timer1_mode(void) { return g_p15_timer1_mode; }
+uint64_t p15_timer1_reads(void) { return g_p15_timer1_reads; }
+uint64_t p15_timer1_mode_writes(void) { return g_p15_timer1_mode_writes; }
+uint64_t p15_frame_tick_reads(void) { return g_p15_frame_tick_reads; }
+uint32_t p15_frame_tick_value(void) { return g_p15_frame_tick_value; }
+uint64_t p15_gpustat_reads(void) { return g_p15_gpustat_reads; }
 uint64_t p15_mmio_reads(void) { return g_p15_mmio_reads; }
 uint64_t p15_mmio_writes(void) { return g_p15_mmio_writes; }
 uint64_t p15_mmio_unsupported(void) { return g_p15_mmio_unsupported; }

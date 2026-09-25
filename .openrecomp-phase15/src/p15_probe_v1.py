@@ -46,6 +46,11 @@ DETERMINISTIC_KEYS = (
     "bound_reached", "bound_denials",
     "p15_i_stat", "p15_i_mask", "p15_sys_control", "p15_d2_chcr",
     "p15_mmio_reads", "p15_mmio_writes", "p15_mmio_digest",
+    "p15_timer1_count", "p15_timer1_mode", "p15_timer1_reads",
+    "p15_timer1_mode_writes", "p15_frame_tick_reads", "p15_frame_tick_value",
+    "p15_gpustat_reads",
+    "p15_enter_critical_calls", "p15_exit_critical_calls",
+    "p15_critical_syscall_failures", "p15_cpu_interrupt_enabled",
 )
 
 

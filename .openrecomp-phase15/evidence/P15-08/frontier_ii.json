@@ -1,0 +1,50 @@
+{
+  "block_budget": 520000,
+  "block_events": 520001,
+  "bound_denials": "1",
+  "bound_reached": "1",
+  "boundary": {
+    "basis": "critical-section syscall frontier precedes boundary",
+    "kind": "A0:0x43 Exec",
+    "reached": false,
+    "site": "0x80015b84",
+    "title_entry": "0x800380a0"
+  },
+  "build_status": [
+    "OK",
+    "OK"
+  ],
+  "byte_identical": true,
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "first_remaining_blocker": {
+    "classification": "PROVEN_BY_FROZEN_TRAP_CLASSIFICATION_AND_LIVE_COUNTS",
+    "enter": {
+      "block": "0x80015f18",
+      "count": 7,
+      "site": "0x80015f1c",
+      "syscall_selector": 1
+    },
+    "exit": {
+      "block": "0x80015f28",
+      "count": 7,
+      "site": "0x80015f2c",
+      "syscall_selector": 2
+    },
+    "generic_exception_delivery_required": "NO",
+    "kind": "REACHED_BOUNDED_CRITICAL_SECTION_SYSCALLS"
+  },
+  "fixture": {
+    "sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "size": 129024
+  },
+  "memory_denial_count": 0,
+  "private_fixture_bytes_recorded": "NO",
+  "run1_sha256": "bce0c7d7d1bc4bb4bd47b65ad2f29eeeada11064abc32883e5aa1624cc1b149b",
+  "run2_sha256": "bce0c7d7d1bc4bb4bd47b65ad2f29eeeada11064abc32883e5aa1624cc1b149b",
+  "schema": "openrecomp-phase15-frontier-ii-v1",
+  "stage": "P15-08",
+  "third_party_code_imported": "NO",
+  "trace_failure_count": 0,
+  "unexpected_mmio_count": 0,
+  "unknown_service_count": 0
+}

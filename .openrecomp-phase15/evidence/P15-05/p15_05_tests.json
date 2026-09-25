@@ -1,0 +1,91 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase15-sources",
+      "detail": "OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=22",
+      "status": "PASS"
+    },
+    {
+      "check": "full:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "disabled:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "full:stderr-empty",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "disabled:stderr-empty",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "causal:full-d2-handled",
+      "detail": "accesses=7:model=7",
+      "status": "PASS"
+    },
+    {
+      "check": "causal:full-null-store-absent",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "causal:disable-d2-falls-through",
+      "detail": "accesses=2:model=0",
+      "status": "PASS"
+    },
+    {
+      "check": "causal:disable-d2-restores-null-store",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "causal:denial-delta",
+      "detail": "4-1=2+1",
+      "status": "PASS"
+    },
+    {
+      "check": "causal:temporal-order",
+      "detail": "D2 denial precedes historical cascaded null store per verified recon",
+      "status": "PASS"
+    },
+    {
+      "check": "fail-closed:address-zero-unhandled",
+      "detail": "address zero remains outside the model",
+      "status": "PASS"
+    },
+    {
+      "check": "fail-closed:address-zero-not-registered",
+      "detail": "address zero absent",
+      "status": "PASS"
+    },
+    {
+      "check": "null-store:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "null-store:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "null-store:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P15-05",
+  "schema": "openrecomp-phase15-tests-v1",
+  "stage": "P15-05",
+  "summary": {
+    "failed": 0,
+    "passed": 16
+  }
+}

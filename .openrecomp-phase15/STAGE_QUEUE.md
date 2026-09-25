@@ -40,4 +40,20 @@ A queue change requires `QUEUE_RECONCILIATION_REQUIRED` and a stop.
 
 - `P15-00`: `PASS`
 - `P15-01`: `PASS`
-- `P15-02`: `IN_PROGRESS`
+- `P15-02`: `PASS`
+- `P15-03`: `PASS`
+- `P15-04`: `PASS`
+- `P15-05`: `PASS`
+- `P15-06`: `PASS`
+- `P15-07`: `PASS`
+- `P15-08`: `PASS`
+- `P15-09`: `PASS`
+- `P15-10`: `PASS`
+- `P15-11`: `PASS`
+- `P15-20`: `PASS`
+- `P15-30`: `PASS`
+- `P15-40`: `PASS`
+- `P15-50`: `PASS`
+- `P15-90`: `PASS`
+- `P15-91`: `PASS`
+- `P15-99`: `PASS`

@@ -1,0 +1,36 @@
+PASS: integrity:phase15-sources OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=21
+PASS: sys:write 0x1325
+PASS: sys:read (0, 4901)
+PASS: sys:width16-refused 16-bit refused
+PASS: dma:dpcr 0x33333333
+PASS: dma:dicr 0x0
+PASS: dma:madr 0x80029834
+PASS: dma:bcr 0x1000010
+PASS: dma:chcr-synchronous-completion 0x401
+PASS: dma:width16-refused:1f8010f0 16-bit refused
+PASS: dma:width16-refused:1f8010f4 16-bit refused
+PASS: dma:width16-refused:1f8010a0 16-bit refused
+PASS: dma:width16-refused:1f8010a4 16-bit refused
+PASS: dma:width16-refused:1f8010a8 16-bit refused
+PASS: live:build ['OK', 'OK']
+PASS: live:build-reproducible d5329c08f567c4f814be1df12e9fb674230beff0136f9855aae91a96ca47924b
+PASS: live:stderr-empty 0
+PASS: live:sys-write-1325 0x1325 observed
+PASS: live:dpcr-write 0x33333333 observed
+PASS: live:dicr-write zero observed
+PASS: live:d2-madr-write MADR observed
+PASS: live:d2-bcr-write BCR observed
+PASS: live:d2-chcr-start busy/start write observed
+PASS: live:d2-chcr-read-idle read observes busy clear
+PASS: live:no-width-failure 0
+PASS: sys-control-dma2:no-private-path absolute private paths absent
+PASS: sys-control-dma2:no-payload-hex payload sample absent
+PASS: sys-control-dma2:no-raw-words reconstructive fields absent
+OPENRECOMP_PHASE15_SYS_CONTROL_V1=PASS
+OPENRECOMP_PHASE15_DMA2_REGISTER_STATE_V1=PASS
+OPENRECOMP_P15_04=PASS
+OPENRECOMP_PHASE15_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P15-04_CHECKS=28

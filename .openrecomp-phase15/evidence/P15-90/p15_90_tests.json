@@ -1,0 +1,106 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase15-sources",
+      "detail": "OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=34",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p15-source-integrity",
+      "detail": "{\"fail_lines\": [], \"name\": \"p15-source-integrity\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"ea4a2b349d8ae0de95882505eadb8285cc413d41d492bc71f3849dd82c251be1\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p14-source-integrity",
+      "detail": "{\"fail_lines\": [], \"name\": \"p14-source-integrity\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"f9a7dac50aeea43ba9a1cd8f80f96839fbbcd00456eacdcd633f7e5ead8b0e34\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p14-boundary",
+      "detail": "{\"fail_lines\": [], \"name\": \"p14-boundary\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"4a64f9fa0751c5216a5e3fcab09a9759bd3b5534d89d5d6bec6a40ebfb26644a\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p15-interrupt-mmio",
+      "detail": "{\"fail_lines\": [], \"name\": \"p15-interrupt-mmio\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"68dcb60f76c6d6eb15386384ca1cf0488e5d44c74b349828029c37aff498c4df\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p15-i-stat-i-mask",
+      "detail": "{\"fail_lines\": [], \"name\": \"p15-i-stat-i-mask\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"23ed78f6025f499c32c888bd7dad2f362dc66843e0862c2ec25b6e4e79c56f28\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p15-sys-control-dma2",
+      "detail": "{\"fail_lines\": [], \"name\": \"p15-sys-control-dma2\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"b266216a971a51742ae10a3b2a8251386736f6b6251099ad0511633411799520\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p15-null-store",
+      "detail": "{\"fail_lines\": [], \"name\": \"p15-null-store\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"1e0b422c250274bbb9ce9de6095e116eed41e6839e22e78d54e8fcf55a9e8042\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p15-timer1-virtual-time",
+      "detail": "{\"fail_lines\": [], \"name\": \"p15-timer1-virtual-time\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"61f1777e32441a6f49333e17461476b90a1933314c712897ee8ce838e9061221\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p15-gpustat",
+      "detail": "{\"fail_lines\": [], \"name\": \"p15-gpustat\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"c5f7bf59b660e5468b0883149432d908e0a70c9333919b228926e0328b6e8b54\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p15-init-no-fail-closed",
+      "detail": "{\"fail_lines\": [], \"name\": \"p15-init-no-fail-closed\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"1c22795d0e53474024a52def922906e51998d990bc4a392e71f2c852e900580b\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p15-hercules-init-proof",
+      "detail": "{\"fail_lines\": [], \"name\": \"p15-hercules-init-proof\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"918961ac2ab2093101b3e83a2c6b63f51a8cecd7d9608d13f74582837110aaf2\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p15-hardening",
+      "detail": "{\"fail_lines\": [], \"name\": \"p15-hardening\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"0db59edc33a419e30f27a28a70f31bcb30546146ec7b271bbcf0bceadfa11d1f\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p15-consistency",
+      "detail": "{\"fail_lines\": [], \"name\": \"p15-consistency\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"ab879e8c0ad562efa3f8b29d3aaf043833dcf4ba243ec4d43bcec590ecde64db\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p15-init-replay",
+      "detail": "{\"fail_lines\": [], \"name\": \"p15-init-replay\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"7d74ec87640ad30d63b4fa7dad9081ad7a62fd20bcca691cf7bc154d96a480ab\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:p15-first-frame-readiness",
+      "detail": "{\"fail_lines\": [], \"name\": \"p15-first-frame-readiness\", \"returncode\": 0, \"status\": \"PASS\", \"stderr_empty\": true, \"stdout_sha256\": \"bc6490818bbbe9c66f18b8dccdf054dca262a330276702957bf739abed747d30\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "regression:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P15-90",
+  "schema": "openrecomp-phase15-tests-v1",
+  "stage": "P15-90",
+  "summary": {
+    "failed": 0,
+    "passed": 19
+  }
+}

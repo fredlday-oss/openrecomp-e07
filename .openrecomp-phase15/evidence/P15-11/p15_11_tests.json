@@ -1,0 +1,151 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase15-sources",
+      "detail": "OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=29",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-00-exists",
+      "detail": "P15-00 RESULT.json present",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-00-pass",
+      "detail": "P15-00 status is PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-01-exists",
+      "detail": "P15-01 RESULT.json present",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-01-pass",
+      "detail": "P15-01 status is PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-02-exists",
+      "detail": "P15-02 RESULT.json present",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-02-pass",
+      "detail": "P15-02 status is PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-03-exists",
+      "detail": "P15-03 RESULT.json present",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-03-pass",
+      "detail": "P15-03 status is PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-04-exists",
+      "detail": "P15-04 RESULT.json present",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-04-pass",
+      "detail": "P15-04 status is PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-05-exists",
+      "detail": "P15-05 RESULT.json present",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-05-pass",
+      "detail": "P15-05 status is PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-06-exists",
+      "detail": "P15-06 RESULT.json present",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-06-pass",
+      "detail": "P15-06 status is PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-07-exists",
+      "detail": "P15-07 RESULT.json present",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-07-pass",
+      "detail": "P15-07 status is PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-08-exists",
+      "detail": "P15-08 RESULT.json present",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-08-pass",
+      "detail": "P15-08 status is PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-09-exists",
+      "detail": "P15-09 RESULT.json present",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-09-pass",
+      "detail": "P15-09 status is PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-10-exists",
+      "detail": "P15-10 RESULT.json present",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:P15-10-pass",
+      "detail": "P15-10 status is PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "predicate:boundary-not-reached",
+      "detail": "boundary reached=False count=0",
+      "status": "PASS"
+    },
+    {
+      "check": "predicate:formula-fails-closed",
+      "detail": "formal formula correctly fails closed",
+      "status": "PASS"
+    },
+    {
+      "check": "init-proof-evaluation:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "init-proof-evaluation:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "init-proof-evaluation:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P15-11",
+  "schema": "openrecomp-phase15-tests-v1",
+  "stage": "P15-11",
+  "summary": {
+    "failed": 0,
+    "passed": 28
+  }
+}

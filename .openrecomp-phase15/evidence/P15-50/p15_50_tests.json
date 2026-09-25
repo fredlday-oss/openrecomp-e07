@@ -1,0 +1,81 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase15-sources",
+      "detail": "OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=33",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:p15-11-eval-exists",
+      "detail": "D:\\OpenRecomp\\worktrees\\phase15-hercules-init-mmio\\.openrecomp-phase15\\evidence\\P15-11\\init_proof_evaluation.json",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:p15-09-boundary-exists",
+      "detail": "D:\\OpenRecomp\\worktrees\\phase15-hercules-init-mmio\\.openrecomp-phase15\\evidence\\P15-09\\init_boundary.json",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:p15-20-hardening-exists",
+      "detail": "D:\\OpenRecomp\\worktrees\\phase15-hercules-init-mmio\\.openrecomp-phase15\\evidence\\P15-20\\hardening.json",
+      "status": "PASS"
+    },
+    {
+      "check": "pred:p15-40-replay-exists",
+      "detail": "D:\\OpenRecomp\\worktrees\\phase15-hercules-init-mmio\\.openrecomp-phase15\\evidence\\P15-40\\replay.json",
+      "status": "PASS"
+    },
+    {
+      "check": "readiness:init-not-proven",
+      "detail": "NOT_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "check": "readiness:boundary-not-reached",
+      "detail": "reached=False",
+      "status": "PASS"
+    },
+    {
+      "check": "readiness:gpu-cmd-not-modeled",
+      "detail": "NOT_MODELED",
+      "status": "PASS"
+    },
+    {
+      "check": "readiness:gpu-raster-not-modeled",
+      "detail": "NOT_MODELED",
+      "status": "PASS"
+    },
+    {
+      "check": "readiness:replay-deterministic",
+      "detail": "True",
+      "status": "PASS"
+    },
+    {
+      "check": "readiness:first-frame-ready-is-false",
+      "detail": "fails closed honestly",
+      "status": "PASS"
+    },
+    {
+      "check": "readiness:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "readiness:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "readiness:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P15-50",
+  "schema": "openrecomp-phase15-tests-v1",
+  "stage": "P15-50",
+  "summary": {
+    "failed": 0,
+    "passed": 14
+  }
+}

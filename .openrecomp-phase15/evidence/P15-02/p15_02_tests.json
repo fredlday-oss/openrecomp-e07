@@ -1,0 +1,111 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase15-sources",
+      "detail": "OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=19",
+      "status": "PASS"
+    },
+    {
+      "check": "production:build",
+      "detail": "['OK', 'OK']",
+      "status": "PASS"
+    },
+    {
+      "check": "production:build-reproducible",
+      "detail": "d5329c08f567c4f814be1df12e9fb674230beff0136f9855aae91a96ca47924b",
+      "status": "PASS"
+    },
+    {
+      "check": "production:stdout-identical",
+      "detail": "24be9da6c5884742bb5174c1cfc83c2b4eed82bb91dd227e88ecc586c0f195a1",
+      "status": "PASS"
+    },
+    {
+      "check": "production:stderr-empty",
+      "detail": "0:0",
+      "status": "PASS"
+    },
+    {
+      "check": "composition:read-predispatch",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "composition:write-predispatch",
+      "detail": "1",
+      "status": "PASS"
+    },
+    {
+      "check": "composition:before-frozen-blocker",
+      "detail": "Phase-15 hooks precede frozen blockers",
+      "status": "PASS"
+    },
+    {
+      "check": "live:i-mask-read16",
+      "detail": "16",
+      "status": "PASS"
+    },
+    {
+      "check": "live:i-mask-write16",
+      "detail": "10",
+      "status": "PASS"
+    },
+    {
+      "check": "live:i-stat-read16",
+      "detail": "9",
+      "status": "PASS"
+    },
+    {
+      "check": "live:i-stat-write16",
+      "detail": "3",
+      "status": "PASS"
+    },
+    {
+      "check": "live:i-mask-init-zero",
+      "detail": "observed write 0",
+      "status": "PASS"
+    },
+    {
+      "check": "live:i-stat-ack-zero",
+      "detail": "observed write 0",
+      "status": "PASS"
+    },
+    {
+      "check": "live:no-mmio-width-failure",
+      "detail": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "live:interrupt-accesses-in-inventory",
+      "detail": "4",
+      "status": "PASS"
+    },
+    {
+      "check": "live:historical-interrupt-denials-eliminated",
+      "detail": "[{'address': 528486512, 'width_bits': 16, 'is_write': 0, 'denied': 0, 'count': 9}, {'address': 528486512, 'width_bits': 16, 'is_write': 1, 'denied': 0, 'count': 3}, {'address': 528486516, 'width_bits': 16, 'is_write': 0, 'denied': 0, 'count': 16}, {'address': 528486516, 'width_bits': 16, 'is_write': 1, 'denied': 0, 'count': 10}]",
+      "status": "PASS"
+    },
+    {
+      "check": "live-i-stat-i-mask:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "live-i-stat-i-mask:no-payload-hex",
+      "detail": "payload sample absent",
+      "status": "PASS"
+    },
+    {
+      "check": "live-i-stat-i-mask:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P15-02",
+  "schema": "openrecomp-phase15-tests-v1",
+  "stage": "P15-02",
+  "summary": {
+    "failed": 0,
+    "passed": 20
+  }
+}

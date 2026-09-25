@@ -1,0 +1,341 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase15-sources",
+      "detail": "OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=31",
+      "status": "PASS"
+    },
+    {
+      "check": "surface:reg-exists:I_STAT",
+      "detail": "I_STAT in surface",
+      "status": "PASS"
+    },
+    {
+      "check": "addr-match:I_STAT",
+      "detail": "I_STAT address match 0x1f801070 == 0x1f801070",
+      "status": "PASS"
+    },
+    {
+      "check": "width-match:I_STAT",
+      "detail": "I_STAT widths match (16, 32) == (16, 32)",
+      "status": "PASS"
+    },
+    {
+      "check": "surface:reg-exists:I_MASK",
+      "detail": "I_MASK in surface",
+      "status": "PASS"
+    },
+    {
+      "check": "addr-match:I_MASK",
+      "detail": "I_MASK address match 0x1f801074 == 0x1f801074",
+      "status": "PASS"
+    },
+    {
+      "check": "width-match:I_MASK",
+      "detail": "I_MASK widths match (16, 32) == (16, 32)",
+      "status": "PASS"
+    },
+    {
+      "check": "surface:reg-exists:SYS_CONTROL",
+      "detail": "SYS_CONTROL in surface",
+      "status": "PASS"
+    },
+    {
+      "check": "addr-match:SYS_CONTROL",
+      "detail": "SYS_CONTROL address match 0x1f801020 == 0x1f801020",
+      "status": "PASS"
+    },
+    {
+      "check": "width-match:SYS_CONTROL",
+      "detail": "SYS_CONTROL widths match (32,) == (32,)",
+      "status": "PASS"
+    },
+    {
+      "check": "surface:reg-exists:D2_MADR",
+      "detail": "D2_MADR in surface",
+      "status": "PASS"
+    },
+    {
+      "check": "addr-match:D2_MADR",
+      "detail": "D2_MADR address match 0x1f8010a0 == 0x1f8010a0",
+      "status": "PASS"
+    },
+    {
+      "check": "width-match:D2_MADR",
+      "detail": "D2_MADR widths match (32,) == (32,)",
+      "status": "PASS"
+    },
+    {
+      "check": "surface:reg-exists:D2_BCR",
+      "detail": "D2_BCR in surface",
+      "status": "PASS"
+    },
+    {
+      "check": "addr-match:D2_BCR",
+      "detail": "D2_BCR address match 0x1f8010a4 == 0x1f8010a4",
+      "status": "PASS"
+    },
+    {
+      "check": "width-match:D2_BCR",
+      "detail": "D2_BCR widths match (32,) == (32,)",
+      "status": "PASS"
+    },
+    {
+      "check": "surface:reg-exists:D2_CHCR",
+      "detail": "D2_CHCR in surface",
+      "status": "PASS"
+    },
+    {
+      "check": "addr-match:D2_CHCR",
+      "detail": "D2_CHCR address match 0x1f8010a8 == 0x1f8010a8",
+      "status": "PASS"
+    },
+    {
+      "check": "width-match:D2_CHCR",
+      "detail": "D2_CHCR widths match (32,) == (32,)",
+      "status": "PASS"
+    },
+    {
+      "check": "surface:reg-exists:DPCR",
+      "detail": "DPCR in surface",
+      "status": "PASS"
+    },
+    {
+      "check": "addr-match:DPCR",
+      "detail": "DPCR address match 0x1f8010f0 == 0x1f8010f0",
+      "status": "PASS"
+    },
+    {
+      "check": "width-match:DPCR",
+      "detail": "DPCR widths match (32,) == (32,)",
+      "status": "PASS"
+    },
+    {
+      "check": "surface:reg-exists:DICR",
+      "detail": "DICR in surface",
+      "status": "PASS"
+    },
+    {
+      "check": "addr-match:DICR",
+      "detail": "DICR address match 0x1f8010f4 == 0x1f8010f4",
+      "status": "PASS"
+    },
+    {
+      "check": "width-match:DICR",
+      "detail": "DICR widths match (32,) == (32,)",
+      "status": "PASS"
+    },
+    {
+      "check": "surface:reg-exists:TIMER1_COUNT",
+      "detail": "TIMER1_COUNT in surface",
+      "status": "PASS"
+    },
+    {
+      "check": "addr-match:TIMER1_COUNT",
+      "detail": "TIMER1_COUNT address match 0x1f801110 == 0x1f801110",
+      "status": "PASS"
+    },
+    {
+      "check": "width-match:TIMER1_COUNT",
+      "detail": "TIMER1_COUNT widths match (32,) == (32,)",
+      "status": "PASS"
+    },
+    {
+      "check": "surface:reg-exists:TIMER1_MODE",
+      "detail": "TIMER1_MODE in surface",
+      "status": "PASS"
+    },
+    {
+      "check": "addr-match:TIMER1_MODE",
+      "detail": "TIMER1_MODE address match 0x1f801114 == 0x1f801114",
+      "status": "PASS"
+    },
+    {
+      "check": "width-match:TIMER1_MODE",
+      "detail": "TIMER1_MODE widths match (32,) == (32,)",
+      "status": "PASS"
+    },
+    {
+      "check": "surface:reg-exists:GPUSTAT",
+      "detail": "GPUSTAT in surface",
+      "status": "PASS"
+    },
+    {
+      "check": "addr-match:GPUSTAT",
+      "detail": "GPUSTAT address match 0x1f801814 == 0x1f801814",
+      "status": "PASS"
+    },
+    {
+      "check": "width-match:GPUSTAT",
+      "detail": "GPUSTAT widths match (32,) == (32,)",
+      "status": "PASS"
+    },
+    {
+      "check": "const:d2-chcr-busy",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "const:gpustat-value",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "const:frame-tick",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "const:status-ok",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "const:status-unhandled",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "const:status-width",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "const:status-op",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "bios:a0-surface",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "bios:b0-surface",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "syscall:site-count",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "syscall:site1-sel",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "syscall:site2-sel",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:decl-block",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:decl-timer1",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:decl-gpustat",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:sys_control_rw",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:i_mask_rw",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:i_stat_ack",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:d2_chcr_busy_clear",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:timer1_delta",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:gpustat_val",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:bios_setjmp",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:bios_96remove",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:bios_hook",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:bios_reset",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:bios_ret_exc",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:crit_enter1",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:crit_enter2",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:crit_exit",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "consistency:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "consistency:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "consistency:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P15-30",
+  "schema": "openrecomp-phase15-tests-v1",
+  "stage": "P15-30",
+  "summary": {
+    "failed": 0,
+    "passed": 66
+  }
+}

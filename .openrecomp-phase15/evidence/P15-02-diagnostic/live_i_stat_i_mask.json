@@ -1,0 +1,103 @@
+{
+  "build": {
+    "executable_sha256": "d5329c08f567c4f814be1df12e9fb674230beff0136f9855aae91a96ca47924b",
+    "reproducible": true,
+    "runtime_composed_sha256": "2b806592ca533cb9ee090f10b6104c3e5538448334752dba5881baa53a3c7bfa",
+    "source_hashes": {
+      "p9_driver.c": "2e40bb312968c85586f7af24e68fcab4c97a451296cb980bd1a7ad54ef13f6e2",
+      "p9_image_v1.c": "77a340448081cc606b16e104734b3a48d11483210520618dcca8b1266c43f96b",
+      "p9_runtime_support.c": "1cf9ff5f274273bf5210cca830e804a37b74dcef3acfca82b71243460179767a",
+      "program.c": "aa5eecbbe5ff9bd99b45ed168c49804f13a540b04eba6ca214733f9fe9d39c18"
+    },
+    "status": [
+      "OK",
+      "OK"
+    ],
+    "toolchain": {
+      "compiler": {
+        "identity": "clang-cl.exe",
+        "target": "x86_64-pc-windows-msvc",
+        "version": "clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"
+      },
+      "linker": {
+        "identity": "lld-link.exe",
+        "target": "x86_64-pc-windows-msvc",
+        "version": "LLD 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"
+      }
+    }
+  },
+  "cpu_interrupt_delivery": "NOT_REQUIRED_NOW",
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "first_remaining_runtime_failure": {
+    "block_id": "blk_80026c88",
+    "block_index": 469338,
+    "failure_count": 15,
+    "function_entry": "0x80026c88",
+    "function_id": "fn_80026c88",
+    "message": "unresolved indirect jump",
+    "site": "0x80026c8c",
+    "site_classification": null,
+    "source_value": "0x000000a0",
+    "terminal_op": "jr_indirect"
+  },
+  "fixture": {
+    "sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "size": 129024
+  },
+  "historical_i_mask_denials_eliminated": true,
+  "interrupt_access_inventory": [
+    {
+      "address": 528486512,
+      "count": 9,
+      "denied": 0,
+      "is_write": 0,
+      "width_bits": 16
+    },
+    {
+      "address": 528486512,
+      "count": 3,
+      "denied": 0,
+      "is_write": 1,
+      "width_bits": 16
+    },
+    {
+      "address": 528486516,
+      "count": 16,
+      "denied": 0,
+      "is_write": 0,
+      "width_bits": 16
+    },
+    {
+      "address": 528486516,
+      "count": 10,
+      "denied": 0,
+      "is_write": 1,
+      "width_bits": 16
+    }
+  ],
+  "model": {
+    "i_mask": "0x00000000",
+    "i_stat": "0x00000000",
+    "reads": "30",
+    "transcript_digest": "0x6da698bb1859da97",
+    "unsupported": "0",
+    "writes": "29"
+  },
+  "model_event_counts": {
+    "0x1f801070:16:read": 9,
+    "0x1f801070:16:write": 3,
+    "0x1f801074:16:read": 16,
+    "0x1f801074:16:write": 10
+  },
+  "private_fixture_bytes_recorded": "NO",
+  "runs": {
+    "block_budget": 520000,
+    "byte_identical": true,
+    "run1_sha256": "24be9da6c5884742bb5174c1cfc83c2b4eed82bb91dd227e88ecc586c0f195a1",
+    "run2_sha256": "24be9da6c5884742bb5174c1cfc83c2b4eed82bb91dd227e88ecc586c0f195a1",
+    "stderr_empty": true
+  },
+  "schema": "openrecomp-phase15-live-i-stat-i-mask-v1",
+  "stage": "P15-02",
+  "third_party_code_imported": "NO"
+}

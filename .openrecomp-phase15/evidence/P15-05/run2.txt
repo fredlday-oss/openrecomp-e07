@@ -1,0 +1,23 @@
+PASS: integrity:phase15-sources OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=22
+PASS: full:build ['OK', 'OK']
+PASS: disabled:build ['OK', 'OK']
+PASS: full:stderr-empty 0
+PASS: disabled:stderr-empty 0
+PASS: causal:full-d2-handled accesses=7:model=7
+PASS: causal:full-null-store-absent 0
+PASS: causal:disable-d2-falls-through accesses=2:model=0
+PASS: causal:disable-d2-restores-null-store 1
+PASS: causal:denial-delta 4-1=2+1
+PASS: causal:temporal-order D2 denial precedes historical cascaded null store per verified recon
+PASS: fail-closed:address-zero-unhandled address zero remains outside the model
+PASS: fail-closed:address-zero-not-registered address zero absent
+PASS: null-store:no-private-path absolute private paths absent
+PASS: null-store:no-payload-hex payload sample absent
+PASS: null-store:no-raw-words reconstructive fields absent
+OPENRECOMP_PHASE15_NULL_STORE_ROOT_CAUSE_V1=PASS
+OPENRECOMP_P15_05=PASS
+OPENRECOMP_PHASE15_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P15-05_CHECKS=16

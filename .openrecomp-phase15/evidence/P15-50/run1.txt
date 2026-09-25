@@ -1,0 +1,21 @@
+PASS: integrity:phase15-sources OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=33
+PASS: pred:p15-11-eval-exists D:\OpenRecomp\worktrees\phase15-hercules-init-mmio\.openrecomp-phase15\evidence\P15-11\init_proof_evaluation.json
+PASS: pred:p15-09-boundary-exists D:\OpenRecomp\worktrees\phase15-hercules-init-mmio\.openrecomp-phase15\evidence\P15-09\init_boundary.json
+PASS: pred:p15-20-hardening-exists D:\OpenRecomp\worktrees\phase15-hercules-init-mmio\.openrecomp-phase15\evidence\P15-20\hardening.json
+PASS: pred:p15-40-replay-exists D:\OpenRecomp\worktrees\phase15-hercules-init-mmio\.openrecomp-phase15\evidence\P15-40\replay.json
+PASS: readiness:init-not-proven NOT_PROVEN
+PASS: readiness:boundary-not-reached reached=False
+PASS: readiness:gpu-cmd-not-modeled NOT_MODELED
+PASS: readiness:gpu-raster-not-modeled NOT_MODELED
+PASS: readiness:replay-deterministic True
+PASS: readiness:first-frame-ready-is-false fails closed honestly
+PASS: readiness:no-private-path absolute private paths absent
+PASS: readiness:no-payload-hex no payload supplied
+PASS: readiness:no-raw-words reconstructive fields absent
+OPENRECOMP_P15_50=PASS
+FIRST_FRAME_READY=NO
+OPENRECOMP_PHASE15_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P15-50_CHECKS=14

@@ -1,0 +1,33 @@
+{
+  "bios_services_checked": [
+    "A0:0x13",
+    "A0:0x72",
+    "B0:0x17",
+    "B0:0x18",
+    "B0:0x19"
+  ],
+  "evidence_class": "REPRESENTATIVE_TEST_RECORD",
+  "fail_closed_discipline": "STRICT_NO_SUPPRESSION",
+  "harness_verified": true,
+  "private_fixture_bytes_recorded": "NO",
+  "registers_checked": [
+    "I_STAT",
+    "I_MASK",
+    "SYS_CONTROL",
+    "D2_MADR",
+    "D2_BCR",
+    "D2_CHCR",
+    "DPCR",
+    "DICR",
+    "TIMER1_COUNT",
+    "TIMER1_MODE",
+    "GPUSTAT"
+  ],
+  "schema": "openrecomp-phase15-consistency-v1",
+  "stage": "P15-30",
+  "syscall_sites_checked": [
+    "EnterCriticalSection",
+    "ExitCriticalSection"
+  ],
+  "third_party_code_imported": "NO"
+}

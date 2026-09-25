@@ -1,0 +1,24 @@
+PASS: integrity:phase15-sources OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=25
+PASS: replay:build ['OK', 'OK']
+PASS: replay:deterministic bce0c7d7d1bc4bb4bd47b65ad2f29eeeada11064abc32883e5aa1624cc1b149b
+PASS: replay:stderr-empty 0:0
+PASS: replay:trace-indirect-clean 0
+PASS: replay:nonram-denials-zero 0
+PASS: replay:mmio-unsupported-zero 0
+PASS: replay:bios-failures-zero 0
+PASS: replay:host-bound-reached 1:1
+PASS: frontier:enter-critical-reached 7
+PASS: frontier:exit-critical-reached 7
+PASS: frontier:balanced 7:7
+PASS: frontier:entry-break-not-reached 0
+PASS: frontier:failure-category 1:guest trap is unsupported
+PASS: frontier:live-devices 3814:3813:3822
+PASS: frontier-ii:no-private-path absolute private paths absent
+PASS: frontier-ii:no-payload-hex payload sample absent
+PASS: frontier-ii:no-raw-words reconstructive fields absent
+OPENRECOMP_P15_08=PASS
+OPENRECOMP_PHASE15_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE15_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P15-08_CHECKS=18

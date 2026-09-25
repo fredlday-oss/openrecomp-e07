@@ -1,0 +1,146 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase15-sources",
+      "detail": "OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=30",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:unknown-addr-read",
+      "detail": "unknown address unhandled",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:unknown-addr-write",
+      "detail": "unknown address unhandled",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:width8-istat",
+      "detail": "width 8 unsupported",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:width8-imask",
+      "detail": "width 8 unsupported",
+      "status": "PASS"
+    },
+    {
+      "check": "contract:timer1-irq-mode-rejected",
+      "detail": "IRQ mode rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:unhandled-read",
+      "detail": "unhandled read returns -1",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:unhandled-write",
+      "detail": "unhandled write returns -1",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:istat-w8",
+      "detail": "I_STAT width 8 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:imask-w8",
+      "detail": "I_MASK width 8 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:gpustat-w16",
+      "detail": "GPUSTAT width 16 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:t1count-w16",
+      "detail": "Timer1 count width 16 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:t1mode-bad",
+      "detail": "Timer1 mode non-0x107 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:t1count-write",
+      "detail": "Timer1 count write rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:crit-sel0",
+      "detail": "Critical syscall sel 0 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:crit-sel3",
+      "detail": "Critical syscall sel 3 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:crit-null",
+      "detail": "Critical syscall null out rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:crit-exit-null",
+      "detail": "Exit critical null out rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime:bios-unhandled",
+      "detail": "Unhandled BIOS falls through",
+      "status": "PASS"
+    },
+    {
+      "check": "surface:cpu-interrupt-not-modeled",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "surface:timer1-irq-not-modeled",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "surface:gpu-command-not-modeled",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "surface:gpu-raster-not-modeled",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "surface:async-dma-not-modeled",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "hardening:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "hardening:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "hardening:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P15-20",
+  "schema": "openrecomp-phase15-tests-v1",
+  "stage": "P15-20",
+  "summary": {
+    "failed": 0,
+    "passed": 27
+  }
+}

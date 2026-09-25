@@ -9,6 +9,8 @@ Phase-15 layer:
   bounded interrupt/peripheral MMIO model observes an access before the frozen
   fail-closed platform boundary (an unmodelled address returns
   ``P15_MMIO_UNHANDLED`` and falls through unchanged);
+* an anchored, bounds-checked pre-dispatch in ``or_rt_memory_read`` for the
+  single proven RAM frame-tick address ``0x80029678``;
 * the Phase-15 MMIO fragment appended.
 
 Every substitution is anchored and counted; a missing or ambiguous anchor fails
@@ -59,6 +61,7 @@ READ_REPLACEMENT = (
     "#endif\n"
     "int p15_mmio_read(uint64_t address, uint32_t width_bits, uint64_t *out_value);\n"
     "int p15_mmio_write(uint64_t address, uint32_t width_bits, uint32_t value);\n"
+    "int p15_virtual_time_read(uint64_t address, uint32_t width_bits, uint64_t *out_value);\n"
     "\n"
     + READ_ANCHOR
     + "    {\n"
@@ -84,6 +87,33 @@ WRITE_REPLACEMENT = (
     "        }\n"
     "    }\n"
     "    if (address == (uint64_t)P9_JOY_DATA) {\n"
+)
+
+MEMORY_READ_ANCHOR = (
+    "        ++g_p9_memory_reads;\n"
+    "        ++g_p12_synth_reads;\n"
+    "        if (out_value != NULL) { *out_value = value; }\n"
+    "        return P9_RT_OK;\n"
+    "    }\n"
+    "    if (p9_translate_ram(address, width, &offset)) {\n"
+    "        for (index = 0; index < width; ++index) {\n"
+    "            value |= (uint64_t)g_p9_ram[offset + index] << (8u * index);\n"
+)
+MEMORY_READ_REPLACEMENT = (
+    "        ++g_p9_memory_reads;\n"
+    "        ++g_p12_synth_reads;\n"
+    "        if (out_value != NULL) { *out_value = value; }\n"
+    "        return P9_RT_OK;\n"
+    "    }\n"
+    "    {\n"
+    "        int p15_status = p15_virtual_time_read(address, width_bits, out_value);\n"
+    "        if (p15_status != P15_MMIO_UNHANDLED) {\n"
+    "            return p15_status;\n"
+    "        }\n"
+    "    }\n"
+    "    if (p9_translate_ram(address, width, &offset)) {\n"
+    "        for (index = 0; index < width; ++index) {\n"
+    "            value |= (uint64_t)g_p9_ram[offset + index] << (8u * index);\n"
 )
 
 ERROR_CODES = (
@@ -128,6 +158,7 @@ def compose_runtime_source(
     for name, anchor, replacement in (
         ("mmio-read-predispatch", READ_ANCHOR, READ_REPLACEMENT),
         ("mmio-write-predispatch", WRITE_ANCHOR, WRITE_REPLACEMENT),
+        ("frame-tick-read-predispatch", MEMORY_READ_ANCHOR, MEMORY_READ_REPLACEMENT),
         ("bios-dispatcher-declaration", BIOS_DECLARATION_ANCHOR, BIOS_DECLARATION_REPLACEMENT),
         ("bios-dispatcher-chain", BIOS_FALLBACK_ANCHOR, BIOS_FALLBACK_REPLACEMENT),
     ):

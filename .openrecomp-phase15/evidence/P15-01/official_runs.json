@@ -1,8 +1,8 @@
 {
   "artifact_sha256": {
-    "RESULT.json": "79c188183a3c88d1e91b9fe2072f33738960c89144e921a9330f9daa3c941e01",
+    "RESULT.json": "2a68c92414063eaea0470a9023e1e65b8ef2bb71ef9f825cb8b7fd1208a4301c",
     "interrupt_mmio_contract.json": "2a40cff6e938f10be7c9982ba80619907f53be54697b3fe2663f89bff89a5bdc",
-    "p15_01_tests.json": "ba941806ad437baf3c2d2eb9302f280f0f2791309dfd06737e99c6c4afc8ea31"
+    "p15_01_tests.json": "b46c9d433659212267ad60a7bc21b9140aa552967253f4ec3713b588377193d5"
   },
   "identical_lf": true,
   "identical_raw": true,
@@ -11,9 +11,9 @@
   "runs": [
     {
       "artifact_sha256": {
-        "RESULT.json": "79c188183a3c88d1e91b9fe2072f33738960c89144e921a9330f9daa3c941e01",
+        "RESULT.json": "2a68c92414063eaea0470a9023e1e65b8ef2bb71ef9f825cb8b7fd1208a4301c",
         "interrupt_mmio_contract.json": "2a40cff6e938f10be7c9982ba80619907f53be54697b3fe2663f89bff89a5bdc",
-        "p15_01_tests.json": "ba941806ad437baf3c2d2eb9302f280f0f2791309dfd06737e99c6c4afc8ea31"
+        "p15_01_tests.json": "b46c9d433659212267ad60a7bc21b9140aa552967253f4ec3713b588377193d5"
       },
       "command": [
         "python",
@@ -24,24 +24,28 @@
       "fail_lines": [],
       "markers": [
         "OPENRECOMP_PHASE15_INTERRUPT_MMIO_CONTRACT_V1=PASS",
-        "OPENRECOMP_P15_01=PASS"
+        "OPENRECOMP_P15_01=PASS",
+        "OPENRECOMP_PHASE15_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE15_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE15_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE15_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
       ],
       "name": "run1",
-      "p15_01_tests_sha256": "ba941806ad437baf3c2d2eb9302f280f0f2791309dfd06737e99c6c4afc8ea31",
+      "p15_01_tests_sha256": "b46c9d433659212267ad60a7bc21b9140aa552967253f4ec3713b588377193d5",
       "returncode": 0,
       "stderr_bytes": 0,
       "stderr_empty": true,
-      "stdout_bytes": 1517,
-      "stdout_bytes_lf": 1490,
-      "stdout_sha256_lf": "65c7d8b1f0d77e2b29940d8639ddb4b23aca076e6703d2e8a1754731c98f4123",
-      "stdout_sha256_raw": "1b31d7e1a4140da7d177ef032e8e33ae37424cf4efed0be2758b582a153d0e44",
+      "stdout_bytes": 1745,
+      "stdout_bytes_lf": 1714,
+      "stdout_sha256_lf": "e6dda3b6d8bae3381fdd24390eb3fd5ec1ff9d0d3f2735181de367d3cf4e0abd",
+      "stdout_sha256_raw": "d713b756e6eb684fe23b326463028f4cbd2cdc8cccbff6c406f02cd71a2c74e9",
       "tests_json_present": true
     },
     {
       "artifact_sha256": {
-        "RESULT.json": "79c188183a3c88d1e91b9fe2072f33738960c89144e921a9330f9daa3c941e01",
+        "RESULT.json": "2a68c92414063eaea0470a9023e1e65b8ef2bb71ef9f825cb8b7fd1208a4301c",
         "interrupt_mmio_contract.json": "2a40cff6e938f10be7c9982ba80619907f53be54697b3fe2663f89bff89a5bdc",
-        "p15_01_tests.json": "ba941806ad437baf3c2d2eb9302f280f0f2791309dfd06737e99c6c4afc8ea31"
+        "p15_01_tests.json": "b46c9d433659212267ad60a7bc21b9140aa552967253f4ec3713b588377193d5"
       },
       "command": [
         "python",
@@ -52,17 +56,21 @@
       "fail_lines": [],
       "markers": [
         "OPENRECOMP_PHASE15_INTERRUPT_MMIO_CONTRACT_V1=PASS",
-        "OPENRECOMP_P15_01=PASS"
+        "OPENRECOMP_P15_01=PASS",
+        "OPENRECOMP_PHASE15_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE15_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE15_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE15_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
       ],
       "name": "run2",
-      "p15_01_tests_sha256": "ba941806ad437baf3c2d2eb9302f280f0f2791309dfd06737e99c6c4afc8ea31",
+      "p15_01_tests_sha256": "b46c9d433659212267ad60a7bc21b9140aa552967253f4ec3713b588377193d5",
       "returncode": 0,
       "stderr_bytes": 0,
       "stderr_empty": true,
-      "stdout_bytes": 1517,
-      "stdout_bytes_lf": 1490,
-      "stdout_sha256_lf": "65c7d8b1f0d77e2b29940d8639ddb4b23aca076e6703d2e8a1754731c98f4123",
-      "stdout_sha256_raw": "1b31d7e1a4140da7d177ef032e8e33ae37424cf4efed0be2758b582a153d0e44",
+      "stdout_bytes": 1745,
+      "stdout_bytes_lf": 1714,
+      "stdout_sha256_lf": "e6dda3b6d8bae3381fdd24390eb3fd5ec1ff9d0d3f2735181de367d3cf4e0abd",
+      "stdout_sha256_raw": "d713b756e6eb684fe23b326463028f4cbd2cdc8cccbff6c406f02cd71a2c74e9",
       "tests_json_present": true
     }
   ],
