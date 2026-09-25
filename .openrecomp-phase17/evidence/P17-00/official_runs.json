@@ -1,0 +1,81 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "c4546ffe370d26b6bb419c56855f9d93b3adebb90b5eed0a39fcb288277b1b07",
+    "bootstrap.json": "483a0bb5fddf6d903ba0c299845eb36bd9565a02fa0b5fb963177577daf5f7dd",
+    "p17_00_tests.json": "49ba9e7b5d9830e8d9e80317321a83212005ef3f2573ba54c083cede20385fa5"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "c4546ffe370d26b6bb419c56855f9d93b3adebb90b5eed0a39fcb288277b1b07",
+        "bootstrap.json": "483a0bb5fddf6d903ba0c299845eb36bd9565a02fa0b5fb963177577daf5f7dd",
+        "p17_00_tests.json": "49ba9e7b5d9830e8d9e80317321a83212005ef3f2573ba54c083cede20385fa5"
+      },
+      "command": [
+        "python",
+        "tools/test_phase17_bootstrap_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase17/evidence/P17-00"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=36 (canonical committed Git blobs; frozen-commit==HEAD)",
+        "OPENRECOMP_P17_00=PASS",
+        "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p17_00_tests_sha256": "49ba9e7b5d9830e8d9e80317321a83212005ef3f2573ba54c083cede20385fa5",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2014,
+      "stdout_bytes_lf": 2014,
+      "stdout_sha256_lf": "07724aa4a93391bbb70c8594538953b0627627af41b526b57201041783497081",
+      "stdout_sha256_raw": "07724aa4a93391bbb70c8594538953b0627627af41b526b57201041783497081",
+      "tests_json_present": true
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "c4546ffe370d26b6bb419c56855f9d93b3adebb90b5eed0a39fcb288277b1b07",
+        "bootstrap.json": "483a0bb5fddf6d903ba0c299845eb36bd9565a02fa0b5fb963177577daf5f7dd",
+        "p17_00_tests.json": "49ba9e7b5d9830e8d9e80317321a83212005ef3f2573ba54c083cede20385fa5"
+      },
+      "command": [
+        "python",
+        "tools/test_phase17_bootstrap_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase17/evidence/P17-00"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=36 (canonical committed Git blobs; frozen-commit==HEAD)",
+        "OPENRECOMP_P17_00=PASS",
+        "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p17_00_tests_sha256": "49ba9e7b5d9830e8d9e80317321a83212005ef3f2573ba54c083cede20385fa5",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 2014,
+      "stdout_bytes_lf": 2014,
+      "stdout_sha256_lf": "07724aa4a93391bbb70c8594538953b0627627af41b526b57201041783497081",
+      "stdout_sha256_raw": "07724aa4a93391bbb70c8594538953b0627627af41b526b57201041783497081",
+      "tests_json_present": true
+    }
+  ],
+  "schema": "openrecomp-phase17-official-runs-v1",
+  "stage": "P17-00",
+  "stderr_empty_both": true,
+  "tests_json_present_both": true
+}

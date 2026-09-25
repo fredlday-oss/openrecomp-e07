@@ -1,0 +1,151 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase17-sources",
+      "detail": "OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=8",
+      "status": "PASS"
+    },
+    {
+      "check": "phase16:boundary-frozen",
+      "detail": "frozen commit=a0c26e882ca65cfc84cbec78f7e787509a4992a3",
+      "status": "PASS"
+    },
+    {
+      "check": "phase16:sources-intact",
+      "detail": "31 Phase-16 source blobs verified",
+      "status": "PASS"
+    },
+    {
+      "check": "phase15:boundary-frozen",
+      "detail": "OPENRECOMP_PHASE16_P15_BOUNDARY_FROZEN=PASS frozen_phase15=5cec005d45e8361e5ea132731661b13a72a5ed13 frozen_phase14=830be0f7be998061e8d442134cfae511d5dd8c62",
+      "status": "PASS"
+    },
+    {
+      "check": "phase15:sources-intact",
+      "detail": "OPENRECOMP_PHASE16_P15_SOURCE_INTEGRITY=PASS entries=36 canonical=git-blob\nOPENRECOMP_PHASE15_SOURCE_INTEGRITY=PASS entries=36 (canonical committed Git blobs; frozen-commit==HEAD)",
+      "status": "PASS"
+    },
+    {
+      "check": "control:CONTROL_POLICY.md",
+      "detail": "CONTROL_POLICY.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:SCOPE.md",
+      "detail": "SCOPE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:STAGE_QUEUE.md",
+      "detail": "STAGE_QUEUE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:EVIDENCE_SCHEMA.md",
+      "detail": "EVIDENCE_SCHEMA.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:FIXTURE_POLICY.md",
+      "detail": "FIXTURE_POLICY.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:STATE.md",
+      "detail": "STATE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:HANDOFF.md",
+      "detail": "HANDOFF.md",
+      "status": "PASS"
+    },
+    {
+      "check": "dir:src",
+      "detail": "src",
+      "status": "PASS"
+    },
+    {
+      "check": "dir:runtime",
+      "detail": "runtime",
+      "status": "PASS"
+    },
+    {
+      "check": "dir:evidence",
+      "detail": "evidence",
+      "status": "PASS"
+    },
+    {
+      "check": "dir:build",
+      "detail": "build",
+      "status": "PASS"
+    },
+    {
+      "check": "dir:scratch",
+      "detail": "scratch",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-exists",
+      "detail": "Disney's Hercules Action Game (USA).bin",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-exists",
+      "detail": "Disney's Hercules Action Game (USA).cue",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:slus-exists",
+      "detail": "SLUS_005.29",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-hash",
+      "detail": "2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-hash",
+      "detail": "beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:slus-hash",
+      "detail": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "status": "PASS"
+    },
+    {
+      "check": "private:no-fixture-bytes-tracked",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "title-payload:not-decoded",
+      "detail": "NOT_DECODED",
+      "status": "PASS"
+    },
+    {
+      "check": "bootstrap:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "bootstrap:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "bootstrap:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P17-00 Test Results",
+  "schema": "openrecomp-phase17-tests-v1",
+  "stage": "P17-00",
+  "summary": {
+    "failed": 0,
+    "passed": 28
+  }
+}
