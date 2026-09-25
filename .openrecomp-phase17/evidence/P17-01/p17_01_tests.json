@@ -272,12 +272,22 @@
     },
     {
       "check": "negative:public-safe-rejects-fixtures-path",
-      "detail": "fixtures/ path rejected by assert_public_safe",
+      "detail": "private path rejected by assert_public_safe",
       "status": "PASS"
     },
     {
       "check": "negative:public-safe-rejects-reconstructive-keys",
       "detail": "reconstructive keys rejected by assert_public_safe",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:phase9-wrapper-import-contract",
+      "detail": "Phase-9 parser wrapper imports with Phase-17 source path only",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:p1700-temporary-evidence",
+      "detail": "P17-00 validates in a temporary evidence root",
       "status": "PASS"
     },
     {
@@ -331,6 +341,6 @@
   "stage": "P17-01",
   "summary": {
     "failed": 0,
-    "passed": 65
+    "passed": 67
   }
 }

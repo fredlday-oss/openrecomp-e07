@@ -52,8 +52,10 @@ PASS: negative:wrong-stack wrong stack rejected
 PASS: negative:wrong-stack-size wrong stack size rejected
 PASS: negative:malformed-reserved-header nonzero reserved header field rejected
 PASS: negative:private-paths private absolute paths rejected
-PASS: negative:public-safe-rejects-fixtures-path fixtures/ path rejected by assert_public_safe
+PASS: negative:public-safe-rejects-fixtures-path private path rejected by assert_public_safe
 PASS: negative:public-safe-rejects-reconstructive-keys reconstructive keys rejected by assert_public_safe
+PASS: positive:phase9-wrapper-import-contract Phase-9 parser wrapper imports with Phase-17 source path only
+PASS: positive:p1700-temporary-evidence P17-00 validates in a temporary evidence root
 PASS: negative:frozen-phase16-integrity frozen Phase-16 source integrity maintained
 PASS: negative:frozen-boundary-fail-closed {"returncode": 1, "stderr_has_traceback": false, "stdout_marker_fail": true}
 PASS: negative:frozen-manifest-mutation {"completeness_error": "expected_paths != manifest_paths", "digest_mismatch": []}
@@ -74,4 +76,4 @@ OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN
 OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
 OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 FIRST_FRAME_READY=NO
-P17-01_CHECKS=65
+P17-01_CHECKS=67

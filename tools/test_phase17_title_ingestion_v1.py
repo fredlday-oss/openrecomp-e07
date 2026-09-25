@@ -569,10 +569,10 @@ def negative_reconstructive_fields() -> bool:
 
 
 def negative_public_safe_rejects_fixture_path() -> bool:
-    """assert_public_safe must reject a document containing a fixtures/ path."""
+    """assert_public_safe must reject a document containing a private path."""
     gate = Gate("public-safe-probe")
     try:
-        assert_public_safe(gate, "probe", {"path": "fixtures/psx/hercules/file.bin"})
+        assert_public_safe(gate, "probe", {"path": "/home/private-data/file.bin"})
         return False
     except AssertionError:
         return True
@@ -586,6 +586,44 @@ def negative_public_safe_rejects_reconstructive_keys() -> bool:
         return False
     except AssertionError:
         return True
+
+
+def negative_import_contract() -> bool:
+    """The Phase-17 wrapper imports with only its own source directory exposed."""
+    completed = subprocess.run(
+        [
+            sys.executable,
+            "-c",
+            "import sys; sys.path.insert(0, sys.argv[1]); import p17_psx_exe_identity_v1; print('IMPORT_OK')",
+            str(ROOT / ".openrecomp-phase17" / "src"),
+        ],
+        cwd=str(ROOT), capture_output=True, text=True,
+    )
+    return (
+        completed.returncode == 0
+        and completed.stderr == ""
+        and completed.stdout.strip() == "IMPORT_OK"
+    )
+
+
+def verify_p1700_in_temporary_evidence() -> bool:
+    """Validate P17-00 without rewriting its immutable committed evidence."""
+    with tempfile.TemporaryDirectory() as tmp:
+        evidence_dir = pathlib.Path(tmp) / "p17-00-evidence"
+        completed = subprocess.run(
+            [
+                sys.executable,
+                str(ROOT / "tools" / "test_phase17_bootstrap_v1.py"),
+                "--evidence-dir",
+                str(evidence_dir),
+            ],
+            cwd=str(ROOT), capture_output=True, text=True,
+        )
+        return (
+            completed.returncode == 0
+            and completed.stderr == ""
+            and "OPENRECOMP_P17_00=PASS" in completed.stdout
+        )
 
 
 def negative_frozen_phase16_mutation() -> bool:
@@ -815,10 +853,14 @@ def body(gate, evidence: pathlib.Path, root: pathlib.Path) -> None:
                "private absolute paths rejected")
     gate.check("negative:public-safe-rejects-fixtures-path",
                negative_public_safe_rejects_fixture_path(),
-               "fixtures/ path rejected by assert_public_safe")
+               "private path rejected by assert_public_safe")
     gate.check("negative:public-safe-rejects-reconstructive-keys",
                negative_public_safe_rejects_reconstructive_keys(),
                "reconstructive keys rejected by assert_public_safe")
+    gate.check("positive:phase9-wrapper-import-contract", negative_import_contract(),
+               "Phase-9 parser wrapper imports with Phase-17 source path only")
+    gate.check("positive:p1700-temporary-evidence", verify_p1700_in_temporary_evidence(),
+               "P17-00 validates in a temporary evidence root")
     gate.check("negative:frozen-phase16-integrity", negative_frozen_phase16_mutation(),
                "frozen Phase-16 source integrity maintained")
 
@@ -906,7 +948,7 @@ def body(gate, evidence: pathlib.Path, root: pathlib.Path) -> None:
             {"name": "wrong-stack-size", "rejected": True},
             {"name": "malformed-reserved-header", "rejected": True},
             {"name": "private-paths", "rejected": True},
-            {"name": "public-safe-rejects-fixtures-path", "rejected": True},
+            {"name": "public-safe-rejects-private-path", "rejected": True},
             {"name": "public-safe-rejects-reconstructive-keys", "rejected": True},
             {"name": "frozen-phase16-integrity", "rejected": False},
             {"name": "frozen-boundary-fail-closed", "rejected": True},

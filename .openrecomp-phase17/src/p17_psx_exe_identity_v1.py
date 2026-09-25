@@ -9,7 +9,15 @@ and provides fail-closed helpers for the authentic Hercules TITLE identity.
 from __future__ import annotations
 
 import pathlib
+import sys
 from typing import Any
+
+# Keep the frozen Phase-9 parser read-only and make this Phase-17 wrapper
+# importable when callers expose only the Phase-17 source directory.
+ROOT = pathlib.Path(__file__).resolve().parents[2]
+PHASE9_SRC = ROOT / ".openrecomp-phase9" / "src"
+if str(PHASE9_SRC) not in sys.path:
+    sys.path.insert(0, str(PHASE9_SRC))
 
 import p9_psx_exe_v1 as p9
 
