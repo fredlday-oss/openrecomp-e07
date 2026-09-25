@@ -1,0 +1,27 @@
+PASS: integrity:phase16-sources OPENRECOMP_PHASE16_SOURCE_INTEGRITY=PASS entries=11
+PASS: bin:exists Disney's Hercules Action Game (USA).bin
+PASS: iso:pvd-id CD001 standard identifier
+PASS: iso:ex-dir-found EX dir LBA=87
+PASS: iso:title-file-found TITLE LBA=88
+PASS: iso:title-file-size TITLE size=288768
+PASS: header:size 2048
+PASS: payload:size 286720
+PASS: payload:hash fe1925b5dd7c7190802dbe37b162759467fdbbf95b707edb9c6bb1626b961ccc
+PASS: file:hash 39013ea19589015872a211c23d8c23ae8ecee7bc5093d996f51cf206775f1b68
+PASS: header:magic b'PS-X EXE'
+PASS: header:pc0 0x800380a0
+PASS: header:t_addr 0x80038098
+PASS: header:t_size 286720
+PASS: header:sp_addr 0x801ffff0
+PASS: payload:entry-word 0x3c028008
+PASS: discrepancy:historical-recon-reconciled offset=2588
+PASS: title-mapping:no-private-path absolute private paths absent
+PASS: title-mapping:no-payload-hex no payload supplied
+PASS: title-mapping:no-raw-words reconstructive fields absent
+OPENRECOMP_PHASE16_TITLE_FIXTURE_MAPPING_V1=PASS
+OPENRECOMP_P16_02=PASS
+OPENRECOMP_PHASE16_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE16_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE16_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE16_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+P16-02_CHECKS=20

@@ -1,0 +1,111 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase16-sources",
+      "detail": "OPENRECOMP_PHASE16_SOURCE_INTEGRITY=PASS entries=11",
+      "status": "PASS"
+    },
+    {
+      "check": "bin:exists",
+      "detail": "Disney's Hercules Action Game (USA).bin",
+      "status": "PASS"
+    },
+    {
+      "check": "iso:pvd-id",
+      "detail": "CD001 standard identifier",
+      "status": "PASS"
+    },
+    {
+      "check": "iso:ex-dir-found",
+      "detail": "EX dir LBA=87",
+      "status": "PASS"
+    },
+    {
+      "check": "iso:title-file-found",
+      "detail": "TITLE LBA=88",
+      "status": "PASS"
+    },
+    {
+      "check": "iso:title-file-size",
+      "detail": "TITLE size=288768",
+      "status": "PASS"
+    },
+    {
+      "check": "header:size",
+      "detail": "2048",
+      "status": "PASS"
+    },
+    {
+      "check": "payload:size",
+      "detail": "286720",
+      "status": "PASS"
+    },
+    {
+      "check": "payload:hash",
+      "detail": "fe1925b5dd7c7190802dbe37b162759467fdbbf95b707edb9c6bb1626b961ccc",
+      "status": "PASS"
+    },
+    {
+      "check": "file:hash",
+      "detail": "39013ea19589015872a211c23d8c23ae8ecee7bc5093d996f51cf206775f1b68",
+      "status": "PASS"
+    },
+    {
+      "check": "header:magic",
+      "detail": "b'PS-X EXE'",
+      "status": "PASS"
+    },
+    {
+      "check": "header:pc0",
+      "detail": "0x800380a0",
+      "status": "PASS"
+    },
+    {
+      "check": "header:t_addr",
+      "detail": "0x80038098",
+      "status": "PASS"
+    },
+    {
+      "check": "header:t_size",
+      "detail": "286720",
+      "status": "PASS"
+    },
+    {
+      "check": "header:sp_addr",
+      "detail": "0x801ffff0",
+      "status": "PASS"
+    },
+    {
+      "check": "payload:entry-word",
+      "detail": "0x3c028008",
+      "status": "PASS"
+    },
+    {
+      "check": "discrepancy:historical-recon-reconciled",
+      "detail": "offset=2588",
+      "status": "PASS"
+    },
+    {
+      "check": "title-mapping:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "title-mapping:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "title-mapping:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P16-02 Test Results",
+  "schema": "openrecomp-phase16-tests-v1",
+  "stage": "P16-02",
+  "summary": {
+    "failed": 0,
+    "passed": 20
+  }
+}
