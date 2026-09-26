@@ -7,9 +7,9 @@
     "rejected_p17_04_address_inventory_path": "EXCLUDED"
   },
   "build": {
-    "build_metadata_sha256": "5d81f1469e8366d76a5c7dd2b0109a05df6c17eccaecff09f487bb9228f1704f",
+    "build_metadata_sha256": "5131657c9bc4f153289c3bb0dc35176ae082e4947b1de17928c07023933a7922",
     "compiler_command": "cc -O0 -std=c11 -fno-stack-protector -fno-asynchronous-unwind-tables -frandom-seed=or_title_runtime_v1 -Wl,--build-id=none -shared -fPIC -o <private-run-dir>/or_title_runtime_v1 <private-run-dir>/or_title_runtime_v1.c",
-    "executable_sha256": "39d8738e6cd56a6afa52a7d49e600251d2d1b5c62c67193d6cf9b3ba13118a6c",
+    "executable_sha256": "ecc6bed61dddabc62071fa8c36f1da20497656ec446b076baf34f84d710720ec",
     "runtime_result_schema": "openrecomp-phase17-title-runtime-result-v1",
     "shared_object_sha256": "a96c112ae45111167e0766433613f25c3a516bda978819e13e843743bb0d243a",
     "toolchain": {
@@ -29,7 +29,7 @@
     "initialization": "NOT_PROVEN",
     "playability": "NOT_PROVEN"
   },
-  "emission_digest": "d438717faa371cd5484ff8041497767bec8fc3cfbb29958f6a438aba41fa4bf8",
+  "emission_digest": "9c7080592045d2ec2549ad50a0dbb881aaca2a84a7225b274e0ff3f0950c0fbe",
   "emission_kind": "AUTHENTICATED_GENERATED_C_RUNTIME",
   "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
   "interface": {
@@ -44,17 +44,17 @@
       "build_metadata": {
         "bytes": 2134,
         "name": "build_metadata.json",
-        "sha256": "5d81f1469e8366d76a5c7dd2b0109a05df6c17eccaecff09f487bb9228f1704f"
+        "sha256": "5131657c9bc4f153289c3bb0dc35176ae082e4947b1de17928c07023933a7922"
       },
       "executable": {
-        "bytes": 2532160,
+        "bytes": 2532544,
         "name": "or_title_runtime_v1",
-        "sha256": "39d8738e6cd56a6afa52a7d49e600251d2d1b5c62c67193d6cf9b3ba13118a6c"
+        "sha256": "ecc6bed61dddabc62071fa8c36f1da20497656ec446b076baf34f84d710720ec"
       },
       "generated_harness": {
-        "bytes": 5794,
+        "bytes": 6430,
         "name": "or_title_runtime_harness_v1.c",
-        "sha256": "ab0cff21725ee3f5575666c23c2c8f563fbe77537debf4f1ff560bef843cbe8c"
+        "sha256": "1ac2c05d6668674f069f29a5c9482dffb29427bc23e83dcee560350fb3e9a6de"
       },
       "generated_header": {
         "bytes": 2576,
@@ -85,6 +85,48 @@
     "delay_active_at_stop": 0,
     "delay_slot_owner_pc": "0x8003812c",
     "delay_slot_pc": "0x80038130",
+    "emitted_semantic_vocabulary": [
+      "addi",
+      "addiu",
+      "addu",
+      "and",
+      "andi",
+      "beq",
+      "bgez",
+      "bgtz",
+      "blez",
+      "bltz",
+      "bne",
+      "j",
+      "jal",
+      "jalr",
+      "jr",
+      "lb",
+      "lbu",
+      "lh",
+      "lhu",
+      "lui",
+      "lw",
+      "mflo",
+      "mult",
+      "multu",
+      "nop",
+      "or",
+      "ori",
+      "sb",
+      "sh",
+      "sll",
+      "slt",
+      "slti",
+      "sltiu",
+      "sltu",
+      "sra",
+      "srl",
+      "subu",
+      "sw",
+      "xori"
+    ],
+    "emitted_semantic_vocabulary_count": 39,
     "entry_pc": "0x800380a0",
     "executed_instruction_count": 37,
     "executed_semantic_trace": [
@@ -168,26 +210,32 @@
       "lhu",
       "lui",
       "lw",
+      "mfhi",
       "mflo",
       "mult",
       "multu",
       "nop",
+      "nor",
       "or",
       "ori",
       "sb",
       "sh",
       "sll",
+      "sllv",
       "slt",
       "slti",
       "sltiu",
       "sltu",
       "sra",
+      "srav",
       "srl",
+      "srlv",
       "subu",
       "sw",
+      "xor",
       "xori"
     ],
-    "implemented_semantic_vocabulary_count": 39,
+    "implemented_semantic_vocabulary_count": 45,
     "last_successfully_executed_pc": "0x80038130",
     "pending_transfer_applied": 1,
     "pending_transfer_target": "0x80011af0",
@@ -258,7 +306,7 @@
       "sw"
     ],
     "exercised_semantic_vocabulary_count": 14,
-    "generated_harness_sha256": "ab0cff21725ee3f5575666c23c2c8f563fbe77537debf4f1ff560bef843cbe8c",
+    "generated_harness_sha256": "1ac2c05d6668674f069f29a5c9482dffb29427bc23e83dcee560350fb3e9a6de",
     "generated_source_sha256": "f46291c64b66bbd4257d7c77c6e8cce97da0db01cc58ed2732538e7b5e6292ff",
     "header_sha256": "f89a4268ab3f8130d52cf82ff2625736a260e2acb7dc4c6395f9904cc6ca3b66",
     "implemented_semantic_vocabulary": [

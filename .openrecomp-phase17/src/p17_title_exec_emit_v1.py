@@ -865,6 +865,10 @@ def _generate_harness_c(ctx: EmissionContext, entry_pc: int) -> str:
     provenance_digest = _sha256_bytes(
         json.dumps([rec.provenance_digest for rec in ctx.records], sort_keys=True).encode("utf-8")
     )
+    # The mechanism implements every operation with an exact-semantics handler;
+    # the emitted program only carries the operations in its authenticated set.
+    implemented_vocabulary = sorted(SUPPORTED_OPS)
+    impl_vocab_literal = ", ".join(f'"{op}"' for op in implemented_vocabulary)
     vocabulary = sorted({rec.op for rec in ctx.records if rec.op in SUPPORTED_OPS})
     vocab_literal = ", ".join(f'"{op}"' for op in vocabulary)
     return f"""/* Generated deterministic harness for or_title_execute_v1. */
@@ -988,13 +992,21 @@ int main(void) {{
     printf("\\",\\n");
     printf("  \\"provenance_digest\\": \\"{provenance_digest}\\",\\n");
     printf("  \\"implemented_semantic_vocabulary\\": [");
-    const char *vocabulary[] = {{{vocab_literal}}};
-    for (size_t i = 0; i < {len(vocabulary)}; i++) {{
+    const char *impl_vocabulary[] = {{{impl_vocab_literal}}};
+    for (size_t i = 0; i < {len(implemented_vocabulary)}; i++) {{
         if (i) printf(", ");
-        printf("\\"%s\\"", vocabulary[i]);
+        printf("\\"%s\\"", impl_vocabulary[i]);
     }}
     printf("],\\n");
-    printf("  \\"implemented_semantic_vocabulary_count\\": {len(vocabulary)},\\n");
+    printf("  \\"implemented_semantic_vocabulary_count\\": {len(implemented_vocabulary)},\\n");
+    printf("  \\"emitted_semantic_vocabulary\\": [");
+    const char *emitted_vocabulary[] = {{{vocab_literal}}};
+    for (size_t i = 0; i < {len(vocabulary)}; i++) {{
+        if (i) printf(", ");
+        printf("\\"%s\\"", emitted_vocabulary[i]);
+    }}
+    printf("],\\n");
+    printf("  \\"emitted_semantic_vocabulary_count\\": {len(vocabulary)},\\n");
     printf("  \\"executed_semantic_trace\\": [");
     for (uint32_t i = 0; i < g_trace_len; i++) {{
         if (i) printf(", ");

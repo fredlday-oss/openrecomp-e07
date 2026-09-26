@@ -1527,6 +1527,13 @@ def body(gate: Gate, evidence: pathlib.Path, root: pathlib.Path) -> None:
     coverage = implemented_vocabulary_covered()
     gate.check("vocabulary:implemented-ops-all-executable", coverage["ok"],
                json.dumps(coverage, sort_keys=True))
+    gate.check("vocabulary:runtime-implemented-matches-manifest",
+               list(rr.get("implemented_semantic_vocabulary") or [])
+               == list(manifest["source"]["implemented_semantic_vocabulary"]),
+               json.dumps({"runtime_count": rr.get("implemented_semantic_vocabulary_count"),
+                           "manifest_count": manifest["source"]["implemented_semantic_vocabulary_count"],
+                           "emitted_count": rr.get("emitted_semantic_vocabulary_count")},
+                          sort_keys=True))
     derived = executed_vocabulary_is_derived(manifest)
     gate.check("vocabulary:exercised-derived-from-execution-trace", derived["ok"],
                json.dumps(derived, sort_keys=True))
