@@ -14,7 +14,7 @@ P17-00 froze placeholder/reserved rows before the complete Phase-17 execution co
 | P17-03 | Frontier reconciliation of Phase-16 modelled post-dispatch addresses | `OPENRECOMP_PHASE17_FRONTIER_RECONCILIATION_V1=PASS` | PASS |
 | P17-04 | Authentic TITLE emission with provenance and exclusion of hand-authored guest flow | `OPENRECOMP_PHASE17_AUTHENTIC_TITLE_EMISSION_V1=PASS` | PASS |
 | P17-05 | Verified A0:0x43 Exec dispatch to authentic emitted TITLE entry and causality | `OPENRECOMP_PHASE17_EXEC_DISPATCH_CAUSALITY_V1=PASS` | PASS |
-| P17-06 | Bounded authentic TITLE execution to the exact first semantic/budget frontier | `OPENRECOMP_PHASE17_AUTHENTIC_EXECUTION_FRONTIER_V1=PLANNED` | PLANNED |
+| P17-06 | Bounded authentic TITLE execution to the exact first semantic/budget frontier | `OPENRECOMP_PHASE17_AUTHENTIC_EXECUTION_FRONTIER_V1=PASS` | PASS |
 | P17-07 | Authentic frontier assessment for GPU, DMA, OT, framebuffer, and initialization predicates | `OPENRECOMP_PHASE17_FRONTIER_ASSESSMENT_V1=PLANNED` | PLANNED |
 | P17-90 | Whole Phase-17 regression suite | `OPENRECOMP_P17_90=PASS` | PLANNED |
 | P17-91 | Evidence closure & source manifest audit | `OPENRECOMP_P17_91=PASS` | PLANNED |

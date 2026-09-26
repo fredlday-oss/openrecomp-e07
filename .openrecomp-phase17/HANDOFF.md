@@ -19,4 +19,4 @@ Phase 17 advances from the completed Phase-16 checkpoint (`a0c26e882ca65cfc84cbe
 4. The P17-01 `TITLE_PAYLOAD_DECODING_POLICY_V1=NOT_DECODED` marker remains historical to P17-01; P17-02 has authenticated decode evidence under `TITLE_IR_CONTRACT_V1=PASS`.
 
 ## Next Action
-Begin P17-06 bounded authentic execution from fresh deterministic state. P17-05 mechanically verifies A0:0x43 causality to the authenticated emitted 0x800380A0 entry and has an explicit emission-ablation rejection contract; no execution frontier is claimed yet.
+Begin P17-07 authentic frontier assessment. P17-06 dual-run execution evidence records an 8-instruction authenticated prefix from 0x800380A0 through 0x800380BC and stops at 0x800380BC with `UNSUPPORTED_CONTROL_FLOW`; no GPU, DMA, OT, framebuffer, or initialization claim is made.
