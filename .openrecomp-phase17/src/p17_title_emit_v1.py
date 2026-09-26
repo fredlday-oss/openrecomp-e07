@@ -96,7 +96,6 @@ def emit_projection(document: dict[str, Any]) -> dict[str, Any]:
             "instruction_count": count,
             "source_provenance_digest": source_digest,
             "source_provenance_count": len(source),
-            "source_guest_pcs": [record["guest_pc"] for record in source],
             "successors": block.get("successors", []),
             "terminator": block.get("terminator"),
         }
