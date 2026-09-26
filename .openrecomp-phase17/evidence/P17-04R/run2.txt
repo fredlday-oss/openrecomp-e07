@@ -1,4 +1,4 @@
-PASS: integrity:phase17-sources OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=27
+PASS: integrity:phase17-sources OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=29
 PASS: fixture:bin-exists bin
 PASS: fixture:bin-hash 2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365
 PASS: fixture:cue-exists cue
@@ -8,6 +8,11 @@ PASS: fixture:slus-hash c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac
 PASS: p17_02:projection-loadable
 PASS: p17_02:projection-digest-valid
 PASS: p17_02:live-projection-digest-matches
+PASS: next-stage:declared-constant
+PASS: persistence:private-build-root-env-override {"default_digest_prefix": "f7688f48d31794e7", "default_matches_declared_default": true, "env_value_differs_from_default": true, "env_var": "OPENRECOMP_P17_PRIVATE_BUILD_ROOT", "official_run_labels": ["official-run-1", "official-run-2"], "ok": true, "override_honoured": true}
+PASS: persistence:private-build-root-default {"default_digest_prefix": "f7688f48d31794e7", "env_var": "OPENRECOMP_P17_PRIVATE_BUILD_ROOT"}
+PASS: persistence:fresh-run-dirs-created
+PASS: persistence:run-dirs-distinct
 PASS: emission:header-generated
 PASS: emission:source-generated
 PASS: emission:harness-generated
@@ -18,18 +23,32 @@ PASS: emission:executed-instructions
 PASS: emission:stop-is-frontier
 PASS: emission:register-digest-present
 PASS: emission:ram-digest-present
-PASS: emission:semantic-vocabulary-non-empty
+PASS: emission:implemented-semantic-vocabulary-non-empty
+PASS: emission:exercised-semantic-vocabulary-non-empty
 PASS: emission:provenance-digest-present
 PASS: emission:phase16-hand-authored-flow-excluded
 PASS: emission:no-phase16-transition-code-import
+PASS: persistence:run1-artifacts-exist-and-hash-match {"build_metadata": "5d81f1469e8366d76a5c7dd2b0109a05df6c17eccaecff09f487bb9228f1704f", "executable": "39d8738e6cd56a6afa52a7d49e600251d2d1b5c62c67193d6cf9b3ba13118a6c", "generated_harness": "ab0cff21725ee3f5575666c23c2c8f563fbe77537debf4f1ff560bef843cbe8c", "generated_header": "f89a4268ab3f8130d52cf82ff2625736a260e2acb7dc4c6395f9904cc6ca3b66", "generated_source": "f46291c64b66bbd4257d7c77c6e8cce97da0db01cc58ed2732538e7b5e6292ff", "private_mapping": "963c8edaf86852d447168c4e4ebaf674995caf9ff38f9cfb47477a86b25c6d0b", "shared_object": "a96c112ae45111167e0766433613f25c3a516bda978819e13e843743bb0d243a"}
+PASS: persistence:run2-artifacts-exist-and-hash-match
+PASS: persistence:generated-source-survives-process-exit
+PASS: persistence:private-map-survives-process-exit
+PASS: persistence:native-artifact-survives-process-exit
+PASS: persistence:recorded-native-hash-matches-artifact
+PASS: persistence:private-map-record-count
+PASS: persistence:build-metadata-toolchain-recorded
+PASS: persistence:child-process-verification
+PASS: persistence:reusable-interface-on-disk {"exports_execute_symbol": true, "header_declares_symbol": true, "header_exists": true, "shared_object_exists": true}
+PASS: determinism:generated-source-hash-identical
+PASS: determinism:private-map-hash-identical
+PASS: determinism:shared-object-hash-identical
+PASS: determinism:executable-hash-identical
+PASS: determinism:runtime-result-identical
+PASS: determinism:build-metadata-hash-identical
+PASS: determinism:manifest-identical
 PASS: interface:shared-object-exports-symbol
 PASS: interface:state-transfer {"final_pc": "0x8003800c", "ok": true, "r1": 5, "step_count": 3}
 PASS: interface:transcript-hook {"entries": [[2147713024, "addiu", 1], [2147713028, "addiu", 2], [2147713032, "sw", 3]], "ok": true}
 PASS: interface:budget-stop-reason {"final_pc": "0x80038008", "ok": true, "reason": "STEP_LIMIT_REACHED", "step_count": 2}
-PASS: determinism:source-hash-identical
-PASS: determinism:shared-object-hash-identical
-PASS: determinism:executable-hash-identical
-PASS: determinism:runtime-result-identical
 PASS: negative:p17-02-digest-mismatch
 PASS: negative:payload-sha256-mismatch
 PASS: negative:missing-provenance
@@ -41,20 +60,84 @@ PASS: negative:altered-operand
 PASS: negative:altered-control-flow-target
 PASS: negative:record-from-wrong-pc
 PASS: negative:unauthenticated-record
-PASS: positive:delay-slot-semantics {"entry_pc": "0x80038000", "executed_instruction_count": 6, "final_pc": "0x80038018", "provenance_digest": "91e4ab6cc484bef8c50f1e5d42599978d7566d30df7d4582318f5546ecae0752", "ram_digest": "026231dd9ead48136173ee186d718aff", "register_digest": "72660aeaca2e6b3b0600010000000000", "schema": "openrecomp-phase17-title-runtime-result-v1", "semantic_vocabulary": ["addiu", "beq"], "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"}
-PASS: adversarial:branch-delay-slot-changes-operand {"not_taken": {"entry_pc": "0x80038000", "executed_instruction_count": 7, "final_pc": "0x8003801c", "provenance_digest": "72c4ad4dd086083280fe7117ad34ecc4dad779aea3145e68da62d127d79430b7", "ram_digest": "9f5ed5a346504908050c774519405083", "register_digest": "7a660aea682f6b3b0700010000000000", "schema": "openrecomp-phase17-title-runtime-result-v1", "semantic_vocabulary": ["addiu", "beq"], "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"}, "taken": {"entry_pc": "0x80038000", "executed_instruction_count": 5, "final_pc": "0x8003801c", "provenance_digest": "f845bbfbe72843bbcdce5328fc5adb78705e5b4caa2c11b62b65a3f62e78ce94", "ram_digest": "0a5f15e47daf490805f3f04518405383", "register_digest": "7b660aeaa32e6b3b0500010000000000", "schema": "openrecomp-phase17-title-runtime-result-v1", "semantic_vocabulary": ["addiu", "beq"], "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"}}
-PASS: adversarial:jr-delay-slot-changes-target {"entry_pc": "0x80038000", "executed_instruction_count": 6, "final_pc": "0x8003801c", "provenance_digest": "a7aa9c37c2827e4fcf884e0c62fd0659c553caaa958ef7edce2a36129ceed1d3", "ram_digest": "765a96f96f2e47e8bf776e78927b8b89", "register_digest": "66e6096abeae6ebb0600010000000000", "schema": "openrecomp-phase17-title-runtime-result-v1", "semantic_vocabulary": ["addiu", "jr", "lui", "ori"], "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"}
-PASS: adversarial:jalr-link-visible-to-delay-slot {"entry_pc": "0x80038000", "executed_instruction_count": 6, "final_pc": "0x8003801c", "provenance_digest": "9fae50296e3374efa7dcae95f9613d010ee69a7ee795ceb0d3eabda4b464b228", "ram_digest": "085ccd4398dcdb287b7faf00e5490f9d", "register_digest": "76660aeace2e723b0600010000000000", "schema": "openrecomp-phase17-title-runtime-result-v1", "semantic_vocabulary": ["addiu", "jalr", "lui", "ori", "sw"], "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"}
-PASS: public:no-raw_instruction
-PASS: public:no-instruction_word
-PASS: public:no-payload_bytes
-PASS: public:no-bios_bytes
-PASS: public:no-private-paths
+PASS: positive:delay-slot-semantics {"attempted_frontier_pc": "0x80038018", "delay_active_at_stop": 0, "delay_slot_owner_pc": "0x80038004", "delay_slot_pc": "0x80038008", "entry_pc": "0x80038000", "executed_instruction_count": 6, "executed_semantic_trace": ["addiu", "beq", "addiu", "addiu", "addiu", "addiu"], "executed_semantic_trace_length": 6, "final_pc": "0x80038018", "frontier_pc": "0x80038018", "implemented_semantic_vocabulary": ["addiu", "beq"], "implemented_semantic_vocabulary_count": 2, "last_successfully_executed_pc": "0x80038014", "pending_transfer_applied": 0, "pending_transfer_target": "0x00000000", "pending_transfer_type": "NONE", "provenance_digest": "91e4ab6cc484bef8c50f1e5d42599978d7566d30df7d4582318f5546ecae0752", "ram_digest": "026231dd9ead48136173ee186d718aff", "register_digest": "72660aeaca2e6b3b0600010000000000", "schema": "openrecomp-phase17-title-runtime-result-v1", "stop_pc": "0x80038018", "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"}
+PASS: adversarial:branch-delay-slot-changes-operand {"not_taken": {"attempted_frontier_pc": "0x8003801c", "delay_active_at_stop": 0, "delay_slot_owner_pc": "0x80038008", "delay_slot_pc": "0x8003800c", "entry_pc": "0x80038000", "executed_instruction_count": 7, "executed_semantic_trace": ["addiu", "addiu", "beq", "addiu", "addiu", "addiu", "addiu"], "executed_semantic_trace_length": 7, "final_pc": "0x8003801c", "frontier_pc": "0x8003801c", "implemented_semantic_vocabulary": ["addiu", "beq"], "implemented_semantic_vocabulary_count": 2, "last_successfully_executed_pc": "0x80038018", "pending_transfer_applied": 0, "pending_transfer_target": "0x00000000", "pending_transfer_type": "NONE", "provenance_digest": "72c4ad4dd086083280fe7117ad34ecc4dad779aea3145e68da62d127d79430b7", "ram_digest": "9f5ed5a346504908050c774519405083", "register_digest": "7a660aea682f6b3b0700010000000000", "schema": "openrecomp-phase17-title-runtime-result-v1", "stop_pc": "0x8003801c", "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"}, "taken": {"attempted_frontier_pc": "0x8003801c", "delay_active_at_stop": 0, "delay_slot_owner_pc": "0x80038008", "delay_slot_pc": "0x8003800c", "entry_pc": "0x80038000", "executed_instruction_count": 5, "executed_semantic_trace": ["addiu", "addiu", "beq", "addiu", "addiu"], "executed_semantic_trace_length": 5, "final_pc": "0x8003801c", "frontier_pc": "0x8003801c", "implemented_semantic_vocabulary": ["addiu", "beq"], "implemented_semantic_vocabulary_count": 2, "last_successfully_executed_pc": "0x80038018", "pending_transfer_applied": 0, "pending_transfer_target": "0x00000000", "pending_transfer_type": "NONE", "provenance_digest": "f845bbfbe72843bbcdce5328fc5adb78705e5b4caa2c11b62b65a3f62e78ce94", "ram_digest": "0a5f15e47daf490805f3f04518405383", "register_digest": "7b660aeaa32e6b3b0500010000000000", "schema": "openrecomp-phase17-title-runtime-result-v1", "stop_pc": "0x8003801c", "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"}}
+PASS: adversarial:jr-delay-slot-changes-target {"attempted_frontier_pc": "0x8003801c", "delay_active_at_stop": 0, "delay_slot_owner_pc": "0x8003800c", "delay_slot_pc": "0x80038010", "entry_pc": "0x80038000", "executed_instruction_count": 6, "executed_semantic_trace": ["addiu", "lui", "ori", "jr", "addiu", "addiu"], "executed_semantic_trace_length": 6, "final_pc": "0x8003801c", "frontier_pc": "0x8003801c", "implemented_semantic_vocabulary": ["addiu", "jr", "lui", "ori"], "implemented_semantic_vocabulary_count": 4, "last_successfully_executed_pc": "0x80038018", "pending_transfer_applied": 0, "pending_transfer_target": "0x00000000", "pending_transfer_type": "NONE", "provenance_digest": "a7aa9c37c2827e4fcf884e0c62fd0659c553caaa958ef7edce2a36129ceed1d3", "ram_digest": "765a96f96f2e47e8bf776e78927b8b89", "register_digest": "66e6096abeae6ebb0600010000000000", "schema": "openrecomp-phase17-title-runtime-result-v1", "stop_pc": "0x8003801c", "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"}
+PASS: adversarial:jalr-link-visible-to-delay-slot {"attempted_frontier_pc": "0x8003801c", "delay_active_at_stop": 0, "delay_slot_owner_pc": "0x8003800c", "delay_slot_pc": "0x80038010", "entry_pc": "0x80038000", "executed_instruction_count": 6, "executed_semantic_trace": ["addiu", "lui", "ori", "jalr", "sw", "addiu"], "executed_semantic_trace_length": 6, "final_pc": "0x8003801c", "frontier_pc": "0x8003801c", "implemented_semantic_vocabulary": ["addiu", "jalr", "lui", "ori", "sw"], "implemented_semantic_vocabulary_count": 5, "last_successfully_executed_pc": "0x80038018", "pending_transfer_applied": 0, "pending_transfer_target": "0x00000000", "pending_transfer_type": "NONE", "provenance_digest": "9fae50296e3374efa7dcae95f9613d010ee69a7ee795ceb0d3eabda4b464b228", "ram_digest": "085ccd4398dcdb287b7faf00e5490f9d", "register_digest": "76660aeace2e723b0600010000000000", "schema": "openrecomp-phase17-title-runtime-result-v1", "stop_pc": "0x8003801c", "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"}
+PASS: jal:authentic-owner-and-delay-slot-derived {"delay_slot_pc": "0x80038130", "owner_pc": "0x8003812c", "target_class": "out-of-image", "target_pc": "0x80011af0"}
+PASS: jal:authentic-delay-slot-attempted {"attempted_frontier_pc": "0x80011af0", "delay_slot_attempted": true, "delay_slot_executed": true, "delay_slot_pc": "0x80038130", "executed_instruction_count": 37, "expected_target_pc": "0x80011af0", "fail_closed_at_delay_slot": false, "frontier_pc": "0x80011af0", "last_successfully_executed_pc": "0x80038130", "ok": true, "owner_pc": "0x8003812c", "pending_transfer_applied": 1, "pending_transfer_target": "0x80011af0", "pending_transfer_type": "DIRECT_CALL", "premature_owner_frontier": false, "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE", "target_class": "out-of-image"}
+PASS: jal:no-premature-jal-owner-frontier {"attempted_frontier_pc": "0x80011af0", "delay_slot_attempted": true, "delay_slot_executed": true, "delay_slot_pc": "0x80038130", "executed_instruction_count": 37, "expected_target_pc": "0x80011af0", "fail_closed_at_delay_slot": false, "frontier_pc": "0x80011af0", "last_successfully_executed_pc": "0x80038130", "ok": true, "owner_pc": "0x8003812c", "pending_transfer_applied": 1, "pending_transfer_target": "0x80011af0", "pending_transfer_type": "DIRECT_CALL", "premature_owner_frontier": false, "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE", "target_class": "out-of-image"}
+PASS: jal:authentic-path-option-a-or-fail-closed {"attempted_frontier_pc": "0x80011af0", "delay_slot_attempted": true, "delay_slot_executed": true, "delay_slot_pc": "0x80038130", "executed_instruction_count": 37, "expected_target_pc": "0x80011af0", "fail_closed_at_delay_slot": false, "frontier_pc": "0x80011af0", "last_successfully_executed_pc": "0x80038130", "ok": true, "owner_pc": "0x8003812c", "pending_transfer_applied": 1, "pending_transfer_target": "0x80011af0", "pending_transfer_type": "DIRECT_CALL", "premature_owner_frontier": false, "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE", "target_class": "out-of-image"}
+PASS: negative:premature-jal-owner-frontier-rejected {"clean_rejected": false, "premature_detected": true}
+PASS: jal:link-register-semantics {"delay_slot_owner_pc": "0x80038000", "delay_slot_pc": "0x80038004", "expected_link_value": "0x80038008", "fallthrough_instruction_skipped": true, "final_pc": "0x80038014", "last_executed_pc": "0x80038010", "link_value_seen_by_delay_slot": "0x80038008", "pending_transfer_applied": 1, "pending_transfer_target": "0x80038010", "pending_transfer_type": 1, "step_count": 3, "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE", "target_reached": true}
+PASS: jal:delay-slot-observes-link-state {"delay_slot_owner_pc": "0x80038000", "delay_slot_pc": "0x80038004", "expected_link_value": "0x80038008", "fallthrough_instruction_skipped": true, "final_pc": "0x80038014", "last_executed_pc": "0x80038010", "link_value_seen_by_delay_slot": "0x80038008", "pending_transfer_applied": 1, "pending_transfer_target": "0x80038010", "pending_transfer_type": 1, "step_count": 3, "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE", "target_reached": true}
+PASS: jal:pending-target-not-applied-early {"delay_slot_owner_pc": "0x80038000", "delay_slot_pc": "0x80038004", "expected_link_value": "0x80038008", "fallthrough_instruction_skipped": true, "final_pc": "0x80038014", "last_executed_pc": "0x80038010", "link_value_seen_by_delay_slot": "0x80038008", "pending_transfer_applied": 1, "pending_transfer_target": "0x80038010", "pending_transfer_type": 1, "step_count": 3, "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE", "target_reached": true}
+PASS: jal:pending-transfer-applied-after-delay-slot {"delay_slot_owner_pc": "0x80038000", "delay_slot_pc": "0x80038004", "expected_link_value": "0x80038008", "fallthrough_instruction_skipped": true, "final_pc": "0x80038014", "last_executed_pc": "0x80038010", "link_value_seen_by_delay_slot": "0x80038008", "pending_transfer_applied": 1, "pending_transfer_target": "0x80038010", "pending_transfer_type": 1, "step_count": 3, "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE", "target_reached": true}
+PASS: jal:fail-closed-at-authentic-delay-slot-pc {"attempted_frontier_pc": "0x80038004", "delay_slot_owner_pc": "0x80038000", "delay_slot_pc": "0x80038004", "last_executed_pc": "0x80038000", "link_register": "0x80038008", "pending_transfer_applied": 0, "pending_transfer_target": "0x80038020", "pending_transfer_type": 1, "step_count": 1, "stop_pc": "0x80038004", "stop_reason": "UNSUPPORTED_OPERATION"}
+PASS: jal:rejected-delay-slot-does-not-increment-executed-count {"attempted_frontier_pc": "0x80038004", "delay_slot_owner_pc": "0x80038000", "delay_slot_pc": "0x80038004", "last_executed_pc": "0x80038000", "link_register": "0x80038008", "pending_transfer_applied": 0, "pending_transfer_target": "0x80038020", "pending_transfer_type": 1, "step_count": 1, "stop_pc": "0x80038004", "stop_reason": "UNSUPPORTED_OPERATION"}
+PASS: jal:rejected-delay-slot-does-not-apply-pending-transfer {"attempted_frontier_pc": "0x80038004", "delay_slot_owner_pc": "0x80038000", "delay_slot_pc": "0x80038004", "last_executed_pc": "0x80038000", "link_register": "0x80038008", "pending_transfer_applied": 0, "pending_transfer_target": "0x80038020", "pending_transfer_type": 1, "step_count": 1, "stop_pc": "0x80038004", "stop_reason": "UNSUPPORTED_OPERATION"}
+PASS: vocabulary:implemented-ops-all-executable {"implemented_count": 45, "missing": [], "ok": true, "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE", "trace_length": 60, "unexpected": []}
+PASS: vocabulary:exercised-derived-from-execution-trace {"executed_count_exceeds_vocabulary_count": true, "executed_instruction_count": 37, "exercised_count_matches_list": true, "exercised_equals_sorted_unique_trace": true, "exercised_subset_of_implemented": true, "implemented_count": 45, "ok": true, "runtime_result_agrees": true, "trace_length": 37, "trace_matches_executed_count": true}
+PASS: vocabulary:exercised-subset-of-implemented {"executed_count_exceeds_vocabulary_count": true, "executed_instruction_count": 37, "exercised_count_matches_list": true, "exercised_equals_sorted_unique_trace": true, "exercised_subset_of_implemented": true, "implemented_count": 45, "ok": true, "runtime_result_agrees": true, "trace_length": 37, "trace_matches_executed_count": true}
+PASS: vocabulary:executed-count-not-conflated-with-vocabulary-count {"executed_count_exceeds_vocabulary_count": true, "executed_instruction_count": 37, "exercised_count_matches_list": true, "exercised_equals_sorted_unique_trace": true, "exercised_subset_of_implemented": true, "implemented_count": 45, "ok": true, "runtime_result_agrees": true, "trace_length": 37, "trace_matches_executed_count": true}
+PASS: linkage:native-artifacts-excluded {"forbidden_hits": [], "inspected_line_count": 393}
+PASS: linkage:inspection-method-and-digest-recorded
+PASS: negative:forbidden-linked-symbol-detected {"clean_control_excluded": true, "negative_reports": {"TITLE_TRANSITION_CODE": {"detected": true, "excluded": false, "hit_count": 4}, "p16_emission_v1": {"detected": true, "excluded": false, "hit_count": 4}}}
+PASS: scope:no-phase-1-16-changes []
+PASS: scope:phase16-frozen-integrity
+PASS: public:title-exec-emission:no-raw-instruction-field
+PASS: public:title-exec-emission:no-instruction-word-field
+PASS: public:title-exec-emission:no-payload-bytes-field
+PASS: public:title-exec-emission:no-bios-bytes-field
+PASS: public:title-exec-emission:no-private-paths
 PASS: title-exec-emission:no-private-path absolute private paths absent
 PASS: title-exec-emission:reject-private-paths no private paths in values
 PASS: title-exec-emission:positive-safe-relative-path ordinary public-safe relative path accepted
 PASS: title-exec-emission:no-payload-hex no payload supplied
 PASS: title-exec-emission:no-raw-words reconstructive fields absent
+PASS: public:persistence:no-raw-instruction-field
+PASS: public:persistence:no-instruction-word-field
+PASS: public:persistence:no-payload-bytes-field
+PASS: public:persistence:no-bios-bytes-field
+PASS: public:persistence:no-private-paths
+PASS: persistence:no-private-path absolute private paths absent
+PASS: persistence:reject-private-paths no private paths in values
+PASS: persistence:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: persistence:no-payload-hex no payload supplied
+PASS: persistence:no-raw-words reconstructive fields absent
+PASS: public:semantic-vocabulary:no-raw-instruction-field
+PASS: public:semantic-vocabulary:no-instruction-word-field
+PASS: public:semantic-vocabulary:no-payload-bytes-field
+PASS: public:semantic-vocabulary:no-bios-bytes-field
+PASS: public:semantic-vocabulary:no-private-paths
+PASS: semantic-vocabulary:no-private-path absolute private paths absent
+PASS: semantic-vocabulary:reject-private-paths no private paths in values
+PASS: semantic-vocabulary:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: semantic-vocabulary:no-payload-hex no payload supplied
+PASS: semantic-vocabulary:no-raw-words reconstructive fields absent
+PASS: public:jal-frontier:no-raw-instruction-field
+PASS: public:jal-frontier:no-instruction-word-field
+PASS: public:jal-frontier:no-payload-bytes-field
+PASS: public:jal-frontier:no-bios-bytes-field
+PASS: public:jal-frontier:no-private-paths
+PASS: jal-frontier:no-private-path absolute private paths absent
+PASS: jal-frontier:reject-private-paths no private paths in values
+PASS: jal-frontier:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: jal-frontier:no-payload-hex no payload supplied
+PASS: jal-frontier:no-raw-words reconstructive fields absent
+PASS: public:linkage-exclusion:no-raw-instruction-field
+PASS: public:linkage-exclusion:no-instruction-word-field
+PASS: public:linkage-exclusion:no-payload-bytes-field
+PASS: public:linkage-exclusion:no-bios-bytes-field
+PASS: public:linkage-exclusion:no-private-paths
+PASS: linkage-exclusion:no-private-path absolute private paths absent
+PASS: linkage-exclusion:reject-private-paths no private paths in values
+PASS: linkage-exclusion:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: linkage-exclusion:no-payload-hex no payload supplied
+PASS: linkage-exclusion:no-raw-words reconstructive fields absent
+PASS: next-stage:cross-file-consistency {"mismatched": [], "missing": []}
+PASS: public:committed-evidence-clean {"file_count": 11, "hits": [], "ok": true}
+PASS: public:gate-stdout-clean []
 OPENRECOMP_PHASE17_AUTHENTIC_TITLE_EXEC_EMISSION_V1=PASS
 OPENRECOMP_P17_04R=PASS
 OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
@@ -62,4 +145,5 @@ OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN
 OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
 OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 FIRST_FRAME_READY=NO
-P17-04R_CHECKS=57
+OPENRECOMP_P17_04R_REV4=PASS
+P17-04R_CHECKS=140

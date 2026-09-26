@@ -1,9 +1,4 @@
 {
-  "attempted_frontier_pc": "0x80011af0",
-  "delay_active_at_stop": 0,
-  "delay_slot_owner_pc": "0x8003812c",
-  "delay_slot_pc": "0x80038130",
-  "entry_pc": "0x800380a0",
   "executed_instruction_count": 37,
   "executed_semantic_trace": [
     "lui",
@@ -44,7 +39,18 @@
     "jal",
     "addi"
   ],
-  "executed_semantic_trace_length": 37,
+  "exercised_derived_from_execution_trace": {
+    "executed_count_exceeds_vocabulary_count": true,
+    "executed_instruction_count": 37,
+    "exercised_count_matches_list": true,
+    "exercised_equals_sorted_unique_trace": true,
+    "exercised_subset_of_implemented": true,
+    "implemented_count": 45,
+    "ok": true,
+    "runtime_result_agrees": true,
+    "trace_length": 37,
+    "trace_matches_executed_count": true
+  },
   "exercised_semantic_vocabulary": [
     "addi",
     "addiu",
@@ -62,8 +68,14 @@
     "sw"
   ],
   "exercised_semantic_vocabulary_count": 14,
-  "final_pc": "0x80011af0",
-  "frontier_pc": "0x80011af0",
+  "implemented_coverage": {
+    "implemented_count": 45,
+    "missing": [],
+    "ok": true,
+    "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE",
+    "trace_length": 60,
+    "unexpected": []
+  },
   "implemented_semantic_vocabulary": [
     "addi",
     "addiu",
@@ -86,34 +98,32 @@
     "lhu",
     "lui",
     "lw",
+    "mfhi",
     "mflo",
     "mult",
     "multu",
     "nop",
+    "nor",
     "or",
     "ori",
     "sb",
     "sh",
     "sll",
+    "sllv",
     "slt",
     "slti",
     "sltiu",
     "sltu",
     "sra",
+    "srav",
     "srl",
+    "srlv",
     "subu",
     "sw",
+    "xor",
     "xori"
   ],
-  "implemented_semantic_vocabulary_count": 39,
-  "last_successfully_executed_pc": "0x80038130",
-  "pending_transfer_applied": 1,
-  "pending_transfer_target": "0x80011af0",
-  "pending_transfer_type": "DIRECT_CALL",
-  "provenance_digest": "ba12a840004f7e1e8561ce947c29d1e97963626cb47de2608106983764986e9a",
-  "ram_digest": "7ac0ec20cbb7c15c217c73611f83ff1c",
-  "register_digest": "a7213b6a8deefbbb2500010000000000",
-  "schema": "openrecomp-phase17-title-runtime-result-v1",
-  "stop_pc": "0x80011af0",
-  "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"
+  "implemented_semantic_vocabulary_count": 45,
+  "schema": "openrecomp-phase17-semantic-vocabulary-v1",
+  "stage": "P17-04R"
 }

@@ -100,6 +100,16 @@ def main(argv: list[str] | None = None) -> int:
         write_bytes(evidence_dir / f"run{index}.err.txt", entry.pop("_stderr"))
         runs.append(entry)
 
+    # Authoritative next-stage metadata is taken from the gate RESULT document so
+    # the runner metadata can never disagree with the gate result.
+    next_stage = ""
+    result_path = evidence_dir / "RESULT.json"
+    if result_path.is_file():
+        try:
+            next_stage = str(json.loads(result_path.read_text(encoding="utf-8")).get("next_stage", ""))
+        except json.JSONDecodeError:
+            next_stage = ""
+
     artifact_hashes: dict[str, str] = {}
     for artifact in sorted(evidence_dir.glob("*.json")):
         if artifact.name in ("official_runs.json", "determinism.json"):
@@ -139,12 +149,14 @@ def main(argv: list[str] | None = None) -> int:
         "tests_json_present_both": tests_json_present,
         "markers_present_both": markers_ok,
         "artifact_sha256": artifact_hashes,
+        "next_stage": next_stage,
     })
     write_json(evidence_dir / "determinism.json", {
         "schema": DETERMINISM_SCHEMA,
         "stage": args.stage,
         "gate": args.script,
         "gate_sha256": sha256_bytes(script.read_bytes()),
+        "next_stage": next_stage,
         "artifacts_identical": artifacts_identical,
         "stdout_identical_raw": identical_raw,
         "stdout_identical_lf": identical_lf,

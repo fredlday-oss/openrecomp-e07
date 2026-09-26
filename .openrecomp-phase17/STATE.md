@@ -18,10 +18,25 @@
 - `FIRST_FRAME_READY=NO`
 
 ## Current Stage
-- CURRENT_STAGE: P17-04R_REVIEW
+- CURRENT_STAGE: P17-04R_REV4_REVIEW
 - LAST_COMPLETED_STAGE: P17-04R
-- NEXT_STAGE: HUMAN_REVIEW_REQUIRED
+- NEXT_STAGE: P17-05R
+- next_stage: P17-05R
 - FINAL_VERDICT: HUMAN_REVIEW_REQUIRED
+- REVIEW_GATE: Revision 4 candidate awaits the controller/human review stop in `.openrecomp-phase17/REVIEW_REQUIRED.md`; nothing is integrated automatically.
+
+## Revision 4 (P17-04R) authoritative metadata
+- STATUS: PASS (Revision 4 candidate, not integrated)
+- base_commit: 937e5fa0a8e353808620b82b0203ab608e2d8cf4
+- worker_branch: agent/kimi-phase17-p17-04r-rev4
+- resulting_candidate_commit: PENDING_FINAL_COMMIT
+- resulting_candidate_commit_resolver: git rev-parse agent/kimi-phase17-p17-04r-rev4
+- authentic_frontier: last_successfully_executed_pc=0x80038130, attempted_frontier_pc=0x80011af0, frontier_pc=0x80011af0, stop_reason=PC_NOT_IN_AUTHENTICATED_TABLE
+- authentic_jal: owner_pc=0x8003812c, delay_slot_pc=0x80038130, pending_transfer_type=DIRECT_CALL, pending_transfer_target=0x80011af0
+- semantic_vocabulary_counts: implemented=45, exercised=derived-from-execution-trace (see `.openrecomp-phase17/evidence/P17-04R/semantic_vocabulary.json`)
+- persisted_private_artifacts: generated source, generated header, generated harness, private authenticated mapping, build metadata, compiled shared object, compiled executable under `$OPENRECOMP_P17_PRIVATE_BUILD_ROOT/official-run-{1,2}` (configured default private build root; never committed)
+- linkage_exclusion: handwritten title-transition substitute excluded at the linkage level (`TITLE_TRANSITION_CODE`, `p16_emission_v1`, `p16_record_title_transition` absent); forbidden-symbol negative control detected
+- next_stage: P17-05R
 
 ## Stage Status
 | Stage | Status | Marker |
@@ -31,7 +46,7 @@
 | P17-02 | PASS | `OPENRECOMP_PHASE17_TITLE_IR_CONTRACT_V1=PASS` |
 | P17-03 | PASS | `OPENRECOMP_PHASE17_FRONTIER_RECONCILIATION_V1=PASS` |
 | P17-04 | FAIL_REVIEW_REQUIRED | Historical gate PASS checks a block inventory, not emitted guest code; marker not established |
-| P17-04R | PASS | `OPENRECOMP_P17_04R=PASS` |
+| P17-04R | PASS (Revision 4 candidate) | `OPENRECOMP_P17_04R=PASS` + `OPENRECOMP_P17_04R_REV4=PASS` |
 | P17-05 | FAIL_REVIEW_REQUIRED | Historical gate PASS checks metadata, not a live Exec dispatch/ablation; marker not established |
 | P17-06 | FAIL_REVIEW_REQUIRED | Historical gate PASS advances PCs without executing guest instruction effects; frontier marker not established |
 | P17-07 | FAIL_REVIEW_REQUIRED | Historical gate PASS infers absent device events from a digest without a checked transcript; marker not established |
@@ -40,4 +55,4 @@
 | P17-99 | PLANNED | `OPENRECOMP_P17_99=PASS` |
 
 ## Review stop
-The original P17-04 through P17-07 `RESULT.json` files and commits remain unchanged as historical gate outputs; their PASS markers do not establish the mission's execution/emission/dispatch claims. P17-04R Revision 3 re-establishes authenticated executable emission with fresh-decode binding, corrected MIPS delay-slot timing, a reusable persistent guest-state interface, active-path exclusion, and deterministic official reruns. See `REVIEW_REQUIRED.md` for remaining stages. Do not promote the bounded terminal marker beyond P17-04R.
+The original P17-04 through P17-07 `RESULT.json` files and commits remain unchanged as historical gate outputs; their PASS markers do not establish the mission's execution/emission/dispatch claims. P17-04R Revision 4 re-establishes authenticated executable emission with fresh-decode binding, corrected MIPS delay-slot timing (including authentic JAL pending-transfer/delay-slot frontier semantics), a reusable persistent guest-state interface, persistent private build artifacts, separated implemented/exercised semantic vocabulary, linkage-level exclusion of the historical handwritten substitute, and deterministic official reruns. See `REVIEW_REQUIRED.md` for remaining stages. Do not promote the bounded terminal marker beyond P17-04R.

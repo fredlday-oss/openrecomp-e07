@@ -1,0 +1,73 @@
+{
+  "artifacts": {
+    "or_title_runtime_v1": {
+      "nm_all": {
+        "line_count": 62,
+        "returncode": 0
+      },
+      "nm_dynamic": {
+        "line_count": 10,
+        "returncode": 0
+      },
+      "objdump_dynamic_symbols": {
+        "line_count": 12,
+        "returncode": 0
+      },
+      "readelf_dynamic": {
+        "line_count": 29,
+        "returncode": 0
+      },
+      "readelf_relocations": {
+        "line_count": 57,
+        "returncode": 0
+      },
+      "readelf_symbols": {
+        "line_count": 78,
+        "returncode": 0
+      }
+    },
+    "or_title_runtime_v1.so": {
+      "nm_all": {
+        "line_count": 38,
+        "returncode": 0
+      },
+      "nm_dynamic": {
+        "line_count": 7,
+        "returncode": 0
+      },
+      "objdump_dynamic_symbols": {
+        "line_count": 9,
+        "returncode": 0
+      },
+      "readelf_dynamic": {
+        "line_count": 26,
+        "returncode": 0
+      },
+      "readelf_relocations": {
+        "line_count": 14,
+        "returncode": 0
+      },
+      "readelf_symbols": {
+        "line_count": 51,
+        "returncode": 0
+      }
+    }
+  },
+  "excluded": true,
+  "forbidden_hit_count": 0,
+  "forbidden_hits": [],
+  "forbidden_tokens": [
+    "TITLE_TRANSITION_CODE",
+    "p16_emission_v1",
+    "p16_record_title_transition"
+  ],
+  "inspected_line_count": 393,
+  "inspection_digest": "a5bbc69bf542c48c6df6b0a6817f4609bdb119f212a9c71aa7300e3d0a577401",
+  "inspection_method": "nm -a / nm -D / readelf -sW / readelf -rW / readelf -dW / objdump -T symbol, dynamic-symbol, relocation and DT_NEEDED inspection",
+  "schema": "openrecomp-phase17-linkage-exclusion-v1",
+  "tool_versions": {
+    "nm": "GNU nm (GNU Binutils for Ubuntu) 2.46",
+    "objdump": "GNU objdump (GNU Binutils for Ubuntu) 2.46",
+    "readelf": "GNU readelf (GNU Binutils for Ubuntu) 2.46"
+  }
+}

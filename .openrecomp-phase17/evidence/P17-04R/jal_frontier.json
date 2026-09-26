@@ -1,0 +1,61 @@
+{
+  "authentic_assessment": {
+    "attempted_frontier_pc": "0x80011af0",
+    "delay_slot_attempted": true,
+    "delay_slot_executed": true,
+    "delay_slot_pc": "0x80038130",
+    "executed_instruction_count": 37,
+    "expected_target_pc": "0x80011af0",
+    "fail_closed_at_delay_slot": false,
+    "frontier_pc": "0x80011af0",
+    "last_successfully_executed_pc": "0x80038130",
+    "ok": true,
+    "owner_pc": "0x8003812c",
+    "pending_transfer_applied": 1,
+    "pending_transfer_target": "0x80011af0",
+    "pending_transfer_type": "DIRECT_CALL",
+    "premature_owner_frontier": false,
+    "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE",
+    "target_class": "out-of-image"
+  },
+  "authentic_expectations": {
+    "delay_slot_pc": "0x80038130",
+    "owner_pc": "0x8003812c",
+    "target_class": "out-of-image",
+    "target_pc": "0x80011af0"
+  },
+  "premature_frontier_negative_control": {
+    "clean_rejected": false,
+    "premature_detected": true
+  },
+  "schema": "openrecomp-phase17-jal-frontier-v1",
+  "stage": "P17-04R",
+  "synthetic_fail_closed": {
+    "attempted_frontier_pc": "0x80038004",
+    "delay_slot_owner_pc": "0x80038000",
+    "delay_slot_pc": "0x80038004",
+    "last_executed_pc": "0x80038000",
+    "link_register": "0x80038008",
+    "pending_transfer_applied": 0,
+    "pending_transfer_target": "0x80038020",
+    "pending_transfer_type": 1,
+    "step_count": 1,
+    "stop_pc": "0x80038004",
+    "stop_reason": "UNSUPPORTED_OPERATION"
+  },
+  "synthetic_link_semantics": {
+    "delay_slot_owner_pc": "0x80038000",
+    "delay_slot_pc": "0x80038004",
+    "expected_link_value": "0x80038008",
+    "fallthrough_instruction_skipped": true,
+    "final_pc": "0x80038014",
+    "last_executed_pc": "0x80038010",
+    "link_value_seen_by_delay_slot": "0x80038008",
+    "pending_transfer_applied": 1,
+    "pending_transfer_target": "0x80038010",
+    "pending_transfer_type": 1,
+    "step_count": 3,
+    "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE",
+    "target_reached": true
+  }
+}

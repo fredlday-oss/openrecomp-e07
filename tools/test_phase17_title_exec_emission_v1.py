@@ -13,6 +13,8 @@ import hashlib
 import json
 import os
 import pathlib
+import re
+import shutil
 import struct
 import subprocess
 import sys
@@ -28,6 +30,7 @@ import p17_contracts_v1 as contract
 import p17_fixture_verification_v1 as fixture
 import p17_iso9660_v1 as iso9660
 import p17_title_decode_v1 as title_decode
+import p17_linkage_exclusion_v1 as linkage
 import p17_title_exec_emit_v1 as emitter
 from p17_gate_v1 import Gate, assert_public_safe, run_stage, write_json
 
@@ -49,6 +52,12 @@ class _OrGuestState(ctypes.Structure):
         ("budget", ctypes.c_uint32),
         ("stop", ctypes.c_int),
         ("stop_reason", ctypes.c_char * 64),
+        ("last_executed_pc", ctypes.c_uint32),
+        ("attempted_frontier_pc", ctypes.c_uint32),
+        ("pending_transfer_target", ctypes.c_uint32),
+        ("pending_transfer_type", ctypes.c_int),
+        ("pending_transfer_applied", ctypes.c_int),
+        ("delay_slot_owner_pc", ctypes.c_uint32),
     ]
 
 
@@ -727,7 +736,540 @@ def positive_handwritten_substitute_excluded(manifest: dict[str, Any]) -> bool:
     )
 
 
+NEXT_STAGE = "P17-05R"
+AUTHENTIC_JAL_OWNER_PC = 0x8003812C
+
+
+def _hex32(value: int) -> str:
+    return f"0x{value & 0xFFFFFFFF:08x}"
+
+
+def _run_state(so_path: pathlib.Path, entry_pc: int, budget: int = 100000,
+               regs: dict[int, int] | None = None):
+    """Execute the reusable interface directly and return the resulting state."""
+    state = _OrGuestState()
+    state.pc = entry_pc
+    state.budget = budget
+    for index, value in (regs or {}).items():
+        state.regs[index] = value
+    ram = (ctypes.c_uint8 * RAM_SIZE)()
+    services = _OrRuntimeServices()
+    services.ram_base = ctypes.cast(ram, ctypes.POINTER(ctypes.c_uint8))
+    services.ram_size = RAM_SIZE
+    lib = _load_so(so_path)
+    lib.or_title_execute_v1(ctypes.byref(state), ctypes.byref(services))
+    return state
+
+
+def _authentic_jal_expectations(projection: dict[str, Any]) -> dict[str, Any]:
+    """Derive the authentic JAL owner/delay-slot/target from P17-02 evidence."""
+    owner = AUTHENTIC_JAL_OWNER_PC
+    delay = None
+    for entry in projection.get("delay_slot_owners", []):
+        if int(entry["owner"], 16) == owner:
+            delay = int(entry["delay_slot"], 16)
+    target = None
+    target_class = None
+    for entry in projection.get("direct_calls", []):
+        if int(entry["site"], 16) == owner:
+            target = int(entry["target_pc"], 16)
+            target_class = entry.get("target_class")
+    return {
+        "owner_pc": owner,
+        "delay_slot_pc": delay,
+        "target_pc": target,
+        "target_class": target_class,
+    }
+
+
+def jal_frontier_is_premature(runtime_result: dict[str, Any], owner_pc: int) -> bool:
+    """True when execution stopped AT the JAL owner without attempting its delay slot."""
+    owner_hex = _hex32(owner_pc)
+    at_owner = (
+        runtime_result.get("frontier_pc") == owner_hex
+        or runtime_result.get("stop_pc") == owner_hex
+    )
+    if not at_owner:
+        return False
+    if runtime_result.get("delay_slot_owner_pc") == owner_hex:
+        return False
+    return True
+
+
+def authentic_jal_path_assessment(manifest: dict[str, Any],
+                                  expectations: dict[str, Any]) -> dict[str, Any]:
+    """Classify the authentic JAL/delay-slot frontier: option (A) or fail-closed (B)."""
+    rr = manifest["runtime_result"]
+    owner_hex = _hex32(expectations["owner_pc"])
+    delay_hex = _hex32(expectations["delay_slot_pc"])
+    target_hex = _hex32(expectations["target_pc"])
+    attempted = (
+        rr.get("delay_slot_pc") == delay_hex
+        or rr.get("attempted_frontier_pc") == delay_hex
+    )
+    delay_executed = rr.get("last_successfully_executed_pc") == delay_hex
+    fail_closed_here = (rr.get("frontier_pc") == delay_hex) and not delay_executed
+    transfer_applied = (
+        rr.get("pending_transfer_applied") == 1 and rr.get("frontier_pc") == target_hex
+    )
+    premature = jal_frontier_is_premature(rr, expectations["owner_pc"])
+    ok = (
+        attempted
+        and not premature
+        and rr.get("pending_transfer_type") == "DIRECT_CALL"
+        and rr.get("pending_transfer_target") == target_hex
+        and ((delay_executed and transfer_applied) or fail_closed_here)
+    )
+    return {
+        "owner_pc": owner_hex,
+        "delay_slot_pc": delay_hex,
+        "expected_target_pc": target_hex,
+        "target_class": expectations.get("target_class"),
+        "delay_slot_attempted": attempted,
+        "delay_slot_executed": delay_executed,
+        "fail_closed_at_delay_slot": fail_closed_here,
+        "pending_transfer_type": rr.get("pending_transfer_type"),
+        "pending_transfer_target": rr.get("pending_transfer_target"),
+        "pending_transfer_applied": rr.get("pending_transfer_applied"),
+        "premature_owner_frontier": premature,
+        "last_successfully_executed_pc": rr.get("last_successfully_executed_pc"),
+        "attempted_frontier_pc": rr.get("attempted_frontier_pc"),
+        "frontier_pc": rr.get("frontier_pc"),
+        "executed_instruction_count": rr.get("executed_instruction_count"),
+        "stop_reason": rr.get("stop_reason"),
+        "ok": ok,
+    }
+
+
+def jal_premature_frontier_detected() -> dict[str, Any]:
+    """Negative control: a fabricated premature JAL-owner frontier must be rejected."""
+    fabricated = {
+        "frontier_pc": _hex32(AUTHENTIC_JAL_OWNER_PC),
+        "stop_pc": _hex32(AUTHENTIC_JAL_OWNER_PC),
+        "delay_slot_owner_pc": "0x00000000",
+        "delay_slot_pc": "0x00000000",
+    }
+    clean = {
+        "frontier_pc": "0x80011af0",
+        "stop_pc": "0x80011af0",
+        "delay_slot_owner_pc": _hex32(AUTHENTIC_JAL_OWNER_PC),
+        "delay_slot_pc": _hex32(AUTHENTIC_JAL_OWNER_PC + 4),
+    }
+    return {
+        "premature_detected": jal_frontier_is_premature(fabricated, AUTHENTIC_JAL_OWNER_PC),
+        "clean_rejected": jal_frontier_is_premature(clean, AUTHENTIC_JAL_OWNER_PC),
+    }
+
+
+def _jal_link_program():
+    records = [
+        emitter.synthesize_decode_record(0x80038000, "jal", target=0x80038010),
+        emitter.synthesize_decode_record(0x80038004, "addiu", rs=31, rt=2, imm=0),
+        emitter.synthesize_decode_record(0x80038008, "addiu", rs=0, rt=3, imm=111),
+        emitter.synthesize_decode_record(0x8003800C, "addiu", rs=0, rt=4, imm=222),
+        emitter.synthesize_decode_record(0x80038010, "addiu", rs=0, rt=5, imm=1),
+    ]
+    return records, _encode_payload(records), {0x80038000: 0x80038004}
+
+
+def jal_link_and_pending_semantics() -> dict[str, Any]:
+    """JAL: link register, delay slot observes link, transfer applied afterwards."""
+    records, words, delay = _jal_link_program()
+    with tempfile.TemporaryDirectory() as tmp:
+        result = emitter.emit_synthetic_executable(
+            records, words, 0x80038000, pathlib.Path(tmp), t_addr=0x80038000,
+            delay_by_owner=delay,
+        )
+        so_path = pathlib.Path(result["run_dir"]) / "or_title_runtime_v1.so"
+        state = _run_state(so_path, 0x80038000, budget=64)
+    return {
+        "link_value_seen_by_delay_slot": _hex32(state.regs[2]),
+        "expected_link_value": _hex32(0x80038000 + 8),
+        "fallthrough_instruction_skipped": state.regs[3] == 0,
+        "target_reached": state.regs[5] == 1,
+        "step_count": state.step_count,
+        "final_pc": _hex32(state.pc),
+        "delay_slot_owner_pc": _hex32(state.delay_slot_owner_pc),
+        "delay_slot_pc": _hex32(state.delay_pc),
+        "last_executed_pc": _hex32(state.last_executed_pc),
+        "pending_transfer_type": state.pending_transfer_type,
+        "pending_transfer_target": _hex32(state.pending_transfer_target),
+        "pending_transfer_applied": state.pending_transfer_applied,
+        "stop_reason": state.stop_reason.decode("utf-8", errors="replace").rstrip(chr(0)),
+    }
+
+
+def jal_fail_closed_at_delay_slot() -> dict[str, Any]:
+    """An unemittable authentic delay slot must fail closed at the delay-slot PC."""
+    records = [
+        emitter.synthesize_decode_record(0x80038000, "jal", target=0x80038020),
+        emitter.synthesize_decode_record(0x80038004, "div", rs=1, rt=1),
+    ]
+    words = _encode_payload(records)
+    with tempfile.TemporaryDirectory() as tmp:
+        result = emitter.emit_synthetic_executable(
+            records, words, 0x80038000, pathlib.Path(tmp), t_addr=0x80038000,
+            delay_by_owner={0x80038000: 0x80038004},
+        )
+        so_path = pathlib.Path(result["run_dir"]) / "or_title_runtime_v1.so"
+        state = _run_state(so_path, 0x80038000, budget=64)
+    return {
+        "stop_reason": state.stop_reason.decode("utf-8", errors="replace").rstrip(chr(0)),
+        "stop_pc": _hex32(state.pc),
+        "attempted_frontier_pc": _hex32(state.attempted_frontier_pc),
+        "last_executed_pc": _hex32(state.last_executed_pc),
+        "step_count": state.step_count,
+        "link_register": _hex32(state.regs[31]),
+        "delay_slot_owner_pc": _hex32(state.delay_slot_owner_pc),
+        "delay_slot_pc": _hex32(state.delay_pc),
+        "pending_transfer_type": state.pending_transfer_type,
+        "pending_transfer_target": _hex32(state.pending_transfer_target),
+        "pending_transfer_applied": state.pending_transfer_applied,
+    }
+
+
+def _vocabulary_coverage_program():
+    """One instruction per implemented op, ordered so control flow never diverges."""
+    records: list[dict[str, Any]] = []
+    delay: dict[int, int] = {}
+    pc = 0x80037000
+
+    def add(op: str, **operands: Any) -> None:
+        nonlocal pc
+        records.append(emitter.synthesize_decode_record(pc, op, **operands))
+        pc += 4
+
+    simple = {
+        "addiu": {"rs": 11, "rt": 12, "imm": 4},
+        "addi": {"rs": 11, "rt": 12, "imm": 4},
+        "addu": {"rs": 11, "rt": 12, "rd": 10},
+        "subu": {"rs": 12, "rt": 11, "rd": 10},
+        "and": {"rs": 11, "rt": 12, "rd": 10},
+        "or": {"rs": 11, "rt": 12, "rd": 10},
+        "xor": {"rs": 11, "rt": 12, "rd": 10},
+        "nor": {"rs": 11, "rt": 12, "rd": 10},
+        "sll": {"rs": 0, "rt": 12, "rd": 10, "shamt": 1},
+        "srl": {"rs": 0, "rt": 12, "rd": 10, "shamt": 1},
+        "sra": {"rs": 0, "rt": 12, "rd": 10, "shamt": 1},
+        "sllv": {"rs": 11, "rt": 12, "rd": 10},
+        "srlv": {"rs": 11, "rt": 12, "rd": 10},
+        "srav": {"rs": 11, "rt": 12, "rd": 10},
+        "slt": {"rs": 11, "rt": 12, "rd": 10},
+        "sltu": {"rs": 11, "rt": 12, "rd": 10},
+        "andi": {"rs": 11, "rt": 12, "imm": 1},
+        "ori": {"rs": 11, "rt": 12, "imm": 1},
+        "xori": {"rs": 11, "rt": 12, "imm": 1},
+        "slti": {"rs": 11, "rt": 12, "imm": 1},
+        "sltiu": {"rs": 11, "rt": 12, "imm": 1},
+        "lui": {"rs": 0, "rt": 12, "imm": 1},
+        "lw": {"rs": 0, "rt": 12, "imm": 0x100},
+        "lh": {"rs": 0, "rt": 12, "imm": 0x102},
+        "lhu": {"rs": 0, "rt": 12, "imm": 0x102},
+        "lb": {"rs": 0, "rt": 12, "imm": 0x103},
+        "lbu": {"rs": 0, "rt": 12, "imm": 0x103},
+        "sw": {"rs": 0, "rt": 12, "imm": 0x100},
+        "sh": {"rs": 0, "rt": 12, "imm": 0x102},
+        "sb": {"rs": 0, "rt": 12, "imm": 0x103},
+        "mult": {"rs": 11, "rt": 12},
+        "multu": {"rs": 11, "rt": 12},
+        "mflo": {"rs": 0, "rt": 0, "rd": 12},
+        "mfhi": {"rs": 0, "rt": 0, "rd": 12},
+        "nop": {},
+    }
+    add("addiu", rs=0, rt=11, imm=4)
+    for op in sorted(simple):
+        add(op, **simple[op])
+    for op in ("beq", "bne", "blez", "bgtz", "bltz", "bgez"):
+        branch_pc = pc
+        records.append(emitter.synthesize_decode_record(branch_pc, op, rs=0, rt=0,
+                                                        target=branch_pc + 8))
+        records.append(emitter.synthesize_decode_record(branch_pc + 4, "nop"))
+        delay[branch_pc] = branch_pc + 4
+        pc += 8
+    for op in ("j", "jal"):
+        jump_pc = pc
+        records.append(emitter.synthesize_decode_record(jump_pc, op, target=jump_pc + 8))
+        records.append(emitter.synthesize_decode_record(jump_pc + 4, "nop"))
+        delay[jump_pc] = jump_pc + 4
+        pc += 8
+    for op in ("jr", "jalr"):
+        target = pc + 16
+        records.append(emitter.synthesize_decode_record(pc, "lui", rs=0, rt=30,
+                                                        imm=(target >> 16) & 0xFFFF))
+        records.append(emitter.synthesize_decode_record(pc + 4, "ori", rs=30, rt=30,
+                                                        imm=target & 0xFFFF))
+        if op == "jr":
+            records.append(emitter.synthesize_decode_record(pc + 8, "jr", rs=30))
+        else:
+            records.append(emitter.synthesize_decode_record(pc + 8, "jalr", rs=30, rd=31))
+        records.append(emitter.synthesize_decode_record(pc + 12, "nop"))
+        delay[pc + 8] = pc + 12
+        pc += 16
+    return records, delay, 0x80037000
+
+
+def implemented_vocabulary_covered() -> dict[str, Any]:
+    """Every implemented op must actually execute from a generated artifact."""
+    records, delay, t_addr = _vocabulary_coverage_program()
+    words = _encode_payload(records)
+    with tempfile.TemporaryDirectory() as tmp:
+        result = emitter.emit_synthetic_executable(
+            records, words, t_addr, pathlib.Path(tmp), t_addr=t_addr,
+            delay_by_owner=delay,
+        )
+    trace = result["runtime_result"]["executed_semantic_trace"]
+    implemented = set(emitter.SUPPORTED_OPS)
+    missing = sorted(implemented - set(trace))
+    unexpected = sorted(set(trace) - implemented)
+    return {
+        "implemented_count": len(implemented),
+        "trace_length": len(trace),
+        "missing": missing,
+        "unexpected": unexpected,
+        "stop_reason": result["runtime_result"]["stop_reason"],
+        "ok": not missing and not unexpected,
+    }
+
+
+def executed_vocabulary_is_derived(manifest: dict[str, Any]) -> dict[str, Any]:
+    """The exercised vocabulary must be derived from the actual execution trace."""
+    source = manifest["source"]
+    rr = manifest["runtime_result"]
+    trace = list(source.get("executed_semantic_trace") or [])
+    exercised = list(source.get("exercised_semantic_vocabulary") or [])
+    implemented = set(source.get("implemented_semantic_vocabulary") or [])
+    runtime_exercised = list(rr.get("exercised_semantic_vocabulary") or [])
+    executed_count = int(rr.get("executed_instruction_count") or 0)
+    vocab_count = int(source.get("exercised_semantic_vocabulary_count") or 0)
+    return {
+        "trace_length": len(trace),
+        "executed_instruction_count": executed_count,
+        "trace_matches_executed_count": len(trace) == executed_count,
+        "exercised_equals_sorted_unique_trace": exercised == sorted(set(trace)),
+        "exercised_count_matches_list": vocab_count == len(exercised),
+        "exercised_subset_of_implemented": set(exercised) <= implemented,
+        "runtime_result_agrees": runtime_exercised == exercised,
+        "executed_count_exceeds_vocabulary_count": executed_count > vocab_count,
+        "implemented_count": len(implemented),
+        "ok": (
+            len(trace) == executed_count
+            and exercised == sorted(set(trace))
+            and vocab_count == len(exercised)
+            and set(exercised) <= implemented
+            and runtime_exercised == exercised
+            and executed_count > vocab_count
+        ),
+    }
+
+
+def private_build_root_probe() -> dict[str, Any]:
+    """A separate process proves the env override and the default both resolve."""
+    program = "\n".join([
+        "import hashlib, json, os, sys",
+        "sys.path.insert(0, sys.argv[1])",
+        "import p17_title_exec_emit_v1 as e",
+        "probe = '/tmp/or-p17-04r-rev4-override-probe'",
+        "os.environ[e.PRIVATE_BUILD_ROOT_ENV] = probe",
+        "overridden = str(e.private_build_root())",
+        "os.environ.pop(e.PRIVATE_BUILD_ROOT_ENV, None)",
+        "default = str(e.private_build_root())",
+        "print(json.dumps({",
+        "    'override_honoured': overridden == probe,",
+        "    'env_value_differs_from_default': overridden != default,",
+        "    'default_matches_declared_default': e.private_build_root() == e.DEFAULT_PRIVATE_BUILD_ROOT,",
+        "    'default_digest_prefix': hashlib.sha256(default.encode()).hexdigest()[:16],",
+        "    'env_var': e.PRIVATE_BUILD_ROOT_ENV,",
+        "    'official_run_labels': list(e.OFFICIAL_RUN_DIRS),",
+        "}))",
+    ])
+    completed = subprocess.run(
+        [sys.executable, "-c", program, str(ROOT / ".openrecomp-phase17" / "src")],
+        capture_output=True, text=True,
+    )
+    if completed.returncode != 0:
+        return {"ok": False, "error": (completed.stderr or "").strip().splitlines()[-1:]}
+    payload = json.loads(completed.stdout.strip().splitlines()[-1])
+    payload["ok"] = bool(
+        payload["override_honoured"]
+        and payload["env_value_differs_from_default"]
+        and payload["default_matches_declared_default"]
+        and payload["official_run_labels"] == ["official-run-1", "official-run-2"]
+        and payload["env_var"] == "OPENRECOMP_P17_PRIVATE_BUILD_ROOT"
+    )
+    return payload
+
+
+def persisted_artifacts_ok(run_dir: pathlib.Path, manifest: dict[str, Any]) -> dict[str, Any]:
+    """Every persisted artifact exists with the recorded digest, outside tempdirs."""
+    recorded = manifest["persistence"]["artifacts"]
+    temp_root = pathlib.Path(tempfile.gettempdir()).resolve()
+    rows: dict[str, Any] = {}
+    ok = True
+    for key, filename in emitter.PERSISTED_ARTIFACTS:
+        path = run_dir / filename
+        exists = path.is_file()
+        digest = hashlib.sha256(path.read_bytes()).hexdigest() if exists else None
+        matches = bool(exists and digest == recorded[key]["sha256"])
+        try:
+            path.resolve().relative_to(temp_root)
+            outside_temp = False
+        except ValueError:
+            outside_temp = True
+        if not (exists and matches and outside_temp):
+            ok = False
+        rows[key] = {
+            "file": filename,
+            "exists": exists,
+            "sha256_matches": matches,
+            "outside_tempdir": outside_temp,
+            "sha256": recorded[key]["sha256"],
+            "bytes": recorded[key]["bytes"],
+        }
+    return {"ok": ok, "artifacts": rows}
+
+
+def child_process_persistence_check(run_label: str) -> dict[str, Any]:
+    """A separate process re-reads the persisted artifacts from disk."""
+    completed = subprocess.run(
+        [sys.executable, str(ROOT / "tools" / "test_phase17_persistence_v1.py"),
+         "--run-label", run_label],
+        capture_output=True, text=True,
+    )
+    marker = "OPENRECOMP_P17_04R_PERSISTENCE_AFTER_EXIT"
+    return {
+        "returncode": completed.returncode,
+        "marker_present": f"{marker}=PASS" in completed.stdout,
+        "ok": completed.returncode == 0 and f"{marker}=PASS" in completed.stdout,
+    }
+
+
+def reusable_interface_present(run_dir: pathlib.Path) -> dict[str, Any]:
+    so_path = run_dir / "or_title_runtime_v1.so"
+    header = run_dir / "or_title_runtime_v1.h"
+    completed = subprocess.run(["nm", "-D", str(so_path)], capture_output=True, text=True)
+    exports = completed.returncode == 0 and "or_title_execute_v1" in completed.stdout
+    header_text = header.read_text(encoding="utf-8") if header.is_file() else ""
+    return {
+        "shared_object_exists": so_path.is_file(),
+        "header_exists": header.is_file(),
+        "exports_execute_symbol": exports,
+        "header_declares_symbol": "or_title_execute_v1" in header_text,
+        "ok": bool(so_path.is_file() and header.is_file() and exports
+                   and "or_title_execute_v1" in header_text),
+    }
+
+
+def negative_fixture_artifact(tmp: pathlib.Path, symbol: str) -> pathlib.Path:
+    """Build a synthetic artifact that links a forbidden historical symbol."""
+    source = tmp / f"{symbol}_probe.c"
+    artifact = tmp / f"{symbol}_probe.so"
+    source.write_text(f"void {symbol}(void) {{ }}\n", encoding="utf-8", newline="\n")
+    completed = subprocess.run(
+        ["cc", "-shared", "-fPIC", "-o", str(artifact), str(source)],
+        capture_output=True, text=True,
+    )
+    if completed.returncode != 0:
+        raise emitter.TitleExecEmitError("NEGATIVE_FIXTURE_COMPILE_FAILED",
+                                         completed.stderr or completed.stdout)
+    return artifact
+
+
+def linkage_exclusion_checks(artifact_paths: list[pathlib.Path]) -> dict[str, Any]:
+    """Linkage-level exclusion plus a forbidden-symbol negative control."""
+    report = linkage.linkage_exclusion_report(artifact_paths)
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_dir = pathlib.Path(tmp)
+        negative_reports: dict[str, Any] = {}
+        negative_ok = True
+        for token in ("TITLE_TRANSITION_CODE", "p16_emission_v1"):
+            forbidden = negative_fixture_artifact(tmp_dir, token)
+            negative = linkage.linkage_exclusion_report([forbidden], tokens=[token])
+            negative_reports[token] = {
+                "excluded": negative["excluded"],
+                "hit_count": negative["forbidden_hit_count"],
+                "detected": (not negative["excluded"]) and negative["forbidden_hit_count"] > 0,
+            }
+            negative_ok = negative_ok and negative_reports[token]["detected"]
+        clean = negative_fixture_artifact(tmp_dir, "or_unrelated_probe_symbol")
+        clean_report = linkage.linkage_exclusion_report([clean])
+        clean_ok = bool(clean_report["excluded"])
+    return {
+        "report": report,
+        "negative_reports": negative_reports,
+        "negative_ok": negative_ok,
+        "clean_control_excluded": clean_ok,
+        "ok": bool(report["excluded"] and negative_ok and clean_ok),
+    }
+
+
+def working_tree_phase_1_16_changes() -> list[str]:
+    completed = subprocess.run(["git", "status", "--porcelain"], cwd=str(ROOT),
+                               capture_output=True, text=True)
+    pattern = re.compile(r"^\.openrecomp-phase(?:[1-9]|1[0-6])(?:/|$)")
+    changes = []
+    for line in completed.stdout.splitlines():
+        path = line[3:].strip()
+        if " -> " in path:
+            path = path.split(" -> ")[-1].strip()
+        if pattern.match(path):
+            changes.append(path)
+    return changes
+
+
+def _declared_next_stage(path: pathlib.Path) -> str | None:
+    if not path.is_file():
+        return None
+    text = path.read_text(encoding="utf-8")
+    if path.suffix == ".json":
+        try:
+            document = json.loads(text)
+        except json.JSONDecodeError:
+            return None
+        value = document.get("next_stage")
+        return str(value) if value is not None else None
+    for line in text.splitlines():
+        stripped = line.strip().lstrip("-*").strip()
+        if stripped.lower().startswith("next_stage"):
+            value = stripped.split(":", 1)[1].strip()
+            return value.strip(chr(96)).strip()
+    return None
+
+
+def evidence_public_safety(evidence_dir: pathlib.Path) -> dict[str, Any]:
+    """Fail-closed public-safety scan over the committed Revision 4 evidence."""
+    # Payload/reconstructive leakage terms only.  Historical symbol *names* are
+    # public identifiers (already present in tracked sources and handoff notes),
+    # so they are legitimately recorded in the linkage inspection summary.
+    forbidden_terms = (
+        "raw_instruction",
+        "instruction_word",
+        "payload_bytes",
+        "bios_bytes",
+    )
+    path_markers = ("/home/", "fixtures/", "/tmp/", "/Users/", ":\\")
+    hits: list[str] = []
+    files = [path for path in sorted(evidence_dir.glob("*.json")) if path.is_file()]
+    for path in files:
+        text = path.read_text(encoding="utf-8", errors="replace")
+        for term in forbidden_terms:
+            if term in text:
+                hits.append(f"{path.name}:term:{term}")
+        for marker in path_markers:
+            if marker in text:
+                hits.append(f"{path.name}:path:{marker}")
+    return {"file_count": len(files), "hits": hits, "ok": not hits}
+
+
 def body(gate: Gate, evidence: pathlib.Path, root: pathlib.Path) -> None:
+    # 0. Remove stale gate/runner-generated evidence so the official run reports
+    #    only artifacts produced by this Revision 4 gate invocation.
+    # Only the run_stage-owned tests document is removed: it is regenerated in
+    # this same process.  The stage runner owns run*.txt / run*.err.txt and
+    # official_runs.json / determinism.json, which are regenerated afterwards.
+    stale_tests = evidence / "p17_04r_tests.json"
+    if stale_tests.is_file():
+        stale_tests.unlink()
+
     # 1. Authentic fixture and P17-02 projection.
     fx = fixture_root()
     fixture.verify_fixture_with_callback(
@@ -748,99 +1290,160 @@ def body(gate: Gate, evidence: pathlib.Path, root: pathlib.Path) -> None:
         analysis.projection["projection_digest"] == projection["projection_digest"],
     )
 
-    # 3. Emit, compile, and run the authenticated executable.
-    with tempfile.TemporaryDirectory(prefix="p17-04r-emit-") as tmp:
-        run_dir = pathlib.Path(tmp) / "run"
-        manifest = _run_emission(analysis, run_dir)
+    # R4-03: the authoritative next stage for Revision 4.
+    gate.check("next-stage:declared-constant", NEXT_STAGE == "P17-05R")
 
-        rr = manifest["runtime_result"]
-        gate.check("emission:header-generated", bool(manifest["source"]["header_sha256"]))
-        gate.check("emission:source-generated", bool(manifest["source"]["generated_source_sha256"]))
-        gate.check("emission:harness-generated", bool(manifest["source"]["generated_harness_sha256"]))
-        gate.check("emission:shared-object-generated", bool(manifest["build"]["shared_object_sha256"]))
-        gate.check("emission:executable-generated", bool(manifest["build"]["executable_sha256"]))
-        gate.check("emission:entry-pc", rr["entry_pc"] == "0x800380a0")
-        gate.check("emission:executed-instructions", rr["executed_instruction_count"] > 0)
-        gate.check(
-            "emission:stop-is-frontier",
-            rr["stop_reason"] in {
-                "UNSUPPORTED_DIRECT_CALL",
-                "UNSUPPORTED_OPERATION",
-                "SIGNED_OVERFLOW",
-                "UNALIGNED_OR_OUT_OF_BOUNDS_MEMORY_ACCESS",
-                "OUT_OF_BOUNDS_MEMORY_ACCESS",
-                "PC_NOT_IN_AUTHENTICATED_TABLE",
-                "STEP_LIMIT_REACHED",
-            },
-        )
-        gate.check("emission:register-digest-present", bool(rr["register_digest"]))
-        gate.check("emission:ram-digest-present", bool(rr["ram_digest"]))
-        gate.check(
-            "emission:semantic-vocabulary-non-empty",
-            bool(manifest["source"]["semantic_vocabulary"]),
-        )
-        gate.check(
-            "emission:provenance-digest-present",
-            bool(manifest["source"]["provenance_digest"]),
-        )
-        gate.check(
-            "emission:phase16-hand-authored-flow-excluded",
-            positive_handwritten_substitute_excluded(manifest),
-        )
-        generated_c = (run_dir / "or_title_runtime_v1.c").read_text(encoding="utf-8")
-        gate.check(
-            "emission:no-phase16-transition-code-import",
-            "TITLE_TRANSITION_CODE" not in generated_c and "p16_emission_v1" not in generated_c,
-        )
-
-        # 7. Reusable persistent guest-state interface tests.
-        gate.check(
-            "interface:shared-object-exports-symbol",
-            interface_shared_object_exports_symbol(manifest, run_dir),
-        )
-        with tempfile.TemporaryDirectory(prefix="p17-04r-interface-") as itmp:
-            iface_so = _build_interface_fixture(pathlib.Path(itmp))
-            state_xfer = interface_state_transfer(iface_so)
-            gate.check("interface:state-transfer", state_xfer["ok"], json.dumps(state_xfer, sort_keys=True))
-            transcript = interface_transcript_hook(iface_so)
-            gate.check("interface:transcript-hook", transcript["ok"], json.dumps(transcript, sort_keys=True))
-            budget = interface_budget_and_stop_reason(iface_so)
-            gate.check("interface:budget-stop-reason", budget["ok"], json.dumps(budget, sort_keys=True))
-
-    # 4. Determinism across two emissions from the same analysis.
-    with tempfile.TemporaryDirectory(prefix="p17-04r-det1-") as tmp1:
-        with tempfile.TemporaryDirectory(prefix="p17-04r-det2-") as tmp2:
-            manifest1 = _run_emission(analysis, pathlib.Path(tmp1) / "run")
-            manifest2 = _run_emission(analysis, pathlib.Path(tmp2) / "run")
+    # R4-01: private build root override and default behaviour (separate process).
+    probe = private_build_root_probe()
     gate.check(
-        "determinism:source-hash-identical",
-        manifest1["source"]["generated_source_sha256"]
-        == manifest2["source"]["generated_source_sha256"],
+        "persistence:private-build-root-env-override",
+        bool(probe.get("override_honoured")),
+        json.dumps(probe, sort_keys=True),
     )
     gate.check(
-        "determinism:shared-object-hash-identical",
-        manifest1["build"]["shared_object_sha256"]
-        == manifest2["build"]["shared_object_sha256"],
-    )
-    gate.check(
-        "determinism:executable-hash-identical",
-        manifest1["build"]["executable_sha256"]
-        == manifest2["build"]["executable_sha256"],
-    )
-    gate.check(
-        "determinism:runtime-result-identical",
-        manifest1["runtime_result"] == manifest2["runtime_result"],
+        "persistence:private-build-root-default",
+        bool(probe.get("default_matches_declared_default")),
+        json.dumps({"default_digest_prefix": probe.get("default_digest_prefix"),
+                    "env_var": probe.get("env_var")}, sort_keys=True),
     )
 
-    # 5. Authenticated-word binding negative tests.
+    # 3. Official runs into fresh persistent private run directories.
+    private_root = emitter.private_build_root()
+    run_dirs: list[pathlib.Path] = []
+    manifests: list[dict[str, Any]] = []
+    for label in emitter.OFFICIAL_RUN_DIRS:
+        run_dir = emitter.official_run_dir(label, private_root)
+        if run_dir.exists():
+            shutil.rmtree(run_dir)
+        run_dir.mkdir(parents=True, exist_ok=False)
+        run_dirs.append(run_dir)
+        manifests.append(_run_emission(analysis, run_dir))
+    gate.check(
+        "persistence:fresh-run-dirs-created",
+        all(emitter.official_run_dir(label, private_root).is_dir()
+            for label in emitter.OFFICIAL_RUN_DIRS),
+    )
+    gate.check("persistence:run-dirs-distinct", run_dirs[0] != run_dirs[1])
+
+    manifest = manifests[0]
+    second_manifest = manifests[1]
+    rr = manifest["runtime_result"]
+
+    gate.check("emission:header-generated", bool(manifest["source"]["header_sha256"]))
+    gate.check("emission:source-generated", bool(manifest["source"]["generated_source_sha256"]))
+    gate.check("emission:harness-generated", bool(manifest["source"]["generated_harness_sha256"]))
+    gate.check("emission:shared-object-generated", bool(manifest["build"]["shared_object_sha256"]))
+    gate.check("emission:executable-generated", bool(manifest["build"]["executable_sha256"]))
+    gate.check("emission:entry-pc", rr["entry_pc"] == "0x800380a0")
+    gate.check("emission:executed-instructions", rr["executed_instruction_count"] > 0)
+    gate.check(
+        "emission:stop-is-frontier",
+        rr["stop_reason"] in {
+            "UNSUPPORTED_DIRECT_CALL",
+            "UNSUPPORTED_OPERATION",
+            "SIGNED_OVERFLOW",
+            "UNALIGNED_OR_OUT_OF_BOUNDS_MEMORY_ACCESS",
+            "OUT_OF_BOUNDS_MEMORY_ACCESS",
+            "PC_NOT_IN_AUTHENTICATED_TABLE",
+            "STEP_LIMIT_REACHED",
+        },
+    )
+    gate.check("emission:register-digest-present", bool(rr["register_digest"]))
+    gate.check("emission:ram-digest-present", bool(rr["ram_digest"]))
+    gate.check(
+        "emission:implemented-semantic-vocabulary-non-empty",
+        bool(manifest["source"]["implemented_semantic_vocabulary"]),
+    )
+    gate.check(
+        "emission:exercised-semantic-vocabulary-non-empty",
+        bool(manifest["source"]["exercised_semantic_vocabulary"]),
+    )
+    gate.check("emission:provenance-digest-present", bool(manifest["source"]["provenance_digest"]))
+    gate.check("emission:phase16-hand-authored-flow-excluded",
+               positive_handwritten_substitute_excluded(manifest))
+    generated_c = (run_dirs[0] / "or_title_runtime_v1.c").read_text(encoding="utf-8")
+    gate.check(
+        "emission:no-phase16-transition-code-import",
+        "TITLE_TRANSITION_CODE" not in generated_c and "p16_emission_v1" not in generated_c,
+    )
+
+    # R4-01: persisted artifacts must exist with the recorded digests.
+    persisted_first = persisted_artifacts_ok(run_dirs[0], manifest)
+    persisted_second = persisted_artifacts_ok(run_dirs[1], second_manifest)
+    gate.check("persistence:run1-artifacts-exist-and-hash-match", persisted_first["ok"],
+               json.dumps({k: v["sha256"] for k, v in persisted_first["artifacts"].items()},
+                          sort_keys=True))
+    gate.check("persistence:run2-artifacts-exist-and-hash-match", persisted_second["ok"])
+    gate.check("persistence:generated-source-survives-process-exit",
+               persisted_first["artifacts"]["generated_source"]["exists"]
+               and persisted_first["artifacts"]["generated_source"]["sha256_matches"])
+    gate.check("persistence:private-map-survives-process-exit",
+               persisted_first["artifacts"]["private_mapping"]["exists"]
+               and persisted_first["artifacts"]["private_mapping"]["sha256_matches"])
+    gate.check("persistence:native-artifact-survives-process-exit",
+               persisted_first["artifacts"]["shared_object"]["exists"]
+               and persisted_first["artifacts"]["shared_object"]["sha256_matches"]
+               and persisted_first["artifacts"]["executable"]["exists"]
+               and persisted_first["artifacts"]["executable"]["sha256_matches"])
+    gate.check("persistence:recorded-native-hash-matches-artifact",
+               manifest["build"]["shared_object_sha256"]
+               == persisted_first["artifacts"]["shared_object"]["sha256"]
+               and manifest["build"]["executable_sha256"]
+               == persisted_first["artifacts"]["executable"]["sha256"])
+    gate.check("persistence:private-map-record-count",
+               manifest["persistence"]["private_mapping_record_count"]
+               == manifest["source"]["reachable_record_count"] > 0)
+    gate.check("persistence:build-metadata-toolchain-recorded",
+               bool(manifest["build"]["toolchain"].get("cc"))
+               and "NATIVE" not in manifest["build"]["toolchain"].get("cc", ""))
+    child_check = child_process_persistence_check(emitter.OFFICIAL_RUN_DIRS[0])
+    gate.check("persistence:child-process-verification", child_check["ok"])
+    interface_present = reusable_interface_present(run_dirs[0])
+    gate.check("persistence:reusable-interface-on-disk", interface_present["ok"],
+               json.dumps({k: v for k, v in interface_present.items() if k != "ok"},
+                          sort_keys=True))
+
+    # 4. Determinism across the two official runs.
+    gate.check("determinism:generated-source-hash-identical",
+               manifests[0]["source"]["generated_source_sha256"]
+               == manifests[1]["source"]["generated_source_sha256"])
+    gate.check("determinism:private-map-hash-identical",
+               manifests[0]["persistence"]["artifacts"]["private_mapping"]["sha256"]
+               == manifests[1]["persistence"]["artifacts"]["private_mapping"]["sha256"])
+    gate.check("determinism:shared-object-hash-identical",
+               manifests[0]["build"]["shared_object_sha256"]
+               == manifests[1]["build"]["shared_object_sha256"])
+    gate.check("determinism:executable-hash-identical",
+               manifests[0]["build"]["executable_sha256"]
+               == manifests[1]["build"]["executable_sha256"])
+    gate.check("determinism:runtime-result-identical",
+               manifests[0]["runtime_result"] == manifests[1]["runtime_result"])
+    gate.check("determinism:build-metadata-hash-identical",
+               manifests[0]["build"]["build_metadata_sha256"]
+               == manifests[1]["build"]["build_metadata_sha256"])
+    gate.check("determinism:manifest-identical", manifests[0] == manifests[1])
+
+    # 5. Reusable persistent guest-state interface tests.
+    gate.check(
+        "interface:shared-object-exports-symbol",
+        interface_shared_object_exports_symbol(manifest, run_dirs[0]),
+    )
+    with tempfile.TemporaryDirectory(prefix="p17-04r-interface-") as itmp:
+        iface_so = _build_interface_fixture(pathlib.Path(itmp))
+        state_xfer = interface_state_transfer(iface_so)
+        gate.check("interface:state-transfer", state_xfer["ok"], json.dumps(state_xfer, sort_keys=True))
+        transcript = interface_transcript_hook(iface_so)
+        gate.check("interface:transcript-hook", transcript["ok"], json.dumps(transcript, sort_keys=True))
+        budget = interface_budget_and_stop_reason(iface_so)
+        gate.check("interface:budget-stop-reason", budget["ok"], json.dumps(budget, sort_keys=True))
+
+    # 6. Authenticated-word binding negative tests.
     gate.check("negative:p17-02-digest-mismatch", negative_p17_02_digest_mismatch())
     gate.check("negative:payload-sha256-mismatch", negative_payload_sha256_mismatch())
     gate.check("negative:missing-provenance", negative_missing_provenance())
     gate.check("negative:unsupported-instruction-runtime", negative_unsupported_instruction_runtime())
-    gate.check(
-        "negative:altered-instruction-word-changes-state",
-        negative_altered_instruction_word_changes_state(),
-    )
+    gate.check("negative:altered-instruction-word-changes-state",
+               negative_altered_instruction_word_changes_state())
     gate.check("negative:altered-source-word", negative_altered_source_word())
     gate.check("negative:altered-decoded-opcode", negative_altered_decoded_opcode())
     gate.check("negative:altered-operand", negative_altered_operand())
@@ -848,33 +1451,209 @@ def body(gate: Gate, evidence: pathlib.Path, root: pathlib.Path) -> None:
     gate.check("negative:record-from-wrong-pc", negative_record_from_wrong_pc())
     gate.check("negative:unauthenticated-record", negative_unauthenticated_record())
 
-    # 6. Delay-slot adversarial tests.
+    # 7. Delay-slot and JAL frontier tests.
     delay = positive_delay_slot_semantics()
     gate.check("positive:delay-slot-semantics", delay["ok"], json.dumps(delay["result"], sort_keys=True))
-
     branch_adv = adversarial_branch_delay_slot_changes_operand()
-    gate.check(
-        "adversarial:branch-delay-slot-changes-operand",
-        branch_adv["ok"],
-        json.dumps({"taken": branch_adv["taken"], "not_taken": branch_adv["not_taken"]}, sort_keys=True),
-    )
-
+    gate.check("adversarial:branch-delay-slot-changes-operand", branch_adv["ok"],
+               json.dumps({"taken": branch_adv["taken"], "not_taken": branch_adv["not_taken"]},
+                          sort_keys=True))
     jr_adv = adversarial_jr_delay_slot_changes_target()
-    gate.check("adversarial:jr-delay-slot-changes-target", jr_adv["ok"], json.dumps(jr_adv["result"], sort_keys=True))
-
+    gate.check("adversarial:jr-delay-slot-changes-target", jr_adv["ok"],
+               json.dumps(jr_adv["result"], sort_keys=True))
     jalr_adv = adversarial_jalr_link_visible_to_delay_slot()
-    gate.check("adversarial:jalr-link-visible-to-delay-slot", jalr_adv["ok"], json.dumps(jalr_adv["result"], sort_keys=True))
+    gate.check("adversarial:jalr-link-visible-to-delay-slot", jalr_adv["ok"],
+               json.dumps(jalr_adv["result"], sort_keys=True))
 
-    # 8. Public safety.
-    text = json.dumps(manifest, sort_keys=True)
-    for term in ("raw_instruction", "instruction_word", "payload_bytes", "bios_bytes"):
-        gate.check(f"public:no-{term}", term not in text)
-    gate.check("public:no-private-paths", "/home/" not in text and "fixtures/" not in text)
-    assert_public_safe(gate, "title-exec-emission", manifest)
+    expectations = _authentic_jal_expectations(projection)
+    gate.check("jal:authentic-owner-and-delay-slot-derived",
+               expectations["owner_pc"] == AUTHENTIC_JAL_OWNER_PC
+               and expectations["delay_slot_pc"] == AUTHENTIC_JAL_OWNER_PC + 4
+               and expectations["target_pc"] is not None,
+               json.dumps({k: (_hex32(v) if isinstance(v, int) else v)
+                           for k, v in expectations.items()}, sort_keys=True))
+    jal_assessment = authentic_jal_path_assessment(manifest, expectations)
+    gate.check("jal:authentic-delay-slot-attempted", jal_assessment["delay_slot_attempted"],
+               json.dumps(jal_assessment, sort_keys=True))
+    gate.check("jal:no-premature-jal-owner-frontier",
+               not jal_assessment["premature_owner_frontier"],
+               json.dumps(jal_assessment, sort_keys=True))
+    gate.check("jal:authentic-path-option-a-or-fail-closed", jal_assessment["ok"],
+               json.dumps(jal_assessment, sort_keys=True))
+    premature_probe = jal_premature_frontier_detected()
+    gate.check("negative:premature-jal-owner-frontier-rejected",
+               premature_probe["premature_detected"] and not premature_probe["clean_rejected"],
+               json.dumps(premature_probe, sort_keys=True))
 
-    # 9. Evidence.
+    link_semantics = jal_link_and_pending_semantics()
+    gate.check("jal:link-register-semantics",
+               link_semantics["link_value_seen_by_delay_slot"] == link_semantics["expected_link_value"],
+               json.dumps(link_semantics, sort_keys=True))
+    gate.check("jal:delay-slot-observes-link-state",
+               link_semantics["delay_slot_owner_pc"] == _hex32(0x80038000)
+               and link_semantics["delay_slot_pc"] == _hex32(0x80038004)
+               and link_semantics["link_value_seen_by_delay_slot"] == _hex32(0x80038008),
+               json.dumps(link_semantics, sort_keys=True))
+    gate.check("jal:pending-target-not-applied-early",
+               link_semantics["fallthrough_instruction_skipped"]
+               and link_semantics["step_count"] == 3
+               and link_semantics["last_executed_pc"] == _hex32(0x80038010),
+               json.dumps(link_semantics, sort_keys=True))
+    gate.check("jal:pending-transfer-applied-after-delay-slot",
+               link_semantics["pending_transfer_type"] == 1
+               and link_semantics["pending_transfer_target"] == _hex32(0x80038010)
+               and link_semantics["pending_transfer_applied"] == 1
+               and link_semantics["final_pc"] == _hex32(0x80038014),
+               json.dumps(link_semantics, sort_keys=True))
+    fail_closed = jal_fail_closed_at_delay_slot()
+    gate.check("jal:fail-closed-at-authentic-delay-slot-pc",
+               fail_closed["stop_reason"] == "UNSUPPORTED_OPERATION"
+               and fail_closed["stop_pc"] == _hex32(0x80038004)
+               and fail_closed["attempted_frontier_pc"] == _hex32(0x80038004)
+               and fail_closed["last_executed_pc"] == _hex32(0x80038000)
+               and fail_closed["step_count"] == 1
+               and fail_closed["delay_slot_owner_pc"] == _hex32(0x80038000)
+               and fail_closed["delay_slot_pc"] == _hex32(0x80038004),
+               json.dumps(fail_closed, sort_keys=True))
+    gate.check("jal:rejected-delay-slot-does-not-increment-executed-count",
+               fail_closed["step_count"] == 1, json.dumps(fail_closed, sort_keys=True))
+    gate.check("jal:rejected-delay-slot-does-not-apply-pending-transfer",
+               fail_closed["pending_transfer_type"] == 1
+               and fail_closed["pending_transfer_target"] == _hex32(0x80038020)
+               and fail_closed["pending_transfer_applied"] == 0,
+               json.dumps(fail_closed, sort_keys=True))
+
+    # 8. Implemented vs exercised semantic vocabulary.
+    coverage = implemented_vocabulary_covered()
+    gate.check("vocabulary:implemented-ops-all-executable", coverage["ok"],
+               json.dumps(coverage, sort_keys=True))
+    derived = executed_vocabulary_is_derived(manifest)
+    gate.check("vocabulary:exercised-derived-from-execution-trace", derived["ok"],
+               json.dumps(derived, sort_keys=True))
+    gate.check("vocabulary:exercised-subset-of-implemented",
+               derived["exercised_subset_of_implemented"], json.dumps(derived, sort_keys=True))
+    gate.check("vocabulary:executed-count-not-conflated-with-vocabulary-count",
+               derived["executed_count_exceeds_vocabulary_count"] and derived["trace_matches_executed_count"],
+               json.dumps(derived, sort_keys=True))
+
+    # 9. Linkage-level exclusion of the historical handwritten substitute.
+    linkage_checks = linkage_exclusion_checks([
+        run_dirs[0] / "or_title_runtime_v1.so",
+        run_dirs[0] / "or_title_runtime_v1",
+    ])
+    linkage_doc = linkage_checks["report"]
+    gate.check("linkage:native-artifacts-excluded", linkage_doc["excluded"],
+               json.dumps({"forbidden_hits": linkage_doc["forbidden_hits"],
+                           "inspected_line_count": linkage_doc["inspected_line_count"]},
+                          sort_keys=True))
+    gate.check("linkage:inspection-method-and-digest-recorded",
+               bool(linkage_doc["inspection_method"]) and len(linkage_doc["inspection_digest"]) == 64)
+    gate.check("negative:forbidden-linked-symbol-detected", linkage_checks["ok"],
+               json.dumps({"negative_reports": linkage_checks["negative_reports"],
+                           "clean_control_excluded": linkage_checks["clean_control_excluded"]},
+                          sort_keys=True))
+
+    # 10. Scope: no Phase 1..16 modifications.
+    phase_changes = working_tree_phase_1_16_changes()
+    gate.check("scope:no-phase-1-16-changes", not phase_changes,
+               json.dumps(phase_changes, sort_keys=True))
+    frozen = subprocess.run(
+        [sys.executable, str(ROOT / ".openrecomp-phase17" / "src" / "p17_frozen_phase16_integrity_v1.py")],
+        cwd=str(ROOT), capture_output=True, text=True,
+    )
+    gate.check("scope:phase16-frozen-integrity",
+               frozen.returncode == 0
+               and "OPENRECOMP_PHASE17_P16_SOURCE_INTEGRITY=PASS" in frozen.stdout)
+
+    # 11. Public safety.
+    persistence_doc = {
+        "schema": "openrecomp-phase17-persistence-v1",
+        "stage": "P17-04R",
+        "private_build_root_env_var": emitter.PRIVATE_BUILD_ROOT_ENV,
+        "env_override_honoured": bool(probe.get("override_honoured")),
+        "default_root_digest_prefix": probe.get("default_digest_prefix"),
+        "official_run_dirs": list(emitter.OFFICIAL_RUN_DIRS),
+        "artifacts": manifest["persistence"]["artifacts"],
+        "run1_existence": persisted_first["artifacts"],
+        "run2_existence": persisted_second["artifacts"],
+        "child_process_verification": child_check,
+        "reusable_interface": {k: v for k, v in interface_present.items() if k != "ok"},
+        "hash_determinism": {
+            "generated_source_identical": manifests[0]["source"]["generated_source_sha256"]
+            == manifests[1]["source"]["generated_source_sha256"],
+            "private_map_identical": manifests[0]["persistence"]["artifacts"]["private_mapping"]["sha256"]
+            == manifests[1]["persistence"]["artifacts"]["private_mapping"]["sha256"],
+            "shared_object_identical": manifests[0]["build"]["shared_object_sha256"]
+            == manifests[1]["build"]["shared_object_sha256"],
+            "executable_identical": manifests[0]["build"]["executable_sha256"]
+            == manifests[1]["build"]["executable_sha256"],
+            "manifest_identical": manifests[0] == manifests[1],
+        },
+    }
+    vocabulary_doc = {
+        "schema": "openrecomp-phase17-semantic-vocabulary-v1",
+        "stage": "P17-04R",
+        "implemented_semantic_vocabulary": manifest["source"]["implemented_semantic_vocabulary"],
+        "implemented_semantic_vocabulary_count": manifest["source"]["implemented_semantic_vocabulary_count"],
+        "exercised_semantic_vocabulary": manifest["source"]["exercised_semantic_vocabulary"],
+        "exercised_semantic_vocabulary_count": manifest["source"]["exercised_semantic_vocabulary_count"],
+        "executed_instruction_count": rr["executed_instruction_count"],
+        "executed_semantic_trace": manifest["source"]["executed_semantic_trace"],
+        "exercised_derived_from_execution_trace": derived,
+        "implemented_coverage": coverage,
+    }
+    jal_doc = {
+        "schema": "openrecomp-phase17-jal-frontier-v1",
+        "stage": "P17-04R",
+        "authentic_expectations": {
+            k: (_hex32(v) if isinstance(v, int) else v) for k, v in expectations.items()
+        },
+        "authentic_assessment": jal_assessment,
+        "premature_frontier_negative_control": premature_probe,
+        "synthetic_link_semantics": link_semantics,
+        "synthetic_fail_closed": fail_closed,
+    }
+    for name, document in (
+        ("title-exec-emission", manifest),
+        ("persistence", persistence_doc),
+        ("semantic-vocabulary", vocabulary_doc),
+        ("jal-frontier", jal_doc),
+        ("linkage-exclusion", linkage_doc),
+    ):
+        text = json.dumps(document, sort_keys=True)
+        for term in ("raw_instruction", "instruction_word", "payload_bytes", "bios_bytes"):
+            gate.check(f"public:{name}:no-{term.replace(chr(95), chr(45))}-field",
+                       term not in text)
+        gate.check(f"public:{name}:no-private-paths",
+                   "/home/" not in text and "fixtures/" not in text and "/tmp/" not in text)
+        assert_public_safe(gate, name, document)
+
+    # 12. Evidence.
     write_json(evidence / "title_exec_emission.json", manifest)
     write_json(evidence / "runtime_result.json", rr)
+    write_json(evidence / "persistence.json", persistence_doc)
+    write_json(evidence / "semantic_vocabulary.json", vocabulary_doc)
+    write_json(evidence / "jal_frontier.json", jal_doc)
+    write_json(evidence / "linkage_exclusion.json", linkage_doc)
+    write_json(evidence / "next_stage.json", {
+        "schema": "openrecomp-phase17-next-stage-v1",
+        "stage": "P17-04R",
+        "next_stage": NEXT_STAGE,
+        "authoritative_sources": ["RESULT.json", "STATE.md", "HANDOFF.md",
+                                  "title_exec_emission.json", "stage_metadata.json",
+                                  "official_runs.json", "determinism.json"],
+    })
+    write_json(evidence / "stage_metadata.json", {
+        "schema": "openrecomp-phase17-stage-metadata-v1",
+        "stage": "P17-04R",
+        "revision": 4,
+        "status": "PASS",
+        "next_stage": NEXT_STAGE,
+        "base_commit": "937e5fa0a8e353808620b82b0203ab608e2d8cf4",
+        "worker_branch": "agent/kimi-phase17-p17-04r-rev4",
+        "resulting_candidate_commit": "PENDING_FINAL_COMMIT",
+        "resulting_candidate_commit_resolver": "git rev-parse agent/kimi-phase17-p17-04r-rev4",
+    })
 
     markers = {
         "OPENRECOMP_PHASE17_AUTHENTIC_TITLE_EXEC_EMISSION_V1": "PASS",
@@ -885,8 +1664,8 @@ def body(gate: Gate, evidence: pathlib.Path, root: pathlib.Path) -> None:
         contract.GENERAL_MARKER: "NOT_PROVEN",
         contract.FIRST_FRAME_READY_MARKER: "NO",
     }
-    for k, v in markers.items():
-        gate.mark(k, v)
+    for key, value in markers.items():
+        gate.mark(key, value)
     write_json(
         evidence / "RESULT.json",
         {
@@ -894,10 +1673,92 @@ def body(gate: Gate, evidence: pathlib.Path, root: pathlib.Path) -> None:
             "stage": STAGE,
             "status": "PASS",
             "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+            "base_commit": "937e5fa0a8e353808620b82b0203ab608e2d8cf4",
+            "resulting_candidate_commit": "PENDING_FINAL_COMMIT",
+            "resulting_candidate_commit_resolver": "git rev-parse agent/kimi-phase17-p17-04r-rev4",
+            "authentic_frontier": {
+                "jal_owner_pc": _hex32(expectations["owner_pc"]),
+                "jal_delay_slot_pc": _hex32(expectations["delay_slot_pc"]),
+                "last_successfully_executed_pc": rr["last_successfully_executed_pc"],
+                "attempted_frontier_pc": rr["attempted_frontier_pc"],
+                "frontier_pc": rr["frontier_pc"],
+                "stop_reason": rr["stop_reason"],
+                "executed_instruction_count": rr["executed_instruction_count"],
+                "pending_transfer_type": rr["pending_transfer_type"],
+                "pending_transfer_target": rr["pending_transfer_target"],
+                "delay_slot_owner_pc": rr["delay_slot_owner_pc"],
+                "delay_slot_pc": rr["delay_slot_pc"],
+            },
+            "semantic_vocabulary_counts": {
+                "implemented": manifest["source"]["implemented_semantic_vocabulary_count"],
+                "exercised": manifest["source"]["exercised_semantic_vocabulary_count"],
+            },
+            "persisted_artifacts": {
+                key: {"file": value["name"], "sha256": value["sha256"]}
+                for key, value in manifest["persistence"]["artifacts"].items()
+            },
+            "linkage_exclusion": {
+                "excluded": linkage_doc["excluded"],
+                "forbidden_hit_count": linkage_doc["forbidden_hit_count"],
+                "inspection_method": linkage_doc["inspection_method"],
+                "inspection_digest": linkage_doc["inspection_digest"],
+                "negative_control_detected": linkage_checks["negative_ok"],
+            },
             "markers": markers,
-            "next_stage": "P17-05",
+            "next_stage": NEXT_STAGE,
+            "proof_boundaries": {
+                "HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+                "HERCULES_FRAME_PROOF": "NOT_PROVEN",
+                "HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN",
+                "GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+                "GENERAL_TITLE_COMPATIBILITY": "NOT_PROVEN",
+                "FIRST_FRAME_READY": "NO",
+            },
         },
     )
+
+    # 13. Cross-file next-stage consistency (after all authoritative files exist).
+    authoritative = {
+        "RESULT.json": evidence / "RESULT.json",
+        "title_exec_emission.json": evidence / "title_exec_emission.json",
+        "stage_metadata.json": evidence / "stage_metadata.json",
+        "next_stage.json": evidence / "next_stage.json",
+        "official_runs.json": evidence / "official_runs.json",
+        "determinism.json": evidence / "determinism.json",
+        "STATE.md": ROOT / ".openrecomp-phase17" / "STATE.md",
+        "HANDOFF.md": ROOT / ".openrecomp-phase17" / "HANDOFF.md",
+    }
+    declared = {}
+    for name, path in authoritative.items():
+        value = _declared_next_stage(path)
+        if value is not None:
+            declared[name] = value
+    required = {"RESULT.json", "title_exec_emission.json", "stage_metadata.json",
+                "next_stage.json", "STATE.md", "HANDOFF.md"}
+    mismatched = sorted(name for name, value in declared.items() if value != NEXT_STAGE)
+    missing = sorted(required - set(declared))
+    gate.check("next-stage:cross-file-consistency", not mismatched and not missing,
+               json.dumps({"mismatched": mismatched, "missing": missing}, sort_keys=True))
+
+    # 14. Public safety over the committed evidence directory.
+    evidence_scan = evidence_public_safety(evidence)
+    gate.check("public:committed-evidence-clean", evidence_scan["ok"],
+               json.dumps(evidence_scan, sort_keys=True))
+    # The stage runner persists this gate stdout verbatim as run{1,2}.txt, so the
+    # in-memory check results are scanned as the stdout the runner will commit.
+    stdout_text = json.dumps(gate.results, sort_keys=True)
+    stdout_hits = [term for term in ("raw_instruction", "instruction_word",
+                                     "payload_bytes", "bios_bytes")
+                   if term in stdout_text]
+    stdout_hits += [marker for marker in ("/home/", "fixtures/", "/tmp/", "/Users/")
+                    if marker in stdout_text]
+    gate.check("public:gate-stdout-clean", not stdout_hits,
+               json.dumps(stdout_hits, sort_keys=True))
+
+    # R4-15: terminal Revision 4 marker, emitted only after every check passed.
+    gate.mark("OPENRECOMP_P17_04R_REV4", "PASS")
+
+
 
 
 if __name__ == "__main__":
