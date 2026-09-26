@@ -1,0 +1,91 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase17-sources",
+      "detail": "OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=17",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:target-count",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:8004ff54-authentic-reachable",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:80050110-authentic-reachable",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:historical-phase16-read-only",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:entry",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:classification-tamper-detected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:digest-tamper-detected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:missing-target-rejected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:private-path-rejected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:reconstructive-field-rejected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier-reconciliation:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier-reconciliation:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier-reconciliation:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier-reconciliation:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier-reconciliation:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P17-03 Test Results",
+  "schema": "openrecomp-phase17-tests-v1",
+  "stage": "P17-03",
+  "summary": {
+    "failed": 0,
+    "passed": 16
+  }
+}

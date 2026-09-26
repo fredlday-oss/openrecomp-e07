@@ -1,0 +1,81 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "e6bedcd1978153a259f8fef675c04ed8cbc0443ca1625253ed1eb3891b7ab5d3",
+    "frontier_reconciliation.json": "045c4f8a428ccd76a380ada274b149a7b8ed4401d38e18fe8f1f4d22d140c7ca",
+    "p17_03_tests.json": "e6d47ae9e40d846b28eaa57e2b26ec4bbeef26f2f296c162a8b3e8a1b4fbe285"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "e6bedcd1978153a259f8fef675c04ed8cbc0443ca1625253ed1eb3891b7ab5d3",
+        "frontier_reconciliation.json": "045c4f8a428ccd76a380ada274b149a7b8ed4401d38e18fe8f1f4d22d140c7ca",
+        "p17_03_tests.json": "e6d47ae9e40d846b28eaa57e2b26ec4bbeef26f2f296c162a8b3e8a1b4fbe285"
+      },
+      "command": [
+        "python",
+        "tools/test_phase17_frontier_reconciliation_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase17/evidence/P17-03"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_PHASE17_FRONTIER_RECONCILIATION_V1=PASS",
+        "OPENRECOMP_P17_03=PASS",
+        "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p17_03_tests_sha256": "e6d47ae9e40d846b28eaa57e2b26ec4bbeef26f2f296c162a8b3e8a1b4fbe285",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1199,
+      "stdout_bytes_lf": 1199,
+      "stdout_sha256_lf": "65d438cdf53eded16e72d9efd2e7916bd340986ad2be5f06e45cb9a1810c203c",
+      "stdout_sha256_raw": "65d438cdf53eded16e72d9efd2e7916bd340986ad2be5f06e45cb9a1810c203c",
+      "tests_json_present": true
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "e6bedcd1978153a259f8fef675c04ed8cbc0443ca1625253ed1eb3891b7ab5d3",
+        "frontier_reconciliation.json": "045c4f8a428ccd76a380ada274b149a7b8ed4401d38e18fe8f1f4d22d140c7ca",
+        "p17_03_tests.json": "e6d47ae9e40d846b28eaa57e2b26ec4bbeef26f2f296c162a8b3e8a1b4fbe285"
+      },
+      "command": [
+        "python",
+        "tools/test_phase17_frontier_reconciliation_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase17/evidence/P17-03"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_PHASE17_FRONTIER_RECONCILIATION_V1=PASS",
+        "OPENRECOMP_P17_03=PASS",
+        "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p17_03_tests_sha256": "e6d47ae9e40d846b28eaa57e2b26ec4bbeef26f2f296c162a8b3e8a1b4fbe285",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1199,
+      "stdout_bytes_lf": 1199,
+      "stdout_sha256_lf": "65d438cdf53eded16e72d9efd2e7916bd340986ad2be5f06e45cb9a1810c203c",
+      "stdout_sha256_raw": "65d438cdf53eded16e72d9efd2e7916bd340986ad2be5f06e45cb9a1810c203c",
+      "tests_json_present": true
+    }
+  ],
+  "schema": "openrecomp-phase17-official-runs-v1",
+  "stage": "P17-03",
+  "stderr_empty_both": true,
+  "tests_json_present_both": true
+}

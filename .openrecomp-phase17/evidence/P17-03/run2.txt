@@ -1,0 +1,24 @@
+PASS: integrity:phase17-sources OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=17
+PASS: positive:target-count
+PASS: positive:8004ff54-authentic-reachable
+PASS: positive:80050110-authentic-reachable
+PASS: positive:historical-phase16-read-only
+PASS: positive:entry
+PASS: negative:classification-tamper-detected
+PASS: negative:digest-tamper-detected
+PASS: negative:missing-target-rejected
+PASS: negative:private-path-rejected
+PASS: negative:reconstructive-field-rejected
+PASS: frontier-reconciliation:no-private-path absolute private paths absent
+PASS: frontier-reconciliation:reject-private-paths no private paths in values
+PASS: frontier-reconciliation:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: frontier-reconciliation:no-payload-hex no payload supplied
+PASS: frontier-reconciliation:no-raw-words reconstructive fields absent
+OPENRECOMP_PHASE17_FRONTIER_RECONCILIATION_V1=PASS
+OPENRECOMP_P17_03=PASS
+OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+FIRST_FRAME_READY=NO
+P17-03_CHECKS=16
