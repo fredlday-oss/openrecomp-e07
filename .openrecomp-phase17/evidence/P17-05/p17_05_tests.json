@@ -1,0 +1,111 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase17-sources",
+      "detail": "OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=21",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:service",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:verified-payload",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:entry-target",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:frozen-transition",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:causality-chain",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:ablation-contract",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:execution-deferred",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:no-payload_bytes",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:no-instruction_word",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:no-raw_instruction",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:no-pathhomepath",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:no-fixturespath",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:wrong-entry-rejected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:missing-emission-rejected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "exec-dispatch:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "exec-dispatch:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "exec-dispatch:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "exec-dispatch:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "exec-dispatch:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P17-05 Test Results",
+  "schema": "openrecomp-phase17-tests-v1",
+  "stage": "P17-05",
+  "summary": {
+    "failed": 0,
+    "passed": 20
+  }
+}

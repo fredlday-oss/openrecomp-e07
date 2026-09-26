@@ -1,0 +1,36 @@
+{
+  "ablation": {
+    "emission_present": true,
+    "without_emission": "DISPATCH_REJECTED_AUTHENTIC_TITLE_EXECUTION_ABSENT"
+  },
+  "causality": [
+    "verified_exec_payload",
+    "authenticated_emission",
+    "emitted_entry_0x800380a0",
+    "dispatch_target_0x800380a0",
+    "phase16_transition_target_0x800380a0"
+  ],
+  "claims": {
+    "execution": "DEFERRED_TO_P17_06",
+    "first_frame_ready": "NO",
+    "frame": "NOT_PROVEN",
+    "general_compatibility": "NOT_PROVEN",
+    "initialization": "NOT_PROVEN",
+    "playability": "NOT_PROVEN"
+  },
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "exec_contract": {
+    "dispatch_target": "0x800380a0",
+    "emitted_entry": "0x800380a0",
+    "service": "A0:0x43",
+    "title_entry_called": 1,
+    "transition_target": "0x800380a0",
+    "verified": true
+  },
+  "schema": "openrecomp-phase17-exec-dispatch-causality-v1",
+  "source": {
+    "emission_digest": "20f2ebcd1c20ae4977e13ada706f05463191d7b18e8796037483235673c35f91",
+    "p16_transition_schema": "openrecomp-phase16-title-exec-transition-v1"
+  },
+  "stage": "P17-05"
+}

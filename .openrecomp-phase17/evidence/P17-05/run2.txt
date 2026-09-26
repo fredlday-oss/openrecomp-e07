@@ -1,0 +1,28 @@
+PASS: integrity:phase17-sources OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=21
+PASS: positive:service
+PASS: positive:verified-payload
+PASS: positive:entry-target
+PASS: positive:frozen-transition
+PASS: positive:causality-chain
+PASS: positive:ablation-contract
+PASS: positive:execution-deferred
+PASS: negative:no-payload_bytes
+PASS: negative:no-instruction_word
+PASS: negative:no-raw_instruction
+PASS: negative:no-pathhomepath
+PASS: negative:no-fixturespath
+PASS: negative:wrong-entry-rejected
+PASS: negative:missing-emission-rejected
+PASS: exec-dispatch:no-private-path absolute private paths absent
+PASS: exec-dispatch:reject-private-paths no private paths in values
+PASS: exec-dispatch:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: exec-dispatch:no-payload-hex no payload supplied
+PASS: exec-dispatch:no-raw-words reconstructive fields absent
+OPENRECOMP_PHASE17_EXEC_DISPATCH_CAUSALITY_V1=PASS
+OPENRECOMP_P17_05=PASS
+OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+FIRST_FRAME_READY=NO
+P17-05_CHECKS=20
