@@ -1,6 +1,6 @@
-# HUMAN_REVIEW_REQUIRED — P17-04 through P17-07 proof gap
+# HUMAN_REVIEW_REQUIRED — P17-05R through P17-07R proof gap
 
-The controller stopped fail-closed before P17-90/P17-91/P17-99.
+Status update (controller): P17-04R Revision 4 was independently re-verified and integrated by fast-forward to `0ab4e7eb2ed4393cec7f61a79705d2c44bbc4441`; see `.openrecomp-phase17/evidence/P17-04R/CONTROLLER_REVIEW.md`. The P17-04 bullet below is historical. The remaining fail-closed stop covers P17-05R through P17-07R; the controller still stopped before P17-90/P17-91/P17-99.
 
 Reason: review of the implemented stages found that the historical P17-04 through P17-07 gates are metadata/projection checks, not sufficient mechanical proof of the requested runtime behavior:
 

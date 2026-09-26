@@ -18,18 +18,18 @@
 - `FIRST_FRAME_READY=NO`
 
 ## Current Stage
-- CURRENT_STAGE: P17-04R_REV4_REVIEW
-- LAST_COMPLETED_STAGE: P17-04R
+- CURRENT_STAGE: P17-05R
+- LAST_COMPLETED_STAGE: P17-04R (Revision 4 accepted and integrated)
 - NEXT_STAGE: P17-05R
 - next_stage: P17-05R
-- FINAL_VERDICT: HUMAN_REVIEW_REQUIRED
-- REVIEW_GATE: Revision 4 candidate awaits the controller/human review stop in `.openrecomp-phase17/REVIEW_REQUIRED.md`; nothing is integrated automatically.
+- FINAL_VERDICT: PHASE17_IN_PROGRESS
+- REVIEW_GATE: P17-04R Revision 4 was independently re-verified by the controller (canonical dual reruns, 0 non-PASS, regenerated evidence byte-identical to the committed evidence) and integrated by fast-forward to `0ab4e7eb2ed4393cec7f61a79705d2c44bbc4441`. The remaining fail-closed review stop covers P17-05R through P17-07R; see `.openrecomp-phase17/REVIEW_REQUIRED.md` and `.openrecomp-phase17/evidence/P17-04R/CONTROLLER_REVIEW.md`.
 
 ## Revision 4 (P17-04R) authoritative metadata
-- STATUS: PASS (Revision 4 candidate, not integrated)
+- STATUS: PASS (integrated into the controller branch)
 - base_commit: 937e5fa0a8e353808620b82b0203ab608e2d8cf4
 - worker_branch: agent/kimi-phase17-p17-04r-rev4
-- resulting_candidate_commit: PENDING_FINAL_COMMIT
+- resulting_candidate_commit: 0ab4e7eb2ed4393cec7f61a79705d2c44bbc4441
 - resulting_candidate_commit_resolver: git rev-parse agent/kimi-phase17-p17-04r-rev4
 - authentic_frontier: last_successfully_executed_pc=0x80038130, attempted_frontier_pc=0x80011af0, frontier_pc=0x80011af0, stop_reason=PC_NOT_IN_AUTHENTICATED_TABLE
 - authentic_jal: owner_pc=0x8003812c, delay_slot_pc=0x80038130, pending_transfer_type=DIRECT_CALL, pending_transfer_target=0x80011af0
@@ -46,7 +46,7 @@
 | P17-02 | PASS | `OPENRECOMP_PHASE17_TITLE_IR_CONTRACT_V1=PASS` |
 | P17-03 | PASS | `OPENRECOMP_PHASE17_FRONTIER_RECONCILIATION_V1=PASS` |
 | P17-04 | FAIL_REVIEW_REQUIRED | Historical gate PASS checks a block inventory, not emitted guest code; marker not established |
-| P17-04R | PASS (Revision 4 candidate) | `OPENRECOMP_P17_04R=PASS` + `OPENRECOMP_P17_04R_REV4=PASS` |
+| P17-04R | PASS (integrated) | `OPENRECOMP_P17_04R=PASS` + `OPENRECOMP_P17_04R_REV4=PASS` |
 | P17-05 | FAIL_REVIEW_REQUIRED | Historical gate PASS checks metadata, not a live Exec dispatch/ablation; marker not established |
 | P17-06 | FAIL_REVIEW_REQUIRED | Historical gate PASS advances PCs without executing guest instruction effects; frontier marker not established |
 | P17-07 | FAIL_REVIEW_REQUIRED | Historical gate PASS infers absent device events from a digest without a checked transcript; marker not established |
