@@ -1,0 +1,26 @@
+PASS: integrity:phase17-sources OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=25
+PASS: deterministic
+PASS: frontier
+PASS: gpu_writes
+PASS: dma2
+PASS: ordering_table_writes
+PASS: ot_traversal
+PASS: framebuffer_activity
+PASS: initialization_predicates
+PASS: safe-/home/
+PASS: safe-payload_bytes
+PASS: safe-instruction_word
+PASS: safe-raw_instruction
+PASS: assessment:no-private-path absolute private paths absent
+PASS: assessment:reject-private-paths no private paths in values
+PASS: assessment:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: assessment:no-payload-hex no payload supplied
+PASS: assessment:no-raw-words reconstructive fields absent
+OPENRECOMP_PHASE17_FRONTIER_ASSESSMENT_V1=PASS
+OPENRECOMP_P17_07=PASS
+OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+FIRST_FRAME_READY=NO
+P17-07_CHECKS=18

@@ -1,0 +1,101 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase17-sources",
+      "detail": "OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=25",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu_writes",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "dma2",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "ordering_table_writes",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "ot_traversal",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "framebuffer_activity",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "initialization_predicates",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "safe-/home/",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "safe-payload_bytes",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "safe-instruction_word",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "safe-raw_instruction",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "assessment:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "assessment:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "assessment:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "assessment:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "assessment:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P17-07 Test Results",
+  "schema": "openrecomp-phase17-tests-v1",
+  "stage": "P17-07",
+  "summary": {
+    "failed": 0,
+    "passed": 18
+  }
+}

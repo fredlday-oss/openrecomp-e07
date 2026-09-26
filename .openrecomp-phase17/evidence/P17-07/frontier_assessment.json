@@ -1,0 +1,55 @@
+{
+  "claims": {
+    "first_frame_ready": "NO",
+    "frame": "NOT_PROVEN",
+    "general_compatibility": "NOT_PROVEN",
+    "initialization": "NOT_PROVEN",
+    "playability": "NOT_PROVEN"
+  },
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "frontier": {
+    "attempted_next_pc": "0x800380bc",
+    "entry_pc": "0x800380a0",
+    "executed_instruction_count": 8,
+    "final_supported_pc": "0x800380bc",
+    "stop_reason": "UNSUPPORTED_CONTROL_FLOW"
+  },
+  "observations": {
+    "dma2": {
+      "basis": "P17-06 device transcript contains no event of this class",
+      "encountered": false,
+      "event_count": 0
+    },
+    "framebuffer_activity": {
+      "basis": "P17-06 device transcript contains no event of this class",
+      "encountered": false,
+      "event_count": 0
+    },
+    "gpu_writes": {
+      "basis": "P17-06 device transcript contains no event of this class",
+      "encountered": false,
+      "event_count": 0
+    },
+    "initialization_predicates": {
+      "basis": "P17-06 device transcript contains no event of this class",
+      "encountered": false,
+      "event_count": 0
+    },
+    "ordering_table_writes": {
+      "basis": "P17-06 device transcript contains no event of this class",
+      "encountered": false,
+      "event_count": 0
+    },
+    "ot_traversal": {
+      "basis": "P17-06 device transcript contains no event of this class",
+      "encountered": false,
+      "event_count": 0
+    }
+  },
+  "schema": "openrecomp-phase17-frontier-assessment-v1",
+  "source": {
+    "device_transcript_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "execution_prefix_digest": "710b407720df0390d79b716649c951621ea3a45a651ae6f951e9326ec6fb390b"
+  },
+  "stage": "P17-07"
+}
