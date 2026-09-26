@@ -10,9 +10,9 @@ P17-00 froze placeholder/reserved rows before the complete Phase-17 execution co
 |---|---|---|---|
 | P17-00 | Phase bootstrap / Phase-16 freeze / clean control plane | `OPENRECOMP_P17_00=PASS` | PASS |
 | P17-01 | Authentic TITLE identity and bounded PS-X EXE ingestion | `OPENRECOMP_PHASE17_TITLE_INGESTION_V1=PASS` | PASS |
-| P17-02 | Authentic TITLE payload decode and bounded direct-control-flow structure | `OPENRECOMP_PHASE17_TITLE_IR_CONTRACT_V1=PASS` | PLANNED |
-| P17-03 | TITLE overlay host translation surface | `OPENRECOMP_PHASE17_TITLE_HOST_SURFACE_V1=PLANNED` | PLANNED |
-| P17-04 | TITLE overlay deterministic replay boundary | `OPENRECOMP_PHASE17_TITLE_REPLAY_BOUNDARY_V1=PLANNED` | PLANNED |
+| P17-02 | Authentic TITLE payload decode and bounded direct-control-flow structure | `OPENRECOMP_PHASE17_TITLE_IR_CONTRACT_V1=PASS` | PASS |
+| P17-03 | Frontier reconciliation of Phase-16 modelled post-dispatch addresses | `OPENRECOMP_PHASE17_FRONTIER_RECONCILIATION_V1=PLANNED` | PLANNED |
+| P17-04 | Authentic TITLE emission with provenance and exclusion of hand-authored guest flow | `OPENRECOMP_PHASE17_AUTHENTIC_TITLE_EMISSION_V1=PLANNED` | PLANNED |
 | P17-05 | Verified A0:0x43 Exec dispatch to authentic emitted TITLE entry and causality | `OPENRECOMP_PHASE17_EXEC_DISPATCH_CAUSALITY_V1=PLANNED` | PLANNED |
 | P17-06 | Bounded authentic TITLE execution to the exact first semantic/budget frontier | `OPENRECOMP_PHASE17_AUTHENTIC_EXECUTION_FRONTIER_V1=PLANNED` | PLANNED |
 | P17-07 | Authentic frontier assessment for GPU, DMA, OT, framebuffer, and initialization predicates | `OPENRECOMP_PHASE17_FRONTIER_ASSESSMENT_V1=PLANNED` | PLANNED |

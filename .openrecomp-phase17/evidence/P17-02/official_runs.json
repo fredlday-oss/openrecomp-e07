@@ -1,0 +1,91 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "ac7020ef844c9a570ed2aef37acb9620f4844aff78d52948adf145987ee5f36a",
+    "p17_02_tests.json": "f93d1d69223a1d0de028dfe7405ff321d79e295295b0a84e15510fe223e2cf8d",
+    "title_decode.json": "42f1189ef62ad123fb77e00a69728aa4c71d8f8ee5a17e9783a3a141b367eb17"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "ac7020ef844c9a570ed2aef37acb9620f4844aff78d52948adf145987ee5f36a",
+        "p17_02_tests.json": "f93d1d69223a1d0de028dfe7405ff321d79e295295b0a84e15510fe223e2cf8d",
+        "title_decode.json": "42f1189ef62ad123fb77e00a69728aa4c71d8f8ee5a17e9783a3a141b367eb17"
+      },
+      "command": [
+        "python",
+        "tools/test_phase17_title_decode_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase17/evidence/P17-02"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_PHASE17_SOURCE_INTEGRITY=FAIL mismatch",
+        "OPENRECOMP_PHASE17_P16_SOURCE_INTEGRITY=PASS entries=31 canonical=git-blob",
+        "OPENRECOMP_P17_00=PASS",
+        "OPENRECOMP_PHASE17_TITLE_INGESTION_V1=PASS",
+        "OPENRECOMP_PHASE17_TITLE_IR_CONTRACT_V1=PASS",
+        "OPENRECOMP_PHASE17_TITLE_HOST_SURFACE_V1=PLANNED",
+        "OPENRECOMP_PHASE17_TITLE_REPLAY_BOUNDARY_V1=PLANNED",
+        "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p17_02_tests_sha256": "f93d1d69223a1d0de028dfe7405ff321d79e295295b0a84e15510fe223e2cf8d",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1311828,
+      "stdout_bytes_lf": 1311828,
+      "stdout_sha256_lf": "f356a78809ef71e75903138bf2a44d593882d5c84c8f6186138d38f950c63319",
+      "stdout_sha256_raw": "f356a78809ef71e75903138bf2a44d593882d5c84c8f6186138d38f950c63319",
+      "tests_json_present": true
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "ac7020ef844c9a570ed2aef37acb9620f4844aff78d52948adf145987ee5f36a",
+        "p17_02_tests.json": "f93d1d69223a1d0de028dfe7405ff321d79e295295b0a84e15510fe223e2cf8d",
+        "title_decode.json": "42f1189ef62ad123fb77e00a69728aa4c71d8f8ee5a17e9783a3a141b367eb17"
+      },
+      "command": [
+        "python",
+        "tools/test_phase17_title_decode_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase17/evidence/P17-02"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_PHASE17_SOURCE_INTEGRITY=FAIL mismatch",
+        "OPENRECOMP_PHASE17_P16_SOURCE_INTEGRITY=PASS entries=31 canonical=git-blob",
+        "OPENRECOMP_P17_00=PASS",
+        "OPENRECOMP_PHASE17_TITLE_INGESTION_V1=PASS",
+        "OPENRECOMP_PHASE17_TITLE_IR_CONTRACT_V1=PASS",
+        "OPENRECOMP_PHASE17_TITLE_HOST_SURFACE_V1=PLANNED",
+        "OPENRECOMP_PHASE17_TITLE_REPLAY_BOUNDARY_V1=PLANNED",
+        "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p17_02_tests_sha256": "f93d1d69223a1d0de028dfe7405ff321d79e295295b0a84e15510fe223e2cf8d",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 1311828,
+      "stdout_bytes_lf": 1311828,
+      "stdout_sha256_lf": "f356a78809ef71e75903138bf2a44d593882d5c84c8f6186138d38f950c63319",
+      "stdout_sha256_raw": "f356a78809ef71e75903138bf2a44d593882d5c84c8f6186138d38f950c63319",
+      "tests_json_present": true
+    }
+  ],
+  "schema": "openrecomp-phase17-official-runs-v1",
+  "stage": "P17-02",
+  "stderr_empty_both": true,
+  "tests_json_present_both": true
+}
