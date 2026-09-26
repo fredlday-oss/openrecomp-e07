@@ -1,0 +1,61 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase17-sources",
+      "detail": "OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=23",
+      "status": "PASS"
+    },
+    {
+      "check": "entry",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "prefix",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "deterministic",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "exec:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P17-06 Test Results",
+  "schema": "openrecomp-phase17-tests-v1",
+  "stage": "P17-06",
+  "summary": {
+    "failed": 0,
+    "passed": 10
+  }
+}
