@@ -19,4 +19,4 @@ Phase 17 advances from the completed Phase-16 checkpoint (`a0c26e882ca65cfc84cbe
 4. The P17-01 `TITLE_PAYLOAD_DECODING_POLICY_V1=NOT_DECODED` marker remains historical to P17-01; P17-02 has authenticated decode evidence under `TITLE_IR_CONTRACT_V1=PASS`.
 
 ## Next Action
-Begin P17-03 frontier reconciliation: classify Phase-16 post-dispatch modelled addresses against authenticated P17-02 bytes and reachability without altering frozen Phase-16 evidence.
+Begin P17-04 authentic TITLE emission from authenticated P17-02 decoded records. P17-03 mechanically classifies both historical addresses `0x8004ff54` and `0x80050110` as `AUTHENTIC_BYTES_REACHABLE`; frozen Phase-16 evidence remains unchanged.
