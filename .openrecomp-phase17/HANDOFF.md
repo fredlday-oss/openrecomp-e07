@@ -19,4 +19,4 @@ Phase 17 advances from the completed Phase-16 checkpoint (`a0c26e882ca65cfc84cbe
 4. The P17-01 `TITLE_PAYLOAD_DECODING_POLICY_V1=NOT_DECODED` marker remains historical to P17-01; P17-02 has authenticated decode evidence under `TITLE_IR_CONTRACT_V1=PASS`.
 
 ## Next Action
-Begin P17-07 authentic frontier assessment. P17-06 dual-run execution evidence records an 8-instruction authenticated prefix from 0x800380A0 through 0x800380BC and stops at 0x800380BC with `UNSUPPORTED_CONTROL_FLOW`; no GPU, DMA, OT, framebuffer, or initialization claim is made.
+HUMAN_REVIEW_REQUIRED. Reopen P17-04 through P17-07 before any terminal verdict: the historical gate PASS records are insufficient to establish emitted executable guest code, live Exec dispatch/ablation, authentic instruction execution, or device observations. See `.openrecomp-phase17/REVIEW_REQUIRED.md`. Do not run P17-90/P17-91/P17-99 as proof-promoting gates or promote the bounded frontier marker. Controller must be clean after this classification is committed; source checksum and canonical frozen integrity must remain PASS.

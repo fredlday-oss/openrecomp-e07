@@ -18,10 +18,10 @@
 - `FIRST_FRAME_READY=NO`
 
 ## Current Stage
-- CURRENT_STAGE: P17-07
-- LAST_COMPLETED_STAGE: P17-06
-- NEXT_STAGE: P17-07
-- FINAL_VERDICT: PENDING
+- CURRENT_STAGE: P17-04_REVIEW
+- LAST_COMPLETED_STAGE: P17-03
+- NEXT_STAGE: HUMAN_REVIEW_REQUIRED
+- FINAL_VERDICT: HUMAN_REVIEW_REQUIRED
 
 ## Stage Status
 | Stage | Status | Marker |
@@ -30,10 +30,13 @@
 | P17-01 | PASS | `OPENRECOMP_PHASE17_TITLE_INGESTION_V1=PASS` |
 | P17-02 | PASS | `OPENRECOMP_PHASE17_TITLE_IR_CONTRACT_V1=PASS` |
 | P17-03 | PASS | `OPENRECOMP_PHASE17_FRONTIER_RECONCILIATION_V1=PASS` |
-| P17-04 | PASS | `OPENRECOMP_PHASE17_AUTHENTIC_TITLE_EMISSION_V1=PASS` |
-| P17-05 | PASS | `OPENRECOMP_PHASE17_EXEC_DISPATCH_CAUSALITY_V1=PASS` |
-| P17-06 | PASS | `OPENRECOMP_PHASE17_AUTHENTIC_EXECUTION_FRONTIER_V1=PASS` |
-| P17-07 | PLANNED | `OPENRECOMP_PHASE17_RESERVED_07_V1=PLANNED` |
+| P17-04 | FAIL_REVIEW_REQUIRED | Historical gate PASS checks a block inventory, not emitted guest code; marker not established |
+| P17-05 | FAIL_REVIEW_REQUIRED | Historical gate PASS checks metadata, not a live Exec dispatch/ablation; marker not established |
+| P17-06 | FAIL_REVIEW_REQUIRED | Historical gate PASS advances PCs without executing guest instruction effects; frontier marker not established |
+| P17-07 | FAIL_REVIEW_REQUIRED | Historical gate PASS infers absent device events from a digest without a checked transcript; marker not established |
 | P17-90 | PLANNED | `OPENRECOMP_P17_90=PASS` |
 | P17-91 | PLANNED | `OPENRECOMP_P17_91=PASS` |
 | P17-99 | PLANNED | `OPENRECOMP_P17_99=PASS` |
+
+## Review stop
+The original P17-04 through P17-07 `RESULT.json` files and commits remain unchanged as historical gate outputs; their PASS markers do not establish the mission's execution/emission/dispatch claims. See `REVIEW_REQUIRED.md`. Do not promote the bounded terminal marker.
