@@ -1,0 +1,121 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase17-sources",
+      "detail": "OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=19",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:authenticated-input-digest",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:entry-emitted",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:all-blocks-emitted",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:source-provenance-bijection",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:phase16-hand-authored-flow-excluded",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:execution-deferred",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:no-raw_instruction",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:no-instruction_word",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:no-payload_bytes",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:no-bios_bytes",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:no-private-paths",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:deterministic-c-inventory",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:c-inventory-no-raw-words",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:absent-projection-rejected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:digest-mismatch-rejected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:malformed-projection-rejected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "title-emission:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "title-emission:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "title-emission:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "title-emission:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "title-emission:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P17-04 Test Results",
+  "schema": "openrecomp-phase17-tests-v1",
+  "stage": "P17-04",
+  "summary": {
+    "failed": 0,
+    "passed": 22
+  }
+}
