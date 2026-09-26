@@ -41,7 +41,7 @@ import p17_fixture_verification_v1 as fixture
 import p17_iso9660_v1 as iso9660
 import p17_psx_exe_identity_v1 as p17_psx
 
-TITLE_ISO_PATH = r"\EX\TITLE.;1"
+TITLE_ISO_PATH = r"\\EX\\TITLE.;1"
 
 TITLE_FILE_SHA256 = "39013ea19589015872a211c23d8c23ae8ecee7bc5093d996f51cf206775f1b68"
 TITLE_PAYLOAD_SHA256 = "fe1925b5dd7c7190802dbe37b162759467fdbbf95b707edb9c6bb1626b961ccc"
@@ -61,29 +61,24 @@ class TitleDecodeError(ValueError):
         self.detail = detail
 
 
-@dataclass
-class TitleDecodeAnalysis:
-    """In-memory analysis object; raw records are retained for later stages."""
+@dataclass(frozen=True)
+class SourceProvenance:
+    """Authenticated provenance for one reachable guest PC."""
 
-    fixture_dir: pathlib.Path
-    identity: p17_psx.PsxExeIdentity
-    p9_image: psx.PsxExeImage
-    contract: dict[str, Any]
-    flat_image: bytes
-    frontier: dict[str, Any]
-    blocks: dict[int, "BasicBlock"]
-    block_order: tuple[int, ...]
-    projection: dict[str, Any] = field(default_factory=dict)
-    records_by_address: dict[int, dict[str, Any]] = field(default_factory=dict)
-    delay_by_owner: dict[int, int] = field(default_factory=dict)
+    guest_pc: int
+    payload_offset: int
+    file_offset: int
+    title_file_sha256: str
+    title_payload_sha256: str
 
-    @property
-    def records(self) -> list[dict[str, Any]]:
-        return self.frontier["records"]
-
-    @property
-    def reachable_addresses(self) -> list[int]:
-        return self.frontier["reachable_addresses"]
+    def asdict(self) -> dict[str, Any]:
+        return {
+            "guest_pc": f"0x{self.guest_pc:08x}",
+            "payload_offset": self.payload_offset,
+            "file_offset": self.file_offset,
+            "title_file_sha256": self.title_file_sha256,
+            "title_payload_sha256": self.title_payload_sha256,
+        }
 
 
 @dataclass
@@ -92,6 +87,7 @@ class BasicBlock:
     addresses: tuple[int, ...]
     terminator: str | None
     successors: tuple["BlockEdge", ...]
+    provenance: dict[int, SourceProvenance] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)
@@ -113,6 +109,32 @@ class AddressClassification:
     block_member: bool
     control_flow_class: str | None
     delay_slot_owner: int | None
+
+
+@dataclass
+class TitleDecodeAnalysis:
+    """In-memory analysis object; raw records are retained for later stages."""
+
+    fixture_dir: pathlib.Path
+    identity: p17_psx.PsxExeIdentity
+    p9_image: psx.PsxExeImage
+    contract: dict[str, Any]
+    flat_image: bytes
+    frontier: dict[str, Any]
+    blocks: dict[int, BasicBlock]
+    block_order: tuple[int, ...]
+    projection: dict[str, Any] = field(default_factory=dict)
+    records_by_address: dict[int, dict[str, Any]] = field(default_factory=dict)
+    delay_by_owner: dict[int, int] = field(default_factory=dict)
+    provenance: dict[int, SourceProvenance] = field(default_factory=dict)
+
+    @property
+    def records(self) -> list[dict[str, Any]]:
+        return self.frontier["records"]
+
+    @property
+    def reachable_addresses(self) -> list[int]:
+        return self.frontier["reachable_addresses"]
 
 
 def fixture_root() -> pathlib.Path:
@@ -186,11 +208,6 @@ def _derive_basic_blocks(frontier: dict[str, Any]) -> dict[int, BasicBlock]:
     delay_by_owner = {d["owner"]: d["delay"] for d in frontier["delay_slots"]}
     delay_owners = set(delay_by_owner.values())
     entry = frontier["entry"]
-    entry_is_control = records[entry].get("control_flow", False)
-    if entry_is_control and entry not in delay_by_owner:
-        # Entry is a control transfer with no valid delay slot already resolved
-        # by the frozen analysis; keep as the sole leader.
-        pass
 
     leaders: set[int] = {entry}
 
@@ -209,47 +226,55 @@ def _derive_basic_blocks(frontier: dict[str, Any]) -> dict[int, BasicBlock]:
         if cont in reachable and cont not in delay_owners:
             leaders.add(cont)
 
-    # Resolve any leader that is a delay slot by discarding it; a delay slot
-    # is never an independent instruction leader.
+    # A delay slot is never an independent instruction leader.
     for leader in list(leaders):
         if leader in delay_owners:
             leaders.discard(leader)
 
-    # If a leader would fall in the middle of a block (not a leader already and
-    # is an owned delay slot), it has been discarded above.
-
     starts = sorted(leaders)
     blocks: dict[int, BasicBlock] = {}
     for start in starts:
-        if start not in reachable:
-            continue
-        if start in delay_owners:
+        if start not in reachable or start in delay_owners:
             continue
         addrs: list[int] = []
         pc = start
         terminator: str | None = None
+        owner_pc: int | None = None
         while pc in reachable:
             addrs.append(pc)
             record = records[pc]
             if record["decode_class"] in decode_v1.CLASS_INVALID:
                 terminator = "unknown/reserved-frontier"
+                owner_pc = pc
                 break
             if record.get("control_flow"):
                 delay = delay_by_owner.get(pc)
                 if delay is not None:
                     addrs.append(delay)
                 terminator = record.get("terminator")
+                owner_pc = pc
                 break
             pc += 4
             if pc in leaders or pc in delay_owners:
                 break
         if not addrs:
             continue
+
+        # Determine the control owner explicitly.  If the block ends on an owned
+        # delay slot, the owner is the control transfer that owns it.
+        owner_pc = _control_owner(addrs, records, delay_by_owner)
+        if owner_pc is not None and records[owner_pc]["decode_class"] in decode_v1.CLASS_INVALID:
+            terminator = "unknown/reserved-frontier"
+        elif owner_pc is not None and records[owner_pc].get("terminator"):
+            terminator = records[owner_pc]["terminator"]
+        else:
+            terminator = None
+
         blocks[start] = BasicBlock(
             start=start,
             addresses=tuple(addrs),
             terminator=terminator,
-            successors=_block_successors(start, addrs, records, frontier, reachable, delay_owners),
+            successors=_block_successors(start, addrs, owner_pc, records, frontier, reachable, delay_owners),
         )
 
     _validate_partition(blocks, reachable, delay_owners)
@@ -259,22 +284,27 @@ def _derive_basic_blocks(frontier: dict[str, Any]) -> dict[int, BasicBlock]:
 def _block_successors(
     start: int,
     addrs: list[int],
+    owner_pc: int | None,
     records: dict[int, dict[str, Any]],
     frontier: dict[str, Any],
     reachable: set[int],
     delay_owners: set[int],
 ) -> tuple[BlockEdge, ...]:
     edges: list[BlockEdge] = []
-    last_addr = addrs[-1]
-    last_record = records[last_addr]
 
-    if last_record["decode_class"] in decode_v1.CLASS_INVALID:
-        edges.append(BlockEdge("frontier", last_addr, "unknown/reserved-encoding"))
+    if owner_pc is None:
+        # Should not happen for a non-empty block, but treat as ordinary fallthrough.
+        owner_pc = addrs[-1]
+
+    owner_record = records[owner_pc]
+
+    if owner_record["decode_class"] in decode_v1.CLASS_INVALID:
+        edges.append(BlockEdge("frontier", owner_pc, "unknown/reserved-encoding"))
         return tuple(edges)
 
-    terminator = last_record.get("terminator")
+    terminator = owner_record.get("terminator")
     if terminator is None:
-        fallthrough = last_addr + 4
+        fallthrough = owner_pc + 4
         if fallthrough in reachable:
             edges.append(BlockEdge("fallthrough", fallthrough, "in-image"))
         else:
@@ -282,23 +312,23 @@ def _block_successors(
         return tuple(edges)
 
     if terminator == decode_v1.TERM_CONDITIONAL_BRANCH:
-        target = last_record["target"]
+        target = owner_record["target"]
         edges.append(BlockEdge("branch-taken", target, _target_class(target, reachable, delay_owners)))
-        not_taken = last_addr + 8
+        not_taken = owner_pc + 8
         edges.append(BlockEdge("branch-not-taken", not_taken, _target_class(not_taken, reachable, delay_owners)))
     elif terminator == decode_v1.TERM_JUMP:
-        target = last_record["target"]
+        target = owner_record["target"]
         edges.append(BlockEdge("jump", target, _target_class(target, reachable, delay_owners)))
     elif terminator == decode_v1.TERM_DIRECT_CALL:
-        target = last_record["target"]
+        target = owner_record["target"]
         edges.append(BlockEdge("direct-call", target, _target_class(target, reachable, delay_owners)))
-        return_addr = last_addr + 8
+        return_addr = owner_pc + 8
         edges.append(BlockEdge("call-return", return_addr, _target_class(return_addr, reachable, delay_owners)))
     elif terminator == decode_v1.TERM_RETURN:
         edges.append(BlockEdge("return", None, "unresolved"))
     elif terminator == decode_v1.TERM_INDIRECT_CALL:
         edges.append(BlockEdge("indirect-call", None, "unresolved"))
-        return_addr = last_addr + 8
+        return_addr = owner_pc + 8
         edges.append(BlockEdge("call-return", return_addr, _target_class(return_addr, reachable, delay_owners)))
     elif terminator == decode_v1.TERM_INDIRECT_JUMP:
         edges.append(BlockEdge("indirect-jump", None, "unresolved"))
@@ -307,7 +337,7 @@ def _block_successors(
     elif terminator == decode_v1.TERM_EXTERNAL_TRAP:
         edges.append(BlockEdge("external-trap", None, "trap"))
     else:
-        raise TitleDecodeError("UNKNOWN_TERMINATOR", f"0x{last_addr:08x} {terminator!r}")
+        raise TitleDecodeError("UNKNOWN_TERMINATOR", f"0x{owner_pc:08x} {terminator!r}")
 
     return tuple(edges)
 
@@ -320,6 +350,25 @@ def _target_class(target: int, reachable: set[int], delay_owners: set[int]) -> s
     if target in reachable:
         return "in-image"
     return "out-of-image"
+
+
+def _control_owner(
+    addrs: list[int],
+    records: dict[int, dict[str, Any]],
+    delay_by_owner: dict[int, int],
+) -> int | None:
+    """Return the PC whose record owns the block terminator.
+
+    If the last address is an owned delay slot, return its owner; otherwise
+    return the last address (which may be an invalid frontier or fallthrough).
+    """
+    if not addrs:
+        return None
+    last = addrs[-1]
+    for owner_pc, delay_pc in delay_by_owner.items():
+        if delay_pc == last:
+            return owner_pc
+    return last
 
 
 def _validate_partition(blocks: dict[int, BasicBlock], reachable: set[int], delay_owners: set[int]) -> None:
@@ -391,11 +440,42 @@ def _classify_address(
     )
 
 
+def _build_provenance(
+    frontier_analysis: dict[str, Any],
+    file_sha256: str,
+    payload_sha256: str,
+    payload_offset_base: int,
+    file_offset_base: int,
+) -> dict[int, SourceProvenance]:
+    provenance: dict[int, SourceProvenance] = {}
+    for pc in frontier_analysis["reachable_addresses"]:
+        payload_offset = pc - frontier_analysis["region"]["start"]
+        file_offset = file_offset_base + payload_offset
+        if payload_offset < 0 or payload_offset >= TITLE_PAYLOAD_SIZE:
+            raise TitleDecodeError("PROVENANCE_OFFSET_OUT_OF_BOUNDS", f"0x{pc:08x}")
+        if payload_offset & 3:
+            raise TitleDecodeError("PROVENANCE_OFFSET_MISALIGNED", f"0x{pc:08x}")
+        provenance[pc] = SourceProvenance(
+            guest_pc=pc,
+            payload_offset=payload_offset,
+            file_offset=file_offset,
+            title_file_sha256=file_sha256,
+            title_payload_sha256=payload_sha256,
+        )
+    return provenance
+
+
+def _provenance_digest(provenance: dict[int, SourceProvenance]) -> str:
+    items = [provenance[pc].asdict() for pc in sorted(provenance)]
+    return _sha256_bytes(json.dumps(items, sort_keys=True).encode("utf-8"))
+
+
 def _build_public_projection(analysis: TitleDecodeAnalysis) -> dict[str, Any]:
     frontier = analysis.frontier
     summary = frontier["summary"]
     blocks = analysis.blocks
     block_order = analysis.block_order
+    provenance = analysis.provenance
 
     def sorted_hex(addrs: list[int]) -> list[str]:
         return [f"0x{a:08x}" for a in sorted(addrs)]
@@ -425,6 +505,7 @@ def _build_public_projection(analysis: TitleDecodeAnalysis) -> dict[str, Any]:
     public_blocks = []
     for start in block_order:
         block = blocks[start]
+        block_prov = block.provenance
         public_blocks.append({
             "start": f"0x{start:08x}",
             "instruction_count": len(block.addresses),
@@ -441,6 +522,8 @@ def _build_public_projection(analysis: TitleDecodeAnalysis) -> dict[str, Any]:
                 }
                 for e in block.successors
             ],
+            "provenance_digest": _provenance_digest(block_prov),
+            "provenance_count": len(block_prov),
         })
 
     direct_calls = [
@@ -511,6 +594,8 @@ def _build_public_projection(analysis: TitleDecodeAnalysis) -> dict[str, Any]:
             "guest_entry_pc": f"0x{TITLE_ENTRY_PC:08x}",
             "file_size": TITLE_FILE_SIZE,
             "payload_size": TITLE_PAYLOAD_SIZE,
+            "reachable_provenance_digest": _provenance_digest(provenance),
+            "reachable_provenance_count": len(provenance),
         },
         "reachable_summary": {
             "total_words": summary["total_words"],
@@ -542,9 +627,6 @@ def _build_public_projection(analysis: TitleDecodeAnalysis) -> dict[str, Any]:
         "modelled_addresses": {},
         "phase16_note": "Phase-16 values were modelled constants; Phase-16 evidence was not rewritten.",
     }
-    projection["projection_digest"] = _sha256_bytes(
-        json.dumps(projection, sort_keys=True).encode("utf-8")
-    )
     return projection
 
 
@@ -552,6 +634,11 @@ def _attach_modelled_addresses(projection: dict[str, Any], analysis: TitleDecode
     for pc in (0x8004FF54, 0x80050110):
         projection["modelled_addresses"][f"0x{pc:08x}"] = _classify_address(pc, analysis).asdict()
     return projection
+
+
+def _compute_projection_digest(projection: dict[str, Any]) -> str:
+    projection_without_digest = {k: v for k, v in projection.items() if k != "projection_digest"}
+    return _sha256_bytes(json.dumps(projection_without_digest, sort_keys=True).encode("utf-8"))
 
 
 def analyze_title_decode(
@@ -583,6 +670,16 @@ def analyze_title_decode(
     blocks = _derive_basic_blocks(frontier_analysis)
     block_order = tuple(sorted(blocks))
 
+    provenance = _build_provenance(
+        frontier_analysis,
+        TITLE_FILE_SHA256,
+        TITLE_PAYLOAD_SHA256,
+        payload_offset_base=0,
+        file_offset_base=0x800,
+    )
+    for start, block in blocks.items():
+        block.provenance = {pc: provenance[pc] for pc in block.addresses}
+
     analysis = TitleDecodeAnalysis(
         fixture_dir=fixture_dir or pathlib.Path(),
         identity=identity,
@@ -594,10 +691,12 @@ def analyze_title_decode(
         block_order=block_order,
         records_by_address={r["address"]: r for r in frontier_analysis["records"]},
         delay_by_owner={d["owner"]: d["delay"] for d in frontier_analysis["delay_slots"]},
+        provenance=provenance,
     )
 
     projection = _build_public_projection(analysis)
     projection = _attach_modelled_addresses(projection, analysis)
+    projection["projection_digest"] = _compute_projection_digest(projection)
     analysis.projection = projection
     return analysis
 

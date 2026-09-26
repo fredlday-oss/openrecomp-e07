@@ -17,12 +17,15 @@ Advance OpenRecomp autonomously from the frozen Phase-16 terminal checkpoint
 8. A `P17-01` gate that authenticates the Hercules TITLE disc fixture, locates
    `\\EX\\TITLE.;1` through validated ISO 9660 metadata, and ingests the file as a
    bounded PS-X EXE using the frozen Phase-9 parser unchanged.
+9. A `P17-02` gate that authenticates the TITLE PS-X EXE payload and produces a
+   fail-closed, non-reconstructive decode and direct-control-flow structure
+   projection using the frozen Phase-3 frontier unchanged.
 
 ## Non-Goals
 
-- Decoding or disassembling the TITLE overlay payload.
 - Replacing the Phase-16 TITLE execution path.
 - Modifying runtime implementation.
 - Executing later Phase-17 stages.
 - Promoting initialization, frame, playability, or general compatibility claims.
 - Committing fixture bytes, sectors, private absolute paths, or reconstructive payload material.
+- Claiming that P17-02 decodes the full PS1 instruction set or arbitrary payloads.

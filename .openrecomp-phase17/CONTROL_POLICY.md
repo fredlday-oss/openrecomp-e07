@@ -7,7 +7,7 @@ Phase 17 starts from the frozen Phase-16 terminal boundary on branch
 retroactive Phase-16 claim and preserves the frozen Phase-1 through Phase-16
 evidence chains intact.
 
-Work branch: `agent/kimi-phase17-p17-01-r2`.
+Authoritative work branch: `phase17/ps1-title-overlay-recompile-v1`.
 
 1. Work as one agent on one serial production frontier at a time.
 2. Freeze the stage rows at the `P17-00` `PASS` boundary and reconcile the
@@ -44,5 +44,9 @@ Work branch: `agent/kimi-phase17-p17-01-r2`.
     unwarranted general compatibility or playability claims.
 13. No generic IRQ delivery or speculative hardware simulation beyond what
     the reached fixture mechanically requires.
-14. The TITLE overlay payload remains `NOT_DECODED` at `P17-01`; do not
-    decode or disassemble the TITLE payload until a later explicit stage.
+14. Authenticated P17-02 decoding is permitted under this policy. The historical
+    `TITLE_PAYLOAD_DECODING_STATE = "NOT_DECODED"` marker is retained as the P17-01
+    policy value only; P17-02 may produce an authenticated, non-reconstructive
+    decode projection without claiming later-stage execution objectives.
+15. Public-safety rules remain in force: no raw payload bytes, instruction words,
+    operands, private host paths, or reconstructive sequences enter evidence.

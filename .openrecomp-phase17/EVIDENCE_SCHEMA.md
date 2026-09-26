@@ -13,11 +13,20 @@ Every stage in `.openrecomp-phase17/evidence/P17-xx/` produces:
 4. `run1.txt`, `run2.txt`, `run1.err.txt`, `run2.err.txt`.
 
 P17-01 additionally records:
-- `title_ingestion.json`: non-reconstructive ISO 9660 path, extent, PS-X EXE header metadata, reserved-region summary, and payload decoding state.
+- `title_ingestion.json`: non-reconstructive ISO 9660 path, extent, PS-X EXE header metadata, reserved-region summary, and the P17-01-scoped payload decoding policy marker.
 - `negative_tests.json`: summary of deterministic rejection cases.
+
+P17-02 additionally records:
+- `title_decode.json`: authenticated provenance, reachable summary, decode-class and op histograms, basic-block structure (guest ranges, terminator class, successor kinds/classes), control-flow and unresolved site lists, modelled-address classifications, and a deterministic projection digest.
+- The projection contains no raw instruction words, operands, payload bytes, payload hex/base64, printable payload excerpts, or private host paths.
 
 Public-Safety Rules:
 - No private host paths containing user directories.
 - No raw machine code instructions or raw payload hex.
 - No committed copyrighted game bytes.
-- No reconstructive payload metadata (e.g. `payload_bytes`, `raw_instruction`, `bios_bytes`).
+- No reconstructive payload metadata (e.g. `payload_bytes`, `raw_instruction`, `bios_bytes`, `instruction_word`).
+- Public projection values are restricted to safe scalars and nested structures of safe scalars.
+
+The P17-01 `TITLE_PAYLOAD_DECODING_POLICY_V1=NOT_DECODED` marker is historical
+to P17-01. P17-02 records its authenticated decode projection through the
+`TITLE_IR_CONTRACT_V1=PASS` marker and does not reuse the P17-01 policy marker.
