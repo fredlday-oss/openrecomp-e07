@@ -13,7 +13,7 @@ These are architectural proof gaps, not a genuine unsupported guest frontier. Th
 
 Verified before stop:
 - controller branch phase17/ps1-title-overlay-recompile-v1
-- current HEAD includes P17-07 historical implementation, with uncommitted fail-closed state classification
+- the historical P17-07 implementation was integrated before the review stop; the fail-closed classification is committed separately
 - Phase-17 source manifest passes
 - canonical frozen Phase-16 integrity passes
 - legacy Phase-16 native LF/CRLF mismatch remains classified PRE_EXISTING_FAIL
