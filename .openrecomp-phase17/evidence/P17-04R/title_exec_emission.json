@@ -3,12 +3,14 @@
     "execution": "GENERATED_NATIVE_RUNTIME",
     "phase16_guest_flow_imports": [],
     "phase16_hand_authored_title_guest_flow": "EXCLUDED",
-    "phase17_emitter": "p17_title_exec_emit_v1.py"
+    "phase17_emitter": "p17_title_exec_emit_v1.py",
+    "rejected_p17_04_address_inventory_path": "EXCLUDED"
   },
   "build": {
-    "compiler_command": "cc -O2 -std=c11 -fno-stack-protector -no-pie -fno-asynchronous-unwind-tables -frandom-seed=or_title_runtime_v1 -Wl,--build-id=none",
-    "executable_sha256": "916911352eb9ef8712033c3249e48ef03f4866f90f50754ae86ad35b71822463",
-    "runtime_result_schema": "openrecomp-phase17-title-runtime-result-v1"
+    "compiler_command": "cc -O0 -std=c11 -fno-stack-protector -fno-asynchronous-unwind-tables -frandom-seed=or_title_runtime_v1 -Wl,--build-id=none",
+    "executable_sha256": "4c523703c03c3ce65ffa2b6b73fb0f9ed3470fdcf68e7ac26a11d483d13a33a3",
+    "runtime_result_schema": "openrecomp-phase17-title-runtime-result-v1",
+    "shared_object_sha256": "c38260ef20c64f379a961325e405368a9b2ac9796c1ea0d325485d9fbe737d85"
   },
   "claims": {
     "first_frame_ready": "NO",
@@ -17,18 +19,25 @@
     "initialization": "NOT_PROVEN",
     "playability": "NOT_PROVEN"
   },
-  "emission_digest": "8537b17618f526bbcaaf96621b64909bc78b5173fa51090963e050de99e321d7",
+  "emission_digest": "4997cc54fd4076cb283acb6bbb2ad577cf7be788fc596e2070510737ff522e48",
   "emission_kind": "AUTHENTICATED_GENERATED_C_RUNTIME",
   "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "interface": {
+    "execute_symbol": "or_title_execute_v1",
+    "guest_state_struct": "or_guest_state_v1",
+    "header": "or_title_runtime_v1.h",
+    "services_struct": "or_runtime_services_v1"
+  },
   "runtime_result": {
     "entry_pc": "0x800380a0",
-    "executed_instruction_count": 35,
+    "executed_instruction_count": 36,
     "final_pc": "0x8003812c",
     "provenance_digest": "ba12a840004f7e1e8561ce947c29d1e97963626cb47de2608106983764986e9a",
     "ram_digest": "7ac0ec20cbb7c15c217c73611f83ff1c",
-    "register_digest": "533b3aea91d3fa3b2300010000000000",
+    "register_digest": "533b3aea91d3fa3b2400010000000000",
     "schema": "openrecomp-phase17-title-runtime-result-v1",
     "semantic_vocabulary": [
+      "addi",
       "addiu",
       "addu",
       "and",
@@ -41,6 +50,7 @@
       "bne",
       "j",
       "jal",
+      "jalr",
       "jr",
       "lb",
       "lbu",
@@ -72,11 +82,14 @@
   "schema": "openrecomp-phase17-title-exec-emission-v1",
   "source": {
     "entry_pc": "0x800380a0",
-    "generated_source_sha256": "c685536d34568a56ab86b4d00cc2744396c14706ef69def9669cb36bf1cc113f",
+    "generated_harness_sha256": "b2f42f7b74b5998f1c90966e91592df47405dd13f4d7837788196e7322aa8401",
+    "generated_source_sha256": "48be8b039e4c3ae7f8164ba4d34cc9e6daac8d9fd75500d9b8f8b613eac284f4",
+    "header_sha256": "026d4b10e2857774fb9fc22827a31f13fafd84ec7952b0fd636ce8c97ff18e91",
     "p17_02_projection_digest": "173075108864e183eaaf742db87bc690487e92990bd228b7e6341fa46b9843ea",
     "provenance_digest": "ba12a840004f7e1e8561ce947c29d1e97963626cb47de2608106983764986e9a",
     "reachable_record_count": 6995,
     "semantic_vocabulary": [
+      "addi",
       "addiu",
       "addu",
       "and",
@@ -89,6 +102,7 @@
       "bne",
       "j",
       "jal",
+      "jalr",
       "jr",
       "lb",
       "lbu",

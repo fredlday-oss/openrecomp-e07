@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""OpenRecomp Phase-17 P17-04R authenticated executable emission V1.
+"""OpenRecomp Phase-17 P17-04R Revision 3 authenticated executable emission V1.
 
 Build a deterministic, compiled, host-native runtime directly from the
-authenticated P17-02 TITLE decode records.  The generated C source is kept in an
-isolated run directory outside the repository; only hashes and non-reconstructive
-metadata enter the public evidence.
+authenticated P17-02 TITLE decode records.  Before any instruction is emitted,
+the requested semantic record is checked against a fresh decode of the actual
+authenticated private TITLE word at that PC.  Only verified decodes are emitted.
 
-The runtime models checked guest state (32 GPRs with r0 hardwired to zero, PC,
-HI/LO) and executes exact semantics for a bounded MIPS integer subset.  Any
-unsupported operation, bad memory access, or unresolvable control transfer fails
-closed and records a stable stop reason.
+The generated artifact is a reusable C library exposing a persistent guest-state
+execution interface (`or_title_execute_v1`) plus a separate deterministic test
+harness.  The translated TITLE representation does not depend on a standalone
+`main()` or a hard-coded synthetic initial state.
 """
 
 from __future__ import annotations
@@ -23,9 +23,16 @@ import subprocess
 import sys
 import tempfile
 from dataclasses import dataclass, field
-from typing import Any, Callable
+from typing import Any
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
+for extra in ("", ".openrecomp-phase3/src", ".openrecomp-phase9/src"):
+    sys_path_extra = str(ROOT / extra) if extra else str(ROOT)
+    if sys_path_extra not in sys.path:
+        sys.path.insert(0, sys_path_extra)
+
+import p3_decode_mips32_v1 as fresh_decode
+
 P17_02_EVIDENCE = ROOT / ".openrecomp-phase17/evidence/P17-02/title_decode.json"
 
 TITLE_ENTRY_PC = 0x800380A0
@@ -52,6 +59,7 @@ SUPPORTED_OPS = frozenset(
         "slt",
         "sltu",
         "addiu",
+        "addi",
         "andi",
         "ori",
         "xori",
@@ -81,6 +89,7 @@ SUPPORTED_OPS = frozenset(
         "j",
         "jal",
         "jr",
+        "jalr",
     }
 )
 
@@ -89,6 +98,8 @@ CONTROL_OPS = frozenset(
 )
 
 BRANCH_CONDITION_OPS = frozenset({"beq", "bne", "blez", "bgtz", "bltz", "bgez"})
+JUMP_OPS = frozenset({"j", "jal"})
+LINK_OPS = frozenset({"jal", "jalr"})
 
 MASK32 = 0xFFFFFFFF
 
@@ -115,6 +126,9 @@ class SemanticRecord:
     imm: int
     target: int | None
     delay_slot: int | None
+    control_flow: bool
+    terminator: str | None
+    link: bool
     provenance_digest: str
 
     def asdict(self) -> dict[str, Any]:
@@ -128,6 +142,9 @@ class SemanticRecord:
             "imm": self.imm,
             "target": (f"0x{self.target:08x}" if self.target is not None else None),
             "delay_slot": (f"0x{self.delay_slot:08x}" if self.delay_slot is not None else None),
+            "control_flow": self.control_flow,
+            "terminator": self.terminator,
+            "link": self.link,
             "provenance_digest": self.provenance_digest,
         }
 
@@ -138,7 +155,10 @@ class EmissionContext:
     run_dir: pathlib.Path
     records: list[SemanticRecord] = field(default_factory=list)
     record_by_pc: dict[int, SemanticRecord] = field(default_factory=dict)
+    h_path: pathlib.Path | None = None
     c_path: pathlib.Path | None = None
+    harness_path: pathlib.Path | None = None
+    so_path: pathlib.Path | None = None
     exe_path: pathlib.Path | None = None
     exe_result: dict[str, Any] | None = None
 
@@ -184,11 +204,17 @@ def verify_authenticated_analysis(analysis: Any) -> None:
         )
 
 
-def _provenance_digest_for_pc(analysis: Any, pc: int) -> str:
-    prov = analysis.provenance.get(pc)
-    if prov is None:
-        raise TitleExecEmitError("MISSING_PROVENANCE", f"0x{pc:08x}")
-    return _sha256_bytes(json.dumps(prov.asdict(), sort_keys=True).encode("utf-8"))
+def _read_authenticated_word(analysis: Any, pc: int) -> int:
+    """Read the actual 32-bit guest word from the authenticated private TITLE source."""
+    t_addr = getattr(analysis.identity, "t_addr", TITLE_TEXT_ADDR)
+    text_end = getattr(analysis.identity, "text_end", TITLE_TEXT_END)
+    if not (t_addr <= pc < text_end) or pc & 3:
+        raise TitleExecEmitError("AUTHENTICATED_SOURCE_PC_OUT_OF_RANGE", f"0x{pc:08x}")
+    payload = analysis.identity.payload
+    offset = pc - t_addr
+    if offset < 0 or offset + 4 > len(payload):
+        raise TitleExecEmitError("AUTHENTICATED_SOURCE_OFFSET_OUT_OF_RANGE", f"0x{pc:08x}")
+    return struct.unpack_from("<I", payload, offset)[0]
 
 
 def _sign16(value: int) -> int:
@@ -196,15 +222,103 @@ def _sign16(value: int) -> int:
     return value - 0x10000 if value & 0x8000 else value
 
 
-def _make_semantic_records(analysis: Any) -> list[SemanticRecord]:
-    """Derive semantic records from authenticated decode records.
+def _fresh_decode_word(pc: int, word: int) -> dict[str, Any]:
+    """Decode *word* at *pc* and return normalized fields for comparison."""
+    rec = fresh_decode.classify(pc, word)
+    operands = rec.get("operands") or {}
+    imm_raw = operands.get("imm")
+    imm = _sign16(imm_raw) if imm_raw is not None else 0
+    target = rec.get("target")
+    return {
+        "op": rec.get("op") or "unknown",
+        "rs": int(operands.get("rs", 0)) & 0x1F,
+        "rt": int(operands.get("rt", 0)) & 0x1F,
+        "rd": int(operands.get("rd", 0)) & 0x1F,
+        "shamt": int(operands.get("shamt", 0)) & 0x1F,
+        "imm": imm,
+        "target": (int(target) & MASK32) if target is not None else None,
+        "control_flow": bool(rec.get("control_flow")),
+        "terminator": rec.get("terminator"),
+        "delay_slot": bool(rec.get("delay_slot")),
+        "link": bool(rec.get("link")),
+        "decode_class": rec.get("decode_class"),
+    }
 
-    Every reachable PC receives a record; unsupported encodings become a runtime
-    stop rather than being silently skipped.
-    """
+
+def _verify_record_against_fresh_decode(record: SemanticRecord, analysis: Any) -> None:
+    """Authenticate one semantic record against the private TITLE word and fresh decode."""
+    if record.pc not in analysis.records_by_address:
+        raise TitleExecEmitError("UNAUTHENTICATED_RECORD", f"0x{record.pc:08x}")
+    try:
+        word = _read_authenticated_word(analysis, record.pc)
+    except TitleExecEmitError:
+        raise
+    fresh = _fresh_decode_word(record.pc, word)
+
+    if record.op != fresh["op"]:
+        raise TitleExecEmitError(
+            "OPCODE_MISMATCH",
+            f"0x{record.pc:08x} record={record.op} fresh={fresh['op']}",
+        )
+
+    for field in ("rs", "rt", "rd", "shamt"):
+        rec_val = getattr(record, field)
+        fresh_val = fresh[field]
+        if rec_val != fresh_val:
+            raise TitleExecEmitError(
+                "OPERAND_MISMATCH",
+                f"0x{record.pc:08x} {field} record={rec_val} fresh={fresh_val}",
+            )
+    if record.imm != fresh["imm"]:
+        raise TitleExecEmitError(
+            "OPERAND_MISMATCH",
+            f"0x{record.pc:08x} imm record={record.imm} fresh={fresh['imm']}",
+        )
+
+    if (record.target is None) != (fresh["target"] is None):
+        raise TitleExecEmitError(
+            "TARGET_MISMATCH",
+            f"0x{record.pc:08x} target presence differs",
+        )
+    if record.target is not None and (record.target & MASK32) != (fresh["target"] & MASK32):
+        raise TitleExecEmitError(
+            "TARGET_MISMATCH",
+            f"0x{record.pc:08x} target record=0x{record.target:08x} fresh=0x{fresh['target']:08x}",
+        )
+
+    if record.control_flow != fresh["control_flow"]:
+        raise TitleExecEmitError(
+            "CONTROL_FLOW_MISMATCH",
+            f"0x{record.pc:08x} control_flow record={record.control_flow} fresh={fresh['control_flow']}",
+        )
+    if record.terminator != fresh["terminator"]:
+        raise TitleExecEmitError(
+            "CONTROL_FLOW_MISMATCH",
+            f"0x{record.pc:08x} terminator record={record.terminator!r} fresh={fresh['terminator']!r}",
+        )
+    if bool(record.delay_slot) != fresh["delay_slot"]:
+        raise TitleExecEmitError(
+            "DELAY_SLOT_MISMATCH",
+            f"0x{record.pc:08x} delay_slot record={record.delay_slot is not None} fresh={fresh['delay_slot']}",
+        )
+    if record.link != fresh["link"]:
+        raise TitleExecEmitError(
+            "CONTROL_FLOW_MISMATCH",
+            f"0x{record.pc:08x} link record={record.link} fresh={fresh['link']}",
+        )
+
+
+def _provenance_digest_for_pc(analysis: Any, pc: int) -> str:
+    prov = analysis.provenance.get(pc)
+    if prov is None:
+        raise TitleExecEmitError("MISSING_SOURCE_PROVENANCE", f"0x{pc:08x}")
+    return _sha256_bytes(json.dumps(prov.asdict(), sort_keys=True).encode("utf-8"))
+
+
+def _make_semantic_records(analysis: Any) -> list[SemanticRecord]:
+    """Derive semantic records from authenticated decode records and verify each word."""
     records: list[SemanticRecord] = []
     delay_by_owner: dict[int, int] = analysis.delay_by_owner
-    delay_owners: set[int] = set(delay_by_owner.values())
     raw_by_pc: dict[int, dict[str, Any]] = analysis.records_by_address
 
     for pc in sorted(analysis.frontier["reachable_addresses"]):
@@ -214,9 +328,6 @@ def _make_semantic_records(analysis: Any) -> list[SemanticRecord]:
         provenance_digest = _provenance_digest_for_pc(analysis, pc)
         delay_slot = delay_by_owner.get(pc)
 
-        # Any instruction classified as a delay-slot owner is handled by its
-        # owning control transfer.  It still gets a record, but the runtime will
-        # only reach it via inlining.
         record = SemanticRecord(
             pc=pc,
             op=op,
@@ -227,11 +338,14 @@ def _make_semantic_records(analysis: Any) -> list[SemanticRecord]:
             imm=_sign16(int(operands.get("imm", 0)) & 0xFFFF),
             target=(int(operands["target"]) & MASK32) if operands.get("target") is not None else None,
             delay_slot=(delay_slot & MASK32) if delay_slot is not None else None,
+            control_flow=bool(raw.get("control_flow")),
+            terminator=raw.get("terminator"),
+            link=bool(raw.get("link")),
             provenance_digest=provenance_digest,
         )
+        _verify_record_against_fresh_decode(record, analysis)
         records.append(record)
 
-    # Sanity: delay slots must be reachable records.
     for owner, delay in delay_by_owner.items():
         if delay not in raw_by_pc:
             raise TitleExecEmitError("DELAY_SLOT_RECORD_MISSING", f"owner=0x{owner:08x} delay=0x{delay:08x}")
@@ -259,23 +373,24 @@ def _hex_bytes(data: bytes) -> str:
     return "\n".join("    " + line + "," for line in lines)
 
 
-def _c_identifier_for_pc(pc: int) -> str:
-    return f"pc_{pc:08x}"
-
-
 def _emit_delay_slot(ctx: EmissionContext, owner_pc: int, indent: str = "        ") -> list[str]:
-    """Emit the delay-slot instruction for a control transfer."""
+    """Emit the verified delay-slot instruction for a control transfer."""
     delay_pc = ctx.analysis.delay_by_owner.get(owner_pc)
     if delay_pc is None:
         return [f'{indent}state->stop = 1; strncpy(state->stop_reason, "MISSING_DELAY_SLOT", sizeof(state->stop_reason) - 1); break;']
     rec = ctx.record_by_pc[delay_pc]
     lines = [f"{indent}/* delay slot 0x{delay_pc:08x} */"]
+    lines.append(f"{indent}state->delay_active = 1;")
+    lines.append(f"{indent}state->delay_pc = 0x{delay_pc:08x}u;")
+    lines.append(f"{indent}state->step_count++;")
+    lines.append(f"{indent}if (services && services->transcript) {{ services->transcript(services->user_data, 0x{delay_pc:08x}u, op_name_for_pc(0x{delay_pc:08x}u), state->step_count); }}")
     lines.extend(_emit_instruction(rec, ctx, indent, is_delay_slot=True))
+    lines.append(f"{indent}state->delay_active = 0;")
     return lines
 
 
 def _emit_instruction(rec: SemanticRecord, ctx: EmissionContext, indent: str = "        ", *, is_delay_slot: bool = False) -> list[str]:
-    """Emit C statements implementing one semantic record."""
+    """Emit C statements implementing one verified semantic record."""
     op = rec.op
     rs, rt, rd = rec.rs, rec.rt, rec.rd
     imm = rec.imm
@@ -285,8 +400,12 @@ def _emit_instruction(rec: SemanticRecord, ctx: EmissionContext, indent: str = "
     def line(code: str) -> None:
         out.append(f"{indent}{code}")
 
-    # Hardwire r0 before and after every instruction.
-    line("state->regs[0] = 0;")
+    if is_delay_slot:
+        line("state->regs[0] = 0;")
+    else:
+        line("state->step_count++;")
+        line("if (services && services->transcript) { services->transcript(services->user_data, state->pc, op_name_for_pc(state->pc), state->step_count); }")
+        line("state->regs[0] = 0;")
 
     if op == "nop":
         pass
@@ -320,6 +439,14 @@ def _emit_instruction(rec: SemanticRecord, ctx: EmissionContext, indent: str = "
         line(f"state->regs[{rd}] = (state->regs[{rs}] < state->regs[{rt}]) ? 1 : 0;")
     elif op == "addiu":
         line(f"state->regs[{rt}] = state->regs[{rs}] + (int32_t)(int16_t)({imm & 0xFFFF}u);")
+    elif op == "addi":
+        line("{")
+        line(f"  int32_t _a = (int32_t)state->regs[{rs}];")
+        line(f"  int32_t _b = (int32_t)(int16_t)({imm & 0xFFFF}u);")
+        line(f"  int32_t _r = _a + _b;")
+        line(f"  if (((_a ^ _b) & 0x80000000) == 0 && ((_a ^ _r) & 0x80000000) != 0) {{ state->stop = 1; strncpy(state->stop_reason, \"SIGNED_OVERFLOW\", sizeof(state->stop_reason) - 1); break; }}")
+        line(f"  state->regs[{rt}] = (uint32_t)_r;")
+        line("}")
     elif op == "andi":
         line(f"state->regs[{rt}] = state->regs[{rs}] & {imm & 0xFFFF}u;")
     elif op == "ori":
@@ -374,13 +501,17 @@ def _emit_instruction(rec: SemanticRecord, ctx: EmissionContext, indent: str = "
         line(f"state->regs[{rd}] = state->lo;")
     elif op == "mfhi":
         line(f"state->regs[{rd}] = state->hi;")
-    elif op == "j":
+    elif op in JUMP_OPS:
         if target is None:
             line("state->stop = 1; strncpy(state->stop_reason, \"JUMP_WITHOUT_TARGET\", sizeof(state->stop_reason) - 1); break;")
-        else:
-            out.extend(_emit_delay_slot(ctx, rec.pc))
-            line(f"state->pc = 0x{target:08x}u;")
-            line("continue;")
+            return out
+        if op == "jal":
+            # Direct calls are unsupported in this bounded runtime.
+            line("state->stop = 1; strncpy(state->stop_reason, \"UNSUPPORTED_DIRECT_CALL\", sizeof(state->stop_reason) - 1); break;")
+            return out
+        out.extend(_emit_delay_slot(ctx, rec.pc))
+        line(f"state->pc = 0x{target:08x}u;")
+        line("break;")
         return out
     elif op in BRANCH_CONDITION_OPS:
         cond = {
@@ -393,26 +524,33 @@ def _emit_instruction(rec: SemanticRecord, ctx: EmissionContext, indent: str = "
         }[op]
         if target is None:
             line("state->stop = 1; strncpy(state->stop_reason, \"BRANCH_WITHOUT_TARGET\", sizeof(state->stop_reason) - 1); break;")
-        else:
-            out.extend(_emit_delay_slot(ctx, rec.pc))
-            line(f"state->pc = ({cond}) ? 0x{target:08x}u : 0x{rec.pc + 8:08x}u;")
-            line("continue;")
-        return out
-    elif op == "jal":
-        # Direct calls are unsupported in this bounded runtime.
-        line("state->stop = 1; strncpy(state->stop_reason, \"UNSUPPORTED_DIRECT_CALL\", sizeof(state->stop_reason) - 1); break;")
+            return out
+        line(f"{{ int _cond = ({cond}) ? 1 : 0;")
+        out.extend(_emit_delay_slot(ctx, rec.pc))
+        line(f"  state->pc = _cond ? 0x{target:08x}u : 0x{rec.pc + 8:08x}u;")
+        line("}")
+        line("break;")
         return out
     elif op == "jr":
+        line(f"{{ uint32_t _target = state->regs[{rs}];")
         out.extend(_emit_delay_slot(ctx, rec.pc))
-        line(f"state->pc = state->regs[{rs}];")
-        line("continue;")
+        line(f"  state->pc = _target;")
+        line("}")
+        line("break;")
+        return out
+    elif op == "jalr":
+        line(f"{{ uint32_t _target = state->regs[{rs}];")
+        if rd != 0:
+            line(f"  state->regs[{rd}] = 0x{rec.pc + 8:08x}u;")
+        out.extend(_emit_delay_slot(ctx, rec.pc))
+        line(f"  state->pc = _target;")
+        line("}")
+        line("break;")
         return out
     else:
         line(f"state->stop = 1; strncpy(state->stop_reason, \"UNSUPPORTED_OPERATION\", sizeof(state->stop_reason) - 1); break;")
         return out
 
-    # Delay-slot inlining never uses `break` because it must fall through to
-    # the control-transfer decision in the owning instruction.
     if is_delay_slot:
         return out
 
@@ -421,57 +559,102 @@ def _emit_instruction(rec: SemanticRecord, ctx: EmissionContext, indent: str = "
     return out
 
 
+def _generate_runtime_h(ctx: EmissionContext) -> str:
+    """Generate the public interface header for the reusable runtime."""
+    return """/* Generated by p17_title_exec_emit_v1.py from authenticated P17-02 records. */
+#ifndef OR_TITLE_RUNTIME_V1_H
+#define OR_TITLE_RUNTIME_V1_H
+
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#define OR_TITLE_RAM_SIZE 2097152u
+#define OR_TITLE_RAM_KSEG0_BASE 0x80000000u
+
+/* Persistent guest-state container.  The caller owns the object and may
+   re-execute with modified state.  All fields are in/out unless documented. */
+struct or_guest_state_v1 {
+    uint32_t regs[32];   /* in/out; r0 is hardwired to zero by the runtime */
+    uint32_t pc;         /* in/out */
+    uint32_t next_pc;    /* out; pc after the current step (for debugging) */
+    uint32_t hi;         /* in/out */
+    uint32_t lo;         /* in/out */
+    uint32_t delay_pc;   /* out; PC of the currently executing delay slot */
+    int      delay_active; /* out; non-zero while a delay slot executes */
+    uint32_t step_count; /* in/out; incremented for every guest instruction */
+    uint32_t budget;     /* in; execution stops when step_count reaches budget */
+    int      stop;       /* out */
+    char     stop_reason[64]; /* out */
+};
+
+/* Bounded runtime services.  All pointers may be NULL to select defaults. */
+struct or_runtime_services_v1 {
+    void *user_data;
+    void (*transcript)(void *user_data, uint32_t pc, const char *op, uint32_t step);
+    int (*host_call)(void *user_data, const char *symbol,
+                     const uint64_t *args, uint64_t argc,
+                     uint64_t *out_value, uint32_t *out_has_value);
+    uint8_t *ram_base;   /* if NULL, a static RAM array is used */
+    uint32_t ram_size;   /* must be OR_TITLE_RAM_SIZE if ram_base is non-NULL */
+};
+
+/* Execute from *state* until stop, budget exhaustion, or an unsupported
+   condition.  Returns 0 on a controlled stop (see state->stop_reason). */
+int or_title_execute_v1(struct or_guest_state_v1 *state,
+                        const struct or_runtime_services_v1 *services);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif
+"""
+
+
 def _generate_runtime_c(ctx: EmissionContext) -> str:
-    """Generate the deterministic C source for the authenticated runtime."""
+    """Generate the deterministic C library for the authenticated runtime."""
     analysis = ctx.analysis
     payload = analysis.identity.payload
     records = ctx.records
     ctx.record_by_pc = {rec.pc: rec for rec in records}
 
-    # Map each record to a C case label.
-    cases: list[str] = []
+    op_name_cases: list[str] = []
+    for rec in records:
+        op_name_cases.append(f"        case 0x{rec.pc:08x}u: return \"{rec.op}\";")
+
+    instruction_cases: list[str] = []
     for rec in records:
         label = f"        case 0x{rec.pc:08x}u:"
         body = _emit_instruction(rec, ctx)
-        cases.append(label + "\n" + "\n".join(body))
+        instruction_cases.append(label + "\n" + "\n".join(body))
 
-    case_block = "\n".join(cases)
+    payload_literal = _hex_bytes(payload)
+    payload_offset = TITLE_TEXT_ADDR - RAM_KSEG0_BASE
 
     vocabulary = sorted({rec.op for rec in records if rec.op in SUPPORTED_OPS})
     provenance_digest = _sha256_bytes(
         json.dumps([rec.provenance_digest for rec in records], sort_keys=True).encode("utf-8")
     )
 
-    payload_literal = _hex_bytes(payload)
-    payload_offset = TITLE_TEXT_ADDR - RAM_KSEG0_BASE
-
-    vocab_literal = ", ".join(f'"{op}"' for op in vocabulary)
     source = f"""/* Generated by p17_title_exec_emit_v1.py from authenticated P17-02 records. */
 /* Semantic vocabulary: {", ".join(vocabulary)} */
 /* Provenance digest: {provenance_digest} */
+#include "or_title_runtime_v1.h"
 #include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+#include <stdlib.h>
 
-#define RAM_SIZE {RAM_SIZE}u
-#define RAM_KSEG0_BASE 0x80000000u
-#define STEP_LIMIT 100000u
+#define RAM_SIZE OR_TITLE_RAM_SIZE
+#define RAM_KSEG0_BASE OR_TITLE_RAM_KSEG0_BASE
 
-static uint8_t g_ram[RAM_SIZE];
+static uint8_t g_default_ram[RAM_SIZE];
+static uint8_t *g_ram = g_default_ram;
 
 static const uint8_t g_payload[{len(payload)}] = {{
 {payload_literal}
-}};
-
-struct state {{
-    uint32_t regs[32];
-    uint32_t pc;
-    uint32_t hi;
-    uint32_t lo;
-    uint32_t step_count;
-    int stop;
-    char stop_reason[64];
 }};
 
 static int ram_check(uint32_t addr) {{
@@ -520,8 +703,6 @@ static void ram_store_u8(uint32_t addr, uint8_t value) {{
 }}
 
 static void ram_digest(uint8_t *out) {{
-    /* SipHash-like is overkill; public evidence only needs a stable digest. */
-    /* Use a simple Merkle-Damgard-style digest with fixed seed. */
     uint32_t h0 = 0x6a09e667u, h1 = 0xbb67ae85u, h2 = 0x3c6ef372u, h3 = 0xa54ff53au;
     for (uint32_t i = 0; i < RAM_SIZE; i += 4) {{
         uint32_t w = (uint32_t)g_ram[i] | ((uint32_t)g_ram[i + 1] << 8) |
@@ -542,6 +723,70 @@ static void ram_digest(uint8_t *out) {{
     out[12] = (uint8_t)h3; out[13] = (uint8_t)(h3 >> 8); out[14] = (uint8_t)(h3 >> 16); out[15] = (uint8_t)(h3 >> 24);
 }}
 
+static const char *op_name_for_pc(uint32_t pc) {{
+    switch (pc) {{
+{chr(10).join(op_name_cases)}
+        default: return "?";
+    }}
+}}
+
+int or_title_execute_v1(struct or_guest_state_v1 *state,
+                        const struct or_runtime_services_v1 *services) {{
+    if (!state) return -1;
+    if (services && services->ram_base) {{
+        if (services->ram_size != RAM_SIZE) {{
+            state->stop = 1;
+            strncpy(state->stop_reason, "SERVICES_RAM_SIZE_MISMATCH", sizeof(state->stop_reason) - 1);
+            return 0;
+        }}
+        g_ram = services->ram_base;
+    }} else {{
+        g_ram = g_default_ram;
+    }}
+    memcpy(g_ram + {payload_offset}u, g_payload, sizeof(g_payload));
+    state->stop = 0;
+    state->delay_active = 0;
+    state->delay_pc = 0;
+
+    while (!state->stop) {{
+        state->regs[0] = 0;
+        if (state->step_count >= state->budget) {{
+            state->stop = 1;
+            strncpy(state->stop_reason, "STEP_LIMIT_REACHED", sizeof(state->stop_reason) - 1);
+            break;
+        }}
+        state->next_pc = state->pc;
+        switch (state->pc) {{
+{chr(10).join(instruction_cases)}
+            default:
+                state->stop = 1;
+                strncpy(state->stop_reason, "PC_NOT_IN_AUTHENTICATED_TABLE", sizeof(state->stop_reason) - 1);
+                break;
+        }}
+    }}
+    return 0;
+}}
+"""
+    return source
+
+
+def _generate_harness_c(ctx: EmissionContext, entry_pc: int) -> str:
+    """Generate a deterministic test harness that calls or_title_execute_v1."""
+    provenance_digest = _sha256_bytes(
+        json.dumps([rec.provenance_digest for rec in ctx.records], sort_keys=True).encode("utf-8")
+    )
+    vocabulary = sorted({rec.op for rec in ctx.records if rec.op in SUPPORTED_OPS})
+    vocab_literal = ", ".join(f'"{op}"' for op in vocabulary)
+    return f"""/* Generated deterministic harness for or_title_execute_v1. */
+#include "or_title_runtime_v1.h"
+#include <stdint.h>
+#include <stdio.h>
+#include <string.h>
+
+#define RAM_SIZE OR_TITLE_RAM_SIZE
+
+static uint8_t g_harness_ram[RAM_SIZE];
+
 static void hex32(char *out, uint32_t value) {{
     const char *hex = "0123456789abcdef";
     for (int i = 7; i >= 0; i--) {{
@@ -550,32 +795,38 @@ static void hex32(char *out, uint32_t value) {{
     out[8] = '\\0';
 }}
 
-static void run(struct state *state) {{
-    memset(state, 0, sizeof(*state));
-    memcpy(g_ram + {payload_offset}u, g_payload, {len(payload)});
-    state->pc = 0x{TITLE_ENTRY_PC:08x}u;
-
-    while (!state->stop && state->step_count < STEP_LIMIT) {{
-        state->step_count++;
-        state->regs[0] = 0;
-        switch (state->pc) {{
-{case_block}
-            default:
-                state->stop = 1;
-                strncpy(state->stop_reason, "PC_NOT_IN_AUTHENTICATED_TABLE", sizeof(state->stop_reason) - 1);
-                break;
-        }}
+static void ram_digest(uint8_t *out) {{
+    uint32_t h0 = 0x6a09e667u, h1 = 0xbb67ae85u, h2 = 0x3c6ef372u, h3 = 0xa54ff53au;
+    for (uint32_t i = 0; i < RAM_SIZE; i += 4) {{
+        uint32_t w = (uint32_t)g_harness_ram[i] | ((uint32_t)g_harness_ram[i + 1] << 8) |
+                     ((uint32_t)g_harness_ram[i + 2] << 16) | ((uint32_t)g_harness_ram[i + 3] << 24);
+        h0 ^= w;
+        h1 ^= (w << 7) | (w >> 25);
+        h2 += w;
+        h3 ^= (w >> 11) | (w << 21);
+        uint32_t t = h0;
+        h0 = h1;
+        h1 = h2;
+        h2 = h3;
+        h3 = t;
     }}
-
-    if (state->step_count >= STEP_LIMIT && !state->stop) {{
-        state->stop = 1;
-        strncpy(state->stop_reason, "STEP_LIMIT_REACHED", sizeof(state->stop_reason) - 1);
-    }}
+    out[0] = (uint8_t)h0; out[1] = (uint8_t)(h0 >> 8); out[2] = (uint8_t)(h0 >> 16); out[3] = (uint8_t)(h0 >> 24);
+    out[4] = (uint8_t)h1; out[5] = (uint8_t)(h1 >> 8); out[6] = (uint8_t)(h1 >> 16); out[7] = (uint8_t)(h1 >> 24);
+    out[8] = (uint8_t)h2; out[9] = (uint8_t)(h2 >> 8); out[10] = (uint8_t)(h2 >> 16); out[11] = (uint8_t)(h2 >> 24);
+    out[12] = (uint8_t)h3; out[13] = (uint8_t)(h3 >> 8); out[14] = (uint8_t)(h3 >> 16); out[15] = (uint8_t)(h3 >> 24);
 }}
 
 int main(void) {{
-    struct state state;
-    run(&state);
+    struct or_guest_state_v1 state;
+    struct or_runtime_services_v1 services;
+    memset(&state, 0, sizeof(state));
+    memset(&services, 0, sizeof(services));
+    state.pc = 0x{entry_pc:08x}u;
+    state.budget = 100000u;
+    services.ram_base = g_harness_ram;
+    services.ram_size = RAM_SIZE;
+
+    or_title_execute_v1(&state, &services);
 
     uint8_t rdigest[16];
     ram_digest(rdigest);
@@ -596,7 +847,7 @@ int main(void) {{
     }}
 
     char pc_str[9], final_pc_str[9];
-    hex32(pc_str, 0x{TITLE_ENTRY_PC:08x}u);
+    hex32(pc_str, 0x{entry_pc:08x}u);
     hex32(final_pc_str, state.pc);
 
     printf("{{\\n");
@@ -623,20 +874,18 @@ int main(void) {{
     return 0;
 }}
 """
-    return source
 
 
-def _compile(c_path: pathlib.Path, exe_path: pathlib.Path) -> None:
-    """Deterministic native compile of the generated runtime."""
+def _compile_c(c_path: pathlib.Path, exe_path: pathlib.Path, extra_flags: tuple[str, ...] = ()) -> None:
     cmd = [
         "cc",
-        "-O2",
+        "-O0",
         "-std=c11",
         "-fno-stack-protector",
-        "-no-pie",
         "-fno-asynchronous-unwind-tables",
         "-frandom-seed=or_title_runtime_v1",
         "-Wl,--build-id=none",
+        *extra_flags,
         "-o",
         str(exe_path),
         str(c_path),
@@ -660,6 +909,34 @@ def _run(exe_path: pathlib.Path) -> dict[str, Any]:
     return result
 
 
+def _write_files(ctx: EmissionContext, entry_pc: int) -> None:
+    ctx.h_path = ctx.run_dir / "or_title_runtime_v1.h"
+    ctx.c_path = ctx.run_dir / "or_title_runtime_v1.c"
+    ctx.harness_path = ctx.run_dir / "or_title_runtime_harness_v1.c"
+
+    ctx.h_path.write_text(_generate_runtime_h(ctx), encoding="utf-8", newline="\n")
+    ctx.c_path.write_text(_generate_runtime_c(ctx), encoding="utf-8", newline="\n")
+    ctx.harness_path.write_text(_generate_harness_c(ctx, entry_pc), encoding="utf-8", newline="\n")
+
+
+def _compile_files(ctx: EmissionContext) -> None:
+    ctx.so_path = ctx.run_dir / "or_title_runtime_v1.so"
+    ctx.exe_path = ctx.run_dir / "or_title_runtime_v1"
+    include_flag = f"-I{ctx.run_dir}"
+    # Shared library exposing the reusable interface.
+    _compile_c(
+        ctx.c_path,
+        ctx.so_path,
+        extra_flags=("-shared", "-fPIC", include_flag),
+    )
+    # Deterministic harness executable.
+    _compile_c(
+        ctx.harness_path,
+        ctx.exe_path,
+        extra_flags=(include_flag, str(ctx.c_path)),
+    )
+
+
 def emit_executable(
     analysis: Any,
     run_dir: pathlib.Path | None = None,
@@ -679,17 +956,15 @@ def emit_executable(
     ctx = EmissionContext(analysis=analysis, run_dir=run_dir)
     ctx.records = _make_semantic_records(analysis)
 
-    ctx.c_path = run_dir / "or_title_runtime_v1.c"
-    ctx.exe_path = run_dir / "or_title_runtime_v1"
-
-    source = _generate_runtime_c(ctx)
-    ctx.c_path.write_text(source, encoding="utf-8", newline="\n")
-
-    _compile(ctx.c_path, ctx.exe_path)
+    _write_files(ctx, TITLE_ENTRY_PC)
+    _compile_files(ctx)
     ctx.exe_result = _run(ctx.exe_path)
 
     source_hash = _sha256_bytes(ctx.c_path.read_bytes())
     exe_hash = _sha256_bytes(ctx.exe_path.read_bytes())
+    h_hash = _sha256_bytes(ctx.h_path.read_bytes())
+    harness_hash = _sha256_bytes(ctx.harness_path.read_bytes())
+    so_hash = _sha256_bytes(ctx.so_path.read_bytes())
 
     provenance_digest = _sha256_bytes(
         json.dumps([rec.provenance_digest for rec in ctx.records], sort_keys=True).encode("utf-8")
@@ -700,18 +975,27 @@ def emit_executable(
         "stage": "P17-04R",
         "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
         "emission_kind": "AUTHENTICATED_GENERATED_C_RUNTIME",
+        "interface": {
+            "header": "or_title_runtime_v1.h",
+            "execute_symbol": "or_title_execute_v1",
+            "guest_state_struct": "or_guest_state_v1",
+            "services_struct": "or_runtime_services_v1",
+        },
         "source": {
             "p17_02_projection_digest": analysis.projection["projection_digest"],
             "title_payload_sha256": analysis.projection["provenance"]["title_payload_sha256"],
             "entry_pc": f"0x{TITLE_ENTRY_PC:08x}",
+            "header_sha256": h_hash,
             "generated_source_sha256": source_hash,
+            "generated_harness_sha256": harness_hash,
             "semantic_vocabulary": sorted({rec.op for rec in ctx.records if rec.op in SUPPORTED_OPS}),
             "reachable_record_count": len(ctx.records),
             "provenance_digest": provenance_digest,
         },
         "build": {
-            "compiler_command": "cc -O2 -std=c11 -fno-stack-protector -no-pie -fno-asynchronous-unwind-tables -frandom-seed=or_title_runtime_v1 -Wl,--build-id=none",
+            "compiler_command": "cc -O0 -std=c11 -fno-stack-protector -fno-asynchronous-unwind-tables -frandom-seed=or_title_runtime_v1 -Wl,--build-id=none",
             "executable_sha256": exe_hash,
+            "shared_object_sha256": so_hash,
             "runtime_result_schema": "openrecomp-phase17-title-runtime-result-v1",
         },
         "active_build": {
@@ -719,6 +1003,7 @@ def emit_executable(
             "phase16_hand_authored_title_guest_flow": "EXCLUDED",
             "phase16_guest_flow_imports": [],
             "execution": "GENERATED_NATIVE_RUNTIME",
+            "rejected_p17_04_address_inventory_path": "EXCLUDED",
         },
         "runtime_result": ctx.exe_result,
         "claims": {
@@ -741,7 +1026,7 @@ def emit_synthetic_executable(
     t_addr: int = 0x80038000,
     delay_by_owner: dict[int, int] | None = None,
 ) -> dict[str, Any]:
-    """Emit and run a synthetic open test program.
+    """Emit and run a synthetic open test program using the same runtime generator.
 
     *records* are dictionaries with the same keys as a P17-02 decode record.
     The payload is built from *payload_words* and loaded at *t_addr*.
@@ -753,26 +1038,25 @@ def emit_synthetic_executable(
     payload = b"".join(struct.pack("<I", w & MASK32) for w in payload_words)
     text_end = t_addr + len(payload)
 
-    # Build a minimal analysis-like object for the generator.
-    payload_local = payload
-    t_addr_local = t_addr
-    text_end_local = text_end
-    delay_local = dict(delay_by_owner) if delay_by_owner else {}
+    _payload = payload
+    _t_addr = t_addr
+    _text_end = text_end
+    _delay_by_owner = dict(delay_by_owner) if delay_by_owner else {}
 
     class _FakeIdentity:
-        payload = payload_local
-        t_addr = t_addr_local
-        text_end = text_end_local
+        payload = _payload
+        t_addr = _t_addr
+        text_end = _text_end
 
     class _FakeAnalysis:
         identity = _FakeIdentity()
         frontier = {"reachable_addresses": sorted({r["address"] for r in records})}
         records_by_address = {r["address"]: r for r in records}
-        delay_by_owner = delay_local
+        delay_by_owner = _delay_by_owner
         provenance = {}
         projection = {
             "projection_digest": _sha256_bytes(b"synthetic"),
-            "provenance": {"title_payload_sha256": _sha256_bytes(payload)},
+            "provenance": {"title_payload_sha256": _sha256_bytes(_payload)},
         }
 
     fake = _FakeAnalysis()
@@ -782,20 +1066,17 @@ def emit_synthetic_executable(
     ctx = EmissionContext(analysis=fake, run_dir=run_dir)
     ctx.records = _make_semantic_records(fake)
 
-    ctx.c_path = run_dir / "or_title_runtime_v1.c"
-    ctx.exe_path = run_dir / "or_title_runtime_v1"
-
-    # Override entry in the generated source by patching the entry constant.
-    source = _generate_runtime_c(ctx)
-    source = source.replace(f"state->pc = 0x{TITLE_ENTRY_PC:08x}u;", f"state->pc = 0x{entry:08x}u;")
-    # Replace payload size/literal? The generated source already uses fake payload.
-    ctx.c_path.write_text(source, encoding="utf-8", newline="\n")
-    _compile(ctx.c_path, ctx.exe_path)
+    _write_files(ctx, entry)
+    _compile_files(ctx)
     result = _run(ctx.exe_path)
 
     return {
+        "run_dir": str(ctx.run_dir),
+        "header_sha256": _sha256_bytes(ctx.h_path.read_bytes()),
         "source_sha256": _sha256_bytes(ctx.c_path.read_bytes()),
+        "harness_sha256": _sha256_bytes(ctx.harness_path.read_bytes()),
         "exe_sha256": _sha256_bytes(ctx.exe_path.read_bytes()),
+        "so_sha256": _sha256_bytes(ctx.so_path.read_bytes()),
         "runtime_result": result,
     }
 
@@ -806,6 +1087,20 @@ def synthesize_decode_record(
     **operands: Any,
 ) -> dict[str, Any]:
     """Build a P17-02-style decode record for synthetic tests."""
+    control_flow = op in CONTROL_OPS
+    delay_slot = op in ("beq", "bne", "blez", "bgtz", "bltz", "bgez", "j", "jal", "jr", "jalr")
+    link = op in ("jal",) or (op == "jalr" and operands.get("rd", 0) == 31)
+    terminator: str | None = None
+    if op in ("beq", "bne", "blez", "bgtz", "bltz", "bgez"):
+        terminator = "conditional-branch"
+    elif op == "j":
+        terminator = "jump"
+    elif op == "jal":
+        terminator = "direct-call"
+    elif op == "jr":
+        terminator = "return" if operands.get("rs", 0) == 31 else "indirect-jump"
+    elif op == "jalr":
+        terminator = "indirect-call" if operands.get("rd", 0) == 31 else "indirect-jump"
     return {
         "address": address,
         "word": 0,
@@ -814,11 +1109,11 @@ def synthesize_decode_record(
         "semantics": "SUPPORTED",
         "operands": dict(operands),
         "reason": None,
-        "control_flow": op in CONTROL_OPS,
-        "terminator": None,
-        "delay_slot": False,
+        "control_flow": control_flow,
+        "terminator": terminator,
+        "delay_slot": delay_slot,
         "target": operands.get("target"),
-        "link": False,
+        "link": link,
         "trap": False,
         "exception_transfer": False,
         "reachability": "REACHABLE",

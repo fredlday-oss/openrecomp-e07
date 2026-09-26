@@ -1,12 +1,13 @@
 {
   "entry_pc": "0x800380a0",
-  "executed_instruction_count": 35,
+  "executed_instruction_count": 36,
   "final_pc": "0x8003812c",
   "provenance_digest": "ba12a840004f7e1e8561ce947c29d1e97963626cb47de2608106983764986e9a",
   "ram_digest": "7ac0ec20cbb7c15c217c73611f83ff1c",
-  "register_digest": "533b3aea91d3fa3b2300010000000000",
+  "register_digest": "533b3aea91d3fa3b2400010000000000",
   "schema": "openrecomp-phase17-title-runtime-result-v1",
   "semantic_vocabulary": [
+    "addi",
     "addiu",
     "addu",
     "and",
@@ -19,6 +20,7 @@
     "bne",
     "j",
     "jal",
+    "jalr",
     "jr",
     "lb",
     "lbu",

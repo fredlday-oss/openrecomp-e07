@@ -8,7 +8,10 @@ PASS: fixture:slus-hash c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac
 PASS: p17_02:projection-loadable
 PASS: p17_02:projection-digest-valid
 PASS: p17_02:live-projection-digest-matches
+PASS: emission:header-generated
 PASS: emission:source-generated
+PASS: emission:harness-generated
+PASS: emission:shared-object-generated
 PASS: emission:executable-generated
 PASS: emission:entry-pc
 PASS: emission:executed-instructions
@@ -18,7 +21,13 @@ PASS: emission:ram-digest-present
 PASS: emission:semantic-vocabulary-non-empty
 PASS: emission:provenance-digest-present
 PASS: emission:phase16-hand-authored-flow-excluded
+PASS: emission:no-phase16-transition-code-import
+PASS: interface:shared-object-exports-symbol
+PASS: interface:state-transfer {"final_pc": "0x8003800c", "ok": true, "r1": 5, "step_count": 3}
+PASS: interface:transcript-hook {"entries": [[2147713024, "addiu", 1], [2147713028, "addiu", 2], [2147713032, "sw", 3]], "ok": true}
+PASS: interface:budget-stop-reason {"final_pc": "0x80038008", "ok": true, "reason": "STEP_LIMIT_REACHED", "step_count": 2}
 PASS: determinism:source-hash-identical
+PASS: determinism:shared-object-hash-identical
 PASS: determinism:executable-hash-identical
 PASS: determinism:runtime-result-identical
 PASS: negative:p17-02-digest-mismatch
@@ -26,7 +35,16 @@ PASS: negative:payload-sha256-mismatch
 PASS: negative:missing-provenance
 PASS: negative:unsupported-instruction-runtime
 PASS: negative:altered-instruction-word-changes-state
-PASS: positive:delay-slot-semantics {"entry_pc": "0x800380a0", "executed_instruction_count": 6, "final_pc": "0x80038018", "provenance_digest": "5fad8397728d324c7cdd0fc75292fac7d63c561da3e6dd941b3111aa6edebd11", "ram_digest": "00e231d99cad480b63f3ee1c69f18af7", "register_digest": "72660aeaca2e6b3b0600010000000000", "schema": "openrecomp-phase17-title-runtime-result-v1", "semantic_vocabulary": ["addiu", "beq"], "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"}
+PASS: negative:altered-source-word
+PASS: negative:altered-decoded-opcode
+PASS: negative:altered-operand
+PASS: negative:altered-control-flow-target
+PASS: negative:record-from-wrong-pc
+PASS: negative:unauthenticated-record
+PASS: positive:delay-slot-semantics {"entry_pc": "0x80038000", "executed_instruction_count": 6, "final_pc": "0x80038018", "provenance_digest": "91e4ab6cc484bef8c50f1e5d42599978d7566d30df7d4582318f5546ecae0752", "ram_digest": "026231dd9ead48136173ee186d718aff", "register_digest": "72660aeaca2e6b3b0600010000000000", "schema": "openrecomp-phase17-title-runtime-result-v1", "semantic_vocabulary": ["addiu", "beq"], "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"}
+PASS: adversarial:branch-delay-slot-changes-operand {"not_taken": {"entry_pc": "0x80038000", "executed_instruction_count": 7, "final_pc": "0x8003801c", "provenance_digest": "72c4ad4dd086083280fe7117ad34ecc4dad779aea3145e68da62d127d79430b7", "ram_digest": "9f5ed5a346504908050c774519405083", "register_digest": "7a660aea682f6b3b0700010000000000", "schema": "openrecomp-phase17-title-runtime-result-v1", "semantic_vocabulary": ["addiu", "beq"], "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"}, "taken": {"entry_pc": "0x80038000", "executed_instruction_count": 5, "final_pc": "0x8003801c", "provenance_digest": "f845bbfbe72843bbcdce5328fc5adb78705e5b4caa2c11b62b65a3f62e78ce94", "ram_digest": "0a5f15e47daf490805f3f04518405383", "register_digest": "7b660aeaa32e6b3b0500010000000000", "schema": "openrecomp-phase17-title-runtime-result-v1", "semantic_vocabulary": ["addiu", "beq"], "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"}}
+PASS: adversarial:jr-delay-slot-changes-target {"entry_pc": "0x80038000", "executed_instruction_count": 6, "final_pc": "0x8003801c", "provenance_digest": "a7aa9c37c2827e4fcf884e0c62fd0659c553caaa958ef7edce2a36129ceed1d3", "ram_digest": "765a96f96f2e47e8bf776e78927b8b89", "register_digest": "66e6096abeae6ebb0600010000000000", "schema": "openrecomp-phase17-title-runtime-result-v1", "semantic_vocabulary": ["addiu", "jr", "lui", "ori"], "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"}
+PASS: adversarial:jalr-link-visible-to-delay-slot {"entry_pc": "0x80038000", "executed_instruction_count": 6, "final_pc": "0x8003801c", "provenance_digest": "9fae50296e3374efa7dcae95f9613d010ee69a7ee795ceb0d3eabda4b464b228", "ram_digest": "085ccd4398dcdb287b7faf00e5490f9d", "register_digest": "76660aeace2e723b0600010000000000", "schema": "openrecomp-phase17-title-runtime-result-v1", "semantic_vocabulary": ["addiu", "jalr", "lui", "ori", "sw"], "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"}
 PASS: public:no-raw_instruction
 PASS: public:no-instruction_word
 PASS: public:no-payload_bytes
@@ -44,4 +62,4 @@ OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN
 OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
 OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
 FIRST_FRAME_READY=NO
-P17-04R_CHECKS=39
+P17-04R_CHECKS=57

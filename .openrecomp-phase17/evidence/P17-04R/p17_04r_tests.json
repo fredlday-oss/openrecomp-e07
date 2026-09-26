@@ -51,7 +51,22 @@
       "status": "PASS"
     },
     {
+      "check": "emission:header-generated",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
       "check": "emission:source-generated",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:harness-generated",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:shared-object-generated",
       "detail": "",
       "status": "PASS"
     },
@@ -101,7 +116,37 @@
       "status": "PASS"
     },
     {
+      "check": "emission:no-phase16-transition-code-import",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "interface:shared-object-exports-symbol",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "interface:state-transfer",
+      "detail": "{\"final_pc\": \"0x8003800c\", \"ok\": true, \"r1\": 5, \"step_count\": 3}",
+      "status": "PASS"
+    },
+    {
+      "check": "interface:transcript-hook",
+      "detail": "{\"entries\": [[2147713024, \"addiu\", 1], [2147713028, \"addiu\", 2], [2147713032, \"sw\", 3]], \"ok\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "interface:budget-stop-reason",
+      "detail": "{\"final_pc\": \"0x80038008\", \"ok\": true, \"reason\": \"STEP_LIMIT_REACHED\", \"step_count\": 2}",
+      "status": "PASS"
+    },
+    {
       "check": "determinism:source-hash-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:shared-object-hash-identical",
       "detail": "",
       "status": "PASS"
     },
@@ -141,8 +186,53 @@
       "status": "PASS"
     },
     {
+      "check": "negative:altered-source-word",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:altered-decoded-opcode",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:altered-operand",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:altered-control-flow-target",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:record-from-wrong-pc",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unauthenticated-record",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
       "check": "positive:delay-slot-semantics",
-      "detail": "{\"entry_pc\": \"0x800380a0\", \"executed_instruction_count\": 6, \"final_pc\": \"0x80038018\", \"provenance_digest\": \"5fad8397728d324c7cdd0fc75292fac7d63c561da3e6dd941b3111aa6edebd11\", \"ram_digest\": \"00e231d99cad480b63f3ee1c69f18af7\", \"register_digest\": \"72660aeaca2e6b3b0600010000000000\", \"schema\": \"openrecomp-phase17-title-runtime-result-v1\", \"semantic_vocabulary\": [\"addiu\", \"beq\"], \"stop_reason\": \"PC_NOT_IN_AUTHENTICATED_TABLE\"}",
+      "detail": "{\"entry_pc\": \"0x80038000\", \"executed_instruction_count\": 6, \"final_pc\": \"0x80038018\", \"provenance_digest\": \"91e4ab6cc484bef8c50f1e5d42599978d7566d30df7d4582318f5546ecae0752\", \"ram_digest\": \"026231dd9ead48136173ee186d718aff\", \"register_digest\": \"72660aeaca2e6b3b0600010000000000\", \"schema\": \"openrecomp-phase17-title-runtime-result-v1\", \"semantic_vocabulary\": [\"addiu\", \"beq\"], \"stop_reason\": \"PC_NOT_IN_AUTHENTICATED_TABLE\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "adversarial:branch-delay-slot-changes-operand",
+      "detail": "{\"not_taken\": {\"entry_pc\": \"0x80038000\", \"executed_instruction_count\": 7, \"final_pc\": \"0x8003801c\", \"provenance_digest\": \"72c4ad4dd086083280fe7117ad34ecc4dad779aea3145e68da62d127d79430b7\", \"ram_digest\": \"9f5ed5a346504908050c774519405083\", \"register_digest\": \"7a660aea682f6b3b0700010000000000\", \"schema\": \"openrecomp-phase17-title-runtime-result-v1\", \"semantic_vocabulary\": [\"addiu\", \"beq\"], \"stop_reason\": \"PC_NOT_IN_AUTHENTICATED_TABLE\"}, \"taken\": {\"entry_pc\": \"0x80038000\", \"executed_instruction_count\": 5, \"final_pc\": \"0x8003801c\", \"provenance_digest\": \"f845bbfbe72843bbcdce5328fc5adb78705e5b4caa2c11b62b65a3f62e78ce94\", \"ram_digest\": \"0a5f15e47daf490805f3f04518405383\", \"register_digest\": \"7b660aeaa32e6b3b0500010000000000\", \"schema\": \"openrecomp-phase17-title-runtime-result-v1\", \"semantic_vocabulary\": [\"addiu\", \"beq\"], \"stop_reason\": \"PC_NOT_IN_AUTHENTICATED_TABLE\"}}",
+      "status": "PASS"
+    },
+    {
+      "check": "adversarial:jr-delay-slot-changes-target",
+      "detail": "{\"entry_pc\": \"0x80038000\", \"executed_instruction_count\": 6, \"final_pc\": \"0x8003801c\", \"provenance_digest\": \"a7aa9c37c2827e4fcf884e0c62fd0659c553caaa958ef7edce2a36129ceed1d3\", \"ram_digest\": \"765a96f96f2e47e8bf776e78927b8b89\", \"register_digest\": \"66e6096abeae6ebb0600010000000000\", \"schema\": \"openrecomp-phase17-title-runtime-result-v1\", \"semantic_vocabulary\": [\"addiu\", \"jr\", \"lui\", \"ori\"], \"stop_reason\": \"PC_NOT_IN_AUTHENTICATED_TABLE\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "adversarial:jalr-link-visible-to-delay-slot",
+      "detail": "{\"entry_pc\": \"0x80038000\", \"executed_instruction_count\": 6, \"final_pc\": \"0x8003801c\", \"provenance_digest\": \"9fae50296e3374efa7dcae95f9613d010ee69a7ee795ceb0d3eabda4b464b228\", \"ram_digest\": \"085ccd4398dcdb287b7faf00e5490f9d\", \"register_digest\": \"76660aeace2e723b0600010000000000\", \"schema\": \"openrecomp-phase17-title-runtime-result-v1\", \"semantic_vocabulary\": [\"addiu\", \"jalr\", \"lui\", \"ori\", \"sw\"], \"stop_reason\": \"PC_NOT_IN_AUTHENTICATED_TABLE\"}",
       "status": "PASS"
     },
     {
@@ -201,6 +291,6 @@
   "stage": "P17-04R",
   "summary": {
     "failed": 0,
-    "passed": 39
+    "passed": 57
   }
 }

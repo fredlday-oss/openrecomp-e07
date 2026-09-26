@@ -18,8 +18,8 @@
 - `FIRST_FRAME_READY=NO`
 
 ## Current Stage
-- CURRENT_STAGE: P17-04_REVIEW
-- LAST_COMPLETED_STAGE: P17-03
+- CURRENT_STAGE: P17-04R_REVIEW
+- LAST_COMPLETED_STAGE: P17-04R
 - NEXT_STAGE: HUMAN_REVIEW_REQUIRED
 - FINAL_VERDICT: HUMAN_REVIEW_REQUIRED
 
@@ -31,6 +31,7 @@
 | P17-02 | PASS | `OPENRECOMP_PHASE17_TITLE_IR_CONTRACT_V1=PASS` |
 | P17-03 | PASS | `OPENRECOMP_PHASE17_FRONTIER_RECONCILIATION_V1=PASS` |
 | P17-04 | FAIL_REVIEW_REQUIRED | Historical gate PASS checks a block inventory, not emitted guest code; marker not established |
+| P17-04R | PASS | `OPENRECOMP_P17_04R=PASS` |
 | P17-05 | FAIL_REVIEW_REQUIRED | Historical gate PASS checks metadata, not a live Exec dispatch/ablation; marker not established |
 | P17-06 | FAIL_REVIEW_REQUIRED | Historical gate PASS advances PCs without executing guest instruction effects; frontier marker not established |
 | P17-07 | FAIL_REVIEW_REQUIRED | Historical gate PASS infers absent device events from a digest without a checked transcript; marker not established |
@@ -39,4 +40,4 @@
 | P17-99 | PLANNED | `OPENRECOMP_P17_99=PASS` |
 
 ## Review stop
-The original P17-04 through P17-07 `RESULT.json` files and commits remain unchanged as historical gate outputs; their PASS markers do not establish the mission's execution/emission/dispatch claims. See `REVIEW_REQUIRED.md`. Do not promote the bounded terminal marker.
+The original P17-04 through P17-07 `RESULT.json` files and commits remain unchanged as historical gate outputs; their PASS markers do not establish the mission's execution/emission/dispatch claims. P17-04R Revision 3 re-establishes authenticated executable emission with fresh-decode binding, corrected MIPS delay-slot timing, a reusable persistent guest-state interface, active-path exclusion, and deterministic official reruns. See `REVIEW_REQUIRED.md` for remaining stages. Do not promote the bounded terminal marker beyond P17-04R.
