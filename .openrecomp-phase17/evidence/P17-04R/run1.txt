@@ -1,0 +1,47 @@
+PASS: integrity:phase17-sources OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=27
+PASS: fixture:bin-exists bin
+PASS: fixture:bin-hash 2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365
+PASS: fixture:cue-exists cue
+PASS: fixture:cue-hash beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2
+PASS: fixture:slus-exists slus
+PASS: fixture:slus-hash c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f
+PASS: p17_02:projection-loadable
+PASS: p17_02:projection-digest-valid
+PASS: p17_02:live-projection-digest-matches
+PASS: emission:source-generated
+PASS: emission:executable-generated
+PASS: emission:entry-pc
+PASS: emission:executed-instructions
+PASS: emission:stop-is-frontier
+PASS: emission:register-digest-present
+PASS: emission:ram-digest-present
+PASS: emission:semantic-vocabulary-non-empty
+PASS: emission:provenance-digest-present
+PASS: emission:phase16-hand-authored-flow-excluded
+PASS: determinism:source-hash-identical
+PASS: determinism:executable-hash-identical
+PASS: determinism:runtime-result-identical
+PASS: negative:p17-02-digest-mismatch
+PASS: negative:payload-sha256-mismatch
+PASS: negative:missing-provenance
+PASS: negative:unsupported-instruction-runtime
+PASS: negative:altered-instruction-word-changes-state
+PASS: positive:delay-slot-semantics {"entry_pc": "0x800380a0", "executed_instruction_count": 6, "final_pc": "0x80038018", "provenance_digest": "5fad8397728d324c7cdd0fc75292fac7d63c561da3e6dd941b3111aa6edebd11", "ram_digest": "00e231d99cad480b63f3ee1c69f18af7", "register_digest": "72660aeaca2e6b3b0600010000000000", "schema": "openrecomp-phase17-title-runtime-result-v1", "semantic_vocabulary": ["addiu", "beq"], "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"}
+PASS: public:no-raw_instruction
+PASS: public:no-instruction_word
+PASS: public:no-payload_bytes
+PASS: public:no-bios_bytes
+PASS: public:no-private-paths
+PASS: title-exec-emission:no-private-path absolute private paths absent
+PASS: title-exec-emission:reject-private-paths no private paths in values
+PASS: title-exec-emission:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: title-exec-emission:no-payload-hex no payload supplied
+PASS: title-exec-emission:no-raw-words reconstructive fields absent
+OPENRECOMP_PHASE17_AUTHENTIC_TITLE_EXEC_EMISSION_V1=PASS
+OPENRECOMP_P17_04R=PASS
+OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+FIRST_FRAME_READY=NO
+P17-04R_CHECKS=39

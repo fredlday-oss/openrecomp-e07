@@ -1,0 +1,206 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase17-sources",
+      "detail": "OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=27",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-exists",
+      "detail": "bin",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-hash",
+      "detail": "2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-exists",
+      "detail": "cue",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-hash",
+      "detail": "beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:slus-exists",
+      "detail": "slus",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:slus-hash",
+      "detail": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "status": "PASS"
+    },
+    {
+      "check": "p17_02:projection-loadable",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p17_02:projection-digest-valid",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "p17_02:live-projection-digest-matches",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:source-generated",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:executable-generated",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:entry-pc",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:executed-instructions",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:stop-is-frontier",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:register-digest-present",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:ram-digest-present",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:semantic-vocabulary-non-empty",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:provenance-digest-present",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:phase16-hand-authored-flow-excluded",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:source-hash-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:executable-hash-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:runtime-result-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:p17-02-digest-mismatch",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:payload-sha256-mismatch",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:missing-provenance",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unsupported-instruction-runtime",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:altered-instruction-word-changes-state",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:delay-slot-semantics",
+      "detail": "{\"entry_pc\": \"0x800380a0\", \"executed_instruction_count\": 6, \"final_pc\": \"0x80038018\", \"provenance_digest\": \"5fad8397728d324c7cdd0fc75292fac7d63c561da3e6dd941b3111aa6edebd11\", \"ram_digest\": \"00e231d99cad480b63f3ee1c69f18af7\", \"register_digest\": \"72660aeaca2e6b3b0600010000000000\", \"schema\": \"openrecomp-phase17-title-runtime-result-v1\", \"semantic_vocabulary\": [\"addiu\", \"beq\"], \"stop_reason\": \"PC_NOT_IN_AUTHENTICATED_TABLE\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "public:no-raw_instruction",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:no-instruction_word",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:no-payload_bytes",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:no-bios_bytes",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:no-private-paths",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "title-exec-emission:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "title-exec-emission:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "title-exec-emission:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "title-exec-emission:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "title-exec-emission:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P17-04R Test Results",
+  "schema": "openrecomp-phase17-tests-v1",
+  "stage": "P17-04R",
+  "summary": {
+    "failed": 0,
+    "passed": 39
+  }
+}
