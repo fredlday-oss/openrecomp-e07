@@ -1,0 +1,93 @@
+{
+  "mapping": {
+    "continuation_entry_file_offset": 8944,
+    "continuation_entry_pc": "0x80011af0",
+    "record_count": 6,
+    "rule": "file_offset = header_size + (guest_addr - t_addr)"
+  },
+  "next_stage": "P17-06R",
+  "private_mapping_sha256": "a03ada6b8946e362ae15119d1276cd570e230dab80f6acc91d9210289f96848c",
+  "reachable_address_count": 6,
+  "reachable_first_pc": "0x80011af0",
+  "reachable_last_pc": "0x80011b04",
+  "reachable_op_vocabulary": [
+    "jr",
+    "lui",
+    "nop",
+    "sw"
+  ],
+  "reachable_op_vocabulary_count": 4,
+  "records": [
+    {
+      "file_offset": 8944,
+      "guest_pc": "0x80011af0",
+      "op": "lui",
+      "payload_offset": 6896,
+      "provenance_digest": "5821a7ce0ab6b37eed623e0ebf0bd57513b9f572cd1149d6efd00f4402fcaf48"
+    },
+    {
+      "file_offset": 8948,
+      "guest_pc": "0x80011af4",
+      "op": "sw",
+      "payload_offset": 6900,
+      "provenance_digest": "0b90bbc187cc503e8aeebeee7b8bba1ef58b2eb86d721333b9df19952ba576b7"
+    },
+    {
+      "file_offset": 8952,
+      "guest_pc": "0x80011af8",
+      "op": "lui",
+      "payload_offset": 6904,
+      "provenance_digest": "3db1802c8f59627c97b14dc154e7e94cc67d45cc2efc26a9aeadd47ee3bf0c29"
+    },
+    {
+      "file_offset": 8956,
+      "guest_pc": "0x80011afc",
+      "op": "sw",
+      "payload_offset": 6908,
+      "provenance_digest": "b0060fb273b39a05bba24dd43b34e1170e3d4448cc1fc53a5becb9ce4d0046b9"
+    },
+    {
+      "file_offset": 8960,
+      "guest_pc": "0x80011b00",
+      "op": "jr",
+      "payload_offset": 6912,
+      "provenance_digest": "e46d6d44a6b45c7345e98400c9f6e8f3d6338161e505cfac7d34cc07d1063d8f"
+    },
+    {
+      "file_offset": 8964,
+      "guest_pc": "0x80011b04",
+      "op": "nop",
+      "payload_offset": 6916,
+      "provenance_digest": "84a3c389d405b9a297af67a94e0e0a873a698c5622437f9f4874695cd90f24f1"
+    }
+  ],
+  "schema": "openrecomp-phase17-mainexe-mapping-v1",
+  "source_artifact": {
+    "file_sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "file_size": 129024,
+    "fixture_member": "SLUS_005.29",
+    "header": {
+      "entry_pc": "0x800132e8",
+      "gp0": "0x00000000",
+      "header_size": 2048,
+      "magic": "PS-X EXE",
+      "t_addr": "0x80010000",
+      "t_size": 126976,
+      "text_end": "0x8002f000"
+    },
+    "payload_sha256": "2f48da4c642b25dd9d0b033f77b80a19e5befe34dc19da3194a51998e97c71be"
+  },
+  "stage": "P17-05R",
+  "title_continuation": {
+    "live_title_prefix_executed_count": 37,
+    "live_title_prefix_last_executed_pc": "0x80038130",
+    "recorded_frontier": {
+      "attempted_frontier_pc": "0x80011af0",
+      "executed_instruction_count": 37,
+      "frontier_pc": "0x80011af0",
+      "last_successfully_executed_pc": "0x80038130",
+      "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"
+    },
+    "reproduced": true
+  }
+}

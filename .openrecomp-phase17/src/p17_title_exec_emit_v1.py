@@ -241,7 +241,16 @@ def verify_authenticated_analysis(analysis: Any) -> None:
 
 
 def _read_authenticated_word(analysis: Any, pc: int) -> int:
-    """Read the actual 32-bit guest word from the authenticated private TITLE source."""
+    """Read the actual 32-bit guest word from the authenticated private source.
+
+    A multi-region analysis may expose its own `read_authenticated_word(pc)`
+    resolver (Phase-17 P17-05R continuation across the TITLE -> main-EXE
+    transition).  Single-region analyses are unchanged: the attribute is absent
+    and the original TITLE-source path below runs verbatim.
+    """
+    resolver = getattr(analysis, "read_authenticated_word", None)
+    if callable(resolver):
+        return resolver(pc)
     t_addr = getattr(analysis.identity, "t_addr", TITLE_TEXT_ADDR)
     text_end = getattr(analysis.identity, "text_end", TITLE_TEXT_END)
     if not (t_addr <= pc < text_end) or pc & 3:

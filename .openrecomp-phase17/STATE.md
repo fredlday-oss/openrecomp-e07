@@ -18,10 +18,10 @@
 - `FIRST_FRAME_READY=NO`
 
 ## Current Stage
-- CURRENT_STAGE: P17-05R
-- LAST_COMPLETED_STAGE: P17-04R (Revision 4 accepted and integrated)
-- NEXT_STAGE: P17-05R
-- next_stage: P17-05R
+- CURRENT_STAGE: P17-06R
+- LAST_COMPLETED_STAGE: P17-05R (bounded authenticated execution continuation; worker PASS, controller review pending)
+- NEXT_STAGE: P17-06R
+- next_stage: P17-06R
 - FINAL_VERDICT: PHASE17_IN_PROGRESS
 - REVIEW_GATE: P17-04R Revision 4 was independently re-verified by the controller (canonical dual reruns, 0 non-PASS, regenerated evidence byte-identical to the committed evidence) and integrated by fast-forward to `0ab4e7eb2ed4393cec7f61a79705d2c44bbc4441`. The remaining fail-closed review stop covers P17-05R through P17-07R; see `.openrecomp-phase17/REVIEW_REQUIRED.md` and `.openrecomp-phase17/evidence/P17-04R/CONTROLLER_REVIEW.md`.
 
@@ -38,6 +38,19 @@
 - linkage_exclusion: handwritten title-transition substitute excluded at the linkage level (`TITLE_TRANSITION_CODE`, `p16_emission_v1`, `p16_record_title_transition` absent); forbidden-symbol negative control detected
 - next_stage: P17-05R
 
+## P17-05R authoritative metadata (bounded continuation)
+- STATUS: PASS (worker; controller review pending)
+- base_commit: 36be03b5756726a20ecd69735b41cb5eba795155
+- worker_branch: agent/deepseek-phase17-p17-05r-r1
+- resulting_candidate_commit: PENDING_FINAL_COMMIT
+- resulting_candidate_commit_resolver: git rev-parse agent/deepseek-phase17-p17-05r-r1
+- authentic_frontier: last_successfully_executed_pc=0x8004ffc0, attempted_frontier_pc=0x80026cc8, frontier_pc=0x80026cc8, stop_reason=PC_NOT_IN_AUTHENTICATED_TABLE
+- p17_04r_frontier_reproduced: title_prefix_executed_count=37, title_prefix_last_executed_pc=0x80038130, continuation_entry=0x80011af0
+- newly_authenticated_mainexe_records: 6 (provenance chain: SLUS_005.29 SHA-256 -> PS-X EXE header -> file offset -> guest address -> word -> fresh decode -> record)
+- continuation_budget_used: 6 newly authenticated main-EXE instructions (bound 4096)
+- persisted_private_artifacts: generated source/header/harness, private authenticated mapping, build metadata, compiled shared object/executable under the configured private build root (never committed)
+- next_stage: P17-06R
+
 ## Stage Status
 | Stage | Status | Marker |
 |---|---|---|
@@ -47,6 +60,7 @@
 | P17-03 | PASS | `OPENRECOMP_PHASE17_FRONTIER_RECONCILIATION_V1=PASS` |
 | P17-04 | FAIL_REVIEW_REQUIRED | Historical gate PASS checks a block inventory, not emitted guest code; marker not established |
 | P17-04R | PASS (integrated) | `OPENRECOMP_P17_04R=PASS` + `OPENRECOMP_P17_04R_REV4=PASS` |
+| P17-05R | PASS (worker; controller review pending) | `OPENRECOMP_P17_05R=PASS` |
 | P17-05 | FAIL_REVIEW_REQUIRED | Historical gate PASS checks metadata, not a live Exec dispatch/ablation; marker not established |
 | P17-06 | FAIL_REVIEW_REQUIRED | Historical gate PASS advances PCs without executing guest instruction effects; frontier marker not established |
 | P17-07 | FAIL_REVIEW_REQUIRED | Historical gate PASS infers absent device events from a digest without a checked transcript; marker not established |

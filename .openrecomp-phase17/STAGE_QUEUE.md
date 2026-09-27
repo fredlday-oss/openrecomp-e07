@@ -16,6 +16,7 @@ P17-00 froze placeholder/reserved rows before the complete Phase-17 execution co
 | P17-05 | Verified A0:0x43 Exec dispatch to authentic emitted TITLE entry and causality | gate PASS does not establish live dispatch | FAIL_REVIEW_REQUIRED |
 | P17-06 | Bounded authentic TITLE execution to the exact first semantic/budget frontier | gate PASS does not establish execution | FAIL_REVIEW_REQUIRED |
 | P17-07 | Authentic frontier assessment for GPU, DMA, OT, framebuffer, and initialization predicates | gate PASS does not establish observations | FAIL_REVIEW_REQUIRED |
+| P17-05R | Authentic execution continuation across the TITLE -> main-EXE transition | `OPENRECOMP_P17_05R=PASS` | PASS (worker; controller review pending) |
 | P17-90 | Whole Phase-17 regression suite | `OPENRECOMP_P17_90=PASS` | PLANNED |
 | P17-91 | Evidence closure & source manifest audit | `OPENRECOMP_P17_91=PASS` | PLANNED |
 | P17-99 | Final Phase-17 verdict | `OPENRECOMP_P17_99=PASS` | PLANNED |
@@ -26,6 +27,10 @@ Claim markers:
 - `OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN`;
 - `OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN`;
 - `FIRST_FRAME_READY=NO`.
+
+## Worker closure — P17-05R
+- P17-05R: PASS (worker; controller review pending) — `OPENRECOMP_P17_05R=PASS`; authentic continuation frontier advanced from the P17-04R entry `0x80011af0` to `0x80026cc8` (`PC_NOT_IN_AUTHENTICATED_TABLE`).
+- P17-06R / P17-07R: OUTSTANDING (replacement contracts; historical P17-05..P17-07 remain FAIL_REVIEW_REQUIRED).
 
 ## Controller closure — P17-04R (Revision 4)
 - P17-04R: PASS (integrated) — `OPENRECOMP_P17_04R=PASS` + `OPENRECOMP_P17_04R_REV4=PASS`, integrated at `0ab4e7eb2ed4393cec7f61a79705d2c44bbc4441`.

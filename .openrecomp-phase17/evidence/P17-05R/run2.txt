@@ -1,0 +1,121 @@
+PASS: integrity:phase17-sources OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=32
+PASS: fixture:bin-exists bin
+PASS: fixture:bin-hash 2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365
+PASS: fixture:cue-exists cue
+PASS: fixture:cue-hash beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2
+PASS: fixture:slus-exists slus
+PASS: fixture:slus-hash c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f
+PASS: p17_02:projection-loadable
+PASS: p17_02:projection-digest-valid
+PASS: p17_02:live-projection-digest-matches
+PASS: next-stage:declared-constant
+PASS: p17_04r:recorded-frontier-loadable
+PASS: p17_04r:recorded-stop-is-unauthenticated-table {"stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"}
+PASS: p17_04r:recorded-entry-outside-title-payload 0x80011af0
+PASS: mainexe:member-sha256-authenticated
+PASS: mainexe:header-magic
+PASS: mainexe:header-consistent {"entry": "0x800132e8", "gp0": "0x00000000", "t_addr": "0x80010000", "t_size": 126976}
+PASS: mainexe:mapping-rule-holds {"entry": "0x80011af0", "file_offset": 8944}
+PASS: mainexe:mapping-round-trip
+PASS: mainexe:guest-address-outside-text-rejected
+PASS: mainexe:word-cross-check-holds
+PASS: continuation:entry-derived-from-recorded-frontier
+PASS: continuation:mainexe-reachable-non-empty {"reachable": 6}
+PASS: continuation:title-reachable-matches-p17_02 {"title_records": 6995}
+PASS: continuation:regions-disjoint
+PASS: continuation:mainexe-provenance-chain-holds {"0x80011af0": {"file_offset": 8944, "op": "lui", "provenance_digest": "5821a7ce0ab6b37e"}, "0x80011af4": {"file_offset": 8948, "op": "sw", "provenance_digest": "0b90bbc187cc503e"}, "0x80011af8": {"file_offset": 8952, "op": "lui", "provenance_digest": "3db1802c8f59627c"}, "0x80011afc": {"file_offset": 8956, "op": "sw", "provenance_digest": "b0060fb273b39a05"}, "0x80011b00": {"file_offset": 8960, "op": "jr", "provenance_digest": "e46d6d44a6b45c73"}, "0x80011b04": {"file_offset": 8964, "op": "nop", "provenance_digest": "84a3c389d405b9a2"}}
+PASS: continuation:every-record-verified-against-fresh-decode {"reachable": 7001, "records": 7001}
+PASS: persistence:fresh-run-dirs-created
+PASS: persistence:run-dirs-distinct
+PASS: emission:header-generated
+PASS: emission:source-generated
+PASS: emission:harness-generated
+PASS: emission:shared-object-generated
+PASS: emission:executable-generated
+PASS: emission:entry-pc
+PASS: emission:register-digest-present
+PASS: emission:ram-digest-present
+PASS: emission:provenance-digest-present
+PASS: emission:implemented-semantic-vocabulary-non-empty
+PASS: emission:exercised-semantic-vocabulary-non-empty
+PASS: emission:no-phase16-transition-code-import
+PASS: continuation:title-prefix-reproduced {"prefix_count": 37, "prefix_last_pc": "0x80038130", "recorded_count": 37, "recorded_last_pc": "0x80038130"}
+PASS: continuation:mainexe-instructions-executed {"mainexe_executed_count": 6}
+PASS: continuation:frontier-advanced-beyond-entry {"entry": "0x80011af0", "frontier_pc": "0x80026cc8", "last_successfully_executed_pc": "0x8004ffc0"}
+PASS: continuation:typed-stop-reason PC_NOT_IN_AUTHENTICATED_TABLE
+PASS: continuation:distinct-frontier-pcs {"attempted": "0x80026cc8", "frontier_pc": "0x80026cc8", "last": "0x8004ffc0"}
+PASS: continuation:first-mainexe-pc-is-recorded-entry
+PASS: continuation:mainexe-executed-pcs-authenticated {"authenticated_count": 6, "executed": ["0x80011af0", "0x80011af4", "0x80011af8", "0x80011afc", "0x80011b00", "0x80011b04"]}
+PASS: continuation:budget-respected {"budget": 4096, "executed": 78, "mainexe": 6}
+PASS: interface:shared-object-exports-symbol
+PASS: persistence:run1-artifacts-exist-and-hash-match {"build_metadata": "7516e7901bbe70b4de1ee320164e9f1c562f45d66183b4d1d5169f46f5c42b60", "executable": "8d0c24a20b8ebe01ac6845eb95ae0f209c6afb6c25c2756249a2a31573933cc5", "generated_harness": "181f452fa29ead7e39adf80dd5e64e47211ae127c3dd7331e38e14e28397f9e8", "generated_header": "8e278973648abb8ba1be650720ba7df275a6ffe367fa4fff245fd183c92c5e29", "generated_source": "7d3dd228845f33e7b3b7617c65f39adf63477eb6dc625e1c308a86448d290415", "private_mapping": "12ae63c286d984c42f5256f8e247fdac9b52f3048b0689406424802680126e97", "shared_object": "08da91ff78e33c47ff2e60a0112152c72583ac756a70703d402a7aa85e8bb747"}
+PASS: persistence:run2-artifacts-exist-and-hash-match
+PASS: persistence:generated-source-survives-process-exit
+PASS: persistence:private-map-survives-process-exit
+PASS: persistence:native-artifact-survives-process-exit
+PASS: persistence:recorded-native-hash-matches-artifact
+PASS: persistence:private-map-record-count
+PASS: persistence:private-build-root-env-override {"default_digest_prefix": "912b4a4e38eea682", "env_var": "OPENRECOMP_P17_PRIVATE_BUILD_ROOT", "official_run_labels": ["official-run-1", "official-run-2"], "override_honoured": true}
+PASS: persistence:child-process-verification {"count": 7, "digest": "fb99554d48a44232eae1ab35c40d90bcfdea1c999bf2f1bfa254e212caf07dd1", "exist": true, "label": "official-run-1", "ok": true}
+PASS: determinism:generated-source-hash-identical
+PASS: determinism:private-map-hash-identical
+PASS: determinism:shared-object-hash-identical
+PASS: determinism:executable-hash-identical
+PASS: determinism:runtime-result-identical
+PASS: determinism:manifest-identical
+PASS: negative:unauthenticated-destination {"entry_rejected": true, "ok": true, "record_rejected": true, "resolver_rejected": true}
+PASS: negative:altered-source-word {"code": "OPCODE_MISMATCH", "ok": true}
+PASS: negative:altered-mainexe-header-fields {"ok": true, "t_addr_rejected": true, "t_size_rejected": true, "t_size_structural_rejected": true}
+PASS: negative:wrong-file-offset {"code": "MAINEXE_FILE_OFFSET_MISMATCH", "ok": true}
+PASS: negative:tampered-payload-sha256 {"member_rejected": true, "ok": true, "payload_digest_rejected": true}
+PASS: negative:missing-provenance {"code": "MISSING_SOURCE_PROVENANCE", "ok": true}
+PASS: negative:non-advancing-frontier-rejected {"code": "TITLE_FRONTIER_REPRODUCTION_MISMATCH", "ok": true}
+PASS: negative:frontier-pc-outside-authenticated-table {"frontier_pc": "0x80026cc8", "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE"}
+PASS: vocabulary:implemented-ops-all-executable {"count": 45, "ok": true}
+PASS: vocabulary:exercised-derived-from-execution-trace {"executed": 78, "exercised": ["addi", "addiu", "addu", "bne", "jal", "jr", "lui", "lw", "nop", "or", "ori", "sb", "sll", "sltu", "srl", "subu", "sw"], "trace_len": 78}
+PASS: vocabulary:exercised-subset-of-implemented
+PASS: public:continuation:no-raw-instruction-field
+PASS: public:continuation:no-instruction-word-field
+PASS: public:continuation:no-payload-bytes-field
+PASS: public:continuation:no-bios-bytes-field
+PASS: public:continuation:no-private-paths
+PASS: continuation:no-private-path absolute private paths absent
+PASS: continuation:reject-private-paths no private paths in values
+PASS: continuation:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: continuation:no-payload-hex no payload supplied
+PASS: continuation:no-raw-words reconstructive fields absent
+PASS: public:mainexe-mapping:no-raw-instruction-field
+PASS: public:mainexe-mapping:no-instruction-word-field
+PASS: public:mainexe-mapping:no-payload-bytes-field
+PASS: public:mainexe-mapping:no-bios-bytes-field
+PASS: public:mainexe-mapping:no-private-paths
+PASS: mainexe-mapping:no-private-path absolute private paths absent
+PASS: mainexe-mapping:reject-private-paths no private paths in values
+PASS: mainexe-mapping:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: mainexe-mapping:no-payload-hex no payload supplied
+PASS: mainexe-mapping:no-raw-words reconstructive fields absent
+PASS: public:emission:no-raw-instruction-field
+PASS: public:emission:no-instruction-word-field
+PASS: public:emission:no-payload-bytes-field
+PASS: public:emission:no-bios-bytes-field
+PASS: public:emission:no-private-paths
+PASS: emission:no-private-path absolute private paths absent
+PASS: emission:reject-private-paths no private paths in values
+PASS: emission:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: emission:no-payload-hex no payload supplied
+PASS: emission:no-raw-words reconstructive fields absent
+PASS: next-stage:cross-file-consistency {"mismatched": [], "missing": []}
+PASS: scope:no-phase-1-16-changes []
+PASS: scope:phase16-frozen-integrity
+PASS: public:committed-evidence-clean {"file_count": 5, "hits": [], "ok": true}
+PASS: public:gate-stdout-clean []
+OPENRECOMP_PHASE17_AUTHENTIC_EXECUTION_CONTINUATION_V1=PASS
+OPENRECOMP_P17_05R=PASS
+OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+FIRST_FRAME_READY=NO
+OPENRECOMP_P17_05R_BOUNDED_CONTINUATION=PASS
+OPENRECOMP_P17_05R_CONTINUATION_BUDGET=4096
+P17-05R_CHECKS=111

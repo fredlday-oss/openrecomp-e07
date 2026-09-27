@@ -1,0 +1,57 @@
+{
+  "authentic_frontier": {
+    "attempted_frontier_pc": "0x80026cc8",
+    "frontier_pc": "0x80026cc8",
+    "last_successfully_executed_pc": "0x8004ffc0",
+    "mainexe_executed_count": 6,
+    "mainexe_first_pc": "0x80011af0",
+    "stop_reason": "PC_NOT_IN_AUTHENTICATED_TABLE",
+    "title_prefix_executed_count": 37,
+    "title_prefix_last_executed_pc": "0x80038130"
+  },
+  "base_commit": "36be03b5756726a20ecd69735b41cb5eba795155",
+  "continuation_entry_pc": "0x80011af0",
+  "emission_digest": "8c2a10ad81f00f9c43caeff46d4675a14634c42f27012bd4a6ab87193792341e",
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "mainexe_mapping": {
+    "continuation_entry_file_offset": 8944,
+    "entry_pc": "0x800132e8",
+    "file_sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "fixture_member": "SLUS_005.29",
+    "payload_sha256": "2f48da4c642b25dd9d0b033f77b80a19e5befe34dc19da3194a51998e97c71be",
+    "t_addr": "0x80010000",
+    "t_size": 126976
+  },
+  "markers": {
+    "FIRST_FRAME_READY": "NO",
+    "OPENRECOMP_P17_05R": "PASS",
+    "OPENRECOMP_PHASE17_AUTHENTIC_EXECUTION_CONTINUATION_V1": "PASS",
+    "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN"
+  },
+  "newly_authenticated_records": {
+    "mainexe": 6,
+    "title": 6995,
+    "total": 7001
+  },
+  "next_stage": "P17-06R",
+  "proof_boundaries": {
+    "FIRST_FRAME_READY": "NO",
+    "GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+    "HERCULES_FRAME_PROOF": "NOT_PROVEN",
+    "HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+    "HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN"
+  },
+  "resulting_candidate_commit": "PENDING_FINAL_COMMIT",
+  "resulting_candidate_commit_resolver": "git rev-parse agent/deepseek-phase17-p17-05r-r1",
+  "schema": "openrecomp-phase17-result-v1",
+  "semantic_vocabulary_counts": {
+    "exercised": 17,
+    "implemented": 45
+  },
+  "stage": "P17-05R",
+  "status": "PASS",
+  "worker_branch": "agent/deepseek-phase17-p17-05r-r1"
+}
