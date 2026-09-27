@@ -212,7 +212,6 @@ def body(gate: Gate, evidence: pathlib.Path, root: pathlib.Path) -> None:
 
     head = _git("rev-parse", "HEAD")
     tree = _git("rev-parse", "HEAD^{tree}")
-    branch = _git("rev-parse", "--abbrev-ref", "HEAD")
 
     # 1. Stage-chain closure.
     chain = term.audit_stage_chain(EVIDENCE_ROOT)
@@ -362,7 +361,6 @@ def body(gate: Gate, evidence: pathlib.Path, root: pathlib.Path) -> None:
     verdict = {
         "schema": "openrecomp-phase17-terminal-verdict-v1",
         "stage": STAGE,
-        "branch": branch,
         "phase16_base_commit": term.PHASE16_BASELINE_COMMIT,
         "certified_authority_commit": term.BASE_COMMIT,
         "certified_authority_tree": term.BASE_TREE,
