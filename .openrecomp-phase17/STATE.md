@@ -18,10 +18,10 @@
 - `FIRST_FRAME_READY=NO`
 
 ## Current Stage
-- CURRENT_STAGE: P17-90
-- LAST_COMPLETED_STAGE: P17-90 (whole Phase-17 regression suite; controller reviewed and INTEGRATED at `53528956b3276e8bc3f954dc141049bb7ab7c74b`)
-- NEXT_STAGE: P17-91
-- next_stage: P17-91
+- CURRENT_STAGE: P17-91
+- LAST_COMPLETED_STAGE: P17-91 (evidence closure & source manifest audit; worker candidate `84e3e8ae19bcab79ef819e937d1b1361f5628b0c`, controller reviewed and INTEGRATED into the branch at this commit)
+- NEXT_STAGE: P17-99
+- next_stage: P17-99
 - FINAL_VERDICT: PHASE17_IN_PROGRESS
 - REVIEW_GATE: P17-04R Revision 4 was independently re-verified by the controller (canonical dual reruns, 0 non-PASS, regenerated evidence byte-identical to the committed evidence) and integrated by fast-forward to `0ab4e7eb2ed4393cec7f61a79705d2c44bbc4441`. The remaining fail-closed review stop covers P17-05R through P17-07R; see `.openrecomp-phase17/REVIEW_REQUIRED.md` and `.openrecomp-phase17/evidence/P17-04R/CONTROLLER_REVIEW.md`.
 
@@ -42,6 +42,21 @@
 - marker: `OPENRECOMP_PHASE17_CHECKED_DEVICE_FRONTIER_ASSESSMENT_V1=PASS` and `OPENRECOMP_P17_07R=PASS`
 - proof boundaries unchanged: initialization/frame/playability/general compatibility remain NOT_PROVEN; `FIRST_FRAME_READY=NO`
 - next_stage: P17-91
+
+## P17-91 authoritative metadata (evidence closure & source manifest audit)
+- STATUS: PASS (controller reviewed and INTEGRATED)
+- base_commit: 724d3d4c8ff9a58702d05a5f5fb7aaf503bf5649
+- worker_branch: agent/deepseek-phase17-p17-91-r1
+- resulting_candidate_commit: 84e3e8ae19bcab79ef819e937d1b1361f5628b0c (tree 992862fb456ddfe579b24c40352b737d108a5dc4)
+- resulting_candidate_commit_resolver: git rev-parse agent/deepseek-phase17-p17-91-r1
+- gate: `python3 .openrecomp-phase17/src/p17_stage_runner_v1.py --stage P17-91 --script tools/test_phase17_evidence_closure_v1.py --evidence-dir .openrecomp-phase17/evidence/P17-91 --tests-json p17_91_tests.json`
+- checks: 153 PASS, 0 FAIL (`P17-91_CHECKS=153`); dual runs exit 0, empty stderr, stdout byte-identical; `sha256(run1.txt)=6ad7f44153a35483827c0c8e206eadbc1e140c1354f386bc6dca8ccd9e190f83`; `gate_sha256=6d3f040b69a44b3004412209a537ada51ac9b446f32c3af39a7041af24904a83`
+- controller_verification: independent fresh-root dual runs (byte-identical stdout, empty stderr, rc 0) and a clean-root in-place regeneration that leaves `git status --porcelain` empty (13 of 14 JSON documents byte-identical to the committed evidence; sole divergence `official_runs.json` is the echoed `--evidence-dir` invocation string only); independent re-derivation of the public-safety scan, the 41-entry source manifest (`sha256sum -c` all OK; `OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=41`), evidence closure, dual-run determinism, marker ledger and prior-phase integrity (16 trees); controller-authored manifest-digest and removed-entry tamper cases both detected.
+- reported_finding_resolved: the worker surfaced (not waived) two literal `/home/<user>/…` paths in the controller-authored `P17-90/CONTROLLER_REVIEW.md`; the controller fixed them at `69c4611` and regenerated the P17-91 evidence. Post-fix `public_safety.json.review_document_findings` and `RESULT.json.findings` are empty.
+- scope: terminal consistency gate only; promotes no proof marker and proves nothing about emulation
+- marker: `OPENRECOMP_P17_91=PASS` and `OPENRECOMP_PHASE17_EVIDENCE_CLOSURE_V1=PASS`
+- proof boundaries unchanged: initialization/frame/playability/general compatibility remain NOT_PROVEN; `FIRST_FRAME_READY=NO`
+- next_stage: P17-99
 
 ## Revision 4 (P17-04R) authoritative metadata
 - STATUS: PASS (integrated into the controller branch)
@@ -104,7 +119,7 @@
 | P17-07 | FAIL_REVIEW_REQUIRED | Historical gate PASS infers absent device events from a digest without a checked transcript; marker not established |
 | P17-07R | PASS (integrated) | `OPENRECOMP_P17_07R=PASS` |
 | P17-90 | PASS (integrated) | `OPENRECOMP_P17_90=PASS` |
-| P17-91 | PLANNED | `OPENRECOMP_P17_91=PASS` |
+| P17-91 | PASS (integrated) | `OPENRECOMP_P17_91=PASS` + `OPENRECOMP_PHASE17_EVIDENCE_CLOSURE_V1=PASS` |
 | P17-99 | PLANNED | `OPENRECOMP_P17_99=PASS` |
 
 ## Review stop

@@ -20,7 +20,7 @@ P17-00 froze placeholder/reserved rows before the complete Phase-17 execution co
 | P17-06R | Live BIOS/Exec and device side-effect frontier past the P17-05R stop | `OPENRECOMP_P17_06R=PASS` | PASS (integrated) |
 | P17-07R | Checked device-frontier assessment bound to the verified P17-06R transcript | `OPENRECOMP_P17_07R=PASS` | PASS (integrated) |
 | P17-90 | Whole Phase-17 regression suite | `OPENRECOMP_P17_90=PASS` | PASS (integrated) |
-| P17-91 | Evidence closure & source manifest audit | `OPENRECOMP_P17_91=PASS` | PLANNED |
+| P17-91 | Evidence closure & source manifest audit | `OPENRECOMP_P17_91=PASS` | PASS (integrated) |
 | P17-99 | Final Phase-17 verdict | `OPENRECOMP_P17_99=PASS` | PLANNED |
 
 Claim markers:
@@ -42,6 +42,12 @@ Claim markers:
 
 ## Worker closure — P17-05R
 - P17-05R: PASS (integrated) — `OPENRECOMP_P17_05R=PASS`; authentic continuation frontier advanced from the P17-04R entry `0x80011af0` to `0x80026cc8` (`PC_NOT_IN_AUTHENTICATED_TABLE`).
+
+## Worker closure — P17-91
+- P17-91: PASS (integrated) — `OPENRECOMP_P17_91=PASS` + `OPENRECOMP_PHASE17_EVIDENCE_CLOSURE_V1=PASS`; 153/153 checks across two official runs with byte-identical stdout and artifacts, empty stderr, rc 0. Candidate `84e3e8ae19bcab79ef819e937d1b1361f5628b0c` (2 commits atop `724d3d4`, tree `992862fb456ddfe579b24c40352b737d108a5dc4`).
+- Controller review: ACCEPT and INTEGRATE (fast-forward; pre-integration controller HEAD `69c4611`). Independent fresh-root dual runs byte-identical to each other and to the committed `run1.txt`; clean-root in-place regeneration leaves `git status --porcelain` empty. Independent re-derivation of the public-safety scan (137 documents, 0 failures, no review findings), the 41-entry source manifest, evidence closure (13 stage directories), dual-run determinism (12 stages), marker ledger (no promoted markers) and prior-phase integrity (16 frozen trees). Two controller-authored tamper cases (corrupted digest, removed entry) both detected. See `evidence/P17-91/CONTROLLER_REVIEW.md`.
+- Reported finding resolved: the audit surfaced, rather than waived, two literal private host paths in the controller-authored `P17-90/CONTROLLER_REVIEW.md`; the controller fixed them at `69c4611` and regenerated the P17-91 evidence.
+- Scope: terminal consistency gate only — no emulation proof, no promoted marker. `FIRST_FRAME_READY=NO` and all four `NOT_PROVEN` markers unchanged.
 
 ## Controller closure — P17-04R (Revision 4)
 - P17-04R: PASS (integrated) — `OPENRECOMP_P17_04R=PASS` + `OPENRECOMP_P17_04R_REV4=PASS`, integrated at `0ab4e7eb2ed4393cec7f61a79705d2c44bbc4441`.
