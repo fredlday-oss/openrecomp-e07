@@ -1,0 +1,102 @@
+PASS: integrity:phase17-sources OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=37
+PASS: p17_06r:result-status-pass {"status": "PASS"}
+PASS: p17_06r:transcript-digest-verified d7e222c87726748ced23dd60c2b1ba138625227c984dac587be6a5761695fd3a
+PASS: p17_06r:committed-transcript-untouched {"transcript_next_stage": "P17-07R"}
+PASS: next-stage:declared-constant
+PASS: rederive:record-count-matches-committed {"committed": 8340, "rederived": 8340}
+PASS: rederive:region-log-matches-committed {"regions": 4}
+PASS: rederive:provenance-non-empty {"digests": 8340}
+PASS: assessment:schema
+PASS: assessment:stage-and-next
+PASS: assessment:all-classes-present ["dma2", "framebuffer_activity", "gpu_wait_poll", "gpu_writes", "initialization_predicates", "ordering_table_writes", "ot_traversal"]
+PASS: assessment:every-class-has-checked-basis {"dma2": "NOT_ENCOUNTERED", "framebuffer_activity": "NOT_ENCOUNTERED", "gpu_wait_poll": "ENCOUNTERED", "gpu_writes": "NOT_ENCOUNTERED", "initialization_predicates": "NOT_ESTABLISHED", "ordering_table_writes": "NOT_ESTABLISHED", "ot_traversal": "NOT_ESTABLISHED"}
+PASS: assessment:no-hardcoded-negative at least one class resolves as ENCOUNTERED from checked evidence
+PASS: assessment:negative-findings-recorded ["dma2: no event of this class in the checked transcript", "framebuffer_activity: no event of this class in the checked transcript", "gpu_writes: no event of this class in the checked transcript", "initialization_predicates: mechanism not instrumented; no conclusion drawn", "ordering_table_writes: mechanism not instrumented; no conclusion drawn", "ot_traversal: mechanism not instrumented; no conclusion drawn", "the dominant device traffic is a GPUSTAT wait poll returning zero; the guest cannot make progress under the declared device model"]
+PASS: poll:encountered {"events": 1587}
+PASS: poll:dominant-owner-is-a-load {"op": "lw", "owner": "0x8001a9fc"}
+PASS: poll:all-reads-zero-under-zero-fill every GPUSTAT read returned zero
+PASS: poll:wait-predicate-not-observable zero-fill reads cannot evaluate the guest poll exit condition
+PASS: observation:gpu_writes:resolved {"status": "NOT_ENCOUNTERED"}
+PASS: observation:dma2:resolved {"status": "NOT_ENCOUNTERED"}
+PASS: observation:ot_traversal:resolved {"status": "NOT_ESTABLISHED"}
+PASS: observation:framebuffer_activity:resolved {"status": "NOT_ENCOUNTERED"}
+PASS: observation:ordering_table_writes:resolved {"status": "NOT_ESTABLISHED"}
+PASS: observation:initialization_predicates:resolved {"status": "NOT_ESTABLISHED"}
+PASS: observation:gpu-writes-not-encountered
+PASS: observation:dma2-not-encountered
+PASS: observation:ram-store-classes-not-established
+PASS: observation:initialization-not-established
+PASS: historical:p17-07-not-used-as-basis {"checked_poll_events": 1587, "checked_poll_status": "ENCOUNTERED", "historical_all_encountered_false": true, "historical_classes": ["dma2", "framebuffer_activity", "gpu_writes", "initialization_predicates", "ordering_table_writes", "ot_traversal"]}
+PASS: historical:p17-07-evidence-untouched
+PASS: negative:transcript-digest-mismatch {"detail": "{\"events\": 1591}", "untampered_loads": true}
+PASS: negative:unprovenanced-owner {"owner_replaced": "0x80000000"}
+PASS: negative:altered-provenance-digest {"digest_altered": true}
+PASS: negative:miscounted-transcript {"inflated_device_count": true}
+PASS: negative:continuation-digest-mismatch {"digest_replaced": true}
+PASS: negative:frontier-mismatch {"frontier_emptied": true}
+PASS: negative:frontier-field-removed {"rejected_fields": {"attempted_frontier_pc": true, "continuation_executed_count": true, "distinct_executed_pc_count": true, "executed_instruction_count": true, "last_successfully_executed_pc": true, "stop_reason": true}}
+PASS: negative:continuation-entry-mismatch {"entry_replaced": "0x80011af0"}
+PASS: negative:promotion-attempt {"claims": {"first_frame_ready": "NO", "frame": "NOT_PROVEN", "general_compatibility": "NOT_PROVEN", "initialization": "NOT_PROVEN", "playability": "NOT_PROVEN"}}
+PASS: negative:empty-transcript {"events_emptied": true}
+PASS: negative:missing-transcript {"path": "nonexistent-transcript.json"}
+PASS: public:device_frontier_assessment:no-raw-instruction-field
+PASS: public:device_frontier_assessment:no-instruction-word-field
+PASS: public:device_frontier_assessment:no-payload-bytes-field
+PASS: public:device_frontier_assessment:no-bios-bytes-field
+PASS: public:device_frontier_assessment:no-private-paths
+PASS: device_frontier_assessment:no-private-path absolute private paths absent
+PASS: device_frontier_assessment:reject-private-paths no private paths in values
+PASS: device_frontier_assessment:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: device_frontier_assessment:no-payload-hex no payload supplied
+PASS: device_frontier_assessment:no-raw-words reconstructive fields absent
+PASS: public:transcript_binding:no-raw-instruction-field
+PASS: public:transcript_binding:no-instruction-word-field
+PASS: public:transcript_binding:no-payload-bytes-field
+PASS: public:transcript_binding:no-bios-bytes-field
+PASS: public:transcript_binding:no-private-paths
+PASS: transcript_binding:no-private-path absolute private paths absent
+PASS: transcript_binding:reject-private-paths no private paths in values
+PASS: transcript_binding:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: transcript_binding:no-payload-hex no payload supplied
+PASS: transcript_binding:no-raw-words reconstructive fields absent
+PASS: public:result:no-raw-instruction-field
+PASS: public:result:no-instruction-word-field
+PASS: public:result:no-payload-bytes-field
+PASS: public:result:no-bios-bytes-field
+PASS: public:result:no-private-paths
+PASS: result:no-private-path absolute private paths absent
+PASS: result:reject-private-paths no private paths in values
+PASS: result:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: result:no-payload-hex no payload supplied
+PASS: result:no-raw-words reconstructive fields absent
+PASS: public:next_stage:no-raw-instruction-field
+PASS: public:next_stage:no-instruction-word-field
+PASS: public:next_stage:no-payload-bytes-field
+PASS: public:next_stage:no-bios-bytes-field
+PASS: public:next_stage:no-private-paths
+PASS: next_stage:no-private-path absolute private paths absent
+PASS: next_stage:reject-private-paths no private paths in values
+PASS: next_stage:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: next_stage:no-payload-hex no payload supplied
+PASS: next_stage:no-raw-words reconstructive fields absent
+PASS: public:stage_metadata:no-raw-instruction-field
+PASS: public:stage_metadata:no-instruction-word-field
+PASS: public:stage_metadata:no-payload-bytes-field
+PASS: public:stage_metadata:no-bios-bytes-field
+PASS: public:stage_metadata:no-private-paths
+PASS: stage_metadata:no-private-path absolute private paths absent
+PASS: stage_metadata:reject-private-paths no private paths in values
+PASS: stage_metadata:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: stage_metadata:no-payload-hex no payload supplied
+PASS: stage_metadata:no-raw-words reconstructive fields absent
+PASS: scope:no-phase-1-16-changes []
+PASS: scope:phase16-frozen-integrity LEGACY_PHASE16_NATIVE_GATE=PRE_EXISTING_FAIL (Phase-16 native manifest check fails on LF/CRLF boundary; canonical gate unaffected)
+OPENRECOMP_PHASE17_P16_SOURCE_INTEGRITY=PASS entries=31 canonical=git-blob
+OPENRECOMP_PHASE17_CHECKED_DEVICE_FRONTIER_ASSESSMENT_V1=PASS
+OPENRECOMP_P17_07R=PASS
+OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+FIRST_FRAME_READY=NO
+P17-07R_CHECKS=93

@@ -1,0 +1,476 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase17-sources",
+      "detail": "OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=37",
+      "status": "PASS"
+    },
+    {
+      "check": "p17_06r:result-status-pass",
+      "detail": "{\"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "p17_06r:transcript-digest-verified",
+      "detail": "d7e222c87726748ced23dd60c2b1ba138625227c984dac587be6a5761695fd3a",
+      "status": "PASS"
+    },
+    {
+      "check": "p17_06r:committed-transcript-untouched",
+      "detail": "{\"transcript_next_stage\": \"P17-07R\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "next-stage:declared-constant",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "rederive:record-count-matches-committed",
+      "detail": "{\"committed\": 8340, \"rederived\": 8340}",
+      "status": "PASS"
+    },
+    {
+      "check": "rederive:region-log-matches-committed",
+      "detail": "{\"regions\": 4}",
+      "status": "PASS"
+    },
+    {
+      "check": "rederive:provenance-non-empty",
+      "detail": "{\"digests\": 8340}",
+      "status": "PASS"
+    },
+    {
+      "check": "assessment:schema",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "assessment:stage-and-next",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "assessment:all-classes-present",
+      "detail": "[\"dma2\", \"framebuffer_activity\", \"gpu_wait_poll\", \"gpu_writes\", \"initialization_predicates\", \"ordering_table_writes\", \"ot_traversal\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "assessment:every-class-has-checked-basis",
+      "detail": "{\"dma2\": \"NOT_ENCOUNTERED\", \"framebuffer_activity\": \"NOT_ENCOUNTERED\", \"gpu_wait_poll\": \"ENCOUNTERED\", \"gpu_writes\": \"NOT_ENCOUNTERED\", \"initialization_predicates\": \"NOT_ESTABLISHED\", \"ordering_table_writes\": \"NOT_ESTABLISHED\", \"ot_traversal\": \"NOT_ESTABLISHED\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "assessment:no-hardcoded-negative",
+      "detail": "at least one class resolves as ENCOUNTERED from checked evidence",
+      "status": "PASS"
+    },
+    {
+      "check": "assessment:negative-findings-recorded",
+      "detail": "[\"dma2: no event of this class in the checked transcript\", \"framebuffer_activity: no event of this class in the checked transcript\", \"gpu_writes: no event of this class in the checked transcript\", \"initialization_predicates: mechanism not instrumented; no conclusion drawn\", \"ordering_table_writes: mechanism not instrumented; no conclusion drawn\", \"ot_traversal: mechanism not instrumented; no conclusion drawn\", \"the dominant device traffic is a GPUSTAT wait poll returning zero; the guest cannot make progress under the declared device model\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:encountered",
+      "detail": "{\"events\": 1587}",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:dominant-owner-is-a-load",
+      "detail": "{\"op\": \"lw\", \"owner\": \"0x8001a9fc\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:all-reads-zero-under-zero-fill",
+      "detail": "every GPUSTAT read returned zero",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:wait-predicate-not-observable",
+      "detail": "zero-fill reads cannot evaluate the guest poll exit condition",
+      "status": "PASS"
+    },
+    {
+      "check": "observation:gpu_writes:resolved",
+      "detail": "{\"status\": \"NOT_ENCOUNTERED\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "observation:dma2:resolved",
+      "detail": "{\"status\": \"NOT_ENCOUNTERED\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "observation:ot_traversal:resolved",
+      "detail": "{\"status\": \"NOT_ESTABLISHED\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "observation:framebuffer_activity:resolved",
+      "detail": "{\"status\": \"NOT_ENCOUNTERED\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "observation:ordering_table_writes:resolved",
+      "detail": "{\"status\": \"NOT_ESTABLISHED\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "observation:initialization_predicates:resolved",
+      "detail": "{\"status\": \"NOT_ESTABLISHED\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "observation:gpu-writes-not-encountered",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "observation:dma2-not-encountered",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "observation:ram-store-classes-not-established",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "observation:initialization-not-established",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "historical:p17-07-not-used-as-basis",
+      "detail": "{\"checked_poll_events\": 1587, \"checked_poll_status\": \"ENCOUNTERED\", \"historical_all_encountered_false\": true, \"historical_classes\": [\"dma2\", \"framebuffer_activity\", \"gpu_writes\", \"initialization_predicates\", \"ordering_table_writes\", \"ot_traversal\"]}",
+      "status": "PASS"
+    },
+    {
+      "check": "historical:p17-07-evidence-untouched",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:transcript-digest-mismatch",
+      "detail": "{\"detail\": \"{\\\"events\\\": 1591}\", \"untampered_loads\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unprovenanced-owner",
+      "detail": "{\"owner_replaced\": \"0x80000000\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:altered-provenance-digest",
+      "detail": "{\"digest_altered\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:miscounted-transcript",
+      "detail": "{\"inflated_device_count\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:continuation-digest-mismatch",
+      "detail": "{\"digest_replaced\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:frontier-mismatch",
+      "detail": "{\"frontier_emptied\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:frontier-field-removed",
+      "detail": "{\"rejected_fields\": {\"attempted_frontier_pc\": true, \"continuation_executed_count\": true, \"distinct_executed_pc_count\": true, \"executed_instruction_count\": true, \"last_successfully_executed_pc\": true, \"stop_reason\": true}}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:continuation-entry-mismatch",
+      "detail": "{\"entry_replaced\": \"0x80011af0\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:promotion-attempt",
+      "detail": "{\"claims\": {\"first_frame_ready\": \"NO\", \"frame\": \"NOT_PROVEN\", \"general_compatibility\": \"NOT_PROVEN\", \"initialization\": \"NOT_PROVEN\", \"playability\": \"NOT_PROVEN\"}}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:empty-transcript",
+      "detail": "{\"events_emptied\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:missing-transcript",
+      "detail": "{\"path\": \"nonexistent-transcript.json\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "public:device_frontier_assessment:no-raw-instruction-field",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:device_frontier_assessment:no-instruction-word-field",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:device_frontier_assessment:no-payload-bytes-field",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:device_frontier_assessment:no-bios-bytes-field",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:device_frontier_assessment:no-private-paths",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "device_frontier_assessment:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "device_frontier_assessment:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "device_frontier_assessment:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "device_frontier_assessment:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "device_frontier_assessment:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:transcript_binding:no-raw-instruction-field",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:transcript_binding:no-instruction-word-field",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:transcript_binding:no-payload-bytes-field",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:transcript_binding:no-bios-bytes-field",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:transcript_binding:no-private-paths",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript_binding:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript_binding:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript_binding:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript_binding:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript_binding:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:result:no-raw-instruction-field",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:result:no-instruction-word-field",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:result:no-payload-bytes-field",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:result:no-bios-bytes-field",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:result:no-private-paths",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "result:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "result:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "result:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "result:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "result:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:next_stage:no-raw-instruction-field",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:next_stage:no-instruction-word-field",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:next_stage:no-payload-bytes-field",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:next_stage:no-bios-bytes-field",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:next_stage:no-private-paths",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "next_stage:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "next_stage:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "next_stage:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "next_stage:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "next_stage:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public:stage_metadata:no-raw-instruction-field",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:stage_metadata:no-instruction-word-field",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:stage_metadata:no-payload-bytes-field",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:stage_metadata:no-bios-bytes-field",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "public:stage_metadata:no-private-paths",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_metadata:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_metadata:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_metadata:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_metadata:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_metadata:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "scope:no-phase-1-16-changes",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "scope:phase16-frozen-integrity",
+      "detail": "LEGACY_PHASE16_NATIVE_GATE=PRE_EXISTING_FAIL (Phase-16 native manifest check fails on LF/CRLF boundary; canonical gate unaffected)\nOPENRECOMP_PHASE17_P16_SOURCE_INTEGRITY=PASS entries=31 canonical=git-blob",
+      "status": "PASS"
+    }
+  ],
+  "name": "P17-07R Test Results",
+  "schema": "openrecomp-phase17-tests-v1",
+  "stage": "P17-07R",
+  "summary": {
+    "failed": 0,
+    "passed": 93
+  }
+}

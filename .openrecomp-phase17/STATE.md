@@ -18,12 +18,29 @@
 - `FIRST_FRAME_READY=NO`
 
 ## Current Stage
-- CURRENT_STAGE: P17-06R
-- LAST_COMPLETED_STAGE: P17-06R (live BIOS/Exec and device side-effect frontier; worker PASS, controller review pending)
-- NEXT_STAGE: P17-07R
-- next_stage: P17-07R
+- CURRENT_STAGE: P17-07R
+- LAST_COMPLETED_STAGE: P17-07R (checked device-frontier assessment; worker PASS, controller review pending)
+- NEXT_STAGE: P17-90
+- next_stage: P17-90
 - FINAL_VERDICT: PHASE17_IN_PROGRESS
 - REVIEW_GATE: P17-04R Revision 4 was independently re-verified by the controller (canonical dual reruns, 0 non-PASS, regenerated evidence byte-identical to the committed evidence) and integrated by fast-forward to `0ab4e7eb2ed4393cec7f61a79705d2c44bbc4441`. The remaining fail-closed review stop covers P17-05R through P17-07R; see `.openrecomp-phase17/REVIEW_REQUIRED.md` and `.openrecomp-phase17/evidence/P17-04R/CONTROLLER_REVIEW.md`.
+
+## P17-07R authoritative metadata (checked device-frontier assessment)
+- STATUS: PASS (worker; controller review pending)
+- base_commit: 2701415223dd182a40cf257c849952a6ce63ee08
+- worker_branch: agent/deepseek-phase17-p17-07r-r1
+- resulting_candidate_commit: PENDING_FINAL_COMMIT
+- resulting_candidate_commit_resolver: git rev-parse agent/deepseek-phase17-p17-07r-r1
+- supersedes_historical_stage: P17-07 (whose every observation hard-coded `encountered: false` from a digest, with no checked transcript)
+- source_stage: P17-06R; the committed P17-06R transcript is re-verified by digest and left byte-untouched
+- transcript_binding: sha256 d7e222c87726748ced23dd60c2b1ba138625227c984dac587be6a5761695fd3a, 1591 events (device 1590, BIOS dispatch 1)
+- independent_rederivation: authenticated record set re-derived from the frozen decoder without compilation — base 7001 + added 3/86/623/627 = 8340 records, matching the committed P17-06R region log and counts (title 6995, mainexe 1345); 8340 provenance digests re-derived; poll owner 0x8001a9fc digest matched
+- observation_classes (7, all resolved from the checked transcript): `gpu_wait_poll` ENCOUNTERED (1587 GPUSTAT reads, all zero under `ZERO_FILL_RECORDED`, dominant owner 0x8001a9fc is a `lw`); `gpu_writes`, `dma2`, `framebuffer_activity` NOT_ENCOUNTERED (no matching event in the instrumented surface); `ordering_table_writes`, `ot_traversal`, `initialization_predicates` NOT_ESTABLISHED (guest RAM stores and BIOS internals are not instrumented, so no conclusion is drawn either way)
+- key_finding: 1586 of 1590 device events are repeated GPUSTAT wait-poll reads returning zero; under the declared device model the guest cannot evaluate its wait exit condition, so this is the binding constraint on the frontier
+- negative_controls: transcript digest mismatch, unprovenanced owner, altered provenance digest, inflated device count, continuation digest mismatch, emptied frontier, each of six removed frontier fields, continuation entry-PC mismatch, promotion attempt, empty transcript, missing transcript — all fail closed
+- marker: `OPENRECOMP_PHASE17_CHECKED_DEVICE_FRONTIER_ASSESSMENT_V1=PASS` and `OPENRECOMP_P17_07R=PASS`
+- proof boundaries unchanged: initialization/frame/playability/general compatibility remain NOT_PROVEN; `FIRST_FRAME_READY=NO`
+- next_stage: P17-90
 
 ## Revision 4 (P17-04R) authoritative metadata
 - STATUS: PASS (integrated into the controller branch)
@@ -84,6 +101,7 @@
 | P17-05 | FAIL_REVIEW_REQUIRED | Historical gate PASS checks metadata, not a live Exec dispatch/ablation; marker not established |
 | P17-06 | FAIL_REVIEW_REQUIRED | Historical gate PASS advances PCs without executing guest instruction effects; frontier marker not established |
 | P17-07 | FAIL_REVIEW_REQUIRED | Historical gate PASS infers absent device events from a digest without a checked transcript; marker not established |
+| P17-07R | PASS (worker; controller review pending) | `OPENRECOMP_P17_07R=PASS` |
 | P17-90 | PLANNED | `OPENRECOMP_P17_90=PASS` |
 | P17-91 | PLANNED | `OPENRECOMP_P17_91=PASS` |
 | P17-99 | PLANNED | `OPENRECOMP_P17_99=PASS` |

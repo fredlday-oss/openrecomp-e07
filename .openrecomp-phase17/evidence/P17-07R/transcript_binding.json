@@ -1,0 +1,25 @@
+{
+  "bios_dispatch_count": 1,
+  "bios_model": {
+    "dispatch": "ENVELOPE_DISPATCH_RETURN_TO_RA",
+    "internals": "NOT_MODELED"
+  },
+  "device_event_count": 1590,
+  "event_class_counts": {
+    "BIOS_DISPATCH": 1,
+    "GPUSTAT_READ": 1587,
+    "INTERRUPT_ACCESS": 2,
+    "TIMER_ACCESS": 1
+  },
+  "mmio_model": {
+    "read": "ZERO_FILL_RECORDED",
+    "write": "RECORDED_NOT_APPLIED"
+  },
+  "rederived_provenance_digest_count": 8340,
+  "revalidated_against_rederived_provenance": true,
+  "schema": "openrecomp-phase17-device-transcript-binding-v1",
+  "source_stage": "P17-06R",
+  "stage": "P17-07R",
+  "transcript_event_count": 1591,
+  "transcript_sha256": "d7e222c87726748ced23dd60c2b1ba138625227c984dac587be6a5761695fd3a"
+}

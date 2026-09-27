@@ -1,0 +1,48 @@
+{
+  "base_commit": "2701415223dd182a40cf257c849952a6ce63ee08",
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "markers": {
+    "FIRST_FRAME_READY": "NO",
+    "OPENRECOMP_P17_07R": "PASS",
+    "OPENRECOMP_PHASE17_CHECKED_DEVICE_FRONTIER_ASSESSMENT_V1": "PASS",
+    "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN"
+  },
+  "negative_findings": [
+    "dma2: no event of this class in the checked transcript",
+    "framebuffer_activity: no event of this class in the checked transcript",
+    "gpu_writes: no event of this class in the checked transcript",
+    "initialization_predicates: mechanism not instrumented; no conclusion drawn",
+    "ordering_table_writes: mechanism not instrumented; no conclusion drawn",
+    "ot_traversal: mechanism not instrumented; no conclusion drawn",
+    "the dominant device traffic is a GPUSTAT wait poll returning zero; the guest cannot make progress under the declared device model"
+  ],
+  "next_stage": "P17-90",
+  "observation_status": {
+    "dma2": "NOT_ENCOUNTERED",
+    "framebuffer_activity": "NOT_ENCOUNTERED",
+    "gpu_wait_poll": "ENCOUNTERED",
+    "gpu_writes": "NOT_ENCOUNTERED",
+    "initialization_predicates": "NOT_ESTABLISHED",
+    "ordering_table_writes": "NOT_ESTABLISHED",
+    "ot_traversal": "NOT_ESTABLISHED"
+  },
+  "proof_boundaries": {
+    "FIRST_FRAME_READY": "NO",
+    "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN"
+  },
+  "resulting_candidate_commit": "PENDING_FINAL_COMMIT",
+  "resulting_candidate_commit_resolver": "git rev-parse agent/deepseek-phase17-p17-07r-r1",
+  "schema": "openrecomp-phase17-result-v1",
+  "source_stage": "P17-06R",
+  "stage": "P17-07R",
+  "status": "PASS",
+  "supersedes_historical_stage": "P17-07",
+  "transcript_sha256": "d7e222c87726748ced23dd60c2b1ba138625227c984dac587be6a5761695fd3a",
+  "worker_branch": "agent/deepseek-phase17-p17-07r-r1"
+}
