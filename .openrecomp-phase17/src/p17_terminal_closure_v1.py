@@ -492,3 +492,43 @@ def audit_marker_syntax(texts: dict[str, str]) -> dict[str, Any]:
         "problems": problems,
         "ok": not problems,
     }
+
+
+def audit_document() -> dict[str, Any]:
+    """Public description of what P17-99 audits."""
+    return {
+        "schema": CLOSURE_SCHEMA,
+        "marker": MARKER,
+        "stage_marker": STAGE_MARKER,
+        "proves": (
+            "The complete Phase-17 stage chain is internally consistent and "
+            "terminally closed: every chained stage PASS with its required "
+            "marker, the frozen Phase-1..16 trees unmodified, the certified "
+            "provenance chain intact, the source manifest exact, the protected "
+            "claim markers un-promoted, the historical review stop retired, an "
+            "exact HEAD/tree binding, clean marker syntax, a publicly safe "
+            "evidence corpus, and terminal negative controls that fail closed. "
+            "Nothing about emulation."
+        ),
+        "promotes_no_proof_marker": True,
+        "phase18_started": "NO",
+        "checks": [
+            "stage-chain closure (PASS + required markers + next_stage links)",
+            "frozen-prior-phase integrity (Phase 1..16 trees unchanged)",
+            "certified provenance chain (ancestors of the authority commit)",
+            "source-manifest exactness (re-derived from git ls-files)",
+            "marker ledger (protected claim markers un-promoted)",
+            "REVIEW_REQUIRED terminal consistency (historical stop retired)",
+            "terminal HEAD/tree binding (exact and internally consistent)",
+            "marker syntax cleanliness",
+            "public safety (private host paths, reconstructive keys)",
+            "cited terminal evidence re-verified by digest",
+            "negative controls (terminal tamper cases fail closed)",
+        ],
+        "stage_chain": list(STAGE_CHAIN),
+        "stage_markers": [list(pair) for pair in STAGE_MARKERS],
+        "protected_markers": dict(PROTECTED_MARKERS),
+        "certified_authority_commit": BASE_COMMIT,
+        "certified_authority_tree": BASE_TREE,
+        "phase16_baseline_commit": PHASE16_BASELINE_COMMIT,
+    }
