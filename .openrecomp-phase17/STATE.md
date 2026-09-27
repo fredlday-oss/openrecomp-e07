@@ -19,9 +19,9 @@
 
 ## Current Stage
 - CURRENT_STAGE: P17-06R
-- LAST_COMPLETED_STAGE: P17-05R (bounded authenticated execution continuation; controller-accepted and integrated at b18fd4bee216b3133f667de82c4e0c92d917c127)
-- NEXT_STAGE: P17-06R
-- next_stage: P17-06R
+- LAST_COMPLETED_STAGE: P17-06R (live BIOS/Exec and device side-effect frontier; worker PASS, controller review pending)
+- NEXT_STAGE: P17-07R
+- next_stage: P17-07R
 - FINAL_VERDICT: PHASE17_IN_PROGRESS
 - REVIEW_GATE: P17-04R Revision 4 was independently re-verified by the controller (canonical dual reruns, 0 non-PASS, regenerated evidence byte-identical to the committed evidence) and integrated by fast-forward to `0ab4e7eb2ed4393cec7f61a79705d2c44bbc4441`. The remaining fail-closed review stop covers P17-05R through P17-07R; see `.openrecomp-phase17/REVIEW_REQUIRED.md` and `.openrecomp-phase17/evidence/P17-04R/CONTROLLER_REVIEW.md`.
 
@@ -37,6 +37,25 @@
 - persisted_private_artifacts: generated source, generated header, generated harness, private authenticated mapping, build metadata, compiled shared object, compiled executable under `$OPENRECOMP_P17_PRIVATE_BUILD_ROOT/official-run-{1,2}` (configured default private build root; never committed)
 - linkage_exclusion: handwritten title-transition substitute excluded at the linkage level (`TITLE_TRANSITION_CODE`, `p16_emission_v1`, `p16_record_title_transition` absent); forbidden-symbol negative control detected
 - next_stage: P17-05R
+
+## P17-06R authoritative metadata (live BIOS/Exec and device side-effect frontier)
+- STATUS: PASS (worker; controller review pending)
+- base_commit: 8735bf34ba3884d19a66818d92ddd8004dc87b17
+- worker_branch: agent/deepseek-phase17-p17-06r-r1
+- resulting_candidate_commit: PENDING_FINAL_COMMIT
+- resulting_candidate_commit_resolver: git rev-parse agent/deepseek-phase17-p17-06r-r1
+- continuation_entry_pc: 0x80026cc8 (derived from the recorded P17-05R frontier attempted_frontier_pc; never hard-coded)
+- p17_05r_frontier_steps_reproduced: 78 (the live replay reproduces the recorded P17-05R executed-instruction count before reaching the continuation entry)
+- authentic_frontier: stop_reason=CONTINUATION_BUDGET_REACHED, last_successfully_executed_pc=0x8001aa08, attempted_frontier_pc=0x8001aa0c, frontier_pc=0x8001aa08, continuation_executed_count=8192, executed_instruction_count=8270, distinct_executed_pc_count=346
+- newly_authenticated_records: title=6995, mainexe=1345, total=8340 (provenance chain: SLUS_005.29 / TITLE payload SHA-256 -> PS-X EXE header -> file offset -> guest address -> word -> fresh decode -> record)
+- newly_authenticated_regions: 0x80026cc8 (+3), 0x80011b08 (+86), 0x80012e8c (+623), 0x8001a908 (+627)
+- bios_dispatch_events: 1 (vector A0, table index 0x2b, owning authenticated instruction 0x80026ccc, delay slot 0x80026cd0, return PC 0x8004ffc4)
+- device_events: 1590 (GPUSTAT_READ 1587, INTERRUPT_ACCESS 2, TIMER_ACCESS 1)
+- transcript: sha256 d7e222c87726748ced23dd60c2b1ba138625227c984dac587be6a5761695fd3a, 1591 events
+- semantic_vocabulary_counts: implemented=55 (45 P17-05R + lwl/lwr/swl/swr/div/divu/mthi/mtlo/add/sub), exercised=derived-from-execution
+- device_layer_model: BIOS dispatch envelope + return-to-RA only; BIOS internals NOT_MODELED; MMIO reads zero-filled and recorded; MMIO writes recorded and not applied
+- persisted_private_artifacts: generated source/header/harness, private authenticated mapping, build metadata, compiled shared object/executable and the transcript under the configured private build root (never committed)
+- next_stage: P17-07R
 
 ## P17-05R authoritative metadata (bounded continuation)
 - STATUS: PASS (worker; controller review pending)
@@ -60,7 +79,8 @@
 | P17-03 | PASS | `OPENRECOMP_PHASE17_FRONTIER_RECONCILIATION_V1=PASS` |
 | P17-04 | FAIL_REVIEW_REQUIRED | Historical gate PASS checks a block inventory, not emitted guest code; marker not established |
 | P17-04R | PASS (integrated) | `OPENRECOMP_P17_04R=PASS` + `OPENRECOMP_P17_04R_REV4=PASS` |
-| P17-05R | PASS (worker; controller review pending) | `OPENRECOMP_P17_05R=PASS` |
+| P17-05R | PASS (integrated) | `OPENRECOMP_P17_05R=PASS` |
+| P17-06R | PASS (worker; controller review pending) | `OPENRECOMP_P17_06R=PASS` |
 | P17-05 | FAIL_REVIEW_REQUIRED | Historical gate PASS checks metadata, not a live Exec dispatch/ablation; marker not established |
 | P17-06 | FAIL_REVIEW_REQUIRED | Historical gate PASS advances PCs without executing guest instruction effects; frontier marker not established |
 | P17-07 | FAIL_REVIEW_REQUIRED | Historical gate PASS infers absent device events from a digest without a checked transcript; marker not established |
