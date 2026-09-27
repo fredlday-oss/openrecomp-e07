@@ -1,0 +1,58 @@
+PASS: integrity:phase18-sources OPENRECOMP_PHASE18_SOURCE_INTEGRITY=PASS entries=13
+PASS: authority:phase17-frozen authority-ok
+PASS: frozen:phase1-17-untouched
+PASS: source:transcript-digest P17-06R transcript digest
+PASS: poll:derived 0x8001a9fc
+PASS: poll:owner-is-modal-owner 0x8001a9fc
+PASS: poll:provenance-reverified 46d2f4a524811b398cd95df0a152d8c0a45903091a89d4a5ebcd27556ee2729f
+PASS: poll:loop-structure ["lw", "nop", "and", "beq"]
+PASS: poll:exit-requires-bit-set (GPUSTAT & 0x04000000) != 0
+PASS: poll:single-bit-mask 26
+PASS: reference:independent-agreement guest mask 0x04000000 vs reference 0x4000000
+PASS: model:idle-reports-ready 0x4000000
+PASS: model:busy-reports-not-ready 0x0
+PASS: model:matches-independent-impl cross-check
+PASS: sim:positive-exit-reachable {"escaped": true, "iterations": 1, "observed": 67108864}
+PASS: sim:busy-does-not-exit {"escaped": false, "iterations": 16, "observed": 0}
+PASS: sim:zerofill-cannot-exit {"escaped": false, "iterations": 16, "observed": 0}
+PASS: sim:exit-credit-is-state-driven exit depends on modelled state, not a constant
+PASS: negative:unmodelled-bit-rejected bit 28 rejected
+PASS: positive:modelled-bit-accepted bit 26 accepted
+PASS: negative:tampered-provenance-digest digest mismatch rejected
+PASS: negative:unknown-owner no digest -> reject
+PASS: negative:no-hardcoded-pc synthetic loop derives its own bit
+PASS: claims:first-frame-not-ready FIRST_FRAME_READY=NO
+PASS: poll_condition:no-private-path absolute private paths absent
+PASS: poll_condition:reject-private-paths no private paths in values
+PASS: poll_condition:no-import-private-paths no import paths
+PASS: poll_condition:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: poll_condition:no-payload-hex no payload supplied
+PASS: poll_condition:no-raw-words reconstructive fields absent
+PASS: model:no-private-path absolute private paths absent
+PASS: model:reject-private-paths no private paths in values
+PASS: model:no-import-private-paths no import paths
+PASS: model:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: model:no-payload-hex no payload supplied
+PASS: model:no-raw-words reconstructive fields absent
+PASS: simulation:no-private-path absolute private paths absent
+PASS: simulation:reject-private-paths no private paths in values
+PASS: simulation:no-import-private-paths no import paths
+PASS: simulation:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: simulation:no-payload-hex no payload supplied
+PASS: simulation:no-raw-words reconstructive fields absent
+PASS: negative_tests:no-private-path absolute private paths absent
+PASS: negative_tests:reject-private-paths no private paths in values
+PASS: negative_tests:no-import-private-paths no import paths
+PASS: negative_tests:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: negative_tests:no-payload-hex no payload supplied
+PASS: negative_tests:no-raw-words reconstructive fields absent
+OPENRECOMP_P18_00=PASS
+OPENRECOMP_P18_01=PASS
+OPENRECOMP_PHASE18_GPUSTAT_EXIT_CREDIT_V1=YES
+OPENRECOMP_PHASE18_GPUSTAT_MODEL=STATE_DRIVEN_BIT26
+OPENRECOMP_PHASE18_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+FIRST_FRAME_READY=NO
+P18-01_CHECKS=48

@@ -27,6 +27,7 @@ DETERMINISM_SCHEMA = "openrecomp-phase18-determinism-v1"
 
 ACCEPTED_MARKERS = (
     "OPENRECOMP_P18_00=PASS",
+    "OPENRECOMP_P18_01=PASS",
 )
 
 

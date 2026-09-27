@@ -1,0 +1,47 @@
+{
+  "condition": {
+    "branch_pc": "0x8001aa08",
+    "branch_target": "0x8001a9fc",
+    "exit_condition": "(GPUSTAT & 0x04000000) != 0",
+    "exit_requires_bit_set": true,
+    "file_offset": 45564,
+    "guest_pc": "0x8001a9fc",
+    "load_base_register": 3,
+    "loop_body_ops": [
+      "lw",
+      "nop",
+      "and",
+      "beq"
+    ],
+    "mainexe_file_sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "mainexe_payload_sha256": "2f48da4c642b25dd9d0b033f77b80a19e5befe34dc19da3194a51998e97c71be",
+    "mask_definition_pc": "0x8001a9f8",
+    "mask_value": "0x04000000",
+    "owner_read_count": 1586,
+    "payload_offset": 43516,
+    "poll_pc": "0x8001a9fc",
+    "poll_pc_provenance_digest": "46d2f4a524811b398cd95df0a152d8c0a45903091a89d4a5ebcd27556ee2729f",
+    "poll_pc_provenance_digest_recomputed": "46d2f4a524811b398cd95df0a152d8c0a45903091a89d4a5ebcd27556ee2729f",
+    "poll_pc_provenance_matches_transcript": true,
+    "promotes_no_proof_marker": true,
+    "schema": "openrecomp-phase18-poll-condition-v1",
+    "status_address": "0x1f801814",
+    "status_bit": 26,
+    "status_value_register": 2,
+    "tests_bit_against_zero": true,
+    "total_gpustat_reads": 1587,
+    "transcript_sha256": "d7e222c87726748ced23dd60c2b1ba138625227c984dac587be6a5761695fd3a"
+  },
+  "derivation": "POLL_CONDITION_FROM_AUTHENTICATED_FIXTURE_BYTES",
+  "promotes_no_proof_marker": true,
+  "schema": "openrecomp-phase18-gpustat-poll-condition-v1",
+  "source": {
+    "file_offset": 45564,
+    "guest_pc": "0x8001a9fc",
+    "mainexe_file_sha256": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+    "mainexe_payload_sha256": "2f48da4c642b25dd9d0b033f77b80a19e5befe34dc19da3194a51998e97c71be",
+    "payload_offset": 43516
+  },
+  "stage": "P18-01",
+  "transcript_sha256": "d7e222c87726748ced23dd60c2b1ba138625227c984dac587be6a5761695fd3a"
+}

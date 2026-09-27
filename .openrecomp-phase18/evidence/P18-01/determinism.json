@@ -1,0 +1,56 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "bd2b6546f119b2e4569fadcc4f05fb85bf25c0df5927c647babc394a8c4c9e56",
+    "model.json": "4455483fb04759252ef10ef749405406166697cc753093de7d0d4c9978bfdabc",
+    "negative_tests.json": "f26674b4dc3d8a7af5389053a39aaf0635264a729d1bb5b99a0c3f02e8c2b20a",
+    "p18_01_tests.json": "4c0a0aa2f06a01704da3ac74253697ef8f4301003cbd33a0efc8e1fe95b3f6fb",
+    "poll_condition.json": "1b77f98266d7528f2d566b3efb5a00cc23a1a21469d448819ae4db4c04365589",
+    "simulation.json": "6cb136e942d241d2666d56b0ec58cb8ef2dc08076b64f470dbcc95ac4dcaafda",
+    "stage_metadata.json": "e84953420cc7611a76b9417809716d4166bd3ed69d7c08c69e3343bd0b4528a9"
+  },
+  "artifacts_identical": true,
+  "gate": "tools/test_phase18_gpustat_model_v1.py",
+  "gate_sha256": "99d4e39081a830683752ba442f9a685f33b652448815845ca264120957284f4b",
+  "next_stage": "P18-02",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "RESULT.json": "bd2b6546f119b2e4569fadcc4f05fb85bf25c0df5927c647babc394a8c4c9e56",
+        "model.json": "4455483fb04759252ef10ef749405406166697cc753093de7d0d4c9978bfdabc",
+        "negative_tests.json": "f26674b4dc3d8a7af5389053a39aaf0635264a729d1bb5b99a0c3f02e8c2b20a",
+        "p18_01_tests.json": "4c0a0aa2f06a01704da3ac74253697ef8f4301003cbd33a0efc8e1fe95b3f6fb",
+        "poll_condition.json": "1b77f98266d7528f2d566b3efb5a00cc23a1a21469d448819ae4db4c04365589",
+        "simulation.json": "6cb136e942d241d2666d56b0ec58cb8ef2dc08076b64f470dbcc95ac4dcaafda",
+        "stage_metadata.json": "e84953420cc7611a76b9417809716d4166bd3ed69d7c08c69e3343bd0b4528a9"
+      },
+      "p18_01_tests_sha256": "4c0a0aa2f06a01704da3ac74253697ef8f4301003cbd33a0efc8e1fe95b3f6fb",
+      "returncode": 0,
+      "stdout_bytes_raw": 3396,
+      "stdout_sha256_lf": "6d0d345034bbf65421eb42331dd0f75ae646bfffb99474a534c9f624cc75acf1",
+      "stdout_sha256_raw": "6d0d345034bbf65421eb42331dd0f75ae646bfffb99474a534c9f624cc75acf1"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "RESULT.json": "bd2b6546f119b2e4569fadcc4f05fb85bf25c0df5927c647babc394a8c4c9e56",
+        "model.json": "4455483fb04759252ef10ef749405406166697cc753093de7d0d4c9978bfdabc",
+        "negative_tests.json": "f26674b4dc3d8a7af5389053a39aaf0635264a729d1bb5b99a0c3f02e8c2b20a",
+        "p18_01_tests.json": "4c0a0aa2f06a01704da3ac74253697ef8f4301003cbd33a0efc8e1fe95b3f6fb",
+        "poll_condition.json": "1b77f98266d7528f2d566b3efb5a00cc23a1a21469d448819ae4db4c04365589",
+        "simulation.json": "6cb136e942d241d2666d56b0ec58cb8ef2dc08076b64f470dbcc95ac4dcaafda",
+        "stage_metadata.json": "e84953420cc7611a76b9417809716d4166bd3ed69d7c08c69e3343bd0b4528a9"
+      },
+      "p18_01_tests_sha256": "4c0a0aa2f06a01704da3ac74253697ef8f4301003cbd33a0efc8e1fe95b3f6fb",
+      "returncode": 0,
+      "stdout_bytes_raw": 3396,
+      "stdout_sha256_lf": "6d0d345034bbf65421eb42331dd0f75ae646bfffb99474a534c9f624cc75acf1",
+      "stdout_sha256_raw": "6d0d345034bbf65421eb42331dd0f75ae646bfffb99474a534c9f624cc75acf1"
+    }
+  },
+  "schema": "openrecomp-phase18-determinism-v1",
+  "stage": "P18-01",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true,
+  "tests_json_present_both": true
+}

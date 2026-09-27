@@ -23,11 +23,11 @@
 - `FIRST_FRAME_READY=NO`
 
 ## Current Stage
-- CURRENT_STAGE: P18-00
-- LAST_COMPLETED_STAGE: P18-00 Phase-18 bootstrap (commit `d6bf3ad24596a4483f4a93e71bd4a9e42d102a45`, tree `451ce3f7241ac4052907d7daff84617e03959edc`; controller reviewed and integrated)
-- NEXT_STAGE: P18-01
+- CURRENT_STAGE: P18-01
+- LAST_COMPLETED_STAGE: P18-01 GPUSTAT polling-model investigation (controller reviewed and integrated; banner commit recorded below)
+- NEXT_STAGE: P18-02
 - FINAL_VERDICT: (not terminal)
-- REVIEW_GATE: open; no REVIEW_REQUIRED stop raised by P18-00.
+- REVIEW_GATE: open; no REVIEW_REQUIRED stop raised by P18-01.
 
 ## P18-00 authoritative metadata (bootstrap / authority / provenance)
 - STATUS: PASS (controller reviewed and INTEGRATED; see `evidence/P18-00/CONTROLLER_REVIEW.md`)
@@ -45,7 +45,26 @@
   remain NOT_PROVEN; `FIRST_FRAME_READY=NO`.
 - next_stage: P18-01
 
+## P18-01 authoritative metadata (GPUSTAT polling model)
+- STATUS: PASS (controller reviewed and INTEGRATED)
+- authority_commit: `d7cc5d09eebde398ca6ff3f3dad8dd5841913b69`
+- authority_tree: `ad3aa822e5a02905ebc25477f7b6c69d0bffa055`
+- derives from authenticated fixture bytes the exact guest poll condition:
+  poll PC `0x8001a9fc`, loop `lw; nop; and; beq`, single-bit mask
+  `0x04000000` (bit 26), branch back to the load, exit requires bit 26 set.
+- the guest-tested bit agrees with two independent emulator references
+  (DuckStation `GPUSTATReg::gpu_idle`, PCSX-Redux `GPUSTATUS_IDLE 0x04000000`).
+- minimum state model: `STATE_DRIVEN_BIT26` (idle => 1, busy => 0); unmodelled
+  bits fail closed (`UNMODELLED_GPUSTAT_BIT`).
+- simulation: exit reachable in 1 iteration under faithful idle state; not
+  reachable under busy state; not reachable under `ZERO_FILL_RECORDED`.
+- does NOT run the guest past the poll and produces no frame evidence.
+- proof boundaries: initialization / frame / playability / general compatibility
+  remain NOT_PROVEN; `FIRST_FRAME_READY=NO`.
+- next_stage: P18-02
+
 ## Stage Status
 | Stage | Status | Marker |
 |---|---|---|
 | P18-00 | PASS | `OPENRECOMP_P18_00=PASS` |
+| P18-01 | PASS | `OPENRECOMP_P18_01=PASS` |

@@ -1,0 +1,251 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase18-sources",
+      "detail": "OPENRECOMP_PHASE18_SOURCE_INTEGRITY=PASS entries=13",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:phase17-frozen",
+      "detail": "authority-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:phase1-17-untouched",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "source:transcript-digest",
+      "detail": "P17-06R transcript digest",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:derived",
+      "detail": "0x8001a9fc",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:owner-is-modal-owner",
+      "detail": "0x8001a9fc",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:provenance-reverified",
+      "detail": "46d2f4a524811b398cd95df0a152d8c0a45903091a89d4a5ebcd27556ee2729f",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:loop-structure",
+      "detail": "[\"lw\", \"nop\", \"and\", \"beq\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:exit-requires-bit-set",
+      "detail": "(GPUSTAT & 0x04000000) != 0",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:single-bit-mask",
+      "detail": "26",
+      "status": "PASS"
+    },
+    {
+      "check": "reference:independent-agreement",
+      "detail": "guest mask 0x04000000 vs reference 0x4000000",
+      "status": "PASS"
+    },
+    {
+      "check": "model:idle-reports-ready",
+      "detail": "0x4000000",
+      "status": "PASS"
+    },
+    {
+      "check": "model:busy-reports-not-ready",
+      "detail": "0x0",
+      "status": "PASS"
+    },
+    {
+      "check": "model:matches-independent-impl",
+      "detail": "cross-check",
+      "status": "PASS"
+    },
+    {
+      "check": "sim:positive-exit-reachable",
+      "detail": "{\"escaped\": true, \"iterations\": 1, \"observed\": 67108864}",
+      "status": "PASS"
+    },
+    {
+      "check": "sim:busy-does-not-exit",
+      "detail": "{\"escaped\": false, \"iterations\": 16, \"observed\": 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "sim:zerofill-cannot-exit",
+      "detail": "{\"escaped\": false, \"iterations\": 16, \"observed\": 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "sim:exit-credit-is-state-driven",
+      "detail": "exit depends on modelled state, not a constant",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unmodelled-bit-rejected",
+      "detail": "bit 28 rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:modelled-bit-accepted",
+      "detail": "bit 26 accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:tampered-provenance-digest",
+      "detail": "digest mismatch rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unknown-owner",
+      "detail": "no digest -> reject",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:no-hardcoded-pc",
+      "detail": "synthetic loop derives its own bit",
+      "status": "PASS"
+    },
+    {
+      "check": "claims:first-frame-not-ready",
+      "detail": "FIRST_FRAME_READY=NO",
+      "status": "PASS"
+    },
+    {
+      "check": "poll_condition:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "poll_condition:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "poll_condition:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "poll_condition:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "poll_condition:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "poll_condition:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "model:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "model:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "model:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "model:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "model:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "model:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "simulation:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "simulation:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "simulation:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "simulation:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "simulation:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "simulation:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P18-01 Test Results",
+  "schema": "openrecomp-phase18-tests-v1",
+  "stage": "P18-01",
+  "summary": {
+    "failed": 0,
+    "passed": 48
+  }
+}

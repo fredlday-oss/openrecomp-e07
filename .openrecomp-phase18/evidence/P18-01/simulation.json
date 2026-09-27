@@ -1,0 +1,23 @@
+{
+  "busy_state": {
+    "escaped": false,
+    "iterations": 16,
+    "observed": 0
+  },
+  "conclusion": "Under the faithful state-driven model the poll exits once and only once the GPU reports command-ready (bit 26 set); under the Phase-17 ZERO_FILL_RECORDED model the exit is unreachable.",
+  "does_not_run_guest_past_poll": true,
+  "mask": "0x4000000",
+  "positive_idle": {
+    "escaped": true,
+    "iterations": 1,
+    "observed": 67108864
+  },
+  "promotes_no_proof_marker": true,
+  "schema": "openrecomp-phase18-poll-simulation-v1",
+  "stage": "P18-01",
+  "zerofill_model": {
+    "escaped": false,
+    "iterations": 16,
+    "observed": 0
+  }
+}

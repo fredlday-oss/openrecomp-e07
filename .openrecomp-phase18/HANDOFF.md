@@ -4,10 +4,10 @@
 Phase 18 begins from the frozen Phase-17 terminal authority (tag
 `openrecomp-phase17-pass`, commit
 `d7cc5d09eebde398ca6ff3f3dad8dd5841913b69`, tree
-`ad3aa822e5a02905ebc25477f7b6c69d0bffa055`). `P18-00` establishes the
-Phase-18 control plane, re-verifies the frozen authority from live Git,
-inventories imported reconnaissance as reference material, and re-derives the
-GPUSTAT polling frontier from the committed P17-06R transcript.
+`ad3aa822e5a02905ebc25477f7b6c69d0bffa055`). P18-00 established the Phase-18
+control plane and re-derived the GPUSTAT polling frontier. P18-01 investigated
+that frontier mechanically and established the minimum state-driven GPUSTAT
+model for the exact bit the authentic guest tests.
 
 ## Invariants
 1. Commit `d7cc5d09eebde398ca6ff3f3dad8dd5841913b69` is the immutable ancestor.
@@ -16,22 +16,19 @@ GPUSTAT polling frontier from the committed P17-06R transcript.
 4. Historical Phase-17 markers are preserved verbatim; Phase 18 uses its own
    `OPENRECOMP_PHASE18_*` namespace.
 
+## P18-01 result
+- Authentic poll condition re-derived from fixture bytes: PC `0x8001a9fc`,
+  loop `lw; nop; and; beq`, mask `0x04000000` (bit 26), exit requires bit 26
+  set. Provenance digest recomputed and matched to the committed transcript.
+- The guest-tested bit agrees with DuckStation and PCSX-Redux references.
+- Minimum model `STATE_DRIVEN_BIT26`; unmodelled bits fail closed.
+- Simulation shows the exit is reachable exactly under faithful idle state and
+  unreachable under `ZERO_FILL_RECORDED` / busy state.
+- Promotes no proof marker. `FIRST_FRAME_READY=NO`; Phase-18 claim markers all
+  `NOT_PROVEN`.
+
 ## Next Action
-Author and execute `P18-01` (GPUSTAT polling model investigation). Author the
-stage contract before claiming the stage complete. Do NOT begin Phase 19.
-
-## Controller closure — P18-00
-- Decision: ACCEPT and INTEGRATE. Committed at `d6bf3ad24596a4483f4a93e71bd4a9e42d102a45` (tree `451ce3f7241ac4052907d7daff84617e03959edc`).
-- Independent controller verification: official gate `P18-00_CHECKS=64` zero FAIL; dual-run stage runner `runner_status=PASS` with byte-identical stdout and artifacts; fresh-root (`/tmp/p18-00-fresh-*`) reproduction byte-identical to the committed evidence.
-- Defect found and repaired fail-closed: `analyse()` accepted an arbitrary digest; repaired to raise `TRANSCRIPT_DIGEST_MISMATCH` unless the digest equals the recorded P17-06R transcript digest.
-- P18-00 promotes no proof marker. `FIRST_FRAME_READY=NO`; Phase-18 claim markers all `NOT_PROVEN`.
-
-## Exact handoff checkpoint
-- next_stage: P18-01
-- The binding frontier constraint is recorded in
-  `evidence/P18-00/frontier_analysis.json`: under `ZERO_FILL_RECORDED` every
-  GPUSTAT read returns zero, so the guest's poll exit condition (bit 26 =
-  ready-to-receive-command) can never be evaluated true. `P18-01` must
-  investigate whether a faithful state-driven GPUSTAT model (not a
-  title-specific constant) explains and escapes the loop, with positive and
-  negative tests.
+Author and execute `P18-02` (authentic execution escape from the polling
+frontier): wire the state-driven GPUSTAT model into the runtime and prove the
+authentic guest leaves the poll. Author the stage contract before claiming the
+stage complete. Do NOT begin Phase 19.

@@ -1,0 +1,34 @@
+{
+  "busy_value": "0x0",
+  "fail_closed_bit": "0x10000000",
+  "idle_value": "0x4000000",
+  "model": "STATE_DRIVEN_BIT26",
+  "modelled_bits": {
+    "26": "ready_to_receive_cmd"
+  },
+  "not_hardcoded": "The tested bit is read from the authenticated lui that defines the mask register; the synthetic control proves a different bit is derived.",
+  "promotes_no_proof_marker": true,
+  "reference_ready_mask": "0x4000000",
+  "reference_sources": [
+    {
+      "file": "src/core/gpu_types.h",
+      "project": "DuckStation",
+      "symbol": "GPUSTATReg::gpu_idle (bit 26)"
+    },
+    {
+      "file": "src/core/gpu.cc",
+      "project": "PCSX-Redux",
+      "symbol": "GPUSTATUS_IDLE 0x04000000 // CMD ready"
+    }
+  ],
+  "schema": "openrecomp-phase18-gpustat-model-v1",
+  "stage": "P18-01",
+  "unmodelled_observed_bits": {
+    "13": "interlace_field",
+    "19": "dma_request_ready",
+    "22": "interlace_mode",
+    "23": "display_enable",
+    "28": "ready_to_receive_dma_block",
+    "31": "ready_to_send_vram_to_cpu"
+  }
+}

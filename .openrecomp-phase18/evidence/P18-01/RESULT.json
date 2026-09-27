@@ -1,0 +1,29 @@
+{
+  "authority_commit": "d7cc5d09eebde398ca6ff3f3dad8dd5841913b69",
+  "authority_tree": "ad3aa822e5a02905ebc25477f7b6c69d0bffa055",
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "markers": {
+    "FIRST_FRAME_READY": "NO",
+    "OPENRECOMP_P18_00": "PASS",
+    "OPENRECOMP_P18_01": "PASS",
+    "OPENRECOMP_PHASE18_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+    "OPENRECOMP_PHASE18_GPUSTAT_EXIT_CREDIT_V1": "YES",
+    "OPENRECOMP_PHASE18_GPUSTAT_MODEL": "STATE_DRIVEN_BIT26",
+    "OPENRECOMP_PHASE18_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE18_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE18_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN"
+  },
+  "next_stage": "P18-02",
+  "poll_condition": {
+    "exit_condition": "(GPUSTAT & 0x04000000) != 0",
+    "mask_value": "0x04000000",
+    "owner_read_count": 1586,
+    "poll_pc": "0x8001a9fc",
+    "status_address": "0x1f801814",
+    "status_bit": 26,
+    "total_gpustat_reads": 1587
+  },
+  "schema": "openrecomp-phase18-result-v1",
+  "stage": "P18-01",
+  "status": "PASS"
+}
