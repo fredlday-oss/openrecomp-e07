@@ -19,7 +19,7 @@
 
 ## Current Stage
 - CURRENT_STAGE: P17-06R
-- LAST_COMPLETED_STAGE: P17-05R (bounded authenticated execution continuation; worker PASS, controller review pending)
+- LAST_COMPLETED_STAGE: P17-05R (bounded authenticated execution continuation; controller-accepted and integrated at b18fd4bee216b3133f667de82c4e0c92d917c127)
 - NEXT_STAGE: P17-06R
 - next_stage: P17-06R
 - FINAL_VERDICT: PHASE17_IN_PROGRESS

@@ -40,3 +40,9 @@ P17-04R Revision 4 implementation completed and verified: authenticated private 
 - Independent controller verification: canonical dual reruns, zero non-PASS, stdout byte-identical, regenerated evidence byte-identical to the committed evidence; persisted private artifacts hash-matched after process exit. See `.openrecomp-phase17/evidence/P17-04R/CONTROLLER_REVIEW.md`.
 - Rejected alternative `agent/deepseek-phase17-p17-04r-rev5` (`83cacff`): committed `linkage_exclusion.inspection_digest` does not reproduce from its own committed source; REVISE required.
 - Remaining: replacement stages P17-05R / P17-06R / P17-07R and terminal gates P17-90 / P17-91 / P17-99. `NOT_PROVEN` markers unchanged.
+
+## Controller closure — P17-05R
+- Decision: ACCEPT and INTEGRATE. Integrated by fast-forward to `b18fd4bee216b3133f667de82c4e0c92d917c127`.
+- Independent controller verification: official P17-05R gate rerun twice, both exit 0, stdout byte-identical, regenerated evidence byte-identical between runs and byte-identical to the committed evidence; 111 checks, zero non-PASS. See `.openrecomp-phase17/evidence/P17-05R/CONTROLLER_REVIEW.md`.
+- Authentic frontier advanced: TITLE prefix 37 instructions (last `0x80038130`) -> 6 authenticated main-EXE instructions (`0x80011af0..0x80011b04`) -> frontier `0x80026cc8` (`PC_NOT_IN_AUTHENTICATED_TABLE`); total executed 78.
+- Remaining: P17-06R / P17-07R and terminal gates P17-90 / P17-91 / P17-99. `NOT_PROVEN` markers unchanged.
