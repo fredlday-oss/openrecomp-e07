@@ -397,15 +397,24 @@ def audit_review_required(review_text: str) -> dict[str, Any]:
     p17_91 = "P17-91 was independently reviewed" in normalized
     remaining = "remaining fail-closed stop covers P17-99" in normalized
     cleared = p17_90 and p17_91 and remaining
-    stale = "The required next action is human review and redesign" in normalized
+    # The historical body below the banner still carries the original
+    # "required next action" prose. It is retired -- not merely superseded in
+    # banner prose -- only when the document declares the terminal state
+    # REVIEW_REQUIRED_TERMINAL_STATE=RETIRED. Without that declaration the
+    # historical sentence is still an active stop and the check fails closed.
+    retired = "REVIEW_REQUIRED_TERMINAL_STATE=RETIRED" in normalized
+    historical_sentence = (
+        "The required next action is human review and redesign" in normalized)
+    stale = historical_sentence and not retired
     return {
         "schema": "openrecomp-phase17-terminal-review-required-v1",
         "p17_90_reviewed_and_integrated": p17_90,
         "p17_91_reviewed_and_integrated": p17_91,
         "remaining_stop_is_p17_99": remaining,
         "historical_review_stop_cleared": cleared,
+        "historical_required_action_retired": retired,
         "stale_required_next_action_present": stale,
-        "ok": cleared and not stale,
+        "ok": cleared and retired and not stale,
     }
 
 
