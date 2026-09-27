@@ -1,0 +1,776 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase17-sources",
+      "detail": "OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=41",
+      "status": "PASS"
+    },
+    {
+      "check": "next-stage:declared-constant",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:no-parse-errors",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:no-missing-entries",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:no-extra-entries",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:no-duplicates",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:all-digests-verify",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:digest-basis-agrees",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:counts-consistent",
+      "detail": "{\"entries\": 41, \"expected\": 41}",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:new-module-registered",
+      "detail": "new src module and gate present in manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:all-stage-dirs-present",
+      "detail": "{\"checked\": 13}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-00:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-00:result-schema-conformant",
+      "detail": "{\"class\": \"REPRESENTATIVE_TEST_RECORD\", \"schema\": \"openrecomp-phase17-result-v1\", \"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-01:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-01:result-schema-conformant",
+      "detail": "{\"class\": \"PRIVATE_FIXTURE_BOUNDED\", \"schema\": \"openrecomp-phase17-result-v1\", \"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-02:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-02:result-schema-conformant",
+      "detail": "{\"class\": \"PRIVATE_FIXTURE_BOUNDED\", \"schema\": \"openrecomp-phase17-result-v1\", \"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-03:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-03:result-schema-conformant",
+      "detail": "{\"class\": \"PRIVATE_FIXTURE_BOUNDED\", \"schema\": \"openrecomp-phase17-result-v1\", \"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-04:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-04:result-schema-conformant",
+      "detail": "{\"class\": \"PRIVATE_FIXTURE_BOUNDED\", \"schema\": \"openrecomp-phase17-result-v1\", \"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-04R:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-04R:result-schema-conformant",
+      "detail": "{\"class\": \"PRIVATE_FIXTURE_BOUNDED\", \"schema\": \"openrecomp-phase17-result-v1\", \"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-05:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-05:result-schema-conformant",
+      "detail": "{\"class\": \"PRIVATE_FIXTURE_BOUNDED\", \"schema\": \"openrecomp-phase17-result-v1\", \"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-05R:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-05R:result-schema-conformant",
+      "detail": "{\"class\": \"PRIVATE_FIXTURE_BOUNDED\", \"schema\": \"openrecomp-phase17-result-v1\", \"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-06:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-06:result-schema-conformant",
+      "detail": "{\"class\": \"PRIVATE_FIXTURE_BOUNDED\", \"schema\": \"openrecomp-phase17-result-v1\", \"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-06R:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-06R:result-schema-conformant",
+      "detail": "{\"class\": \"PRIVATE_FIXTURE_BOUNDED\", \"schema\": \"openrecomp-phase17-result-v1\", \"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-07:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-07:result-schema-conformant",
+      "detail": "{\"class\": \"PRIVATE_FIXTURE_BOUNDED\", \"schema\": \"openrecomp-phase17-result-v1\", \"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-07R:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-07R:result-schema-conformant",
+      "detail": "{\"class\": \"PRIVATE_FIXTURE_BOUNDED\", \"schema\": \"openrecomp-phase17-result-v1\", \"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-90:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P17-90:result-schema-conformant",
+      "detail": "{\"class\": \"PRIVATE_FIXTURE_BOUNDED\", \"schema\": \"openrecomp-phase17-result-v1\", \"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-00:run1-equals-run2",
+      "detail": "{\"run1\": \"c08ac24153c509c2\", \"run2\": \"c08ac24153c509c2\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-00:stderr-empty",
+      "detail": "both stderr files empty",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-00:recorded-digests-match",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-01:run1-equals-run2",
+      "detail": "{\"run1\": \"5d0caf8fab709978\", \"run2\": \"5d0caf8fab709978\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-01:stderr-empty",
+      "detail": "both stderr files empty",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-01:recorded-digests-match",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-02:run1-equals-run2",
+      "detail": "{\"run1\": \"f356a78809ef71e7\", \"run2\": \"f356a78809ef71e7\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-02:stderr-empty",
+      "detail": "both stderr files empty",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-02:recorded-digests-match",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-03:run1-equals-run2",
+      "detail": "{\"run1\": \"65d438cdf53eded1\", \"run2\": \"65d438cdf53eded1\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-03:stderr-empty",
+      "detail": "both stderr files empty",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-03:recorded-digests-match",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-04:run1-equals-run2",
+      "detail": "{\"run1\": \"606f0a01f4053938\", \"run2\": \"606f0a01f4053938\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-04:stderr-empty",
+      "detail": "both stderr files empty",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-04:recorded-digests-match",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-04R:run1-equals-run2",
+      "detail": "{\"run1\": \"c72582c285b7d74a\", \"run2\": \"c72582c285b7d74a\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-04R:stderr-empty",
+      "detail": "both stderr files empty",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-04R:recorded-digests-match",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-05:run1-equals-run2",
+      "detail": "{\"run1\": \"6c99c21b3572a917\", \"run2\": \"6c99c21b3572a917\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-05:stderr-empty",
+      "detail": "both stderr files empty",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-05:recorded-digests-match",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-05R:run1-equals-run2",
+      "detail": "{\"run1\": \"57af33cfee0946b9\", \"run2\": \"57af33cfee0946b9\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-05R:stderr-empty",
+      "detail": "both stderr files empty",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-05R:recorded-digests-match",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-06:run1-equals-run2",
+      "detail": "{\"run1\": \"21dd77ec2d02992c\", \"run2\": \"21dd77ec2d02992c\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-06:stderr-empty",
+      "detail": "both stderr files empty",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-06:recorded-digests-match",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-07:run1-equals-run2",
+      "detail": "{\"run1\": \"f689ccbdcfa92aca\", \"run2\": \"f689ccbdcfa92aca\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-07:stderr-empty",
+      "detail": "both stderr files empty",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-07:recorded-digests-match",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-07R:run1-equals-run2",
+      "detail": "{\"run1\": \"b876d45067a519b3\", \"run2\": \"b876d45067a519b3\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-07R:stderr-empty",
+      "detail": "both stderr files empty",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-07R:recorded-digests-match",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-90:run1-equals-run2",
+      "detail": "{\"run1\": \"18ed846917d3f006\", \"run2\": \"18ed846917d3f006\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-90:stderr-empty",
+      "detail": "both stderr files empty",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:P17-90:recorded-digests-match",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:all-stages",
+      "detail": "{\"stages\": 12}",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript:p17-06r-sidecar-matches",
+      "detail": "{\"actual\": \"d7e222c87726748ced23dd60c2b1ba138625227c984dac587be6a5761695fd3a\", \"sidecar\": \"d7e222c87726748ced23dd60c2b1ba138625227c984dac587be6a5761695fd3a\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript:p17-07r-binding-matches",
+      "detail": "{\"bound\": \"d7e222c87726748ced23dd60c2b1ba138625227c984dac587be6a5761695fd3a\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "public-safety:no-unallowlisted-hits",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "public-safety:no-forbidden-keys",
+      "detail": "no reconstructive metadata keys in any evidence document",
+      "status": "PASS"
+    },
+    {
+      "check": "public-safety:scan-covered-evidence",
+      "detail": "{\"scanned\": 137}",
+      "status": "PASS"
+    },
+    {
+      "check": "public-safety:allowlist-is-named-and-bounded",
+      "detail": "[\"P17-00/negative_tests.json\", \"P17-00/run1.txt\", \"P17-00/run2.txt\", \"P17-00/p17_00_tests.json\", \"P17-07/run1.txt\", \"P17-07/run2.txt\", \"P17-07/p17_07_tests.json\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "prior-phase:no-commits-touched-phase1-16",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "prior-phase:all-trees-identical-to-baseline",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "prior-phase:no-dirty-worktree-paths",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "prior-phase:all-sixteen-trees-checked",
+      "detail": "{\"checked\": 16}",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:no-promoted-markers",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:every-stage-checked",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:state-declares-protected-markers",
+      "detail": "{\"FIRST_FRAME_READY\": true, \"OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY\": true, \"OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF\": true, \"OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF\": true, \"OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:queue-declares-protected-markers",
+      "detail": "{\"FIRST_FRAME_READY\": true, \"OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY\": true, \"OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF\": true, \"OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF\": true, \"OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:corrupted-manifest-digest",
+      "detail": "{\"case\": \"corrupted_manifest_digest\", \"detail\": \"digest_mismatches=1\", \"detected\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:removed-manifest-entry",
+      "detail": "{\"case\": \"removed_manifest_entry\", \"detail\": \"missing_entries=['.openrecomp-phase17/src/p17_authentic_execute_v1.py']\", \"detected\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:missing-required-evidence-document",
+      "detail": "{\"case\": \"missing_required_evidence_document\", \"detail\": \"synthetic stage missing run/determinism documents\", \"detected\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:divergent-dual-run",
+      "detail": "{\"case\": \"divergent_dual_run\", \"detail\": \"run2 mutated by one appended line\", \"detected\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:fabricated-private-host-path",
+      "detail": "{\"case\": \"fabricated_private_host_path\", \"detail\": \"unallowlisted_path_hit_count=1\", \"detected\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:allowlisted-file-forbidden-key-still-caught",
+      "detail": "{\"case\": \"allowlisted_file_forbidden_key_still_caught\", \"detail\": \"allowlist waives only path shapes, never reconstructive keys\", \"detected\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:promoted-not-proven-marker",
+      "detail": "{\"case\": \"promoted_not_proven_marker\", \"detail\": \"promoted=['OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF']\", \"detected\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:baseline-manifest-is-clean",
+      "detail": "{\"case\": \"baseline_manifest_is_clean\", \"detail\": \"entries=41\", \"detected\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:all-cases-detected",
+      "detail": "{\"cases\": 7, \"detected\": 7}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:minimum-case-coverage",
+      "detail": "{\"cases\": 7}",
+      "status": "PASS"
+    },
+    {
+      "check": "RESULT:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "RESULT:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "RESULT:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "RESULT:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "RESULT:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "next_stage:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "next_stage:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "next_stage:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "next_stage:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "next_stage:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_metadata:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_metadata:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_metadata:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_metadata:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_metadata:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "audit:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "audit:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "audit:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "audit:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "audit:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_audit:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_audit:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_audit:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_audit:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_audit:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public_safety:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public_safety:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "public_safety:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "public_safety:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "public_safety:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "prior_phase_integrity:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "prior_phase_integrity:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "prior_phase_integrity:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "prior_phase_integrity:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "prior_phase_integrity:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_ledger:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_ledger:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_ledger:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_ledger:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_ledger:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_controls:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_controls:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_controls:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_controls:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_controls:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript_binding:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript_binding:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript_binding:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript_binding:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript_binding:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P17-91 Test Results",
+  "schema": "openrecomp-phase17-tests-v1",
+  "stage": "P17-91",
+  "summary": {
+    "failed": 0,
+    "passed": 153
+  }
+}

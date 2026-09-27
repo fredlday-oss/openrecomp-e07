@@ -1,0 +1,64 @@
+{
+  "audited_stage_dirs": [
+    "P17-00",
+    "P17-01",
+    "P17-02",
+    "P17-03",
+    "P17-04",
+    "P17-04R",
+    "P17-05",
+    "P17-05R",
+    "P17-06",
+    "P17-06R",
+    "P17-07",
+    "P17-07R",
+    "P17-90"
+  ],
+  "checks": [
+    "source-manifest-exactness (missing/extra/duplicate/digest/basis)",
+    "evidence-closure (required documents + RESULT.json schema)",
+    "dual-run-determinism (run1==run2, empty stderr, re-derived digests)",
+    "public-safety (private host paths, reconstructive keys)",
+    "frozen-prior-phase-integrity (Phase 1..16 trees unchanged)",
+    "marker-ledger (protected claim markers un-promoted)",
+    "negative-controls (tamper cases fail closed)"
+  ],
+  "dual_run_stages": [
+    "P17-00",
+    "P17-01",
+    "P17-02",
+    "P17-03",
+    "P17-04",
+    "P17-04R",
+    "P17-05",
+    "P17-05R",
+    "P17-06",
+    "P17-07",
+    "P17-07R",
+    "P17-90"
+  ],
+  "forbidden_reconstructive_key_count": 8,
+  "forbidden_reconstructive_key_form": "declared in the scan; not echoed",
+  "marker": "OPENRECOMP_PHASE17_EVIDENCE_CLOSURE_V1",
+  "phase16_baseline_commit": "a0c26e882ca65cfc84cbec78f7e787509a4992a3",
+  "private_path_pattern_labels": [
+    "unix-home-user-path",
+    "unix-users-user-path",
+    "unix-tmp-path",
+    "windows-drive-path",
+    "windows-unc-path"
+  ],
+  "promotes_no_proof_marker": true,
+  "proves": "The Phase-17 committed evidence corpus is internally consistent, complete, schema-conformant, publicly safe, and the source manifest is exact. Nothing about emulation.",
+  "public_safety_allowlist_rules": [
+    "PRIVATE_PATH_NEGATIVE_CONTROL",
+    "PRIVATE_PATH_NEGATIVE_CONTROL_RECORD",
+    "PRIVATE_PATH_NEGATIVE_CONTROL_TRANSCRIPT",
+    "PRIVATE_PATH_TOKEN_AS_CHECK_NAME"
+  ],
+  "public_safety_allowlisted_file_count": 7,
+  "schema": "openrecomp-phase17-evidence-closure-audit-v1",
+  "transcript_stages": [
+    "P17-06R"
+  ]
+}

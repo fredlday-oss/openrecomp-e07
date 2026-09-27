@@ -1,0 +1,161 @@
+PASS: integrity:phase17-sources OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=41
+PASS: next-stage:declared-constant
+PASS: manifest:no-parse-errors []
+PASS: manifest:no-missing-entries []
+PASS: manifest:no-extra-entries []
+PASS: manifest:no-duplicates []
+PASS: manifest:all-digests-verify []
+PASS: manifest:digest-basis-agrees []
+PASS: manifest:counts-consistent {"entries": 41, "expected": 41}
+PASS: manifest:new-module-registered new src module and gate present in manifest
+PASS: closure:all-stage-dirs-present {"checked": 13}
+PASS: closure:P17-00:documents-present []
+PASS: closure:P17-00:result-schema-conformant {"class": "REPRESENTATIVE_TEST_RECORD", "schema": "openrecomp-phase17-result-v1", "status": "PASS"}
+PASS: closure:P17-01:documents-present []
+PASS: closure:P17-01:result-schema-conformant {"class": "PRIVATE_FIXTURE_BOUNDED", "schema": "openrecomp-phase17-result-v1", "status": "PASS"}
+PASS: closure:P17-02:documents-present []
+PASS: closure:P17-02:result-schema-conformant {"class": "PRIVATE_FIXTURE_BOUNDED", "schema": "openrecomp-phase17-result-v1", "status": "PASS"}
+PASS: closure:P17-03:documents-present []
+PASS: closure:P17-03:result-schema-conformant {"class": "PRIVATE_FIXTURE_BOUNDED", "schema": "openrecomp-phase17-result-v1", "status": "PASS"}
+PASS: closure:P17-04:documents-present []
+PASS: closure:P17-04:result-schema-conformant {"class": "PRIVATE_FIXTURE_BOUNDED", "schema": "openrecomp-phase17-result-v1", "status": "PASS"}
+PASS: closure:P17-04R:documents-present []
+PASS: closure:P17-04R:result-schema-conformant {"class": "PRIVATE_FIXTURE_BOUNDED", "schema": "openrecomp-phase17-result-v1", "status": "PASS"}
+PASS: closure:P17-05:documents-present []
+PASS: closure:P17-05:result-schema-conformant {"class": "PRIVATE_FIXTURE_BOUNDED", "schema": "openrecomp-phase17-result-v1", "status": "PASS"}
+PASS: closure:P17-05R:documents-present []
+PASS: closure:P17-05R:result-schema-conformant {"class": "PRIVATE_FIXTURE_BOUNDED", "schema": "openrecomp-phase17-result-v1", "status": "PASS"}
+PASS: closure:P17-06:documents-present []
+PASS: closure:P17-06:result-schema-conformant {"class": "PRIVATE_FIXTURE_BOUNDED", "schema": "openrecomp-phase17-result-v1", "status": "PASS"}
+PASS: closure:P17-06R:documents-present []
+PASS: closure:P17-06R:result-schema-conformant {"class": "PRIVATE_FIXTURE_BOUNDED", "schema": "openrecomp-phase17-result-v1", "status": "PASS"}
+PASS: closure:P17-07:documents-present []
+PASS: closure:P17-07:result-schema-conformant {"class": "PRIVATE_FIXTURE_BOUNDED", "schema": "openrecomp-phase17-result-v1", "status": "PASS"}
+PASS: closure:P17-07R:documents-present []
+PASS: closure:P17-07R:result-schema-conformant {"class": "PRIVATE_FIXTURE_BOUNDED", "schema": "openrecomp-phase17-result-v1", "status": "PASS"}
+PASS: closure:P17-90:documents-present []
+PASS: closure:P17-90:result-schema-conformant {"class": "PRIVATE_FIXTURE_BOUNDED", "schema": "openrecomp-phase17-result-v1", "status": "PASS"}
+PASS: determinism:P17-00:run1-equals-run2 {"run1": "c08ac24153c509c2", "run2": "c08ac24153c509c2"}
+PASS: determinism:P17-00:stderr-empty both stderr files empty
+PASS: determinism:P17-00:recorded-digests-match []
+PASS: determinism:P17-01:run1-equals-run2 {"run1": "5d0caf8fab709978", "run2": "5d0caf8fab709978"}
+PASS: determinism:P17-01:stderr-empty both stderr files empty
+PASS: determinism:P17-01:recorded-digests-match []
+PASS: determinism:P17-02:run1-equals-run2 {"run1": "f356a78809ef71e7", "run2": "f356a78809ef71e7"}
+PASS: determinism:P17-02:stderr-empty both stderr files empty
+PASS: determinism:P17-02:recorded-digests-match []
+PASS: determinism:P17-03:run1-equals-run2 {"run1": "65d438cdf53eded1", "run2": "65d438cdf53eded1"}
+PASS: determinism:P17-03:stderr-empty both stderr files empty
+PASS: determinism:P17-03:recorded-digests-match []
+PASS: determinism:P17-04:run1-equals-run2 {"run1": "606f0a01f4053938", "run2": "606f0a01f4053938"}
+PASS: determinism:P17-04:stderr-empty both stderr files empty
+PASS: determinism:P17-04:recorded-digests-match []
+PASS: determinism:P17-04R:run1-equals-run2 {"run1": "c72582c285b7d74a", "run2": "c72582c285b7d74a"}
+PASS: determinism:P17-04R:stderr-empty both stderr files empty
+PASS: determinism:P17-04R:recorded-digests-match []
+PASS: determinism:P17-05:run1-equals-run2 {"run1": "6c99c21b3572a917", "run2": "6c99c21b3572a917"}
+PASS: determinism:P17-05:stderr-empty both stderr files empty
+PASS: determinism:P17-05:recorded-digests-match []
+PASS: determinism:P17-05R:run1-equals-run2 {"run1": "57af33cfee0946b9", "run2": "57af33cfee0946b9"}
+PASS: determinism:P17-05R:stderr-empty both stderr files empty
+PASS: determinism:P17-05R:recorded-digests-match []
+PASS: determinism:P17-06:run1-equals-run2 {"run1": "21dd77ec2d02992c", "run2": "21dd77ec2d02992c"}
+PASS: determinism:P17-06:stderr-empty both stderr files empty
+PASS: determinism:P17-06:recorded-digests-match []
+PASS: determinism:P17-07:run1-equals-run2 {"run1": "f689ccbdcfa92aca", "run2": "f689ccbdcfa92aca"}
+PASS: determinism:P17-07:stderr-empty both stderr files empty
+PASS: determinism:P17-07:recorded-digests-match []
+PASS: determinism:P17-07R:run1-equals-run2 {"run1": "b876d45067a519b3", "run2": "b876d45067a519b3"}
+PASS: determinism:P17-07R:stderr-empty both stderr files empty
+PASS: determinism:P17-07R:recorded-digests-match []
+PASS: determinism:P17-90:run1-equals-run2 {"run1": "18ed846917d3f006", "run2": "18ed846917d3f006"}
+PASS: determinism:P17-90:stderr-empty both stderr files empty
+PASS: determinism:P17-90:recorded-digests-match []
+PASS: determinism:all-stages {"stages": 12}
+PASS: transcript:p17-06r-sidecar-matches {"actual": "d7e222c87726748ced23dd60c2b1ba138625227c984dac587be6a5761695fd3a", "sidecar": "d7e222c87726748ced23dd60c2b1ba138625227c984dac587be6a5761695fd3a"}
+PASS: transcript:p17-07r-binding-matches {"bound": "d7e222c87726748ced23dd60c2b1ba138625227c984dac587be6a5761695fd3a"}
+PASS: public-safety:no-unallowlisted-hits []
+PASS: public-safety:no-forbidden-keys no reconstructive metadata keys in any evidence document
+PASS: public-safety:scan-covered-evidence {"scanned": 137}
+PASS: public-safety:allowlist-is-named-and-bounded ["P17-00/negative_tests.json", "P17-00/run1.txt", "P17-00/run2.txt", "P17-00/p17_00_tests.json", "P17-07/run1.txt", "P17-07/run2.txt", "P17-07/p17_07_tests.json"]
+PASS: prior-phase:no-commits-touched-phase1-16 []
+PASS: prior-phase:all-trees-identical-to-baseline []
+PASS: prior-phase:no-dirty-worktree-paths []
+PASS: prior-phase:all-sixteen-trees-checked {"checked": 16}
+PASS: ledger:no-promoted-markers []
+PASS: ledger:every-stage-checked []
+PASS: ledger:state-declares-protected-markers {"FIRST_FRAME_READY": true, "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": true, "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": true, "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": true, "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": true}
+PASS: ledger:queue-declares-protected-markers {"FIRST_FRAME_READY": true, "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": true, "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": true, "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": true, "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": true}
+PASS: negative:corrupted-manifest-digest {"case": "corrupted_manifest_digest", "detail": "digest_mismatches=1", "detected": true}
+PASS: negative:removed-manifest-entry {"case": "removed_manifest_entry", "detail": "missing_entries=['.openrecomp-phase17/src/p17_authentic_execute_v1.py']", "detected": true}
+PASS: negative:missing-required-evidence-document {"case": "missing_required_evidence_document", "detail": "synthetic stage missing run/determinism documents", "detected": true}
+PASS: negative:divergent-dual-run {"case": "divergent_dual_run", "detail": "run2 mutated by one appended line", "detected": true}
+PASS: negative:fabricated-private-host-path {"case": "fabricated_private_host_path", "detail": "unallowlisted_path_hit_count=1", "detected": true}
+PASS: negative:allowlisted-file-forbidden-key-still-caught {"case": "allowlisted_file_forbidden_key_still_caught", "detail": "allowlist waives only path shapes, never reconstructive keys", "detected": true}
+PASS: negative:promoted-not-proven-marker {"case": "promoted_not_proven_marker", "detail": "promoted=['OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF']", "detected": true}
+PASS: negative:baseline-manifest-is-clean {"case": "baseline_manifest_is_clean", "detail": "entries=41", "detected": true}
+PASS: negative:all-cases-detected {"cases": 7, "detected": 7}
+PASS: negative:minimum-case-coverage {"cases": 7}
+PASS: RESULT:no-private-path absolute private paths absent
+PASS: RESULT:reject-private-paths no private paths in values
+PASS: RESULT:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: RESULT:no-payload-hex no payload supplied
+PASS: RESULT:no-raw-words reconstructive fields absent
+PASS: next_stage:no-private-path absolute private paths absent
+PASS: next_stage:reject-private-paths no private paths in values
+PASS: next_stage:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: next_stage:no-payload-hex no payload supplied
+PASS: next_stage:no-raw-words reconstructive fields absent
+PASS: stage_metadata:no-private-path absolute private paths absent
+PASS: stage_metadata:reject-private-paths no private paths in values
+PASS: stage_metadata:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: stage_metadata:no-payload-hex no payload supplied
+PASS: stage_metadata:no-raw-words reconstructive fields absent
+PASS: audit:no-private-path absolute private paths absent
+PASS: audit:reject-private-paths no private paths in values
+PASS: audit:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: audit:no-payload-hex no payload supplied
+PASS: audit:no-raw-words reconstructive fields absent
+PASS: manifest_audit:no-private-path absolute private paths absent
+PASS: manifest_audit:reject-private-paths no private paths in values
+PASS: manifest_audit:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: manifest_audit:no-payload-hex no payload supplied
+PASS: manifest_audit:no-raw-words reconstructive fields absent
+PASS: closure:no-private-path absolute private paths absent
+PASS: closure:reject-private-paths no private paths in values
+PASS: closure:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: closure:no-payload-hex no payload supplied
+PASS: closure:no-raw-words reconstructive fields absent
+PASS: public_safety:no-private-path absolute private paths absent
+PASS: public_safety:reject-private-paths no private paths in values
+PASS: public_safety:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: public_safety:no-payload-hex no payload supplied
+PASS: public_safety:no-raw-words reconstructive fields absent
+PASS: prior_phase_integrity:no-private-path absolute private paths absent
+PASS: prior_phase_integrity:reject-private-paths no private paths in values
+PASS: prior_phase_integrity:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: prior_phase_integrity:no-payload-hex no payload supplied
+PASS: prior_phase_integrity:no-raw-words reconstructive fields absent
+PASS: marker_ledger:no-private-path absolute private paths absent
+PASS: marker_ledger:reject-private-paths no private paths in values
+PASS: marker_ledger:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: marker_ledger:no-payload-hex no payload supplied
+PASS: marker_ledger:no-raw-words reconstructive fields absent
+PASS: negative_controls:no-private-path absolute private paths absent
+PASS: negative_controls:reject-private-paths no private paths in values
+PASS: negative_controls:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: negative_controls:no-payload-hex no payload supplied
+PASS: negative_controls:no-raw-words reconstructive fields absent
+PASS: transcript_binding:no-private-path absolute private paths absent
+PASS: transcript_binding:reject-private-paths no private paths in values
+PASS: transcript_binding:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: transcript_binding:no-payload-hex no payload supplied
+PASS: transcript_binding:no-raw-words reconstructive fields absent
+OPENRECOMP_P17_91=PASS
+OPENRECOMP_PHASE17_EVIDENCE_CLOSURE_V1=PASS
+OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+FIRST_FRAME_READY=NO
+P17-91_CHECKS=153

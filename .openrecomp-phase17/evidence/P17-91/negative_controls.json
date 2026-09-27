@@ -1,0 +1,48 @@
+{
+  "cases": [
+    {
+      "case": "corrupted_manifest_digest",
+      "detail": "digest_mismatches=1",
+      "detected": true
+    },
+    {
+      "case": "removed_manifest_entry",
+      "detail": "missing_entries=['.openrecomp-phase17/src/p17_authentic_execute_v1.py']",
+      "detected": true
+    },
+    {
+      "case": "missing_required_evidence_document",
+      "detail": "synthetic stage missing run/determinism documents",
+      "detected": true
+    },
+    {
+      "case": "divergent_dual_run",
+      "detail": "run2 mutated by one appended line",
+      "detected": true
+    },
+    {
+      "case": "fabricated_private_host_path",
+      "detail": "unallowlisted_path_hit_count=1",
+      "detected": true
+    },
+    {
+      "case": "allowlisted_file_forbidden_key_still_caught",
+      "detail": "allowlist waives only path shapes, never reconstructive keys",
+      "detected": true
+    },
+    {
+      "case": "promoted_not_proven_marker",
+      "detail": "promoted=['OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF']",
+      "detected": true
+    },
+    {
+      "case": "baseline_manifest_is_clean",
+      "detail": "entries=41",
+      "detected": true
+    }
+  ],
+  "ok": true,
+  "schema": "openrecomp-phase17-negative-controls-v1",
+  "tamper_case_count": 7,
+  "tamper_detected_count": 7
+}
