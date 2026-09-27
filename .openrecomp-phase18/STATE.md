@@ -23,9 +23,9 @@
 - `FIRST_FRAME_READY=NO`
 
 ## Current Stage
-- CURRENT_STAGE: P18-01
-- LAST_COMPLETED_STAGE: P18-01 GPUSTAT polling-model investigation (controller reviewed and integrated; banner commit recorded below)
-- NEXT_STAGE: P18-02
+- CURRENT_STAGE: P18-02
+- LAST_COMPLETED_STAGE: P18-02 authentic poll exit / execution continuation (controller reviewed and integrated)
+- NEXT_STAGE: P18-03
 - FINAL_VERDICT: (not terminal)
 - REVIEW_GATE: open; no REVIEW_REQUIRED stop raised by P18-01.
 
@@ -63,8 +63,26 @@
   remain NOT_PROVEN; `FIRST_FRAME_READY=NO`.
 - next_stage: P18-02
 
+## P18-02 authoritative metadata (authentic poll exit / execution continuation)
+- STATUS: PASS (controller reviewed and INTEGRATED; see `evidence/P18-02/CONTROLLER_REVIEW.md`)
+- authority_commit: `d7cc5d09eebde398ca6ff3f3dad8dd5841913b69`
+- authority_tree: `ad3aa822e5a02905ebc25477f7b6c69d0bffa055`
+- uses the P18-01 state-driven bit-26 model to continue authentic execution
+  past the GPUSTAT wait-poll: derived poll owner `0x8001a9fc`, branch
+  `lw; nop; and; beq`, mask bit 26, taken-to-exit within the budget; the value
+  consumed at the owner had bit 26 set (`0x04000000`).
+- every executed continuation PC is authenticated with provenance; five new
+  regions authenticated from source bytes; stop reason
+  `CONTINUATION_BUDGET_REACHED`; causal transcript digest
+  `c4fa0d67039102ef8e61e70e9610b51e64982202373dbeeb982d60c68f071331`.
+- gate: 66/66 checks PASS; dual official runs byte-identical; independent
+  fresh-private-root reproduction byte-identical to official evidence.
+- promotes no proof marker (FIRST_FRAME_READY=NO; Phase-18 claims NOT_PROVEN).
+- next_stage: P18-03
+
 ## Stage Status
 | Stage | Status | Marker |
 |---|---|---|
 | P18-00 | PASS | `OPENRECOMP_P18_00=PASS` |
 | P18-01 | PASS | `OPENRECOMP_P18_01=PASS` |
+| P18-02 | PASS | `OPENRECOMP_P18_02=PASS` |

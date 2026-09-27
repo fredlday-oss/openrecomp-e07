@@ -1,0 +1,97 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "444619a6f7ed5e3d96d871e81a3f762b274424936f01fd8377b13aff1f5c1a0f",
+    "continuation.json": "3d6183d5fa87e5308b497d8ee4d9bb855f3dddd1370b2af14ebea7993a67e993",
+    "gpu_state_model.json": "0c4367c60e6e714b1cdd55256721a8bd507601571380e68db2768840d9b1d5db",
+    "p18_02_tests.json": "571aa2c27ace905f05af903d31e1b4e0a4dd4ae0c6c0fb2ba056afd6771426d8",
+    "poll_exit.json": "685a8562275dc856618cb61d9b42bd76baddc6a2d13fed30da58ec66bdab6f4d",
+    "transcript.json": "c4fa0d67039102ef8e61e70e9610b51e64982202373dbeeb982d60c68f071331"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "next_stage": "P18-03",
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "444619a6f7ed5e3d96d871e81a3f762b274424936f01fd8377b13aff1f5c1a0f",
+        "continuation.json": "3d6183d5fa87e5308b497d8ee4d9bb855f3dddd1370b2af14ebea7993a67e993",
+        "gpu_state_model.json": "0c4367c60e6e714b1cdd55256721a8bd507601571380e68db2768840d9b1d5db",
+        "p18_02_tests.json": "571aa2c27ace905f05af903d31e1b4e0a4dd4ae0c6c0fb2ba056afd6771426d8",
+        "poll_exit.json": "685a8562275dc856618cb61d9b42bd76baddc6a2d13fed30da58ec66bdab6f4d",
+        "transcript.json": "c4fa0d67039102ef8e61e70e9610b51e64982202373dbeeb982d60c68f071331"
+      },
+      "command": [
+        "python",
+        "tools/test_phase18_exec_continuation_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase18/evidence/P18-02"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P18_00=PASS",
+        "OPENRECOMP_P18_01=PASS",
+        "OPENRECOMP_P18_02=PASS",
+        "OPENRECOMP_PHASE18_GPUSTAT_POLL_EXIT=CONFIRMED",
+        "OPENRECOMP_PHASE18_AUTHENTIC_EXECUTION_CONTINUATION=PASS",
+        "OPENRECOMP_PHASE18_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE18_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE18_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE18_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p18_02_tests_sha256": "571aa2c27ace905f05af903d31e1b4e0a4dd4ae0c6c0fb2ba056afd6771426d8",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 5733,
+      "stdout_bytes_lf": 5733,
+      "stdout_sha256_lf": "890baabb32703e6b57cb611a6e90600edf13c75c4fd2fb24278d0b7d6db219e9",
+      "stdout_sha256_raw": "890baabb32703e6b57cb611a6e90600edf13c75c4fd2fb24278d0b7d6db219e9",
+      "tests_json_present": true
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "444619a6f7ed5e3d96d871e81a3f762b274424936f01fd8377b13aff1f5c1a0f",
+        "continuation.json": "3d6183d5fa87e5308b497d8ee4d9bb855f3dddd1370b2af14ebea7993a67e993",
+        "gpu_state_model.json": "0c4367c60e6e714b1cdd55256721a8bd507601571380e68db2768840d9b1d5db",
+        "p18_02_tests.json": "571aa2c27ace905f05af903d31e1b4e0a4dd4ae0c6c0fb2ba056afd6771426d8",
+        "poll_exit.json": "685a8562275dc856618cb61d9b42bd76baddc6a2d13fed30da58ec66bdab6f4d",
+        "transcript.json": "c4fa0d67039102ef8e61e70e9610b51e64982202373dbeeb982d60c68f071331"
+      },
+      "command": [
+        "python",
+        "tools/test_phase18_exec_continuation_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase18/evidence/P18-02"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P18_00=PASS",
+        "OPENRECOMP_P18_01=PASS",
+        "OPENRECOMP_P18_02=PASS",
+        "OPENRECOMP_PHASE18_GPUSTAT_POLL_EXIT=CONFIRMED",
+        "OPENRECOMP_PHASE18_AUTHENTIC_EXECUTION_CONTINUATION=PASS",
+        "OPENRECOMP_PHASE18_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE18_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE18_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE18_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p18_02_tests_sha256": "571aa2c27ace905f05af903d31e1b4e0a4dd4ae0c6c0fb2ba056afd6771426d8",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 5733,
+      "stdout_bytes_lf": 5733,
+      "stdout_sha256_lf": "890baabb32703e6b57cb611a6e90600edf13c75c4fd2fb24278d0b7d6db219e9",
+      "stdout_sha256_raw": "890baabb32703e6b57cb611a6e90600edf13c75c4fd2fb24278d0b7d6db219e9",
+      "tests_json_present": true
+    }
+  ],
+  "schema": "openrecomp-phase18-official-runs-v1",
+  "stage": "P18-02",
+  "stderr_empty_both": true,
+  "tests_json_present_both": true
+}

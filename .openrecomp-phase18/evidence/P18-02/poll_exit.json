@@ -1,0 +1,55 @@
+{
+  "continuation_executed_count": 8192,
+  "executed_instruction_count": 8270,
+  "exit": {
+    "branch_executions": 2,
+    "exit_detected": true,
+    "exit_taken_from": "0x8001aa08",
+    "exit_trace_index": 344,
+    "poll_entries": 2,
+    "taken_to_exit_count": 2
+  },
+  "geometry": {
+    "branch_fallthrough_pc": "0x8001aa10",
+    "branch_pc": "0x8001aa08",
+    "exit_condition": "(GPUSTAT & 0x04000000) != 0",
+    "loop_body_ops": [
+      "lw",
+      "nop",
+      "and",
+      "beq"
+    ],
+    "loop_target_pc": "0x8001a9fc",
+    "mask_value": "0x04000000",
+    "owner_read_count": 1586,
+    "poll_pc": "0x8001a9fc",
+    "poll_pc_provenance_digest": "46d2f4a524811b398cd95df0a152d8c0a45903091a89d4a5ebcd27556ee2729f",
+    "poll_pc_provenance_matches_transcript": true,
+    "status_bit": 26,
+    "total_gpustat_reads": 1587
+  },
+  "gpu_stats": {
+    "bit26_set": 6,
+    "drained": 0,
+    "fifo_overflow": 0,
+    "gp0_writes": 0,
+    "gp1_writes": 0,
+    "gpustat_reads": 6,
+    "mmio_reads_unmodelled": 8,
+    "mmio_writes": 4
+  },
+  "owner_reads": [
+    {
+      "pc": "0x8001a9fc",
+      "value": "0x04000000"
+    },
+    {
+      "pc": "0x8001a9fc",
+      "value": "0x04000000"
+    }
+  ],
+  "promotes_no_proof_marker": true,
+  "schema": "openrecomp-phase18-poll-exit-v1",
+  "stage": "P18-02",
+  "stop_reason": "CONTINUATION_BUDGET_REACHED"
+}

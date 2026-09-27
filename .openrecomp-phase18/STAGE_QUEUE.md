@@ -41,6 +41,7 @@ contract after inspecting the live repository frontier.
 |---|---|---|---|
 | P18-00 | Phase-18 bootstrap: frozen authority, provenance, control plane, imported-recon inventory, frontier analysis | `OPENRECOMP_P18_00=PASS` | PASS |
 | P18-01 | GPUSTAT polling-model investigation: authenticate the exact poll condition, minimum state-driven bit-26 model, fail-closed controls, deterministic simulation | `OPENRECOMP_P18_01=PASS` | PASS |
+| P18-02 | Authentic poll exit / execution continuation: state-driven GPUSTAT read, bound-exit poll geometry, authenticated continuation, causal transcript, fail-closed controls | `OPENRECOMP_P18_02=PASS` | PASS |
 
 Claim markers (created by Phase 18; `NOT_PROVEN`/`NO` at P18-00):
 

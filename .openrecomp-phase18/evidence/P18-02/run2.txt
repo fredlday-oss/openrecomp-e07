@@ -1,0 +1,77 @@
+PASS: integrity:phase18-sources OPENRECOMP_PHASE18_SOURCE_INTEGRITY=PASS entries=15
+PASS: authority:phase17-frozen authority-ok
+PASS: frozen:phase1-17-untouched
+PASS: fixture:bin-exists bin
+PASS: fixture:bin-hash 2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365
+PASS: fixture:cue-exists cue
+PASS: fixture:cue-hash beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2
+PASS: fixture:slus-exists slus
+PASS: fixture:slus-hash c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f
+PASS: source:transcript-digest P17-06R transcript digest
+PASS: poll:derived 0x8001a9fc
+PASS: poll:provenance-reverified 46d2f4a524811b398cd95df0a152d8c0a45903091a89d4a5ebcd27556ee2729f
+PASS: poll:loop-structure ["lw", "nop", "and", "beq"]
+PASS: poll:branch-target 0x8001a9fc
+PASS: overlay:anchor-controls {"duplicated_loop_rejected": true, "missing_harness_end_rejected": true, "missing_include_rejected": true, "ok": true, "valid_applies": true}
+PASS: poll:entered {"branch_executions": 2, "exit_detected": true, "exit_taken_from": "0x8001aa08", "exit_trace_index": 344, "poll_entries": 2, "taken_to_exit_count": 2}
+PASS: poll:exit-taken {"branch_executions": 2, "exit_detected": true, "exit_taken_from": "0x8001aa08", "exit_trace_index": 344, "poll_entries": 2, "taken_to_exit_count": 2}
+PASS: poll:exit-taken-from-branch {"branch_executions": 2, "exit_detected": true, "exit_taken_from": "0x8001aa08", "exit_trace_index": 344, "poll_entries": 2, "taken_to_exit_count": 2}
+PASS: poll:owner-read-observed {"owner_reads": 2}
+PASS: poll:owner-read-bit26-set [{"pc": "0x8001a9fc", "value": "0x04000000"}]
+PASS: gpu:read-model-counted {"bit26_set": 6, "drained": 0, "fifo_overflow": 0, "gp0_writes": 0, "gp1_writes": 0, "gpustat_reads": 6, "mmio_reads_unmodelled": 8, "mmio_writes": 4}
+PASS: regions:discovered [{"added_records": 3, "entry_file_offset": 95432, "entry_pc": "0x80026cc8", "records_after": 7004, "records_before": 7001, "region": "MAIN_EXE", "region_reachable_count": 3}, {"added_records": 86, "entry_file_offset": 8968, "entry_pc": "0x80011b08", "records_after": 7090, "records_before": 7004, "region": "MAIN_EXE", "region_reachable_count": 86}, {"added_records": 623, "entry_file_offset": 13964, "entry_pc": "0x80012e8c", "records_after": 7713, "records_before": 7090, "region": "MAIN_EXE", "region_reachable_count": 626}, {"added_records": 627, "entry_file_offset": 45320, "entry_pc": "0x8001a908", "records_after": 8340, "records_before": 7713, "region": "MAIN_EXE", "region_reachable_count": 627}, {"added_records": 143, "entry_file_offset": 43804, "entry_pc": "0x8001a31c", "records_after": 8483, "records_before": 8340, "region": "MAIN_EXE", "region_reachable_count": 387}]
+PASS: regions:provenance-chain-holds
+PASS: continuation:executed-pcs-all-authenticated {"executed": 759}
+PASS: continuation:executed-pcs-have-provenance
+PASS: continuation:budget-respected 8192
+PASS: continuation:typed-stop-reason CONTINUATION_BUDGET_REACHED
+PASS: transcript:schema
+PASS: transcript:events-non-empty
+PASS: transcript:gpustat-read-model
+PASS: transcript:no-replayed-events
+PASS: transcript:validated c4fa0d67039102ef8e61e70e9610b51e64982202373dbeeb982d60c68f071331
+PASS: discipline:zero-read-model-absent {"gpu_write_present": true, "gpustat_function_pc_free": true, "gpustat_state_driven_present": true, "state_expression": "bit26 set iff s_p18_gpu_pending == 0", "tick_present": true, "zero_read_model_absent": true}
+PASS: discipline:gpustat-state-driven
+PASS: discipline:gpu-write-modelled
+PASS: discipline:tick-modelled
+PASS: discipline:gpustat-function-pc-free
+PASS: emission:no-phase16-import
+PASS: determinism:manifest-identical
+PASS: determinism:runtime-result-identical
+PASS: determinism:transcript-counts-identical
+PASS: determinism:executable-hash-identical
+PASS: determinism:regions-identical
+PASS: negative:zero-fill-poll-not-exited {"exit_detected": false, "ok": true, "poll_entered": true, "taken_to_exit_count": 0}
+PASS: negative:unmodelled-bit-rejected
+PASS: negative:tampered-poll-digest
+PASS: negative:event-without-provenance
+PASS: negative:unexecuted-pc-rejected
+PASS: poll_exit:no-private-path absolute private paths absent
+PASS: poll_exit:reject-private-paths no private paths in values
+PASS: poll_exit:no-import-private-paths no import paths
+PASS: poll_exit:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: poll_exit:no-payload-hex no payload supplied
+PASS: poll_exit:no-raw-words reconstructive fields absent
+PASS: gpu_state_model:no-private-path absolute private paths absent
+PASS: gpu_state_model:reject-private-paths no private paths in values
+PASS: gpu_state_model:no-import-private-paths no import paths
+PASS: gpu_state_model:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: gpu_state_model:no-payload-hex no payload supplied
+PASS: gpu_state_model:no-raw-words reconstructive fields absent
+PASS: continuation:no-private-path absolute private paths absent
+PASS: continuation:reject-private-paths no private paths in values
+PASS: continuation:no-import-private-paths no import paths
+PASS: continuation:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: continuation:no-payload-hex no payload supplied
+PASS: continuation:no-raw-words reconstructive fields absent
+OPENRECOMP_P18_00=PASS
+OPENRECOMP_P18_01=PASS
+OPENRECOMP_P18_02=PASS
+OPENRECOMP_PHASE18_GPUSTAT_POLL_EXIT=CONFIRMED
+OPENRECOMP_PHASE18_AUTHENTIC_EXECUTION_CONTINUATION=PASS
+OPENRECOMP_PHASE18_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+FIRST_FRAME_READY=NO
+P18-02_CHECKS=66

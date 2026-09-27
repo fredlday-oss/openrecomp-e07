@@ -27,8 +27,23 @@ model for the exact bit the authentic guest tests.
 - Promotes no proof marker. `FIRST_FRAME_READY=NO`; Phase-18 claim markers all
   `NOT_PROVEN`.
 
+## P18-02 result
+- Uses the P18-01 state-driven bit-26 GPUSTAT model to continue authentic
+  execution past the wait-poll at `0x8001a9fc`: derived branch geometry
+  (`lw; nop; and; beq`, mask bit 26), branch taken to the fall-through exit
+  within the budget, and the GPUSTAT value consumed at the owner carries
+  bit 26 (`0x04000000`). The emitted runtime's read is state-driven
+  (`pending == 0`); the literal Phase-17 zero read model is absent.
+- Every executed continuation PC is authenticated with a provenance digest;
+  five newly reached regions are authenticated from source bytes; stop reason
+  `CONTINUATION_BUDGET_REACHED`. Causal transcript digest
+  `c4fa0d67039102ef8e61e70e9610b51e64982202373dbeeb982d60c68f071331`.
+- Gate: 66/66 checks PASS; dual official runs byte-identical; independent
+  fresh-private-root reproduction byte-identical.
+- Promotes no proof marker. `FIRST_FRAME_READY=NO`; Phase-18 claims NOT_PROVEN.
+
 ## Next Action
-Author and execute `P18-02` (authentic execution escape from the polling
-frontier): wire the state-driven GPUSTAT model into the runtime and prove the
-authentic guest leaves the poll. Author the stage contract before claiming the
-stage complete. Do NOT begin Phase 19.
+Author and execute `P18-03` (causal device transcript): capture deterministic
+events actually caused by authentic guest execution, each bound to sequence,
+guest PC, authenticated owner, decoded instruction, event type, address/register,
+value, width and causal device state. Do NOT begin Phase 19.

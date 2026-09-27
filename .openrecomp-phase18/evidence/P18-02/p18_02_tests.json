@@ -1,0 +1,341 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase18-sources",
+      "detail": "OPENRECOMP_PHASE18_SOURCE_INTEGRITY=PASS entries=15",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:phase17-frozen",
+      "detail": "authority-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:phase1-17-untouched",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-exists",
+      "detail": "bin",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-hash",
+      "detail": "2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-exists",
+      "detail": "cue",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-hash",
+      "detail": "beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:slus-exists",
+      "detail": "slus",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:slus-hash",
+      "detail": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "status": "PASS"
+    },
+    {
+      "check": "source:transcript-digest",
+      "detail": "P17-06R transcript digest",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:derived",
+      "detail": "0x8001a9fc",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:provenance-reverified",
+      "detail": "46d2f4a524811b398cd95df0a152d8c0a45903091a89d4a5ebcd27556ee2729f",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:loop-structure",
+      "detail": "[\"lw\", \"nop\", \"and\", \"beq\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:branch-target",
+      "detail": "0x8001a9fc",
+      "status": "PASS"
+    },
+    {
+      "check": "overlay:anchor-controls",
+      "detail": "{\"duplicated_loop_rejected\": true, \"missing_harness_end_rejected\": true, \"missing_include_rejected\": true, \"ok\": true, \"valid_applies\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:entered",
+      "detail": "{\"branch_executions\": 2, \"exit_detected\": true, \"exit_taken_from\": \"0x8001aa08\", \"exit_trace_index\": 344, \"poll_entries\": 2, \"taken_to_exit_count\": 2}",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:exit-taken",
+      "detail": "{\"branch_executions\": 2, \"exit_detected\": true, \"exit_taken_from\": \"0x8001aa08\", \"exit_trace_index\": 344, \"poll_entries\": 2, \"taken_to_exit_count\": 2}",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:exit-taken-from-branch",
+      "detail": "{\"branch_executions\": 2, \"exit_detected\": true, \"exit_taken_from\": \"0x8001aa08\", \"exit_trace_index\": 344, \"poll_entries\": 2, \"taken_to_exit_count\": 2}",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:owner-read-observed",
+      "detail": "{\"owner_reads\": 2}",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:owner-read-bit26-set",
+      "detail": "[{\"pc\": \"0x8001a9fc\", \"value\": \"0x04000000\"}]",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu:read-model-counted",
+      "detail": "{\"bit26_set\": 6, \"drained\": 0, \"fifo_overflow\": 0, \"gp0_writes\": 0, \"gp1_writes\": 0, \"gpustat_reads\": 6, \"mmio_reads_unmodelled\": 8, \"mmio_writes\": 4}",
+      "status": "PASS"
+    },
+    {
+      "check": "regions:discovered",
+      "detail": "[{\"added_records\": 3, \"entry_file_offset\": 95432, \"entry_pc\": \"0x80026cc8\", \"records_after\": 7004, \"records_before\": 7001, \"region\": \"MAIN_EXE\", \"region_reachable_count\": 3}, {\"added_records\": 86, \"entry_file_offset\": 8968, \"entry_pc\": \"0x80011b08\", \"records_after\": 7090, \"records_before\": 7004, \"region\": \"MAIN_EXE\", \"region_reachable_count\": 86}, {\"added_records\": 623, \"entry_file_offset\": 13964, \"entry_pc\": \"0x80012e8c\", \"records_after\": 7713, \"records_before\": 7090, \"region\": \"MAIN_EXE\", \"region_reachable_count\": 626}, {\"added_records\": 627, \"entry_file_offset\": 45320, \"entry_pc\": \"0x8001a908\", \"records_after\": 8340, \"records_before\": 7713, \"region\": \"MAIN_EXE\", \"region_reachable_count\": 627}, {\"added_records\": 143, \"entry_file_offset\": 43804, \"entry_pc\": \"0x8001a31c\", \"records_after\": 8483, \"records_before\": 8340, \"region\": \"MAIN_EXE\", \"region_reachable_count\": 387}]",
+      "status": "PASS"
+    },
+    {
+      "check": "regions:provenance-chain-holds",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "continuation:executed-pcs-all-authenticated",
+      "detail": "{\"executed\": 759}",
+      "status": "PASS"
+    },
+    {
+      "check": "continuation:executed-pcs-have-provenance",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "continuation:budget-respected",
+      "detail": "8192",
+      "status": "PASS"
+    },
+    {
+      "check": "continuation:typed-stop-reason",
+      "detail": "CONTINUATION_BUDGET_REACHED",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript:schema",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript:events-non-empty",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript:gpustat-read-model",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript:no-replayed-events",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript:validated",
+      "detail": "c4fa0d67039102ef8e61e70e9610b51e64982202373dbeeb982d60c68f071331",
+      "status": "PASS"
+    },
+    {
+      "check": "discipline:zero-read-model-absent",
+      "detail": "{\"gpu_write_present\": true, \"gpustat_function_pc_free\": true, \"gpustat_state_driven_present\": true, \"state_expression\": \"bit26 set iff s_p18_gpu_pending == 0\", \"tick_present\": true, \"zero_read_model_absent\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "discipline:gpustat-state-driven",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "discipline:gpu-write-modelled",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "discipline:tick-modelled",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "discipline:gpustat-function-pc-free",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "emission:no-phase16-import",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:manifest-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:runtime-result-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:transcript-counts-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:executable-hash-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:regions-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:zero-fill-poll-not-exited",
+      "detail": "{\"exit_detected\": false, \"ok\": true, \"poll_entered\": true, \"taken_to_exit_count\": 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unmodelled-bit-rejected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:tampered-poll-digest",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:event-without-provenance",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unexecuted-pc-rejected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "poll_exit:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "poll_exit:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "poll_exit:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "poll_exit:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "poll_exit:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "poll_exit:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu_state_model:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu_state_model:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu_state_model:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu_state_model:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu_state_model:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu_state_model:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "continuation:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "continuation:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "continuation:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "continuation:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "continuation:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "continuation:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P18-02 Test Results",
+  "schema": "openrecomp-phase18-tests-v1",
+  "stage": "P18-02",
+  "summary": {
+    "failed": 0,
+    "passed": 66
+  }
+}

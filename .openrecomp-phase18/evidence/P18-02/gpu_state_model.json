@@ -1,0 +1,24 @@
+{
+  "discipline": {
+    "gpu_write_present": true,
+    "gpustat_function_pc_free": true,
+    "gpustat_state_driven_present": true,
+    "state_expression": "bit26 set iff s_p18_gpu_pending == 0",
+    "tick_present": true,
+    "zero_read_model_absent": true
+  },
+  "drain_rate": "one command per executed guest instruction",
+  "drained": 0,
+  "fifo_depth": 8,
+  "fifo_overflow": 0,
+  "gp0_writes": 0,
+  "gp1_writes": 0,
+  "gpustat_bit": 26,
+  "mmio_reads_unmodelled": 8,
+  "mmio_writes": 4,
+  "model": "P18_STATE_DRIVEN_BIT26",
+  "not_hardcoded": "bit 26 is a function of modelled GPU state; the poll PC and tested bit are derived from authenticated bytes",
+  "promotes_no_proof_marker": true,
+  "schema": "openrecomp-phase18-gpu-state-model-v1",
+  "stage": "P18-02"
+}
