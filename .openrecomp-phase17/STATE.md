@@ -18,10 +18,10 @@
 - `FIRST_FRAME_READY=NO`
 
 ## Current Stage
-- CURRENT_STAGE: P17-07R
-- LAST_COMPLETED_STAGE: P17-07R (checked device-frontier assessment; controller reviewed and INTEGRATED at `b553f70163fbd660252a3fcdaa77eee672af0f48`)
-- NEXT_STAGE: P17-90
-- next_stage: P17-90
+- CURRENT_STAGE: P17-90
+- LAST_COMPLETED_STAGE: P17-90 (whole Phase-17 regression suite; controller reviewed and INTEGRATED at `53528956b3276e8bc3f954dc141049bb7ab7c74b`)
+- NEXT_STAGE: P17-91
+- next_stage: P17-91
 - FINAL_VERDICT: PHASE17_IN_PROGRESS
 - REVIEW_GATE: P17-04R Revision 4 was independently re-verified by the controller (canonical dual reruns, 0 non-PASS, regenerated evidence byte-identical to the committed evidence) and integrated by fast-forward to `0ab4e7eb2ed4393cec7f61a79705d2c44bbc4441`. The remaining fail-closed review stop covers P17-05R through P17-07R; see `.openrecomp-phase17/REVIEW_REQUIRED.md` and `.openrecomp-phase17/evidence/P17-04R/CONTROLLER_REVIEW.md`.
 
@@ -41,7 +41,7 @@
 - negative_controls: transcript digest mismatch, unprovenanced owner, altered provenance digest, inflated device count, continuation digest mismatch, emptied frontier, each of six removed frontier fields, continuation entry-PC mismatch, promotion attempt, empty transcript, missing transcript — all fail closed
 - marker: `OPENRECOMP_PHASE17_CHECKED_DEVICE_FRONTIER_ASSESSMENT_V1=PASS` and `OPENRECOMP_P17_07R=PASS`
 - proof boundaries unchanged: initialization/frame/playability/general compatibility remain NOT_PROVEN; `FIRST_FRAME_READY=NO`
-- next_stage: P17-90
+- next_stage: P17-91
 
 ## Revision 4 (P17-04R) authoritative metadata
 - STATUS: PASS (integrated into the controller branch)
@@ -98,12 +98,12 @@
 | P17-04 | FAIL_REVIEW_REQUIRED | Historical gate PASS checks a block inventory, not emitted guest code; marker not established |
 | P17-04R | PASS (integrated) | `OPENRECOMP_P17_04R=PASS` + `OPENRECOMP_P17_04R_REV4=PASS` |
 | P17-05R | PASS (integrated) | `OPENRECOMP_P17_05R=PASS` |
-| P17-06R | PASS (worker; controller review pending) | `OPENRECOMP_P17_06R=PASS` |
+| P17-06R | PASS (integrated) | `OPENRECOMP_P17_06R=PASS` |
 | P17-05 | FAIL_REVIEW_REQUIRED | Historical gate PASS checks metadata, not a live Exec dispatch/ablation; marker not established |
 | P17-06 | FAIL_REVIEW_REQUIRED | Historical gate PASS advances PCs without executing guest instruction effects; frontier marker not established |
 | P17-07 | FAIL_REVIEW_REQUIRED | Historical gate PASS infers absent device events from a digest without a checked transcript; marker not established |
 | P17-07R | PASS (integrated) | `OPENRECOMP_P17_07R=PASS` |
-| P17-90 | PLANNED | `OPENRECOMP_P17_90=PASS` |
+| P17-90 | PASS (integrated) | `OPENRECOMP_P17_90=PASS` |
 | P17-91 | PLANNED | `OPENRECOMP_P17_91=PASS` |
 | P17-99 | PLANNED | `OPENRECOMP_P17_99=PASS` |
 
