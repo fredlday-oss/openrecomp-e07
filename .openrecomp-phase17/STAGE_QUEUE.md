@@ -21,7 +21,7 @@ P17-00 froze placeholder/reserved rows before the complete Phase-17 execution co
 | P17-07R | Checked device-frontier assessment bound to the verified P17-06R transcript | `OPENRECOMP_P17_07R=PASS` | PASS (integrated) |
 | P17-90 | Whole Phase-17 regression suite | `OPENRECOMP_P17_90=PASS` | PASS (integrated) |
 | P17-91 | Evidence closure & source manifest audit | `OPENRECOMP_P17_91=PASS` | PASS (integrated) |
-| P17-99 | Final Phase-17 verdict | `OPENRECOMP_P17_99=PASS` | PLANNED |
+| P17-99 | Final Phase-17 verdict | `OPENRECOMP_P17_99=PASS` + `OPENRECOMP_PHASE17_TERMINAL_V1=PASS` | PASS |
 
 Claim markers:
 - `OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN`;
@@ -48,6 +48,10 @@ Claim markers:
 - Controller review: ACCEPT and INTEGRATE (fast-forward; pre-integration controller HEAD `69c4611`). Independent fresh-root dual runs byte-identical to each other and to the committed `run1.txt`; clean-root in-place regeneration leaves `git status --porcelain` empty. Independent re-derivation of the public-safety scan (137 documents, 0 failures, no review findings), the 41-entry source manifest, evidence closure (13 stage directories), dual-run determinism (12 stages), marker ledger (no promoted markers) and prior-phase integrity (16 frozen trees). Two controller-authored tamper cases (corrupted digest, removed entry) both detected. See `evidence/P17-91/CONTROLLER_REVIEW.md`.
 - Reported finding resolved: the audit surfaced, rather than waived, two literal private host paths in the controller-authored `P17-90/CONTROLLER_REVIEW.md`; the controller fixed them at `69c4611` and regenerated the P17-91 evidence.
 - Scope: terminal consistency gate only — no emulation proof, no promoted marker. `FIRST_FRAME_READY=NO` and all four `NOT_PROVEN` markers unchanged.
+
+## Worker closure — P17-99
+- P17-99: PASS (worker; controller review) — `OPENRECOMP_P17_99=PASS` + `OPENRECOMP_PHASE17_TERMINAL_V1=PASS`; the complete Phase-17 chain is verified terminally closed: ten chained stages PASS with their required markers, sixteen frozen prior-phase trees byte-identical to the Phase-16 baseline, the certified provenance chain intact, the 43-entry source manifest exact (re-derived from `git ls-files`), the marker ledger un-promoted, the historical P17-04..P17-07 review stop retired (REVIEW_REQUIRED_TERMINAL_STATE=RETIRED), an exact HEAD/tree binding, clean marker syntax, a public-safety scan over the committed corpus, and ten terminal negative controls all fail closed.
+- Scope: terminal consistency gate only — no emulation proof and no promoted marker. `FIRST_FRAME_READY=NO` and all four `NOT_PROVEN` markers are unchanged. The accepted runtime conclusion remains the bounded checked device frontier dominated by the zero-returning GPUSTAT wait-poll. Phase 18 is not started (`PHASE18_STARTED=NO`, `next_stage=NONE`).
 
 ## Controller closure — P17-04R (Revision 4)
 - P17-04R: PASS (integrated) — `OPENRECOMP_P17_04R=PASS` + `OPENRECOMP_P17_04R_REV4=PASS`, integrated at `0ab4e7eb2ed4393cec7f61a79705d2c44bbc4441`.

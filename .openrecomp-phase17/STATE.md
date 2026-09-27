@@ -18,12 +18,12 @@
 - `FIRST_FRAME_READY=NO`
 
 ## Current Stage
-- CURRENT_STAGE: P17-91
-- LAST_COMPLETED_STAGE: P17-91 (evidence closure & source manifest audit; worker candidate `84e3e8ae19bcab79ef819e937d1b1361f5628b0c`, controller reviewed and INTEGRATED into the branch at this commit)
-- NEXT_STAGE: P17-99
-- next_stage: P17-99
-- FINAL_VERDICT: PHASE17_IN_PROGRESS
-- REVIEW_GATE: P17-04R Revision 4 was independently re-verified by the controller (canonical dual reruns, 0 non-PASS, regenerated evidence byte-identical to the committed evidence) and integrated by fast-forward to `0ab4e7eb2ed4393cec7f61a79705d2c44bbc4441`. The remaining fail-closed review stop covers P17-05R through P17-07R; see `.openrecomp-phase17/REVIEW_REQUIRED.md` and `.openrecomp-phase17/evidence/P17-04R/CONTROLLER_REVIEW.md`.
+- CURRENT_STAGE: P17-99
+- LAST_COMPLETED_STAGE: P17-99 (terminal Phase-17 closure; worker candidate under review, then integrated by the controller)
+- NEXT_STAGE: NONE (Phase 17 terminally closed; Phase 18 not started)
+- next_stage: NONE
+- FINAL_VERDICT: PASS_BOUNDED_CHECKED_DEVICE_FRONTIER
+- REVIEW_GATE: terminally closed at P17-99. P17-04R Revision 4, P17-05R, P17-06R, P17-07R, P17-90 and P17-91 were each independently re-verified and integrated; see REVIEW_REQUIRED_TERMINAL_STATE=RETIRED in `.openrecomp-phase17/REVIEW_REQUIRED.md` and the per-stage `CONTROLLER_REVIEW.md` documents. No stale review stop remains.
 
 ## P17-07R authoritative metadata (checked device-frontier assessment)
 - STATUS: PASS (controller reviewed and INTEGRATED; see `evidence/P17-07R/CONTROLLER_REVIEW.md`)
@@ -120,7 +120,7 @@
 | P17-07R | PASS (integrated) | `OPENRECOMP_P17_07R=PASS` |
 | P17-90 | PASS (integrated) | `OPENRECOMP_P17_90=PASS` |
 | P17-91 | PASS (integrated) | `OPENRECOMP_P17_91=PASS` + `OPENRECOMP_PHASE17_EVIDENCE_CLOSURE_V1=PASS` |
-| P17-99 | PLANNED | `OPENRECOMP_P17_99=PASS` |
+| P17-99 | PASS | `OPENRECOMP_P17_99=PASS` + `OPENRECOMP_PHASE17_TERMINAL_V1=PASS` |
 
 ## Review stop
 The original P17-04 through P17-07 `RESULT.json` files and commits remain unchanged as historical gate outputs; their PASS markers do not establish the mission's execution/emission/dispatch claims. P17-04R Revision 4 re-establishes authenticated executable emission with fresh-decode binding, corrected MIPS delay-slot timing (including authentic JAL pending-transfer/delay-slot frontier semantics), a reusable persistent guest-state interface, persistent private build artifacts, separated implemented/exercised semantic vocabulary, linkage-level exclusion of the historical handwritten substitute, and deterministic official reruns. See `REVIEW_REQUIRED.md` for remaining stages. Do not promote the bounded terminal marker beyond P17-04R.

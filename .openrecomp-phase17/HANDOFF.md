@@ -20,6 +20,13 @@ Phase 17 advances from the completed Phase-16 checkpoint (`a0c26e882ca65cfc84cbe
 4. The P17-01 `TITLE_PAYLOAD_DECODING_POLICY_V1=NOT_DECODED` marker remains historical to P17-01; P17-02 has authenticated decode evidence under `TITLE_IR_CONTRACT_V1=PASS`.
 
 ## Next Action
+Phase 17 is terminally closed at P17-99. `OPENRECOMP_P17_99=PASS` and
+`OPENRECOMP_PHASE17_TERMINAL_V1=PASS`. The final verdict is bounded: the accepted
+runtime conclusion remains the checked device frontier dominated by the
+zero-returning GPUSTAT wait-poll. `FIRST_FRAME_READY=NO` and the four
+`NOT_PROVEN` markers are unchanged. `next_stage=NONE`. Do NOT begin Phase 18.
+
+## Previous action (P17-91)
 P17-91 was independently reviewed by the controller and **integrated**; the worker candidate `84e3e8ae19bcab79ef819e937d1b1361f5628b0c` (2 commits atop `724d3d4`, tree `992862fb456ddfe579b24c40352b737d108a5dc4`) adds the evidence-closure & source-manifest audit gate (`OPENRECOMP_P17_91=PASS` + `OPENRECOMP_PHASE17_EVIDENCE_CLOSURE_V1=PASS`, 153/153 checks). The audit is a terminal consistency gate: it verifies corpus closure/dual-run determinism/marker ledger/prior-phase integrity/public safety over the committed Phase-17 evidence and that the 41-entry source manifest is exact; it proves nothing new about emulation and promotes no marker. The worker surfaced (did not waive) two literal private host paths in the controller-authored `P17-90/CONTROLLER_REVIEW.md`; the controller fixed them at `69c4611` and regenerated the P17-91 evidence. next_stage = P17-99. Do not promote any proof marker; initialization / frame / playability / general PS1 compatibility remain NOT_PROVEN and `FIRST_FRAME_READY=NO`. Do not begin Phase 18.
 
 ## Previous action (P17-07R)
