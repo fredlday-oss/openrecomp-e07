@@ -1,0 +1,34 @@
+{
+  "classified_classes": [
+    "PATH_DEPENDENT_BUILD_ROOT",
+    "RUNNER_GENERATED_FILE_COUNT"
+  ],
+  "fail_closed": "Any divergent JSON path not named above is reported as unclassified and fails the stage. Comparison of every other field, including inspected_line_count, forbidden_hit_count, excluded, artifact digests, record counts and all proof markers, remains strict.",
+  "marker": "OPENRECOMP_PHASE17_CONSISTENCY_POLICY_V1",
+  "normalisation_timing": "Linkage digests are normalised at hash time by root_invariant_linkage_digest, not by rewriting a finished digest. A post-hoc rewrite cannot repair an opaque hash; recomputing the identical construction over path-normalised probe output can, and the result is provably root-independent.",
+  "normalizes_only": [
+    "linkage_exclusion.inspection_digest",
+    "checks[].detail where check == \"public:committed-evidence-clean\" (member \"file_count\" only)"
+  ],
+  "path_echoing_probes": [
+    "objdump_dynamic_symbols"
+  ],
+  "path_token": "<BUILD_ROOT>",
+  "rules": [
+    {
+      "class": "PATH_DEPENDENT_BUILD_ROOT",
+      "json_path": "linkage_exclusion.inspection_digest",
+      "reason": "objdump -T echoes the inspected artifact's absolute path in the first line of its output, and p17_linkage_exclusion_v1 hashes that raw output, so inspection_digest is a function of the private build root. The gate re-derives this live: the built or_title_runtime_v1.so is byte-identical across build roots, the other five of the six linkage probes are byte-identical, all twelve probe returncodes and line counts match, and the digest recomputed with the echoed path prefix replaced by a fixed token is identical across roots. No linkage fact is carried by the varying component."
+    },
+    {
+      "class": "RUNNER_GENERATED_FILE_COUNT",
+      "json_path": "checks[].detail where check == \"public:committed-evidence-clean\" (member \"file_count\" only)",
+      "reason": "The gate body scans its evidence directory before the stage runner writes official_runs.json and determinism.json into it, so a fresh run reports the gate-time count 9 while the committed record reports 11, which is exactly 9 plus those two documents. p17_04r_tests.json is written by run_stage after the body returns and is excluded from both counts, which is why the committed directory holds 12 files. All three documents are runner-generated records about the runs, not semantic proof inputs, and the gate re-derives this decomposition from the committed tree. The 'hits' member, which carries the actual public-safety verdict, remains compared strictly and is empty."
+    }
+  ],
+  "runner_generated_documents": [
+    "official_runs.json",
+    "determinism.json"
+  ],
+  "schema": "openrecomp-phase17-consistency-policy-v1"
+}

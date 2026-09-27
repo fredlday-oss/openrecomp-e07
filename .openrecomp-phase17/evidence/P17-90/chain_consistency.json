@@ -1,0 +1,165 @@
+{
+  "schema": "openrecomp-phase17-chain-consistency-v1",
+  "stages": [
+    {
+      "gate": "tools/test_phase17_bootstrap_v1.py",
+      "linked_to_previous": true,
+      "markers": {
+        "FIRST_FRAME_READY": "NO",
+        "OPENRECOMP_P17_00": "PASS",
+        "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN"
+      },
+      "next_stage": "P17-01",
+      "result_present": true,
+      "schema": "openrecomp-phase17-result-v1",
+      "stage": "P17-00",
+      "state_coupled_commit": "",
+      "status": "PASS"
+    },
+    {
+      "gate": "tools/test_phase17_title_ingestion_v1.py",
+      "linked_to_previous": true,
+      "markers": {
+        "FIRST_FRAME_READY": "NO",
+        "OPENRECOMP_P17_00": "PASS",
+        "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_TITLE_HOST_SURFACE_V1": "PLANNED",
+        "OPENRECOMP_PHASE17_TITLE_INGESTION_V1": "PASS",
+        "OPENRECOMP_PHASE17_TITLE_IR_CONTRACT_V1": "PLANNED",
+        "OPENRECOMP_PHASE17_TITLE_PAYLOAD_DECODING_POLICY_V1": "PLANNED",
+        "OPENRECOMP_PHASE17_TITLE_REPLAY_BOUNDARY_V1": "PLANNED"
+      },
+      "next_stage": "P17-02",
+      "result_present": true,
+      "schema": "openrecomp-phase17-result-v1",
+      "stage": "P17-01",
+      "state_coupled_commit": "",
+      "status": "PASS"
+    },
+    {
+      "gate": "tools/test_phase17_title_decode_v1.py",
+      "linked_to_previous": true,
+      "markers": {
+        "FIRST_FRAME_READY": "NO",
+        "OPENRECOMP_P17_00": "PASS",
+        "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_TITLE_HOST_SURFACE_V1": "PLANNED",
+        "OPENRECOMP_PHASE17_TITLE_INGESTION_V1": "PASS",
+        "OPENRECOMP_PHASE17_TITLE_IR_CONTRACT_V1": "PASS",
+        "OPENRECOMP_PHASE17_TITLE_REPLAY_BOUNDARY_V1": "PLANNED"
+      },
+      "next_stage": "P17-03",
+      "result_present": true,
+      "schema": "openrecomp-phase17-result-v1",
+      "stage": "P17-02",
+      "state_coupled_commit": "",
+      "status": "PASS"
+    },
+    {
+      "gate": "tools/test_phase17_frontier_reconciliation_v1.py",
+      "linked_to_previous": true,
+      "markers": {
+        "FIRST_FRAME_READY": "NO",
+        "OPENRECOMP_P17_00": "PASS",
+        "OPENRECOMP_PHASE17_FRONTIER_RECONCILIATION_V1": "PASS",
+        "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_TITLE_INGESTION_V1": "PASS",
+        "OPENRECOMP_PHASE17_TITLE_IR_CONTRACT_V1": "PASS"
+      },
+      "next_stage": "P17-04",
+      "result_present": true,
+      "schema": "openrecomp-phase17-result-v1",
+      "stage": "P17-03",
+      "state_coupled_commit": "",
+      "status": "PASS"
+    },
+    {
+      "gate": "tools/test_phase17_title_exec_emission_v1.py",
+      "linked_to_previous": true,
+      "markers": {
+        "FIRST_FRAME_READY": "NO",
+        "OPENRECOMP_P17_04R": "PASS",
+        "OPENRECOMP_PHASE17_AUTHENTIC_TITLE_EXEC_EMISSION_V1": "PASS",
+        "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN"
+      },
+      "next_stage": "P17-05R",
+      "result_present": true,
+      "schema": "openrecomp-phase17-result-v1",
+      "stage": "P17-04R",
+      "state_coupled_commit": "36be03b5756726a20ecd69735b41cb5eba795155",
+      "status": "PASS"
+    },
+    {
+      "gate": "tools/test_phase17_title_exec_continuation_v1.py",
+      "linked_to_previous": true,
+      "markers": {
+        "FIRST_FRAME_READY": "NO",
+        "OPENRECOMP_P17_05R": "PASS",
+        "OPENRECOMP_PHASE17_AUTHENTIC_EXECUTION_CONTINUATION_V1": "PASS",
+        "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN"
+      },
+      "next_stage": "P17-06R",
+      "result_present": true,
+      "schema": "openrecomp-phase17-result-v1",
+      "stage": "P17-05R",
+      "state_coupled_commit": "8735bf34ba3884d19a66818d92ddd8004dc87b17",
+      "status": "PASS"
+    },
+    {
+      "gate": "tools/test_phase17_side_effects_v1.py",
+      "linked_to_previous": true,
+      "markers": {
+        "FIRST_FRAME_READY": "NO",
+        "OPENRECOMP_P17_06R": "PASS",
+        "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_LIVE_DEVICE_SIDE_EFFECT_FRONTIER_V1": "PASS"
+      },
+      "next_stage": "P17-07R",
+      "result_present": true,
+      "schema": "openrecomp-phase17-result-v1",
+      "stage": "P17-06R",
+      "state_coupled_commit": "2701415223dd182a40cf257c849952a6ce63ee08",
+      "status": "PASS"
+    },
+    {
+      "gate": "tools/test_phase17_device_frontier_assessment_v1.py",
+      "linked_to_previous": true,
+      "markers": {
+        "FIRST_FRAME_READY": "NO",
+        "OPENRECOMP_P17_07R": "PASS",
+        "OPENRECOMP_PHASE17_CHECKED_DEVICE_FRONTIER_ASSESSMENT_V1": "PASS",
+        "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN"
+      },
+      "next_stage": "P17-90",
+      "result_present": true,
+      "schema": "openrecomp-phase17-result-v1",
+      "stage": "P17-07R",
+      "state_coupled_commit": "",
+      "status": "PASS"
+    }
+  ]
+}

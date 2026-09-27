@@ -1,0 +1,124 @@
+PASS: integrity:phase17-sources OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=39
+PASS: next-stage:declared-constant
+PASS: integrity:phase17-sources OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=39
+PASS: chain:P17-00:result-present
+PASS: chain:P17-00:status-pass {"status": "PASS"}
+PASS: chain:P17-00:next-stage-declared {"next_stage": "P17-01"}
+PASS: chain:P17-01:result-present
+PASS: chain:P17-01:status-pass {"status": "PASS"}
+PASS: chain:P17-01:next-stage-declared {"next_stage": "P17-02"}
+PASS: chain:P17-02:result-present
+PASS: chain:P17-02:status-pass {"status": "PASS"}
+PASS: chain:P17-02:next-stage-declared {"next_stage": "P17-03"}
+PASS: chain:P17-03:result-present
+PASS: chain:P17-03:status-pass {"status": "PASS"}
+PASS: chain:P17-03:next-stage-declared {"next_stage": "P17-04"}
+PASS: chain:P17-04R:result-present
+PASS: chain:P17-04R:status-pass {"status": "PASS"}
+PASS: chain:P17-04R:next-stage-declared {"next_stage": "P17-05R"}
+PASS: chain:P17-05R:result-present
+PASS: chain:P17-05R:status-pass {"status": "PASS"}
+PASS: chain:P17-05R:next-stage-declared {"next_stage": "P17-06R"}
+PASS: chain:P17-06R:result-present
+PASS: chain:P17-06R:status-pass {"status": "PASS"}
+PASS: chain:P17-06R:next-stage-declared {"next_stage": "P17-07R"}
+PASS: chain:P17-07R:result-present
+PASS: chain:P17-07R:status-pass {"status": "PASS"}
+PASS: chain:P17-07R:next-stage-declared {"next_stage": "P17-90"}
+PASS: chain:terminates-at-this-stage {"p17_07r_next_stage": "P17-90"}
+PASS: chain:stage-count {"stages": 8}
+PASS: divergence:shared-object-byte-identical-across-roots {"official-run-1": "a96c112ae4511116", "official-run-2": "a96c112ae4511116", "size": 2530832}
+PASS: divergence:sole-divergent-probe-is-objdump {"divergent": ["objdump_dynamic_symbols"]}
+PASS: divergence:other-probes-byte-identical {"identical": 5, "probes": ["nm_all", "nm_dynamic", "objdump_dynamic_symbols", "readelf_dynamic", "readelf_relocations", "readelf_symbols"]}
+PASS: divergence:returncodes-match
+PASS: divergence:line-counts-match {"line_counts": {"nm_all": 38, "nm_dynamic": 7, "objdump_dynamic_symbols": 13, "readelf_dynamic": 27, "readelf_relocations": 16, "readelf_symbols": 53}}
+PASS: divergence:raw-digest-differs-across-roots {"official-run-1": "10ddf9a5df60e865", "official-run-2": "252fd1fc6b9509c3"}
+PASS: divergence:root-invariant-digest-identical {"official-run-1": "7957450eab2220ad", "official-run-2": "7957450eab2220ad"}
+PASS: divergence:negative-mutation-applied {"file_changed": true, "strip_rc": 0}
+PASS: divergence:normalisation-not-a-blanket-mask {"clean": "7957450eab2220ad", "mutated": "95f1a5008e6827b2"}
+PASS: file-count:committed-set-matches-git-tree {"declared": 12, "git": 12}
+PASS: file-count:gate-time-set-is-nine {"gate_time": ["RESULT.json", "jal_frontier.json", "linkage_exclusion.json", "next_stage.json", "persistence.json", "runtime_result.json", "semantic_vocabulary.json", "stage_metadata.json", "title_exec_emission.json"]}
+PASS: file-count:committed-record-present {"found": true}
+PASS: file-count:committed-count-is-eleven {"committed_file_count": 11}
+PASS: file-count:committed-equals-gate-time-plus-runner-docs {"committed": 11, "gate_time": 9, "runner_generated": ["official_runs.json", "determinism.json"]}
+PASS: file-count:public-safety-hits-still-empty {"hits": [], "ok": true}
+PASS: file-count:added-set-is-exactly-runner-docs {"added": ["determinism.json", "official_runs.json"], "committed_file_count": 11, "expected_added": ["determinism.json", "official_runs.json"], "explained": true, "gate_time_file_count": 9, "removed": []}
+PASS: policy:inspects-only-named-paths ["linkage_exclusion.inspection_digest", "checks[].detail where check == \"public:committed-evidence-clean\" (member \"file_count\" only)"]
+PASS: policy:committed-path-dependent-field-present {"inspection_digest_present": true}
+PASS: policy:semantic-linkage-fields-strict {"excluded": true, "forbidden_hit_count": 0, "inspected_line_count": 438}
+PASS: negative:echo-plus-real-fields-rejected {"equivalent": false, "unclassified": ["inspected_line_count", "linkage_exclusion.excluded"]}
+PASS: negative:non-echoed-probe-content-change-rejected {"equivalent": false, "unclassified": ["linkage_exclusion.surfaces.readelf_symbols"]}
+PASS: negative:path-echo-plus-real-change-rejected {"equivalent": false, "unclassified": ["linkage_exclusion.surfaces.objdump_dynamic_symbols"]}
+PASS: negative:proven-path-echo-classified {"equivalent": true, "raw_divergent_paths": [], "unclassified": []}
+PASS: negative:real-authentication-change-rejected {"equivalent": false, "unclassified": ["rederived_provenance_digest_count"]}
+PASS: negative:real-linkage-change-rejected {"equivalent": false, "unclassified": ["linkage_exclusion.forbidden_hit_count"]}
+PASS: negative:real-source-change-rejected {"equivalent": false, "unclassified": ["semantic_vocabulary_counts.load"]}
+PASS: negative:all-controls-behaved {"echo_plus_real_fields_rejected": {"equivalent": false, "unclassified": ["inspected_line_count", "linkage_exclusion.excluded"]}, "non_echoed_probe_content_change_rejected": {"equivalent": false, "unclassified": ["linkage_exclusion.surfaces.readelf_symbols"]}, "ok": true, "path_echo_plus_real_change_rejected": {"equivalent": false, "unclassified": ["linkage_exclusion.surfaces.objdump_dynamic_symbols"]}, "proven_path_echo_classified": {"equivalent": true, "raw_divergent_paths": [], "unclassified": []}, "real_authentication_change_rejected": {"equivalent": false, "unclassified": ["rederived_provenance_digest_count"]}, "real_linkage_change_rejected": {"equivalent": false, "unclassified": ["linkage_exclusion.forbidden_hit_count"]}, "real_source_change_rejected": {"equivalent": false, "unclassified": ["semantic_vocabulary_counts.load"]}}
+PASS: rederive:record-count-matches-committed {"committed": 8340, "rederived": 8340}
+PASS: rederive:region-log-matches-committed {"regions": 4}
+PASS: rederive:provenance-count-matches {"digests": 8340}
+PASS: assessment:rederives-committed {"classified": [], "equivalent_after_normalization": true, "raw_divergent_paths": [], "unclassified": []}
+PASS: assessment:poll-encountered
+PASS: assessment:gpu_writes:unproven {"status": "NOT_ENCOUNTERED"}
+PASS: assessment:dma2:unproven {"status": "NOT_ENCOUNTERED"}
+PASS: assessment:ot_traversal:unproven {"status": "NOT_ESTABLISHED"}
+PASS: assessment:framebuffer_activity:unproven {"status": "NOT_ENCOUNTERED"}
+PASS: assessment:ordering_table_writes:unproven {"status": "NOT_ESTABLISHED"}
+PASS: assessment:initialization_predicates:unproven {"status": "NOT_ESTABLISHED"}
+PASS: RESULT:no-private-path absolute private paths absent
+PASS: RESULT:reject-private-paths no private paths in values
+PASS: RESULT:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: RESULT:no-payload-hex no payload supplied
+PASS: RESULT:no-raw-words reconstructive fields absent
+PASS: next_stage:no-private-path absolute private paths absent
+PASS: next_stage:reject-private-paths no private paths in values
+PASS: next_stage:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: next_stage:no-payload-hex no payload supplied
+PASS: next_stage:no-raw-words reconstructive fields absent
+PASS: stage_metadata:no-private-path absolute private paths absent
+PASS: stage_metadata:reject-private-paths no private paths in values
+PASS: stage_metadata:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: stage_metadata:no-payload-hex no payload supplied
+PASS: stage_metadata:no-raw-words reconstructive fields absent
+PASS: live_divergence_proof:no-private-path absolute private paths absent
+PASS: live_divergence_proof:reject-private-paths no private paths in values
+PASS: live_divergence_proof:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: live_divergence_proof:no-payload-hex no payload supplied
+PASS: live_divergence_proof:no-raw-words reconstructive fields absent
+PASS: file_count_divergence:no-private-path absolute private paths absent
+PASS: file_count_divergence:reject-private-paths no private paths in values
+PASS: file_count_divergence:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: file_count_divergence:no-payload-hex no payload supplied
+PASS: file_count_divergence:no-raw-words reconstructive fields absent
+PASS: consistency:no-private-path absolute private paths absent
+PASS: consistency:reject-private-paths no private paths in values
+PASS: consistency:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: consistency:no-payload-hex no payload supplied
+PASS: consistency:no-raw-words reconstructive fields absent
+PASS: chain_consistency:no-private-path absolute private paths absent
+PASS: chain_consistency:reject-private-paths no private paths in values
+PASS: chain_consistency:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: chain_consistency:no-payload-hex no payload supplied
+PASS: chain_consistency:no-raw-words reconstructive fields absent
+PASS: historical_divergence:no-private-path absolute private paths absent
+PASS: historical_divergence:reject-private-paths no private paths in values
+PASS: historical_divergence:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: historical_divergence:no-payload-hex no payload supplied
+PASS: historical_divergence:no-raw-words reconstructive fields absent
+PASS: negative_controls:no-private-path absolute private paths absent
+PASS: negative_controls:reject-private-paths no private paths in values
+PASS: negative_controls:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: negative_controls:no-payload-hex no payload supplied
+PASS: negative_controls:no-raw-words reconstructive fields absent
+PASS: scope:no-phase-1-16-changes []
+PASS: scope:phase16-frozen-integrity LEGACY_PHASE16_NATIVE_GATE=PRE_EXISTING_FAIL (Phase-16 native manifest check fails on LF/CRLF boundary; canonical gate unaffected)
+OPENRECOMP_PHASE17_P16_SOURCE_INTEGRITY=PASS entries=31 canonical=git-blob
+OPENRECOMP_PHASE17_WHOLE_REGRESSION_CONSISTENCY_V1=PASS
+OPENRECOMP_PHASE17_CONSISTENCY_POLICY_V1=PASS
+OPENRECOMP_P17_90=PASS
+OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+FIRST_FRAME_READY=NO
+P17-90_CHECKS=114

@@ -1,0 +1,107 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "c8a6088b85e842e40d3c59d10ec2ed3d7ec62ab53279605ce6563d1c8040953c",
+    "chain_consistency.json": "45d129e71b2acac4175d113b67bf978d263a761dff3665fd293cc0f8492bb052",
+    "consistency.json": "81c94c72e7d89cc6b2993565017be75c3d16b49e175d738727be4fd50dec0806",
+    "file_count_divergence.json": "31e1cfb89277c5f5347057243d3a51bfe285706fb816b2852bdfa7e85a5078f0",
+    "historical_divergence.json": "0ff22deb8630b9964fa9a51dfe396241fa98b964db67569340f37fe3bd582ef0",
+    "live_divergence_proof.json": "e03446c60d9e9913ebbdcb3a501df4fe03f537a4159900db9e8491f5db664a74",
+    "negative_controls.json": "cb8a7cc070ab3de13211aa22fdbaecea2f91ca48b69fbbbdc4aa1a9bf0106e7e",
+    "next_stage.json": "e7874da89a691ef608b86826c19848e151b087bed7ed279870f7fe88ca09eaa9",
+    "p17_90_tests.json": "312b075ebe5ad216faabf223af721074db80d934fac1369fb0265e0ea1e84d58",
+    "stage_metadata.json": "9f254e23df1eefee6cd4cf69382a0026faff633986b95236a291546358feeefb"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "next_stage": "P17-91",
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "c8a6088b85e842e40d3c59d10ec2ed3d7ec62ab53279605ce6563d1c8040953c",
+        "chain_consistency.json": "45d129e71b2acac4175d113b67bf978d263a761dff3665fd293cc0f8492bb052",
+        "consistency.json": "81c94c72e7d89cc6b2993565017be75c3d16b49e175d738727be4fd50dec0806",
+        "file_count_divergence.json": "31e1cfb89277c5f5347057243d3a51bfe285706fb816b2852bdfa7e85a5078f0",
+        "historical_divergence.json": "0ff22deb8630b9964fa9a51dfe396241fa98b964db67569340f37fe3bd582ef0",
+        "live_divergence_proof.json": "e03446c60d9e9913ebbdcb3a501df4fe03f537a4159900db9e8491f5db664a74",
+        "negative_controls.json": "cb8a7cc070ab3de13211aa22fdbaecea2f91ca48b69fbbbdc4aa1a9bf0106e7e",
+        "next_stage.json": "e7874da89a691ef608b86826c19848e151b087bed7ed279870f7fe88ca09eaa9",
+        "p17_90_tests.json": "312b075ebe5ad216faabf223af721074db80d934fac1369fb0265e0ea1e84d58",
+        "stage_metadata.json": "9f254e23df1eefee6cd4cf69382a0026faff633986b95236a291546358feeefb"
+      },
+      "command": [
+        "python",
+        "tools/test_phase17_whole_consistency_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase17/evidence/P17-90"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_PHASE17_P16_SOURCE_INTEGRITY=PASS entries=31 canonical=git-blob",
+        "OPENRECOMP_PHASE17_WHOLE_REGRESSION_CONSISTENCY_V1=PASS",
+        "OPENRECOMP_PHASE17_CONSISTENCY_POLICY_V1=PASS",
+        "OPENRECOMP_P17_90=PASS",
+        "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p17_90_tests_sha256": "312b075ebe5ad216faabf223af721074db80d934fac1369fb0265e0ea1e84d58",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 10406,
+      "stdout_bytes_lf": 10406,
+      "stdout_sha256_lf": "18ed846917d3f00683fc2dd8101907b3cb839820317e7b1cef9fe9403d71675b",
+      "stdout_sha256_raw": "18ed846917d3f00683fc2dd8101907b3cb839820317e7b1cef9fe9403d71675b",
+      "tests_json_present": true
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "c8a6088b85e842e40d3c59d10ec2ed3d7ec62ab53279605ce6563d1c8040953c",
+        "chain_consistency.json": "45d129e71b2acac4175d113b67bf978d263a761dff3665fd293cc0f8492bb052",
+        "consistency.json": "81c94c72e7d89cc6b2993565017be75c3d16b49e175d738727be4fd50dec0806",
+        "file_count_divergence.json": "31e1cfb89277c5f5347057243d3a51bfe285706fb816b2852bdfa7e85a5078f0",
+        "historical_divergence.json": "0ff22deb8630b9964fa9a51dfe396241fa98b964db67569340f37fe3bd582ef0",
+        "live_divergence_proof.json": "e03446c60d9e9913ebbdcb3a501df4fe03f537a4159900db9e8491f5db664a74",
+        "negative_controls.json": "cb8a7cc070ab3de13211aa22fdbaecea2f91ca48b69fbbbdc4aa1a9bf0106e7e",
+        "next_stage.json": "e7874da89a691ef608b86826c19848e151b087bed7ed279870f7fe88ca09eaa9",
+        "p17_90_tests.json": "312b075ebe5ad216faabf223af721074db80d934fac1369fb0265e0ea1e84d58",
+        "stage_metadata.json": "9f254e23df1eefee6cd4cf69382a0026faff633986b95236a291546358feeefb"
+      },
+      "command": [
+        "python",
+        "tools/test_phase17_whole_consistency_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase17/evidence/P17-90"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_PHASE17_P16_SOURCE_INTEGRITY=PASS entries=31 canonical=git-blob",
+        "OPENRECOMP_PHASE17_WHOLE_REGRESSION_CONSISTENCY_V1=PASS",
+        "OPENRECOMP_PHASE17_CONSISTENCY_POLICY_V1=PASS",
+        "OPENRECOMP_P17_90=PASS",
+        "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p17_90_tests_sha256": "312b075ebe5ad216faabf223af721074db80d934fac1369fb0265e0ea1e84d58",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 10406,
+      "stdout_bytes_lf": 10406,
+      "stdout_sha256_lf": "18ed846917d3f00683fc2dd8101907b3cb839820317e7b1cef9fe9403d71675b",
+      "stdout_sha256_raw": "18ed846917d3f00683fc2dd8101907b3cb839820317e7b1cef9fe9403d71675b",
+      "tests_json_present": true
+    }
+  ],
+  "schema": "openrecomp-phase17-official-runs-v1",
+  "stage": "P17-90",
+  "stderr_empty_both": true,
+  "tests_json_present_both": true
+}

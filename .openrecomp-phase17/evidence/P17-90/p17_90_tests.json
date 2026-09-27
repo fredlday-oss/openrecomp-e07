@@ -1,0 +1,581 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase17-sources",
+      "detail": "OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=39",
+      "status": "PASS"
+    },
+    {
+      "check": "next-stage:declared-constant",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "integrity:phase17-sources",
+      "detail": "OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=39",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-00:result-present",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-00:status-pass",
+      "detail": "{\"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-00:next-stage-declared",
+      "detail": "{\"next_stage\": \"P17-01\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-01:result-present",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-01:status-pass",
+      "detail": "{\"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-01:next-stage-declared",
+      "detail": "{\"next_stage\": \"P17-02\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-02:result-present",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-02:status-pass",
+      "detail": "{\"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-02:next-stage-declared",
+      "detail": "{\"next_stage\": \"P17-03\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-03:result-present",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-03:status-pass",
+      "detail": "{\"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-03:next-stage-declared",
+      "detail": "{\"next_stage\": \"P17-04\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-04R:result-present",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-04R:status-pass",
+      "detail": "{\"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-04R:next-stage-declared",
+      "detail": "{\"next_stage\": \"P17-05R\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-05R:result-present",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-05R:status-pass",
+      "detail": "{\"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-05R:next-stage-declared",
+      "detail": "{\"next_stage\": \"P17-06R\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-06R:result-present",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-06R:status-pass",
+      "detail": "{\"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-06R:next-stage-declared",
+      "detail": "{\"next_stage\": \"P17-07R\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-07R:result-present",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-07R:status-pass",
+      "detail": "{\"status\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-07R:next-stage-declared",
+      "detail": "{\"next_stage\": \"P17-90\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:terminates-at-this-stage",
+      "detail": "{\"p17_07r_next_stage\": \"P17-90\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:stage-count",
+      "detail": "{\"stages\": 8}",
+      "status": "PASS"
+    },
+    {
+      "check": "divergence:shared-object-byte-identical-across-roots",
+      "detail": "{\"official-run-1\": \"a96c112ae4511116\", \"official-run-2\": \"a96c112ae4511116\", \"size\": 2530832}",
+      "status": "PASS"
+    },
+    {
+      "check": "divergence:sole-divergent-probe-is-objdump",
+      "detail": "{\"divergent\": [\"objdump_dynamic_symbols\"]}",
+      "status": "PASS"
+    },
+    {
+      "check": "divergence:other-probes-byte-identical",
+      "detail": "{\"identical\": 5, \"probes\": [\"nm_all\", \"nm_dynamic\", \"objdump_dynamic_symbols\", \"readelf_dynamic\", \"readelf_relocations\", \"readelf_symbols\"]}",
+      "status": "PASS"
+    },
+    {
+      "check": "divergence:returncodes-match",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "divergence:line-counts-match",
+      "detail": "{\"line_counts\": {\"nm_all\": 38, \"nm_dynamic\": 7, \"objdump_dynamic_symbols\": 13, \"readelf_dynamic\": 27, \"readelf_relocations\": 16, \"readelf_symbols\": 53}}",
+      "status": "PASS"
+    },
+    {
+      "check": "divergence:raw-digest-differs-across-roots",
+      "detail": "{\"official-run-1\": \"10ddf9a5df60e865\", \"official-run-2\": \"252fd1fc6b9509c3\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "divergence:root-invariant-digest-identical",
+      "detail": "{\"official-run-1\": \"7957450eab2220ad\", \"official-run-2\": \"7957450eab2220ad\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "divergence:negative-mutation-applied",
+      "detail": "{\"file_changed\": true, \"strip_rc\": 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "divergence:normalisation-not-a-blanket-mask",
+      "detail": "{\"clean\": \"7957450eab2220ad\", \"mutated\": \"95f1a5008e6827b2\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "file-count:committed-set-matches-git-tree",
+      "detail": "{\"declared\": 12, \"git\": 12}",
+      "status": "PASS"
+    },
+    {
+      "check": "file-count:gate-time-set-is-nine",
+      "detail": "{\"gate_time\": [\"RESULT.json\", \"jal_frontier.json\", \"linkage_exclusion.json\", \"next_stage.json\", \"persistence.json\", \"runtime_result.json\", \"semantic_vocabulary.json\", \"stage_metadata.json\", \"title_exec_emission.json\"]}",
+      "status": "PASS"
+    },
+    {
+      "check": "file-count:committed-record-present",
+      "detail": "{\"found\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "file-count:committed-count-is-eleven",
+      "detail": "{\"committed_file_count\": 11}",
+      "status": "PASS"
+    },
+    {
+      "check": "file-count:committed-equals-gate-time-plus-runner-docs",
+      "detail": "{\"committed\": 11, \"gate_time\": 9, \"runner_generated\": [\"official_runs.json\", \"determinism.json\"]}",
+      "status": "PASS"
+    },
+    {
+      "check": "file-count:public-safety-hits-still-empty",
+      "detail": "{\"hits\": [], \"ok\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "file-count:added-set-is-exactly-runner-docs",
+      "detail": "{\"added\": [\"determinism.json\", \"official_runs.json\"], \"committed_file_count\": 11, \"expected_added\": [\"determinism.json\", \"official_runs.json\"], \"explained\": true, \"gate_time_file_count\": 9, \"removed\": []}",
+      "status": "PASS"
+    },
+    {
+      "check": "policy:inspects-only-named-paths",
+      "detail": "[\"linkage_exclusion.inspection_digest\", \"checks[].detail where check == \\\"public:committed-evidence-clean\\\" (member \\\"file_count\\\" only)\"]",
+      "status": "PASS"
+    },
+    {
+      "check": "policy:committed-path-dependent-field-present",
+      "detail": "{\"inspection_digest_present\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "policy:semantic-linkage-fields-strict",
+      "detail": "{\"excluded\": true, \"forbidden_hit_count\": 0, \"inspected_line_count\": 438}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:echo-plus-real-fields-rejected",
+      "detail": "{\"equivalent\": false, \"unclassified\": [\"inspected_line_count\", \"linkage_exclusion.excluded\"]}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:non-echoed-probe-content-change-rejected",
+      "detail": "{\"equivalent\": false, \"unclassified\": [\"linkage_exclusion.surfaces.readelf_symbols\"]}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:path-echo-plus-real-change-rejected",
+      "detail": "{\"equivalent\": false, \"unclassified\": [\"linkage_exclusion.surfaces.objdump_dynamic_symbols\"]}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:proven-path-echo-classified",
+      "detail": "{\"equivalent\": true, \"raw_divergent_paths\": [], \"unclassified\": []}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:real-authentication-change-rejected",
+      "detail": "{\"equivalent\": false, \"unclassified\": [\"rederived_provenance_digest_count\"]}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:real-linkage-change-rejected",
+      "detail": "{\"equivalent\": false, \"unclassified\": [\"linkage_exclusion.forbidden_hit_count\"]}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:real-source-change-rejected",
+      "detail": "{\"equivalent\": false, \"unclassified\": [\"semantic_vocabulary_counts.load\"]}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:all-controls-behaved",
+      "detail": "{\"echo_plus_real_fields_rejected\": {\"equivalent\": false, \"unclassified\": [\"inspected_line_count\", \"linkage_exclusion.excluded\"]}, \"non_echoed_probe_content_change_rejected\": {\"equivalent\": false, \"unclassified\": [\"linkage_exclusion.surfaces.readelf_symbols\"]}, \"ok\": true, \"path_echo_plus_real_change_rejected\": {\"equivalent\": false, \"unclassified\": [\"linkage_exclusion.surfaces.objdump_dynamic_symbols\"]}, \"proven_path_echo_classified\": {\"equivalent\": true, \"raw_divergent_paths\": [], \"unclassified\": []}, \"real_authentication_change_rejected\": {\"equivalent\": false, \"unclassified\": [\"rederived_provenance_digest_count\"]}, \"real_linkage_change_rejected\": {\"equivalent\": false, \"unclassified\": [\"linkage_exclusion.forbidden_hit_count\"]}, \"real_source_change_rejected\": {\"equivalent\": false, \"unclassified\": [\"semantic_vocabulary_counts.load\"]}}",
+      "status": "PASS"
+    },
+    {
+      "check": "rederive:record-count-matches-committed",
+      "detail": "{\"committed\": 8340, \"rederived\": 8340}",
+      "status": "PASS"
+    },
+    {
+      "check": "rederive:region-log-matches-committed",
+      "detail": "{\"regions\": 4}",
+      "status": "PASS"
+    },
+    {
+      "check": "rederive:provenance-count-matches",
+      "detail": "{\"digests\": 8340}",
+      "status": "PASS"
+    },
+    {
+      "check": "assessment:rederives-committed",
+      "detail": "{\"classified\": [], \"equivalent_after_normalization\": true, \"raw_divergent_paths\": [], \"unclassified\": []}",
+      "status": "PASS"
+    },
+    {
+      "check": "assessment:poll-encountered",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "assessment:gpu_writes:unproven",
+      "detail": "{\"status\": \"NOT_ENCOUNTERED\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "assessment:dma2:unproven",
+      "detail": "{\"status\": \"NOT_ENCOUNTERED\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "assessment:ot_traversal:unproven",
+      "detail": "{\"status\": \"NOT_ESTABLISHED\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "assessment:framebuffer_activity:unproven",
+      "detail": "{\"status\": \"NOT_ENCOUNTERED\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "assessment:ordering_table_writes:unproven",
+      "detail": "{\"status\": \"NOT_ESTABLISHED\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "assessment:initialization_predicates:unproven",
+      "detail": "{\"status\": \"NOT_ESTABLISHED\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "RESULT:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "RESULT:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "RESULT:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "RESULT:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "RESULT:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "next_stage:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "next_stage:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "next_stage:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "next_stage:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "next_stage:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_metadata:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_metadata:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_metadata:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_metadata:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_metadata:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "live_divergence_proof:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "live_divergence_proof:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "live_divergence_proof:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "live_divergence_proof:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "live_divergence_proof:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "file_count_divergence:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "file_count_divergence:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "file_count_divergence:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "file_count_divergence:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "file_count_divergence:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "consistency:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "consistency:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "consistency:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "consistency:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "consistency:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "chain_consistency:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "chain_consistency:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "chain_consistency:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "chain_consistency:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "chain_consistency:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "historical_divergence:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "historical_divergence:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "historical_divergence:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "historical_divergence:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "historical_divergence:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_controls:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_controls:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_controls:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_controls:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_controls:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "scope:no-phase-1-16-changes",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "scope:phase16-frozen-integrity",
+      "detail": "LEGACY_PHASE16_NATIVE_GATE=PRE_EXISTING_FAIL (Phase-16 native manifest check fails on LF/CRLF boundary; canonical gate unaffected)\nOPENRECOMP_PHASE17_P16_SOURCE_INTEGRITY=PASS entries=31 canonical=git-blob",
+      "status": "PASS"
+    }
+  ],
+  "name": "P17-90 Test Results",
+  "schema": "openrecomp-phase17-tests-v1",
+  "stage": "P17-90",
+  "summary": {
+    "failed": 0,
+    "passed": 114
+  }
+}

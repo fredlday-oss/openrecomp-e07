@@ -1,0 +1,23 @@
+{
+  "artifact": "or_title_runtime_v1.so",
+  "coverage_boundary": "The linkage digest covers the six probed symbol/dynamic/relocation surfaces, not every byte of the image: a mutation confined to the ELF section header table leaves all six outputs unchanged. Whole-file byte identity is therefore carried separately by sha256(or_title_runtime_v1.so) above, and the two checks are complementary rather than interchangeable. This boundary was found by the negative control, which failed as originally written.",
+  "negative_mutation": "strip or_title_runtime_v1.so (removes a dynamic symbol)",
+  "normalisation_rejects_perturbed_artifact": true,
+  "private_build_root_disclosed": false,
+  "probes_identical": 5,
+  "probes_total": 6,
+  "raw_digests": {
+    "official-run-1": "10ddf9a5df60e8656f13341ac719f1b9b701cbbea012cafa4ebe9de8e33c1db6",
+    "official-run-2": "252fd1fc6b9509c32ac9ff2aa9a66eda9e3806dfb4243083afb7ea5cb69b65ca"
+  },
+  "root_invariant_digest": "7957450eab2220adab82c382f9b1bbf16e233deedb3e596bb35ba379afdf7cd7",
+  "root_invariant_digest_agrees": true,
+  "run_labels": [
+    "official-run-1",
+    "official-run-2"
+  ],
+  "schema": "openrecomp-phase17-live-divergence-proof-v1",
+  "sha256": "a96c112ae45111167e0766433613f25c3a516bda978819e13e843743bb0d243a",
+  "size_bytes": 2530832,
+  "sole_divergent_probe": "objdump_dynamic_symbols"
+}

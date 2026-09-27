@@ -1,0 +1,45 @@
+{
+  "echo_plus_real_fields_rejected": {
+    "equivalent": false,
+    "unclassified": [
+      "inspected_line_count",
+      "linkage_exclusion.excluded"
+    ]
+  },
+  "non_echoed_probe_content_change_rejected": {
+    "equivalent": false,
+    "unclassified": [
+      "linkage_exclusion.surfaces.readelf_symbols"
+    ]
+  },
+  "ok": true,
+  "path_echo_plus_real_change_rejected": {
+    "equivalent": false,
+    "unclassified": [
+      "linkage_exclusion.surfaces.objdump_dynamic_symbols"
+    ]
+  },
+  "proven_path_echo_classified": {
+    "equivalent": true,
+    "raw_divergent_paths": [],
+    "unclassified": []
+  },
+  "real_authentication_change_rejected": {
+    "equivalent": false,
+    "unclassified": [
+      "rederived_provenance_digest_count"
+    ]
+  },
+  "real_linkage_change_rejected": {
+    "equivalent": false,
+    "unclassified": [
+      "linkage_exclusion.forbidden_hit_count"
+    ]
+  },
+  "real_source_change_rejected": {
+    "equivalent": false,
+    "unclassified": [
+      "semantic_vocabulary_counts.load"
+    ]
+  }
+}

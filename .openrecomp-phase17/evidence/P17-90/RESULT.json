@@ -1,0 +1,59 @@
+{
+  "base_commit": "c784fc75b0dbed7f7e4c66d23a40a53b8ab818f2",
+  "chain_terminates_at": "P17-90",
+  "classified_classes": [
+    "PATH_DEPENDENT_BUILD_ROOT",
+    "RUNNER_GENERATED_FILE_COUNT"
+  ],
+  "classified_divergence_count": 2,
+  "consolidates_stages": [
+    "P17-00",
+    "P17-01",
+    "P17-02",
+    "P17-03",
+    "P17-04R",
+    "P17-05R",
+    "P17-06R",
+    "P17-07R"
+  ],
+  "divergences_are_reproved_live": true,
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "markers": {
+    "FIRST_FRAME_READY": "NO",
+    "OPENRECOMP_P17_90": "PASS",
+    "OPENRECOMP_PHASE17_CONSISTENCY_POLICY_V1": "PASS",
+    "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_WHOLE_REGRESSION_CONSISTENCY_V1": "PASS"
+  },
+  "negative_findings": [
+    "echo_plus_real_fields_rejected: divergence correctly rejected as unclassified (inspected_line_count, linkage_exclusion.excluded)",
+    "non_echoed_probe_content_change_rejected: divergence correctly rejected as unclassified (linkage_exclusion.surfaces.readelf_symbols)",
+    "path_echo_plus_real_change_rejected: divergence correctly rejected as unclassified (linkage_exclusion.surfaces.objdump_dynamic_symbols)",
+    "proven_path_echo_classified: divergence correctly classified as the proven non-semantic variation",
+    "real_authentication_change_rejected: divergence correctly rejected as unclassified (rederived_provenance_digest_count)",
+    "real_linkage_change_rejected: divergence correctly rejected as unclassified (linkage_exclusion.forbidden_hit_count)",
+    "real_source_change_rejected: divergence correctly rejected as unclassified (semantic_vocabulary_counts.load)"
+  ],
+  "next_stage": "P17-91",
+  "proof_boundaries": {
+    "FIRST_FRAME_READY": "NO",
+    "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN"
+  },
+  "rederived_provenance_digest_count": 8340,
+  "rederived_record_count": 8340,
+  "rederived_region_count": 4,
+  "resulting_candidate_commit": "PENDING_FINAL_COMMIT",
+  "resulting_candidate_commit_resolver": "git rev-parse agent/deepseek-phase17-p17-90-r1",
+  "root_invariant_linkage_digest": "7957450eab2220adab82c382f9b1bbf16e233deedb3e596bb35ba379afdf7cd7",
+  "schema": "openrecomp-phase17-result-v1",
+  "stage": "P17-90",
+  "stages_consolidated": 8,
+  "status": "PASS",
+  "worker_branch": "agent/deepseek-phase17-p17-90-r1"
+}

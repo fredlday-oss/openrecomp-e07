@@ -1,0 +1,45 @@
+{
+  "classified": [
+    {
+      "class": "PATH_DEPENDENT_BUILD_ROOT",
+      "json_path": "linkage_exclusion.inspection_digest",
+      "reason": "objdump -T echoes the inspected artifact's absolute path in the first line of its output, and p17_linkage_exclusion_v1 hashes that raw output, so inspection_digest is a function of the private build root. The gate re-derives this live: the built or_title_runtime_v1.so is byte-identical across build roots, the other five of the six linkage probes are byte-identical, all twelve probe returncodes and line counts match, and the digest recomputed with the echoed path prefix replaced by a fixed token is identical across roots. No linkage fact is carried by the varying component."
+    },
+    {
+      "class": "RUNNER_GENERATED_FILE_COUNT",
+      "json_path": "checks[].detail where check == \"public:committed-evidence-clean\" (member \"file_count\" only)",
+      "reason": "The gate body scans its evidence directory before the stage runner writes official_runs.json and determinism.json into it, so a fresh run reports the gate-time count 9 while the committed record reports 11, which is exactly 9 plus those two documents. p17_04r_tests.json is written by run_stage after the body returns and is excluded from both counts, which is why the committed directory holds 12 files. All three documents are runner-generated records about the runs, not semantic proof inputs, and the gate re-derives this decomposition from the committed tree. The 'hits' member, which carries the actual public-safety verdict, remains compared strictly and is empty."
+    }
+  ],
+  "committed_p17_04r_linkage": {
+    "excluded": true,
+    "forbidden_hit_count": 0,
+    "inspected_line_count": 438,
+    "inspection_digest": "73c249e315aec224b2c22ecdc5bdc8e7d72cb5a468da944538721ca7f6dda766"
+  },
+  "path_echo_rule": "linkage_exclusion.inspection_digest",
+  "proved_equal_across_roots": {
+    "artifact": "or_title_runtime_v1.so",
+    "coverage_boundary": "The linkage digest covers the six probed symbol/dynamic/relocation surfaces, not every byte of the image: a mutation confined to the ELF section header table leaves all six outputs unchanged. Whole-file byte identity is therefore carried separately by sha256(or_title_runtime_v1.so) above, and the two checks are complementary rather than interchangeable. This boundary was found by the negative control, which failed as originally written.",
+    "negative_mutation": "strip or_title_runtime_v1.so (removes a dynamic symbol)",
+    "normalisation_rejects_perturbed_artifact": true,
+    "private_build_root_disclosed": false,
+    "probes_identical": 5,
+    "probes_total": 6,
+    "raw_digests": {
+      "official-run-1": "10ddf9a5df60e8656f13341ac719f1b9b701cbbea012cafa4ebe9de8e33c1db6",
+      "official-run-2": "252fd1fc6b9509c32ac9ff2aa9a66eda9e3806dfb4243083afb7ea5cb69b65ca"
+    },
+    "root_invariant_digest": "7957450eab2220adab82c382f9b1bbf16e233deedb3e596bb35ba379afdf7cd7",
+    "root_invariant_digest_agrees": true,
+    "run_labels": [
+      "official-run-1",
+      "official-run-2"
+    ],
+    "schema": "openrecomp-phase17-live-divergence-proof-v1",
+    "sha256": "a96c112ae45111167e0766433613f25c3a516bda978819e13e843743bb0d243a",
+    "size_bytes": 2530832,
+    "sole_divergent_probe": "objdump_dynamic_symbols"
+  },
+  "schema": "openrecomp-phase17-historical-divergence-v1"
+}
