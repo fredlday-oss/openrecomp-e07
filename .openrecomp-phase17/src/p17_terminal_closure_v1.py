@@ -461,15 +461,23 @@ def audit_marker_syntax(texts: dict[str, str]) -> dict[str, Any]:
             if not line.startswith("OPENRECOMP_"):
                 continue
             checked += 1
-            if line.count("=") != 1:
+            # A marker is TOKEN=VALUE optionally followed by whitespace and
+            # non-marker detail text (for example "...=PASS entries=41"). Only
+            # the leading TOKEN=VALUE word may carry the marker '='; further
+            # '=' characters inside that word are malformed.
+            head = line.split(" ", 1)[0]
+            if head.count("=") != 1:
                 problems.append({"document": name, "line": line,
                                  "reason": "multi-equals"})
                 continue
-            token, value = line.split("=", 1)
+            token, value = head.split("=", 1)
             if not MARKER_TOKEN_RE.match(token):
                 problems.append({"document": name, "line": line,
                                  "reason": "bad-token"})
-            if "NOT_PROVEN=PASS" in line or "=PASS=PASS" in line:
+            if not value:
+                problems.append({"document": name, "line": line,
+                                 "reason": "empty-value"})
+            if value.startswith("PASS=") or value.startswith("NOT_PROVEN=PASS"):
                 problems.append({"document": name, "line": line,
                                  "reason": "promoted-marker"})
     return {
