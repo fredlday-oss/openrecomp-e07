@@ -153,7 +153,15 @@ def negative_controls(root: pathlib.Path) -> dict[str, Any]:
             bad = ("0" if digest[0] != "0" else "1") + digest[1:]
             lines[index] = bad + " *" + rest
             break
-    report = term.audit_manifest_consistency(root, manifest_text="\n".join(lines) + "\n")
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_root = pathlib.Path(tmp)
+        fake = tmp_root / term.MANIFEST_PATH
+        fake.parent.mkdir(parents=True, exist_ok=True)
+        fake.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        # Re-run the real audit against a root whose manifest is corrupted but
+        # whose tracked sources are the same as the live tree, by pointing the
+        # audit at a root that carries the corrupted manifest copy.
+        report = term.audit_manifest_consistency(root, manifest_override="\n".join(lines) + "\n")
     add("corrupted_manifest_digest", report["ok"] is False,
         f"digest_mismatches={len(report['digest_mismatches'])}")
 

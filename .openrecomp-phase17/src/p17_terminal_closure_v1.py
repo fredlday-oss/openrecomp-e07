@@ -268,10 +268,16 @@ def audit_provenance_chain(root: pathlib.Path,
 MANIFEST_PATH = ".openrecomp-phase17/SOURCE_SHA256SUMS.txt"
 
 
-def audit_manifest_consistency(root: pathlib.Path) -> dict[str, Any]:
+def audit_manifest_consistency(root: pathlib.Path,
+                               manifest_override: str | None = None
+                               ) -> dict[str, Any]:
     """The committed source manifest matches the tracked Phase-17 sources."""
-    manifest = root / MANIFEST_PATH
-    text = manifest.read_text(encoding="utf-8") if manifest.is_file() else ""
+    if manifest_override is not None:
+        text = manifest_override
+    else:
+        manifest = root / MANIFEST_PATH
+        text = (manifest.read_text(encoding="utf-8")
+                if manifest.is_file() else "")
     recorded: dict[str, str] = {}
     parse_errors: list[dict[str, Any]] = []
     for line_no, line in enumerate(text.splitlines(), start=1):
