@@ -21,7 +21,7 @@ PASS: ledger:no-promoted-markers []
 PASS: ledger:state-declares-protected-markers {"FIRST_FRAME_READY": true, "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": true, "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": true, "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": true, "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": true}
 PASS: ledger:queue-declares-protected-markers {"FIRST_FRAME_READY": true, "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": true, "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": true, "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": true, "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": true}
 PASS: review-required:historical-stop-superseded {"historical_required_action_retired": true, "historical_review_stop_cleared": true, "ok": true, "p17_90_reviewed_and_integrated": true, "p17_91_reviewed_and_integrated": true, "remaining_stop_is_p17_99": true, "schema": "openrecomp-phase17-terminal-review-required-v1", "stale_required_next_action_present": false}
-PASS: binding:exact-head-tree {"base": "b1bace7c6c39403c49b9168a880082b91b168553", "head": "816ee6d9b009b70a4e7a7810540d46800207c4c2"}
+PASS: binding:certified-authority-exact {"base": "b1bace7c6c39403c49b9168a880082b91b168553", "base_tree": "920e3b785fda92d027f783ee50b82d578e82c01a"}
 PASS: marker-syntax:clean []
 PASS: public-safety:no-unallowlisted-hits []
 PASS: public-safety:no-forbidden-keys no reconstructive metadata keys

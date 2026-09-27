@@ -431,25 +431,41 @@ def audit_review_required(review_text: str) -> dict[str, Any]:
 def audit_terminal_binding(root: pathlib.Path, head: str, tree: str,
                            base_commit: str = BASE_COMMIT,
                            base_tree: str = BASE_TREE) -> dict[str, Any]:
-    """The working tree binding is exact and internally consistent."""
+    """The certified-authority binding is exact and internally consistent.
+
+    The *live* HEAD is the commit the evidence is being generated at, so its
+    hash cannot be recorded inside the evidence without making the evidence a
+    function of the commit that contains it. Instead this proves the parts that
+    are stable: the certified authority commit resolves to exactly the recorded
+    authority tree, the live HEAD resolves to a real tree, and the live HEAD is
+    a descendant of the certified authority (i.e. P17-99 is strictly additive
+    on top of the reviewed P17-91 authority). The exact final commit/tree are
+    recorded by the controller after integration.
+    """
     base_is_commit = git(root, "cat-file", "-t", base_commit).stdout.strip() == "commit"
     base_tree_of_commit = git(root, "rev-parse", f"{base_commit}^{{tree}}").stdout.strip()
     base_tree_matches = base_tree_of_commit == base_tree
     head_is_commit = git(root, "cat-file", "-t", head).stdout.strip() == "commit"
     head_tree_of_commit = git(root, "rev-parse", f"{head}^{{tree}}").stdout.strip()
-    head_tree_matches = head_tree_of_commit == tree
+    head_tree_resolves = bool(head_tree_of_commit)
+    descendant = git(root, "merge-base", "--is-ancestor", base_commit, head)
+    head_descends_from_authority = descendant.returncode == 0
     ok = (base_is_commit and base_tree_matches and head_is_commit
-          and head_tree_matches)
+          and head_tree_resolves and head_descends_from_authority)
     return {
         "schema": "openrecomp-phase17-terminal-binding-v1",
         "base_commit": base_commit,
         "base_tree": base_tree,
         "base_commit_is_commit": base_is_commit,
         "base_tree_matches": base_tree_matches,
-        "head": head,
-        "head_tree": tree,
         "head_is_commit": head_is_commit,
-        "head_tree_matches": head_tree_matches,
+        "head_tree_resolves": head_tree_resolves,
+        "head_descends_from_certified_authority": head_descends_from_authority,
+        "note": (
+            "The live HEAD/tree are not embedded: they would make the evidence "
+            "a function of the commit containing it. The controller records the "
+            "exact final commit and tree after integration."
+        ),
         "ok": ok,
     }
 

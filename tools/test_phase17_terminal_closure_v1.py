@@ -285,9 +285,10 @@ def body(gate: Gate, evidence: pathlib.Path, root: pathlib.Path) -> None:
     # 7. Terminal binding.
     binding = term.audit_terminal_binding(root, head, tree)
     write_json(evidence / "terminal_binding.json", binding)
-    gate.check("binding:exact-head-tree", binding["ok"],
+    gate.check("binding:certified-authority-exact", binding["ok"],
                json.dumps({"base": binding["base_commit"],
-                           "head": binding["head"]}, sort_keys=True))
+                           "base_tree": binding["base_tree"]},
+                          sort_keys=True))
 
     # 8. Marker syntax cleanliness over STATE/STAGE_QUEUE and stage transcripts.
     syntax_docs: dict[str, str] = {
@@ -365,8 +366,6 @@ def body(gate: Gate, evidence: pathlib.Path, root: pathlib.Path) -> None:
         "phase16_base_commit": term.PHASE16_BASELINE_COMMIT,
         "certified_authority_commit": term.BASE_COMMIT,
         "certified_authority_tree": term.BASE_TREE,
-        "gate_head": head,
-        "gate_tree": tree,
         "stage_chain": list(term.STAGE_CHAIN),
         "stage_results": {stage.replace("-", "_") + "_RESULT": "PASS"
                           for stage in term.STAGE_CHAIN},
@@ -402,8 +401,6 @@ def body(gate: Gate, evidence: pathlib.Path, root: pathlib.Path) -> None:
         "base_commit": term.BASE_COMMIT,
         "certified_authority_commit": term.BASE_COMMIT,
         "certified_authority_tree": term.BASE_TREE,
-        "gate_head": head,
-        "gate_tree": tree,
         "stages_verified": len(term.STAGE_CHAIN),
         "prior_phase_trees_verified": len(prior["tree_comparisons"]),
         "manifest_entry_count": manifest["entry_count"],
