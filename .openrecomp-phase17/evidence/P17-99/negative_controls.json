@@ -1,0 +1,58 @@
+{
+  "cases": [
+    {
+      "case": "stage_chain_missing_stage",
+      "detail": "one chained stage RESULT removed",
+      "detected": true
+    },
+    {
+      "case": "stage_chain_non_pass_status",
+      "detail": "one chained stage status set to FAIL",
+      "detected": true
+    },
+    {
+      "case": "promoted_protected_marker",
+      "detail": "promoted_count=1",
+      "detected": true
+    },
+    {
+      "case": "stale_review_required_action",
+      "detail": "historical required-next-action still present",
+      "detected": true
+    },
+    {
+      "case": "corrupted_manifest_digest",
+      "detail": "digest_mismatches=1",
+      "detected": true
+    },
+    {
+      "case": "provenance_not_ancestor",
+      "detail": "certified commits are not ancestors of the Phase-16 baseline",
+      "detected": true
+    },
+    {
+      "case": "unresolvable_terminal_binding",
+      "detail": "synthetic zero HEAD/tree rejected",
+      "detected": true
+    },
+    {
+      "case": "promoted_marker_syntax",
+      "detail": "problems=1",
+      "detected": true
+    },
+    {
+      "case": "fabricated_private_host_path",
+      "detail": "unallowlisted_path_hit_count=1",
+      "detected": true
+    },
+    {
+      "case": "unresolvable_prior_phase_baseline",
+      "detail": "all sixteen tree comparisons unresolved",
+      "detected": true
+    }
+  ],
+  "ok": true,
+  "schema": "openrecomp-phase17-terminal-negative-controls-v1",
+  "tamper_case_count": 10,
+  "tamper_detected_count": 10
+}

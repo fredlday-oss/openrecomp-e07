@@ -1,0 +1,536 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase17-sources",
+      "detail": "OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=43",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:all-stages-pass",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:ten-stages",
+      "detail": "{\"length\": 10}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-00:result-pass",
+      "detail": "{\"OPENRECOMP_P17_00\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-01:result-pass",
+      "detail": "{\"OPENRECOMP_PHASE17_TITLE_INGESTION_V1\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-02:result-pass",
+      "detail": "{\"OPENRECOMP_PHASE17_TITLE_IR_CONTRACT_V1\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-03:result-pass",
+      "detail": "{\"OPENRECOMP_PHASE17_FRONTIER_RECONCILIATION_V1\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-04R:result-pass",
+      "detail": "{\"OPENRECOMP_P17_04R\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-05R:result-pass",
+      "detail": "{\"OPENRECOMP_P17_05R\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-06R:result-pass",
+      "detail": "{\"OPENRECOMP_P17_06R\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-07R:result-pass",
+      "detail": "{\"OPENRECOMP_P17_07R\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-90:result-pass",
+      "detail": "{\"OPENRECOMP_P17_90\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "chain:P17-91:result-pass",
+      "detail": "{\"OPENRECOMP_P17_91\": \"PASS\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "prior-phase:no-commits-touched-phase1-16",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "prior-phase:all-sixteen-trees-identical",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "prior-phase:no-dirty-prior-phase-paths",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "provenance:all-certified-commits-ancestors",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:exact",
+      "detail": "{\"entries\": 43, \"expected\": 43}",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:terminal-module-registered",
+      "detail": "terminal module and gate tracked",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:no-promoted-markers",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:state-declares-protected-markers",
+      "detail": "{\"FIRST_FRAME_READY\": true, \"OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY\": true, \"OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF\": true, \"OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF\": true, \"OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "ledger:queue-declares-protected-markers",
+      "detail": "{\"FIRST_FRAME_READY\": true, \"OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY\": true, \"OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF\": true, \"OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF\": true, \"OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "review-required:historical-stop-superseded",
+      "detail": "{\"historical_required_action_retired\": true, \"historical_review_stop_cleared\": true, \"ok\": true, \"p17_90_reviewed_and_integrated\": true, \"p17_91_reviewed_and_integrated\": true, \"remaining_stop_is_p17_99\": true, \"schema\": \"openrecomp-phase17-terminal-review-required-v1\", \"stale_required_next_action_present\": false}",
+      "status": "PASS"
+    },
+    {
+      "check": "binding:exact-head-tree",
+      "detail": "{\"base\": \"b1bace7c6c39403c49b9168a880082b91b168553\", \"head\": \"816ee6d9b009b70a4e7a7810540d46800207c4c2\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "marker-syntax:clean",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "public-safety:no-unallowlisted-hits",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "public-safety:no-forbidden-keys",
+      "detail": "no reconstructive metadata keys",
+      "status": "PASS"
+    },
+    {
+      "check": "public-safety:review-documents-clean",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "public-safety:scan-covered-corpus",
+      "detail": "{\"scanned\": 155}",
+      "status": "PASS"
+    },
+    {
+      "check": "terminal-evidence:p17-06r-transcript-digest",
+      "detail": "P17-06R transcript digest re-derived and matched",
+      "status": "PASS"
+    },
+    {
+      "check": "terminal-evidence:p17-07r-transcript-binding",
+      "detail": "P17-07R binding matches the transcript and 8340 digests",
+      "status": "PASS"
+    },
+    {
+      "check": "terminal-evidence:p17-91-closure-marker",
+      "detail": "P17-91 closure marker PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "terminal-evidence:p17-90-regression-marker",
+      "detail": "P17-90 whole-regression marker PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:all-cases-detected",
+      "detail": "{\"cases\": 10, \"detected\": 10}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:minimum-case-coverage",
+      "detail": "{\"cases\": 10}",
+      "status": "PASS"
+    },
+    {
+      "check": "RESULT:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "RESULT:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "RESULT:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "RESULT:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "RESULT:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_chain:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_chain:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_chain:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_chain:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_chain:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "prior_phase_integrity:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "prior_phase_integrity:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "prior_phase_integrity:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "prior_phase_integrity:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "prior_phase_integrity:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "provenance_chain:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "provenance_chain:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "provenance_chain:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "provenance_chain:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "provenance_chain:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_consistency:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_consistency:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_consistency:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_consistency:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_consistency:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_ledger:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_ledger:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_ledger:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_ledger:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_ledger:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "review_required:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "review_required:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "review_required:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "review_required:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "review_required:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "terminal_binding:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "terminal_binding:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "terminal_binding:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "terminal_binding:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "terminal_binding:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_syntax:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_syntax:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_syntax:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_syntax:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_syntax:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public_safety:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "public_safety:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "public_safety:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "public_safety:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "public_safety:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_controls:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_controls:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_controls:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_controls:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_controls:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "next_stage:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "next_stage:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "next_stage:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "next_stage:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "next_stage:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_metadata:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_metadata:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_metadata:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_metadata:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_metadata:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P17-99 Test Results",
+  "schema": "openrecomp-phase17-tests-v1",
+  "stage": "P17-99",
+  "summary": {
+    "failed": 0,
+    "passed": 105
+  }
+}

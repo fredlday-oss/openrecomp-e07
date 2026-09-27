@@ -1,0 +1,71 @@
+{
+  "branch": "agent/deepseek-phase17-p17-99-r1",
+  "certified_authority_commit": "b1bace7c6c39403c49b9168a880082b91b168553",
+  "certified_authority_tree": "920e3b785fda92d027f783ee50b82d578e82c01a",
+  "claim_markers": {
+    "FIRST_FRAME_READY": "NO",
+    "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN"
+  },
+  "fail_closed_discipline": "STRICT_NO_SUPPRESSION",
+  "final_verdict": "PASS_PHASE17_TERMINAL_CLOSURE_BOUNDED_DEVICE_FRONTIER",
+  "gate_head": "816ee6d9b009b70a4e7a7810540d46800207c4c2",
+  "gate_tree": "fd078625b04a061fac61e57ba7421d63261b2a2d",
+  "next_stage": "NONE",
+  "phase16_base_commit": "a0c26e882ca65cfc84cbec78f7e787509a4992a3",
+  "phase18_started": "NO",
+  "private_fixture_bytes_recorded": "NO",
+  "promotes_no_proof_marker": true,
+  "proof_boundaries": {
+    "FIRST_FRAME_READY": "NO",
+    "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN"
+  },
+  "proves_nothing_about_emulation": true,
+  "runtime_conclusion": "Bounded checked device frontier dominated by a zero-returning GPUSTAT wait-poll; 1586 of 1590 recorded device events are repeated GPUSTAT reads returning zero under ZERO_FILL_RECORDED. No frame, initialization, playability or general compatibility claim is promoted.",
+  "schema": "openrecomp-phase17-terminal-verdict-v1",
+  "stage": "P17-99",
+  "stage_chain": [
+    "P17-00",
+    "P17-01",
+    "P17-02",
+    "P17-03",
+    "P17-04R",
+    "P17-05R",
+    "P17-06R",
+    "P17-07R",
+    "P17-90",
+    "P17-91"
+  ],
+  "stage_markers": {
+    "OPENRECOMP_P17_00": "PASS",
+    "OPENRECOMP_P17_04R": "PASS",
+    "OPENRECOMP_P17_05R": "PASS",
+    "OPENRECOMP_P17_06R": "PASS",
+    "OPENRECOMP_P17_07R": "PASS",
+    "OPENRECOMP_P17_90": "PASS",
+    "OPENRECOMP_P17_91": "PASS",
+    "OPENRECOMP_PHASE17_FRONTIER_RECONCILIATION_V1": "PASS",
+    "OPENRECOMP_PHASE17_TITLE_INGESTION_V1": "PASS",
+    "OPENRECOMP_PHASE17_TITLE_IR_CONTRACT_V1": "PASS"
+  },
+  "stage_results": {
+    "P17_00_RESULT": "PASS",
+    "P17_01_RESULT": "PASS",
+    "P17_02_RESULT": "PASS",
+    "P17_03_RESULT": "PASS",
+    "P17_04R_RESULT": "PASS",
+    "P17_05R_RESULT": "PASS",
+    "P17_06R_RESULT": "PASS",
+    "P17_07R_RESULT": "PASS",
+    "P17_90_RESULT": "PASS",
+    "P17_91_RESULT": "PASS"
+  },
+  "terminal_marker": "OPENRECOMP_PHASE17_TERMINAL_V1",
+  "terminal_stage_marker": "OPENRECOMP_P17_99",
+  "third_party_code_imported": "NO"
+}

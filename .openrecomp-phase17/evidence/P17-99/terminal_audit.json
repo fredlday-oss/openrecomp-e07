@@ -1,0 +1,85 @@
+{
+  "certified_authority_commit": "b1bace7c6c39403c49b9168a880082b91b168553",
+  "certified_authority_tree": "920e3b785fda92d027f783ee50b82d578e82c01a",
+  "checks": [
+    "stage-chain closure (PASS + required markers + next_stage links)",
+    "frozen-prior-phase integrity (Phase 1..16 trees unchanged)",
+    "certified provenance chain (ancestors of the authority commit)",
+    "source-manifest exactness (re-derived from git ls-files)",
+    "marker ledger (protected claim markers un-promoted)",
+    "REVIEW_REQUIRED terminal consistency (historical stop retired)",
+    "terminal HEAD/tree binding (exact and internally consistent)",
+    "marker syntax cleanliness",
+    "public safety (private host paths, reconstructive keys)",
+    "cited terminal evidence re-verified by digest",
+    "negative controls (terminal tamper cases fail closed)"
+  ],
+  "marker": "OPENRECOMP_PHASE17_TERMINAL_V1",
+  "phase16_baseline_commit": "a0c26e882ca65cfc84cbec78f7e787509a4992a3",
+  "phase18_started": "NO",
+  "promotes_no_proof_marker": true,
+  "protected_markers": {
+    "FIRST_FRAME_READY": "NO",
+    "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": "NOT_PROVEN",
+    "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": "NOT_PROVEN"
+  },
+  "proves": "The complete Phase-17 stage chain is internally consistent and terminally closed: every chained stage PASS with its required marker, the frozen Phase-1..16 trees unmodified, the certified provenance chain intact, the source manifest exact, the protected claim markers un-promoted, the historical review stop retired, an exact HEAD/tree binding, clean marker syntax, a publicly safe evidence corpus, and terminal negative controls that fail closed. Nothing about emulation.",
+  "schema": "openrecomp-phase17-terminal-closure-v1",
+  "stage_chain": [
+    "P17-00",
+    "P17-01",
+    "P17-02",
+    "P17-03",
+    "P17-04R",
+    "P17-05R",
+    "P17-06R",
+    "P17-07R",
+    "P17-90",
+    "P17-91"
+  ],
+  "stage_marker": "OPENRECOMP_P17_99",
+  "stage_markers": [
+    [
+      "P17-00",
+      "OPENRECOMP_P17_00"
+    ],
+    [
+      "P17-01",
+      "OPENRECOMP_PHASE17_TITLE_INGESTION_V1"
+    ],
+    [
+      "P17-02",
+      "OPENRECOMP_PHASE17_TITLE_IR_CONTRACT_V1"
+    ],
+    [
+      "P17-03",
+      "OPENRECOMP_PHASE17_FRONTIER_RECONCILIATION_V1"
+    ],
+    [
+      "P17-04R",
+      "OPENRECOMP_P17_04R"
+    ],
+    [
+      "P17-05R",
+      "OPENRECOMP_P17_05R"
+    ],
+    [
+      "P17-06R",
+      "OPENRECOMP_P17_06R"
+    ],
+    [
+      "P17-07R",
+      "OPENRECOMP_P17_07R"
+    ],
+    [
+      "P17-90",
+      "OPENRECOMP_P17_90"
+    ],
+    [
+      "P17-91",
+      "OPENRECOMP_P17_91"
+    ]
+  ]
+}

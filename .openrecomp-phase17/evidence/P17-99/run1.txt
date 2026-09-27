@@ -1,0 +1,113 @@
+PASS: integrity:phase17-sources OPENRECOMP_PHASE17_SOURCE_INTEGRITY=PASS entries=43
+PASS: chain:all-stages-pass []
+PASS: chain:ten-stages {"length": 10}
+PASS: chain:P17-00:result-pass {"OPENRECOMP_P17_00": "PASS"}
+PASS: chain:P17-01:result-pass {"OPENRECOMP_PHASE17_TITLE_INGESTION_V1": "PASS"}
+PASS: chain:P17-02:result-pass {"OPENRECOMP_PHASE17_TITLE_IR_CONTRACT_V1": "PASS"}
+PASS: chain:P17-03:result-pass {"OPENRECOMP_PHASE17_FRONTIER_RECONCILIATION_V1": "PASS"}
+PASS: chain:P17-04R:result-pass {"OPENRECOMP_P17_04R": "PASS"}
+PASS: chain:P17-05R:result-pass {"OPENRECOMP_P17_05R": "PASS"}
+PASS: chain:P17-06R:result-pass {"OPENRECOMP_P17_06R": "PASS"}
+PASS: chain:P17-07R:result-pass {"OPENRECOMP_P17_07R": "PASS"}
+PASS: chain:P17-90:result-pass {"OPENRECOMP_P17_90": "PASS"}
+PASS: chain:P17-91:result-pass {"OPENRECOMP_P17_91": "PASS"}
+PASS: prior-phase:no-commits-touched-phase1-16 []
+PASS: prior-phase:all-sixteen-trees-identical []
+PASS: prior-phase:no-dirty-prior-phase-paths []
+PASS: provenance:all-certified-commits-ancestors []
+PASS: manifest:exact {"entries": 43, "expected": 43}
+PASS: manifest:terminal-module-registered terminal module and gate tracked
+PASS: ledger:no-promoted-markers []
+PASS: ledger:state-declares-protected-markers {"FIRST_FRAME_READY": true, "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": true, "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": true, "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": true, "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": true}
+PASS: ledger:queue-declares-protected-markers {"FIRST_FRAME_READY": true, "OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY": true, "OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF": true, "OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF": true, "OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF": true}
+PASS: review-required:historical-stop-superseded {"historical_required_action_retired": true, "historical_review_stop_cleared": true, "ok": true, "p17_90_reviewed_and_integrated": true, "p17_91_reviewed_and_integrated": true, "remaining_stop_is_p17_99": true, "schema": "openrecomp-phase17-terminal-review-required-v1", "stale_required_next_action_present": false}
+PASS: binding:exact-head-tree {"base": "b1bace7c6c39403c49b9168a880082b91b168553", "head": "816ee6d9b009b70a4e7a7810540d46800207c4c2"}
+PASS: marker-syntax:clean []
+PASS: public-safety:no-unallowlisted-hits []
+PASS: public-safety:no-forbidden-keys no reconstructive metadata keys
+PASS: public-safety:review-documents-clean []
+PASS: public-safety:scan-covered-corpus {"scanned": 155}
+PASS: terminal-evidence:p17-06r-transcript-digest P17-06R transcript digest re-derived and matched
+PASS: terminal-evidence:p17-07r-transcript-binding P17-07R binding matches the transcript and 8340 digests
+PASS: terminal-evidence:p17-91-closure-marker P17-91 closure marker PASS
+PASS: terminal-evidence:p17-90-regression-marker P17-90 whole-regression marker PASS
+PASS: negative:all-cases-detected {"cases": 10, "detected": 10}
+PASS: negative:minimum-case-coverage {"cases": 10}
+PASS: RESULT:no-private-path absolute private paths absent
+PASS: RESULT:reject-private-paths no private paths in values
+PASS: RESULT:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: RESULT:no-payload-hex no payload supplied
+PASS: RESULT:no-raw-words reconstructive fields absent
+PASS: verdict:no-private-path absolute private paths absent
+PASS: verdict:reject-private-paths no private paths in values
+PASS: verdict:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: verdict:no-payload-hex no payload supplied
+PASS: verdict:no-raw-words reconstructive fields absent
+PASS: stage_chain:no-private-path absolute private paths absent
+PASS: stage_chain:reject-private-paths no private paths in values
+PASS: stage_chain:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: stage_chain:no-payload-hex no payload supplied
+PASS: stage_chain:no-raw-words reconstructive fields absent
+PASS: prior_phase_integrity:no-private-path absolute private paths absent
+PASS: prior_phase_integrity:reject-private-paths no private paths in values
+PASS: prior_phase_integrity:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: prior_phase_integrity:no-payload-hex no payload supplied
+PASS: prior_phase_integrity:no-raw-words reconstructive fields absent
+PASS: provenance_chain:no-private-path absolute private paths absent
+PASS: provenance_chain:reject-private-paths no private paths in values
+PASS: provenance_chain:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: provenance_chain:no-payload-hex no payload supplied
+PASS: provenance_chain:no-raw-words reconstructive fields absent
+PASS: manifest_consistency:no-private-path absolute private paths absent
+PASS: manifest_consistency:reject-private-paths no private paths in values
+PASS: manifest_consistency:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: manifest_consistency:no-payload-hex no payload supplied
+PASS: manifest_consistency:no-raw-words reconstructive fields absent
+PASS: marker_ledger:no-private-path absolute private paths absent
+PASS: marker_ledger:reject-private-paths no private paths in values
+PASS: marker_ledger:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: marker_ledger:no-payload-hex no payload supplied
+PASS: marker_ledger:no-raw-words reconstructive fields absent
+PASS: review_required:no-private-path absolute private paths absent
+PASS: review_required:reject-private-paths no private paths in values
+PASS: review_required:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: review_required:no-payload-hex no payload supplied
+PASS: review_required:no-raw-words reconstructive fields absent
+PASS: terminal_binding:no-private-path absolute private paths absent
+PASS: terminal_binding:reject-private-paths no private paths in values
+PASS: terminal_binding:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: terminal_binding:no-payload-hex no payload supplied
+PASS: terminal_binding:no-raw-words reconstructive fields absent
+PASS: marker_syntax:no-private-path absolute private paths absent
+PASS: marker_syntax:reject-private-paths no private paths in values
+PASS: marker_syntax:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: marker_syntax:no-payload-hex no payload supplied
+PASS: marker_syntax:no-raw-words reconstructive fields absent
+PASS: public_safety:no-private-path absolute private paths absent
+PASS: public_safety:reject-private-paths no private paths in values
+PASS: public_safety:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: public_safety:no-payload-hex no payload supplied
+PASS: public_safety:no-raw-words reconstructive fields absent
+PASS: negative_controls:no-private-path absolute private paths absent
+PASS: negative_controls:reject-private-paths no private paths in values
+PASS: negative_controls:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: negative_controls:no-payload-hex no payload supplied
+PASS: negative_controls:no-raw-words reconstructive fields absent
+PASS: next_stage:no-private-path absolute private paths absent
+PASS: next_stage:reject-private-paths no private paths in values
+PASS: next_stage:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: next_stage:no-payload-hex no payload supplied
+PASS: next_stage:no-raw-words reconstructive fields absent
+PASS: stage_metadata:no-private-path absolute private paths absent
+PASS: stage_metadata:reject-private-paths no private paths in values
+PASS: stage_metadata:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: stage_metadata:no-payload-hex no payload supplied
+PASS: stage_metadata:no-raw-words reconstructive fields absent
+OPENRECOMP_P17_99=PASS
+OPENRECOMP_PHASE17_TERMINAL_V1=PASS
+OPENRECOMP_PHASE17_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+FIRST_FRAME_READY=NO
+P17-99_CHECKS=105
