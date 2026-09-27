@@ -296,8 +296,10 @@ def body(gate: Gate, evidence: pathlib.Path, root: pathlib.Path) -> None:
                json.dumps(syntax["problems"][:3], sort_keys=True))
 
     # 9. Public safety over the committed corpus.
-    safety = closure_audit.public_safety_scan(
-        EVIDENCE_ROOT, exclude_dirs=SCAN_EXCLUDE_DIRS)
+    # public_safety_scan excludes the module-level SELF_EVIDENCE_DIR, which is
+    # set to "P17-99" at the top of body(); the gate audits the committed
+    # prior-stage corpus, not its own in-flight output.
+    safety = closure_audit.public_safety_scan(EVIDENCE_ROOT)
     write_json(evidence / "public_safety.json", safety)
     gate.check("public-safety:no-unallowlisted-hits", safety["ok"],
                json.dumps(safety["documents_failed"], sort_keys=True))
