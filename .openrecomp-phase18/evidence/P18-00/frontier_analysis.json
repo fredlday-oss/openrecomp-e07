@@ -1,0 +1,65 @@
+{
+  "adjacent_frontier": {
+    "dma2_window_event_count": 0,
+    "gp0_write_count": 0,
+    "interrupt_access_count": 2,
+    "timer_access_count": 1
+  },
+  "binding_constraint": "Under the declared ZERO_FILL_RECORDED read model every GPUSTAT read returns zero, so the guest's poll exit condition (bit 26 = 1) can never be evaluated true and authentic execution cannot leave the wait loop. A faithful model would have to make GPUSTAT report bit 26 (ready-to-receive-command) as 1 as a function of GPU state, not as a title-specific constant.",
+  "claims": {
+    "first_frame_ready": "NO",
+    "frame": "NOT_PROVEN",
+    "general_compatibility": "NOT_PROVEN",
+    "initialization": "NOT_PROVEN",
+    "playability": "NOT_PROVEN"
+  },
+  "frontier": {
+    "continuation_entry_pc": "0x80026cc8",
+    "runtime_stop_reason": "CONTINUATION_BUDGET_REACHED"
+  },
+  "gpustat": {
+    "address": "0x1f801814",
+    "all_reads_returned_zero": true,
+    "bit_meanings": {
+      "13": "interlace_field",
+      "19": "dma_request_ready",
+      "22": "interlace_mode",
+      "23": "display_enable",
+      "26": "ready_to_receive_cmd",
+      "28": "ready_to_receive_dma_block",
+      "31": "ready_to_send_vram_to_cpu"
+    },
+    "dominant_owner_count": 1586,
+    "dominant_owner_pc": "0x8001a9fc",
+    "dominant_owner_share": 0.99937,
+    "owner_counts": {
+      "0x80016018": 1,
+      "0x8001a9fc": 1586
+    },
+    "poll_exit_condition": "bit26_ready_to_receive_cmd == 1",
+    "poll_exit_observable_under_model": false,
+    "read_count": 1587,
+    "read_model": "ZERO_FILL_RECORDED",
+    "read_values_observed": [
+      "0x00000000"
+    ],
+    "write_count": 0
+  },
+  "promotes_no_proof_marker": true,
+  "schema": "openrecomp-phase18-gpustat-frontier-analysis-v1",
+  "source": {
+    "bios_dispatch_count": 1,
+    "device_event_count": 1590,
+    "event_class_counts": {
+      "BIOS_DISPATCH": 1,
+      "GPUSTAT_READ": 1587,
+      "INTERRUPT_ACCESS": 2,
+      "TIMER_ACCESS": 1
+    },
+    "event_count": 1591,
+    "stage": "P17-06R",
+    "transcript_reverified": true,
+    "transcript_sha256": "d7e222c87726748ced23dd60c2b1ba138625227c984dac587be6a5761695fd3a",
+    "transcript_sha256_expected": "d7e222c87726748ced23dd60c2b1ba138625227c984dac587be6a5761695fd3a"
+  }
+}

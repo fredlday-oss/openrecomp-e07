@@ -1,0 +1,331 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase18-sources",
+      "detail": "OPENRECOMP_PHASE18_SOURCE_INTEGRITY=PASS entries=9",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:phase17-frozen",
+      "detail": "authority-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:tag-resolves",
+      "detail": "openrecomp-phase17-pass",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:tree-matches",
+      "detail": "certified tree",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:branch-name",
+      "detail": "phase18 branch",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:phase1-17-untouched",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "control:CONTROL_POLICY.md",
+      "detail": "CONTROL_POLICY.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:SCOPE.md",
+      "detail": "SCOPE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:STAGE_QUEUE.md",
+      "detail": "STAGE_QUEUE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:EVIDENCE_SCHEMA.md",
+      "detail": "EVIDENCE_SCHEMA.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:FIXTURE_POLICY.md",
+      "detail": "FIXTURE_POLICY.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:STATE.md",
+      "detail": "STATE.md",
+      "status": "PASS"
+    },
+    {
+      "check": "control:HANDOFF.md",
+      "detail": "HANDOFF.md",
+      "status": "PASS"
+    },
+    {
+      "check": "dir:src",
+      "detail": "src",
+      "status": "PASS"
+    },
+    {
+      "check": "dir:evidence",
+      "detail": "evidence",
+      "status": "PASS"
+    },
+    {
+      "check": "dir:build",
+      "detail": "build",
+      "status": "PASS"
+    },
+    {
+      "check": "dir:scratch",
+      "detail": "scratch",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-exists",
+      "detail": "bin",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-hash",
+      "detail": "2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-exists",
+      "detail": "cue",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-hash",
+      "detail": "beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:slus-exists",
+      "detail": "slus",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:slus-hash",
+      "detail": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "status": "PASS"
+    },
+    {
+      "check": "private:no-fixture-bytes-tracked",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:import-present",
+      "detail": "imported reconnaissance located",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:reference-only",
+      "detail": "import evidence policy",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:transcript-digest",
+      "detail": "P17-06R transcript digest",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:gpustat-poll-encountered",
+      "detail": "zero-returning GPUSTAT poll",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-gpu-writes",
+      "detail": "no GP0 traffic recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-dma2-traffic",
+      "detail": "no DMA-2 traffic recorded",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-marker-promotion",
+      "detail": "analysis promotes nothing",
+      "status": "PASS"
+    },
+    {
+      "check": "markers:phase18-initialization",
+      "detail": "created",
+      "status": "PASS"
+    },
+    {
+      "check": "markers:no-phase17-reuse",
+      "detail": "distinct namespace",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:authority-wrong-commit",
+      "detail": "wrong certified commit rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:transcript-digest-mismatch",
+      "detail": "digest mismatch rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:frontier-promotion-blocked",
+      "detail": "promotion attempt cannot set frame ready",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:inflated-gpustat-census",
+      "detail": "altered owner census detected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:fixture-absent",
+      "detail": "missing fixture rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:private-path-safety",
+      "detail": "{\"/Users/example/private/location\": {\"rejected\": true}, \"/home/fred/private/location\": {\"rejected\": true}, \"/tmp/private-fixture\": {\"rejected\": true}, \"C:\\\\private\\\\fixture\": {\"rejected\": true}}",
+      "status": "PASS"
+    },
+    {
+      "check": "positive:safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "recon:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_plan:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_plan:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_plan:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_plan:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_plan:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_plan:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P18-00 Test Results",
+  "schema": "openrecomp-phase18-tests-v1",
+  "stage": "P18-00",
+  "summary": {
+    "failed": 0,
+    "passed": 64
+  }
+}

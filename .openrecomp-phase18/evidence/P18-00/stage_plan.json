@@ -1,0 +1,24 @@
+{
+  "admitted_stages": [
+    "P18-00"
+  ],
+  "conceptual_progression": [
+    "P18-00",
+    "P18-01",
+    "P18-02",
+    "P18-03",
+    "P18-04",
+    "P18-05",
+    "P18-06",
+    "P18-07",
+    "P18-90",
+    "P18-91",
+    "P18-99"
+  ],
+  "hypothesis_status": "HYPOTHESIS_NOT_YET_PROVEN",
+  "leading_hypothesis": "Under the declared ZERO_FILL_RECORDED MMIO read model every GPUSTAT read returns zero, so the guest's poll exit condition (bit 26 ready-to-receive-command == 1) can never be evaluated true and authentic execution cannot leave the wait loop.",
+  "next_stage": "P18-01",
+  "primary_technical_question": "Why does authentic execution remain in the GPUSTAT polling behaviour observed at the end of Phase 17?",
+  "schema": "openrecomp-phase18-stage-plan-v1",
+  "stage": "P18-00"
+}

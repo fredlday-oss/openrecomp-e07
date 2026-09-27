@@ -1,0 +1,71 @@
+PASS: integrity:phase18-sources OPENRECOMP_PHASE18_SOURCE_INTEGRITY=PASS entries=9
+PASS: authority:phase17-frozen authority-ok
+PASS: authority:tag-resolves openrecomp-phase17-pass
+PASS: authority:tree-matches certified tree
+PASS: authority:branch-name phase18 branch
+PASS: frozen:phase1-17-untouched
+PASS: control:CONTROL_POLICY.md CONTROL_POLICY.md
+PASS: control:SCOPE.md SCOPE.md
+PASS: control:STAGE_QUEUE.md STAGE_QUEUE.md
+PASS: control:EVIDENCE_SCHEMA.md EVIDENCE_SCHEMA.md
+PASS: control:FIXTURE_POLICY.md FIXTURE_POLICY.md
+PASS: control:STATE.md STATE.md
+PASS: control:HANDOFF.md HANDOFF.md
+PASS: dir:src src
+PASS: dir:evidence evidence
+PASS: dir:build build
+PASS: dir:scratch scratch
+PASS: fixture:bin-exists bin
+PASS: fixture:bin-hash 2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365
+PASS: fixture:cue-exists cue
+PASS: fixture:cue-hash beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2
+PASS: fixture:slus-exists slus
+PASS: fixture:slus-hash c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f
+PASS: private:no-fixture-bytes-tracked
+PASS: recon:import-present imported reconnaissance located
+PASS: recon:reference-only import evidence policy
+PASS: frontier:transcript-digest P17-06R transcript digest
+PASS: frontier:gpustat-poll-encountered zero-returning GPUSTAT poll
+PASS: frontier:no-gpu-writes no GP0 traffic recorded
+PASS: frontier:no-dma2-traffic no DMA-2 traffic recorded
+PASS: frontier:no-marker-promotion analysis promotes nothing
+PASS: markers:phase18-initialization created
+PASS: markers:no-phase17-reuse distinct namespace
+PASS: negative:authority-wrong-commit wrong certified commit rejected
+PASS: negative:transcript-digest-mismatch digest mismatch rejected
+PASS: negative:frontier-promotion-blocked promotion attempt cannot set frame ready
+PASS: negative:inflated-gpustat-census altered owner census detected
+PASS: negative:fixture-absent missing fixture rejected
+PASS: negative:private-path-safety {"/Users/example/private/location": {"rejected": true}, "/home/fred/private/location": {"rejected": true}, "/tmp/private-fixture": {"rejected": true}, "C:\\private\\fixture": {"rejected": true}}
+PASS: positive:safe-relative-path ordinary public-safe relative path accepted
+PASS: authority:no-private-path absolute private paths absent
+PASS: authority:reject-private-paths no private paths in values
+PASS: authority:no-import-private-paths no import paths
+PASS: authority:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: authority:no-payload-hex no payload supplied
+PASS: authority:no-raw-words reconstructive fields absent
+PASS: recon:no-private-path absolute private paths absent
+PASS: recon:reject-private-paths no private paths in values
+PASS: recon:no-import-private-paths no import paths
+PASS: recon:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: recon:no-payload-hex no payload supplied
+PASS: recon:no-raw-words reconstructive fields absent
+PASS: frontier:no-private-path absolute private paths absent
+PASS: frontier:reject-private-paths no private paths in values
+PASS: frontier:no-import-private-paths no import paths
+PASS: frontier:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: frontier:no-payload-hex no payload supplied
+PASS: frontier:no-raw-words reconstructive fields absent
+PASS: stage_plan:no-private-path absolute private paths absent
+PASS: stage_plan:reject-private-paths no private paths in values
+PASS: stage_plan:no-import-private-paths no import paths
+PASS: stage_plan:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: stage_plan:no-payload-hex no payload supplied
+PASS: stage_plan:no-raw-words reconstructive fields absent
+OPENRECOMP_P18_00=PASS
+OPENRECOMP_PHASE18_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+FIRST_FRAME_READY=NO
+P18-00_CHECKS=64

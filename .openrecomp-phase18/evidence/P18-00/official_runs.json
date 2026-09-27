@@ -1,0 +1,95 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "edc35d029dd8361db28702c46a8b83640eda13b489a757578bf379756b3d5d6d",
+    "authority.json": "6fbea93141462a0b7669e2125ff0a84ad63829362789275e540ec114ac6f613c",
+    "fixture_verification.json": "6fb6962e5838ae2cfebc349c01986e6ddc753b8d4c8470f42e56ebccdd7a3688",
+    "frontier_analysis.json": "8ef8a3f14261ea1f693921cdc77e438c514793356659468a20657832dfb2b97c",
+    "negative_tests.json": "61bfaa8e11c5b629474a6303a7156c7ea5d720d1a48a1589643a69a625f25b1a",
+    "p18_00_tests.json": "b643d8fc9fdc07032ae6cac0b666a54576882f0128d0a6556ba53f7f9c243236",
+    "recon_inventory.json": "8e781d57726334fdf7ac17d3ea73b81d06eb4c497f266c41a14ea4a2db9e7c4b",
+    "stage_plan.json": "1040072ec5b53dc70e5534d845e4024ee7d3d1332b599517fe97524b93c319ce"
+  },
+  "identical_lf": true,
+  "identical_raw": true,
+  "markers_present_both": true,
+  "next_stage": "P18-01",
+  "returncode_zero_both": true,
+  "runs": [
+    {
+      "artifact_sha256": {
+        "RESULT.json": "edc35d029dd8361db28702c46a8b83640eda13b489a757578bf379756b3d5d6d",
+        "authority.json": "6fbea93141462a0b7669e2125ff0a84ad63829362789275e540ec114ac6f613c",
+        "fixture_verification.json": "6fb6962e5838ae2cfebc349c01986e6ddc753b8d4c8470f42e56ebccdd7a3688",
+        "frontier_analysis.json": "8ef8a3f14261ea1f693921cdc77e438c514793356659468a20657832dfb2b97c",
+        "negative_tests.json": "61bfaa8e11c5b629474a6303a7156c7ea5d720d1a48a1589643a69a625f25b1a",
+        "p18_00_tests.json": "b643d8fc9fdc07032ae6cac0b666a54576882f0128d0a6556ba53f7f9c243236",
+        "recon_inventory.json": "8e781d57726334fdf7ac17d3ea73b81d06eb4c497f266c41a14ea4a2db9e7c4b",
+        "stage_plan.json": "1040072ec5b53dc70e5534d845e4024ee7d3d1332b599517fe97524b93c319ce"
+      },
+      "command": [
+        "python",
+        "tools/test_phase18_bootstrap_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase18/evidence/P18-00"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P18_00=PASS",
+        "OPENRECOMP_PHASE18_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE18_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE18_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE18_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run1",
+      "p18_00_tests_sha256": "b643d8fc9fdc07032ae6cac0b666a54576882f0128d0a6556ba53f7f9c243236",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 4014,
+      "stdout_bytes_lf": 4014,
+      "stdout_sha256_lf": "9ec2fe6a09654803891623e53d4148556712e8eb12e98dee2634e228fd0552ba",
+      "stdout_sha256_raw": "9ec2fe6a09654803891623e53d4148556712e8eb12e98dee2634e228fd0552ba",
+      "tests_json_present": true
+    },
+    {
+      "artifact_sha256": {
+        "RESULT.json": "edc35d029dd8361db28702c46a8b83640eda13b489a757578bf379756b3d5d6d",
+        "authority.json": "6fbea93141462a0b7669e2125ff0a84ad63829362789275e540ec114ac6f613c",
+        "fixture_verification.json": "6fb6962e5838ae2cfebc349c01986e6ddc753b8d4c8470f42e56ebccdd7a3688",
+        "frontier_analysis.json": "8ef8a3f14261ea1f693921cdc77e438c514793356659468a20657832dfb2b97c",
+        "negative_tests.json": "61bfaa8e11c5b629474a6303a7156c7ea5d720d1a48a1589643a69a625f25b1a",
+        "p18_00_tests.json": "b643d8fc9fdc07032ae6cac0b666a54576882f0128d0a6556ba53f7f9c243236",
+        "recon_inventory.json": "8e781d57726334fdf7ac17d3ea73b81d06eb4c497f266c41a14ea4a2db9e7c4b",
+        "stage_plan.json": "1040072ec5b53dc70e5534d845e4024ee7d3d1332b599517fe97524b93c319ce"
+      },
+      "command": [
+        "python",
+        "tools/test_phase18_bootstrap_v1.py",
+        "--evidence-dir",
+        ".openrecomp-phase18/evidence/P18-00"
+      ],
+      "fail_lines": [],
+      "markers": [
+        "OPENRECOMP_P18_00=PASS",
+        "OPENRECOMP_PHASE18_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE18_HERCULES_FRAME_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE18_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN",
+        "OPENRECOMP_PHASE18_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN"
+      ],
+      "name": "run2",
+      "p18_00_tests_sha256": "b643d8fc9fdc07032ae6cac0b666a54576882f0128d0a6556ba53f7f9c243236",
+      "returncode": 0,
+      "stderr_bytes": 0,
+      "stderr_empty": true,
+      "stdout_bytes": 4014,
+      "stdout_bytes_lf": 4014,
+      "stdout_sha256_lf": "9ec2fe6a09654803891623e53d4148556712e8eb12e98dee2634e228fd0552ba",
+      "stdout_sha256_raw": "9ec2fe6a09654803891623e53d4148556712e8eb12e98dee2634e228fd0552ba",
+      "tests_json_present": true
+    }
+  ],
+  "schema": "openrecomp-phase18-official-runs-v1",
+  "stage": "P18-00",
+  "stderr_empty_both": true,
+  "tests_json_present_both": true
+}
