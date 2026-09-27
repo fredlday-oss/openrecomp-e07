@@ -20,6 +20,12 @@ GPUSTAT polling frontier from the committed P17-06R transcript.
 Author and execute `P18-01` (GPUSTAT polling model investigation). Author the
 stage contract before claiming the stage complete. Do NOT begin Phase 19.
 
+## Controller closure — P18-00
+- Decision: ACCEPT and INTEGRATE. Committed at `d6bf3ad24596a4483f4a93e71bd4a9e42d102a45` (tree `451ce3f7241ac4052907d7daff84617e03959edc`).
+- Independent controller verification: official gate `P18-00_CHECKS=64` zero FAIL; dual-run stage runner `runner_status=PASS` with byte-identical stdout and artifacts; fresh-root (`/tmp/p18-00-fresh-*`) reproduction byte-identical to the committed evidence.
+- Defect found and repaired fail-closed: `analyse()` accepted an arbitrary digest; repaired to raise `TRANSCRIPT_DIGEST_MISMATCH` unless the digest equals the recorded P17-06R transcript digest.
+- P18-00 promotes no proof marker. `FIRST_FRAME_READY=NO`; Phase-18 claim markers all `NOT_PROVEN`.
+
 ## Exact handoff checkpoint
 - next_stage: P18-01
 - The binding frontier constraint is recorded in

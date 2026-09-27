@@ -24,13 +24,13 @@
 
 ## Current Stage
 - CURRENT_STAGE: P18-00
-- LAST_COMPLETED_STAGE: (pending commit) P18-00 Phase-18 bootstrap
+- LAST_COMPLETED_STAGE: P18-00 Phase-18 bootstrap (commit `d6bf3ad24596a4483f4a93e71bd4a9e42d102a45`, tree `451ce3f7241ac4052907d7daff84617e03959edc`; controller reviewed and integrated)
 - NEXT_STAGE: P18-01
 - FINAL_VERDICT: (not terminal)
 - REVIEW_GATE: open; no REVIEW_REQUIRED stop raised by P18-00.
 
 ## P18-00 authoritative metadata (bootstrap / authority / provenance)
-- STATUS: PASS (see `evidence/P18-00/RESULT.json`)
+- STATUS: PASS (controller reviewed and INTEGRATED; see `evidence/P18-00/CONTROLLER_REVIEW.md`)
 - authority_commit: `d7cc5d09eebde398ca6ff3f3dad8dd5841913b69`
 - authority_tree: `ad3aa822e5a02905ebc25477f7b6c69d0bffa055`
 - establishes: Phase-17 tag/commit/tree re-verified from live Git; HEAD descends
