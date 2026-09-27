@@ -19,11 +19,27 @@
 
 ## Current Stage
 - CURRENT_STAGE: P17-99
-- LAST_COMPLETED_STAGE: P17-99 (terminal Phase-17 closure; worker candidate under review, then integrated by the controller)
+- LAST_COMPLETED_STAGE: P17-99 (terminal Phase-17 closure; worker candidate `8886f2d2e07f903cddb9c5ae6aade9bfe956dbde`, controller reviewed and INTEGRATED into the branch)
 - NEXT_STAGE: NONE (Phase 17 terminally closed; Phase 18 not started)
 - next_stage: NONE
 - FINAL_VERDICT: PASS_BOUNDED_CHECKED_DEVICE_FRONTIER
 - REVIEW_GATE: terminally closed at P17-99. P17-04R Revision 4, P17-05R, P17-06R, P17-07R, P17-90 and P17-91 were each independently re-verified and integrated; see REVIEW_REQUIRED_TERMINAL_STATE=RETIRED in `.openrecomp-phase17/REVIEW_REQUIRED.md` and the per-stage `CONTROLLER_REVIEW.md` documents. No stale review stop remains.
+
+## P17-99 authoritative metadata (terminal Phase-17 closure)
+- STATUS: PASS (controller reviewed and INTEGRATED; see `evidence/P17-99/CONTROLLER_REVIEW.md`)
+- base_commit: b1bace7c6c39403c49b9168a880082b91b168553
+- base_tree: 920e3b785fda92d027f783ee50b82d578e82c01a
+- worker_branch: agent/deepseek-phase17-p17-99-r1
+- resulting_candidate_commit: 8886f2d2e07f903cddb9c5ae6aade9bfe956dbde
+- resulting_candidate_commit_resolver: git rev-parse agent/deepseek-phase17-p17-99-r1
+- resulting_candidate_tree: 1770c180e275709d5544e1edc2b538f3a373e5a7
+- canonical terminal marker: `OPENRECOMP_PHASE17_TERMINAL_V1=PASS` (with stage marker `OPENRECOMP_P17_99=PASS`); the mission's expected token was not previously defined anywhere in the repository or its history, so it is adopted as the Phase-17-family terminal token with that provenance recorded (see the controller review).
+- gate: `python3 .openrecomp-phase17/src/p17_stage_runner_v1.py --stage P17-99 --script tools/test_phase17_terminal_closure_v1.py --evidence-dir .openrecomp-phase17/evidence/P17-99 --tests-json p17_99_tests.json`
+- checks: 105 PASS, 0 FAIL (`P17-99_CHECKS=105`); dual runs exit 0, empty stderr, stdout byte-identical; `sha256(run1.txt)=92087d57b37b8136e56acf966d619395426c05e02b30ee4b335a1d22cdcc03e8`; `gate_sha256=8a58552ca2ec29cdb584189318806bb9db0e4b774f9fe4b34508d3a9c1aa2116`
+- controller_verification: independent fresh-root (`/tmp/p17-99-controller-fresh2-*`) dual runs byte-identical run-to-run and to the committed evidence (22-file directory `diff -rq` empty); review worktree clean. No proof marker promoted.
+- establishes: ten chained stages PASS with required markers; 16 frozen prior-phase trees byte-identical to the Phase-16 baseline and no commit touching them; certified provenance chain intact; 43-entry source manifest exact; marker ledger un-promoted; historical P17-04..P17-07 review stop retired (`REVIEW_REQUIRED_TERMINAL_STATE=RETIRED`); exact certified-authority HEAD/tree binding with live HEAD a descendant; clean marker syntax; 155-document public-safety scan clean; cited terminal evidence (P17-06R transcript `d7e222c8…`, 8340 digests) re-verified; 10 terminal negative controls all fail closed.
+- proof boundaries unchanged: initialization/frame/playability/general compatibility remain NOT_PROVEN; `FIRST_FRAME_READY=NO`
+- next_stage: NONE; `PHASE18_STARTED=NO`
 
 ## P17-07R authoritative metadata (checked device-frontier assessment)
 - STATUS: PASS (controller reviewed and INTEGRATED; see `evidence/P17-07R/CONTROLLER_REVIEW.md`)
