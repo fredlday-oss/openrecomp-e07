@@ -1544,17 +1544,6 @@
       "unallowlisted_path_hit_count": 0
     }
   ],
-  "review_document_findings": [
-    {
-      "document": "P17-90/CONTROLLER_REVIEW.md",
-      "forbidden_key_hits": [],
-      "private_path_hit_count": 2,
-      "private_path_label_hits": [
-        "unix-home-user-path"
-      ],
-      "reason": "Controller-authored review prose, committed by the controller; outside the P17-91 write scope and must not be modified by this stage. Surfaced for controller attention.",
-      "severity": "REPORTED_NOT_GATING"
-    }
-  ],
+  "review_document_findings": [],
   "schema": "openrecomp-phase17-public-safety-v1"
 }

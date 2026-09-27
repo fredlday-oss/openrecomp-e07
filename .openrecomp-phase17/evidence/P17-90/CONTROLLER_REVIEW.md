@@ -11,7 +11,7 @@ Candidate: `53528956b3276e8bc3f954dc141049bb7ab7c74b` (1 commit atop
 - The previously reported stale-evidence digest mismatch was resolved *before*
   commit: the manifest expectation `93d1f52d…` was updated to the actual test
   digest `5e050648…`, evidence was regenerated, and the old copies were moved to
-  `/home/fred/OpenRecomp/.p17-preserve/P17-90-stale-evidence/` rather than
+  a preserve directory outside the repository rather than
   deleted. The expected authority `c784fc7` is intact and unmodified.
 
 ## 2. Independent reproduction
@@ -115,7 +115,7 @@ committed per-region  : {mainexe: 1345, title: 6995, total: 8340}
 ```
 
 This is real re-derivation from the fixture at
-`/home/fred/OpenRecomp/fixtures/psx/hercules`, not a digest comparison.
+the read-only private fixture root, not a digest comparison.
 
 ## 6. Proof boundaries — unchanged, and that is the point
 

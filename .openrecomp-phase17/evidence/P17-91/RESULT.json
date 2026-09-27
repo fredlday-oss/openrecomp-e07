@@ -2,18 +2,7 @@
   "base_commit": "724d3d4c8ff9a58702d05a5f5fb7aaf503bf5649",
   "dual_run_stages_audited": 12,
   "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
-  "findings": [
-    {
-      "document": "P17-90/CONTROLLER_REVIEW.md",
-      "forbidden_key_hits": [],
-      "private_path_hit_count": 2,
-      "private_path_label_hits": [
-        "unix-home-user-path"
-      ],
-      "reason": "Controller-authored review prose, committed by the controller; outside the P17-91 write scope and must not be modified by this stage. Surfaced for controller attention.",
-      "severity": "REPORTED_NOT_GATING"
-    }
-  ],
+  "findings": [],
   "manifest_entry_count": 41,
   "markers": {
     "FIRST_FRAME_READY": "NO",
@@ -46,9 +35,7 @@
     "P17-07/run2.txt"
   ],
   "public_safety_documents_scanned": 137,
-  "public_safety_review_document_findings": [
-    "P17-90/CONTROLLER_REVIEW.md"
-  ],
+  "public_safety_review_document_findings": [],
   "resulting_candidate_commit": "PENDING_FINAL_COMMIT",
   "resulting_candidate_commit_resolver": "git rev-parse agent/deepseek-phase17-p17-91-r1",
   "schema": "openrecomp-phase17-result-v1",
