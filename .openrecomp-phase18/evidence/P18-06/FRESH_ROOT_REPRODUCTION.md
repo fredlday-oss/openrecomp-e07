@@ -8,7 +8,7 @@ from scratch, and the stage is re-run against a clean evidence directory.
 
 ## Procedure
 ```
-FRESH=/home/fred/OpenRecomp/private-build/phase18/P18-06-fresh-root
+FRESH=<private-build-root>/phase18/P18-06-fresh-root
 rm -rf "$FRESH"                       # asserted absent before the run
 OPENRECOMP_P18_PRIVATE_BUILD_ROOT_06="$FRESH" \
   python3 tools/test_phase18_vram_display_v1.py \

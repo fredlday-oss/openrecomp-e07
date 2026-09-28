@@ -75,7 +75,8 @@ model for the exact bit the authentic guest tests.
   path, tap and classifier are genuine, so "unreached" is a real frontier state
   and not a missing implementation.
 - Unknown command words classify `UNKNOWN` and are never treated as a no-op.
-- Frontier digest `297a549350e89c4fdf765353c7cf6ff9a1f9a0e563c8c62b02a33677943be58b`.
+- Worker (pre-repair) frontier digest `297a5493...be58b`; superseded by the
+  controller repair recorded in the recovery note below.
 - Worker dev gate: 64/64 checks PASS (single run).  Controller dual-gate
   integration and fresh-root reproduction remain the controller's step.
 - Promotes no proof marker. `FIRST_FRAME_READY=NO`; Phase-18 claims NOT_PROVEN.
@@ -85,7 +86,8 @@ model for the exact bit the authentic guest tests.
 - GPU command frontier established as UNREACHED: the authentic continuation
   reaches device traffic but zero GP0/GP1 writes. Controller dual gate PASS
   (64/64) and fresh-root reproduction byte-identical; frontier digest
-  `297a549350e89c4fdf765353c7cf6ff9a1f9a0e563c8c62b02a33677943be58b`.
+  `a009003b644122a011a4a53a9ceeae1d2e4a560a462fc28ef2c3ac9dd4b2bfe9`
+  (repaired from the invalid pre-repair artifact `297a5493...be58b`).
 
 ## P18-05 result
 
@@ -172,7 +174,27 @@ preserved everything, then:
 - Assessment digest `85ceec185a8f5a1fafb859f7fa32d81b57e21d4da9397f99dde11dec0818ba6f`.
 - Promotes no proof marker; Phase-18 claims remain NOT_PROVEN.
 
+## P18-90 result (integrated regression)
+
+- Read-only integrated audit over the certified P18-00..P18-07 corpus: source
+  manifest exactness (27 entries, all digests verify); evidence closure and
+  stage/next_stage agreement against the frozen authority commit; the repaired
+  P18-04 authority is in use (frontier JSON digests match the recorded
+  `.sha256` and the P18-07 consumer); no stale pre-repair digest `297a5493...be58b`
+  survives as authority; Phase 1..17 namespaces untouched; marker ledger with no
+  promotion; 14 fail-closed negative controls.
+- Recovery repairs: corrected the `STATE.md`/`HANDOFF.md` lines that still
+  presented the pre-repair P18-04 digest as current authority, and added the
+  control-document, stale-digest and revalidation audits to the gate.
+- Gate `P18-90_CHECKS=142` PASS; authoritative dual-run runner PASS (identical
+  raw/LF stdout, empty stderr both, byte-identical artifacts); fresh-private-root
+  reproduction byte-identical on every semantic artifact (only the runner's own
+  self-recorded output path differs, non-semantic).
+- Promotes no proof marker. `FIRST_FRAME_READY=NO`; Phase-18 claims NOT_PROVEN.
+- See `evidence/P18-90/CONTROLLER_REVIEW.md` and
+  `evidence/P18-90/FRESH_ROOT_REPRODUCTION.md`.
+
 ## Next Action
-Controller: author and execute `P18-90` (integrated regression), then P18-91
-(independent reproduction), then P18-99 (terminal closure).
+Controller: author and execute `P18-91` (independent reproduction), then P18-99
+(terminal closure).
 Do NOT begin Phase 19.

@@ -35,10 +35,10 @@
   changed); P18-06 produced zero diff.
 
 ## Current Stage
-- CURRENT_STAGE: P18-07
-- LAST_COMPLETED_STAGE: P18-07 First-frame assessment (controller authored,
+- CURRENT_STAGE: P18-90
+- LAST_COMPLETED_STAGE: P18-90 Integrated regression (controller reviewed,
   dual-gated, fresh-root reproduced)
-- NEXT_STAGE: P18-90
+- NEXT_STAGE: P18-91
 - FINAL_VERDICT: (not terminal)
 - REVIEW_GATE: open.
 
@@ -111,7 +111,9 @@
   genuine and the frontier is a genuine unreached state, not a missing path.
 - GP0/GP1 explicitly listed `NOT_REACHED`; unknown command words classify
   `UNKNOWN` (never a no-op); all fail-closed controls pass.
-- frontier digest `297a549350e89c4fdf765353c7cf6ff9a1f9a0e563c8c62b02a33677943be58b`.
+- frontier digest `a009003b644122a011a4a53a9ceeae1d2e4a560a462fc28ef2c3ac9dd4b2bfe9`
+  (repaired by the P18-04 recovery commit; the pre-repair value `297a5493...be58b` was
+  not valid JSON and was superseded).
 - promotes no proof marker (FIRST_FRAME_READY=NO; Phase-18 claims NOT_PROVEN).
 - next_stage: P18-05
 
@@ -202,6 +204,30 @@
 - promotes no proof marker (FIRST_FRAME_READY=NO; Phase-18 claims NOT_PROVEN).
 - next_stage: P18-90
 
+## P18-90 authoritative metadata (integrated regression)
+- STATUS: PASS (controller recovered, reviewed and completed the in-flight work;
+  see `evidence/P18-90/CONTROLLER_REVIEW.md` and
+  `evidence/P18-90/FRESH_ROOT_REPRODUCTION.md`)
+- authority_commit: `d7cc5d09eebde398ca6ff3f3dad8dd5841913b69`
+- authority_tree: `ad3aa822e5a02905ebc25477f7b6c69d0bffa055`
+- read-only integrated audit over the certified P18-00..P18-07 corpus: source
+  manifest exactness (27 entries, all digests verify); evidence closure and
+  stage/next_stage agreement; repaired P18-04 authority in use (frontier JSON
+  digests match the recorded `.sha256` and the P18-07 consumer); no stale
+  pre-repair digest `297a5493...be58b` surviving as authority; frozen Phase 1..17
+  namespaces untouched; marker ledger with no promotion; 14 fail-closed negative
+  controls.
+- repairs made during recovery: corrected `STATE.md`/`HANDOFF.md` lines that
+  still presented the pre-repair P18-04 digest as current authority; added the
+  control-document, stale-digest and revalidation audits (with negative controls)
+  to the regression gate.
+- gate: `P18-90_CHECKS=142` PASS; authoritative dual-run runner PASS (identical
+  raw/LF stdout, empty stderr both, byte-identical artifacts); fresh-private-root
+  reproduction byte-identical on every semantic artifact (only the runner's own
+  self-recorded output path differs, non-semantic).
+- promotes no proof marker (FIRST_FRAME_READY=NO; Phase-18 claims NOT_PROVEN).
+- next_stage: P18-91
+
 ## Stage Status
 | Stage | Status | Marker |
 |---|---|---|
@@ -213,3 +239,4 @@
 | P18-05 | PASS (revalidated) | `OPENRECOMP_P18_05=PASS` |
 | P18-06 | PASS (revalidated) | `OPENRECOMP_P18_06=PASS` |
 | P18-07 | PASS | `OPENRECOMP_P18_07=PASS` |
+| P18-90 | PASS | `OPENRECOMP_P18_90=PASS` |

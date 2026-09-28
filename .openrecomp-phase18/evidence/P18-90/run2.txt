@@ -1,0 +1,158 @@
+PASS: integrity:phase18-sources OPENRECOMP_PHASE18_SOURCE_INTEGRITY=PASS entries=27
+PASS: next-stage:declared-constant
+PASS: manifest_audit:no-private-path absolute private paths absent
+PASS: manifest_audit:reject-private-paths no private paths in values
+PASS: manifest_audit:no-import-private-paths no import paths
+PASS: manifest_audit:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: manifest_audit:no-payload-hex no payload supplied
+PASS: manifest_audit:no-raw-words reconstructive fields absent
+PASS: manifest:no-parse-errors []
+PASS: manifest:no-missing-entries []
+PASS: manifest:no-extra-entries []
+PASS: manifest:no-duplicates []
+PASS: manifest:all-digests-verify []
+PASS: manifest:counts-consistent {"entries": 27, "expected": 27}
+PASS: closure:no-private-path absolute private paths absent
+PASS: closure:reject-private-paths no private paths in values
+PASS: closure:no-import-private-paths no import paths
+PASS: closure:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: closure:no-payload-hex no payload supplied
+PASS: closure:no-raw-words reconstructive fields absent
+PASS: closure:all-stage-dirs-present {"checked": 8}
+PASS: closure:P18-00:documents-present []
+PASS: closure:P18-00:result-schema openrecomp-phase18-result-v1
+PASS: closure:P18-00:result-status-pass PASS
+PASS: closure:P18-00:result-stage-agrees P18-00
+PASS: closure:P18-00:next-stage-agrees {"declared": "P18-01", "result": "P18-01"}
+PASS: closure:P18-00:authority-commit d7cc5d09eebde398ca6ff3f3dad8dd5841913b69
+PASS: closure:P18-01:documents-present []
+PASS: closure:P18-01:result-schema openrecomp-phase18-result-v1
+PASS: closure:P18-01:result-status-pass PASS
+PASS: closure:P18-01:result-stage-agrees P18-01
+PASS: closure:P18-01:next-stage-agrees {"declared": "P18-02", "result": "P18-02"}
+PASS: closure:P18-01:authority-commit d7cc5d09eebde398ca6ff3f3dad8dd5841913b69
+PASS: closure:P18-02:documents-present []
+PASS: closure:P18-02:result-schema openrecomp-phase18-result-v1
+PASS: closure:P18-02:result-status-pass PASS
+PASS: closure:P18-02:result-stage-agrees P18-02
+PASS: closure:P18-02:next-stage-agrees {"declared": "P18-03", "result": "P18-03"}
+PASS: closure:P18-02:authority-commit d7cc5d09eebde398ca6ff3f3dad8dd5841913b69
+PASS: closure:P18-03:documents-present []
+PASS: closure:P18-03:result-schema openrecomp-phase18-result-v1
+PASS: closure:P18-03:result-status-pass PASS
+PASS: closure:P18-03:result-stage-agrees P18-03
+PASS: closure:P18-03:next-stage-agrees {"declared": "P18-04", "result": "P18-04"}
+PASS: closure:P18-03:authority-commit d7cc5d09eebde398ca6ff3f3dad8dd5841913b69
+PASS: closure:P18-04:documents-present []
+PASS: closure:P18-04:result-schema openrecomp-phase18-result-v1
+PASS: closure:P18-04:result-status-pass PASS
+PASS: closure:P18-04:result-stage-agrees P18-04
+PASS: closure:P18-04:next-stage-agrees {"declared": "P18-05", "result": "P18-05"}
+PASS: closure:P18-04:authority-commit d7cc5d09eebde398ca6ff3f3dad8dd5841913b69
+PASS: closure:P18-05:documents-present []
+PASS: closure:P18-05:result-schema openrecomp-phase18-result-v1
+PASS: closure:P18-05:result-status-pass PASS
+PASS: closure:P18-05:result-stage-agrees P18-05
+PASS: closure:P18-05:next-stage-agrees {"declared": "P18-06", "result": "P18-06"}
+PASS: closure:P18-05:authority-commit d7cc5d09eebde398ca6ff3f3dad8dd5841913b69
+PASS: closure:P18-06:documents-present []
+PASS: closure:P18-06:result-schema openrecomp-phase18-result-v1
+PASS: closure:P18-06:result-status-pass PASS
+PASS: closure:P18-06:result-stage-agrees P18-06
+PASS: closure:P18-06:next-stage-agrees {"declared": "P18-07", "result": "P18-07"}
+PASS: closure:P18-06:authority-commit d7cc5d09eebde398ca6ff3f3dad8dd5841913b69
+PASS: closure:P18-07:documents-present []
+PASS: closure:P18-07:result-schema openrecomp-phase18-result-v1
+PASS: closure:P18-07:result-status-pass PASS
+PASS: closure:P18-07:result-stage-agrees P18-07
+PASS: closure:P18-07:next-stage-agrees {"declared": "P18-90", "result": "P18-90"}
+PASS: closure:P18-07:authority-commit d7cc5d09eebde398ca6ff3f3dad8dd5841913b69
+PASS: frozen_phase17:no-private-path absolute private paths absent
+PASS: frozen_phase17:reject-private-paths no private paths in values
+PASS: frozen_phase17:no-import-private-paths no import paths
+PASS: frozen_phase17:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: frozen_phase17:no-payload-hex no payload supplied
+PASS: frozen_phase17:no-raw-words reconstructive fields absent
+PASS: frozen:phase1-17-untouched {"changed": [], "dirty": []}
+PASS: frozen:tag-resolves-to-terminal
+PASS: marker_ledger:no-private-path absolute private paths absent
+PASS: marker_ledger:reject-private-paths no private paths in values
+PASS: marker_ledger:no-import-private-paths no import paths
+PASS: marker_ledger:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: marker_ledger:no-payload-hex no payload supplied
+PASS: marker_ledger:no-raw-words reconstructive fields absent
+PASS: markers:no-promotions []
+PASS: frontier_digests:no-private-path absolute private paths absent
+PASS: frontier_digests:reject-private-paths no private paths in values
+PASS: frontier_digests:no-import-private-paths no import paths
+PASS: frontier_digests:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: frontier_digests:no-payload-hex no payload supplied
+PASS: frontier_digests:no-raw-words reconstructive fields absent
+PASS: frontiers:all-digests-coherent [{"actual": "a009003b644122a011a4a53a9ceeae1d2e4a560a462fc28ef2c3ac9dd4b2bfe9", "expected": "a009003b644122a011a4a53a9ceeae1d2e4a560a462fc28ef2c3ac9dd4b2bfe9", "ok": true, "recorded": "a009003b644122a011a4a53a9ceeae1d2e4a560a462fc28ef2c3ac9dd4b2bfe9", "stage": "P18-04"}, {"actual": "f0251b43b8d60ac8c101df71d59cd28441615e1ab58c7036dce98933450fa5c1", "expected": "f0251b43b8d60ac8c101df71d59cd28441615e1ab58c7036dce98933450fa5c1", "ok": true, "recorded": "f0251b43b8d60ac8c101df71d59cd28441615e1ab58c7036dce98933450fa5c1", "stage": "P18-05"}, {"actual": "2848c231c0351638485931e8dfd064abf7ba990d7a9fab178c3730d94e084e5e", "expected": "2848c231c0351638485931e8dfd064abf7ba990d7a9fab178c3730d94e084e5e", "ok": true, "recorded": "2848c231c0351638485931e8dfd064abf7ba990d7a9fab178c3730d94e084e5e", "stage": "P18-06"}]
+PASS: frontiers:consumer-agrees:P18-04/gpu_command_frontier.json a009003b644122a011a4a53a9ceeae1d2e4a560a462fc28ef2c3ac9dd4b2bfe9
+PASS: frontiers:consumer-agrees:P18-05/dma_frontier.json f0251b43b8d60ac8c101df71d59cd28441615e1ab58c7036dce98933450fa5c1
+PASS: frontiers:consumer-agrees:P18-06/vram_display.json 2848c231c0351638485931e8dfd064abf7ba990d7a9fab178c3730d94e084e5e
+PASS: control_documents:no-private-path absolute private paths absent
+PASS: control_documents:reject-private-paths no private paths in values
+PASS: control_documents:no-import-private-paths no import paths
+PASS: control_documents:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: control_documents:no-payload-hex no payload supplied
+PASS: control_documents:no-raw-words reconstructive fields absent
+PASS: control-docs:present []
+PASS: control-docs:stage-status-agree []
+PASS: control-docs:markers-unpromoted []
+PASS: control-docs:next-stage-agree []
+PASS: stale_digest:no-private-path absolute private paths absent
+PASS: stale_digest:reject-private-paths no private paths in values
+PASS: stale_digest:no-import-private-paths no import paths
+PASS: stale_digest:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: stale_digest:no-payload-hex no payload supplied
+PASS: stale_digest:no-raw-words reconstructive fields absent
+PASS: stale-digest:absent-from-json-evidence []
+PASS: stale-digest:unmarked-only-history []
+PASS: revalidation:no-private-path absolute private paths absent
+PASS: revalidation:reject-private-paths no private paths in values
+PASS: revalidation:no-import-private-paths no import paths
+PASS: revalidation:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: revalidation:no-payload-hex no payload supplied
+PASS: revalidation:no-raw-words reconstructive fields absent
+PASS: revalidation:p18-07-consumer-matches
+PASS: revalidation:frontier-sha-files-agree {"P18-04/gpu_command_frontier.json": true, "P18-05/dma_frontier.json": true, "P18-06/vram_display.json": true}
+PASS: public-safety:no-violations []
+PASS: public-safety:prose-reported-separately [{"allowlist_rule": "", "allowlisted": false, "document": "P18-00/CONTROLLER_REVIEW.md", "forbidden_key_hits": [], "private_path_labels": ["unix-tmp-path"]}, {"allowlist_rule": "", "allowlisted": false, "document": "P18-02/CONTROLLER_REVIEW.md", "forbidden_key_hits": [], "private_path_labels": ["unix-tmp-path"]}, {"allowlist_rule": "", "allowlisted": false, "document": "P18-03/CONTROLLER_REVIEW.md", "forbidden_key_hits": [], "private_path_labels": ["unix-tmp-path"]}, {"allowlist_rule": "", "allowlisted": false, "document": "P18-07/FRESH_ROOT_REPRODUCTION.md", "forbidden_key_hits": [], "private_path_labels": ["unix-tmp-path"]}]
+PASS: negative_tests:no-private-path absolute private paths absent
+PASS: negative_tests:reject-private-paths no private paths in values
+PASS: negative_tests:no-import-private-paths no import paths
+PASS: negative_tests:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: negative_tests:no-payload-hex no payload supplied
+PASS: negative_tests:no-raw-words reconstructive fields absent
+PASS: negative:bare_home_token_not_flagged
+PASS: negative:control_doc_marker_preserved_accepted
+PASS: negative:control_doc_marker_promotion_detected
+PASS: negative:frontier_digest_disagreement_detected
+PASS: negative:historical_markers_unpromoted
+PASS: negative:manifest_line_parses
+PASS: negative:marker_promotion_detected
+PASS: negative:private_path_detected
+PASS: negative:queue_table_failure_visible
+PASS: negative:queue_table_parses
+PASS: negative:reconstructive_key_detected
+PASS: negative:reconstructive_token_as_label_not_flagged
+PASS: negative:stale_digest_marked_accepted
+PASS: negative:stale_digest_unmarked_rejected
+OPENRECOMP_P18_00=PASS
+OPENRECOMP_P18_01=PASS
+OPENRECOMP_P18_02=PASS
+OPENRECOMP_P18_03=PASS
+OPENRECOMP_P18_04=PASS
+OPENRECOMP_P18_05=PASS
+OPENRECOMP_P18_06=PASS
+OPENRECOMP_P18_07=PASS
+OPENRECOMP_P18_90=PASS
+OPENRECOMP_PHASE18_WHOLE_REGRESSION_CONSISTENCY_V1=PASS
+OPENRECOMP_PHASE18_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+FIRST_FRAME_READY=NO
+P18-90_CHECKS=142

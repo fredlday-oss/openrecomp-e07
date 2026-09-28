@@ -47,6 +47,7 @@ contract after inspecting the live repository frontier.
 | P18-05 | DMA / ordering-table frontier: mechanically establish whether DMA/OT traffic is reached (result: UNREACHED), prove the generated DMA-window tap + register decoder genuine via a controlled probe, bounded OT traversal model with alignment/cycle/depth controls, fail-closed controls | `OPENRECOMP_P18_05=PASS` | PASS |
 | P18-06 | VRAM mutation / display-state frontier: mechanically establish whether authentic graphics commands mutate VRAM or display state (result: UNREACHED), prove the GPU write path / DMA tap genuine via a controlled probe, fail-closed range- and alignment-checked VRAM addressing, no fabricated VRAM or frame content | `OPENRECOMP_P18_06=PASS` | PASS |
 | P18-07 | First-frame assessment: read-only causal-link ledger L1..L7 over P18-02..P18-06 evidence with hash-verified frontier digests, exact promotion rule, isolated anti-vacuity control and single-milestone anti-inflation controls (result: `FIRST_FRAME_READY=NO`) | `OPENRECOMP_P18_07=PASS` | PASS |
+| P18-90 | Integrated regression: read-only audit of the certified P18-00..P18-07 corpus — source-manifest exactness, evidence closure, stage/next_stage agreement, repaired P18-04 authority in use, no stale pre-repair digest, frozen Phase 1..17 integrity, marker ledger, control-document agreement, public safety, fail-closed negative controls | `OPENRECOMP_P18_90=PASS` | PASS |
 
 Claim markers (created by Phase 18; `NOT_PROVEN`/`NO` at P18-00):
 

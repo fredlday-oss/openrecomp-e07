@@ -1,0 +1,721 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase18-sources",
+      "detail": "OPENRECOMP_PHASE18_SOURCE_INTEGRITY=PASS entries=27",
+      "status": "PASS"
+    },
+    {
+      "check": "next-stage:declared-constant",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_audit:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_audit:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_audit:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_audit:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_audit:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_audit:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:no-parse-errors",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:no-missing-entries",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:no-extra-entries",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:no-duplicates",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:all-digests-verify",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest:counts-consistent",
+      "detail": "{\"entries\": 27, \"expected\": 27}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:all-stage-dirs-present",
+      "detail": "{\"checked\": 8}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-00:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-00:result-schema",
+      "detail": "openrecomp-phase18-result-v1",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-00:result-status-pass",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-00:result-stage-agrees",
+      "detail": "P18-00",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-00:next-stage-agrees",
+      "detail": "{\"declared\": \"P18-01\", \"result\": \"P18-01\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-00:authority-commit",
+      "detail": "d7cc5d09eebde398ca6ff3f3dad8dd5841913b69",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-01:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-01:result-schema",
+      "detail": "openrecomp-phase18-result-v1",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-01:result-status-pass",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-01:result-stage-agrees",
+      "detail": "P18-01",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-01:next-stage-agrees",
+      "detail": "{\"declared\": \"P18-02\", \"result\": \"P18-02\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-01:authority-commit",
+      "detail": "d7cc5d09eebde398ca6ff3f3dad8dd5841913b69",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-02:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-02:result-schema",
+      "detail": "openrecomp-phase18-result-v1",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-02:result-status-pass",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-02:result-stage-agrees",
+      "detail": "P18-02",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-02:next-stage-agrees",
+      "detail": "{\"declared\": \"P18-03\", \"result\": \"P18-03\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-02:authority-commit",
+      "detail": "d7cc5d09eebde398ca6ff3f3dad8dd5841913b69",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-03:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-03:result-schema",
+      "detail": "openrecomp-phase18-result-v1",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-03:result-status-pass",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-03:result-stage-agrees",
+      "detail": "P18-03",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-03:next-stage-agrees",
+      "detail": "{\"declared\": \"P18-04\", \"result\": \"P18-04\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-03:authority-commit",
+      "detail": "d7cc5d09eebde398ca6ff3f3dad8dd5841913b69",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-04:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-04:result-schema",
+      "detail": "openrecomp-phase18-result-v1",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-04:result-status-pass",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-04:result-stage-agrees",
+      "detail": "P18-04",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-04:next-stage-agrees",
+      "detail": "{\"declared\": \"P18-05\", \"result\": \"P18-05\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-04:authority-commit",
+      "detail": "d7cc5d09eebde398ca6ff3f3dad8dd5841913b69",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-05:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-05:result-schema",
+      "detail": "openrecomp-phase18-result-v1",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-05:result-status-pass",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-05:result-stage-agrees",
+      "detail": "P18-05",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-05:next-stage-agrees",
+      "detail": "{\"declared\": \"P18-06\", \"result\": \"P18-06\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-05:authority-commit",
+      "detail": "d7cc5d09eebde398ca6ff3f3dad8dd5841913b69",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-06:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-06:result-schema",
+      "detail": "openrecomp-phase18-result-v1",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-06:result-status-pass",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-06:result-stage-agrees",
+      "detail": "P18-06",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-06:next-stage-agrees",
+      "detail": "{\"declared\": \"P18-07\", \"result\": \"P18-07\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-06:authority-commit",
+      "detail": "d7cc5d09eebde398ca6ff3f3dad8dd5841913b69",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-07:documents-present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-07:result-schema",
+      "detail": "openrecomp-phase18-result-v1",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-07:result-status-pass",
+      "detail": "PASS",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-07:result-stage-agrees",
+      "detail": "P18-07",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-07:next-stage-agrees",
+      "detail": "{\"declared\": \"P18-90\", \"result\": \"P18-90\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "closure:P18-07:authority-commit",
+      "detail": "d7cc5d09eebde398ca6ff3f3dad8dd5841913b69",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen_phase17:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen_phase17:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen_phase17:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen_phase17:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen_phase17:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen_phase17:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:phase1-17-untouched",
+      "detail": "{\"changed\": [], \"dirty\": []}",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:tag-resolves-to-terminal",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_ledger:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_ledger:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_ledger:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_ledger:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_ledger:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "marker_ledger:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "markers:no-promotions",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier_digests:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier_digests:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier_digests:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier_digests:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier_digests:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier_digests:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "frontiers:all-digests-coherent",
+      "detail": "[{\"actual\": \"a009003b644122a011a4a53a9ceeae1d2e4a560a462fc28ef2c3ac9dd4b2bfe9\", \"expected\": \"a009003b644122a011a4a53a9ceeae1d2e4a560a462fc28ef2c3ac9dd4b2bfe9\", \"ok\": true, \"recorded\": \"a009003b644122a011a4a53a9ceeae1d2e4a560a462fc28ef2c3ac9dd4b2bfe9\", \"stage\": \"P18-04\"}, {\"actual\": \"f0251b43b8d60ac8c101df71d59cd28441615e1ab58c7036dce98933450fa5c1\", \"expected\": \"f0251b43b8d60ac8c101df71d59cd28441615e1ab58c7036dce98933450fa5c1\", \"ok\": true, \"recorded\": \"f0251b43b8d60ac8c101df71d59cd28441615e1ab58c7036dce98933450fa5c1\", \"stage\": \"P18-05\"}, {\"actual\": \"2848c231c0351638485931e8dfd064abf7ba990d7a9fab178c3730d94e084e5e\", \"expected\": \"2848c231c0351638485931e8dfd064abf7ba990d7a9fab178c3730d94e084e5e\", \"ok\": true, \"recorded\": \"2848c231c0351638485931e8dfd064abf7ba990d7a9fab178c3730d94e084e5e\", \"stage\": \"P18-06\"}]",
+      "status": "PASS"
+    },
+    {
+      "check": "frontiers:consumer-agrees:P18-04/gpu_command_frontier.json",
+      "detail": "a009003b644122a011a4a53a9ceeae1d2e4a560a462fc28ef2c3ac9dd4b2bfe9",
+      "status": "PASS"
+    },
+    {
+      "check": "frontiers:consumer-agrees:P18-05/dma_frontier.json",
+      "detail": "f0251b43b8d60ac8c101df71d59cd28441615e1ab58c7036dce98933450fa5c1",
+      "status": "PASS"
+    },
+    {
+      "check": "frontiers:consumer-agrees:P18-06/vram_display.json",
+      "detail": "2848c231c0351638485931e8dfd064abf7ba990d7a9fab178c3730d94e084e5e",
+      "status": "PASS"
+    },
+    {
+      "check": "control_documents:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "control_documents:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "control_documents:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "control_documents:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "control_documents:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "control_documents:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "control-docs:present",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "control-docs:stage-status-agree",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "control-docs:markers-unpromoted",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "control-docs:next-stage-agree",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "stale_digest:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "stale_digest:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "stale_digest:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "stale_digest:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "stale_digest:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "stale_digest:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "stale-digest:absent-from-json-evidence",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "stale-digest:unmarked-only-history",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "revalidation:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "revalidation:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "revalidation:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "revalidation:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "revalidation:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "revalidation:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "revalidation:p18-07-consumer-matches",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "revalidation:frontier-sha-files-agree",
+      "detail": "{\"P18-04/gpu_command_frontier.json\": true, \"P18-05/dma_frontier.json\": true, \"P18-06/vram_display.json\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "public-safety:no-violations",
+      "detail": "[]",
+      "status": "PASS"
+    },
+    {
+      "check": "public-safety:prose-reported-separately",
+      "detail": "[{\"allowlist_rule\": \"\", \"allowlisted\": false, \"document\": \"P18-00/CONTROLLER_REVIEW.md\", \"forbidden_key_hits\": [], \"private_path_labels\": [\"unix-tmp-path\"]}, {\"allowlist_rule\": \"\", \"allowlisted\": false, \"document\": \"P18-02/CONTROLLER_REVIEW.md\", \"forbidden_key_hits\": [], \"private_path_labels\": [\"unix-tmp-path\"]}, {\"allowlist_rule\": \"\", \"allowlisted\": false, \"document\": \"P18-03/CONTROLLER_REVIEW.md\", \"forbidden_key_hits\": [], \"private_path_labels\": [\"unix-tmp-path\"]}, {\"allowlist_rule\": \"\", \"allowlisted\": false, \"document\": \"P18-07/FRESH_ROOT_REPRODUCTION.md\", \"forbidden_key_hits\": [], \"private_path_labels\": [\"unix-tmp-path\"]}]",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:bare_home_token_not_flagged",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:control_doc_marker_preserved_accepted",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:control_doc_marker_promotion_detected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:frontier_digest_disagreement_detected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:historical_markers_unpromoted",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:manifest_line_parses",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:marker_promotion_detected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:private_path_detected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:queue_table_failure_visible",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:queue_table_parses",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:reconstructive_key_detected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:reconstructive_token_as_label_not_flagged",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:stale_digest_marked_accepted",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:stale_digest_unmarked_rejected",
+      "detail": "",
+      "status": "PASS"
+    }
+  ],
+  "name": "P18-90 Test Results",
+  "schema": "openrecomp-phase18-tests-v1",
+  "stage": "P18-90",
+  "summary": {
+    "failed": 0,
+    "passed": 142
+  }
+}
