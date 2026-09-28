@@ -39,7 +39,7 @@ cp build/generated.a.c build/generated.c
 echo "PASS: repeated translation is byte-identical" | tee evidence/deterministic_translation.txt
 
 echo "[6/10] Native x86_64 host build + memory safety"
-gcc -O2 -std=c11 -Wl,--build-id=none build/generated.c -o build/fixture_native
+gcc -O2 -std=c11 -Wl,--build-id=none -Wl,--no-insert-timestamp build/generated.c -o build/fixture_native
 ( cd build/outputs && ../fixture_native ) | tee evidence/native_run.txt
 
 echo "[7/10] WebAssembly host build + run"
@@ -62,7 +62,7 @@ else
 fi
 
 echo "[9/10] Reproducible native build check"
-gcc -O2 -std=c11 -Wl,--build-id=none build/generated.c -o build/fixture_native_2
+gcc -O2 -std=c11 -Wl,--build-id=none -Wl,--no-insert-timestamp build/generated.c -o build/fixture_native_2
 cmp build/fixture_native build/fixture_native_2
 echo "PASS: repeated native build byte-identical in pinned local toolchain" | tee evidence/repro_build.txt
 
