@@ -215,6 +215,24 @@ preserved everything, then:
 - Promotes no proof marker. `FIRST_FRAME_READY=NO`; Phase-18 claims NOT_PROVEN.
 - See `evidence/P18-91/CONTROLLER_REVIEW.md`.
 
+## P18-99 result (terminal Phase 18 closure)
+
+- Read-only terminal-closure audit over the complete certified P18-00..P18-91
+  chain; all twelve audit dimensions PASS. Emits the canonical terminal marker
+  `OPENRECOMP_PHASE18_TERMINAL_V1=PASS` and `OPENRECOMP_P18_99=PASS` only after
+  every dimension passes; identical across both official runs.
+- Repairs made while completing the inherited P18-99 work: registered the
+  terminal module and gate in the source manifest (30 entries); fixed a
+  fail-open comparison in the stage-marker audit that could miss a promoted
+  protected marker; replaced the negative controls with substantive,
+  individually-demonstrated tamper detections (17 pass), including the exact
+  `FIRST_FRAME_PROMOTED` and `PROTECTED_MARKER_PROMOTED` codes.
+- Gate `P18-99_CHECKS=105` PASS; authoritative dual-run runner PASS (both runs
+  rc=0, stdout byte-identical raw and LF, stderr empty in both, tests-JSON and
+  every artifact byte-identical); fresh-private-root reproduction byte-identical
+  on every semantic artifact and on stdout.
+- Promotes no proof marker. `FIRST_FRAME_READY=NO`; Phase-18 claims NOT_PROVEN.
+- See `evidence/P18-99/CONTROLLER_REVIEW.md`.
+
 ## Next Action
-Controller: author and execute P18-99 (terminal Phase 18 closure).
-Do NOT begin Phase 19.
+Phase 18 is terminally closed. Controller: STOP. Do NOT begin Phase 19.

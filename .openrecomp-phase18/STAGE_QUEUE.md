@@ -49,6 +49,10 @@ contract after inspecting the live repository frontier.
 | P18-07 | First-frame assessment: read-only causal-link ledger L1..L7 over P18-02..P18-06 evidence with hash-verified frontier digests, exact promotion rule, isolated anti-vacuity control and single-milestone anti-inflation controls (result: `FIRST_FRAME_READY=NO`) | `OPENRECOMP_P18_07=PASS` | PASS |
 | P18-90 | Integrated regression: read-only audit of the certified P18-00..P18-07 corpus — source-manifest exactness, evidence closure, stage/next_stage agreement, repaired P18-04 authority in use, no stale pre-repair digest, frozen Phase 1..17 integrity, marker ledger, control-document agreement, public safety, fail-closed negative controls | `OPENRECOMP_P18_90=PASS` | PASS |
 | P18-91 | Independent reproduction: read-only meta-stage that re-executes the P18-00..P18-07 gates from a fresh evidence root and requires byte-for-byte artifact reproduction, re-runs the P18-90 dual-run corpus, binds causal-transcript digests, re-verifies manifest / prior-phase / marker / public-safety invariants, fail-closed negative controls | `OPENRECOMP_P18_91=PASS` | PASS |
+| P18-99 | Terminal closure: read-only audit of the complete certified P18-00..P18-91 chain across twelve fail-closed dimensions; emits the canonical terminal marker only when all pass | `OPENRECOMP_P18_99=PASS` | PASS |
+
+Terminal marker: `OPENRECOMP_PHASE18_TERMINAL_V1=PASS`. Next stage: `NONE`.
+Phase 19 MUST NOT begin as a consequence of this stage.
 
 Claim markers (created by Phase 18; `NOT_PROVEN`/`NO` at P18-00):
 

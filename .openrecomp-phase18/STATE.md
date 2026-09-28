@@ -35,12 +35,36 @@
   changed); P18-06 produced zero diff.
 
 ## Current Stage
-- CURRENT_STAGE: P18-91
-- LAST_COMPLETED_STAGE: P18-91 Independent reproduction (controller reviewed,
-  dual-gated, byte-identical upstream corpus)
-- NEXT_STAGE: P18-99
-- FINAL_VERDICT: (not terminal)
-- REVIEW_GATE: open.
+- CURRENT_STAGE: P18-99
+- LAST_COMPLETED_STAGE: P18-99 Terminal Phase 18 closure (controller reviewed,
+  dual-gated, fresh-private-root reproduced, evidence chain terminally closed)
+- NEXT_STAGE: NONE
+- FINAL_VERDICT: PASS_PHASE18_TERMINAL_CLOSURE_EVIDENCE_CHAIN
+- REVIEW_GATE: closed (terminal; Phase 19 not started).
+
+## P18-99 authoritative metadata (terminal Phase 18 closure)
+- STATUS: PASS (controller authored, dual-gated, independently reproduced)
+- authority_commit: `d7cc5d09eebde398ca6ff3f3dad8dd5841913b69`
+- authority_tree: `ad3aa822e5a02905ebc25477f7b6c69d0bffa055`
+- certified_authority_commit: `55184231749e356bb9e07ca44ba8618697aa0cdd` (P18-91)
+- read-only terminal-closure audit over the complete certified P18-00..P18-91
+  chain: all twelve audit dimensions PASS (stage chain, per-stage markers,
+  provenance, determinism/gate digests, prior-phase integrity, manifest
+  exactness, marker ledger, frontier-digest coherence, public safety,
+  control-document agreement, HEAD/tree binding, negative controls).
+- emits the canonical terminal marker `OPENRECOMP_PHASE18_TERMINAL_V1=PASS`
+  and `OPENRECOMP_P18_99=PASS` only after all twelve dimensions pass; identical
+  across both official runs.
+- repairs made while completing the inherited P18-99 work: the source manifest
+  now registers the terminal module and gate (30 entries); the stage-marker
+  audit no longer fails open on a missing protected marker; negative controls
+  were replaced with substantive, individually-demonstrated tamper detections
+  (17 pass), including `FIRST_FRAME_PROMOTED` and `PROTECTED_MARKER_PROMOTED`.
+- gate: `P18-99_CHECKS=105` PASS; authoritative dual-run runner PASS (identical
+  raw/LF stdout, empty stderr both, byte-identical artifacts); fresh-private-root
+  reproduction byte-identical on every semantic artifact and on stdout.
+- promotes no proof marker (FIRST_FRAME_READY=NO; Phase-18 claims NOT_PROVEN).
+- next_stage: NONE (Phase 18 terminally closed; Phase 19 NOT started).
 
 ## P18-00 authoritative metadata (bootstrap / authority / provenance)
 - STATUS: PASS (controller reviewed and INTEGRATED; see `evidence/P18-00/CONTROLLER_REVIEW.md`)
@@ -265,3 +289,4 @@
 | P18-07 | PASS | `OPENRECOMP_P18_07=PASS` |
 | P18-90 | PASS | `OPENRECOMP_P18_90=PASS` |
 | P18-91 | PASS | `OPENRECOMP_P18_91=PASS` |
+| P18-99 | PASS (terminal) | `OPENRECOMP_P18_99=PASS` |
