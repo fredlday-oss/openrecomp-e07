@@ -1,0 +1,50 @@
+{
+  "anti_inflation": [
+    {
+      "established_link": "L2",
+      "first_frame_ready": "NO",
+      "vector": "first-gp0-write"
+    },
+    {
+      "established_link": "L3",
+      "first_frame_ready": "NO",
+      "vector": "first-gpu-dma"
+    },
+    {
+      "established_link": "L3",
+      "first_frame_ready": "NO",
+      "vector": "first-ordering-table-packet"
+    },
+    {
+      "established_link": "L4",
+      "first_frame_ready": "NO",
+      "vector": "first-primitive"
+    },
+    {
+      "established_link": "L5",
+      "first_frame_ready": "NO",
+      "vector": "first-vram-mutation"
+    },
+    {
+      "established_link": "L6",
+      "first_frame_ready": "NO",
+      "vector": "first-display-register-setup"
+    }
+  ],
+  "anti_vacuity": {
+    "first_frame_ready": "YES",
+    "vector": "all-links-satisfied",
+    "verdicts": {
+      "L1": "ESTABLISHED",
+      "L2": "ESTABLISHED",
+      "L3": "ESTABLISHED",
+      "L4": "ESTABLISHED",
+      "L5": "ESTABLISHED",
+      "L6": "ESTABLISHED",
+      "L7": "ESTABLISHED"
+    }
+  },
+  "control_namespace_isolated": true,
+  "promotes_no_proof_marker": true,
+  "schema": "openrecomp-phase18-promotion-controls-v1"
+}

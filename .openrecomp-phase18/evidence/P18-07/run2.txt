@@ -1,0 +1,74 @@
+PASS: integrity:phase18-sources OPENRECOMP_PHASE18_SOURCE_INTEGRITY=PASS entries=25
+PASS: authority:phase17-frozen authority-ok
+PASS: frozen:phase1-17-untouched
+PASS: evidence:all-present ["P18-02/RESULT.json", "P18-02/continuation.json", "P18-03/RESULT.json", "P18-04/gpu_command_frontier.json", "P18-04/command_decode.json", "P18-05/dma_frontier.json", "P18-05/ordering_table_model.json", "P18-06/vram_display.json", "P18-06/vram_verdict.json", "P18-06/display_state.json"]
+PASS: frontier-digest:P18-04/gpu_command_frontier.json a009003b644122a011a4a53a9ceeae1d2e4a560a462fc28ef2c3ac9dd4b2bfe9
+PASS: frontier-digest:P18-05/dma_frontier.json f0251b43b8d60ac8c101df71d59cd28441615e1ab58c7036dce98933450fa5c1
+PASS: frontier-digest:P18-06/vram_display.json 2848c231c0351638485931e8dfd064abf7ba990d7a9fab178c3730d94e084e5e
+PASS: p18-04:frontier-unreached
+PASS: p18-05:frontier-unreached
+PASS: p18-06:frontier-unreached
+PASS: assessment:schema
+PASS: assessment:validated 85ceec185a8f5a1fafb859f7fa32d81b57e21d4da9397f99dde11dec0818ba6f
+PASS: ledger:ordered ["L1", "L2", "L3", "L4", "L5", "L6", "L7"]
+PASS: ledger:l1-established {"L1": "ESTABLISHED", "L2": "UNREACHED", "L3": "UNREACHED", "L4": "NOT_PROVEN", "L5": "UNREACHED", "L6": "UNREACHED", "L7": "NOT_PROVEN"}
+PASS: ledger:l2-unreached
+PASS: ledger:l3-unreached
+PASS: ledger:l4-not-proven
+PASS: ledger:l5-unreached
+PASS: ledger:l6-unreached
+PASS: ledger:l7-not-proven
+PASS: ledger:every-link-cites-evidence
+PASS: promotion:first-frame-not-ready NO
+PASS: promotion:rule-exact
+PASS: control:anti-vacuity-promotes {"first_frame_ready": "YES", "vector": "all-links-satisfied", "verdicts": {"L1": "ESTABLISHED", "L2": "ESTABLISHED", "L3": "ESTABLISHED", "L4": "ESTABLISHED", "L5": "ESTABLISHED", "L6": "ESTABLISHED", "L7": "ESTABLISHED"}}
+PASS: control:anti-inflation-all-no ["first-gp0-write", "first-gpu-dma", "first-ordering-table-packet", "first-primitive", "first-vram-mutation", "first-display-register-setup"]
+PASS: control:namespace-isolated
+PASS: negative:digest-mismatch
+PASS: negative:missing-document
+PASS: negative:unparsable-document
+PASS: negative:chain-incomplete
+PASS: negative:link-provenance-missing
+PASS: negative:control-derived-established
+PASS: negative:control-contamination
+PASS: negative:anti-vacuity-cannot-promote
+PASS: negative:single-milestone-not-promoted
+PASS: first_frame_assessment:no-private-path absolute private paths absent
+PASS: first_frame_assessment:reject-private-paths no private paths in values
+PASS: first_frame_assessment:no-import-private-paths no import paths
+PASS: first_frame_assessment:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: first_frame_assessment:no-payload-hex no payload supplied
+PASS: first_frame_assessment:no-raw-words reconstructive fields absent
+PASS: causal_link_ledger:no-private-path absolute private paths absent
+PASS: causal_link_ledger:reject-private-paths no private paths in values
+PASS: causal_link_ledger:no-import-private-paths no import paths
+PASS: causal_link_ledger:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: causal_link_ledger:no-payload-hex no payload supplied
+PASS: causal_link_ledger:no-raw-words reconstructive fields absent
+PASS: promotion_controls:no-private-path absolute private paths absent
+PASS: promotion_controls:reject-private-paths no private paths in values
+PASS: promotion_controls:no-import-private-paths no import paths
+PASS: promotion_controls:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: promotion_controls:no-payload-hex no payload supplied
+PASS: promotion_controls:no-raw-words reconstructive fields absent
+PASS: negative_tests:no-private-path absolute private paths absent
+PASS: negative_tests:reject-private-paths no private paths in values
+PASS: negative_tests:no-import-private-paths no import paths
+PASS: negative_tests:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: negative_tests:no-payload-hex no payload supplied
+PASS: negative_tests:no-raw-words reconstructive fields absent
+OPENRECOMP_P18_00=PASS
+OPENRECOMP_P18_01=PASS
+OPENRECOMP_P18_02=PASS
+OPENRECOMP_P18_03=PASS
+OPENRECOMP_P18_04=PASS
+OPENRECOMP_P18_05=PASS
+OPENRECOMP_P18_06=PASS
+OPENRECOMP_P18_07=PASS
+OPENRECOMP_PHASE18_FIRST_FRAME_ASSESSMENT=PASS
+OPENRECOMP_PHASE18_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+FIRST_FRAME_READY=NO
+P18-07_CHECKS=59

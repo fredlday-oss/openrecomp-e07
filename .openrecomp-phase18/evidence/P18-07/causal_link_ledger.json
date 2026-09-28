@@ -1,0 +1,187 @@
+{
+  "authentic_first_frame_ready": "NO",
+  "links": [
+    {
+      "evidence": [
+        {
+          "evidence_class": "AUTHENTIC",
+          "field": "continuation.executed_instruction_count",
+          "source": "P18-02/RESULT.json",
+          "value": 8270
+        },
+        {
+          "evidence_class": "AUTHENTIC",
+          "field": "continuation.stop_reason",
+          "source": "P18-02/RESULT.json",
+          "value": "CONTINUATION_BUDGET_REACHED"
+        },
+        {
+          "evidence_class": "AUTHENTIC",
+          "field": "causal_transcript.event_count",
+          "source": "P18-03/RESULT.json",
+          "value": 20
+        }
+      ],
+      "id": "L1",
+      "link": "authenticated execution",
+      "requirement": "P18-02 continuation + P18-03 causal transcript, per-PC provenance",
+      "verdict": "ESTABLISHED"
+    },
+    {
+      "evidence": [
+        {
+          "evidence_class": "AUTHENTIC",
+          "field": "gp0_write_count",
+          "source": "P18-04/gpu_command_frontier.json",
+          "value": 0
+        },
+        {
+          "evidence_class": "AUTHENTIC",
+          "field": "gp1_write_count",
+          "source": "P18-04/gpu_command_frontier.json",
+          "value": 0
+        },
+        {
+          "evidence_class": "AUTHENTIC",
+          "field": "frontier_reached",
+          "source": "P18-04/gpu_command_frontier.json",
+          "value": false
+        }
+      ],
+      "id": "L2",
+      "link": "authentic GPU command operations (GP0/GP1)",
+      "requirement": "P18-04 frontier gp0_write_count / gp1_write_count",
+      "verdict": "UNREACHED"
+    },
+    {
+      "evidence": [
+        {
+          "evidence_class": "AUTHENTIC",
+          "field": "dma_access_count",
+          "source": "P18-05/dma_frontier.json",
+          "value": 0
+        },
+        {
+          "evidence_class": "AUTHENTIC",
+          "field": "dma_reached",
+          "source": "P18-05/dma_frontier.json",
+          "value": false
+        },
+        {
+          "evidence_class": "AUTHENTIC",
+          "field": "dma_access_events",
+          "source": "P18-05/ordering_table_model.json",
+          "value": 0
+        }
+      ],
+      "id": "L3",
+      "link": "authentic GPU DMA / ordering-table operations",
+      "requirement": "P18-05 frontier dma_access_count",
+      "verdict": "UNREACHED"
+    },
+    {
+      "evidence": [
+        {
+          "evidence_class": "AUTHENTIC",
+          "field": "event_count",
+          "source": "P18-04/command_decode.json",
+          "value": 0
+        },
+        {
+          "evidence_class": "AUTHENTIC",
+          "field": "command_classes",
+          "source": "P18-04/command_decode.json",
+          "value": []
+        },
+        {
+          "evidence_class": "AUTHENTIC",
+          "field": "unsupported_command_count",
+          "source": "P18-04/command_decode.json",
+          "value": 0
+        }
+      ],
+      "id": "L4",
+      "link": "deterministic GPU state (decoded command semantics)",
+      "requirement": "P18-04 command decode, bounded and provenance-bound",
+      "verdict": "NOT_PROVEN"
+    },
+    {
+      "evidence": [
+        {
+          "evidence_class": "AUTHENTIC",
+          "field": "vram_frontier_reached",
+          "source": "P18-06/vram_display.json",
+          "value": false
+        },
+        {
+          "evidence_class": "AUTHENTIC",
+          "field": "vram_display_status",
+          "source": "P18-06/vram_display.json",
+          "value": "NOT_REACHED"
+        },
+        {
+          "evidence_class": "AUTHENTIC",
+          "field": "authentic_mutation_count",
+          "source": "P18-06/vram_display.json",
+          "value": 0
+        }
+      ],
+      "id": "L5",
+      "link": "deterministic VRAM effects",
+      "requirement": "P18-06 vram_display_status, mutation digest",
+      "verdict": "UNREACHED"
+    },
+    {
+      "evidence": [
+        {
+          "evidence_class": "AUTHENTIC",
+          "field": "authentic_display_events",
+          "source": "P18-06/display_state.json",
+          "value": 0
+        },
+        {
+          "evidence_class": "AUTHENTIC",
+          "field": "vram_display_status",
+          "source": "P18-06/vram_verdict.json",
+          "value": "UNREACHED"
+        }
+      ],
+      "id": "L6",
+      "link": "valid display configuration",
+      "requirement": "P18-06 display-state evidence (display enable / start / mode writes)",
+      "verdict": "UNREACHED"
+    },
+    {
+      "evidence": [
+        {
+          "evidence_class": "AUTHENTIC",
+          "field": "authentic_framebuffer",
+          "source": "P18-06/display_state.json",
+          "value": null
+        },
+        {
+          "evidence_class": "AUTHENTIC",
+          "field": "first_frame_ready",
+          "source": "P18-06/vram_display.json",
+          "value": "NO"
+        }
+      ],
+      "id": "L7",
+      "link": "coherent displayable framebuffer",
+      "requirement": "P18-06 framebuffer descriptor + digest",
+      "verdict": "NOT_PROVEN"
+    }
+  ],
+  "order": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5",
+    "L6",
+    "L7"
+  ],
+  "promotes_no_proof_marker": true,
+  "schema": "openrecomp-phase18-causal-link-ledger-v1",
+  "stage": "P18-07"
+}

@@ -1,0 +1,53 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "e0481311ff2993ec2103d45faadcd444b4d124ca796504a982a08e57db712c7b",
+    "causal_link_ledger.json": "ca7eaa7f183f989ccbd1879714252c26f25c9a719dc0bb2eb4f3c94725a95bba",
+    "first_frame_assessment.json": "85ceec185a8f5a1fafb859f7fa32d81b57e21d4da9397f99dde11dec0818ba6f",
+    "negative_tests.json": "1fd66f2cf4ad223d83273626024f80aca2fbae724179b9ec3867b93cb1f749ee",
+    "p18_07_tests.json": "9ba3d8e4a526f57fac5fbdd64013e644e83df762344effff67c3e6c6cfde7b29",
+    "promotion_controls.json": "ecadb6ea1c3da497af2faf8549e14dd821f496ef713f913f815e9fea88e9e860"
+  },
+  "artifacts_identical": true,
+  "gate": "tools/test_phase18_first_frame_assessment_v1.py",
+  "gate_sha256": "2d664cba785ac8d7737044c3217e2ba1a4b0b106c860708f8d5b229b6140dbb4",
+  "next_stage": "P18-90",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "RESULT.json": "e0481311ff2993ec2103d45faadcd444b4d124ca796504a982a08e57db712c7b",
+        "causal_link_ledger.json": "ca7eaa7f183f989ccbd1879714252c26f25c9a719dc0bb2eb4f3c94725a95bba",
+        "first_frame_assessment.json": "85ceec185a8f5a1fafb859f7fa32d81b57e21d4da9397f99dde11dec0818ba6f",
+        "negative_tests.json": "1fd66f2cf4ad223d83273626024f80aca2fbae724179b9ec3867b93cb1f749ee",
+        "p18_07_tests.json": "9ba3d8e4a526f57fac5fbdd64013e644e83df762344effff67c3e6c6cfde7b29",
+        "promotion_controls.json": "ecadb6ea1c3da497af2faf8549e14dd821f496ef713f913f815e9fea88e9e860"
+      },
+      "p18_07_tests_sha256": "9ba3d8e4a526f57fac5fbdd64013e644e83df762344effff67c3e6c6cfde7b29",
+      "returncode": 0,
+      "stdout_bytes_raw": 4559,
+      "stdout_sha256_lf": "d9fce059af21d8cd2952277ed9d3e79cdc8a870a3075bb6185cc6e95ac817078",
+      "stdout_sha256_raw": "d9fce059af21d8cd2952277ed9d3e79cdc8a870a3075bb6185cc6e95ac817078"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "RESULT.json": "e0481311ff2993ec2103d45faadcd444b4d124ca796504a982a08e57db712c7b",
+        "causal_link_ledger.json": "ca7eaa7f183f989ccbd1879714252c26f25c9a719dc0bb2eb4f3c94725a95bba",
+        "first_frame_assessment.json": "85ceec185a8f5a1fafb859f7fa32d81b57e21d4da9397f99dde11dec0818ba6f",
+        "negative_tests.json": "1fd66f2cf4ad223d83273626024f80aca2fbae724179b9ec3867b93cb1f749ee",
+        "p18_07_tests.json": "9ba3d8e4a526f57fac5fbdd64013e644e83df762344effff67c3e6c6cfde7b29",
+        "promotion_controls.json": "ecadb6ea1c3da497af2faf8549e14dd821f496ef713f913f815e9fea88e9e860"
+      },
+      "p18_07_tests_sha256": "9ba3d8e4a526f57fac5fbdd64013e644e83df762344effff67c3e6c6cfde7b29",
+      "returncode": 0,
+      "stdout_bytes_raw": 4559,
+      "stdout_sha256_lf": "d9fce059af21d8cd2952277ed9d3e79cdc8a870a3075bb6185cc6e95ac817078",
+      "stdout_sha256_raw": "d9fce059af21d8cd2952277ed9d3e79cdc8a870a3075bb6185cc6e95ac817078"
+    }
+  },
+  "schema": "openrecomp-phase18-determinism-v1",
+  "stage": "P18-07",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true,
+  "tests_json_present_both": true
+}
