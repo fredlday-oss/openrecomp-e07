@@ -1,0 +1,66 @@
+{
+  "channels": [
+    {
+      "index": 0,
+      "name": "MDEC_IN",
+      "status": "NOT_REACHED"
+    },
+    {
+      "index": 1,
+      "name": "MDEC_OUT",
+      "status": "NOT_REACHED"
+    },
+    {
+      "index": 2,
+      "name": "GPU",
+      "status": "NOT_REACHED"
+    },
+    {
+      "index": 3,
+      "name": "CDROM",
+      "status": "NOT_REACHED"
+    },
+    {
+      "index": 4,
+      "name": "SPU",
+      "status": "NOT_REACHED"
+    },
+    {
+      "index": 5,
+      "name": "PIO",
+      "status": "NOT_REACHED"
+    },
+    {
+      "index": 6,
+      "name": "OTC",
+      "status": "NOT_REACHED"
+    },
+    {
+      "index": 7,
+      "name": "UNUSED",
+      "status": "NOT_REACHED"
+    }
+  ],
+  "dma_access_count": 0,
+  "dma_reached": false,
+  "dma_status": "NOT_REACHED",
+  "events": [],
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "explicit_not_reached": true,
+  "next_stage": "P18-06",
+  "promotes_no_proof_marker": true,
+  "reached_channels": [],
+  "schema": "openrecomp-phase18-dma-frontier-v1",
+  "stage": "P18-05",
+  "write_path": {
+    "dma_record_function_pc_free": true,
+    "dma_window_tap_present": true,
+    "gate_expression": "phys in [0x1f801080,0x1f8010ff] -> or_p18d_dma_record",
+    "read_hook_present": true,
+    "shared_phys_reducer_present": true,
+    "window_end_literal_count": 1,
+    "window_gate_count": 1,
+    "window_start_literal_count": 1,
+    "write_hook_present": true
+  }
+}

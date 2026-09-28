@@ -1,0 +1,381 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase18-sources",
+      "detail": "OPENRECOMP_PHASE18_SOURCE_INTEGRITY=PASS entries=21",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:phase17-frozen",
+      "detail": "authority-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:phase1-17-untouched",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-exists",
+      "detail": "bin",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-hash",
+      "detail": "2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-exists",
+      "detail": "cue",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-hash",
+      "detail": "beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:slus-exists",
+      "detail": "slus",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:slus-hash",
+      "detail": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "status": "PASS"
+    },
+    {
+      "check": "source:transcript-digest",
+      "detail": "P17-06R transcript digest",
+      "status": "PASS"
+    },
+    {
+      "check": "dma:window-start",
+      "detail": "0x1f801080",
+      "status": "PASS"
+    },
+    {
+      "check": "dma:window-end",
+      "detail": "0x1f8010ff",
+      "status": "PASS"
+    },
+    {
+      "check": "dma:channel-count",
+      "detail": "8 channels",
+      "status": "PASS"
+    },
+    {
+      "check": "dma:gpu-channel",
+      "detail": "channel 2 = GPU",
+      "status": "PASS"
+    },
+    {
+      "check": "dma:otc-channel",
+      "detail": "channel 6 = OTC",
+      "status": "PASS"
+    },
+    {
+      "check": "overlay:p18-02-anchor-controls",
+      "detail": "{\"duplicated_loop_rejected\": true, \"missing_harness_end_rejected\": true, \"missing_include_rejected\": true, \"ok\": true, \"valid_applies\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "overlay:p18-03-anchor-controls",
+      "detail": "{\"missing_harness_end_rejected\": true, \"missing_insert_rejected\": true, \"missing_write_hook_rejected\": true, \"ok\": true, \"valid_applies\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "overlay:p18-04-anchor-controls",
+      "detail": "{\"missing_harness_end_rejected\": true, \"missing_insert_rejected\": true, \"missing_write_rejected\": true, \"ok\": true, \"valid_applies\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "overlay:p18-05-anchor-controls",
+      "detail": "{\"missing_harness_end_rejected\": true, \"missing_insert_rejected\": true, \"missing_read_hook_rejected\": true, \"ok\": true, \"valid_applies\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "dma-path:present",
+      "detail": "{\"dma_record_function_pc_free\": true, \"dma_window_tap_present\": true, \"gate_expression\": \"phys in [0x1f801080,0x1f8010ff] -> or_p18d_dma_record\", \"read_hook_present\": true, \"shared_phys_reducer_present\": true, \"window_end_literal_count\": 1, \"window_gate_count\": 1, \"window_start_literal_count\": 1, \"write_hook_present\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "dma-path:gated-on-window",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "dma-frontier:schema",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "dma-frontier:validated",
+      "detail": "f0251b43b8d60ac8c101df71d59cd28441615e1ab58c7036dce98933450fa5c1",
+      "status": "PASS"
+    },
+    {
+      "check": "dma-frontier:path-in-document",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "dma-frontier:all-channels-listed",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "continuation:executed-pcs-have-provenance",
+      "detail": "{\"executed\": 759}",
+      "status": "PASS"
+    },
+    {
+      "check": "continuation:typed-stop-reason",
+      "detail": "CONTINUATION_BUDGET_REACHED",
+      "status": "PASS"
+    },
+    {
+      "check": "dma-frontier:not-reached",
+      "detail": "{\"dma_accesses\": 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "dma-frontier:explicit-not-reached",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "dma-frontier:no-events",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "dma-frontier:no-reached-channels",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "control:dma-path-reaches-window",
+      "detail": "{\"channels\": [2], \"dma_access_count\": 4, \"dma_reached\": true, \"frontier_sha256\": \"ec04cbd12a95783b33e2bde9ed7c1be5e7bd913aaac1bca2e5d137e12138c9ae\", \"ok\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "control:contrast-with-unreached-frontier",
+      "detail": "{\"control_channels\": [2]}",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:manifest-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:dma-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:frontier-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:regions-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "causal:validated",
+      "detail": "1eabe6c7b5c5263a61da8f91534f89b7a92c38916cdc482f3792b807dd10d6d6",
+      "status": "PASS"
+    },
+    {
+      "check": "ot-model:positive-chain",
+      "detail": "{\"classes\": [\"POLYGON\", \"RECTANGLE\", \"NOP\"], \"command_count\": 3, \"node_count\": 3, \"termination\": \"END_OF_LIST_BIT\"}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:address-out-of-window",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:madr-unaligned",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:sync-mode-reserved",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:ot-start-invalid",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:ot-unaligned-start",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:ot-cycle",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:ot-bound",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:ot-command-bound",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:event-without-owner",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unreached-status-missing",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unmodelled-bit-rejected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "dma_frontier:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "dma_frontier:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "dma_frontier:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "dma_frontier:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "dma_frontier:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "dma_frontier:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "dma_verdict:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "dma_verdict:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "dma_verdict:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "dma_verdict:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "dma_verdict:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "dma_verdict:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "ordering_table_model:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "ordering_table_model:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "ordering_table_model:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "ordering_table_model:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "ordering_table_model:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "ordering_table_model:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P18-05 Test Results",
+  "schema": "openrecomp-phase18-tests-v1",
+  "stage": "P18-05",
+  "summary": {
+    "failed": 0,
+    "passed": 74
+  }
+}

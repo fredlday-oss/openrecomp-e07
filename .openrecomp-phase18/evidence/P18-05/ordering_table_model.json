@@ -1,0 +1,79 @@
+{
+  "dma_access_events": [],
+  "model": {
+    "checks": [
+      "alignment",
+      "cycle",
+      "depth-bound",
+      "termination-bit"
+    ],
+    "end_of_list_bit": "0x00800000",
+    "max_nodes": 512,
+    "next_addr_mask": "0x001ffffc"
+  },
+  "positive_control": {
+    "classes": [
+      "POLYGON",
+      "RECTANGLE",
+      "NOP"
+    ],
+    "command_count": 3,
+    "node_count": 3,
+    "nodes": [
+      {
+        "address": "0x00100000",
+        "command_count": 1,
+        "commands": [
+          {
+            "class": "POLYGON",
+            "command_byte": "0x28",
+            "index": 0,
+            "unsupported": false,
+            "word_digest": "95534981420d9a1e5d3cd3b567c6e21f920742087ecf44c187e077cdc8497ac2"
+          }
+        ],
+        "header_digest": "b14fc93ab884fc0f684021ff8dcdcbdb239dc18eba8b38ec0a3bb4a4439dae11",
+        "index": 0,
+        "terminated": false
+      },
+      {
+        "address": "0x00100010",
+        "command_count": 1,
+        "commands": [
+          {
+            "class": "RECTANGLE",
+            "command_byte": "0x60",
+            "index": 0,
+            "unsupported": false,
+            "word_digest": "ca3076acbb6ec2b695ebf174caa57ef3f8421707948a72029cc3836b9572c9d7"
+          }
+        ],
+        "header_digest": "cd6371efcb344f24fdd289366bad48d8fab95a78e86cbf1ded7f101f88f45a02",
+        "index": 1,
+        "terminated": false
+      },
+      {
+        "address": "0x00100020",
+        "command_count": 1,
+        "commands": [
+          {
+            "class": "NOP",
+            "command_byte": "0x00",
+            "index": 0,
+            "unsupported": false,
+            "word_digest": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+          }
+        ],
+        "header_digest": "dcdac29d9926d8241e8acfa7b8372e8e6ac421790b44f5a58be2c980450c2373",
+        "index": 2,
+        "terminated": true
+      }
+    ],
+    "ok": true,
+    "termination": "END_OF_LIST_BIT"
+  },
+  "promotes_no_proof_marker": true,
+  "schema": "openrecomp-phase18-ordering-table-model-v1",
+  "stage": "P18-05",
+  "unknown_is_never_a_noop": true
+}

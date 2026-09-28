@@ -1,0 +1,28 @@
+{
+  "basis": "no reached instruction materialises the DMA register window",
+  "dma_access_count": 0,
+  "dma_frontier_status": "UNREACHED",
+  "explicit_not_reached": true,
+  "promotes_no_proof_marker": true,
+  "reached_channels": [],
+  "schema": "openrecomp-phase18-dma-verdict-v1",
+  "stage": "P18-05",
+  "window_materialisation": {
+    "method": "immediate == 0x1f80 or branch/call target inside 0x1f801080..0x1f8010ff",
+    "reached_pc_count": 759,
+    "records_examined": 103424,
+    "window_high_half_site_count": 0,
+    "window_high_half_sites": []
+  },
+  "write_path": {
+    "dma_record_function_pc_free": true,
+    "dma_window_tap_present": true,
+    "gate_expression": "phys in [0x1f801080,0x1f8010ff] -> or_p18d_dma_record",
+    "read_hook_present": true,
+    "shared_phys_reducer_present": true,
+    "window_end_literal_count": 1,
+    "window_gate_count": 1,
+    "window_start_literal_count": 1,
+    "write_hook_present": true
+  }
+}
