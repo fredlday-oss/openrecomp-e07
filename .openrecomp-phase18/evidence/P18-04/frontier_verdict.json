@@ -1,0 +1,27 @@
+{
+  "basis": "no reached instruction materialises the GP0/GP1 physical window",
+  "explicit_not_reached": true,
+  "gp0_write_count": 0,
+  "gp1_write_count": 0,
+  "gpu_command_frontier_status": "UNREACHED",
+  "promotes_no_proof_marker": true,
+  "schema": "openrecomp-phase18-frontier-verdict-v1",
+  "stage": "P18-04",
+  "window_materialisation": {
+    "method": "immediate == 0x1f80 or branch/call target inside 0x1f80xxxx",
+    "reached_pc_count": 759,
+    "records_examined": 103424,
+    "window_high_half_site_count": 0,
+    "window_high_half_sites": []
+  },
+  "write_path": {
+    "gate_expression": "phys == GP0_PHYS || phys == GP1_PHYS -> or_p18_gpu_write",
+    "gp0_literal_count": 4,
+    "gp0gp1_write_path_present": true,
+    "gp1_literal_count": 4,
+    "gpu_write_function_pc_free": true,
+    "gpu_write_state_driven": true,
+    "unmodelled_write_model": "RECORDED_NOT_APPLIED (writes outside the GPU window return early)",
+    "write_gate_count": 1
+  }
+}

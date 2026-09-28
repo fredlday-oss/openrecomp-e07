@@ -43,6 +43,7 @@ contract after inspecting the live repository frontier.
 | P18-01 | GPUSTAT polling-model investigation: authenticate the exact poll condition, minimum state-driven bit-26 model, fail-closed controls, deterministic simulation | `OPENRECOMP_P18_01=PASS` | PASS |
 | P18-02 | Authentic poll exit / execution continuation: state-driven GPUSTAT read, bound-exit poll geometry, authenticated continuation, causal transcript, fail-closed controls | `OPENRECOMP_P18_02=PASS` | PASS |
 | P18-03 | Causal device transcript: runtime-emitted causal device-state snapshots, per-event fresh decode, explicit reached/unreached categories, fail-closed controls | `OPENRECOMP_P18_03=PASS` | PASS |
+| P18-04 | GPU command frontier: mechanically establish whether GP0/GP1 traffic is reached (result: UNREACHED), prove the generated GP0/GP1 write path + tap + classifier are genuine via a controlled probe, classify unknowns as UNKNOWN, fail-closed controls | `OPENRECOMP_P18_04=PASS` | PASS (worker dev gate) |
 
 Claim markers (created by Phase 18; `NOT_PROVEN`/`NO` at P18-00):
 

@@ -57,5 +57,30 @@ model for the exact bit the authentic guest tests.
   fresh-private-root reproduction byte-identical.
 - Promotes no proof marker. `FIRST_FRAME_READY=NO`; Phase-18 claims NOT_PROVEN.
 
+## P18-04 result
+
+- Establishes mechanically whether authentic GP0/GP1 GPU command traffic is
+  reached by the P18-03 continuation.  Result: the GPU command frontier is
+  **UNREACHED** - the continuation reaches device traffic (BIOS dispatch,
+  GPUSTAT reads, interrupt, timer) but zero GP0 and zero GP1 writes to
+  `0x1f801810`/`0x1f801814`.
+- Provenance for the verdict: the generated runtime contains a genuine,
+  state-driven GP0/GP1 write path gated on exactly those two physical registers
+  (single gate, both literals present, write function free of any guest-PC
+  constant); the P18-04 FIFO tap records zero GP0/GP1 writes; and no reached
+  instruction materialises the `0x1f80` window high half.
+- A controlled probe compiled against the official generated runtime source
+  drives the generated GPU write entry points and produces real GP0/GP1 frontier
+  events (GP0=1, GP1=1; classes POLYGON + GP1_CONTROL).  This proves the write
+  path, tap and classifier are genuine, so "unreached" is a real frontier state
+  and not a missing implementation.
+- Unknown command words classify `UNKNOWN` and are never treated as a no-op.
+- Frontier digest `297a549350e89c4fdf765353c7cf6ff9a1f9a0e563c8c62b02a33677943be58b`.
+- Worker dev gate: 64/64 checks PASS (single run).  Controller dual-gate
+  integration and fresh-root reproduction remain the controller's step.
+- Promotes no proof marker. `FIRST_FRAME_READY=NO`; Phase-18 claims NOT_PROVEN.
+
 ## Next Action
-Author and execute `P18-04` (GPU command frontier). Do NOT begin Phase 19.
+Controller: review/integrate P18-04 (dual official gate + fresh-root
+reproduction), then author and execute `P18-05` (DMA / ordering-table
+frontier). Do NOT begin Phase 19.

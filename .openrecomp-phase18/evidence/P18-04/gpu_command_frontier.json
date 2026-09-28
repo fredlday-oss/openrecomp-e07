@@ -1,0 +1,27 @@
+{
+  "command_classes": [],
+  "events": [],
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "explicit_not_reached": true,
+  "fifo_count": 0,
+  "frontier_reached": false,
+  "gp0_write_count": 0,
+  "gp0gp1_status": "NOT_REACHED",
+  "gp1_write_count": 0,
+  "next_stage": "P18-05",
+  "promotes_no_proof_marker": true,
+  "reached_registers": [],
+  "schema": "openrecomp-phase18-gpu-command-frontier-v1",
+  "stage": "P18-04",
+  "unsupported_command_count": 0,
+  "write_path": {
+    "gate_expression": "phys == GP0_PHYS || phys == GP1_PHYS -> or_p18_gpu_write",
+    "gp0_literal_count": 4,
+    "gp0gp1_write_path_present": true,
+    "gp1_literal_count": 4,
+    "gpu_write_function_pc_free": true,
+    "gpu_write_state_driven": true,
+    "unmodelled_write_model": "RECORDED_NOT_APPLIED (writes outside the GPU window return early)",
+    "write_gate_count": 1
+  }
+}\n

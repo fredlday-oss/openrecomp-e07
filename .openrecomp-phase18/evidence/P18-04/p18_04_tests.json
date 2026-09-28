@@ -1,0 +1,331 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase18-sources",
+      "detail": "OPENRECOMP_PHASE18_SOURCE_INTEGRITY=PASS entries=19",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:phase17-frozen",
+      "detail": "authority-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:phase1-17-untouched",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-exists",
+      "detail": "bin",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-hash",
+      "detail": "2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-exists",
+      "detail": "cue",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-hash",
+      "detail": "beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:slus-exists",
+      "detail": "slus",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:slus-hash",
+      "detail": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "status": "PASS"
+    },
+    {
+      "check": "source:transcript-digest",
+      "detail": "P17-06R transcript digest",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu:gp0-physical",
+      "detail": "0x1f801810",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu:gp1-physical",
+      "detail": "0x1f801814",
+      "status": "PASS"
+    },
+    {
+      "check": "overlay:p18-02-anchor-controls",
+      "detail": "{\"duplicated_loop_rejected\": true, \"missing_harness_end_rejected\": true, \"missing_include_rejected\": true, \"ok\": true, \"valid_applies\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "overlay:p18-03-anchor-controls",
+      "detail": "{\"missing_harness_end_rejected\": true, \"missing_insert_rejected\": true, \"missing_write_hook_rejected\": true, \"ok\": true, \"valid_applies\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "overlay:p18-04-anchor-controls",
+      "detail": "{\"missing_harness_end_rejected\": true, \"missing_insert_rejected\": true, \"missing_write_rejected\": true, \"ok\": true, \"valid_applies\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "write-path:present",
+      "detail": "{\"gate_expression\": \"phys == GP0_PHYS || phys == GP1_PHYS -> or_p18_gpu_write\", \"gp0_literal_count\": 4, \"gp0gp1_write_path_present\": true, \"gp1_literal_count\": 4, \"gpu_write_function_pc_free\": true, \"gpu_write_state_driven\": true, \"unmodelled_write_model\": \"RECORDED_NOT_APPLIED (writes outside the GPU window return early)\", \"write_gate_count\": 1}",
+      "status": "PASS"
+    },
+    {
+      "check": "write-path:gated-on-registers",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:schema",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:validated",
+      "detail": "297a549350e89c4fdf765353c7cf6ff9a1f9a0e563c8c62b02a33677943be58b",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:write-path-in-document",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "continuation:executed-pcs-have-provenance",
+      "detail": "{\"executed\": 759}",
+      "status": "PASS"
+    },
+    {
+      "check": "continuation:typed-stop-reason",
+      "detail": "CONTINUATION_BUDGET_REACHED",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:gp0-not-reached",
+      "detail": "{\"gp0_writes\": 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:gp1-not-reached",
+      "detail": "{\"gp1_writes\": 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:explicit-not-reached",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:no-events",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier:zero-mmmio-gpu-writes",
+      "detail": "{\"bit26_set\": 6, \"drained\": 0, \"fifo_overflow\": 0, \"gp0_writes\": 0, \"gp1_writes\": 0, \"gpustat_reads\": 6, \"mmio_reads_unmodelled\": 8, \"mmio_writes\": 4}",
+      "status": "PASS"
+    },
+    {
+      "check": "control:write-path-reaches-gp0gp1",
+      "detail": "{\"command_classes\": [\"GP1_CONTROL\", \"POLYGON\"], \"frontier_reached\": true, \"frontier_sha256\": \"29f92333e0b12401bc9484cab73dc23c1290f866f985eaebaca067ca1bd79fab\", \"gp0_write_count\": 1, \"gp1_write_count\": 1, \"ok\": true, \"unsupported_command_count\": 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "control:contrast-with-unreached-frontier",
+      "detail": "{\"control_gp0\": 1, \"control_gp1\": 1}",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:manifest-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:fifo-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:frontier-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:regions-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "causal:validated",
+      "detail": "1eabe6c7b5c5263a61da8f91534f89b7a92c38916cdc482f3792b807dd10d6d6",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unknown-command-not-noop",
+      "detail": "{\"nop_class\": \"NOP\", \"nop_is_not_unknown\": true, \"ok\": true, \"unknown_class\": \"UNKNOWN\", \"unknown_unsupported\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:write-wrong-address",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:event-without-owner",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unreached-status-missing",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:not-window-address",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unmodelled-bit-rejected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu_command_frontier:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu_command_frontier:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu_command_frontier:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu_command_frontier:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu_command_frontier:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu_command_frontier:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier_verdict:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier_verdict:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier_verdict:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier_verdict:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier_verdict:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "frontier_verdict:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "command_decode:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "command_decode:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "command_decode:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "command_decode:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "command_decode:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "command_decode:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P18-04 Test Results",
+  "schema": "openrecomp-phase18-tests-v1",
+  "stage": "P18-04",
+  "summary": {
+    "failed": 0,
+    "passed": 64
+  }
+}

@@ -23,9 +23,9 @@
 - `FIRST_FRAME_READY=NO`
 
 ## Current Stage
-- CURRENT_STAGE: P18-03
+- CURRENT_STAGE: P18-04
 - LAST_COMPLETED_STAGE: P18-03 causal device transcript (controller reviewed and integrated)
-- NEXT_STAGE: P18-04
+- NEXT_STAGE: P18-05
 - FINAL_VERDICT: (not terminal)
 - REVIEW_GATE: open; no REVIEW_REQUIRED stop raised by P18-01.
 
@@ -80,9 +80,33 @@
 - promotes no proof marker (FIRST_FRAME_READY=NO; Phase-18 claims NOT_PROVEN).
 - next_stage: P18-03
 
+## P18-04 authoritative metadata (GPU command frontier)
+- STATUS: PASS (worker dev gate 64/64; awaiting controller dual-gate integration)
+- authority_commit: `d7cc5d09eebde398ca6ff3f3dad8dd5841913b69`
+- authority_tree: `ad3aa822e5a02905ebc25477f7b6c69d0bffa055`
+- mechanically establishes that the authentic continuation reaches device
+  traffic (BIOS dispatch, GPUSTAT reads, interrupt, timer) but **no GP0/GP1
+  write**: the GPU command frontier is UNREACHED.
+- evidence for the unreached verdict: the generated runtime contains a genuine
+  state-driven GP0/GP1 write path gated on exactly `0x1f801810`/`0x1f801814`
+  (gate count 1, both literals present, function PC-free); the FIFO tap records
+  zero GP0 and zero GP1 writes; no reached instruction materialises the
+  `0x1f80` window high half (materialisation sites 0).
+- controlled probe against the official generated source drives the generated
+  GPU write entry points and produces real GP0/GP1 frontier events (GP0=1,
+  GP1=1; classes POLYGON + GP1_CONTROL), proving the path/tap/classifier are
+  genuine and the frontier is a genuine unreached state, not a missing path.
+- GP0/GP1 explicitly listed `NOT_REACHED`; unknown command words classify
+  `UNKNOWN` (never a no-op); all fail-closed controls pass.
+- frontier digest `297a549350e89c4fdf765353c7cf6ff9a1f9a0e563c8c62b02a33677943be58b`.
+- promotes no proof marker (FIRST_FRAME_READY=NO; Phase-18 claims NOT_PROVEN).
+- next_stage: P18-05
+
 ## Stage Status
 | Stage | Status | Marker |
 |---|---|---|
 | P18-00 | PASS | `OPENRECOMP_P18_00=PASS` |
 | P18-01 | PASS | `OPENRECOMP_P18_01=PASS` |
 | P18-02 | PASS | `OPENRECOMP_P18_02=PASS` |
+| P18-03 | PASS | `OPENRECOMP_P18_03=PASS` |
+| P18-04 | PASS (worker dev gate) | `OPENRECOMP_P18_04=PASS` |
