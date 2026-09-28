@@ -1,0 +1,67 @@
+PASS: integrity:phase18-sources OPENRECOMP_PHASE18_SOURCE_INTEGRITY=PASS entries=17
+PASS: authority:phase17-frozen authority-ok
+PASS: frozen:phase1-17-untouched
+PASS: fixture:bin-exists bin
+PASS: fixture:bin-hash 2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365
+PASS: fixture:cue-exists cue
+PASS: fixture:cue-hash beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2
+PASS: fixture:slus-exists slus
+PASS: fixture:slus-hash c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f
+PASS: source:transcript-digest P17-06R transcript digest
+PASS: poll:derived 0x8001a9fc
+PASS: poll:provenance-reverified 46d2f4a524811b398cd95df0a152d8c0a45903091a89d4a5ebcd27556ee2729f
+PASS: overlay:p18-02-anchor-controls {"duplicated_loop_rejected": true, "missing_harness_end_rejected": true, "missing_include_rejected": true, "ok": true, "valid_applies": true}
+PASS: overlay:p18-03-anchor-controls {"missing_harness_end_rejected": true, "missing_insert_rejected": true, "missing_write_hook_rejected": true, "ok": true, "valid_applies": true}
+PASS: poll:exit-taken {"branch_executions": 2, "exit_detected": true, "exit_taken_from": "0x8001aa08", "exit_trace_index": 344, "poll_entries": 2, "taken_to_exit_count": 2}
+PASS: gpu:read-model-counted {"bit26_set": 6, "drained": 0, "fifo_overflow": 0, "gp0_writes": 0, "gp1_writes": 0, "gpustat_reads": 6, "mmio_reads_unmodelled": 8, "mmio_writes": 4}
+PASS: continuation:executed-pcs-all-authenticated {"executed": 759}
+PASS: continuation:executed-pcs-have-provenance
+PASS: transcript:schema
+PASS: transcript:events-non-empty
+PASS: transcript:causal-snapshot-count
+PASS: transcript:all-events-decoded
+PASS: transcript:mmio-events-causal
+PASS: transcript:no-replayed-events
+PASS: transcript:gpustat-read-model
+PASS: transcript:validated 1eabe6c7b5c5263a61da8f91534f89b7a92c38916cdc482f3792b807dd10d6d6
+PASS: coverage:unreached-explicit {"categories": [{"category": "BIOS_DISPATCH", "event_count": 2, "reached": true, "status": "REACHED"}, {"category": "GPUSTAT_READ", "event_count": 6, "reached": true, "status": "REACHED"}, {"category": "GP0_READ", "event_count": 0, "reached": false, "status": "NOT_REACHED"}, {"category": "GP0_WRITE", "event_count": 0, "reached": false, "status": "NOT_REACHED"}, {"category": "GP1_WRITE", "event_count": 0, "reached": false, "status": "NOT_REACHED"}, {"category": "DMA_ACCESS", "event_count": 0, "reached": false, "status": "NOT_REACHED"}, {"category": "OT_DMA_CHAIN_START", "event_count": 0, "reached": false, "status": "NOT_REACHED"}, {"category": "INTERRUPT_ACCESS", "event_count": 8, "reached": true, "status": "REACHED"}, {"category": "TIMER_ACCESS", "event_count": 4, "reached": true, "status": "REACHED"}, {"category": "CDROM_ACCESS", "event_count": 0, "reached": false, "status": "NOT_REACHED"}, {"category": "SPU_ACCESS", "event_count": 0, "reached": false, "status": "NOT_REACHED"}, {"category": "PAD_ACCESS", "event_count": 0, "reached": false, "status": "NOT_REACHED"}, {"category": "SIO_ACCESS", "event_count": 0, "reached": false, "status": "NOT_REACHED"}, {"category": "MMIO_ACCESS", "event_count": 0, "reached": false, "status": "NOT_REACHED"}, {"category": "VRAM_MUTATION", "event_count": 0, "reached": false, "status": "NOT_REACHED"}], "promotes_no_proof_marker": true, "reached": ["BIOS_DISPATCH", "GPUSTAT_READ", "INTERRUPT_ACCESS", "TIMER_ACCESS"], "schema": "openrecomp-phase18-category-coverage-v1", "stage": "P18-03", "total_events": 20, "unreached": ["CDROM_ACCESS", "DMA_ACCESS", "GP0_READ", "GP0_WRITE", "GP1_WRITE", "MMIO_ACCESS", "OT_DMA_CHAIN_START", "PAD_ACCESS", "SIO_ACCESS", "SPU_ACCESS", "VRAM_MUTATION"]}
+PASS: coverage:vrarm-mutation-not-silently-reached VRAM_MUTATION tracked explicitly
+PASS: discipline:causal-snapshot-log-present {"causal_functions_pc_free": true, "causal_snapshot_log_present": true, "gpustat_state_driven_present": true, "state_expression": "bit26 set iff s_p18_gpu_pending == 0", "zero_read_model_absent": true}
+PASS: discipline:zero-read-model-absent
+PASS: discipline:gpustat-state-driven
+PASS: discipline:causal-functions-pc-free
+PASS: determinism:manifest-identical
+PASS: determinism:runtime-result-identical
+PASS: determinism:transcript-counts-identical
+PASS: determinism:causal-snapshots-identical
+PASS: determinism:regions-identical
+PASS: negative:event-without-owner-rejected
+PASS: negative:event-without-provenance
+PASS: negative:causal-count-mismatch
+PASS: negative:causal-overflow
+PASS: negative:tampered-fresh-decode
+PASS: negative:zero-fill-poll-not-exited {"exit_detected": false, "ok": true, "poll_entered": true, "taken_to_exit_count": 0}
+PASS: negative:unmodelled-bit-rejected
+PASS: category_coverage:no-private-path absolute private paths absent
+PASS: category_coverage:reject-private-paths no private paths in values
+PASS: category_coverage:no-import-private-paths no import paths
+PASS: category_coverage:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: category_coverage:no-payload-hex no payload supplied
+PASS: category_coverage:no-raw-words reconstructive fields absent
+PASS: negative_tests:no-private-path absolute private paths absent
+PASS: negative_tests:reject-private-paths no private paths in values
+PASS: negative_tests:no-import-private-paths no import paths
+PASS: negative_tests:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: negative_tests:no-payload-hex no payload supplied
+PASS: negative_tests:no-raw-words reconstructive fields absent
+OPENRECOMP_P18_00=PASS
+OPENRECOMP_P18_01=PASS
+OPENRECOMP_P18_02=PASS
+OPENRECOMP_P18_03=PASS
+OPENRECOMP_PHASE18_CAUSAL_DEVICE_TRANSCRIPT=PASS
+OPENRECOMP_PHASE18_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+FIRST_FRAME_READY=NO
+P18-03_CHECKS=56

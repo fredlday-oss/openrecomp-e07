@@ -1,0 +1,117 @@
+{
+  "categories": [
+    {
+      "category": "BIOS_DISPATCH",
+      "event_count": 2,
+      "reached": true,
+      "status": "REACHED"
+    },
+    {
+      "category": "GPUSTAT_READ",
+      "event_count": 6,
+      "reached": true,
+      "status": "REACHED"
+    },
+    {
+      "category": "GP0_READ",
+      "event_count": 0,
+      "reached": false,
+      "status": "NOT_REACHED"
+    },
+    {
+      "category": "GP0_WRITE",
+      "event_count": 0,
+      "reached": false,
+      "status": "NOT_REACHED"
+    },
+    {
+      "category": "GP1_WRITE",
+      "event_count": 0,
+      "reached": false,
+      "status": "NOT_REACHED"
+    },
+    {
+      "category": "DMA_ACCESS",
+      "event_count": 0,
+      "reached": false,
+      "status": "NOT_REACHED"
+    },
+    {
+      "category": "OT_DMA_CHAIN_START",
+      "event_count": 0,
+      "reached": false,
+      "status": "NOT_REACHED"
+    },
+    {
+      "category": "INTERRUPT_ACCESS",
+      "event_count": 8,
+      "reached": true,
+      "status": "REACHED"
+    },
+    {
+      "category": "TIMER_ACCESS",
+      "event_count": 4,
+      "reached": true,
+      "status": "REACHED"
+    },
+    {
+      "category": "CDROM_ACCESS",
+      "event_count": 0,
+      "reached": false,
+      "status": "NOT_REACHED"
+    },
+    {
+      "category": "SPU_ACCESS",
+      "event_count": 0,
+      "reached": false,
+      "status": "NOT_REACHED"
+    },
+    {
+      "category": "PAD_ACCESS",
+      "event_count": 0,
+      "reached": false,
+      "status": "NOT_REACHED"
+    },
+    {
+      "category": "SIO_ACCESS",
+      "event_count": 0,
+      "reached": false,
+      "status": "NOT_REACHED"
+    },
+    {
+      "category": "MMIO_ACCESS",
+      "event_count": 0,
+      "reached": false,
+      "status": "NOT_REACHED"
+    },
+    {
+      "category": "VRAM_MUTATION",
+      "event_count": 0,
+      "reached": false,
+      "status": "NOT_REACHED"
+    }
+  ],
+  "promotes_no_proof_marker": true,
+  "reached": [
+    "BIOS_DISPATCH",
+    "GPUSTAT_READ",
+    "INTERRUPT_ACCESS",
+    "TIMER_ACCESS"
+  ],
+  "schema": "openrecomp-phase18-category-coverage-v1",
+  "stage": "P18-03",
+  "total_events": 20,
+  "unreached": [
+    "CDROM_ACCESS",
+    "DMA_ACCESS",
+    "GP0_READ",
+    "GP0_WRITE",
+    "GP1_WRITE",
+    "MMIO_ACCESS",
+    "OT_DMA_CHAIN_START",
+    "PAD_ACCESS",
+    "SIO_ACCESS",
+    "SPU_ACCESS",
+    "VRAM_MUTATION"
+  ]
+}

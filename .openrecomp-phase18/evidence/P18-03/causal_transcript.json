@@ -1,0 +1,539 @@
+{
+  "bios_dispatch_count": 2,
+  "bios_model": {
+    "dispatch": "ENVELOPE_DISPATCH_RETURN_TO_RA",
+    "internals": "NOT_MODELED"
+  },
+  "causal_log_capacity": 4096,
+  "causal_snapshot_count": 18,
+  "continuation_entry_pc": "0x800380a0",
+  "device_event_count": 18,
+  "event_class_counts": {
+    "BIOS_DISPATCH": 2,
+    "GPUSTAT_READ": 6,
+    "INTERRUPT_ACCESS": 8,
+    "TIMER_ACCESS": 4
+  },
+  "event_count": 20,
+  "events": [
+    {
+      "arguments": {
+        "a0": "0x8007a5b0",
+        "a1": "0x00000000",
+        "a2": "0x00003954",
+        "a3": "0x342e3169"
+      },
+      "bios_internals": "NOT_MODELED",
+      "decoded_instruction": {
+        "fresh_decode_digest": "1ababf973afef3a109f544da2721cd575a73a41d3ac2c117b621a08d5a83b485",
+        "op": "jr",
+        "verified": true
+      },
+      "delay_slot_pc": "0x80026cd0",
+      "function_number": "0x0000002b",
+      "gp": "0x8007a3e0",
+      "kind": "BIOS_DISPATCH",
+      "owning_instruction_pc": "0x80026ccc",
+      "owning_instruction_provenance_digest": "5167d639b94afa8d33a1e046914c268b1c9bedc007a517b94af98377d1d00da0",
+      "ra": "0x8004ffc4",
+      "return_pc": "0x8004ffc4",
+      "sequence": 0,
+      "sp": "0x801fffb8",
+      "table_index": "0x0000002b",
+      "table_index_decimal": 43,
+      "transfer_semantics": "ENVELOPE_DISPATCH_RETURN_TO_RA",
+      "vector": "A0",
+      "vector_pc": "0x000000a0"
+    },
+    {
+      "access": "READ",
+      "address": "0x1f801814",
+      "causal_device_state": {
+        "causal_rule": "bit26 = (gpu_pending == 0); value = 0x04000000 iff idle",
+        "gpu_pending_after": 0,
+        "gpu_pending_before": 0,
+        "model": "P18_STATE_DRIVEN_BIT26",
+        "produced_value": "0x04000000"
+      },
+      "class": "GPUSTAT_READ",
+      "decoded_instruction": {
+        "fresh_decode_digest": "aa5db7e4a48c736916af90db4162fcb7caf2bbac0b910a5ca83b196981dd4ca7",
+        "op": "lw",
+        "verified": true
+      },
+      "delay_slot_pc": null,
+      "kind": "MMIO",
+      "model": "P18_STATE_DRIVEN_BIT26",
+      "owning_instruction_pc": "0x80016018",
+      "owning_instruction_provenance_digest": "d5d1d49ff4d998c26f991fab7c3003dd276c8f6b0fccf67e475d6be7c1a33084",
+      "sequence": 1,
+      "value": "0x04000000",
+      "width": 4
+    },
+    {
+      "access": "READ",
+      "address": "0x1f801110",
+      "causal_device_state": {
+        "causal_rule": "unmodelled device: zero-fill read / recorded-not-applied write",
+        "gpu_pending_after": 0,
+        "gpu_pending_before": 0,
+        "model": "ZERO_FILL_RECORDED",
+        "produced_value": "0x00000000"
+      },
+      "class": "TIMER_ACCESS",
+      "decoded_instruction": {
+        "fresh_decode_digest": "c867f887ecd1d1a01150f979a5b6b338d4bce05ef323ad02fe3e8f14aeaaeb7c",
+        "op": "lw",
+        "verified": true
+      },
+      "delay_slot_pc": null,
+      "kind": "MMIO",
+      "model": "ZERO_FILL_RECORDED",
+      "owning_instruction_pc": "0x8001601c",
+      "owning_instruction_provenance_digest": "1516c2f2dae23299fe52185714e2abdd7837abddd5b5e0af1a9d2969e28d90ae",
+      "sequence": 2,
+      "value": "0x00000000",
+      "width": 4
+    },
+    {
+      "access": "READ",
+      "address": "0x1f801074",
+      "causal_device_state": {
+        "causal_rule": "unmodelled device: zero-fill read / recorded-not-applied write",
+        "gpu_pending_after": 0,
+        "gpu_pending_before": 0,
+        "model": "ZERO_FILL_RECORDED",
+        "produced_value": "0x00000000"
+      },
+      "class": "INTERRUPT_ACCESS",
+      "decoded_instruction": {
+        "fresh_decode_digest": "c4f8225ed950e8673581dcedc85e3e41162e1073e5f91c26b4c8bd1f60efe7e4",
+        "op": "lhu",
+        "verified": true
+      },
+      "delay_slot_pc": null,
+      "kind": "MMIO",
+      "model": "ZERO_FILL_RECORDED",
+      "owning_instruction_pc": "0x80016374",
+      "owning_instruction_provenance_digest": "add61c64e0214ca20425a845f6f72d244b443d0bf75c4c865040de5ea886c842",
+      "sequence": 3,
+      "value": "0x00000000",
+      "width": 2
+    },
+    {
+      "access": "WRITE",
+      "address": "0x1f801074",
+      "causal_device_state": {
+        "causal_rule": "unmodelled device: zero-fill read / recorded-not-applied write",
+        "gpu_pending_after": 0,
+        "gpu_pending_before": 0,
+        "model": "RECORDED_NOT_APPLIED",
+        "produced_value": "0x00000000"
+      },
+      "class": "INTERRUPT_ACCESS",
+      "decoded_instruction": {
+        "fresh_decode_digest": "631bffc857cce6b35f1b6ecbb57901ac83e0a418ca3fde25f23c28690a3c152f",
+        "op": "sh",
+        "verified": true
+      },
+      "delay_slot_pc": null,
+      "kind": "MMIO",
+      "model": "RECORDED_NOT_APPLIED",
+      "owning_instruction_pc": "0x80016378",
+      "owning_instruction_provenance_digest": "7fe01f0550768c1dbfe587f13e707e4108894a8f0dad0cfb077f38df45276c4b",
+      "sequence": 4,
+      "value": "0x00000000",
+      "width": 2
+    },
+    {
+      "access": "READ",
+      "address": "0x1f801814",
+      "causal_device_state": {
+        "causal_rule": "bit26 = (gpu_pending == 0); value = 0x04000000 iff idle",
+        "gpu_pending_after": 0,
+        "gpu_pending_before": 0,
+        "model": "P18_STATE_DRIVEN_BIT26",
+        "produced_value": "0x04000000"
+      },
+      "class": "GPUSTAT_READ",
+      "decoded_instruction": {
+        "fresh_decode_digest": "b1843e2f7df0e6fbbf4e6fe32423625309e5272238d09d5ed1db9061df2ba5dc",
+        "op": "lw",
+        "verified": true
+      },
+      "delay_slot_pc": null,
+      "kind": "MMIO",
+      "model": "P18_STATE_DRIVEN_BIT26",
+      "owning_instruction_pc": "0x8001a9fc",
+      "owning_instruction_provenance_digest": "46d2f4a524811b398cd95df0a152d8c0a45903091a89d4a5ebcd27556ee2729f",
+      "sequence": 5,
+      "value": "0x04000000",
+      "width": 4
+    },
+    {
+      "access": "READ",
+      "address": "0x1f801814",
+      "causal_device_state": {
+        "causal_rule": "bit26 = (gpu_pending == 0); value = 0x04000000 iff idle",
+        "gpu_pending_after": 0,
+        "gpu_pending_before": 0,
+        "model": "P18_STATE_DRIVEN_BIT26",
+        "produced_value": "0x04000000"
+      },
+      "class": "GPUSTAT_READ",
+      "decoded_instruction": {
+        "fresh_decode_digest": "aa5db7e4a48c736916af90db4162fcb7caf2bbac0b910a5ca83b196981dd4ca7",
+        "op": "lw",
+        "verified": true
+      },
+      "delay_slot_pc": null,
+      "kind": "MMIO",
+      "model": "P18_STATE_DRIVEN_BIT26",
+      "owning_instruction_pc": "0x80016018",
+      "owning_instruction_provenance_digest": "d5d1d49ff4d998c26f991fab7c3003dd276c8f6b0fccf67e475d6be7c1a33084",
+      "sequence": 6,
+      "value": "0x04000000",
+      "width": 4
+    },
+    {
+      "access": "READ",
+      "address": "0x1f801110",
+      "causal_device_state": {
+        "causal_rule": "unmodelled device: zero-fill read / recorded-not-applied write",
+        "gpu_pending_after": 0,
+        "gpu_pending_before": 0,
+        "model": "ZERO_FILL_RECORDED",
+        "produced_value": "0x00000000"
+      },
+      "class": "TIMER_ACCESS",
+      "decoded_instruction": {
+        "fresh_decode_digest": "c867f887ecd1d1a01150f979a5b6b338d4bce05ef323ad02fe3e8f14aeaaeb7c",
+        "op": "lw",
+        "verified": true
+      },
+      "delay_slot_pc": null,
+      "kind": "MMIO",
+      "model": "ZERO_FILL_RECORDED",
+      "owning_instruction_pc": "0x8001601c",
+      "owning_instruction_provenance_digest": "1516c2f2dae23299fe52185714e2abdd7837abddd5b5e0af1a9d2969e28d90ae",
+      "sequence": 7,
+      "value": "0x00000000",
+      "width": 4
+    },
+    {
+      "access": "READ",
+      "address": "0x1f801074",
+      "causal_device_state": {
+        "causal_rule": "unmodelled device: zero-fill read / recorded-not-applied write",
+        "gpu_pending_after": 0,
+        "gpu_pending_before": 0,
+        "model": "ZERO_FILL_RECORDED",
+        "produced_value": "0x00000000"
+      },
+      "class": "INTERRUPT_ACCESS",
+      "decoded_instruction": {
+        "fresh_decode_digest": "c4f8225ed950e8673581dcedc85e3e41162e1073e5f91c26b4c8bd1f60efe7e4",
+        "op": "lhu",
+        "verified": true
+      },
+      "delay_slot_pc": null,
+      "kind": "MMIO",
+      "model": "ZERO_FILL_RECORDED",
+      "owning_instruction_pc": "0x80016374",
+      "owning_instruction_provenance_digest": "add61c64e0214ca20425a845f6f72d244b443d0bf75c4c865040de5ea886c842",
+      "sequence": 8,
+      "value": "0x00000000",
+      "width": 2
+    },
+    {
+      "access": "WRITE",
+      "address": "0x1f801074",
+      "causal_device_state": {
+        "causal_rule": "unmodelled device: zero-fill read / recorded-not-applied write",
+        "gpu_pending_after": 0,
+        "gpu_pending_before": 0,
+        "model": "RECORDED_NOT_APPLIED",
+        "produced_value": "0x00000000"
+      },
+      "class": "INTERRUPT_ACCESS",
+      "decoded_instruction": {
+        "fresh_decode_digest": "631bffc857cce6b35f1b6ecbb57901ac83e0a418ca3fde25f23c28690a3c152f",
+        "op": "sh",
+        "verified": true
+      },
+      "delay_slot_pc": null,
+      "kind": "MMIO",
+      "model": "RECORDED_NOT_APPLIED",
+      "owning_instruction_pc": "0x80016378",
+      "owning_instruction_provenance_digest": "7fe01f0550768c1dbfe587f13e707e4108894a8f0dad0cfb077f38df45276c4b",
+      "sequence": 9,
+      "value": "0x00000000",
+      "width": 2
+    },
+    {
+      "access": "READ",
+      "address": "0x1f801814",
+      "causal_device_state": {
+        "causal_rule": "bit26 = (gpu_pending == 0); value = 0x04000000 iff idle",
+        "gpu_pending_after": 0,
+        "gpu_pending_before": 0,
+        "model": "P18_STATE_DRIVEN_BIT26",
+        "produced_value": "0x04000000"
+      },
+      "class": "GPUSTAT_READ",
+      "decoded_instruction": {
+        "fresh_decode_digest": "aa5db7e4a48c736916af90db4162fcb7caf2bbac0b910a5ca83b196981dd4ca7",
+        "op": "lw",
+        "verified": true
+      },
+      "delay_slot_pc": null,
+      "kind": "MMIO",
+      "model": "P18_STATE_DRIVEN_BIT26",
+      "owning_instruction_pc": "0x80016018",
+      "owning_instruction_provenance_digest": "d5d1d49ff4d998c26f991fab7c3003dd276c8f6b0fccf67e475d6be7c1a33084",
+      "sequence": 10,
+      "value": "0x04000000",
+      "width": 4
+    },
+    {
+      "access": "READ",
+      "address": "0x1f801110",
+      "causal_device_state": {
+        "causal_rule": "unmodelled device: zero-fill read / recorded-not-applied write",
+        "gpu_pending_after": 0,
+        "gpu_pending_before": 0,
+        "model": "ZERO_FILL_RECORDED",
+        "produced_value": "0x00000000"
+      },
+      "class": "TIMER_ACCESS",
+      "decoded_instruction": {
+        "fresh_decode_digest": "c867f887ecd1d1a01150f979a5b6b338d4bce05ef323ad02fe3e8f14aeaaeb7c",
+        "op": "lw",
+        "verified": true
+      },
+      "delay_slot_pc": null,
+      "kind": "MMIO",
+      "model": "ZERO_FILL_RECORDED",
+      "owning_instruction_pc": "0x8001601c",
+      "owning_instruction_provenance_digest": "1516c2f2dae23299fe52185714e2abdd7837abddd5b5e0af1a9d2969e28d90ae",
+      "sequence": 11,
+      "value": "0x00000000",
+      "width": 4
+    },
+    {
+      "access": "READ",
+      "address": "0x1f801074",
+      "causal_device_state": {
+        "causal_rule": "unmodelled device: zero-fill read / recorded-not-applied write",
+        "gpu_pending_after": 0,
+        "gpu_pending_before": 0,
+        "model": "ZERO_FILL_RECORDED",
+        "produced_value": "0x00000000"
+      },
+      "class": "INTERRUPT_ACCESS",
+      "decoded_instruction": {
+        "fresh_decode_digest": "c4f8225ed950e8673581dcedc85e3e41162e1073e5f91c26b4c8bd1f60efe7e4",
+        "op": "lhu",
+        "verified": true
+      },
+      "delay_slot_pc": null,
+      "kind": "MMIO",
+      "model": "ZERO_FILL_RECORDED",
+      "owning_instruction_pc": "0x80016374",
+      "owning_instruction_provenance_digest": "add61c64e0214ca20425a845f6f72d244b443d0bf75c4c865040de5ea886c842",
+      "sequence": 12,
+      "value": "0x00000000",
+      "width": 2
+    },
+    {
+      "access": "WRITE",
+      "address": "0x1f801074",
+      "causal_device_state": {
+        "causal_rule": "unmodelled device: zero-fill read / recorded-not-applied write",
+        "gpu_pending_after": 0,
+        "gpu_pending_before": 0,
+        "model": "RECORDED_NOT_APPLIED",
+        "produced_value": "0x00000000"
+      },
+      "class": "INTERRUPT_ACCESS",
+      "decoded_instruction": {
+        "fresh_decode_digest": "631bffc857cce6b35f1b6ecbb57901ac83e0a418ca3fde25f23c28690a3c152f",
+        "op": "sh",
+        "verified": true
+      },
+      "delay_slot_pc": null,
+      "kind": "MMIO",
+      "model": "RECORDED_NOT_APPLIED",
+      "owning_instruction_pc": "0x80016378",
+      "owning_instruction_provenance_digest": "7fe01f0550768c1dbfe587f13e707e4108894a8f0dad0cfb077f38df45276c4b",
+      "sequence": 13,
+      "value": "0x00000000",
+      "width": 2
+    },
+    {
+      "access": "READ",
+      "address": "0x1f801814",
+      "causal_device_state": {
+        "causal_rule": "bit26 = (gpu_pending == 0); value = 0x04000000 iff idle",
+        "gpu_pending_after": 0,
+        "gpu_pending_before": 0,
+        "model": "P18_STATE_DRIVEN_BIT26",
+        "produced_value": "0x04000000"
+      },
+      "class": "GPUSTAT_READ",
+      "decoded_instruction": {
+        "fresh_decode_digest": "b1843e2f7df0e6fbbf4e6fe32423625309e5272238d09d5ed1db9061df2ba5dc",
+        "op": "lw",
+        "verified": true
+      },
+      "delay_slot_pc": null,
+      "kind": "MMIO",
+      "model": "P18_STATE_DRIVEN_BIT26",
+      "owning_instruction_pc": "0x8001a9fc",
+      "owning_instruction_provenance_digest": "46d2f4a524811b398cd95df0a152d8c0a45903091a89d4a5ebcd27556ee2729f",
+      "sequence": 14,
+      "value": "0x04000000",
+      "width": 4
+    },
+    {
+      "access": "READ",
+      "address": "0x1f801814",
+      "causal_device_state": {
+        "causal_rule": "bit26 = (gpu_pending == 0); value = 0x04000000 iff idle",
+        "gpu_pending_after": 0,
+        "gpu_pending_before": 0,
+        "model": "P18_STATE_DRIVEN_BIT26",
+        "produced_value": "0x04000000"
+      },
+      "class": "GPUSTAT_READ",
+      "decoded_instruction": {
+        "fresh_decode_digest": "aa5db7e4a48c736916af90db4162fcb7caf2bbac0b910a5ca83b196981dd4ca7",
+        "op": "lw",
+        "verified": true
+      },
+      "delay_slot_pc": null,
+      "kind": "MMIO",
+      "model": "P18_STATE_DRIVEN_BIT26",
+      "owning_instruction_pc": "0x80016018",
+      "owning_instruction_provenance_digest": "d5d1d49ff4d998c26f991fab7c3003dd276c8f6b0fccf67e475d6be7c1a33084",
+      "sequence": 15,
+      "value": "0x04000000",
+      "width": 4
+    },
+    {
+      "access": "READ",
+      "address": "0x1f801110",
+      "causal_device_state": {
+        "causal_rule": "unmodelled device: zero-fill read / recorded-not-applied write",
+        "gpu_pending_after": 0,
+        "gpu_pending_before": 0,
+        "model": "ZERO_FILL_RECORDED",
+        "produced_value": "0x00000000"
+      },
+      "class": "TIMER_ACCESS",
+      "decoded_instruction": {
+        "fresh_decode_digest": "c867f887ecd1d1a01150f979a5b6b338d4bce05ef323ad02fe3e8f14aeaaeb7c",
+        "op": "lw",
+        "verified": true
+      },
+      "delay_slot_pc": null,
+      "kind": "MMIO",
+      "model": "ZERO_FILL_RECORDED",
+      "owning_instruction_pc": "0x8001601c",
+      "owning_instruction_provenance_digest": "1516c2f2dae23299fe52185714e2abdd7837abddd5b5e0af1a9d2969e28d90ae",
+      "sequence": 16,
+      "value": "0x00000000",
+      "width": 4
+    },
+    {
+      "access": "READ",
+      "address": "0x1f801074",
+      "causal_device_state": {
+        "causal_rule": "unmodelled device: zero-fill read / recorded-not-applied write",
+        "gpu_pending_after": 0,
+        "gpu_pending_before": 0,
+        "model": "ZERO_FILL_RECORDED",
+        "produced_value": "0x00000000"
+      },
+      "class": "INTERRUPT_ACCESS",
+      "decoded_instruction": {
+        "fresh_decode_digest": "c4f8225ed950e8673581dcedc85e3e41162e1073e5f91c26b4c8bd1f60efe7e4",
+        "op": "lhu",
+        "verified": true
+      },
+      "delay_slot_pc": null,
+      "kind": "MMIO",
+      "model": "ZERO_FILL_RECORDED",
+      "owning_instruction_pc": "0x80016374",
+      "owning_instruction_provenance_digest": "add61c64e0214ca20425a845f6f72d244b443d0bf75c4c865040de5ea886c842",
+      "sequence": 17,
+      "value": "0x00000000",
+      "width": 2
+    },
+    {
+      "access": "WRITE",
+      "address": "0x1f801074",
+      "causal_device_state": {
+        "causal_rule": "unmodelled device: zero-fill read / recorded-not-applied write",
+        "gpu_pending_after": 0,
+        "gpu_pending_before": 0,
+        "model": "RECORDED_NOT_APPLIED",
+        "produced_value": "0x00000000"
+      },
+      "class": "INTERRUPT_ACCESS",
+      "decoded_instruction": {
+        "fresh_decode_digest": "631bffc857cce6b35f1b6ecbb57901ac83e0a418ca3fde25f23c28690a3c152f",
+        "op": "sh",
+        "verified": true
+      },
+      "delay_slot_pc": null,
+      "kind": "MMIO",
+      "model": "RECORDED_NOT_APPLIED",
+      "owning_instruction_pc": "0x80016378",
+      "owning_instruction_provenance_digest": "7fe01f0550768c1dbfe587f13e707e4108894a8f0dad0cfb077f38df45276c4b",
+      "sequence": 18,
+      "value": "0x00000000",
+      "width": 2
+    },
+    {
+      "arguments": {
+        "a0": "0x800296ac",
+        "a1": "0x00000000",
+        "a2": "0x00000180",
+        "a3": "0x00000200"
+      },
+      "bios_internals": "NOT_MODELED",
+      "decoded_instruction": {
+        "fresh_decode_digest": "1ababf973afef3a109f544da2721cd575a73a41d3ac2c117b621a08d5a83b485",
+        "op": "jr",
+        "verified": true
+      },
+      "delay_slot_pc": "0x80026cd0",
+      "function_number": "0x0000002b",
+      "gp": "0x8007a3e0",
+      "kind": "BIOS_DISPATCH",
+      "owning_instruction_pc": "0x80026ccc",
+      "owning_instruction_provenance_digest": "5167d639b94afa8d33a1e046914c268b1c9bedc007a517b94af98377d1d00da0",
+      "ra": "0x800170d4",
+      "return_pc": "0x800170d4",
+      "sequence": 19,
+      "sp": "0x801fff68",
+      "table_index": "0x0000002b",
+      "table_index_decimal": 43,
+      "transfer_semantics": "ENVELOPE_DISPATCH_RETURN_TO_RA",
+      "vector": "A0",
+      "vector_pc": "0x000000a0"
+    }
+  ],
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "gpu_state_model": "STATE_DRIVEN_BIT26",
+  "gpustat_read_model": "P18_STATE_DRIVEN_BIT26",
+  "mmio_model": {
+    "read": "ZERO_FILL_RECORDED",
+    "write": "RECORDED_NOT_APPLIED"
+  },
+  "next_stage": "P18-04",
+  "runtime_stop_reason": "CONTINUATION_BUDGET_REACHED",
+  "schema": "openrecomp-phase18-causal-device-transcript-v1",
+  "stage": "P18-03"
+}

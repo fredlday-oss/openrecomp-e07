@@ -1,0 +1,50 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "de7682bedf4ccf3d33d0d31097e1c314017c258a86eb636c37482ebbe65dd530",
+    "category_coverage.json": "95a44cf335e6a778005006f3787fb279e0493b277081665c689947e8f66d3e17",
+    "causal_transcript.json": "1eabe6c7b5c5263a61da8f91534f89b7a92c38916cdc482f3792b807dd10d6d6",
+    "negative_tests.json": "146e5ec465244f9f05c811b2713fcac39f5455d5636756838349d87eca0af25c",
+    "p18_03_tests.json": "2e234d41017b0e6a8472808c2b4fd708b9b8876d704df02ebf61f2e9e903439d"
+  },
+  "artifacts_identical": true,
+  "gate": "tools/test_phase18_causal_transcript_v1.py",
+  "gate_sha256": "aefe3d15c6e31c4f16fed43f90c74bc433a5adb8ee330aaddfbf0693bfa021cc",
+  "next_stage": "P18-04",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "RESULT.json": "de7682bedf4ccf3d33d0d31097e1c314017c258a86eb636c37482ebbe65dd530",
+        "category_coverage.json": "95a44cf335e6a778005006f3787fb279e0493b277081665c689947e8f66d3e17",
+        "causal_transcript.json": "1eabe6c7b5c5263a61da8f91534f89b7a92c38916cdc482f3792b807dd10d6d6",
+        "negative_tests.json": "146e5ec465244f9f05c811b2713fcac39f5455d5636756838349d87eca0af25c",
+        "p18_03_tests.json": "2e234d41017b0e6a8472808c2b4fd708b9b8876d704df02ebf61f2e9e903439d"
+      },
+      "p18_03_tests_sha256": "2e234d41017b0e6a8472808c2b4fd708b9b8876d704df02ebf61f2e9e903439d",
+      "returncode": 0,
+      "stdout_bytes_raw": 5889,
+      "stdout_sha256_lf": "b48a25e13687bee594a0ee080f00e34e830cb6e5d671360c06d0a00d03a46ad3",
+      "stdout_sha256_raw": "b48a25e13687bee594a0ee080f00e34e830cb6e5d671360c06d0a00d03a46ad3"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "RESULT.json": "de7682bedf4ccf3d33d0d31097e1c314017c258a86eb636c37482ebbe65dd530",
+        "category_coverage.json": "95a44cf335e6a778005006f3787fb279e0493b277081665c689947e8f66d3e17",
+        "causal_transcript.json": "1eabe6c7b5c5263a61da8f91534f89b7a92c38916cdc482f3792b807dd10d6d6",
+        "negative_tests.json": "146e5ec465244f9f05c811b2713fcac39f5455d5636756838349d87eca0af25c",
+        "p18_03_tests.json": "2e234d41017b0e6a8472808c2b4fd708b9b8876d704df02ebf61f2e9e903439d"
+      },
+      "p18_03_tests_sha256": "2e234d41017b0e6a8472808c2b4fd708b9b8876d704df02ebf61f2e9e903439d",
+      "returncode": 0,
+      "stdout_bytes_raw": 5889,
+      "stdout_sha256_lf": "b48a25e13687bee594a0ee080f00e34e830cb6e5d671360c06d0a00d03a46ad3",
+      "stdout_sha256_raw": "b48a25e13687bee594a0ee080f00e34e830cb6e5d671360c06d0a00d03a46ad3"
+    }
+  },
+  "schema": "openrecomp-phase18-determinism-v1",
+  "stage": "P18-03",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true,
+  "tests_json_present_both": true
+}

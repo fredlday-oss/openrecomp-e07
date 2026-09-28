@@ -42,8 +42,20 @@ model for the exact bit the authentic guest tests.
   fresh-private-root reproduction byte-identical.
 - Promotes no proof marker. `FIRST_FRAME_READY=NO`; Phase-18 claims NOT_PROVEN.
 
+
+## P18-03 result
+- Layers a second fail-closed overlay on the P18-02 overlay so the frozen
+  P17-06R runtime emits a causal device-state snapshot per MMIO event; 20
+  events with 18 causal snapshots; every event carries sequence, owner
+  provenance digest, fresh-decode-verified decoded instruction, class,
+  address, value, width and causal device state.
+- Reached: BIOS_DISPATCH, GPUSTAT_READ, INTERRUPT_ACCESS, TIMER_ACCESS.
+  Unreached (explicit): GP0/GP1, DMA, OT, CD-ROM, SPU, PAD, SIO, MMIO,
+  VRAM_MUTATION.
+- Causal transcript digest `1eabe6c7b5c5263a61da8f91534f89b7a92c38916cdc482f3792b807dd10d6d6`.
+- Gate 56/56 PASS; dual official runs byte-identical; independent
+  fresh-private-root reproduction byte-identical.
+- Promotes no proof marker. `FIRST_FRAME_READY=NO`; Phase-18 claims NOT_PROVEN.
+
 ## Next Action
-Author and execute `P18-03` (causal device transcript): capture deterministic
-events actually caused by authentic guest execution, each bound to sequence,
-guest PC, authenticated owner, decoded instruction, event type, address/register,
-value, width and causal device state. Do NOT begin Phase 19.
+Author and execute `P18-04` (GPU command frontier). Do NOT begin Phase 19.

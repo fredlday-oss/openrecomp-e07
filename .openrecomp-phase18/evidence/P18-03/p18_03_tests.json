@@ -1,0 +1,291 @@
+{
+  "checks": [
+    {
+      "check": "integrity:phase18-sources",
+      "detail": "OPENRECOMP_PHASE18_SOURCE_INTEGRITY=PASS entries=17",
+      "status": "PASS"
+    },
+    {
+      "check": "authority:phase17-frozen",
+      "detail": "authority-ok",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen:phase1-17-untouched",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-exists",
+      "detail": "bin",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:bin-hash",
+      "detail": "2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-exists",
+      "detail": "cue",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:cue-hash",
+      "detail": "beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:slus-exists",
+      "detail": "slus",
+      "status": "PASS"
+    },
+    {
+      "check": "fixture:slus-hash",
+      "detail": "c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f",
+      "status": "PASS"
+    },
+    {
+      "check": "source:transcript-digest",
+      "detail": "P17-06R transcript digest",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:derived",
+      "detail": "0x8001a9fc",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:provenance-reverified",
+      "detail": "46d2f4a524811b398cd95df0a152d8c0a45903091a89d4a5ebcd27556ee2729f",
+      "status": "PASS"
+    },
+    {
+      "check": "overlay:p18-02-anchor-controls",
+      "detail": "{\"duplicated_loop_rejected\": true, \"missing_harness_end_rejected\": true, \"missing_include_rejected\": true, \"ok\": true, \"valid_applies\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "overlay:p18-03-anchor-controls",
+      "detail": "{\"missing_harness_end_rejected\": true, \"missing_insert_rejected\": true, \"missing_write_hook_rejected\": true, \"ok\": true, \"valid_applies\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "poll:exit-taken",
+      "detail": "{\"branch_executions\": 2, \"exit_detected\": true, \"exit_taken_from\": \"0x8001aa08\", \"exit_trace_index\": 344, \"poll_entries\": 2, \"taken_to_exit_count\": 2}",
+      "status": "PASS"
+    },
+    {
+      "check": "gpu:read-model-counted",
+      "detail": "{\"bit26_set\": 6, \"drained\": 0, \"fifo_overflow\": 0, \"gp0_writes\": 0, \"gp1_writes\": 0, \"gpustat_reads\": 6, \"mmio_reads_unmodelled\": 8, \"mmio_writes\": 4}",
+      "status": "PASS"
+    },
+    {
+      "check": "continuation:executed-pcs-all-authenticated",
+      "detail": "{\"executed\": 759}",
+      "status": "PASS"
+    },
+    {
+      "check": "continuation:executed-pcs-have-provenance",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript:schema",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript:events-non-empty",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript:causal-snapshot-count",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript:all-events-decoded",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript:mmio-events-causal",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript:no-replayed-events",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript:gpustat-read-model",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "transcript:validated",
+      "detail": "1eabe6c7b5c5263a61da8f91534f89b7a92c38916cdc482f3792b807dd10d6d6",
+      "status": "PASS"
+    },
+    {
+      "check": "coverage:unreached-explicit",
+      "detail": "{\"categories\": [{\"category\": \"BIOS_DISPATCH\", \"event_count\": 2, \"reached\": true, \"status\": \"REACHED\"}, {\"category\": \"GPUSTAT_READ\", \"event_count\": 6, \"reached\": true, \"status\": \"REACHED\"}, {\"category\": \"GP0_READ\", \"event_count\": 0, \"reached\": false, \"status\": \"NOT_REACHED\"}, {\"category\": \"GP0_WRITE\", \"event_count\": 0, \"reached\": false, \"status\": \"NOT_REACHED\"}, {\"category\": \"GP1_WRITE\", \"event_count\": 0, \"reached\": false, \"status\": \"NOT_REACHED\"}, {\"category\": \"DMA_ACCESS\", \"event_count\": 0, \"reached\": false, \"status\": \"NOT_REACHED\"}, {\"category\": \"OT_DMA_CHAIN_START\", \"event_count\": 0, \"reached\": false, \"status\": \"NOT_REACHED\"}, {\"category\": \"INTERRUPT_ACCESS\", \"event_count\": 8, \"reached\": true, \"status\": \"REACHED\"}, {\"category\": \"TIMER_ACCESS\", \"event_count\": 4, \"reached\": true, \"status\": \"REACHED\"}, {\"category\": \"CDROM_ACCESS\", \"event_count\": 0, \"reached\": false, \"status\": \"NOT_REACHED\"}, {\"category\": \"SPU_ACCESS\", \"event_count\": 0, \"reached\": false, \"status\": \"NOT_REACHED\"}, {\"category\": \"PAD_ACCESS\", \"event_count\": 0, \"reached\": false, \"status\": \"NOT_REACHED\"}, {\"category\": \"SIO_ACCESS\", \"event_count\": 0, \"reached\": false, \"status\": \"NOT_REACHED\"}, {\"category\": \"MMIO_ACCESS\", \"event_count\": 0, \"reached\": false, \"status\": \"NOT_REACHED\"}, {\"category\": \"VRAM_MUTATION\", \"event_count\": 0, \"reached\": false, \"status\": \"NOT_REACHED\"}], \"promotes_no_proof_marker\": true, \"reached\": [\"BIOS_DISPATCH\", \"GPUSTAT_READ\", \"INTERRUPT_ACCESS\", \"TIMER_ACCESS\"], \"schema\": \"openrecomp-phase18-category-coverage-v1\", \"stage\": \"P18-03\", \"total_events\": 20, \"unreached\": [\"CDROM_ACCESS\", \"DMA_ACCESS\", \"GP0_READ\", \"GP0_WRITE\", \"GP1_WRITE\", \"MMIO_ACCESS\", \"OT_DMA_CHAIN_START\", \"PAD_ACCESS\", \"SIO_ACCESS\", \"SPU_ACCESS\", \"VRAM_MUTATION\"]}",
+      "status": "PASS"
+    },
+    {
+      "check": "coverage:vrarm-mutation-not-silently-reached",
+      "detail": "VRAM_MUTATION tracked explicitly",
+      "status": "PASS"
+    },
+    {
+      "check": "discipline:causal-snapshot-log-present",
+      "detail": "{\"causal_functions_pc_free\": true, \"causal_snapshot_log_present\": true, \"gpustat_state_driven_present\": true, \"state_expression\": \"bit26 set iff s_p18_gpu_pending == 0\", \"zero_read_model_absent\": true}",
+      "status": "PASS"
+    },
+    {
+      "check": "discipline:zero-read-model-absent",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "discipline:gpustat-state-driven",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "discipline:causal-functions-pc-free",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:manifest-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:runtime-result-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:transcript-counts-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:causal-snapshots-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "determinism:regions-identical",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:event-without-owner-rejected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:event-without-provenance",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:causal-count-mismatch",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:causal-overflow",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:tampered-fresh-decode",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:zero-fill-poll-not-exited",
+      "detail": "{\"exit_detected\": false, \"ok\": true, \"poll_entered\": true, \"taken_to_exit_count\": 0}",
+      "status": "PASS"
+    },
+    {
+      "check": "negative:unmodelled-bit-rejected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "category_coverage:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "category_coverage:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "category_coverage:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "category_coverage:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "category_coverage:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "category_coverage:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:no-private-path",
+      "detail": "absolute private paths absent",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:reject-private-paths",
+      "detail": "no private paths in values",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:no-import-private-paths",
+      "detail": "no import paths",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:positive-safe-relative-path",
+      "detail": "ordinary public-safe relative path accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:no-payload-hex",
+      "detail": "no payload supplied",
+      "status": "PASS"
+    },
+    {
+      "check": "negative_tests:no-raw-words",
+      "detail": "reconstructive fields absent",
+      "status": "PASS"
+    }
+  ],
+  "name": "P18-03 Test Results",
+  "schema": "openrecomp-phase18-tests-v1",
+  "stage": "P18-03",
+  "summary": {
+    "failed": 0,
+    "passed": 56
+  }
+}

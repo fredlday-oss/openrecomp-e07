@@ -23,9 +23,9 @@
 - `FIRST_FRAME_READY=NO`
 
 ## Current Stage
-- CURRENT_STAGE: P18-02
-- LAST_COMPLETED_STAGE: P18-02 authentic poll exit / execution continuation (controller reviewed and integrated)
-- NEXT_STAGE: P18-03
+- CURRENT_STAGE: P18-03
+- LAST_COMPLETED_STAGE: P18-03 causal device transcript (controller reviewed and integrated)
+- NEXT_STAGE: P18-04
 - FINAL_VERDICT: (not terminal)
 - REVIEW_GATE: open; no REVIEW_REQUIRED stop raised by P18-01.
 
