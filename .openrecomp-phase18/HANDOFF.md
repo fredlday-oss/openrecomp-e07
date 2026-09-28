@@ -80,7 +80,35 @@ model for the exact bit the authentic guest tests.
   integration and fresh-root reproduction remain the controller's step.
 - Promotes no proof marker. `FIRST_FRAME_READY=NO`; Phase-18 claims NOT_PROVEN.
 
+## P18-04 result (integrated)
+
+- GPU command frontier established as UNREACHED: the authentic continuation
+  reaches device traffic but zero GP0/GP1 writes. Controller dual gate PASS
+  (64/64) and fresh-root reproduction byte-identical; frontier digest
+  `297a549350e89c4fdf765353c7cf6ff9a1f9a0e563c8c62b02a33677943be58b`.
+
+## P18-05 result
+
+- Establishes the DMA / ordering-table frontier as **UNREACHED**: the
+  continuation executes 8270 instructions (8192 continuation budget, stop
+  `CONTINUATION_BUDGET_REACHED`) with zero accesses to any DMA channel register;
+  the DMA tap is empty and every channel is listed explicitly `NOT_REACHED`.
+- Provenance: the generated runtime contains a genuine DMA-window tap gated on
+  exactly `0x1f801080`..`0x1f8010ff` (single gate, both literals, record
+  function free of any guest-PC constant), reduced through the shared
+  `or_p18_phys` reducer, with read/write hooks rewired; no reached instruction
+  materialises the window (759 reached PCs / 103424 records / 0 sites).
+- A controlled probe compiled against the official generated source drives the
+  generated DMA entry points and yields real channel-2 DMA-frontier events,
+  proving the tap/decoder genuine and the frontier a real unreached state.
+- Bounded ordering-table traversal model (alignment/cycle/depth/command-count
+  bounds, end-of-list bit, per-node GP0 classification) proven by a positive
+  chain and negative controls.
+- Frontier digest `f0251b43b8d60ac8c101df71d59cd28441615e1ab58c7036dce98933450fa5c1`.
+- Gate 74/74 PASS; dual official runs byte-identical; independent
+  fresh-private-root reproduction byte-identical to official evidence.
+- Promotes no proof marker. `FIRST_FRAME_READY=NO`; Phase-18 claims NOT_PROVEN.
+
 ## Next Action
-Controller: review/integrate P18-04 (dual official gate + fresh-root
-reproduction), then author and execute `P18-05` (DMA / ordering-table
-frontier). Do NOT begin Phase 19.
+Controller: author and execute `P18-06` (VRAM mutation / display state).
+Do NOT begin Phase 19.

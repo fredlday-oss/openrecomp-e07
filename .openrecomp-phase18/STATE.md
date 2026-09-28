@@ -23,9 +23,9 @@
 - `FIRST_FRAME_READY=NO`
 
 ## Current Stage
-- CURRENT_STAGE: P18-04
-- LAST_COMPLETED_STAGE: P18-03 causal device transcript (controller reviewed and integrated)
-- NEXT_STAGE: P18-05
+- CURRENT_STAGE: P18-05
+- LAST_COMPLETED_STAGE: P18-05 DMA / ordering-table frontier (controller reviewed and integrated)
+- NEXT_STAGE: P18-06
 - FINAL_VERDICT: (not terminal)
 - REVIEW_GATE: open; no REVIEW_REQUIRED stop raised by P18-01.
 
@@ -102,6 +102,33 @@
 - promotes no proof marker (FIRST_FRAME_READY=NO; Phase-18 claims NOT_PROVEN).
 - next_stage: P18-05
 
+## P18-05 authoritative metadata (DMA / ordering-table frontier)
+- STATUS: PASS (controller authored, dual-gated and independently reproduced; see
+  `evidence/P18-05/CONTROLLER_REVIEW.md`)
+- authority_commit: `d7cc5d09eebde398ca6ff3f3dad8dd5841913b69`
+- authority_tree: `ad3aa822e5a02905ebc25477f7b6c69d0bffa055`
+- mechanically establishes that the authentic continuation reaches device
+  traffic but **no DMA-channel access**: the DMA / ordering-table frontier is
+  UNREACHED (zero accesses, empty DMA tap).
+- provenance for the verdict: the generated runtime contains a genuine DMA-window
+  tap gated on exactly `0x1f801080`..`0x1f8010ff` (single window gate, both
+  literals present, record function free of any guest-PC constant), reduced
+  through the shared `or_p18_phys` hardware-window reducer, with the read and
+  write access hooks rewired; no reached instruction materialises the window
+  (759 reached PCs, 103424 records, 0 sites).
+- controlled probe against the official generated source drives the generated DMA
+  entry points and produces real channel-2 DMA-frontier events (4 accesses),
+  proving the tap/decoder/classifier genuine and the frontier a genuine unreached
+  state.
+- bounded ordering-table traversal model (alignment, cycle, depth and command-count
+  bounds, end-of-list bit, per-node GP0 classification) proven by positive chain
+  and negative controls; all channels listed explicitly `NOT_REACHED`.
+- gate: 74/74 checks PASS; dual official runs byte-identical; independent
+  fresh-private-root reproduction byte-identical to official evidence.
+- frontier digest `f0251b43b8d60ac8c101df71d59cd28441615e1ab58c7036dce98933450fa5c1`.
+- promotes no proof marker (FIRST_FRAME_READY=NO; Phase-18 claims NOT_PROVEN).
+- next_stage: P18-06
+
 ## Stage Status
 | Stage | Status | Marker |
 |---|---|---|
@@ -109,4 +136,5 @@
 | P18-01 | PASS | `OPENRECOMP_P18_01=PASS` |
 | P18-02 | PASS | `OPENRECOMP_P18_02=PASS` |
 | P18-03 | PASS | `OPENRECOMP_P18_03=PASS` |
-| P18-04 | PASS (worker dev gate) | `OPENRECOMP_P18_04=PASS` |
+| P18-04 | PASS | `OPENRECOMP_P18_04=PASS` |
+| P18-05 | PASS | `OPENRECOMP_P18_05=PASS` |
