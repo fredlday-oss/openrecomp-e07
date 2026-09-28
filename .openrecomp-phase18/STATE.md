@@ -22,12 +22,25 @@
 - `OPENRECOMP_PHASE17_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN`
 - `FIRST_FRAME_READY=NO`
 
+## Recovery authority (Phase-18 autonomous continuation)
+- Recovery commit chain: `1e07ecc` (P18-04 producer repair), `a4010f5`
+  (P18-05/P18-06 revalidation + P18-07 contract), `0244839` (P18-06 fresh-root
+  evidence), `e65055d` (P18-07).
+- P18-04 inherited defect (repaired): the frontier producer appended a literal
+  backslash-n token instead of a newline, so `gpu_command_frontier.json` was not
+  valid JSON. Regenerated with the corrected producer; digest
+  `297a5493...be58b` -> `a009003b...bfe9`; GP0/GP1 frontier still UNREACHED.
+- P18-05 and P18-06 were re-run from the current authority: both PASS. P18-05's
+  semantic artifacts are byte-identical (only integrity-count bookkeeping
+  changed); P18-06 produced zero diff.
+
 ## Current Stage
-- CURRENT_STAGE: P18-06
-- LAST_COMPLETED_STAGE: P18-06 VRAM mutation / display state (controller reviewed and integrated)
-- NEXT_STAGE: P18-07
+- CURRENT_STAGE: P18-07
+- LAST_COMPLETED_STAGE: P18-07 First-frame assessment (controller authored,
+  dual-gated, fresh-root reproduced)
+- NEXT_STAGE: P18-90
 - FINAL_VERDICT: (not terminal)
-- REVIEW_GATE: open; no REVIEW_REQUIRED stop raised by P18-01.
+- REVIEW_GATE: open.
 
 ## P18-00 authoritative metadata (bootstrap / authority / provenance)
 - STATUS: PASS (controller reviewed and INTEGRATED; see `evidence/P18-00/CONTROLLER_REVIEW.md`)
@@ -169,6 +182,26 @@
 - promotes no proof marker (FIRST_FRAME_READY=NO; Phase-18 claims NOT_PROVEN).
 - next_stage: P18-07
 
+## P18-07 authoritative metadata (first-frame assessment)
+- STATUS: PASS (controller authored, dual-gated, independently reproduced)
+- authority_commit: `d7cc5d09eebde398ca6ff3f3dad8dd5841913b69`
+- authority_tree: `ad3aa822e5a02905ebc25477f7b6c69d0bffa055`
+- integration_commit: `e65055d`
+- consumes P18-02..P18-06 evidence read-only and hash-verifies the frozen
+  frontier documents (P18-04 `a009003b...`, P18-05 `f0251b43...`, P18-06
+  `2848c231...`); any mismatch/absence/unparsable document fails closed.
+- causal-link ledger: L1 authenticated execution **ESTABLISHED**; L2 GP0/GP1,
+  L3 DMA/OT, L5 VRAM, L6 display **UNREACHED**; L4 decoded semantics, L7
+  framebuffer **NOT_PROVEN**.
+- promotion rule `FIRST_FRAME_READY=YES iff all of L1..L7 ESTABLISHED` yields
+  **NO**. Anti-vacuity control promotes to YES in an isolated control namespace;
+  six single-milestone anti-inflation vectors each yield NO.
+- gate: 59 checks PASS; dual official runs byte-identical; fresh-root
+  reproduction byte-identical on all seven artifacts.
+- assessment digest `85ceec185a8f5a1fafb859f7fa32d81b57e21d4da9397f99dde11dec0818ba6f`.
+- promotes no proof marker (FIRST_FRAME_READY=NO; Phase-18 claims NOT_PROVEN).
+- next_stage: P18-90
+
 ## Stage Status
 | Stage | Status | Marker |
 |---|---|---|
@@ -176,6 +209,7 @@
 | P18-01 | PASS | `OPENRECOMP_P18_01=PASS` |
 | P18-02 | PASS | `OPENRECOMP_P18_02=PASS` |
 | P18-03 | PASS | `OPENRECOMP_P18_03=PASS` |
-| P18-04 | PASS | `OPENRECOMP_P18_04=PASS` |
-| P18-05 | PASS | `OPENRECOMP_P18_05=PASS` |
-| P18-06 | PASS | `OPENRECOMP_P18_06=PASS` |
+| P18-04 | PASS (repaired) | `OPENRECOMP_P18_04=PASS` |
+| P18-05 | PASS (revalidated) | `OPENRECOMP_P18_05=PASS` |
+| P18-06 | PASS (revalidated) | `OPENRECOMP_P18_06=PASS` |
+| P18-07 | PASS | `OPENRECOMP_P18_07=PASS` |

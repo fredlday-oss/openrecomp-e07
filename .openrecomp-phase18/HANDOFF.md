@@ -136,6 +136,43 @@ model for the exact bit the authentic guest tests.
   fresh-private-root reproduction byte-identical to official evidence.
 - Promotes no proof marker. `FIRST_FRAME_READY=NO`; Phase-18 claims NOT_PROVEN.
 
+## Recovery note (Phase-18 autonomous continuation)
+
+An interrupted prior session left a half-applied repair uncommitted. Recovery
+preserved everything, then:
+
+- **P18-04 repair** (`1e07ecc`): the frontier producer appended the two-character
+  literal token `\n` instead of a newline, so the committed
+  `gpu_command_frontier.json` was not valid JSON. Corrected the producer and
+  regenerated the evidence via the authoritative dual gate. Digest
+  `297a5493...be58b` -> `a009003b...bfe9`; semantics unchanged (GP0/GP1
+  frontier UNREACHED).
+- **P18-05 revalidation** (`a4010f5`): re-ran the authoritative gate against the
+  repaired authority. PASS; every semantic artifact byte-identical; only
+  integrity-count bookkeeping changed (entries 21 -> 23). See
+  `evidence/P18-05/REVALIDATION_AFTER_P18-04_REPAIR.md`.
+- **P18-06 revalidation**: re-ran the authoritative gate. PASS with zero diff;
+  every artifact byte-identical.
+- **P18-06 fresh-root evidence** (`0244839`): committed the untracked
+  fresh-private-root reproduction artifacts (byte-identical to P18-06).
+
+## P18-07 result (first-frame assessment)
+
+- Assessment / gatekeeping stage: reads P18-02..P18-06 evidence read-only,
+  hash-verifies the three frozen frontier documents, evaluates the ordered
+  causal-link chain, and applies the exact promotion rule.
+- Ledger: L1 authenticated execution **ESTABLISHED**; L2 GP0/GP1, L3 DMA/OT,
+  L5 VRAM, L6 display **UNREACHED**; L4 decoded semantics, L7 framebuffer
+  **NOT_PROVEN**.
+- `FIRST_FRAME_READY=NO`; `OPENRECOMP_PHASE18_HERCULES_FRAME_PROOF=NOT_PROVEN`.
+- Anti-vacuity control promotes to `YES` in an isolated control namespace; six
+  single-milestone anti-inflation controls each yield `NO`.
+- Gate 59/59 PASS; dual official runs byte-identical; fresh-root reproduction
+  byte-identical on all seven artifacts.
+- Assessment digest `85ceec185a8f5a1fafb859f7fa32d81b57e21d4da9397f99dde11dec0818ba6f`.
+- Promotes no proof marker; Phase-18 claims remain NOT_PROVEN.
+
 ## Next Action
-Controller: author and execute `P18-07` (first-frame evidence assessment).
+Controller: author and execute `P18-90` (integrated regression), then P18-91
+(independent reproduction), then P18-99 (terminal closure).
 Do NOT begin Phase 19.
