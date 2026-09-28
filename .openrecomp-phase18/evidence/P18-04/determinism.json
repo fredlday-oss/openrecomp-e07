@@ -1,0 +1,53 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "9ac8978a1ac103fcfd6889cf652a3de489034ca94b008888ed592486e99cac1b",
+    "command_decode.json": "f1c4f4f906ab6845f9ead94e6a31755bc7f22943e29042fd73c3ce079adcd1ca",
+    "frontier_verdict.json": "0f73566e5426f8f93686905b2a6f0ac6100d95a2cdc2e23b2e49c4c95f2ef0e1",
+    "gpu_command_frontier.json": "297a549350e89c4fdf765353c7cf6ff9a1f9a0e563c8c62b02a33677943be58b",
+    "negative_tests.json": "db63fe10d6cd341b588cb4ef3cf20ede39aeb9a790de6eac5bdfb61b76e69b20",
+    "p18_04_tests.json": "0b9bd7e324855ca1adee73c909217c61d8c0ce6e2b98d9bb0f0aeb81ca6bce03"
+  },
+  "artifacts_identical": true,
+  "gate": "tools/test_phase18_gpu_command_frontier_v1.py",
+  "gate_sha256": "402df894e8de6996c323341bc25e938f0f43a77b3fc4e3fe58dee01a79066a36",
+  "next_stage": "P18-05",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "RESULT.json": "9ac8978a1ac103fcfd6889cf652a3de489034ca94b008888ed592486e99cac1b",
+        "command_decode.json": "f1c4f4f906ab6845f9ead94e6a31755bc7f22943e29042fd73c3ce079adcd1ca",
+        "frontier_verdict.json": "0f73566e5426f8f93686905b2a6f0ac6100d95a2cdc2e23b2e49c4c95f2ef0e1",
+        "gpu_command_frontier.json": "297a549350e89c4fdf765353c7cf6ff9a1f9a0e563c8c62b02a33677943be58b",
+        "negative_tests.json": "db63fe10d6cd341b588cb4ef3cf20ede39aeb9a790de6eac5bdfb61b76e69b20",
+        "p18_04_tests.json": "0b9bd7e324855ca1adee73c909217c61d8c0ce6e2b98d9bb0f0aeb81ca6bce03"
+      },
+      "p18_04_tests_sha256": "0b9bd7e324855ca1adee73c909217c61d8c0ce6e2b98d9bb0f0aeb81ca6bce03",
+      "returncode": 0,
+      "stdout_bytes_raw": 5265,
+      "stdout_sha256_lf": "5d67774c573dc93c99f4f9227ed25576b9775b4a016516a483455dc15b686b2d",
+      "stdout_sha256_raw": "5d67774c573dc93c99f4f9227ed25576b9775b4a016516a483455dc15b686b2d"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "RESULT.json": "9ac8978a1ac103fcfd6889cf652a3de489034ca94b008888ed592486e99cac1b",
+        "command_decode.json": "f1c4f4f906ab6845f9ead94e6a31755bc7f22943e29042fd73c3ce079adcd1ca",
+        "frontier_verdict.json": "0f73566e5426f8f93686905b2a6f0ac6100d95a2cdc2e23b2e49c4c95f2ef0e1",
+        "gpu_command_frontier.json": "297a549350e89c4fdf765353c7cf6ff9a1f9a0e563c8c62b02a33677943be58b",
+        "negative_tests.json": "db63fe10d6cd341b588cb4ef3cf20ede39aeb9a790de6eac5bdfb61b76e69b20",
+        "p18_04_tests.json": "0b9bd7e324855ca1adee73c909217c61d8c0ce6e2b98d9bb0f0aeb81ca6bce03"
+      },
+      "p18_04_tests_sha256": "0b9bd7e324855ca1adee73c909217c61d8c0ce6e2b98d9bb0f0aeb81ca6bce03",
+      "returncode": 0,
+      "stdout_bytes_raw": 5265,
+      "stdout_sha256_lf": "5d67774c573dc93c99f4f9227ed25576b9775b4a016516a483455dc15b686b2d",
+      "stdout_sha256_raw": "5d67774c573dc93c99f4f9227ed25576b9775b4a016516a483455dc15b686b2d"
+    }
+  },
+  "schema": "openrecomp-phase18-determinism-v1",
+  "stage": "P18-04",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true,
+  "tests_json_present_both": true
+}

@@ -1,0 +1,76 @@
+PASS: integrity:phase18-sources OPENRECOMP_PHASE18_SOURCE_INTEGRITY=PASS entries=19
+PASS: authority:phase17-frozen authority-ok
+PASS: frozen:phase1-17-untouched
+PASS: fixture:bin-exists bin
+PASS: fixture:bin-hash 2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365
+PASS: fixture:cue-exists cue
+PASS: fixture:cue-hash beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2
+PASS: fixture:slus-exists slus
+PASS: fixture:slus-hash c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f
+PASS: source:transcript-digest P17-06R transcript digest
+PASS: gpu:gp0-physical 0x1f801810
+PASS: gpu:gp1-physical 0x1f801814
+PASS: overlay:p18-02-anchor-controls {"duplicated_loop_rejected": true, "missing_harness_end_rejected": true, "missing_include_rejected": true, "ok": true, "valid_applies": true}
+PASS: overlay:p18-03-anchor-controls {"missing_harness_end_rejected": true, "missing_insert_rejected": true, "missing_write_hook_rejected": true, "ok": true, "valid_applies": true}
+PASS: overlay:p18-04-anchor-controls {"missing_harness_end_rejected": true, "missing_insert_rejected": true, "missing_write_rejected": true, "ok": true, "valid_applies": true}
+PASS: write-path:present {"gate_expression": "phys == GP0_PHYS || phys == GP1_PHYS -> or_p18_gpu_write", "gp0_literal_count": 4, "gp0gp1_write_path_present": true, "gp1_literal_count": 4, "gpu_write_function_pc_free": true, "gpu_write_state_driven": true, "unmodelled_write_model": "RECORDED_NOT_APPLIED (writes outside the GPU window return early)", "write_gate_count": 1}
+PASS: write-path:gated-on-registers
+PASS: frontier:schema
+PASS: frontier:validated 297a549350e89c4fdf765353c7cf6ff9a1f9a0e563c8c62b02a33677943be58b
+PASS: frontier:write-path-in-document
+PASS: continuation:executed-pcs-have-provenance {"executed": 759}
+PASS: continuation:typed-stop-reason CONTINUATION_BUDGET_REACHED
+PASS: frontier:gp0-not-reached {"gp0_writes": 0}
+PASS: frontier:gp1-not-reached {"gp1_writes": 0}
+PASS: frontier:explicit-not-reached
+PASS: frontier:no-events
+PASS: frontier:zero-mmmio-gpu-writes {"bit26_set": 6, "drained": 0, "fifo_overflow": 0, "gp0_writes": 0, "gp1_writes": 0, "gpustat_reads": 6, "mmio_reads_unmodelled": 8, "mmio_writes": 4}
+PASS: control:write-path-reaches-gp0gp1 {"command_classes": ["GP1_CONTROL", "POLYGON"], "frontier_reached": true, "frontier_sha256": "29f92333e0b12401bc9484cab73dc23c1290f866f985eaebaca067ca1bd79fab", "gp0_write_count": 1, "gp1_write_count": 1, "ok": true, "unsupported_command_count": 0}
+PASS: control:contrast-with-unreached-frontier {"control_gp0": 1, "control_gp1": 1}
+PASS: determinism:manifest-identical
+PASS: determinism:fifo-identical
+PASS: determinism:frontier-identical
+PASS: determinism:regions-identical
+PASS: causal:validated 1eabe6c7b5c5263a61da8f91534f89b7a92c38916cdc482f3792b807dd10d6d6
+PASS: negative:unknown-command-not-noop {"nop_class": "NOP", "nop_is_not_unknown": true, "ok": true, "unknown_class": "UNKNOWN", "unknown_unsupported": true}
+PASS: negative:write-wrong-address
+PASS: negative:event-without-owner
+PASS: negative:unreached-status-missing
+PASS: negative:not-window-address
+PASS: negative:unmodelled-bit-rejected
+PASS: gpu_command_frontier:no-private-path absolute private paths absent
+PASS: gpu_command_frontier:reject-private-paths no private paths in values
+PASS: gpu_command_frontier:no-import-private-paths no import paths
+PASS: gpu_command_frontier:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: gpu_command_frontier:no-payload-hex no payload supplied
+PASS: gpu_command_frontier:no-raw-words reconstructive fields absent
+PASS: frontier_verdict:no-private-path absolute private paths absent
+PASS: frontier_verdict:reject-private-paths no private paths in values
+PASS: frontier_verdict:no-import-private-paths no import paths
+PASS: frontier_verdict:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: frontier_verdict:no-payload-hex no payload supplied
+PASS: frontier_verdict:no-raw-words reconstructive fields absent
+PASS: command_decode:no-private-path absolute private paths absent
+PASS: command_decode:reject-private-paths no private paths in values
+PASS: command_decode:no-import-private-paths no import paths
+PASS: command_decode:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: command_decode:no-payload-hex no payload supplied
+PASS: command_decode:no-raw-words reconstructive fields absent
+PASS: negative_tests:no-private-path absolute private paths absent
+PASS: negative_tests:reject-private-paths no private paths in values
+PASS: negative_tests:no-import-private-paths no import paths
+PASS: negative_tests:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: negative_tests:no-payload-hex no payload supplied
+PASS: negative_tests:no-raw-words reconstructive fields absent
+OPENRECOMP_P18_00=PASS
+OPENRECOMP_P18_01=PASS
+OPENRECOMP_P18_02=PASS
+OPENRECOMP_P18_03=PASS
+OPENRECOMP_P18_04=PASS
+OPENRECOMP_PHASE18_GPU_COMMAND_FRONTIER=PASS
+OPENRECOMP_PHASE18_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+FIRST_FRAME_READY=NO
+P18-04_CHECKS=64
