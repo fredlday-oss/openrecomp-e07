@@ -23,9 +23,9 @@
 - `FIRST_FRAME_READY=NO`
 
 ## Current Stage
-- CURRENT_STAGE: P18-05
-- LAST_COMPLETED_STAGE: P18-05 DMA / ordering-table frontier (controller reviewed and integrated)
-- NEXT_STAGE: P18-06
+- CURRENT_STAGE: P18-06
+- LAST_COMPLETED_STAGE: P18-06 VRAM mutation / display state (controller reviewed and integrated)
+- NEXT_STAGE: P18-07
 - FINAL_VERDICT: (not terminal)
 - REVIEW_GATE: open; no REVIEW_REQUIRED stop raised by P18-01.
 
@@ -129,6 +129,46 @@
 - promotes no proof marker (FIRST_FRAME_READY=NO; Phase-18 claims NOT_PROVEN).
 - next_stage: P18-06
 
+## P18-06 authoritative metadata (VRAM mutation / display state)
+- STATUS: PASS (controller recovered, reviewed, repaired and integrated inherited
+  worker work; see `evidence/P18-06/CONTROLLER_REVIEW.md` and
+  `evidence/P18-06/RECOVERY_FINDINGS.md`)
+- authority_commit: `d7cc5d09eebde398ca6ff3f3dad8dd5841913b69`
+- authority_tree: `ad3aa822e5a02905ebc25477f7b6c69d0bffa055`
+- integration_commit: `464e9c6485486ed191918d82a4662714ceae79bb`
+- mechanically establishes that the authentic continuation executes 8270
+  instructions (8192 continuation budget, stop `CONTINUATION_BUDGET_REACHED`)
+  with **no GP0/GP1 write and no DMA access**, therefore **no VRAM mutation and
+  no display-state change**: the VRAM / display frontier is UNREACHED
+  (`gp0_write_count=0`, `gp1_write_count=0`, `dma_access_count=0`,
+  `vram_display_status=NOT_REACHED`, `explicit_not_reached=true`).
+- provenance for the verdict: the generated runtime is shown to contain the
+  genuine, window-gated GPU write path and the P18-05 DMA-window tap; a controlled
+  probe compiled against the official generated runtime source drives the
+  generated GPU write entry points and produces real traffic (4 GP0 words,
+  2 GP1 words, 1 mutation) in a throwaway private directory only. The gate
+  asserts the contrast between that non-zero control and the zero authentic
+  traffic, so "unreached" is a real frontier state and not a missing
+  implementation.
+- no VRAM or frame content was fabricated: the controlled VRAM digest is labelled
+  as control-derived, is excluded from the frontier document, and is never
+  presented as authentic title output.
+- every VRAM byte access is range- and alignment-checked fail-closed
+  (`VRAM_ADDRESS_OUT_OF_RANGE`, `VRAM_ADDRESS_UNALIGNED`); no input is rounded.
+- controller review repaired seven reproduced defects in the inherited work
+  (stale source manifest; non-existent `vram_region_digest()` call; a false-pass
+  negative control encoding an in-range GP1 start; probe fill words decoding to a
+  0x0 region; missing contract-mandated out-of-range/alignment checks; dead
+  `replay_words()`; missing `P18G_GP0_TOTAL`/`P18G_GP1_TOTAL` probe output). One
+  review hypothesis (probe would not compile without the runtime header) was
+  tested, disproven and retracted rather than shipped.
+- gate: 71/71 checks PASS; dual official runs byte-identical (stdout raw and
+  LF-normalized, all artifacts, rc=0 both, empty stderr both); independent
+  fresh-private-root reproduction byte-identical on all five artifacts.
+- frontier digest `2848c231c0351638485931e8dfd064abf7ba990d7a9fab178c3730d94e084e5e`.
+- promotes no proof marker (FIRST_FRAME_READY=NO; Phase-18 claims NOT_PROVEN).
+- next_stage: P18-07
+
 ## Stage Status
 | Stage | Status | Marker |
 |---|---|---|
@@ -138,3 +178,4 @@
 | P18-03 | PASS | `OPENRECOMP_P18_03=PASS` |
 | P18-04 | PASS | `OPENRECOMP_P18_04=PASS` |
 | P18-05 | PASS | `OPENRECOMP_P18_05=PASS` |
+| P18-06 | PASS | `OPENRECOMP_P18_06=PASS` |

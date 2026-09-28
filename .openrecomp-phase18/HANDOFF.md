@@ -109,6 +109,33 @@ model for the exact bit the authentic guest tests.
   fresh-private-root reproduction byte-identical to official evidence.
 - Promotes no proof marker. `FIRST_FRAME_READY=NO`; Phase-18 claims NOT_PROVEN.
 
+## P18-06 result (VRAM mutation / display state)
+
+- Establishes the VRAM / display frontier as **UNREACHED**: the authentic
+  continuation executes 8270 instructions (8192 continuation budget, stop
+  `CONTINUATION_BUDGET_REACHED`) with zero GP0 writes, zero GP1 writes and zero
+  DMA accesses, so no VRAM byte is mutated and no display state is set.
+- Provenance: the generated runtime is shown to contain the genuine,
+  window-gated GPU write path and the P18-05 DMA-window tap. A controlled probe
+  compiled against the official generated runtime source drives the generated GPU
+  write entry points and yields real traffic (4 GP0 words, 2 GP1 words,
+  1 mutation) in a throwaway private directory only; the gate asserts the
+  contrast against the zero authentic traffic. So "unreached" is a real frontier
+  state, not a missing implementation.
+- No VRAM or frame content was fabricated. The control VRAM digest is labelled
+  control-derived, is excluded from the frontier document, and is never presented
+  as authentic title output. An image alone is not proof; nothing is promoted.
+- Every VRAM byte access is range- and alignment-checked fail-closed
+  (`VRAM_ADDRESS_OUT_OF_RANGE`, `VRAM_ADDRESS_UNALIGNED`); no input is rounded.
+- Controller review recovered, reviewed and repaired seven reproduced defects in
+  the inherited worker work, and retracted one review hypothesis that was
+  disproven rather than shipped. See `evidence/P18-06/CONTROLLER_REVIEW.md` and
+  `evidence/P18-06/RECOVERY_FINDINGS.md`.
+- Frontier digest `2848c231c0351638485931e8dfd064abf7ba990d7a9fab178c3730d94e084e5e`.
+- Gate 71/71 PASS; dual official runs byte-identical; independent
+  fresh-private-root reproduction byte-identical to official evidence.
+- Promotes no proof marker. `FIRST_FRAME_READY=NO`; Phase-18 claims NOT_PROVEN.
+
 ## Next Action
-Controller: author and execute `P18-06` (VRAM mutation / display state).
+Controller: author and execute `P18-07` (first-frame evidence assessment).
 Do NOT begin Phase 19.

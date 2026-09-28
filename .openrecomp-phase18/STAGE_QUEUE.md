@@ -45,6 +45,7 @@ contract after inspecting the live repository frontier.
 | P18-03 | Causal device transcript: runtime-emitted causal device-state snapshots, per-event fresh decode, explicit reached/unreached categories, fail-closed controls | `OPENRECOMP_P18_03=PASS` | PASS |
 | P18-04 | GPU command frontier: mechanically establish whether GP0/GP1 traffic is reached (result: UNREACHED), prove the generated GP0/GP1 write path + tap + classifier are genuine via a controlled probe, classify unknowns as UNKNOWN, fail-closed controls | `OPENRECOMP_P18_04=PASS` | PASS |
 | P18-05 | DMA / ordering-table frontier: mechanically establish whether DMA/OT traffic is reached (result: UNREACHED), prove the generated DMA-window tap + register decoder genuine via a controlled probe, bounded OT traversal model with alignment/cycle/depth controls, fail-closed controls | `OPENRECOMP_P18_05=PASS` | PASS |
+| P18-06 | VRAM mutation / display-state frontier: mechanically establish whether authentic graphics commands mutate VRAM or display state (result: UNREACHED), prove the GPU write path / DMA tap genuine via a controlled probe, fail-closed range- and alignment-checked VRAM addressing, no fabricated VRAM or frame content | `OPENRECOMP_P18_06=PASS` | PASS |
 
 Claim markers (created by Phase 18; `NOT_PROVEN`/`NO` at P18-00):
 
