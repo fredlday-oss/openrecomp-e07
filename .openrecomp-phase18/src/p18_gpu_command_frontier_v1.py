@@ -438,7 +438,7 @@ def build_gpu_command_frontier(runtime_result: dict[str, Any], generated_source:
         document["gp0gp1_status"] = "NOT_REACHED"
         document["explicit_not_reached"] = True
     validate_gpu_command_frontier(document, provenance_map)
-    data = (json.dumps(document, indent=2, sort_keys=True) + "\\n").encode("utf-8")
+    data = (json.dumps(document, indent=2, sort_keys=True) + "\n").encode("utf-8")
     return document, _sha256_bytes(data)
 
 
@@ -469,7 +469,7 @@ def validate_gpu_command_frontier(document: dict[str, Any],
 
 
 def frontier_bytes(document: dict[str, Any]) -> bytes:
-    return (json.dumps(document, indent=2, sort_keys=True) + "\\n").encode("utf-8")
+    return (json.dumps(document, indent=2, sort_keys=True) + "\n").encode("utf-8")
 
 
 

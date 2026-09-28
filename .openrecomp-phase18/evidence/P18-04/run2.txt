@@ -1,4 +1,4 @@
-PASS: integrity:phase18-sources OPENRECOMP_PHASE18_SOURCE_INTEGRITY=PASS entries=19
+PASS: integrity:phase18-sources OPENRECOMP_PHASE18_SOURCE_INTEGRITY=PASS entries=23
 PASS: authority:phase17-frozen authority-ok
 PASS: frozen:phase1-17-untouched
 PASS: fixture:bin-exists bin
@@ -16,7 +16,7 @@ PASS: overlay:p18-04-anchor-controls {"missing_harness_end_rejected": true, "mis
 PASS: write-path:present {"gate_expression": "phys == GP0_PHYS || phys == GP1_PHYS -> or_p18_gpu_write", "gp0_literal_count": 4, "gp0gp1_write_path_present": true, "gp1_literal_count": 4, "gpu_write_function_pc_free": true, "gpu_write_state_driven": true, "unmodelled_write_model": "RECORDED_NOT_APPLIED (writes outside the GPU window return early)", "write_gate_count": 1}
 PASS: write-path:gated-on-registers
 PASS: frontier:schema
-PASS: frontier:validated 297a549350e89c4fdf765353c7cf6ff9a1f9a0e563c8c62b02a33677943be58b
+PASS: frontier:validated a009003b644122a011a4a53a9ceeae1d2e4a560a462fc28ef2c3ac9dd4b2bfe9
 PASS: frontier:write-path-in-document
 PASS: continuation:executed-pcs-have-provenance {"executed": 759}
 PASS: continuation:typed-stop-reason CONTINUATION_BUDGET_REACHED
@@ -25,7 +25,7 @@ PASS: frontier:gp1-not-reached {"gp1_writes": 0}
 PASS: frontier:explicit-not-reached
 PASS: frontier:no-events
 PASS: frontier:zero-mmmio-gpu-writes {"bit26_set": 6, "drained": 0, "fifo_overflow": 0, "gp0_writes": 0, "gp1_writes": 0, "gpustat_reads": 6, "mmio_reads_unmodelled": 8, "mmio_writes": 4}
-PASS: control:write-path-reaches-gp0gp1 {"command_classes": ["GP1_CONTROL", "POLYGON"], "frontier_reached": true, "frontier_sha256": "29f92333e0b12401bc9484cab73dc23c1290f866f985eaebaca067ca1bd79fab", "gp0_write_count": 1, "gp1_write_count": 1, "ok": true, "unsupported_command_count": 0}
+PASS: control:write-path-reaches-gp0gp1 {"command_classes": ["GP1_CONTROL", "POLYGON"], "frontier_reached": true, "frontier_sha256": "07de5b7a9714cf209605e8f9cc7b5a131ddd261f30c536b076df9c33dc69bdf5", "gp0_write_count": 1, "gp1_write_count": 1, "ok": true, "unsupported_command_count": 0}
 PASS: control:contrast-with-unreached-frontier {"control_gp0": 1, "control_gp1": 1}
 PASS: determinism:manifest-identical
 PASS: determinism:fifo-identical
