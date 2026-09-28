@@ -28,3 +28,15 @@ jobs:
           
       - name: RV32I Regressions
         run: bash RUN.sh
+
+      - name: Diagnose native reproducibility
+        if: failure()
+        shell: bash
+        run: |
+          if [[ -f build/fixture_native && -f build/fixture_native_2 ]]; then
+            sha256sum build/fixture_native build/fixture_native_2 || true
+            cmp -l build/fixture_native build/fixture_native_2 | head -40 || true
+            objdump -x build/fixture_native > build/native1.headers.txt || true
+            objdump -x build/fixture_native_2 > build/native2.headers.txt || true
+            diff -u build/native1.headers.txt build/native2.headers.txt || true
+          fi
