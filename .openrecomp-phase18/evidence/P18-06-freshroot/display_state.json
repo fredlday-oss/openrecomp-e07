@@ -1,0 +1,46 @@
+{
+  "authentic_display_events": [],
+  "controlled_model_path": {
+    "deterministic": true,
+    "display_event_count": 2,
+    "framebuffer_digest": "c67ad2d5da067427fb7cb864c2914a07b39a24403dc4f1d00f1810848cbb5d26",
+    "gp0_word_count": 4,
+    "gp1_word_count": 2,
+    "mutation_count": 1,
+    "ok": true,
+    "owner_authenticated": true,
+    "vram_digest": "602459876861a0c9eff649a7814a9c09ef7ea5391431b95157f0497ccecbc7e3"
+  },
+  "model": {
+    "bpp": 16,
+    "gp0_mutation_commands": [
+      "0x00000002",
+      "0x000000a0",
+      "0x00000080"
+    ],
+    "hres_map": {
+      "0": 256,
+      "1": 320,
+      "2": 512,
+      "3": 640
+    },
+    "primitive_rasterisation": "NOT_MODELLED",
+    "vram_height": 512,
+    "vram_width": 1024
+  },
+  "positive_controls": {
+    "cpu_to_vram_non_zero": true,
+    "cpu_to_vram_ok": true,
+    "deterministic_replay": true,
+    "display_ok": true,
+    "fill_digest": "602459876861a0c9eff649a7814a9c09ef7ea5391431b95157f0497ccecbc7e3",
+    "fill_non_zero": true,
+    "fill_ok": true,
+    "framebuffer_digest": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+    "gp1_start_max_in_range": true,
+    "ok": true
+  },
+  "promotes_no_proof_marker": true,
+  "schema": "openrecomp-phase18-display-state-v1",
+  "stage": "P18-06"
+}
