@@ -1,0 +1,250 @@
+{
+  "all_ok": true,
+  "stages": {
+    "P18-00": {
+      "comparison": {
+        "divergent": [],
+        "extra": [],
+        "identical": [
+          "RESULT.json",
+          "authority.json",
+          "fixture_verification.json",
+          "frontier_analysis.json",
+          "negative_tests.json",
+          "recon_inventory.json",
+          "stage_plan.json"
+        ],
+        "missing": [],
+        "normalised": [
+          "p18_00_tests.json"
+        ],
+        "ok": true,
+        "supplementary_committed": [
+          "CONTROLLER_REVIEW.md"
+        ]
+      },
+      "ok": true,
+      "run": {
+        "checks": 64,
+        "expect_marker": true,
+        "returncode": 0,
+        "stage": "P18-00",
+        "stderr_empty": true
+      }
+    },
+    "P18-01": {
+      "comparison": {
+        "divergent": [],
+        "extra": [],
+        "identical": [
+          "RESULT.json",
+          "model.json",
+          "negative_tests.json",
+          "poll_condition.json",
+          "simulation.json"
+        ],
+        "missing": [],
+        "normalised": [
+          "p18_01_tests.json"
+        ],
+        "ok": true,
+        "supplementary_committed": [
+          "CONTROLLER_REVIEW.md",
+          "stage_metadata.json"
+        ]
+      },
+      "ok": true,
+      "run": {
+        "checks": 48,
+        "expect_marker": true,
+        "returncode": 0,
+        "stage": "P18-01",
+        "stderr_empty": true
+      }
+    },
+    "P18-02": {
+      "comparison": {
+        "divergent": [],
+        "extra": [],
+        "identical": [
+          "RESULT.json",
+          "continuation.json",
+          "gpu_state_model.json",
+          "poll_exit.json",
+          "transcript.json",
+          "transcript.sha256"
+        ],
+        "missing": [],
+        "normalised": [
+          "p18_02_tests.json"
+        ],
+        "ok": true,
+        "supplementary_committed": [
+          "CONTROLLER_REVIEW.md"
+        ]
+      },
+      "ok": true,
+      "run": {
+        "checks": 66,
+        "expect_marker": true,
+        "returncode": 0,
+        "stage": "P18-02",
+        "stderr_empty": true
+      }
+    },
+    "P18-03": {
+      "comparison": {
+        "divergent": [],
+        "extra": [],
+        "identical": [
+          "RESULT.json",
+          "category_coverage.json",
+          "causal_transcript.json",
+          "causal_transcript.sha256",
+          "negative_tests.json"
+        ],
+        "missing": [],
+        "normalised": [
+          "p18_03_tests.json"
+        ],
+        "ok": true,
+        "supplementary_committed": [
+          "CONTROLLER_REVIEW.md"
+        ]
+      },
+      "ok": true,
+      "run": {
+        "checks": 56,
+        "expect_marker": true,
+        "returncode": 0,
+        "stage": "P18-03",
+        "stderr_empty": true
+      }
+    },
+    "P18-04": {
+      "comparison": {
+        "divergent": [],
+        "extra": [],
+        "identical": [
+          "RESULT.json",
+          "command_decode.json",
+          "frontier_verdict.json",
+          "gpu_command_frontier.json",
+          "gpu_command_frontier.sha256",
+          "negative_tests.json"
+        ],
+        "missing": [],
+        "normalised": [
+          "p18_04_tests.json"
+        ],
+        "ok": true,
+        "supplementary_committed": [
+          "CONTROLLER_REVIEW.md",
+          "RECOVERY_FINDINGS.md"
+        ]
+      },
+      "ok": true,
+      "run": {
+        "checks": 64,
+        "expect_marker": true,
+        "returncode": 0,
+        "stage": "P18-04",
+        "stderr_empty": true
+      }
+    },
+    "P18-05": {
+      "comparison": {
+        "divergent": [],
+        "extra": [],
+        "identical": [
+          "RESULT.json",
+          "dma_frontier.json",
+          "dma_frontier.sha256",
+          "dma_verdict.json",
+          "negative_tests.json",
+          "ordering_table_model.json"
+        ],
+        "missing": [],
+        "normalised": [
+          "p18_05_tests.json"
+        ],
+        "ok": true,
+        "supplementary_committed": [
+          "CONTROLLER_REVIEW.md",
+          "REVALIDATION_AFTER_P18-04_REPAIR.md"
+        ]
+      },
+      "ok": true,
+      "run": {
+        "checks": 74,
+        "expect_marker": true,
+        "returncode": 0,
+        "stage": "P18-05",
+        "stderr_empty": true
+      }
+    },
+    "P18-06": {
+      "comparison": {
+        "divergent": [],
+        "extra": [],
+        "identical": [
+          "RESULT.json",
+          "display_state.json",
+          "negative_tests.json",
+          "vram_display.json",
+          "vram_display.sha256",
+          "vram_verdict.json"
+        ],
+        "missing": [],
+        "normalised": [
+          "p18_06_tests.json"
+        ],
+        "ok": true,
+        "supplementary_committed": [
+          "CONTROLLER_REVIEW.md",
+          "FRESH_ROOT_REPRODUCTION.md",
+          "RECOVERY_FINDINGS.md"
+        ]
+      },
+      "ok": true,
+      "run": {
+        "checks": 71,
+        "expect_marker": true,
+        "returncode": 0,
+        "stage": "P18-06",
+        "stderr_empty": true
+      }
+    },
+    "P18-07": {
+      "comparison": {
+        "divergent": [],
+        "extra": [],
+        "identical": [
+          "RESULT.json",
+          "causal_link_ledger.json",
+          "first_frame_assessment.json",
+          "first_frame_assessment.sha256",
+          "negative_tests.json",
+          "promotion_controls.json"
+        ],
+        "missing": [],
+        "normalised": [
+          "p18_07_tests.json"
+        ],
+        "ok": true,
+        "supplementary_committed": [
+          "CONTROLLER_REVIEW.md",
+          "FRESH_ROOT_REPRODUCTION.md"
+        ]
+      },
+      "ok": true,
+      "run": {
+        "checks": 59,
+        "expect_marker": true,
+        "returncode": 0,
+        "stage": "P18-07",
+        "stderr_empty": true
+      }
+    }
+  }
+}

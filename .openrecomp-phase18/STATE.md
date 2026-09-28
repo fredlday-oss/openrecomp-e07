@@ -35,10 +35,10 @@
   changed); P18-06 produced zero diff.
 
 ## Current Stage
-- CURRENT_STAGE: P18-90
-- LAST_COMPLETED_STAGE: P18-90 Integrated regression (controller reviewed,
-  dual-gated, fresh-root reproduced)
-- NEXT_STAGE: P18-91
+- CURRENT_STAGE: P18-91
+- LAST_COMPLETED_STAGE: P18-91 Independent reproduction (controller reviewed,
+  dual-gated, byte-identical upstream corpus)
+- NEXT_STAGE: P18-99
 - FINAL_VERDICT: (not terminal)
 - REVIEW_GATE: open.
 
@@ -228,6 +228,30 @@
 - promotes no proof marker (FIRST_FRAME_READY=NO; Phase-18 claims NOT_PROVEN).
 - next_stage: P18-91
 
+## P18-91 authoritative metadata (independent reproduction)
+- STATUS: PASS (controller reviewed; see `evidence/P18-91/CONTROLLER_REVIEW.md`)
+- authority_commit: `d7cc5d09eebde398ca6ff3f3dad8dd5841913b69`
+- authority_tree: `ad3aa822e5a02905ebc25477f7b6c69d0bffa055`
+- read-only meta-stage: re-executes the P18-00..P18-07 gates from a fresh
+  evidence root and requires each to reproduce its committed artifacts
+  byte-for-byte. All 8 stages reproduced identically
+  (`stages_reproduced_identical: true`); independently re-runs the P18-90
+  dual-run corpus (`dual_run_corpus ok: true`); binds the P18-02/P18-03 causal
+  transcript digests; re-verifies source-manifest exactness (28 entries), frozen
+  Phase 1..17 integrity, marker ledger, and public safety; 8 fail-closed
+  negative controls.
+- controller re-derivation (not gate self-report): `sha256sum -c` of the source
+  manifest 28/28 OK; all 14 `determinism.json` artifact digests recomputed with
+  0 mismatches; no private host path, ROM, or fixture bytes in the stage
+  evidence; the 4 `public_safety` prose `unix-tmp-path` findings were inspected
+  individually and are generic `/tmp/` repro-scratch commands with no username
+  component — correctly reported, not masked.
+- gate: `P18-91_CHECKS=94` PASS (0 failed); authoritative dual-run runner PASS
+  (both runs rc=0, stdout byte-identical raw and LF, stderr empty in both,
+  tests-JSON identical, 14 artifacts byte-identical).
+- promotes no proof marker (FIRST_FRAME_READY=NO; Phase-18 claims NOT_PROVEN).
+- next_stage: P18-99
+
 ## Stage Status
 | Stage | Status | Marker |
 |---|---|---|
@@ -240,3 +264,4 @@
 | P18-06 | PASS (revalidated) | `OPENRECOMP_P18_06=PASS` |
 | P18-07 | PASS | `OPENRECOMP_P18_07=PASS` |
 | P18-90 | PASS | `OPENRECOMP_P18_90=PASS` |
+| P18-91 | PASS | `OPENRECOMP_P18_91=PASS` |

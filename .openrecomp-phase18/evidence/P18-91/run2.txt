@@ -1,0 +1,111 @@
+PASS: integrity:phase18-sources OPENRECOMP_PHASE18_SOURCE_INTEGRITY=PASS entries=28
+PASS: next-stage:declared-constant
+PASS: repro:P18-00:gate-ran {"checks": 64, "expect_marker": true, "returncode": 0, "stage": "P18-00", "stderr_empty": true}
+PASS: repro:P18-00:artifacts-match {"divergent": [], "extra": [], "missing": []}
+PASS: repro:P18-01:gate-ran {"checks": 48, "expect_marker": true, "returncode": 0, "stage": "P18-01", "stderr_empty": true}
+PASS: repro:P18-01:artifacts-match {"divergent": [], "extra": [], "missing": []}
+PASS: repro:P18-02:gate-ran {"checks": 66, "expect_marker": true, "returncode": 0, "stage": "P18-02", "stderr_empty": true}
+PASS: repro:P18-02:artifacts-match {"divergent": [], "extra": [], "missing": []}
+PASS: repro:P18-03:gate-ran {"checks": 56, "expect_marker": true, "returncode": 0, "stage": "P18-03", "stderr_empty": true}
+PASS: repro:P18-03:artifacts-match {"divergent": [], "extra": [], "missing": []}
+PASS: repro:P18-04:gate-ran {"checks": 64, "expect_marker": true, "returncode": 0, "stage": "P18-04", "stderr_empty": true}
+PASS: repro:P18-04:artifacts-match {"divergent": [], "extra": [], "missing": []}
+PASS: repro:P18-05:gate-ran {"checks": 74, "expect_marker": true, "returncode": 0, "stage": "P18-05", "stderr_empty": true}
+PASS: repro:P18-05:artifacts-match {"divergent": [], "extra": [], "missing": []}
+PASS: repro:P18-06:gate-ran {"checks": 71, "expect_marker": true, "returncode": 0, "stage": "P18-06", "stderr_empty": true}
+PASS: repro:P18-06:artifacts-match {"divergent": [], "extra": [], "missing": []}
+PASS: repro:P18-07:gate-ran {"checks": 59, "expect_marker": true, "returncode": 0, "stage": "P18-07", "stderr_empty": true}
+PASS: repro:P18-07:artifacts-match {"divergent": [], "extra": [], "missing": []}
+PASS: reproduction:no-private-path absolute private paths absent
+PASS: reproduction:reject-private-paths no private paths in values
+PASS: reproduction:no-import-private-paths no import paths
+PASS: reproduction:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: reproduction:no-payload-hex no payload supplied
+PASS: reproduction:no-raw-words reconstructive fields absent
+PASS: repro:all-stages-match
+PASS: dual_run_corpus:no-private-path absolute private paths absent
+PASS: dual_run_corpus:reject-private-paths no private paths in values
+PASS: dual_run_corpus:no-import-private-paths no import paths
+PASS: dual_run_corpus:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: dual_run_corpus:no-payload-hex no payload supplied
+PASS: dual_run_corpus:no-raw-words reconstructive fields absent
+PASS: dual-run:all-stages-identical {"P18-00": true, "P18-01": true, "P18-02": true, "P18-03": true, "P18-04": true, "P18-05": true, "P18-06": true, "P18-07": true}
+PASS: transcript_binding:no-private-path absolute private paths absent
+PASS: transcript_binding:reject-private-paths no private paths in values
+PASS: transcript_binding:no-import-private-paths no import paths
+PASS: transcript_binding:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: transcript_binding:no-payload-hex no payload supplied
+PASS: transcript_binding:no-raw-words reconstructive fields absent
+PASS: transcript:digests-bound {"P18-02/transcript.json": {"actual": "c4fa0d67039102ef8e61e70e9610b51e64982202373dbeeb982d60c68f071331", "ok": true, "recorded": "c4fa0d67039102ef8e61e70e9610b51e64982202373dbeeb982d60c68f071331"}, "P18-03/causal_transcript.json": {"actual": "1eabe6c7b5c5263a61da8f91534f89b7a92c38916cdc482f3792b807dd10d6d6", "ok": true, "recorded": "1eabe6c7b5c5263a61da8f91534f89b7a92c38916cdc482f3792b807dd10d6d6"}}
+PASS: prior_phase_integrity:no-private-path absolute private paths absent
+PASS: prior_phase_integrity:reject-private-paths no private paths in values
+PASS: prior_phase_integrity:no-import-private-paths no import paths
+PASS: prior_phase_integrity:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: prior_phase_integrity:no-payload-hex no payload supplied
+PASS: prior_phase_integrity:no-raw-words reconstructive fields absent
+PASS: frozen:phase1-17-untouched {"changed": []}
+PASS: frozen:tag-resolves-to-terminal
+PASS: manifest_audit:no-private-path absolute private paths absent
+PASS: manifest_audit:reject-private-paths no private paths in values
+PASS: manifest_audit:no-import-private-paths no import paths
+PASS: manifest_audit:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: manifest_audit:no-payload-hex no payload supplied
+PASS: manifest_audit:no-raw-words reconstructive fields absent
+PASS: manifest:no-parse-errors
+PASS: manifest:no-missing-entries
+PASS: manifest:no-extra-entries
+PASS: manifest:all-digests-verify
+PASS: closure:no-private-path absolute private paths absent
+PASS: closure:reject-private-paths no private paths in values
+PASS: closure:no-import-private-paths no import paths
+PASS: closure:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: closure:no-payload-hex no payload supplied
+PASS: closure:no-raw-words reconstructive fields absent
+PASS: closure:all-stage-dirs-present
+PASS: marker_ledger:no-private-path absolute private paths absent
+PASS: marker_ledger:reject-private-paths no private paths in values
+PASS: marker_ledger:no-import-private-paths no import paths
+PASS: marker_ledger:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: marker_ledger:no-payload-hex no payload supplied
+PASS: marker_ledger:no-raw-words reconstructive fields absent
+PASS: markers:no-promotions []
+PASS: stale_digest:no-private-path absolute private paths absent
+PASS: stale_digest:reject-private-paths no private paths in values
+PASS: stale_digest:no-import-private-paths no import paths
+PASS: stale_digest:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: stale_digest:no-payload-hex no payload supplied
+PASS: stale_digest:no-raw-words reconstructive fields absent
+PASS: stale-digest:absent []
+PASS: frontiers:all-digests-coherent
+PASS: public-safety:no-violations
+PASS: negative_controls:no-private-path absolute private paths absent
+PASS: negative_controls:reject-private-paths no private paths in values
+PASS: negative_controls:no-import-private-paths no import paths
+PASS: negative_controls:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: negative_controls:no-payload-hex no payload supplied
+PASS: negative_controls:no-raw-words reconstructive fields absent
+PASS: negative:artifact_tamper_detected
+PASS: negative:frontier_digest_disagreement_detected
+PASS: negative:historical_markers_unpromoted
+PASS: negative:integrity_count_forgiven
+PASS: negative:manifest_digest_mismatch_detected
+PASS: negative:marker_promotion_detected
+PASS: negative:semantic_tamper_not_forgiven
+PASS: negative:stale_digest_unmarked_rejected
+OPENRECOMP_P18_00=PASS
+OPENRECOMP_P18_01=PASS
+OPENRECOMP_P18_02=PASS
+OPENRECOMP_P18_03=PASS
+OPENRECOMP_P18_04=PASS
+OPENRECOMP_P18_05=PASS
+OPENRECOMP_P18_06=PASS
+OPENRECOMP_P18_07=PASS
+OPENRECOMP_P18_90=PASS
+OPENRECOMP_P18_91=PASS
+OPENRECOMP_PHASE18_INDEPENDENT_REPRODUCTION_V1=PASS
+OPENRECOMP_PHASE18_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+FIRST_FRAME_READY=NO
+P18-91_CHECKS=94

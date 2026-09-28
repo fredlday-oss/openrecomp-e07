@@ -194,7 +194,27 @@ preserved everything, then:
 - See `evidence/P18-90/CONTROLLER_REVIEW.md` and
   `evidence/P18-90/FRESH_ROOT_REPRODUCTION.md`.
 
+## P18-91 result (independent reproduction)
+
+- Read-only meta-stage: re-executed the P18-00..P18-07 gates from a fresh evidence
+  root and required each to reproduce its committed artifacts byte-for-byte. All 8
+  stages reproduced identically (`stages_reproduced_identical: true`). It also
+  independently re-ran the P18-90 dual-run corpus (`dual_run_corpus ok: true`),
+  bound the P18-02/P18-03 causal-transcript digests, and re-verified
+  source-manifest exactness (28 entries), frozen Phase-1..17 integrity, the marker
+  ledger, and public safety, with 8 fail-closed negative controls.
+- Controller re-derived rather than trusting the gate's self-report: the source
+  manifest verified 28/28 via `sha256sum -c`, all 14 `determinism.json` artifact
+  digests recomputed with 0 mismatches, and the stage evidence contains no private
+  host path, ROM, or fixture bytes. The 4 `public_safety` prose `unix-tmp-path`
+  findings were inspected individually and are generic `/tmp/` reproduction-scratch
+  commands with no username component — reported, not masked.
+- Gate `P18-91_CHECKS=94` PASS (0 failed); authoritative dual-run runner PASS (both
+  runs rc=0, stdout byte-identical raw and LF, stderr empty in both, tests-JSON
+  identical, 14 artifacts byte-identical).
+- Promotes no proof marker. `FIRST_FRAME_READY=NO`; Phase-18 claims NOT_PROVEN.
+- See `evidence/P18-91/CONTROLLER_REVIEW.md`.
+
 ## Next Action
-Controller: author and execute `P18-91` (independent reproduction), then P18-99
-(terminal closure).
+Controller: author and execute P18-99 (terminal Phase 18 closure).
 Do NOT begin Phase 19.
