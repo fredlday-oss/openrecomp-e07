@@ -1,0 +1,38 @@
+{
+  "basis": "no authentic GP0/GP1 write was reached, so no graphics command can mutate VRAM or display state",
+  "dma_access_count": 0,
+  "dma_tap": {
+    "dma_record_function_pc_free": true,
+    "dma_window_tap_present": true,
+    "gate_expression": "phys in [0x1f801080,0x1f8010ff] -> or_p18d_dma_record",
+    "read_hook_present": true,
+    "shared_phys_reducer_present": true,
+    "window_end_literal_count": 1,
+    "window_gate_count": 1,
+    "window_start_literal_count": 1,
+    "write_hook_present": true
+  },
+  "events": [],
+  "evidence_class": "PRIVATE_FIXTURE_BOUNDED",
+  "explicit_not_reached": true,
+  "first_frame_ready": "NO",
+  "gp0_write_count": 0,
+  "gp1_write_count": 0,
+  "gpu_write_path": {
+    "gate_expression": "phys == GP0_PHYS || phys == GP1_PHYS -> or_p18_gpu_write",
+    "gp0_literal_count": 4,
+    "gp0gp1_write_path_present": true,
+    "gp1_literal_count": 4,
+    "gpu_write_function_pc_free": true,
+    "gpu_write_state_driven": true,
+    "unmodelled_write_model": "RECORDED_NOT_APPLIED (writes outside the GPU window return early)",
+    "write_gate_count": 1
+  },
+  "next_stage": "P18-07",
+  "promotes_no_proof_marker": true,
+  "schema": "openrecomp-phase18-vram-display-frontier-v1",
+  "stage": "P18-06",
+  "vram_display_status": "NOT_REACHED",
+  "vram_frontier_reached": false,
+  "vram_size": 1048576
+}

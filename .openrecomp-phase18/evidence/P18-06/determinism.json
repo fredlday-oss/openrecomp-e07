@@ -1,0 +1,53 @@
+{
+  "artifact_sha256": {
+    "RESULT.json": "8c70907596e7fd3286ab25c5abd1d41b587c8ce09fa06ac5196e7e4debd87c3f",
+    "display_state.json": "af068649776a42e8a4f1aabe5a5dc54358921bc027626fc0ff1a79ba5acd810c",
+    "negative_tests.json": "31aa898456f9478b3639433764b65f543ecd52c9b1820754fd21a963c5798eee",
+    "p18_06_tests.json": "3d2c47bdd2b4e81cf20e05375b10fe2bd69e2f19b3f19097bd5551a13e3bb362",
+    "vram_display.json": "2848c231c0351638485931e8dfd064abf7ba990d7a9fab178c3730d94e084e5e",
+    "vram_verdict.json": "17632ed9a270f93f7e9892b9d6ef467260e50a8196a4212ba4e3ebf64a28211c"
+  },
+  "artifacts_identical": true,
+  "gate": "tools/test_phase18_vram_display_v1.py",
+  "gate_sha256": "a5efebe0099f0930ae9ff13a7a1c543baa43304882128a5e43b1ff23e84a8638",
+  "next_stage": "P18-07",
+  "returncode_zero_both": true,
+  "runs": {
+    "run1": {
+      "artifact_sha256": {
+        "RESULT.json": "8c70907596e7fd3286ab25c5abd1d41b587c8ce09fa06ac5196e7e4debd87c3f",
+        "display_state.json": "af068649776a42e8a4f1aabe5a5dc54358921bc027626fc0ff1a79ba5acd810c",
+        "negative_tests.json": "31aa898456f9478b3639433764b65f543ecd52c9b1820754fd21a963c5798eee",
+        "p18_06_tests.json": "3d2c47bdd2b4e81cf20e05375b10fe2bd69e2f19b3f19097bd5551a13e3bb362",
+        "vram_display.json": "2848c231c0351638485931e8dfd064abf7ba990d7a9fab178c3730d94e084e5e",
+        "vram_verdict.json": "17632ed9a270f93f7e9892b9d6ef467260e50a8196a4212ba4e3ebf64a28211c"
+      },
+      "p18_06_tests_sha256": "3d2c47bdd2b4e81cf20e05375b10fe2bd69e2f19b3f19097bd5551a13e3bb362",
+      "returncode": 0,
+      "stdout_bytes_raw": 5776,
+      "stdout_sha256_lf": "fa2dde9d7297cb0ea716120eb5cb79399abca9721a63320d91d33af62e79adb3",
+      "stdout_sha256_raw": "fa2dde9d7297cb0ea716120eb5cb79399abca9721a63320d91d33af62e79adb3"
+    },
+    "run2": {
+      "artifact_sha256": {
+        "RESULT.json": "8c70907596e7fd3286ab25c5abd1d41b587c8ce09fa06ac5196e7e4debd87c3f",
+        "display_state.json": "af068649776a42e8a4f1aabe5a5dc54358921bc027626fc0ff1a79ba5acd810c",
+        "negative_tests.json": "31aa898456f9478b3639433764b65f543ecd52c9b1820754fd21a963c5798eee",
+        "p18_06_tests.json": "3d2c47bdd2b4e81cf20e05375b10fe2bd69e2f19b3f19097bd5551a13e3bb362",
+        "vram_display.json": "2848c231c0351638485931e8dfd064abf7ba990d7a9fab178c3730d94e084e5e",
+        "vram_verdict.json": "17632ed9a270f93f7e9892b9d6ef467260e50a8196a4212ba4e3ebf64a28211c"
+      },
+      "p18_06_tests_sha256": "3d2c47bdd2b4e81cf20e05375b10fe2bd69e2f19b3f19097bd5551a13e3bb362",
+      "returncode": 0,
+      "stdout_bytes_raw": 5776,
+      "stdout_sha256_lf": "fa2dde9d7297cb0ea716120eb5cb79399abca9721a63320d91d33af62e79adb3",
+      "stdout_sha256_raw": "fa2dde9d7297cb0ea716120eb5cb79399abca9721a63320d91d33af62e79adb3"
+    }
+  },
+  "schema": "openrecomp-phase18-determinism-v1",
+  "stage": "P18-06",
+  "stderr_empty_both": true,
+  "stdout_identical_lf": true,
+  "stdout_identical_raw": true,
+  "tests_json_present_both": true
+}

@@ -1,0 +1,85 @@
+PASS: integrity:phase18-sources OPENRECOMP_PHASE18_SOURCE_INTEGRITY=PASS entries=23
+PASS: authority:phase17-frozen authority-ok
+PASS: frozen:phase1-17-untouched
+PASS: fixture:bin-exists bin
+PASS: fixture:bin-hash 2ce144ba0e1fed6952ad80976814e3033fec6cddfb5e17cdf0294517ea311365
+PASS: fixture:cue-exists cue
+PASS: fixture:cue-hash beea454de356689cdaa06702f4ed76a5474fd125a7460619ee678c1ae8725df2
+PASS: fixture:slus-exists slus
+PASS: fixture:slus-hash c230ff5cd14bdfa392f5d5765c9c907b631875aaaa7844792b38b9ac54930f6f
+PASS: source:transcript-digest P17-06R transcript digest
+PASS: vram:size 1 MiB
+PASS: vram:geometry
+PASS: overlay:p18-02-anchor-controls {"duplicated_loop_rejected": true, "missing_harness_end_rejected": true, "missing_include_rejected": true, "ok": true, "valid_applies": true}
+PASS: overlay:p18-03-anchor-controls {"missing_harness_end_rejected": true, "missing_insert_rejected": true, "missing_write_hook_rejected": true, "ok": true, "valid_applies": true}
+PASS: overlay:p18-04-anchor-controls {"missing_harness_end_rejected": true, "missing_insert_rejected": true, "missing_write_rejected": true, "ok": true, "valid_applies": true}
+PASS: overlay:p18-05-anchor-controls {"missing_harness_end_rejected": true, "missing_insert_rejected": true, "missing_read_hook_rejected": true, "ok": true, "valid_applies": true}
+PASS: write-path:present {"gate_expression": "phys == GP0_PHYS || phys == GP1_PHYS -> or_p18_gpu_write", "gp0_literal_count": 4, "gp0gp1_write_path_present": true, "gp1_literal_count": 4, "gpu_write_function_pc_free": true, "gpu_write_state_driven": true, "unmodelled_write_model": "RECORDED_NOT_APPLIED (writes outside the GPU window return early)", "write_gate_count": 1}
+PASS: dma-path:present {"dma_record_function_pc_free": true, "dma_window_tap_present": true, "gate_expression": "phys in [0x1f801080,0x1f8010ff] -> or_p18d_dma_record", "read_hook_present": true, "shared_phys_reducer_present": true, "window_end_literal_count": 1, "window_gate_count": 1, "window_start_literal_count": 1, "write_hook_present": true}
+PASS: vram-frontier:schema
+PASS: vram-frontier:validated 2848c231c0351638485931e8dfd064abf7ba990d7a9fab178c3730d94e084e5e
+PASS: vram-frontier:not-first-frame
+PASS: continuation:executed-pcs-have-provenance {"executed": 759}
+PASS: continuation:typed-stop-reason CONTINUATION_BUDGET_REACHED
+PASS: vram-frontier:not-reached {"dma": 0, "gp0": 0, "gp1": 0}
+PASS: vram-frontier:explicit-not-reached
+PASS: vram-frontier:no-events
+PASS: model:positive-controls {"cpu_to_vram_ok": true, "deterministic_replay": true, "display_ok": true, "fill_ok": true}
+PASS: control:model-applies-to-generated-path {"deterministic": true, "gp0_word_count": 4, "gp1_word_count": 2, "mutation_count": 1, "owner_authenticated": true}
+PASS: control:contrast-with-unreached-frontier {"control_gp0": 4, "frontier_gp0": 0}
+PASS: determinism:manifest-identical
+PASS: determinism:gpu-fifo-identical
+PASS: determinism:frontier-identical
+PASS: determinism:regions-identical
+PASS: causal:validated 1eabe6c7b5c5263a61da8f91534f89b7a92c38916cdc482f3792b807dd10d6d6
+PASS: negative:unknown-gp0-not-noop {"applied": false, "class": "UNKNOWN", "ok": true}
+PASS: negative:primitive-not-modelled {"applied": false, "mutation": "PRIMITIVE_RASTERISATION_NOT_MODELLED", "ok": true}
+PASS: negative:vram-coord-out-of-range
+PASS: negative:vram-address-out-of-range
+PASS: negative:vram-address-unaligned
+PASS: negative:vram-unaligned-region
+PASS: negative:region-out-of-range
+PASS: negative:display-start-out-of-range
+PASS: negative:gp1-unsupported
+PASS: negative:event-without-owner
+PASS: negative:unreached-status-missing
+PASS: negative:first-frame-promoted
+PASS: negative:unmodelled-bit-rejected
+PASS: vram_display:no-private-path absolute private paths absent
+PASS: vram_display:reject-private-paths no private paths in values
+PASS: vram_display:no-import-private-paths no import paths
+PASS: vram_display:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: vram_display:no-payload-hex no payload supplied
+PASS: vram_display:no-raw-words reconstructive fields absent
+PASS: vram_verdict:no-private-path absolute private paths absent
+PASS: vram_verdict:reject-private-paths no private paths in values
+PASS: vram_verdict:no-import-private-paths no import paths
+PASS: vram_verdict:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: vram_verdict:no-payload-hex no payload supplied
+PASS: vram_verdict:no-raw-words reconstructive fields absent
+PASS: display_state:no-private-path absolute private paths absent
+PASS: display_state:reject-private-paths no private paths in values
+PASS: display_state:no-import-private-paths no import paths
+PASS: display_state:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: display_state:no-payload-hex no payload supplied
+PASS: display_state:no-raw-words reconstructive fields absent
+PASS: negative_tests:no-private-path absolute private paths absent
+PASS: negative_tests:reject-private-paths no private paths in values
+PASS: negative_tests:no-import-private-paths no import paths
+PASS: negative_tests:positive-safe-relative-path ordinary public-safe relative path accepted
+PASS: negative_tests:no-payload-hex no payload supplied
+PASS: negative_tests:no-raw-words reconstructive fields absent
+OPENRECOMP_P18_00=PASS
+OPENRECOMP_P18_01=PASS
+OPENRECOMP_P18_02=PASS
+OPENRECOMP_P18_03=PASS
+OPENRECOMP_P18_04=PASS
+OPENRECOMP_P18_05=PASS
+OPENRECOMP_P18_06=PASS
+OPENRECOMP_PHASE18_VRAM_DISPLAY_FRONTIER=PASS
+OPENRECOMP_PHASE18_HERCULES_INITIALIZATION_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_HERCULES_FRAME_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_HERCULES_PLAYABILITY_PROOF=NOT_PROVEN
+OPENRECOMP_PHASE18_GENERAL_PS1_COMPATIBILITY=NOT_PROVEN
+FIRST_FRAME_READY=NO
+P18-06_CHECKS=71
