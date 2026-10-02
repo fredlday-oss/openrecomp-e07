@@ -12,6 +12,7 @@ This inventory covers the current public E07 synthetic fixture and its `RUN.sh` 
 | GCC | Native x86-64 host build | GPLv3 with GCC Runtime Library Exception for relevant runtime components | No |
 | Node.js | Executes the generated WebAssembly fixture | MIT for Node.js core; bundled third-party components retain their own licences | No |
 | POSIX shell/core utilities (`bash`, `sha256sum`, `cmp`) | Pipeline orchestration and deterministic comparisons | System-provided tools; not redistributed | No |
+| SDL3 >= 3.2 | Optional, interactive native host integration under `integrations/sdl3/` only | zlib license; commercial use permitted | No |
 
 ## Python standard-library modules used
 

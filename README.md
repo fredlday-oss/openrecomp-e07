@@ -6,6 +6,8 @@ The project separates binary analysis, a versioned intermediate representation (
 
 Unreal Engine is an optional consumer of the versioned native-module interface, not a dependency of the OpenRecomp core.
 
+**Interactive host direction:** SDL3 is the preferred optional cross-platform host runtime for future native interactive outputs. An initial window/input scaffold is proposed in [`integrations/sdl3/`](integrations/sdl3/README.md); audio, GPU presentation and guest/platform integration remain unproven. The existing deterministic headless host is unchanged. See [SDL3 adoption and evidence gates](docs/SDL3_HOST_RUNTIME.md).
+
 > **Start here:** [Current Technical Status](docs/TECHNICAL_STATUS.md) · [Architecture](docs/ARCHITECTURE.md) · [Evidence Model](docs/EVIDENCE_MODEL.md) · [Platforms](docs/PLATFORMS.md) · [Commercial Evaluation Pilot](COMMERCIAL_PILOT.md)
 
 ## Latest development update

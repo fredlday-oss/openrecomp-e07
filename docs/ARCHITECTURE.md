@@ -148,6 +148,12 @@ The first Windows run exposed a real CRLF byte-integrity failure in a hashed hos
 
 Compatibility remains fail-closed: unsupported IR, invalid module metadata, integrity mismatches, ABI version/size mismatches, malformed host bindings, memory faults and execution-limit violations reject rather than being interpreted heuristically.
 
+## Optional SDL3 interactive host
+
+SDL3 is the preferred cross-platform interactive-host direction for native outputs, alongside (not replacing) the dependency-free deterministic host and optional Unreal Engine consumer. The proposed V0 scaffold handles SDL3 window lifecycle and input translation only. Audio, framebuffer/GPU presentation, Native AOT module loading, and console-specific graphics/device adapters remain separate evidence-gated stages. Frozen IR V1, Module Image and Native AOT ABI V1 are unchanged.
+
+See [SDL3 host-runtime adoption](SDL3_HOST_RUNTIME.md) and [`integrations/sdl3/`](../integrations/sdl3/README.md). No Xbox, PS2, PS1 or other guest compatibility is inferred from SDL3 host integration.
+
 ## Unreal Engine interoperability
 
 Unreal Engine is an optional host-integration demonstration, not part of the required open core.
