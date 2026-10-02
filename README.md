@@ -8,6 +8,10 @@ Unreal Engine is an optional consumer of the versioned native-module interface, 
 
 > **Start here:** [Current Technical Status](docs/TECHNICAL_STATUS.md) · [Architecture](docs/ARCHITECTURE.md) · [Evidence Model](docs/EVIDENCE_MODEL.md) · [Platforms](docs/PLATFORMS.md) · [Commercial Evaluation Pilot](COMMERCIAL_PILOT.md)
 
+## Latest development update
+
+- [2 October 2026 — Multi-platform progress: ZX Spectrum, C64, Amiga and proposed next targets](docs/updates/2026-10-02-platform-progress.md)
+
 ## Current technical status
 
 | Area | Status |
