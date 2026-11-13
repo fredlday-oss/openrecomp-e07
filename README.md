@@ -8,8 +8,13 @@ Unreal Engine is an optional consumer of the versioned native-module interface, 
 
 > **Start here:** [Current Technical Status](docs/TECHNICAL_STATUS.md) · [Architecture](docs/ARCHITECTURE.md) · [Evidence Model](docs/EVIDENCE_MODEL.md) · [Platforms](docs/PLATFORMS.md) · [Commercial Evaluation Pilot](COMMERCIAL_PILOT.md)
 
+## Support OpenRecomp
+
+OpenRecomp is now accepting support through [GitHub Sponsors](https://github.com/sponsors/fredlday-oss). Sponsorship helps with reproducible testing, developer tooling, documentation and future runtime research. See the [funding announcement](docs/updates/2026-11-13-github-sponsors.md) for scope and status.
+
 ## Latest development update
 
+- [13 November 2026 — GitHub Sponsors is live](docs/updates/2026-11-13-github-sponsors.md)
 - [2 October 2026 — Multi-platform progress: ZX Spectrum, C64, Amiga and proposed next targets](docs/updates/2026-10-02-platform-progress.md)
 
 ## Current technical status
